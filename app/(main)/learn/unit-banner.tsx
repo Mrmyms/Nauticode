@@ -4,11 +4,12 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 type UnitBannerProps = {
+  id: number;
   title: string;
   description: string;
 };
 
-export const UnitBanner = ({ title, description }: UnitBannerProps) => {
+export const UnitBanner = ({ id, title, description }: UnitBannerProps) => {
   return (
     <div className="flex w-full items-center justify-between rounded-xl bg-yellow-500 p-5 text-white">
       <div className="space-y-2.5">

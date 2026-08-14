@@ -1,0 +1,23 @@
+{
+  "title": "Part 1",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Understanding What is Programming? - Concept 1",
+      "lessonText": "# What is Programming? (Part 1)\n\nThis is part 1 of mastering **What is Programming?**. \n\nLearning to program is about understanding concepts step by step. Take your time to read and practice.",
+      "options": [
+        { "text": "Got it!", "correct": true },
+        { "text": "I need more help", "correct": false }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Select the best answer for What is Programming?",
+      "lessonText": "# Review Time\n\nLet's test your understanding of what we just covered in Part 1.",
+      "options": [
+        { "text": "Correct Answer", "correct": true },
+        { "text": "Wrong Answer", "correct": false }
+      ]
+    }
+  ]
+}

@@ -20,6 +20,11 @@ import { Footer } from "./footer";
 import { Header } from "./header";
 import { QuestionBubble } from "./question-bubble";
 import { ResultCard } from "./result-card";
+import { TheoryCard } from "./theory-card";
+import { CodeFillCard } from "./code-fill-card";
+import { CodeTestCard } from "./code-test-card";
+import { DebugCard } from "./debug-card";
+import { CodeOrderCard } from "./code-order-card";
 
 type QuizProps = {
   initialPercentage: number;
@@ -157,6 +162,8 @@ export const Quiz = ({
     return (
       <>
         {finishAudio}
+        {incorrectAudio}
+        {correctAudio}
         <Confetti
           recycle={false}
           numberOfPieces={500}
@@ -212,16 +219,46 @@ export const Quiz = ({
     <>
       {incorrectAudio}
       {correctAudio}
+      {finishAudio}
       <Header
         hearts={hearts}
         percentage={percentage}
         hasActiveSubscription={!!userSubscription?.isActive}
       />
 
-      <div className="flex-1">
-        <div className="flex h-full items-center justify-center">
-          <div className="flex w-full flex-col gap-y-12 px-6 lg:min-h-[350px] lg:w-[600px] lg:px-0">
-            <h1 className="text-center text-lg font-bold text-neutral-700 lg:text-start lg:text-3xl">
+      <div className="flex-1 flex flex-col lg:flex-row h-full overflow-hidden w-full max-w-[1200px] mx-auto">
+        {challenge.lessonText && (
+          <div className="lg:w-1/3 lg:border-r-2 border-b-2 lg:border-b-0 border-slate-800 p-6 overflow-y-auto bg-slate-900/30">
+            <h2 className="text-2xl font-bold text-white mb-6">Instructions</h2>
+            <div className="prose prose-invert">
+              {challenge.lessonText.split("\n").map((line, i) => {
+                if (line.startsWith("# ")) return <h1 key={i} className="text-2xl font-bold mt-4 mb-2 text-white">{line.replace("# ", "")}</h1>;
+                if (line.startsWith("## ")) return <h2 key={i} className="text-xl font-bold mt-4 mb-2 text-slate-200">{line.replace("## ", "")}</h2>;
+                if (line.trim() === "") return <br key={i} />;
+                
+                // Handle basic markdown for bold and inline code
+                const parts = line.split(/(\*\*.*?\*\*|`.*?`)/g);
+                return (
+                  <p key={i} className="text-base text-slate-300 mb-2 leading-relaxed">
+                    {parts.map((part, index) => {
+                      if (part.startsWith('**') && part.endsWith('**')) {
+                        return <strong key={index} className="text-white">{part.slice(2, -2)}</strong>;
+                      }
+                      if (part.startsWith('`') && part.endsWith('`')) {
+                        return <code key={index} className="bg-slate-800 text-slate-200 px-1 rounded">{part.slice(1, -1)}</code>;
+                      }
+                      return part;
+                    })}
+                  </p>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <div className="flex-1 flex items-center justify-center p-6 overflow-y-auto">
+          <div className="flex w-full flex-col gap-y-12 lg:min-h-[350px] lg:w-[600px]">
+            <h1 className="text-center text-lg font-bold text-white lg:text-start lg:text-3xl">
               {title}
             </h1>
 
@@ -230,14 +267,74 @@ export const Quiz = ({
                 <QuestionBubble question={challenge.question} />
               )}
 
-              <Challenge
-                options={options}
-                onSelect={onSelect}
-                status={status}
-                selectedOption={selectedOption}
-                disabled={pending}
-                type={challenge.type}
-              />
+              {(challenge.type === "SELECT" || challenge.type === "ASSIST") && (
+                <Challenge
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
+                  selectedOption={selectedOption}
+                  disabled={pending}
+                  type={challenge.type}
+                />
+              )}
+
+              {challenge.type === "THEORY" && (
+                <TheoryCard
+                  question={challenge.question}
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
+                  selectedOption={selectedOption}
+                  disabled={pending}
+                />
+              )}
+
+              {challenge.type === "CODE_FILL" && (
+                <CodeFillCard
+                  question={challenge.question}
+                  codeSnippet={challenge.codeSnippet}
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
+                  selectedOption={selectedOption}
+                  disabled={pending}
+                />
+              )}
+
+              {challenge.type === "CODE_TEST" && (
+                <CodeTestCard
+                  question={challenge.question}
+                  codeSnippet={challenge.codeSnippet}
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
+                  selectedOption={selectedOption}
+                  disabled={pending}
+                />
+              )}
+
+              {challenge.type === "DEBUG" && (
+                <DebugCard
+                  question={challenge.question}
+                  codeSnippet={challenge.codeSnippet}
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
+                  selectedOption={selectedOption}
+                  disabled={pending}
+                />
+              )}
+
+              {challenge.type === "CODE_ORDER" && (
+                <CodeOrderCard
+                  question={challenge.question}
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
+                  selectedOption={selectedOption}
+                  disabled={pending}
+                />
+              )}
             </div>
           </div>
         </div>

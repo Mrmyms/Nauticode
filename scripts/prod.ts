@@ -1,16 +1,19 @@
+import fs from "fs";
+import path from "path";
 import { neon } from "@neondatabase/serverless";
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/neon-http";
 
 import * as schema from "@/db/schema";
 
-const sql = neon(process.env.DATABASE_URL);
-
+const sql = neon(process.env.DATABASE_URL!);
 const db = drizzle(sql, { schema });
+
+const CLASSES_DIR = path.join(process.cwd(), "classes");
 
 const main = async () => {
   try {
-    console.log("Seeding database");
+    console.log("Seeding database...");
 
     // Delete all existing data
     await Promise.all([
@@ -23,316 +26,122 @@ const main = async () => {
       db.delete(schema.userSubscription),
     ]);
 
-    // Insert courses
+    // Setup predefined courses (to guarantee IDs exist before linking)
+    const coursesMap: Record<string, number> = {};
     const courses = await db
       .insert(schema.courses)
       .values([
+        { title: "Basics of Code", imageSrc: "/basics.svg" },
         { title: "Java", imageSrc: "/java.svg" },
         { title: "C++", imageSrc: "/cpp.svg" },
         { title: "Python", imageSrc: "/python.svg" },
       ])
       .returning();
 
-    // For each course, insert units
-    for (const course of courses) {
-      const units = await db
-        .insert(schema.units)
-        .values([
-          {
-            courseId: course.id,
-            title: "Unit 1",
-            description: `Learn the basics of ${course.title}`,
-            order: 1,
-          },
-          {
-            courseId: course.id,
-            title: "Unit 2",
-            description: `Learn intermediate ${course.title}`,
-            order: 2,
-          },
-        ])
-        .returning();
+    for (const c of courses) {
+      coursesMap[c.title.toLowerCase().replace(/ /g, "-")] = c.id;
+    }
 
-      // For each unit, insert lessons
-      for (const unit of units) {
-        const lessons = await db
-          .insert(schema.lessons)
-          .values([
-            { unitId: unit.id, title: "Nouns", order: 1 },
-            { unitId: unit.id, title: "Verbs", order: 2 },
-            { unitId: unit.id, title: "Adjectives", order: 3 },
-            { unitId: unit.id, title: "Phrases", order: 4 },
-            { unitId: unit.id, title: "Sentences", order: 5 },
-          ])
-          .returning();
+    if (!fs.existsSync(CLASSES_DIR)) {
+      console.log(`Directory ${CLASSES_DIR} not found. Skipping file-based seeding.`);
+      console.log("Database seeded successfully with courses only");
+      return;
+    }
 
-        // For each lesson, insert challenges
-        for (const lesson of lessons) {
-          const challenges = await db
-            .insert(schema.challenges)
-            .values([
-              {
-                lessonId: lesson.id,
-                type: "SELECT",
-                question: 'Which one of these is "the man"?',
-                order: 1,
-              },
-              {
-                lessonId: lesson.id,
-                type: "SELECT",
-                question: 'Which one of these is "the woman"?',
-                order: 2,
-              },
-              {
-                lessonId: lesson.id,
-                type: "SELECT",
-                question: 'Which one of these is "the boy"?',
-                order: 3,
-              },
-              {
-                lessonId: lesson.id,
-                type: "ASSIST",
-                question: '"the man"',
-                order: 4,
-              },
-              {
-                lessonId: lesson.id,
-                type: "SELECT",
-                question: 'Which one of these is "the zombie"?',
-                order: 5,
-              },
-              {
-                lessonId: lesson.id,
-                type: "SELECT",
-                question: 'Which one of these is "the robot"?',
-                order: 6,
-              },
-              {
-                lessonId: lesson.id,
-                type: "SELECT",
-                question: 'Which one of these is "the girl"?',
-                order: 7,
-              },
-              {
-                lessonId: lesson.id,
-                type: "ASSIST",
-                question: '"the zombie"',
-                order: 8,
-              },
-            ])
-            .returning();
+    // Read Course folders
+    const courseFolders = fs.readdirSync(CLASSES_DIR).filter(f => fs.statSync(path.join(CLASSES_DIR, f)).isDirectory());
 
-          // For each challenge, insert challenge options
-          for (const challenge of challenges) {
-            if (challenge.order === 1) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "la mujer",
-                  imageSrc: "/woman.svg",
-                  audioSrc: "/es_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el chico",
-                  imageSrc: "/boy.svg",
-                  audioSrc: "/es_boy.mp3",
-                },
-              ]);
+    for (const courseFolderName of courseFolders) {
+      const courseId = coursesMap[courseFolderName];
+      if (!courseId) {
+        console.warn(`Course folder '${courseFolderName}' does not match any predefined course in DB. Skipping.`);
+        continue;
+      }
+
+      const coursePath = path.join(CLASSES_DIR, courseFolderName);
+      const unitFolders = fs.readdirSync(coursePath).filter(f => f.startsWith("unit-") && fs.statSync(path.join(coursePath, f)).isDirectory());
+
+      for (const unitFolderName of unitFolders) {
+        const unitPath = path.join(coursePath, unitFolderName);
+        const metadataPath = path.join(unitPath, "metadata.json");
+        
+        let unitTitle = unitFolderName;
+        let unitDesc = "Description not found";
+        let unitOrder = parseInt(unitFolderName.replace("unit-", ""));
+
+        if (fs.existsSync(metadataPath)) {
+          try {
+            const meta = JSON.parse(fs.readFileSync(metadataPath, "utf-8"));
+            unitTitle = meta.title || unitTitle;
+            unitDesc = meta.description || unitDesc;
+            unitOrder = meta.order || unitOrder;
+          } catch (e) {
+            console.error(`Error parsing ${metadataPath}. Using fallback metadata.`, e);
+          }
+        }
+
+        const [dbUnit] = await db.insert(schema.units).values({
+          courseId,
+          title: unitTitle,
+          description: unitDesc,
+          order: unitOrder,
+        }).returning();
+
+        // Read Lesson files (e.g. lesson-1.json)
+        const lessonFiles = fs.readdirSync(unitPath).filter(f => f.startsWith("lesson-") && f.endsWith(".json"));
+        
+        for (const lessonFile of lessonFiles) {
+          const lessonPath = path.join(unitPath, lessonFile);
+          try {
+            const lessonData = JSON.parse(fs.readFileSync(lessonPath, "utf-8"));
+            const lessonOrder = parseInt(lessonFile.replace("lesson-", "").replace(".json", ""));
+
+            const [dbLesson] = await db.insert(schema.lessons).values({
+              unitId: dbUnit.id,
+              title: lessonData.title || `Lesson ${lessonOrder}`,
+              order: lessonOrder,
+            }).returning();
+
+            if (lessonData.challenges && Array.isArray(lessonData.challenges)) {
+              for (let i = 0; i < lessonData.challenges.length; i++) {
+                const cData = lessonData.challenges[i];
+                
+                const [dbChallenge] = await db.insert(schema.challenges).values({
+                  lessonId: dbLesson.id,
+                  type: cData.type,
+                  question: cData.question,
+                  lessonText: cData.lessonText || null,
+                  codeSnippet: cData.codeSnippet || null,
+                  order: i + 1,
+                }).returning();
+
+                if (cData.options && Array.isArray(cData.options)) {
+                  const optionsToInsert = cData.options.map((opt: any) => ({
+                    challengeId: dbChallenge.id,
+                    text: opt.text,
+                    correct: !!opt.correct,
+                    audioSrc: opt.audioSrc || null,
+                    imageSrc: opt.imageSrc || null,
+                  }));
+                  
+                  if (optionsToInsert.length > 0) {
+                    await db.insert(schema.challengeOptions).values(optionsToInsert);
+                  }
+                }
+              }
             }
 
-            if (challenge.order === 2) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "la mujer",
-                  imageSrc: "/woman.svg",
-                  audioSrc: "/es_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el chico",
-                  imageSrc: "/boy.svg",
-                  audioSrc: "/es_boy.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
-                },
-              ]);
-            }
-
-            if (challenge.order === 3) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "la mujer",
-                  imageSrc: "/woman.svg",
-                  audioSrc: "/es_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "el chico",
-                  imageSrc: "/boy.svg",
-                  audioSrc: "/es_boy.mp3",
-                },
-              ]);
-            }
-
-            if (challenge.order === 4) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "la mujer",
-                  audioSrc: "/es_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "el hombre",
-                  audioSrc: "/es_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el chico",
-                  audioSrc: "/es_boy.mp3",
-                },
-              ]);
-            }
-
-            if (challenge.order === 5) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "la mujer",
-                  imageSrc: "/woman.svg",
-                  audioSrc: "/es_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "el zombie",
-                  imageSrc: "/zombie.svg",
-                  audioSrc: "/es_zombie.mp3",
-                },
-              ]);
-            }
-
-            if (challenge.order === 6) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "el robot",
-                  imageSrc: "/robot.svg",
-                  audioSrc: "/es_robot.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el zombie",
-                  imageSrc: "/zombie.svg",
-                  audioSrc: "/es_zombie.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el chico",
-                  imageSrc: "/boy.svg",
-                  audioSrc: "/es_boy.mp3",
-                },
-              ]);
-            }
-
-            if (challenge.order === 7) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "la nina",
-                  imageSrc: "/girl.svg",
-                  audioSrc: "/es_girl.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el zombie",
-                  imageSrc: "/zombie.svg",
-                  audioSrc: "/es_zombie.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el hombre",
-                  imageSrc: "/man.svg",
-                  audioSrc: "/es_man.mp3",
-                },
-              ]);
-            }
-
-            if (challenge.order === 8) {
-              await db.insert(schema.challengeOptions).values([
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "la mujer",
-                  audioSrc: "/es_woman.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: true,
-                  text: "el zombie",
-                  audioSrc: "/es_zombie.mp3",
-                },
-                {
-                  challengeId: challenge.id,
-                  correct: false,
-                  text: "el chico",
-                  audioSrc: "/es_boy.mp3",
-                },
-              ]);
-            }
+          } catch (e) {
+            console.error(`Error parsing ${lessonPath}. Skipping this lesson.`, e);
           }
         }
       }
     }
-    console.log("Database seeded successfully");
+
+    console.log("Database seeded successfully with folder-based curriculum");
   } catch (error) {
-    console.error(error);
-    throw new Error("Failed to seed database");
+    console.error("Failed to seed database:", error);
+    throw error;
   }
 };
 

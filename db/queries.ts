@@ -102,6 +102,14 @@ export const getCourseById = cache(async (courseId: number) => {
   return data;
 });
 
+export const getUnit = cache(async (id: number) => {
+  const data = await db.query.units.findFirst({
+    where: eq(units.id, id),
+  });
+
+  return data;
+});
+
 export const getCourseProgress = cache(async () => {
   const { userId } = await auth();
   const userProgress = await getUserProgress();

@@ -1,0 +1,27 @@
+{
+  "__INSTRUCTIONS__": "Copia este archivo y cámbiale el nombre a lesson-X.json dentro de la carpeta de la unidad correspondiente. No modifiques las llaves, solo el contenido entre comillas.",
+  
+  "title": "Pon aquí el título de tu clase, ej: Conceptos Básicos",
+  
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Pon aquí el título o pregunta principal de esta tarjeta",
+      "lessonText": "# Título Markdown\n\nAquí va toda la teoría de la lección en formato Markdown. Puedes usar saltos de línea (\\n) o negritas (**texto**).",
+      "options": [
+        { "text": "Opción correcta (lo que el alumno debe clickear para avanzar)", "correct": true },
+        { "text": "Opción incorrecta", "correct": false }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Pregunta de repaso",
+      "lessonText": "# Repaso\n\nPuedes poner texto de repaso aquí también o dejarlo vacío.",
+      "options": [
+        { "text": "Esta es la correcta", "correct": true },
+        { "text": "Incorrecta 1", "correct": false },
+        { "text": "Incorrecta 2", "correct": false }
+      ]
+    }
+  ]
+}

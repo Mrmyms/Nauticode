@@ -26,6 +26,7 @@ export const units = pgTable("units", {
   id: serial("id").primaryKey(),
   title: text("title").notNull(), // Unit 1
   description: text("description").notNull(), // Learn the basics of spanish
+  guidebookText: text("guidebook_text"),
   courseId: integer("course_id")
     .references(() => courses.id, {
       onDelete: "cascade",
@@ -61,7 +62,15 @@ export const lessonsRelations = relations(lessons, ({ one, many }) => ({
   challenges: many(challenges),
 }));
 
-export const challengesEnum = pgEnum("type", ["SELECT", "ASSIST"]);
+export const challengesEnum = pgEnum("type", [
+  "SELECT",
+  "ASSIST",
+  "THEORY",
+  "CODE_FILL",
+  "CODE_TEST",
+  "DEBUG",
+  "CODE_ORDER",
+]);
 
 export const challenges = pgTable("challenges", {
   id: serial("id").primaryKey(),
@@ -72,6 +81,8 @@ export const challenges = pgTable("challenges", {
     .notNull(),
   type: challengesEnum("type").notNull(),
   question: text("question").notNull(),
+  codeSnippet: text("code_snippet"),
+  lessonText: text("lesson_text"),
   order: integer("order").notNull(),
 });
 
