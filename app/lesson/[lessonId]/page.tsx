@@ -33,6 +33,11 @@ const LessonIdPage = async ({ params }: LessonIdPageProps) => {
       lesson.challenges.length) *
     100;
 
+  // Block new lessons if user has no hearts (allow practice/review of completed lessons)
+  if (userProgress.hearts === 0 && initialPercentage < 100) {
+    return redirect("/learn");
+  }
+
   return (
     <Quiz
       initialLessonId={lesson.id}

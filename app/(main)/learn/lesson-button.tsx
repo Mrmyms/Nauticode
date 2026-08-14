@@ -7,6 +7,8 @@ import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+import { useHeartsModal } from "@/store/use-hearts-modal";
+
 import "react-circular-progressbar/dist/styles.css";
 
 type LessonButtonProps = {
@@ -16,6 +18,8 @@ type LessonButtonProps = {
   locked?: boolean;
   current?: boolean;
   percentage: number;
+  hearts: number;
+  isPro: boolean;
 };
 
 export const LessonButton = ({
@@ -25,6 +29,8 @@ export const LessonButton = ({
   locked,
   current,
   percentage,
+  hearts,
+  isPro,
 }: LessonButtonProps) => {
   const cycleLength = 8;
   const cycleIndex = index % cycleLength;
@@ -46,10 +52,21 @@ export const LessonButton = ({
 
   const href = isCompleted ? `/lesson/${id}` : "/lesson";
 
+  const { open: openHeartsModal } = useHeartsModal();
+
+  const onClick = (e: React.MouseEvent) => {
+    // If it's a new lesson and the user has no hearts, block and show modal
+    if (!isCompleted && !isPro && hearts === 0) {
+      e.preventDefault();
+      openHeartsModal();
+    }
+  };
+
   return (
     <Link
       href={href}
       prefetch
+      onClick={onClick}
       aria-disabled={locked}
       style={{ pointerEvents: locked ? "none" : "auto" }}
     >

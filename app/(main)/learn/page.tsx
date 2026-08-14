@@ -70,6 +70,8 @@ const LearnPage = async () => {
               lessons={unit.lessons}
               activeLesson={courseProgress.activeLesson}
               activeLessonPercentage={lessonPercentage}
+              hearts={userProgress.hearts}
+              isPro={isPro}
             />
           </div>
         ))}

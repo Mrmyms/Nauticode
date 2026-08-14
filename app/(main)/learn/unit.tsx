@@ -17,6 +17,8 @@ type UnitProps = {
       })
     | undefined;
   activeLessonPercentage: number;
+  hearts: number;
+  isPro: boolean;
 };
 
 export const Unit = ({
@@ -26,6 +28,8 @@ export const Unit = ({
   lessons,
   activeLesson,
   activeLessonPercentage,
+  hearts,
+  isPro,
 }: UnitProps) => {
   return (
     <>
@@ -45,6 +49,8 @@ export const Unit = ({
               current={isCurrent}
               locked={isLocked}
               percentage={activeLessonPercentage}
+              hearts={hearts}
+              isPro={isPro}
             />
           );
         })}

@@ -8,7 +8,10 @@
     "CODE_FILL": "Shows a code snippet with a blank. The student selects which option fills the blank correctly. Requires the 'codeSnippet' field. Best for: syntax practice.",
     "CODE_TEST": "Shows a code snippet and asks what the output would be. Requires the 'codeSnippet' field. Best for: reading comprehension of code.",
     "DEBUG": "Shows a code snippet with a bug. The student selects which option identifies or fixes the bug. Requires the 'codeSnippet' field. Best for: debugging skills.",
-    "CODE_ORDER": "The student must select the correct order of code lines. Best for: understanding program flow."
+    "CODE_ORDER": "The student must select the correct order of code lines. Best for: understanding program flow.",
+    "CODE_WRITE": "The student must exactly type a piece of code. The first option is the correct text to type. Spaces are flexible. Best for: muscle memory.",
+    "MATCHING": "The student pairs terms with definitions. Format option text as 'Term|||Definition'. All options must be correct: true. Best for: vocabulary.",
+    "PREDICT_OUTPUT": "Shows a code snippet. The student types the exact output in a terminal-style input. Best for: tracing code execution manually."
   },
 
   "__FIELDS_GUIDE__": {
@@ -98,14 +101,44 @@
     },
     {
       "__comment": "EXAMPLE 6: ASSIST — Definition matching",
-      "type": "ASSIST",
-      "question": "Match: A reusable block of code that performs a specific task",
-      "lessonText": "",
+      "type": "CODE_ORDER",
+      "question": "Order the code to print your name:",
       "options": [
-        { "text": "Function", "correct": true },
-        { "text": "Variable", "correct": false },
-        { "text": "Loop", "correct": false },
-        { "text": "String", "correct": false }
+        { "text": "public class Main {", "correct": true },
+        { "text": "public static void main(String[] args) {", "correct": true },
+        { "text": "System.out.println(\"Alex\");", "correct": true },
+        { "text": "}", "correct": true },
+        { "text": "}", "correct": true }
+      ]
+    },
+    {
+      "__comment": "EXAMPLE 8: CODE_WRITE — User types exact code",
+      "type": "CODE_WRITE",
+      "question": "Create a double variable named 'speed' and set it to 1.0",
+      "options": [
+        { "text": "double speed = 1.0;", "correct": true },
+        { "text": "wrong option", "correct": false }
+      ]
+    },
+    {
+      "__comment": "EXAMPLE 9: PREDICT_OUTPUT — User predicts terminal output",
+      "type": "PREDICT_OUTPUT",
+      "question": "What is the output of this code?",
+      "codeSnippet": "int x = 5;\nint y = 3;\nSystem.out.print(x + y);",
+      "options": [
+        { "text": "8", "correct": true },
+        { "text": "wrong output", "correct": false }
+      ]
+    },
+    {
+      "__comment": "EXAMPLE 10: MATCHING — User pairs terms and definitions",
+      "type": "MATCHING",
+      "question": "Match the term with its meaning",
+      "options": [
+        { "text": "String|||Text surrounded by quotes", "correct": true },
+        { "text": "int|||Whole numbers", "correct": true },
+        { "text": "double|||Numbers with decimals", "correct": true },
+        { "text": "boolean|||True or False", "correct": true }
       ]
     }
   ]

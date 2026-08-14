@@ -138,6 +138,84 @@
           "correct": false
         }
       ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Type exactly: System.out.print(\"Hello\");",
+      "options": [
+        { "text": "System.out.print(\"Hello\");", "correct": true },
+        { "text": "wrong option", "correct": false }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "What does this code print?",
+      "codeSnippet": "int x = 5;\nSystem.out.print(x + 2);",
+      "options": [
+        { "text": "7", "correct": true },
+        { "text": "wrong", "correct": false }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Match the term with its meaning",
+      "options": [
+        { "text": "Hardware|||Physical robot parts", "correct": true },
+        { "text": "Software|||Code that runs on the robot", "correct": true },
+        { "text": "Bug|||An error in your code", "correct": true },
+        { "text": "Motor|||Spins wheels or mechanisms", "correct": true }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "Select the correct term for: A reusable block of code that performs a specific task",
+      "options": [
+        { "text": "Function", "correct": true },
+        { "text": "Variable", "correct": false },
+        { "text": "Loop", "correct": false },
+        { "text": "String", "correct": false }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Fill in the blank to print a message:",
+      "codeSnippet": "System.out.println(_______);",
+      "options": [
+        { "text": "\"Hello World\"", "correct": true },
+        { "text": "Hello World", "correct": false },
+        { "text": "String", "correct": false }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "What is the final value of x?",
+      "codeSnippet": "int x = 10;\nx = x + 5;\nx = x * 2;",
+      "options": [
+        { "text": "30", "correct": true },
+        { "text": "20", "correct": false },
+        { "text": "15", "correct": false }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Identify the bug in this code:",
+      "codeSnippet": "int x = 5\nSystem.out.print(x);",
+      "options": [
+        { "text": "Missing semicolon after 5", "correct": true },
+        { "text": "x is not a number", "correct": false },
+        { "text": "System.out.print is spelled wrong", "correct": false }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Order the code to print your name:",
+      "options": [
+        { "text": "public class Main {", "correct": true },
+        { "text": "public static void main(String[] args) {", "correct": true },
+        { "text": "System.out.println(\"Alex\");", "correct": true },
+        { "text": "}", "correct": true },
+        { "text": "}", "correct": true }
+      ]
     }
   ]
 }

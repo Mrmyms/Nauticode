@@ -25,6 +25,9 @@ import { CodeFillCard } from "./code-fill-card";
 import { CodeTestCard } from "./code-test-card";
 import { DebugCard } from "./debug-card";
 import { CodeOrderCard } from "./code-order-card";
+import { CodeWriteCard } from "./code-write-card";
+import { PredictOutputCard } from "./predict-output-card";
+import { MatchingCard } from "./matching-card";
 
 type QuizProps = {
   initialPercentage: number;
@@ -93,7 +96,7 @@ export const Quiz = ({
     setActiveIndex((current) => current + 1);
   };
 
-  const onSelect = (id: number) => {
+  const onSelect = (id: number | undefined) => {
     if (status !== "none") return;
 
     setSelectedOption(id);
@@ -332,6 +335,39 @@ export const Quiz = ({
                   onSelect={onSelect}
                   status={status}
                   selectedOption={selectedOption}
+                  disabled={pending}
+                />
+              )}
+
+              {challenge.type === "CODE_WRITE" && (
+                <CodeWriteCard
+                  question={challenge.question}
+                  codeSnippet={challenge.codeSnippet}
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
+                  selectedOption={selectedOption}
+                  disabled={pending}
+                />
+              )}
+
+              {challenge.type === "PREDICT_OUTPUT" && (
+                <PredictOutputCard
+                  question={challenge.question}
+                  codeSnippet={challenge.codeSnippet}
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
+                  selectedOption={selectedOption}
+                  disabled={pending}
+                />
+              )}
+
+              {challenge.type === "MATCHING" && (
+                <MatchingCard
+                  options={options}
+                  onSelect={onSelect}
+                  status={status}
                   disabled={pending}
                 />
               )}

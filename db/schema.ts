@@ -70,6 +70,9 @@ export const challengesEnum = pgEnum("type", [
   "CODE_TEST",
   "DEBUG",
   "CODE_ORDER",
+  "CODE_WRITE",
+  "MATCHING",
+  "PREDICT_OUTPUT",
 ]);
 
 export const challenges = pgTable("challenges", {
