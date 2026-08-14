@@ -6,59 +6,37 @@ export const Footer = () => {
   return (
     <div className="hidden h-20 w-full border-t-2 border-purple-600 p-2 lg:block">
       <div className="mx-auto flex h-full max-w-screen-lg items-center justify-evenly">
-        <Button size="lg" variant="ghost" className="w-full cursor-default">
+        <Button size="lg" variant="ghost" className="w-full cursor-default text-neutral-200">
           <Image
-            src="/hr.svg"
-            alt="Croatian"
+            src="/java.svg"
+            alt="Java"
             height={32}
             width={40}
             className="mr-4 rounded-md"
           />
-          Croatian
+          Java
         </Button>
 
-        <Button size="lg" variant="ghost" className="w-full cursor-default">
+        <Button size="lg" variant="ghost" className="w-full cursor-default text-neutral-200">
           <Image
-            src="/es.svg"
-            alt="Spanish"
+            src="/cpp.svg"
+            alt="C++"
             height={32}
             width={40}
             className="mr-4 rounded-md"
           />
-          Spanish
+          C++
         </Button>
 
-        <Button size="lg" variant="ghost" className="w-full cursor-default">
+        <Button size="lg" variant="ghost" className="w-full cursor-default text-neutral-200">
           <Image
-            src="/fr.svg"
-            alt="French"
+            src="/python.svg"
+            alt="Python"
             height={32}
             width={40}
             className="mr-4 rounded-md"
           />
-          French
-        </Button>
-
-        <Button size="lg" variant="ghost" className="w-full cursor-default">
-          <Image
-            src="/it.svg"
-            alt="Italian"
-            height={32}
-            width={40}
-            className="mr-4 rounded-md"
-          />
-          Italian
-        </Button>
-
-        <Button size="lg" variant="ghost" className="w-full cursor-default">
-          <Image
-            src="/jp.svg"
-            alt="Japanese"
-            height={32}
-            width={40}
-            className="mr-4 rounded-md"
-          />
-          Japanese
+          Python
         </Button>
       </div>
     </div>
