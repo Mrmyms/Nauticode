@@ -1,26 +1,111 @@
 {
-  "__INSTRUCTIONS__": "Copia este archivo y cámbiale el nombre a lesson-X.json dentro de la carpeta de la unidad correspondiente. No modifiques las llaves, solo el contenido entre comillas.",
-  
-  "title": "Pon aquí el título de tu clase, ej: Conceptos Básicos",
-  
+  "__README__": "=== NAUTICODE LESSON TEMPLATE === Copy this file, rename it to lesson-X.json, and place it inside the unit folder. Then run: pnpm db:prod",
+
+  "__CHALLENGE_TYPES__": {
+    "THEORY": "Shows the lessonText on the left panel as theory/instruction. The student reads the content and then selects the correct option to confirm understanding. Best for: introducing new concepts.",
+    "SELECT": "Classic multiple-choice quiz. The student picks the correct answer from the options. Best for: testing knowledge after a theory section.",
+    "ASSIST": "Similar to SELECT but displays the question more prominently. Best for: vocabulary or definition matching.",
+    "CODE_FILL": "Shows a code snippet with a blank. The student selects which option fills the blank correctly. Requires the 'codeSnippet' field. Best for: syntax practice.",
+    "CODE_TEST": "Shows a code snippet and asks what the output would be. Requires the 'codeSnippet' field. Best for: reading comprehension of code.",
+    "DEBUG": "Shows a code snippet with a bug. The student selects which option identifies or fixes the bug. Requires the 'codeSnippet' field. Best for: debugging skills.",
+    "CODE_ORDER": "The student must select the correct order of code lines. Best for: understanding program flow."
+  },
+
+  "__FIELDS_GUIDE__": {
+    "title": "The lesson title shown in the UI (e.g. 'Part 1', 'Introduction', 'Variables Deep Dive').",
+    "challenges": "An array of challenge objects. You can have as many as you want. Recommended: 4-8 per lesson.",
+    "challenge.type": "One of: THEORY, SELECT, ASSIST, CODE_FILL, CODE_TEST, DEBUG, CODE_ORDER",
+    "challenge.question": "The main question or title shown to the student.",
+    "challenge.lessonText": "Markdown text shown in the left panel. Use \\n for new lines, **text** for bold, # for headings, - for bullet points.",
+    "challenge.codeSnippet": "(Optional) A code snippet shown in CODE_FILL, CODE_TEST, or DEBUG challenges. Use \\n for new lines.",
+    "challenge.options": "Array of answer options. Each option has 'text' (string) and 'correct' (true/false). Only ONE option should be correct. Recommended: 3-4 options per challenge."
+  },
+
+  "__TIPS__": [
+    "Alternate between THEORY and SELECT/ASSIST for the best learning flow.",
+    "Make wrong options funny but clearly wrong — it helps students remember.",
+    "Keep lessonText concise. If it's too long, split into multiple THEORY challenges.",
+    "Always have at least 3 options per challenge. 4 is ideal.",
+    "Use codeSnippet only with CODE_FILL, CODE_TEST, and DEBUG types."
+  ],
+
+  "__EXAMPLE_LESSONS_BELOW__": "Below are complete examples for each challenge type. Delete everything below this line when creating your own lesson.",
+
+  "title": "Example Lesson Title",
   "challenges": [
     {
+      "__comment": "EXAMPLE 1: THEORY — Teach a concept, then confirm understanding",
       "type": "THEORY",
-      "question": "Pon aquí el título o pregunta principal de esta tarjeta",
-      "lessonText": "# Título Markdown\n\nAquí va toda la teoría de la lección en formato Markdown. Puedes usar saltos de línea (\\n) o negritas (**texto**).",
+      "question": "What is a Variable?",
+      "lessonText": "# What is a Variable?\n\nA **variable** is like a labeled box where you can store information.\n\nFor example:\n- A box labeled **age** might contain the number 16\n- A box labeled **name** might contain the text 'Alex'\n\nIn code, we create variables like this:\n\n`age = 16`\n`name = 'Alex'`\n\nYou can change what's inside the box at any time. That's why it's called a *variable* — because the value can **vary**.",
       "options": [
-        { "text": "Opción correcta (lo que el alumno debe clickear para avanzar)", "correct": true },
-        { "text": "Opción incorrecta", "correct": false }
+        { "text": "A labeled box that stores information", "correct": true },
+        { "text": "A type of computer virus", "correct": false },
+        { "text": "A secret password for hackers", "correct": false },
+        { "text": "A dance move robots do", "correct": false }
       ]
     },
     {
+      "__comment": "EXAMPLE 2: SELECT — Test knowledge with multiple choice",
       "type": "SELECT",
-      "question": "Pregunta de repaso",
-      "lessonText": "# Repaso\n\nPuedes poner texto de repaso aquí también o dejarlo vacío.",
+      "question": "What does this code store in the variable 'x'?  x = 5 + 3",
+      "lessonText": "# Quick Quiz\n\nThink about what happens when the computer runs this line of code.",
       "options": [
-        { "text": "Esta es la correcta", "correct": true },
-        { "text": "Incorrecta 1", "correct": false },
-        { "text": "Incorrecta 2", "correct": false }
+        { "text": "8", "correct": true },
+        { "text": "53", "correct": false },
+        { "text": "5 + 3", "correct": false },
+        { "text": "Error", "correct": false }
+      ]
+    },
+    {
+      "__comment": "EXAMPLE 3: CODE_FILL — Fill in the blank in a code snippet",
+      "type": "CODE_FILL",
+      "question": "Fill in the blank to store the number 10 in a variable called 'score'.",
+      "lessonText": "# Code Practice\n\nRemember: to create a variable, write the name, then an equals sign, then the value.",
+      "codeSnippet": "_____ = 10\nprint(score)",
+      "options": [
+        { "text": "score", "correct": true },
+        { "text": "Score()", "correct": false },
+        { "text": "var score", "correct": false },
+        { "text": "10", "correct": false }
+      ]
+    },
+    {
+      "__comment": "EXAMPLE 4: CODE_TEST — Predict the output of code",
+      "type": "CODE_TEST",
+      "question": "What will this code print?",
+      "lessonText": "# Read the Code\n\nLook at the code carefully and predict what the output will be.",
+      "codeSnippet": "x = 5\ny = 3\nprint(x + y)",
+      "options": [
+        { "text": "8", "correct": true },
+        { "text": "53", "correct": false },
+        { "text": "x + y", "correct": false },
+        { "text": "Nothing", "correct": false }
+      ]
+    },
+    {
+      "__comment": "EXAMPLE 5: DEBUG — Find the bug in the code",
+      "type": "DEBUG",
+      "question": "This code has a bug. What is wrong?",
+      "lessonText": "# Find the Bug\n\nSomething in this code will cause an error. Can you spot it?",
+      "codeSnippet": "name = 'Alex'\nprint(Name)",
+      "options": [
+        { "text": "'Name' should be lowercase 'name' — variables are case-sensitive", "correct": true },
+        { "text": "You can't print text", "correct": false },
+        { "text": "The quotes are wrong", "correct": false },
+        { "text": "There is no bug", "correct": false }
+      ]
+    },
+    {
+      "__comment": "EXAMPLE 6: ASSIST — Definition matching",
+      "type": "ASSIST",
+      "question": "Match: A reusable block of code that performs a specific task",
+      "lessonText": "",
+      "options": [
+        { "text": "Function", "correct": true },
+        { "text": "Variable", "correct": false },
+        { "text": "Loop", "correct": false },
+        { "text": "String", "correct": false }
       ]
     }
   ]

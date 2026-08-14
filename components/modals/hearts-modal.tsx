@@ -23,9 +23,9 @@ export const HeartsModal = () => {
 
   useEffect(() => setIsClient(true), []);
 
-  const onClick = () => {
+  const onPractice = () => {
     close();
-    router.push("/store");
+    router.push("/learn");
   };
 
   if (!isClient) return null;
@@ -48,7 +48,7 @@ export const HeartsModal = () => {
           </DialogTitle>
 
           <DialogDescription className="text-center text-base">
-            Get Pro for unlimited hearts, or purchase them in the store.
+            Practice previous lessons to earn hearts back. Each completed review gives you a heart!
           </DialogDescription>
         </DialogHeader>
 
@@ -58,9 +58,9 @@ export const HeartsModal = () => {
               variant="primary"
               className="w-full"
               size="lg"
-              onClick={onClick}
+              onClick={onPractice}
             >
-              Get unlimited hearts
+              Practice to earn hearts
             </Button>
 
             <Button

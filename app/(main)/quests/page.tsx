@@ -34,7 +34,7 @@ const QuestsPage = async () => {
           points={userProgress.points}
           hasActiveSubscription={isPro}
         />
-        {!isPro && <Promo />}
+
       </StickyWrapper>
 
       <FeedWrapper>

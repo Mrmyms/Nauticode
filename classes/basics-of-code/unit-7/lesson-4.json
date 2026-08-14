@@ -1,0 +1,35 @@
+{
+  "title": "Part 4",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Boolean Logic - Concept 4",
+      "lessonText": "# Boolean Logic (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "options": [
+        {
+          "text": "Understood",
+          "correct": true
+        },
+        {
+          "text": "Need help",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Test your knowledge on Boolean Logic",
+      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "options": [
+        {
+          "text": "Correct Option",
+          "correct": true
+        },
+        {
+          "text": "Wrong Option",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

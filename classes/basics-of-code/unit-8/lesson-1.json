@@ -1,0 +1,35 @@
+{
+  "title": "Part 1",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "If Conditions - Concept 1",
+      "lessonText": "# If Conditions (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "options": [
+        {
+          "text": "Understood",
+          "correct": true
+        },
+        {
+          "text": "Need help",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Test your knowledge on If Conditions",
+      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "options": [
+        {
+          "text": "Correct Option",
+          "correct": true
+        },
+        {
+          "text": "Wrong Option",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

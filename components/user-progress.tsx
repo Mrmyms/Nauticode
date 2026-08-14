@@ -32,35 +32,31 @@ export const UserProgress = ({
         </Button>
       </Link>
 
-      <Link href="/shop" prefetch>
-        <Button variant="ghost" className="text-orange-500">
-          <Image
-            src="/points.svg"
-            height={28}
-            width={28}
-            alt="Points"
-            className="mr-2"
-          />
-          {points}
-        </Button>
-      </Link>
+      <Button variant="ghost" className="text-orange-500 cursor-default">
+        <Image
+          src="/points.svg"
+          height={28}
+          width={28}
+          alt="Points"
+          className="mr-2"
+        />
+        {points}
+      </Button>
 
-      <Link href="/shop" prefetch>
-        <Button variant="ghost" className="text-rose-500">
-          <Image
-            src="/heart.svg"
-            height={22}
-            width={22}
-            alt="Hearts"
-            className="mr-2"
-          />
-          {hasActiveSubscription ? (
-            <InfinityIcon className="stroke-3 h-4 w-4" />
-          ) : (
-            hearts
-          )}
-        </Button>
-      </Link>
+      <Button variant="ghost" className="text-rose-500 cursor-default">
+        <Image
+          src="/heart.svg"
+          height={22}
+          width={22}
+          alt="Hearts"
+          className="mr-2"
+        />
+        {hasActiveSubscription ? (
+          <InfinityIcon className="stroke-3 h-4 w-4" />
+        ) : (
+          hearts
+        )}
+      </Button>
     </div>
   );
 };

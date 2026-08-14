@@ -1,0 +1,35 @@
+{
+  "title": "Part 5",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Command-Based - Concept 5",
+      "lessonText": "# Command-Based (Part 5)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "options": [
+        {
+          "text": "Understood",
+          "correct": true
+        },
+        {
+          "text": "Need help",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Test your knowledge on Command-Based",
+      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "options": [
+        {
+          "text": "Correct Option",
+          "correct": true
+        },
+        {
+          "text": "Wrong Option",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

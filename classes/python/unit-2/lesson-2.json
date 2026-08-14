@@ -1,0 +1,35 @@
+{
+  "title": "Part 2",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Vision Processing - Concept 2",
+      "lessonText": "# Vision Processing (Part 2)\n\nThis is auto-generated content for python. Replace this with your actual markdown theory.",
+      "options": [
+        {
+          "text": "Understood",
+          "correct": true
+        },
+        {
+          "text": "Need help",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Test your knowledge on Vision Processing",
+      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "options": [
+        {
+          "text": "Correct Option",
+          "correct": true
+        },
+        {
+          "text": "Wrong Option",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

@@ -15,16 +15,14 @@ const main = async () => {
   try {
     console.log("Seeding database...");
 
-    // Delete all existing data
-    await Promise.all([
-      db.delete(schema.userProgress),
-      db.delete(schema.challenges),
-      db.delete(schema.units),
-      db.delete(schema.lessons),
-      db.delete(schema.courses),
-      db.delete(schema.challengeOptions),
-      db.delete(schema.userSubscription),
-    ]);
+    // Delete all existing data (sequential to avoid deadlocks)
+    await db.delete(schema.challengeOptions);
+    await db.delete(schema.challenges);
+    await db.delete(schema.lessons);
+    await db.delete(schema.units);
+    await db.delete(schema.userProgress);
+    await db.delete(schema.userSubscription);
+    await db.delete(schema.courses);
 
     // Setup predefined courses (to guarantee IDs exist before linking)
     const coursesMap: Record<string, number> = {};

@@ -1,22 +1,142 @@
 {
-  "title": "Part 1",
+  "title": "What is Programming?",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Understanding What is Programming? - Concept 1",
-      "lessonText": "# What is Programming? (Part 1)\n\nThis is part 1 of mastering **What is Programming?**. \n\nLearning to program is about understanding concepts step by step. Take your time to read and practice.",
+      "question": "What is Programming?",
+      "lessonText": "# What is Programming?\n\nImagine you have a robot standing in front of you. It can do amazing things — but it won't do **anything** unless you tell it exactly what to do, step by step.\n\n**Programming** is the art of writing instructions that a computer can understand and follow.\n\nThink of it like writing a recipe for a cake:\n- First, preheat the oven\n- Then, mix the ingredients\n- Next, pour the batter into the pan\n- Finally, bake for 30 minutes\n\nA computer works the same way. It reads your instructions **one by one**, from top to bottom, and executes them in order. If you skip a step or write something it doesn't understand, it gets confused — just like you would if a recipe told you to 'bake the oven' instead of 'preheat the oven'.\n\nThe instructions we write for computers are called **code**, and the language we write them in is called a **programming language**.",
       "options": [
-        { "text": "Got it!", "correct": true },
-        { "text": "I need more help", "correct": false }
+        {
+          "text": "Writing step-by-step instructions for a computer",
+          "correct": true
+        },
+        {
+          "text": "Feeding rabbits on a schedule",
+          "correct": false
+        },
+        {
+          "text": "Creating a black hole in your basement",
+          "correct": false
+        },
+        {
+          "text": "Performing black magic rituals",
+          "correct": false
+        }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Select the best answer for What is Programming?",
-      "lessonText": "# Review Time\n\nLet's test your understanding of what we just covered in Part 1.",
+      "question": "Which of the following best describes programming?",
+      "lessonText": "# Quick Check\n\nLet's make sure you understood the core idea before we move on.",
       "options": [
-        { "text": "Correct Answer", "correct": true },
-        { "text": "Wrong Answer", "correct": false }
+        {
+          "text": "Writing instructions that a computer can follow",
+          "correct": true
+        },
+        {
+          "text": "Talking to a computer using telepathy",
+          "correct": false
+        },
+        {
+          "text": "Pressing random buttons until something works",
+          "correct": false
+        },
+        {
+          "text": "Teaching a toaster to fly",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "THEORY",
+      "question": "Why Do We Need Programming?",
+      "lessonText": "# Why Do We Need Programming?\n\nComputers are incredibly fast and precise, but they are also incredibly **dumb**. They cannot think for themselves. They don't know what you want unless you spell it out for them.\n\nHere's the deal:\n- A computer can add **a billion numbers in one second** — but only if you tell it to.\n- A computer can display a beautiful website — but only if someone **wrote the code** for it.\n- A robot can drive across a field — but only if a programmer **wrote the instructions** for its motors.\n\nEvery app on your phone, every website you visit, every video game you play — someone sat down and wrote the code that makes it work.\n\n**Programming is the bridge between a human idea and a machine that can execute it.**\n\nWithout programming, computers are just expensive paperweights. With programming, they become the most powerful tools humanity has ever created.",
+      "options": [
+        {
+          "text": "Because computers need instructions to do anything useful",
+          "correct": true
+        },
+        {
+          "text": "Because computers already know everything",
+          "correct": false
+        },
+        {
+          "text": "Because robots are secretly planning world domination",
+          "correct": false
+        },
+        {
+          "text": "Because someone needs to entertain the hamsters inside the CPU",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Why can't a computer do something useful on its own?",
+      "lessonText": "# Review\n\nThink back to what you just read about why programming exists.",
+      "options": [
+        {
+          "text": "It cannot think — it needs step-by-step instructions from a programmer",
+          "correct": true
+        },
+        {
+          "text": "It's too busy browsing cat videos",
+          "correct": false
+        },
+        {
+          "text": "It doesn't have enough RAM to feel motivated",
+          "correct": false
+        },
+        {
+          "text": "It's waiting for a wizard to cast a spell on it",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "THEORY",
+      "question": "Real-World Examples of Programming",
+      "lessonText": "# Programming is Everywhere\n\nYou interact with programming every single day, even if you don't realize it.\n\n**Example 1: Alarm Clock App**\nSomeone wrote code that says: 'When the current time equals the alarm time, play a sound and vibrate the phone.'\n\n**Example 2: Social Media Feed**\nA programmer wrote instructions like: 'Show the newest posts first. If the user scrolls down, load more posts. If they double-tap a photo, add a like.'\n\n**Example 3: FRC Robot**\nYour robotics team writes code that says: 'When the driver pushes the joystick forward, spin the drive motors at 50% power. When they press button A, activate the intake mechanism.'\n\nIn all these examples, the pattern is the same:\n1. A human **thinks** about what should happen\n2. A programmer **translates** that into code\n3. The computer **executes** the code exactly as written\n\nThis is the fundamental loop of all programming. You will use it every single day as a developer.",
+      "options": [
+        {
+          "text": "Programming controls everything from apps to robots",
+          "correct": true
+        },
+        {
+          "text": "Programming only works on Tuesdays",
+          "correct": false
+        },
+        {
+          "text": "Programming is just for making video games, nothing else",
+          "correct": false
+        },
+        {
+          "text": "Robots program themselves using ancient scrolls",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "What is the correct order of how programming works?",
+      "lessonText": "# Final Challenge\n\nRemember the three-step loop we just covered. Pick the right order.",
+      "options": [
+        {
+          "text": "Human thinks → Programmer writes code → Computer executes",
+          "correct": true
+        },
+        {
+          "text": "Computer thinks → Human panics → Programmer cries",
+          "correct": false
+        },
+        {
+          "text": "Programmer executes → Computer thinks → Human writes code",
+          "correct": false
+        },
+        {
+          "text": "Everyone just hopes for the best and presses Enter",
+          "correct": false
+        }
       ]
     }
   ]

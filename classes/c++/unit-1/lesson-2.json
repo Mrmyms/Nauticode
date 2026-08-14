@@ -1,0 +1,35 @@
+{
+  "title": "Part 2",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Pointers & Memory - Concept 2",
+      "lessonText": "# Pointers & Memory (Part 2)\n\nThis is auto-generated content for cpp. Replace this with your actual markdown theory.",
+      "options": [
+        {
+          "text": "Understood",
+          "correct": true
+        },
+        {
+          "text": "Need help",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Test your knowledge on Pointers & Memory",
+      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "options": [
+        {
+          "text": "Correct Option",
+          "correct": true
+        },
+        {
+          "text": "Wrong Option",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}
