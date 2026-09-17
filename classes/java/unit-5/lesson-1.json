@@ -1,0 +1,73 @@
+{
+  "title": "Lesson 1: REV CANSparkMax Basics",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Controladores SparkMax de REV",
+      "lessonText": "# CANSparkMax\n\nEl `CANSparkMax` requiere un **CAN ID** y el tipo de motor (`MotorType.kBrushless` para motores NEO).",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué tipo de motor se debe especificar para un motor NEO 1.5 en el constructor de `CANSparkMax`?",
+      "options": [
+        {
+          "text": "MotorType.kBrushless",
+          "correct": true
+        },
+        {
+          "text": "MotorType.kBrushed",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Instancia un motor SparkMax con CAN ID 1:",
+      "codeSnippet": "CANSparkMax leftMotor = new CANSparkMax(1, CANSparkMaxLowLevel.MotorType._____);",
+      "options": [
+        {
+          "text": "kBrushless",
+          "correct": true
+        },
+        {
+          "text": "kDC",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción para fijar la velocidad del motor `leftMotor` al 75% hacia adelante (`0.75`):",
+      "options": [
+        {
+          "text": "leftMotor.set(0.75);",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona los rangos de velocidad del motor:",
+      "options": [
+        {
+          "text": "1.0|||Máxima velocidad hacia adelante",
+          "correct": true
+        },
+        {
+          "text": "0.0|||Motor completamente detenido",
+          "correct": true
+        },
+        {
+          "text": "-1.0|||Máxima velocidad en reversa",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

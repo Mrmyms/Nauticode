@@ -1,33 +1,75 @@
 {
-  "title": "Part 3",
+  "title": "Lesson 3: Imports & Packages",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Command-Based - Concept 3",
-      "lessonText": "# Command-Based (Part 3)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Importación de Librerías WPILib",
+      "lessonText": "# Imports en Java\n\nPara usar clases de WPILib como `SmartDashboard` o `CANSparkMax`, debemos importarlas al inicio del archivo.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Importa la clase `SmartDashboard` de WPILib:",
+      "codeSnippet": "_____ edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;",
+      "options": [
+        {
+          "text": "import",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "include",
+          "correct": false
+        },
+        {
+          "text": "require",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Command-Based",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué palabra clave en Java reemplaza al `#include` de C++?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "import",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "package",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción para importar `CANSparkMax` desde `com.revrobotics.CANSparkMax`:",
+      "options": [
+        {
+          "text": "import com.revrobotics.CANSparkMax;",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona los paquetes de WPILib:",
+      "options": [
+        {
+          "text": "edu.wpi.first.wpilibj|||Paquete principal de WPILib",
+          "correct": true
+        },
+        {
+          "text": "com.revrobotics|||Librerías de motores SparkMax",
+          "correct": true
+        },
+        {
+          "text": "com.ctre.phoenix6|||Librerías de motores Falcon/TalonFX",
+          "correct": true
         }
       ]
     }

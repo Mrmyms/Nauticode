@@ -1,0 +1,71 @@
+{
+  "title": "Lesson 2: CTRE Phoenix 6 TalonFX",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "TalonFX (Falcon 500 / Kraken X60)",
+      "lessonText": "# TalonFX Phoenix 6\n\nLos motores Kraken X60 y Falcon 500 usan la clase `TalonFX` de la librería CTRE Phoenix 6.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Instancia un motor TalonFX en el CAN ID 5:",
+      "codeSnippet": "TalonFX shooterMotor = _____ TalonFX(5);",
+      "options": [
+        {
+          "text": "new",
+          "correct": true
+        },
+        {
+          "text": "create",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué método se utiliza para asignar el voltaje o salida en un TalonFX en Phoenix 6?",
+      "options": [
+        {
+          "text": "shooterMotor.set(0.8);",
+          "correct": true
+        },
+        {
+          "text": "shooterMotor.power(0.8);",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué acción realiza `motor.set(-0.5);`?",
+      "codeSnippet": "shooterMotor.set(-0.5);",
+      "options": [
+        {
+          "text": "Gira el motor al 50% de potencia en sentido inverso",
+          "correct": true
+        },
+        {
+          "text": "Detiene el motor",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige el CAN ID negativo en el constructor:",
+      "codeSnippet": "TalonFX motor = new TalonFX(-2);",
+      "options": [
+        {
+          "text": "TalonFX motor = new TalonFX(2);",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

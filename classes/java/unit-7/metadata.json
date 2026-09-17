@@ -1,0 +1,6 @@
+{
+  "title": "Commands Architecture I",
+  "description": "Creación de comandos simples, InstantCommand y RunCommand.",
+  "order": 7,
+  "guidebookText": "# Guidebook: Commands Architecture I\n\nUnidad 7 enfocada en **Commands** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

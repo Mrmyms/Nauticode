@@ -1,0 +1,76 @@
+{
+  "title": "Lesson 5: Unit 10 Challenge - Pneumatics Master",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Reto Integrador de Unidad 10",
+      "lessonText": "# Desafío Final\n\nDemuestra tus conocimientos avanzados sobre **Pneumatics**.",
+      "options": [
+        {
+          "text": "Empezar Reto",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura del módulo:",
+      "options": [
+        {
+          "text": "// Unit 10 - Pneumatics",
+          "correct": true
+        },
+        {
+          "text": "public void execute() {",
+          "correct": true
+        },
+        {
+          "text": "  SmartDashboard.putBoolean(\"Pneumatics Ready\", true);",
+          "correct": true
+        },
+        {
+          "text": "}",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la comprobación de finalización `return true;`:",
+      "options": [
+        {
+          "text": "return true;",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué anotación valida que un método sobrescribe la superclase?",
+      "options": [
+        {
+          "text": "@Override",
+          "correct": true
+        },
+        {
+          "text": "@Interface",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los componentes finales:",
+      "options": [
+        {
+          "text": "Pneumatics|||Tema de la Unidad 10",
+          "correct": true
+        },
+        {
+          "text": "WPILib|||Librería oficial de FRC",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

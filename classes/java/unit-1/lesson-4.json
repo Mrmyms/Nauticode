@@ -1,33 +1,76 @@
 {
-  "title": "Part 4",
+  "title": "Lesson 4: Strings & Concatenation",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Syntax & Setup - Concept 4",
-      "lessonText": "# Syntax & Setup (Part 4)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Manejo de Texto en Java",
+      "lessonText": "# String en Java\n\n`String` es una clase para almacenar texto en comillas dobles `\"...\". Podemos concatenar variables usando el operador `+`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Concatena el nombre del subsistema con su estado:",
+      "codeSnippet": "String subsystem = \"DriveTrain\";\nString status = subsystem _____ \" is Ready\";",
+      "options": [
+        {
+          "text": "+",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "concat",
+          "correct": false
+        },
+        {
+          "text": "&&",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Syntax & Setup",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué imprime este código?",
+      "codeSnippet": "String team = \"Nautilus \";\nint number = 4010;\nSystem.out.println(team + number);",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Nautilus 4010",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "4010",
           "correct": false
+        },
+        {
+          "text": "Nautilus4010",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la declaración de una variable String llamada `robotName` con el valor \"Poseidon\":",
+      "options": [
+        {
+          "text": "String robotName = \"Poseidon\";",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona los componentes de la concatenación:",
+      "options": [
+        {
+          "text": "\"Text\" + variable|||Combina texto y variable",
+          "correct": true
+        },
+        {
+          "text": "double.toString()|||Convierte un decimal a texto",
+          "correct": true
         }
       ]
     }

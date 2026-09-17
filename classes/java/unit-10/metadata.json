@@ -1,0 +1,6 @@
+{
+  "title": "Pneumatics & Actuators",
+  "description": "Control de pistones neumáticos con DoubleSolenoid, Compressors y Servos.",
+  "order": 10,
+  "guidebookText": "# Guidebook: Pneumatics & Actuators\n\nUnidad 10 enfocada en **Pneumatics** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Human Interface Devices (HID)",
+  "description": "Configuración de XboxController, Joystick y mapeo de botones con Trigger.",
+  "order": 9,
+  "guidebookText": "# Guidebook: Human Interface Devices (HID)\n\nUnidad 9 enfocada en **Controllers** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

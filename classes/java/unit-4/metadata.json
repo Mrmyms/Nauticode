@@ -1,0 +1,6 @@
+{
+  "title": "Introduction to WPILib Structure",
+  "description": "Estructura de proyectos FRC: Robot.java, RobotContainer.java y TimedRobot.",
+  "order": 4,
+  "guidebookText": "# Guidebook: WPILib Project Structure\n\nUn proyecto FRC en Java sigue la arquitectura estándar recomendada por FIRST.\n\n## Componentes Principales\n\n1. **Main.java**: Punto de entrada JVM que arranca `Robot.java`.\n2. **Robot.java**: Hereda de `TimedRobot`. Controla los modos de juego (`autonomousInit`, `teleopPeriodic`, etc.).\n3. **RobotContainer.java**: El \"cerebro de conexiones\". Instancia subsistemas, comandos y mapea los botones de los controles.\n"
+}

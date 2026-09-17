@@ -1,33 +1,92 @@
 {
-  "title": "Part 3",
+  "title": "Lesson 3: Math Operators & Precedence",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Syntax & Setup - Concept 3",
-      "lessonText": "# Syntax & Setup (Part 3)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Operaciones Matemáticas",
+      "lessonText": "# Operadores en Java\n\nSoportamos `+`, `-`, `*`, `/` y `%` (módulo). Ten cuidado con la división entre enteros: `5 / 2` da `2` porque trunca los decimales!",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
           "correct": true
-        },
-        {
-          "text": "Need help",
-          "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Syntax & Setup",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál es el resultado de `5 / 2` en Java entre variables tipo `int`?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "2",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "2.5",
           "correct": false
+        },
+        {
+          "text": "3",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el cálculo para obtener el promedio decimal de 2 encoders:",
+      "codeSnippet": "double average = (leftEncoder + rightEncoder) _____ 2.0;",
+      "options": [
+        {
+          "text": "/",
+          "correct": true
+        },
+        {
+          "text": "*",
+          "correct": false
+        },
+        {
+          "text": "%",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué valor almacena `gearRatio`?",
+      "codeSnippet": "int inputTeeth = 10;\nint outputTeeth = 50;\nint gearRatio = outputTeeth / inputTeeth;\nSystem.out.println(gearRatio);",
+      "options": [
+        {
+          "text": "5",
+          "correct": true
+        },
+        {
+          "text": "500",
+          "correct": false
+        },
+        {
+          "text": "0.2",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena las líneas para calcular la velocidad resultante del volante (Flywheel):",
+      "options": [
+        {
+          "text": "double baseRPM = 5000.0;",
+          "correct": true
+        },
+        {
+          "text": "double multiplier = 0.85;",
+          "correct": true
+        },
+        {
+          "text": "double targetRPM = baseRPM * multiplier;",
+          "correct": true
+        },
+        {
+          "text": "System.out.println(targetRPM);",
+          "correct": true
         }
       ]
     }

@@ -1,0 +1,71 @@
+{
+  "title": "Lesson 2: Pneumatics Implementation",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Implementación de Pneumatics",
+      "lessonText": "# Implementación\n\nAplicando Pneumatics en el entorno de desarrollo FRC.",
+      "options": [
+        {
+          "text": "Continuar",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué ventaja ofrece usar Pneumatics en FRC?",
+      "options": [
+        {
+          "text": "Código más limpio, reutilizable y fácil de testear",
+          "correct": true
+        },
+        {
+          "text": "Hace que los motores giren el doble de rápido sin corriente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el código de Pneumatics:",
+      "codeSnippet": "public boolean isFinished() {\n  return _____\n}",
+      "options": [
+        {
+          "text": "true;",
+          "correct": true
+        },
+        {
+          "text": "false;",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué devuelve la función de estado?",
+      "codeSnippet": "System.out.println(\"Status OK\");",
+      "options": [
+        {
+          "text": "Status OK",
+          "correct": true
+        },
+        {
+          "text": "Error",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige el punto y coma faltante:",
+      "codeSnippet": "double value = 1.0",
+      "options": [
+        {
+          "text": "double value = 1.0;",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,32 +1,88 @@
 {
-  "title": "Part 2",
+  "title": "Lesson 2: Primitive Types in Java",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Syntax & Setup - Concept 2",
-      "lessonText": "# Syntax & Setup (Part 2)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Tipos Primitivos en Java",
+      "lessonText": "# Tipos Primitivos para FRC\n\n- `int`: Números enteros (ej: `int totalNotes = 5;`)\n- `double`: Decimales (ej: `double motorSpeed = 0.75;`)\n- `boolean`: Verdadero/Falso (ej: `boolean isTargetLocked = true;`)",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Siguiente",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Syntax & Setup",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué tipo de dato usarías para almacenar la velocidad continua de un motor SparkMax (entre -1.0 y 1.0)?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "double",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "int",
+          "correct": false
+        },
+        {
+          "text": "String",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Declara una variable entera para contar las notas recolectadas:",
+      "codeSnippet": "_____ noteCount = 3;",
+      "options": [
+        {
+          "text": "int",
+          "correct": true
+        },
+        {
+          "text": "double",
+          "correct": false
+        },
+        {
+          "text": "boolean",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será la salida impreso en consola?",
+      "codeSnippet": "double speed = 0.80;\nSystem.out.println(speed);",
+      "options": [
+        {
+          "text": "0.8",
+          "correct": true
+        },
+        {
+          "text": "speed",
+          "correct": false
+        },
+        {
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige el error de declaración de tipo para el interruptor de límite:",
+      "codeSnippet": "int limitSwitchTriggered = true;",
+      "options": [
+        {
+          "text": "boolean limitSwitchTriggered = true;",
+          "correct": true
+        },
+        {
+          "text": "double limitSwitchTriggered = true;",
           "correct": false
         }
       ]

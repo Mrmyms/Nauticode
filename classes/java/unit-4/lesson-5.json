@@ -1,0 +1,72 @@
+{
+  "title": "Lesson 5: Unit 4 Challenge - Robot Architecture",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Reto Estructura WPILib",
+      "lessonText": "# Desafío de Estructura\n\nDemuestra tu dominio de la arquitectura general de proyectos FRC.",
+      "options": [
+        {
+          "text": "Empezar",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena los llamados dentro de `Robot.java`:",
+      "options": [
+        {
+          "text": "public void robotPeriodic() {",
+          "correct": true
+        },
+        {
+          "text": "  CommandScheduler.getInstance().run();",
+          "correct": true
+        },
+        {
+          "text": "}",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cada cuántos milisegundos corre el ciclo de `robotPeriodic()` por defecto?",
+      "options": [
+        {
+          "text": "20 ms",
+          "correct": true
+        },
+        {
+          "text": "100 ms",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la llamada a `CommandScheduler.getInstance().run();`:",
+      "options": [
+        {
+          "text": "CommandScheduler.getInstance().run();",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los archivos del proyecto FRC:",
+      "options": [
+        {
+          "text": "Robot.java|||Contiene los handlers de ciclo de vida de FRC",
+          "correct": true
+        },
+        {
+          "text": "RobotContainer.java|||Hub central de subsistemas y comandos",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "title": "Lesson 4: CommandScheduler & Runs",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "El Planificador de Comandos",
+      "lessonText": "# CommandScheduler\n\nEl `CommandScheduler.getInstance().run()` procesa todos los comandos activos y lee los estados de los subsistemas.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Ejecuta el planificador dentro de `robotPeriodic()`:",
+      "codeSnippet": "CommandScheduler.getInstance()._____();",
+      "options": [
+        {
+          "text": "run",
+          "correct": true
+        },
+        {
+          "text": "execute",
+          "correct": false
+        },
+        {
+          "text": "start",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué ocurre si olvidas llamar a `CommandScheduler.getInstance().run()` en `robotPeriodic()`?",
+      "options": [
+        {
+          "text": "Los comandos y botones no se ejecutarán",
+          "correct": true
+        },
+        {
+          "text": "Los motores se sobrecalientan",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los componentes del Command Framework:",
+      "options": [
+        {
+          "text": "CommandScheduler|||El motor que pollinguer y ejecuta comandos",
+          "correct": true
+        },
+        {
+          "text": "RobotContainer|||Donde se cablean comandos y botones",
+          "correct": true
+        },
+        {
+          "text": "Robot.java|||Controla los modos de juego y el scheduler",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige el método del Scheduler:",
+      "codeSnippet": "CommandScheduler.run();",
+      "options": [
+        {
+          "text": "CommandScheduler.getInstance().run();",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

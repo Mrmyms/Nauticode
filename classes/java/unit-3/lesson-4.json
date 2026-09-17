@@ -1,33 +1,80 @@
 {
-  "title": "Part 4",
+  "title": "Lesson 4: Interfaces & Contracts",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Command-Based - Concept 4",
-      "lessonText": "# Command-Based (Part 4)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Interfaces en Java",
+      "lessonText": "# Interfaces (`implements`)\n\nUna interfaz establece un contrato de métodos que la clase receptora debe implementar de forma obligatoria.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Implementa la interfaz `Sendable`:",
+      "codeSnippet": "public class DriveSubsystem extends SubsystemBase _____ Sendable {\n}",
+      "options": [
+        {
+          "text": "implements",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "extends",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Command-Based",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuántas clases puede extender una subclase en Java?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Exactamente 1 clase (Herencia simple)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Múltiples clases",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena los imports y la clase heredada:",
+      "options": [
+        {
+          "text": "import edu.wpi.first.wpilibj2.command.SubsystemBase;",
+          "correct": true
+        },
+        {
+          "text": "public class ShooterSubsystem extends SubsystemBase {",
+          "correct": true
+        },
+        {
+          "text": "  @Override",
+          "correct": true
+        },
+        {
+          "text": "  public void periodic() {}",
+          "correct": true
+        },
+        {
+          "text": "}",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige el uso de `implements` para extender de una clase:",
+      "codeSnippet": "public class Arm implements SubsystemBase {}",
+      "options": [
+        {
+          "text": "public class Arm extends SubsystemBase {}",
+          "correct": true
         }
       ]
     }

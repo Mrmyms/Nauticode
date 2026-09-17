@@ -1,33 +1,77 @@
 {
-  "title": "Part 2",
+  "title": "Lesson 2: Fields & Attributes",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Motors & Controllers - Concept 2",
-      "lessonText": "# Motors & Controllers (Part 2)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Atributos y Campos",
+      "lessonText": "# Atributos de Clase\n\nLos atributos representan las propiedades de un objeto (ej: `speed`, `canId`). Usamos modificadores como `private` para protegerlos.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
           "correct": true
-        },
-        {
-          "text": "Need help",
-          "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Motors & Controllers",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál es una buena práctica de encapsulamiento para los atributos de un subsistema?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Declararlos como private",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Declararlos como public",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Declara un atributo privado de CAN ID dentro de la clase Motor:",
+      "codeSnippet": "public class Motor {\n  _____ int canId;\n}",
+      "options": [
+        {
+          "text": "private",
+          "correct": true
+        },
+        {
+          "text": "new",
+          "correct": false
+        },
+        {
+          "text": "static",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál es el valor del atributo `currentSpeed` si no se inicializa?",
+      "codeSnippet": "public class Elevator {\n  double currentSpeed;\n}",
+      "options": [
+        {
+          "text": "0.0 (valor por defecto)",
+          "correct": true
+        },
+        {
+          "text": "1.0",
+          "correct": false
+        },
+        {
+          "text": "null",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige la sintaxis del atributo privado `targetAngle`:",
+      "codeSnippet": "private double targetAngle = 45,0;",
+      "options": [
+        {
+          "text": "private double targetAngle = 45.0;",
+          "correct": true
         }
       ]
     }

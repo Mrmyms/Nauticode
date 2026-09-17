@@ -1,0 +1,85 @@
+{
+  "title": "Lesson 3: RobotContainer - The Wired Hub",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "El rol de `RobotContainer`",
+      "lessonText": "# RobotContainer\n\nEs donde instanciamos nuestros subsistemas (`DriveSubsystem`), mandos (`XboxController`) y vinculamos los botones con comandos.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Dónde se recomienda declarar e instanciar los subsistemas y botones del robot?",
+      "options": [
+        {
+          "text": "RobotContainer.java",
+          "correct": true
+        },
+        {
+          "text": "Main.java",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Instancia el subsistema de chasis dentro de `RobotContainer`:",
+      "codeSnippet": "private final DriveSubsystem m_robotDrive = _____ DriveSubsystem();",
+      "options": [
+        {
+          "text": "new",
+          "correct": true
+        },
+        {
+          "text": "this",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena los elementos típicos de `RobotContainer.java`:",
+      "options": [
+        {
+          "text": "public class RobotContainer {",
+          "correct": true
+        },
+        {
+          "text": "  private final DriveSubsystem m_drive = new DriveSubsystem();",
+          "correct": true
+        },
+        {
+          "text": "  public RobotContainer() {",
+          "correct": true
+        },
+        {
+          "text": "    configureButtonBindings();",
+          "correct": true
+        },
+        {
+          "text": "  }",
+          "correct": true
+        },
+        {
+          "text": "}",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la llamada al método de configuración de botones `configureButtonBindings();`:",
+      "options": [
+        {
+          "text": "configureButtonBindings();",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

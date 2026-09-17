@@ -1,5 +1,6 @@
 {
-  "title": "Motors & Controllers",
-  "description": "Controlling hardware",
-  "order": 2
+  "title": "Object-Oriented Programming I",
+  "description": "Clases, Objetos, Atributos y Métodos Constructores en Java.",
+  "order": 2,
+  "guidebookText": "# Guidebook: Object-Oriented Programming I\n\nEn Java, los componentes del robot se modelan como **Objetos** instanciados a partir de **Clases**.\n\n## Conceptos Clave\n- **Clase**: El plano o blueprint (ej: `CANSparkMax`).\n- **Objeto / Instancia**: El componente físico en RAM (ej: `leftMotor`).\n- **Constructor**: El método especial con el mismo nombre de la clase que se llama con `new` para inicializar el objeto.\n"
 }

@@ -1,5 +1,6 @@
 {
-  "title": "Syntax & Setup",
-  "description": "WPILib basics in Java",
-  "order": 1
+  "title": "Java Basics for FRC",
+  "description": "Sintaxis fundamental de Java, clases, método main y variables iniciales para robots FRC.",
+  "order": 1,
+  "guidebookText": "# Guidebook: Java Basics for FRC\n\nEn FIRST Robotics Competition (FRC), **Java** es uno de los lenguajes principales para programar la roboRIO.\n\n## Key Concepts\n\n1. **Clases y Archivos**: En Java, todo vive dentro de una `class`. El nombre de la clase debe coincidir exactamente con el nombre del archivo `.java`.\n2. **El método main**: Es el punto de entrada principal cuando ejecutas un programa independiente:\n   ```java\n   public static void main(String[] args) {\n       System.out.println(\"Robot listo!\");\n   }\n   ```\n3. **Variables Fuertemente Tipadas**: Cada variable debe declarar su tipo de dato explícitamente (`int`, `double`, `boolean`, `String`).\n"
 }

@@ -1,0 +1,71 @@
+{
+  "title": "Lesson 4: DifferentialDrive Arcade Control",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Control Arcade Drive",
+      "lessonText": "# DifferentialDrive\n\nWPILib nos da la clase `DifferentialDrive` para combinar velocidad hacia adelante (xSpeed) y giro (zRotation).",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Llama al método de manejo arcade:",
+      "codeSnippet": "m_drive._____(moveSpeed, turnSpeed);",
+      "options": [
+        {
+          "text": "arcadeDrive",
+          "correct": true
+        },
+        {
+          "text": "tankDrive",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué rango de valores acepta el método `arcadeDrive(speed, rotation)`?",
+      "options": [
+        {
+          "text": "Valores entre -1.0 y 1.0",
+          "correct": true
+        },
+        {
+          "text": "Valores de 0 a 100",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué movimiento hace el robot con `m_drive.arcadeDrive(0.5, 0.0);`?",
+      "codeSnippet": "m_drive.arcadeDrive(0.5, 0.0);",
+      "options": [
+        {
+          "text": "Avanza en línea recta al 50% de velocidad",
+          "correct": true
+        },
+        {
+          "text": "Gira sobre su propio eje",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige el parámetro faltante en arcadeDrive:",
+      "codeSnippet": "m_drive.arcadeDrive(0.8);",
+      "options": [
+        {
+          "text": "m_drive.arcadeDrive(0.8, 0.0);",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "title": "Lesson 2: Match Modes & Lifecycle Methods",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Ciclo de Vida del Partido",
+      "lessonText": "# Ciclos de Vida en FRC\n\n- **Autonomous**: 15 segundos controlados 100% por código.\n- **Teleoperated**: 2 minutos 15 segundos controlados por los drivers.\n- **Disabled**: Robot deshabilitado por seguridad.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué método se ejecuta periódicamente durante el periodo de control por drivers?",
+      "options": [
+        {
+          "text": "teleopPeriodic()",
+          "correct": true
+        },
+        {
+          "text": "autonomousPeriodic()",
+          "correct": false
+        },
+        {
+          "text": "disabledInit()",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el método de inicialización de teleop:",
+      "codeSnippet": "public void _____Init() {\n  // Cancelar autónomo si sigue corriendo\n}",
+      "options": [
+        {
+          "text": "teleop",
+          "correct": true
+        },
+        {
+          "text": "auto",
+          "correct": false
+        },
+        {
+          "text": "disabled",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuándo se llama a `disabledInit()`?",
+      "codeSnippet": "// Al presionar Disable en la Driver Station",
+      "options": [
+        {
+          "text": "Al deshabilitar el robot",
+          "correct": true
+        },
+        {
+          "text": "Al iniciar el autonomous",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige la sintaxis del método `teleopPeriodic`:",
+      "codeSnippet": "public void teleopPeriodic(int time) {}",
+      "options": [
+        {
+          "text": "public void teleopPeriodic() {}",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Autonomous Routines I",
+  "description": "Creación de rutinas de autónomo basadas en temporizadores y trayectorias básicas.",
+  "order": 13,
+  "guidebookText": "# Guidebook: Autonomous Routines I\n\nUnidad 13 enfocada en **Auto Basics** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

@@ -63,6 +63,8 @@ const main = async () => {
         .filter(f => f.startsWith("unit-") && fs.statSync(path.join(coursePath, f)).isDirectory())
         .sort((a, b) => parseInt(a.replace("unit-", ""), 10) - parseInt(b.replace("unit-", ""), 10));
 
+      console.log(`Processing course folder '${courseFolderName}'...`);
+
       for (const unitFolderName of unitFolders) {
         const unitPath = path.join(coursePath, unitFolderName);
         const metadataPath = path.join(unitPath, "metadata.json");
@@ -143,10 +145,11 @@ const main = async () => {
             console.error(`Error parsing ${lessonPath}. Skipping this lesson.`, e);
           }
         }
+        console.log(`  ✓ Inserted Unit ${unitOrder}: ${unitTitle}`);
       }
     }
 
-    console.log("Database seeded successfully with folder-based curriculum");
+    console.log("Database seeded successfully with folder-based curriculum!");
   } catch (error) {
     console.error("Failed to seed database:", error);
     throw error;

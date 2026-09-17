@@ -1,0 +1,80 @@
+{
+  "title": "Lesson 5: Unit 5 Challenge - Drive Motors Setup",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Reto Motores CAN",
+      "lessonText": "# Desafío de Motores FRC\n\nConfigura los motores de un chasis Tank Drive completo.",
+      "options": [
+        {
+          "text": "Empezar",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la inicialización de motores SparkMax:",
+      "options": [
+        {
+          "text": "CANSparkMax leftMaster = new CANSparkMax(1, MotorType.kBrushless);",
+          "correct": true
+        },
+        {
+          "text": "CANSparkMax rightMaster = new CANSparkMax(2, MotorType.kBrushless);",
+          "correct": true
+        },
+        {
+          "text": "rightMaster.setInverted(true);",
+          "correct": true
+        },
+        {
+          "text": "leftMaster.set(0.5);",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción para detener el motor `leftMaster.set(0.0);`:",
+      "options": [
+        {
+          "text": "leftMaster.set(0.0);",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué librería pertenece a los motores REV SparkMax?",
+      "options": [
+        {
+          "text": "com.revrobotics.CANSparkMax",
+          "correct": true
+        },
+        {
+          "text": "com.ctre.phoenix6.TalonFX",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los controladores con sus marcas:",
+      "options": [
+        {
+          "text": "CANSparkMax|||REV Robotics",
+          "correct": true
+        },
+        {
+          "text": "TalonFX|||CTRE Phoenix",
+          "correct": true
+        },
+        {
+          "text": "VictorSPX|||CTRE Legacy",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

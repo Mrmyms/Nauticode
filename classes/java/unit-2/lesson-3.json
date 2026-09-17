@@ -1,33 +1,87 @@
 {
-  "title": "Part 3",
+  "title": "Lesson 3: Constructors with Parameters",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Motors & Controllers - Concept 3",
-      "lessonText": "# Motors & Controllers (Part 3)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Constructores en Java",
+      "lessonText": "# El Método Constructor\n\nEl constructor inicializa el objeto cuando se llama `new`. No tiene tipo de retorno y se llama exactamente igual que la clase.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el constructor de la clase Intake:",
+      "codeSnippet": "public class Intake {\n  private int motorPort;\n  public _____(int port) {\n    this.motorPort = port;\n  }\n}",
+      "options": [
+        {
+          "text": "Intake",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "void",
+          "correct": false
+        },
+        {
+          "text": "init",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Motors & Controllers",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Para qué sirve la palabra clave `this` dentro de un constructor?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Para referenciar el atributo del objeto actual",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Para crear un objeto nuevo",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena las líneas del constructor:",
+      "options": [
+        {
+          "text": "public class Shooter {",
+          "correct": true
+        },
+        {
+          "text": "  private double speed;",
+          "correct": true
+        },
+        {
+          "text": "  public Shooter(double speed) {",
+          "correct": true
+        },
+        {
+          "text": "    this.speed = speed;",
+          "correct": true
+        },
+        {
+          "text": "  }",
+          "correct": true
+        },
+        {
+          "text": "}",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Instancia un objeto `Shooter` llamado `topShooter` pasando `0.9` en el constructor:",
+      "options": [
+        {
+          "text": "Shooter topShooter = new Shooter(0.9);",
+          "correct": true
         }
       ]
     }

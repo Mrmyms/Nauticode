@@ -1,33 +1,75 @@
 {
-  "title": "Part 1",
+  "title": "Lesson 1: Inheritance with extends",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Command-Based - Concept 1",
-      "lessonText": "# Command-Based (Part 1)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Herencia en Java (`extends`)",
+      "lessonText": "# Herencia (`extends`)\n\nLa herencia nos permite extender las funcionalidades de una clase base. En WPILib, nuestros subsistemas extienden `SubsystemBase`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Haz que la clase `Arm` herede de `SubsystemBase`:",
+      "codeSnippet": "public class Arm _____ SubsystemBase {\n}",
+      "options": [
+        {
+          "text": "extends",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "implements",
+          "correct": false
+        },
+        {
+          "text": "imports",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Command-Based",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué palabra clave se usa para heredar de una clase en Java?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "extends",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "super",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los conceptos de Herencia:",
+      "options": [
+        {
+          "text": "SubsystemBase|||Clase padre de WPILib",
+          "correct": true
+        },
+        {
+          "text": "extends|||Palabra clave para heredar de una clase",
+          "correct": true
+        },
+        {
+          "text": "super()|||Llama al constructor de la clase padre",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la cabecera de la clase `IntakeSubsystem` heredando de `SubsystemBase`:",
+      "options": [
+        {
+          "text": "public class IntakeSubsystem extends SubsystemBase {",
+          "correct": true
         }
       ]
     }

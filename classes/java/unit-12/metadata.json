@@ -1,0 +1,6 @@
+{
+  "title": "Closed-Loop Control (PID)",
+  "description": "Control retroalimentado con PIDController: Proporcional, Integral y Derivativo.",
+  "order": 12,
+  "guidebookText": "# Guidebook: Closed-Loop Control (PID)\n\nUnidad 12 enfocada en **PID Control** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

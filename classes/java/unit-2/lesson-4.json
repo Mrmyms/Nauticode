@@ -1,33 +1,75 @@
 {
-  "title": "Part 4",
+  "title": "Lesson 4: Methods & Void Actions",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Motors & Controllers - Concept 4",
-      "lessonText": "# Motors & Controllers (Part 4)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Métodos sin Retorno (`void`)",
+      "lessonText": "# Métodos en Clases\n\nUn método ejecuta una acción. Si no devuelve ningún valor, su tipo de retorno es `void`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Define un método que detiene el mecanismo:",
+      "codeSnippet": "public _____ stop() {\n  this.speed = 0.0;\n}",
+      "options": [
+        {
+          "text": "void",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "double",
+          "correct": false
+        },
+        {
+          "text": "int",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Motors & Controllers",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cómo invocamos el método `spin()` del objeto `intake`?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "intake.spin();",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "spin(intake);",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona los componentes del método:",
+      "options": [
+        {
+          "text": "void|||No retorna ningún valor",
+          "correct": true
+        },
+        {
+          "text": "this.speed = 1.0|||Modifica el estado interno del atributo",
+          "correct": true
+        },
+        {
+          "text": "object.method()|||Invocación mediante notación de punto",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la llamada al método `stop()` del objeto `drivetrain`:",
+      "options": [
+        {
+          "text": "drivetrain.stop();",
+          "correct": true
         }
       ]
     }

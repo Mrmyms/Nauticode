@@ -1,0 +1,6 @@
+{
+  "title": "Sensors & Encoders",
+  "description": "Lectura de encoders relativos/absolutos, interruptores de límite y giróscopo NavX.",
+  "order": 11,
+  "guidebookText": "# Guidebook: Sensors & Encoders\n\nUnidad 11 enfocada en **Sensors** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

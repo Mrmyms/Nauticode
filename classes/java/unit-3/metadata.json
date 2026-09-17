@@ -1,5 +1,6 @@
 {
-  "title": "Command-Based",
-  "description": "FRC Command structure",
-  "order": 3
+  "title": "Object-Oriented Programming II",
+  "description": "Herencia (`extends`), Interfaces (`implements`), `@Override` e Imports en Java.",
+  "order": 3,
+  "guidebookText": "# Guidebook: OOP II & WPILib Base Classes\n\nWPILib aprovecha al máximo la **Herencia** y las **Interfaces** en Java.\n\n## Conceptos Clave\n- **extends**: Hereda métodos y atributos de una clase padre (ej: `extends SubsystemBase`).\n- **implements**: Promete implementar los métodos requeridos por una interfaz.\n- **@Override**: Anotación que indica que estamos sobrescribiendo un método de la clase base (ej: `periodic()`).\n- **import**: Carga paquetes externos como `edu.wpi.first.wpilibj2.command.SubsystemBase`.\n"
 }

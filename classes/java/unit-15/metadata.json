@@ -1,0 +1,6 @@
+{
+  "title": "Vision & AprilTags",
+  "description": "Integración de Limelight / PhotonVision para alineación automática con AprilTags.",
+  "order": 15,
+  "guidebookText": "# Guidebook: Vision & AprilTags\n\nUnidad 15 enfocada en **Vision FRC** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

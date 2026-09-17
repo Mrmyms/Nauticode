@@ -1,0 +1,6 @@
+{
+  "title": "Subsystems Architecture",
+  "description": "Encapsulamiento de hardware, motores y sensores dentro de SubsystemBase.",
+  "order": 6,
+  "guidebookText": "# Guidebook: Subsystems Architecture\n\nUnidad 6 enfocada en **Subsystems** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

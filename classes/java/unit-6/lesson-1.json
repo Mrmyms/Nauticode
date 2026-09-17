@@ -1,0 +1,69 @@
+{
+  "title": "Lesson 1: Subsystems Fundamentals",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Conceptos clave de Subsystems",
+      "lessonText": "# Subsystems Architecture\n\nEn esta lección cubrimos la arquitectura de **Subsystems** aplicada al robot.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál es el propósito principal de Subsystems?",
+      "options": [
+        {
+          "text": "Organizar y controlar Subsystems de forma modular",
+          "correct": true
+        },
+        {
+          "text": "Solo sirve para imprimir mensajes en consola",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la instrucción para Subsystems:",
+      "codeSnippet": "// WPILib Subsystems\npublic void initialize() {\n  _____();\n}",
+      "options": [
+        {
+          "text": "start",
+          "correct": true
+        },
+        {
+          "text": "stop",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los términos de Subsystems:",
+      "options": [
+        {
+          "text": "Subsystems Base|||Estructura estándar de WPILib",
+          "correct": true
+        },
+        {
+          "text": "execute()|||Método que se repite en el ciclo",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción Java para activar Subsystems:",
+      "options": [
+        {
+          "text": "// Subsystems active",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

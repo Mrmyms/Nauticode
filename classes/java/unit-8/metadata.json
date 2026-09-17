@@ -1,0 +1,6 @@
+{
+  "title": "Commands Architecture II",
+  "description": "Comandos secuenciales (SequentialCommandGroup) y paralelos (ParallelCommandGroup).",
+  "order": 8,
+  "guidebookText": "# Guidebook: Commands Architecture II\n\nUnidad 8 enfocada en **Command Groups** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

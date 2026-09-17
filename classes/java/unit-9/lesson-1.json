@@ -1,0 +1,69 @@
+{
+  "title": "Lesson 1: Controllers Fundamentals",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Conceptos clave de Controllers",
+      "lessonText": "# Human Interface Devices (HID)\n\nEn esta lección cubrimos la arquitectura de **Controllers** aplicada al robot.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál es el propósito principal de Controllers?",
+      "options": [
+        {
+          "text": "Organizar y controlar Controllers de forma modular",
+          "correct": true
+        },
+        {
+          "text": "Solo sirve para imprimir mensajes en consola",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la instrucción para Controllers:",
+      "codeSnippet": "// WPILib Controllers\npublic void initialize() {\n  _____();\n}",
+      "options": [
+        {
+          "text": "start",
+          "correct": true
+        },
+        {
+          "text": "stop",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los términos de Controllers:",
+      "options": [
+        {
+          "text": "Controllers Base|||Estructura estándar de WPILib",
+          "correct": true
+        },
+        {
+          "text": "execute()|||Método que se repite en el ciclo",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción Java para activar Controllers:",
+      "options": [
+        {
+          "text": "// Controllers active",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "title": "PWM & CAN Motors",
+  "description": "Controladores de motores en FRC: CANSparkMax (REV) y TalonFX (CTRE Phoenix 6).",
+  "order": 5,
+  "guidebookText": "# Guidebook: Motors & Motor Controllers\n\nEn FRC, los motores principales se comunican vía el bus **CAN** (Controller Area Network) usando IDs únicos.\n\n## Principales Motor Controllers\n\n1. **REV Robotics CANSparkMax / SparkFlex**:\n   - Usan la librería `com.revrobotics.CANSparkMax`.\n   - Se especifica si el motor es Brushless o Brushed.\n2. **CTRE Phoenix 6 TalonFX**:\n   - Usan la librería `com.ctre.phoenix6.hardware.TalonFX`.\n3. **DifferentialDrive**:\n   - Clase helper de WPILib para controlar un chasis tipo Tank Drive (`arcadeDrive(speed, rotation)`).\n"
+}

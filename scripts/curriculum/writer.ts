@@ -55,16 +55,17 @@ export function validateChallenge(c: Challenge, unitSlug: string, lessonIndex: n
   }
 }
 
-export function writeUnits(units: UnitDefinition[]) {
-  if (!fs.existsSync(TARGET_DIR)) {
-    fs.mkdirSync(TARGET_DIR, { recursive: true });
+export function writeUnits(units: UnitDefinition[], courseFolder: string = "basics-of-code") {
+  const targetDir = path.join(process.cwd(), "classes", courseFolder);
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true });
   }
 
   let totalChallenges = 0;
   let totalLessons = 0;
 
   for (const unit of units) {
-    const unitFolder = path.join(TARGET_DIR, unit.slug);
+    const unitFolder = path.join(targetDir, unit.slug);
     if (!fs.existsSync(unitFolder)) {
       fs.mkdirSync(unitFolder, { recursive: true });
     }

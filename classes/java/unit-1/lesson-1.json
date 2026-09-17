@@ -1,33 +1,83 @@
 {
-  "title": "Part 1",
+  "title": "Lesson 1: Java Syntax & System.out.println",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Syntax & Setup - Concept 1",
-      "lessonText": "# Syntax & Setup (Part 1)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "¿Cómo estructura Java sus programas?",
+      "lessonText": "# Estructura Básica en Java\n\nTodo código Java debe estar encapsulado dentro de una `class`. Las instrucciones terminan con punto y coma `;` y la consola imprime mediante `System.out.println()`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido, las clases contienen todo el código",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "No se requiere punto y coma al final",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Syntax & Setup",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál es la instrucción correcta para imprimir en la consola de la roboRIO?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "System.out.println(\"Nautilus 4010\");",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "print(\"Nautilus 4010\")",
           "correct": false
+        },
+        {
+          "text": "console.log(\"Nautilus 4010\");",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la clase principal del Robot:",
+      "codeSnippet": "public class Robot {\n  public static void _____ (String[] args) {\n    System.out.println(\"Robot Started\");\n  }\n}",
+      "options": [
+        {
+          "text": "main",
+          "correct": true
+        },
+        {
+          "text": "run",
+          "correct": false
+        },
+        {
+          "text": "init",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los términos técnicos con su definición:",
+      "options": [
+        {
+          "text": "class|||Contenedor principal de código en Java",
+          "correct": true
+        },
+        {
+          "text": "main|||Método de entrada del programa",
+          "correct": true
+        },
+        {
+          "text": "System.out.println|||Imprime mensajes en consola",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción Java para imprimir \"Autonomous Ready\":",
+      "options": [
+        {
+          "text": "System.out.println(\"Autonomous Ready\");",
+          "correct": true
         }
       ]
     }

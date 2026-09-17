@@ -1,0 +1,6 @@
+{
+  "title": "Autonomous Routines II",
+  "description": "Generación de caminos avanzados con PathPlanner y AutoBuilder.",
+  "order": 14,
+  "guidebookText": "# Guidebook: Autonomous Routines II\n\nUnidad 14 enfocada en **PathPlanner** para FIRST Robotics en Java.\n\nAprenderás patrones de diseño profesional y buenas prácticas para la roboRIO."
+}

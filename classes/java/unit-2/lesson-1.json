@@ -1,33 +1,79 @@
 {
-  "title": "Part 1",
+  "title": "Lesson 1: Classes & Objects Blueprint",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Motors & Controllers - Concept 1",
-      "lessonText": "# Motors & Controllers (Part 1)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "¿Qué es una Clase y un Objeto?",
+      "lessonText": "# Clases u Objetos\n\nUna **Clase** es el plano arquitectónico. Un **Objeto** es la instancia concreta creada en memoria con la palabra clave `new`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
           "correct": true
-        },
-        {
-          "text": "Need help",
-          "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Motors & Controllers",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué palabra clave en Java se utiliza para instanciar un nuevo objeto desde una clase?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "new",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "create",
           "correct": false
+        },
+        {
+          "text": "make",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Instancia un objeto de la clase `Flywheel`:",
+      "codeSnippet": "Flywheel intakeFlywheel = _____ Flywheel();",
+      "options": [
+        {
+          "text": "new",
+          "correct": true
+        },
+        {
+          "text": "class",
+          "correct": false
+        },
+        {
+          "text": "void",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona los conceptos de POO:",
+      "options": [
+        {
+          "text": "Clase|||El molde o blueprint",
+          "correct": true
+        },
+        {
+          "text": "Objeto|||La instancia creada en memoria RAM",
+          "correct": true
+        },
+        {
+          "text": "new|||Operador de instanciación",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instanciación de un objeto `Arm` llamado `armSubsystem`:",
+      "options": [
+        {
+          "text": "Arm armSubsystem = new Arm();",
+          "correct": true
         }
       ]
     }

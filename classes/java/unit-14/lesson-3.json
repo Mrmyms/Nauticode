@@ -1,0 +1,77 @@
+{
+  "title": "Lesson 3: Advanced PathPlanner Techniques",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Técnicas Avanzadas",
+      "lessonText": "# PathPlanner Avanzado\n\nOptimización e integración con el resto del robot.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Asigna el parámetro recibido:",
+      "codeSnippet": "this.speed = _____;",
+      "options": [
+        {
+          "text": "speed",
+          "correct": true
+        },
+        {
+          "text": "val",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué método se ejecuta cuando un comando finaliza?",
+      "options": [
+        {
+          "text": "end(boolean interrupted)",
+          "correct": true
+        },
+        {
+          "text": "close()",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena los métodos del ciclo del comando:",
+      "options": [
+        {
+          "text": "initialize();",
+          "correct": true
+        },
+        {
+          "text": "execute();",
+          "correct": true
+        },
+        {
+          "text": "isFinished();",
+          "correct": true
+        },
+        {
+          "text": "end(interrupted);",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe el llamado a `isFinished()` retornando `true;`:",
+      "options": [
+        {
+          "text": "return true;",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

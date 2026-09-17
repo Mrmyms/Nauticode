@@ -1,0 +1,69 @@
+{
+  "title": "Lesson 1: Auto Basics Fundamentals",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Conceptos clave de Auto Basics",
+      "lessonText": "# Autonomous Routines I\n\nEn esta lección cubrimos la arquitectura de **Auto Basics** aplicada al robot.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál es el propósito principal de Auto Basics?",
+      "options": [
+        {
+          "text": "Organizar y controlar Auto Basics de forma modular",
+          "correct": true
+        },
+        {
+          "text": "Solo sirve para imprimir mensajes en consola",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la instrucción para Auto Basics:",
+      "codeSnippet": "// WPILib Auto Basics\npublic void initialize() {\n  _____();\n}",
+      "options": [
+        {
+          "text": "start",
+          "correct": true
+        },
+        {
+          "text": "stop",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los términos de Auto Basics:",
+      "options": [
+        {
+          "text": "Auto Basics Base|||Estructura estándar de WPILib",
+          "correct": true
+        },
+        {
+          "text": "execute()|||Método que se repite en el ciclo",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción Java para activar Auto Basics:",
+      "options": [
+        {
+          "text": "// Auto Basics active",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

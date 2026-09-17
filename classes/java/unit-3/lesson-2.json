@@ -1,33 +1,73 @@
 {
-  "title": "Part 2",
+  "title": "Lesson 2: Annotations & @Override",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Command-Based - Concept 2",
-      "lessonText": "# Command-Based (Part 2)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "La anotación `@Override`",
+      "lessonText": "# Anotación `@Override` \n\nIndica al compilador que estamos redefiniendo un método heredado de la clase base, como `periodic()`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Agrega la anotación adecuada antes del método `periodic()`:",
+      "codeSnippet": "_____\npublic void periodic() {\n  // Lógica cíclica\n}",
+      "options": [
+        {
+          "text": "@Override",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "@Deprecated",
+          "correct": false
+        },
+        {
+          "text": "@Init",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Command-Based",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué ocurre si colocas `@Override` sobre un método que no existe en la clase padre?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "El compilador marca un error inmediatamente",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "El programa ignora el método",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué método se ejecuta si la subclase sobrescribe el método `display()`?",
+      "codeSnippet": "// Se ejecuta la versión de la subclase sobrescrita",
+      "options": [
+        {
+          "text": "El método de la subclase",
+          "correct": true
+        },
+        {
+          "text": "El método de la superclase",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige el error de la anotación Override:",
+      "codeSnippet": "override public void periodic() {}",
+      "options": [
+        {
+          "text": "@Override public void periodic() {}",
+          "correct": true
         }
       ]
     }

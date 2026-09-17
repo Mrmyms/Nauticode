@@ -1,0 +1,73 @@
+{
+  "title": "Lesson 3: Inverting Motors & Follower Mode",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Inversión y Seguidores",
+      "lessonText": "# Motor Inversion & Follower\n\nEn una caja de engranes con 2 motores, uno debe invertirse (`setInverted(true)`) o seguir al líder (`follow(leaderMotor)`).",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Invierte la dirección del motor izquierdo:",
+      "codeSnippet": "leftMotor.setInverted(_____);",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "false",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué invertimos un motor en el lado izquierdo del chasis?",
+      "options": [
+        {
+          "text": "Porque está montado en espejo físicamente respecto al lado derecho",
+          "correct": true
+        },
+        {
+          "text": "Para consumir menos batería",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción para invertir el motor `rightLeader`:",
+      "options": [
+        {
+          "text": "rightLeader.setInverted(true);",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona los métodos de control de motores:",
+      "options": [
+        {
+          "text": "setInverted(true)|||Invierte la polaridad de giro",
+          "correct": true
+        },
+        {
+          "text": "follow(leader)|||Imita la potencia del motor principal",
+          "correct": true
+        },
+        {
+          "text": "set(0.0)|||Detiene la marcha del motor",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

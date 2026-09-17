@@ -1,32 +1,78 @@
 {
-  "title": "Part 5",
+  "title": "Lesson 5: Unit 2 Challenge - Custom Subsystem Class",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Motors & Controllers - Concept 5",
-      "lessonText": "# Motors & Controllers (Part 5)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Reto de POO 1",
+      "lessonText": "# Desafío de Clase Custom\n\nCrea una clase `Climber` completa con atributo, constructor e invocación.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Empezar",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura completa de la clase `Climber`:",
+      "options": [
+        {
+          "text": "public class Climber {",
           "correct": true
         },
         {
-          "text": "Need help",
-          "correct": false
+          "text": "  private int canId;",
+          "correct": true
+        },
+        {
+          "text": "  public Climber(int id) {",
+          "correct": true
+        },
+        {
+          "text": "    this.canId = id;",
+          "correct": true
+        },
+        {
+          "text": "  }",
+          "correct": true
+        },
+        {
+          "text": "}",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la línea para instanciar `Climber leftClimber = new Climber(10);`:",
+      "options": [
+        {
+          "text": "Climber leftClimber = new Climber(10);",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige el error en la llamada del constructor:",
+      "codeSnippet": "Climber climber = Climber(5);",
+      "options": [
+        {
+          "text": "Climber climber = new Climber(5);",
+          "correct": true
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Motors & Controllers",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué palabra clave crea instancias en memoria RAM?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "new",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "this",
           "correct": false
         }
       ]

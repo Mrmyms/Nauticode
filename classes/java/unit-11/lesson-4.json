@@ -1,0 +1,73 @@
+{
+  "title": "Lesson 4: Telemetry & Safety",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "Telemetría y Seguridad",
+      "lessonText": "# Telemetría\n\nPublicar datos en `SmartDashboard` para diagnóstico durante la competencia.",
+      "options": [
+        {
+          "text": "Entendido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Publica un valor numérico en SmartDashboard:",
+      "codeSnippet": "SmartDashboard._____(\"Speed\", speed);",
+      "options": [
+        {
+          "text": "putNumber",
+          "correct": true
+        },
+        {
+          "text": "sendNumber",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué es crucial enviar telemetría a la Driver Station?",
+      "options": [
+        {
+          "text": "Para diagnosticar fallas de sensores o motores durante el partido",
+          "correct": true
+        },
+        {
+          "text": "Es un requisito obligatorio para pasar inspección",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja los métodos de SmartDashboard:",
+      "options": [
+        {
+          "text": "putNumber|||Publica valores decimales/enteros",
+          "correct": true
+        },
+        {
+          "text": "putBoolean|||Publica banderas verdadero/falso",
+          "correct": true
+        },
+        {
+          "text": "putString|||Publica mensajes de texto",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción para enviar la velocidad a SmartDashboard:",
+      "options": [
+        {
+          "text": "SmartDashboard.putNumber(\"Speed\", speed);",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

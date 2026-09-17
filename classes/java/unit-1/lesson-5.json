@@ -1,32 +1,66 @@
 {
-  "title": "Part 5",
+  "title": "Lesson 5: Unit 1 Challenge - Robot Status Banner",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Syntax & Setup - Concept 5",
-      "lessonText": "# Syntax & Setup (Part 5)\n\nThis is auto-generated content for java. Replace this with your actual markdown theory.",
+      "question": "Desafío de la Unidad 1",
+      "lessonText": "# Capstone de Unidad 1\n\nAplica lo aprendido declarando variables de estado del chasis y formateando mensajes de consola.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Comenzar reto",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe el código Java para inicializar `double batteryVoltage = 12.6;`:",
+      "options": [
+        {
+          "text": "double batteryVoltage = 12.6;",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige las comillas para String:",
+      "codeSnippet": "String mode = 'Autonomous';",
+      "options": [
+        {
+          "text": "String mode = \"Autonomous\";",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Reorganiza las líneas para el reporte de arranque de telemetría:",
+      "options": [
+        {
+          "text": "String robot = \"Nautilus\";",
           "correct": true
         },
         {
-          "text": "Need help",
-          "correct": false
+          "text": "double voltage = 12.8;",
+          "correct": true
+        },
+        {
+          "text": "System.out.println(robot + \" Voltage: \" + voltage);",
+          "correct": true
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Syntax & Setup",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál es el resultado de imprimir `\"CAN ID: \" + 5`?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "CAN ID: 5",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Error de tipos",
           "correct": false
         }
       ]
