@@ -1,6 +1,10 @@
 import { clerkMiddleware } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+export default clerkMiddleware({
+  frontendApiProxy: {
+    enabled: process.env.NODE_ENV === "production",
+  },
+});
 
 export const config = {
   matcher: [
