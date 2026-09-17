@@ -28,7 +28,7 @@ export const Header = () => {
             prefetch
             className="flex items-center gap-x-3"
           >
-            <Image src="/nautilus-logo.png" alt="Nautilus Logo" height={40} width={40} className="rounded" />
+            <Image src="/nautilus-logo.png" alt="Nautilus Logo" height={50} width={50} priority />
 
             <h1 className="text-2xl font-black uppercase tracking-wider text-[#EDB824]">
               Nauticode
