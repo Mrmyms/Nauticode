@@ -25,11 +25,11 @@
   },
 
   "__TIPS__": [
-    "Alternate between THEORY and SELECT/ASSIST for the best learning flow.",
-    "Make wrong options funny but clearly wrong — it helps students remember.",
-    "Keep lessonText concise. If it's too long, split into multiple THEORY challenges.",
-    "Always have at least 3 options per challenge. 4 is ideal.",
-    "Use codeSnippet only with CODE_FILL, CODE_TEST, and DEBUG types."
+    "Consulta classes/REGLAS_DE_ORO.md para conocer las 15 Reglas de Oro del currículum.",
+    "Estructura 1 + 5: 1 reto de THEORY seguido de 5 ejercicios dinámicos e interactivos.",
+    "Prohibidas las opciones de broma. Diseña distractores pedagógicos basados en errores reales.",
+    "Cero emojis en todo el texto, preguntas y opciones para mantener tono de ingeniería.",
+    "Usa siempre \\n explícito para preservar saltos de línea en codeSnippet y lessonText."
   ],
 
   "__EXAMPLE_LESSONS_BELOW__": "Below are complete examples for each challenge type. Delete everything below this line when creating your own lesson.",
