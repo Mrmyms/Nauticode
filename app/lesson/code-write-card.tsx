@@ -1,6 +1,7 @@
 import { challengeOptions } from "@/db/schema";
 import { cn } from "@/lib/utils";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { VSCodeEditor } from "@/components/vscode-editor";
 
 type CodeWriteCardProps = {
   question: string;
@@ -29,13 +30,13 @@ export const CodeWriteCard = ({
   // Disable text area if status is not none (meaning it was checked)
   const isChecked = status !== "none";
 
-  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+  const handleEditorChange = (val: string | undefined) => {
+    const textVal = val || "";
     if (isChecked || disabled) return;
 
-    const val = e.target.value;
-    setValue(val);
+    setValue(textVal);
 
-    if (!val.trim()) {
+    if (!textVal.trim()) {
       onSelect(undefined);
       return;
     }
@@ -43,7 +44,7 @@ export const CodeWriteCard = ({
     if (!correctOption) return;
 
     const normalize = (s: string) => s.replace(/\s+/g, " ").trim();
-    const isCorrect = normalize(val) === normalize(correctOption.text);
+    const isCorrect = normalize(textVal) === normalize(correctOption.text);
 
     if (isCorrect) {
       onSelect(correctOption.id);
@@ -55,31 +56,27 @@ export const CodeWriteCard = ({
   return (
     <div className="w-full flex flex-col gap-4">
       {codeSnippet && (
-        <div className="bg-slate-900 rounded-xl p-4 font-mono text-sm text-slate-200 overflow-x-auto border-2 border-slate-700">
+        <div className="bg-slate-900 rounded-xl p-4 font-mono text-sm text-slate-200 overflow-x-auto border-2 border-slate-700 shadow-md">
           <pre>{codeSnippet}</pre>
         </div>
       )}
       
       <div
         className={cn(
-          "h-full border-2 rounded-xl p-4 lg:p-6",
-          status === "wrong" && "border-rose-500 bg-rose-500/10",
-          status === "correct" && "border-green-500 bg-green-500/10",
-          status === "none" && "border-slate-700 bg-slate-800"
+          "w-full rounded-xl transition-all",
+          status === "wrong" && "p-1 rounded-2xl bg-rose-500/20 border-2 border-rose-500",
+          status === "correct" && "p-1 rounded-2xl bg-green-500/20 border-2 border-green-500"
         )}
       >
-        <textarea
+        <VSCodeEditor
           value={value}
-          onChange={handleChange}
+          onChange={handleEditorChange}
           disabled={disabled || isChecked}
-          placeholder="Type your code here..."
-          className={cn(
-            "w-full bg-transparent border-0 font-mono text-lg text-white placeholder:text-slate-500 outline-none resize-none min-h-[100px]",
-            status === "wrong" && "text-rose-500",
-            status === "correct" && "text-green-500"
-          )}
+          height="200px"
+          language="java"
         />
       </div>
     </div>
   );
 };
+
