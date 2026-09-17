@@ -25,7 +25,19 @@ export const List = ({ courses, activeCourseId }: ListProps) => {
     if (id === activeCourseId) return router.push("/learn");
 
     startTransition(() => {
-      upsertUserProgress(id).catch(() => toast.error("Something went wrong."));
+      upsertUserProgress(id)
+        .then(() => {
+          router.push("/learn");
+        })
+        .catch((error) => {
+          if (
+            error?.message === "NEXT_REDIRECT" ||
+            error?.digest?.startsWith("NEXT_REDIRECT")
+          ) {
+            return;
+          }
+          toast.error("Something went wrong.");
+        });
     });
   };
 
