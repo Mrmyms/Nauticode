@@ -15,29 +15,30 @@ const main = async () => {
   try {
     console.log("Seeding database...");
 
-    // Delete all existing data (sequential to avoid deadlocks)
+    // Only delete curriculum content (preserving user progress and subscriptions!)
     await db.delete(schema.challengeOptions);
     await db.delete(schema.challenges);
     await db.delete(schema.lessons);
     await db.delete(schema.units);
-    await db.delete(schema.userProgress);
-    await db.delete(schema.userSubscription);
-    await db.delete(schema.courses);
 
-    // Setup predefined courses (to guarantee IDs exist before linking)
+    // Setup predefined courses (preserve existing courses to avoid cascading user deletions)
     const coursesMap: Record<string, number> = {};
-    const courses = await db
-      .insert(schema.courses)
-      .values([
-        { title: "Basics of Code", imageSrc: "/basics.svg" },
-        { title: "Java", imageSrc: "/java.svg" },
-        { title: "C++", imageSrc: "/cpp.svg" },
-        { title: "Python", imageSrc: "/python.svg" },
-      ])
-      .returning();
+    const predefinedCourses = [
+      { title: "Basics of Code", imageSrc: "/basics.svg" },
+      { title: "Java", imageSrc: "/java.svg" },
+      { title: "C++", imageSrc: "/cpp.svg" },
+      { title: "Python", imageSrc: "/python.svg" },
+    ];
 
-    for (const c of courses) {
-      coursesMap[c.title.toLowerCase().replace(/ /g, "-")] = c.id;
+    const existingCourses = await db.select().from(schema.courses);
+    for (const pre of predefinedCourses) {
+      const found = existingCourses.find(c => c.title.toLowerCase() === pre.title.toLowerCase());
+      if (found) {
+        coursesMap[pre.title.toLowerCase().replace(/ /g, "-")] = found.id;
+      } else {
+        const [newCourse] = await db.insert(schema.courses).values(pre).returning();
+        coursesMap[pre.title.toLowerCase().replace(/ /g, "-")] = newCourse.id;
+      }
     }
 
     if (!fs.existsSync(CLASSES_DIR)) {
