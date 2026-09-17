@@ -1,11 +1,13 @@
 import { auth } from "@clerk/nextjs/server";
 
+import { redirect } from "next/navigation";
 import { getCourses, getUserProgress } from "@/db/queries";
 
 import { List } from "./list";
 
 const CoursesPage = async () => {
-  await auth.protect();
+  const { userId } = await auth();
+  if (!userId) return redirect("/sign-in");
 
   const coursesData = getCourses();
   const userProgressData = getUserProgress();

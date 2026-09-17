@@ -18,7 +18,8 @@ import { Header } from "./header";
 import { Unit } from "./unit";
 
 const LearnPage = async () => {
-  await auth.protect();
+  const { userId } = await auth();
+  if (!userId) return redirect("/sign-in");
 
   const userProgressData = getUserProgress();
   const courseProgressData = getCourseProgress();
