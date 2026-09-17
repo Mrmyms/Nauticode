@@ -10,9 +10,9 @@ export const Footer = () => {
           <Image
             src="/java.svg"
             alt="Java"
-            height={32}
-            width={40}
-            className="mr-4 rounded-md"
+            height={36}
+            width={36}
+            className="mr-3 h-9 w-9 object-contain"
           />
           Java
         </Button>
@@ -21,9 +21,9 @@ export const Footer = () => {
           <Image
             src="/cpp.svg"
             alt="C++"
-            height={32}
-            width={40}
-            className="mr-4 rounded-md"
+            height={36}
+            width={36}
+            className="mr-3 h-9 w-9 object-contain"
           />
           C++
         </Button>
@@ -32,9 +32,9 @@ export const Footer = () => {
           <Image
             src="/python.svg"
             alt="Python"
-            height={32}
-            width={40}
-            className="mr-4 rounded-md"
+            height={36}
+            width={36}
+            className="mr-3 h-9 w-9 object-contain"
           />
           Python
         </Button>
