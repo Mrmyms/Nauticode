@@ -159,103 +159,137 @@ Programar **no** es magia ni adivinación; es la ciencia de diseñar algoritmos 
         ]
       },
       {
-        title: "Traduciendo a Ceros y Unos",
+        title: "Traduciendo a Ceros y Unos: Hardware y Binario",
         challenges: [
           {
             type: "THEORY",
-            question: "¿Cómo entienden las computadoras las instrucciones?",
-            lessonText: "# El Alfabeto Binario y los Transistores \n\nEn el nivel más bajo (Hardware), una computadora es solo una gigantesca red de interruptores microscópicos llamados **transistores**.\n\nUn transistor solo tiene dos estados: encendido (dejando pasar voltaje) o apagado (bloqueando el voltaje). Nosotros representamos estos estados como **1** y **0**.\n\nPara no tener que escribir millones de unos y ceros manualmente, usamos **Lenguajes de Alto Nivel** (como Java, Python o C++). Estos lenguajes usan palabras en inglés (if, while, print) que son fáciles de leer para los humanos.",
+            question: "¿Por qué los procesadores solo comprenden ceros y unos en su nivel fundamental?",
+            lessonText: "# El Abismo entre el Humano y el Silicio\n\nEn el mundo físico, el microprocesador de una computadora o de la roboRIO no sabe qué es una letra, una palabra o una instrucción en inglés. Lo único que existe dentro de un chip de silicio son miles de millones de interruptores microscópicos llamados **transistores**.\n\n### Niveles de Voltaje Físico\nUn transistor solo puede encontrarse en dos estados electrónicos:\n- **Conduciendo corriente (Alto Voltaje, ej. 3.3V o 5V):** Lo representamos matemáticamente como **1**.\n- **Bloqueando corriente (Bajo Voltaje, ej. 0V):** Lo representamos matemáticamente como **0**.\n\nA cada uno de estos dígitos binarios se le llama **Bit** (*Binary Digit*). Todo lo que ves en una pantalla, desde un número hasta un modelo de visión artificial, es una combinación gigantesca de bits.\n\n### La Pirámide de Abstracción\nComo sería imposible para un ser humano programar una rutina autónoma escribiendo a mano diez millones de unos y ceros, la ciencia de la computación creó niveles de abstracción:\n1. **Lenguajes de Alto Nivel (Python, Java, C++):** Usan vocabulario estructurado en inglés comprensible para humanos (`if`, `while`, `motor.set`).\n2. **El Compilador o Intérprete:** Un software traductor que analiza nuestro código fuente y lo traduce a código máquina binario.\n3. **Hardware (CPU):** Ejecuta físicamente los pulsos de voltaje a la velocidad de su reloj interno.\n\n**La Regla de Oro:**\nEl hardware no entiende intenciones ni sintaxis humana; solo conmuta interruptores eléctricos guiado por el código máquina generado por el compilador.",
             options: [
-              { text: "Mediante transistores que actúan como interruptores (1 = encendido, 0 = apagado)", correct: true },
-              { text: "Con un diccionario interno de español a inglés almacenado en el disco duro", correct: false },
-              { text: "Mediante pequeños engranajes mecánicos dentro del procesador que giran al recibir código", correct: false },
-              { text: "A través de ondas de radio transmitidas desde el teclado hasta la pantalla", correct: false }
-            ]
-          },
-          {
-            type: "SELECT",
-            question: "Si los procesadores solo entienden ceros y unos, ¿por qué los programadores de FIRST Robotics escriben código en Java o C++?",
-            options: [
-              { text: "Porque son lenguajes de alto nivel (legibles para humanos) que luego un programa traductor convertirá a binario", correct: true },
-              { text: "Porque Java y C++ son los únicos lenguajes que usan ceros y unos en sus letras", correct: false },
-              { text: "Porque a los jueces de la competencia les gusta más leer palabras en inglés que números", correct: false },
-              { text: "Porque es un requisito instalar teclados binarios especiales", correct: false }
-            ]
-          },
-          {
-            type: "THEORY",
-            question: "¿Qué herramienta hace de puente entre el lenguaje de alto nivel y la máquina?",
-            lessonText: "# El Compilador: El Traductor Universal \n\nPara que el procesador de la roboRIO ejecute el código que escribiste en Java o C++, necesitamos un traductor.\n\nEl **Compilador** (o Intérprete, según el lenguaje) es un programa especializado que toma tu **Código Fuente** (el texto legible) y lo traduce por completo a **Código Máquina** (instrucciones binarias). \n\nSi hay un solo error gramatical, el compilador se detiene, te muestra el error en la consola y se niega a traducir.",
-            options: [
-              { text: "El Compilador o Intérprete, que traduce el código fuente a código máquina (binario)", correct: true },
-              { text: "El Disco Duro, que lee el código en voz alta para que la placa madre lo escuche", correct: false },
-              { text: "El Motor, que transforma las letras de código directamente en movimiento rotacional", correct: false },
-              { text: "La Batería, que inyecta los caracteres en la corriente eléctrica", correct: false }
+              { text: "Porque el procesador está compuesto por transistores microscópicos que solo operan con dos estados físicos de voltaje: encendido (1) y apagado (0)", correct: true },
+              { text: "Porque los primeros programadores decidieron usar ceros y unos para ahorrar espacio en las pantallas de fósforo verde", correct: false },
+              { text: "Porque la memoria RAM destruye cualquier dato que contenga números del 2 al 9 antes de llegar a la CPU", correct: false },
+              { text: "Porque el sistema binario es exclusivo de los motores de robótica y no se utiliza en computadoras convencionales", correct: false }
             ]
           },
           {
             type: "MATCHING",
-            question: "Relaciona los conceptos de la cadena de traducción de software:",
+            question: "Relaciona cada eslabón de la cadena de traducción informática con su función técnica:",
             options: [
-              { text: "Código Fuente|||Las instrucciones legibles escritas por el programador", correct: true },
-              { text: "Lenguaje de Alto Nivel|||Java, C++, Python, JavaScript", correct: true },
-              { text: "Compilador|||El programa que traduce las instrucciones al lenguaje del hardware", correct: true },
-              { text: "Código Binario (Máquina)|||Ceros y unos que controlan directamente los transistores", correct: true }
+              { text: "Código Fuente|||Texto legible escrito por el programador en un lenguaje estructurado", correct: true },
+              { text: "Compilador o Intérprete|||Software traductor que convierte el código legible en instrucciones binarias", correct: true },
+              { text: "Código Máquina|||Secuencia de bits (1s y 0s) que la CPU ejecuta directamente", correct: true },
+              { text: "Transistor|||Interruptor físico microscópico que conmuta entre alto y bajo voltaje", correct: true }
+            ]
+          },
+          {
+            type: "CODE_ORDER",
+            question: "Ordena el ciclo de vida por el que pasa una orden desde que el programador la escribe hasta que el robot se mueve:",
+            options: [
+              { text: "El programador escribe la instrucción en código fuente legible", correct: true, audioSrc: "1" },
+              { text: "El compilador analiza la sintaxis y traduce a código máquina", correct: true, audioSrc: "2" },
+              { text: "La CPU procesa las secuencias de pulsos binarios (1s y 0s)", correct: true, audioSrc: "3" },
+              { text: "El controlador de motores recibe la señal y entrega potencia física", correct: true, audioSrc: "4" }
+            ]
+          },
+          {
+            type: "CODE_FILL",
+            question: "Completa la etapa donde el software traductor procesa el código fuente antes de que el hardware lo ejecute:",
+            codeSnippet: "codigoFuente = \"motor.setPower(0.8)\"\ncodigoBinario = _____ (codigoFuente)\ncpu.ejecutarEnHardware(codigoBinario)",
+            options: [
+              { text: "compilar", correct: true },
+              { text: "adivinar", correct: false },
+              { text: "ignorar", correct: false },
+              { text: "conectar", correct: false }
+            ]
+          },
+          {
+            type: "SELECT",
+            question: "Si una computadora solo ejecuta ceros y unos en sus circuitos, ¿por qué no programamos los robots escribiendo binario directamente?",
+            options: [
+              { text: "Porque la complejidad y tasa de error humano escribiendo millones de bits sería insostenible; los lenguajes de alto nivel nos permiten razonar con abstracciones humanas", correct: true },
+              { text: "Porque los sistemas operativos modernos tienen bloqueada la entrada manual de números binarios por motivos de seguridad", correct: false },
+              { text: "Porque el código binario es más lento de procesar para la computadora que un archivo de texto en Java", correct: false },
+              { text: "Porque se requieren teclados especiales con solo dos teclas físicas que ya no se fabrican comercialmente", correct: false }
+            ]
+          },
+          {
+            type: "CODE_TEST",
+            question: "El compilador evalúa la validez de cada línea antes de generar código binario. ¿Cuál será el resultado impreso?",
+            codeSnippet: "linea1_valida = True\nlinea2_valida = False\n\nif (linea1_valida and linea2_valida):\n    estado = 'Compilacion Exitosa: Generando Binario'\nelse:\n    estado = 'Error de Compilacion: Ejecucion Detenida'\n\nprint(estado)",
+            options: [
+              { text: "Error de Compilacion: Ejecucion Detenida", correct: true },
+              { text: "Compilacion Exitosa: Generando Binario", correct: false },
+              { text: "linea2_valida", correct: false },
+              { text: "True", correct: false }
             ]
           }
         ]
       },
       {
-        title: "Desafío Práctico: Tu Primera Instrucción",
+        title: "Desafío de Integración: El Ciclo del Software",
         challenges: [
           {
             type: "THEORY",
-            question: "¡Momento de poner a prueba lo aprendido!",
-            lessonText: "# ¡Bienvenido al equipo de programación! \n\nEstás en la arena de competencia preparando las primeras instrucciones para el robot.\n\nEn esta lección final de la Unidad 1, demostrarás que comprendes la naturaleza del código, la precisión absoluta y la ejecución de sentencias de output en la consola.\n\n¡Vamos a dejar el código impecable!",
+            question: "¿Cómo se integran la entrada, el algoritmo y la traducción en una arquitectura real de software?",
+            lessonText: "# El Ciclo Periódico del Software\n\nUn programa de software en un robot o sistema autónomo no es un texto estático: es un **ciclo de control continuo** que se repite decenas de veces por segundo (típicamente a 50 Hz, o cada 20 milisegundos).\n\nEn cada ciclo periódico ocurren tres pasos sincronizados:\n1. **Lectura de Entrada (Input):** Sensores, cámaras y mandos del piloto inyectan mediciones frescas en la memoria RAM.\n2. **Ejecución Lógica (Proceso):** El código máquina (previamente traducido por el compilador) procesa esas entradas aplicando reglas matemáticas deterministas y sin ambigüedad.\n3. **Emisión de Salida (Output):** La computadora despacha señales a actuadores, motores o pantallas de diagnóstico.\n\n### La Diferencia Crítica entre Sintaxis y Lógica\n- Un **Error de Sintaxis** impide que el compilador cree el código binario. El programa jamás arranca, protegiendo al robot de actuar a ciegas.\n- Un **Error de Lógica** sí compila y sí genera binario. El hardware lo ejecutará ciegamente a máxima velocidad, lo que en robótica puede traducirse en una colisión o en un mecanismo roto.\n\n**La Regla de Oro:**\nEl software de calidad es aquel que no solo compila sin errores de sintaxis, sino cuya lógica contempla todos los casos extremos antes de enviar potencia al hardware.",
             options: [
-              { text: "¡Estoy listo para escribir instrucciones precisas y sin ambigüedad!", correct: true },
-              { text: "Prefiero saltarme las reglas gramaticales y ver qué pasa", correct: false },
-              { text: "Voy a intentar escribir instrucciones binarias a mano", correct: false },
-              { text: "Esperaré a que la roboRIO adivine lo que quiero que haga", correct: false }
+              { text: "Mediante un ciclo periódico determinista que lee entradas (Input), ejecuta la lógica compilada (Proceso) y despacha órdenes físicas (Output) múltiples veces por segundo", correct: true },
+              { text: "Mediante una conexión directa entre los cables de la batería y los sensores sin pasar por el procesador", correct: false },
+              { text: "Reiniciando el sistema operativo cada vez que el robot debe tomar una decisión nueva en la cancha", correct: false },
+              { text: "Permitiendo que cada motor decida su propia velocidad independientemente del código central", correct: false }
+            ]
+          },
+          {
+            type: "MATCHING",
+            question: "Identifica en qué fase del ciclo de software se origina cada problema técnico:",
+            options: [
+              { text: "Olvidar cerrar un paréntesis en una instrucción|||Fallo de Sintaxis (Bloqueado por el compilador antes de correr)", correct: true },
+              { text: "Lente de la cámara de visión cubierto por polvo|||Fallo de Input (Datos corruptos del mundo exterior)", correct: true },
+              { text: "Calcular la velocidad dividiendo entre cero|||Fallo de Lógica (Colapso durante el Proceso de ejecución)", correct: true },
+              { text: "Cable de alimentación del motor desconectado|||Fallo de Output (La orden lógica no llega al actuador físico)", correct: true }
             ]
           },
           {
             type: "CODE_ORDER",
-            question: "Ordena las líneas simulando el proceso lógico de inicialización de un robot (Input -> Proceso -> Output):",
+            question: "Ordena la rutina de seguridad que un sistema autónomo debe ejecutar en cada ciclo periódico:",
             options: [
-              { text: "print('1. Leyendo datos del sensor de visión (Input)')", correct: true, audioSrc: "1" },
-              { text: "print('2. Calculando distancia al objetivo (Proceso)')", correct: true, audioSrc: "2" },
-              { text: "print('3. Activando motores de disparo (Output)')", correct: true, audioSrc: "3" }
+              { text: "voltajeActual = leerVoltajeBateria()", correct: true, audioSrc: "1" },
+              { text: "if (voltajeActual < 11.0):", correct: true, audioSrc: "2" },
+              { text: "    desactivarMecanismosDeAltoConsumo()", correct: true, audioSrc: "3" },
+              { text: "enviarTelemetriaAConsola(voltajeActual)", correct: true, audioSrc: "4" }
             ]
           },
           {
             type: "CODE_FILL",
-            question: "Completa el comando para enviar un mensaje Output al log (consola):",
-            codeSnippet: "_____('Sistema de Telemetría Iniciado')",
+            question: "Completa la instrucción para emitir un mensaje de diagnóstico por el canal de salida estándar (consola):",
+            codeSnippet: "temperaturaMotor = 85\n\nif (temperaturaMotor > 80):\n    _____('[ALERTA] Temperatura critica en motor')",
             options: [
               { text: "print", correct: true },
               { text: "Print", correct: false },
               { text: "input", correct: false },
-              { text: "hardware", correct: false }
-            ]
-          },
-          {
-            type: "PREDICT_OUTPUT",
-            question: "¿Qué mostrará la consola exactamente al ejecutar estas dos instrucciones secuenciales?",
-            codeSnippet: "print('Robot encendido')\nprint('Esperando al Driver')",
-            options: [
-              { text: "Robot encendido\nEsperando al Driver", correct: true },
-              { text: "Robot encendido Esperando al Driver", correct: false }
+              { text: "sensor", correct: false }
             ]
           },
           {
             type: "SELECT",
-            question: "Al final del día, ¿qué afirmación resume mejor qué es programar?",
+            question: "¿Por qué un error de lógica es sustancialmente más peligroso en robótica que un error de sintaxis?",
             options: [
-              { text: "Es el diseño de algoritmos (input-proceso-output) y su traducción a lenguajes estructurados que el compilador convierte a instrucciones de hardware", correct: true },
-              { text: "Es memorizar cómo se enchufan los cables en el panel de distribución eléctrica", correct: false },
-              { text: "Es escribir textos largos para que otras personas los lean", correct: false },
-              { text: "Es una técnica para acelerar físicamente el movimiento de los motores", correct: false }
+              { text: "Porque el error de sintaxis es detectado y bloqueado por el compilador antes de ejecutar, mientras que el de lógica corre en hardware real y puede provocar colisiones o daños mecánicos", correct: true },
+              { text: "Porque los errores de lógica provocan un cortocircuito inmediato en las celdas químicas de la batería", correct: false },
+              { text: "Porque los errores de sintaxis borran permanentemente el disco de almacenamiento del robot", correct: false },
+              { text: "Porque los errores de lógica solo ocurren cuando el robot pierde la conexión inalámbrica de radio", correct: false }
+            ]
+          },
+          {
+            type: "CODE_TEST",
+            question: "Rastrea la ejecución secuencial del acumulador de errores de diagnóstico. ¿Cuál es el valor final de 'fallasDetectadas'?",
+            codeSnippet: "fallasDetectadas = 0\nsensorVision_ok = True\nsensorPresion_ok = False\n\nif not sensorVision_ok:\n    fallasDetectadas = fallasDetectadas + 1\n\nif not sensorPresion_ok:\n    fallasDetectadas = fallasDetectadas + 1\n\nprint(fallasDetectadas)",
+            options: [
+              { text: "1", correct: true },
+              { text: "2", correct: false },
+              { text: "0", correct: false },
+              { text: "False", correct: false }
             ]
           }
         ]

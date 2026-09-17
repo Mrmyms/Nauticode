@@ -1,93 +1,142 @@
 {
-  "title": "Traduciendo a Ceros y Unos",
+  "title": "Traduciendo a Ceros y Unos: Hardware y Binario",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo entienden las computadoras las instrucciones?",
-      "lessonText": "# El Alfabeto Binario y los Transistores \n\nEn el nivel más bajo (Hardware), una computadora es solo una gigantesca red de interruptores microscópicos llamados **transistores**.\n\nUn transistor solo tiene dos estados: encendido (dejando pasar voltaje) o apagado (bloqueando el voltaje). Nosotros representamos estos estados como **1** y **0**.\n\nPara no tener que escribir millones de unos y ceros manualmente, usamos **Lenguajes de Alto Nivel** (como Java, Python o C++). Estos lenguajes usan palabras en inglés (if, while, print) que son fáciles de leer para los humanos.",
+      "question": "¿Por qué los procesadores solo comprenden ceros y unos en su nivel fundamental?",
+      "lessonText": "# El Abismo entre el Humano y el Silicio\n\nEn el mundo físico, el microprocesador de una computadora o de la roboRIO no sabe qué es una letra, una palabra o una instrucción en inglés. Lo único que existe dentro de un chip de silicio son miles de millones de interruptores microscópicos llamados **transistores**.\n\n### Niveles de Voltaje Físico\nUn transistor solo puede encontrarse en dos estados electrónicos:\n- **Conduciendo corriente (Alto Voltaje, ej. 3.3V o 5V):** Lo representamos matemáticamente como **1**.\n- **Bloqueando corriente (Bajo Voltaje, ej. 0V):** Lo representamos matemáticamente como **0**.\n\nA cada uno de estos dígitos binarios se le llama **Bit** (*Binary Digit*). Todo lo que ves en una pantalla, desde un número hasta un modelo de visión artificial, es una combinación gigantesca de bits.\n\n### La Pirámide de Abstracción\nComo sería imposible para un ser humano programar una rutina autónoma escribiendo a mano diez millones de unos y ceros, la ciencia de la computación creó niveles de abstracción:\n1. **Lenguajes de Alto Nivel (Python, Java, C++):** Usan vocabulario estructurado en inglés comprensible para humanos (`if`, `while`, `motor.set`).\n2. **El Compilador o Intérprete:** Un software traductor que analiza nuestro código fuente y lo traduce a código máquina binario.\n3. **Hardware (CPU):** Ejecuta físicamente los pulsos de voltaje a la velocidad de su reloj interno.\n\n**La Regla de Oro:**\nEl hardware no entiende intenciones ni sintaxis humana; solo conmuta interruptores eléctricos guiado por el código máquina generado por el compilador.",
       "options": [
         {
-          "text": "Mediante transistores que actúan como interruptores (1 = encendido, 0 = apagado)",
+          "text": "Porque el procesador está compuesto por transistores microscópicos que solo operan con dos estados físicos de voltaje: encendido (1) y apagado (0)",
           "correct": true
         },
         {
-          "text": "Con un diccionario interno de español a inglés almacenado en el disco duro",
+          "text": "Porque los primeros programadores decidieron usar ceros y unos para ahorrar espacio en las pantallas de fósforo verde",
           "correct": false
         },
         {
-          "text": "Mediante pequeños engranajes mecánicos dentro del procesador que giran al recibir código",
+          "text": "Porque la memoria RAM destruye cualquier dato que contenga números del 2 al 9 antes de llegar a la CPU",
           "correct": false
         },
         {
-          "text": "A través de ondas de radio transmitidas desde el teclado hasta la pantalla",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "Si los procesadores solo entienden ceros y unos, ¿por qué los programadores de FIRST Robotics escriben código en Java o C++?",
-      "options": [
-        {
-          "text": "Porque son lenguajes de alto nivel (legibles para humanos) que luego un programa traductor convertirá a binario",
-          "correct": true
-        },
-        {
-          "text": "Porque Java y C++ son los únicos lenguajes que usan ceros y unos en sus letras",
-          "correct": false
-        },
-        {
-          "text": "Porque a los jueces de la competencia les gusta más leer palabras en inglés que números",
-          "correct": false
-        },
-        {
-          "text": "Porque es un requisito instalar teclados binarios especiales",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "THEORY",
-      "question": "¿Qué herramienta hace de puente entre el lenguaje de alto nivel y la máquina?",
-      "lessonText": "# El Compilador: El Traductor Universal \n\nPara que el procesador de la roboRIO ejecute el código que escribiste en Java o C++, necesitamos un traductor.\n\nEl **Compilador** (o Intérprete, según el lenguaje) es un programa especializado que toma tu **Código Fuente** (el texto legible) y lo traduce por completo a **Código Máquina** (instrucciones binarias). \n\nSi hay un solo error gramatical, el compilador se detiene, te muestra el error en la consola y se niega a traducir.",
-      "options": [
-        {
-          "text": "El Compilador o Intérprete, que traduce el código fuente a código máquina (binario)",
-          "correct": true
-        },
-        {
-          "text": "El Disco Duro, que lee el código en voz alta para que la placa madre lo escuche",
-          "correct": false
-        },
-        {
-          "text": "El Motor, que transforma las letras de código directamente en movimiento rotacional",
-          "correct": false
-        },
-        {
-          "text": "La Batería, que inyecta los caracteres en la corriente eléctrica",
+          "text": "Porque el sistema binario es exclusivo de los motores de robótica y no se utiliza en computadoras convencionales",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Relaciona los conceptos de la cadena de traducción de software:",
+      "question": "Relaciona cada eslabón de la cadena de traducción informática con su función técnica:",
       "options": [
         {
-          "text": "Código Fuente|||Las instrucciones legibles escritas por el programador",
+          "text": "Código Fuente|||Texto legible escrito por el programador en un lenguaje estructurado",
           "correct": true
         },
         {
-          "text": "Lenguaje de Alto Nivel|||Java, C++, Python, JavaScript",
+          "text": "Compilador o Intérprete|||Software traductor que convierte el código legible en instrucciones binarias",
           "correct": true
         },
         {
-          "text": "Compilador|||El programa que traduce las instrucciones al lenguaje del hardware",
+          "text": "Código Máquina|||Secuencia de bits (1s y 0s) que la CPU ejecuta directamente",
           "correct": true
         },
         {
-          "text": "Código Binario (Máquina)|||Ceros y unos que controlan directamente los transistores",
+          "text": "Transistor|||Interruptor físico microscópico que conmuta entre alto y bajo voltaje",
           "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena el ciclo de vida por el que pasa una orden desde que el programador la escribe hasta que el robot se mueve:",
+      "options": [
+        {
+          "text": "El programador escribe la instrucción en código fuente legible",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "El compilador analiza la sintaxis y traduce a código máquina",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "La CPU procesa las secuencias de pulsos binarios (1s y 0s)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "El controlador de motores recibe la señal y entrega potencia física",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la etapa donde el software traductor procesa el código fuente antes de que el hardware lo ejecute:",
+      "codeSnippet": "codigoFuente = \"motor.setPower(0.8)\"\ncodigoBinario = _____ (codigoFuente)\ncpu.ejecutarEnHardware(codigoBinario)",
+      "options": [
+        {
+          "text": "compilar",
+          "correct": true
+        },
+        {
+          "text": "adivinar",
+          "correct": false
+        },
+        {
+          "text": "ignorar",
+          "correct": false
+        },
+        {
+          "text": "conectar",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Si una computadora solo ejecuta ceros y unos en sus circuitos, ¿por qué no programamos los robots escribiendo binario directamente?",
+      "options": [
+        {
+          "text": "Porque la complejidad y tasa de error humano escribiendo millones de bits sería insostenible; los lenguajes de alto nivel nos permiten razonar con abstracciones humanas",
+          "correct": true
+        },
+        {
+          "text": "Porque los sistemas operativos modernos tienen bloqueada la entrada manual de números binarios por motivos de seguridad",
+          "correct": false
+        },
+        {
+          "text": "Porque el código binario es más lento de procesar para la computadora que un archivo de texto en Java",
+          "correct": false
+        },
+        {
+          "text": "Porque se requieren teclados especiales con solo dos teclas físicas que ya no se fabrican comercialmente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "El compilador evalúa la validez de cada línea antes de generar código binario. ¿Cuál será el resultado impreso?",
+      "codeSnippet": "linea1_valida = True\nlinea2_valida = False\n\nif (linea1_valida and linea2_valida):\n    estado = 'Compilacion Exitosa: Generando Binario'\nelse:\n    estado = 'Error de Compilacion: Ejecucion Detenida'\n\nprint(estado)",
+      "options": [
+        {
+          "text": "Error de Compilacion: Ejecucion Detenida",
+          "correct": true
+        },
+        {
+          "text": "Compilacion Exitosa: Generando Binario",
+          "correct": false
+        },
+        {
+          "text": "linea2_valida",
+          "correct": false
+        },
+        {
+          "text": "True",
+          "correct": false
         }
       ]
     }

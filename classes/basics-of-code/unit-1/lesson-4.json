@@ -1,54 +1,81 @@
 {
-  "title": "Desafío Práctico: Tu Primera Instrucción",
+  "title": "Desafío de Integración: El Ciclo del Software",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Momento de poner a prueba lo aprendido!",
-      "lessonText": "# ¡Bienvenido al equipo de programación! \n\nEstás en la arena de competencia preparando las primeras instrucciones para el robot.\n\nEn esta lección final de la Unidad 1, demostrarás que comprendes la naturaleza del código, la precisión absoluta y la ejecución de sentencias de output en la consola.\n\n¡Vamos a dejar el código impecable!",
+      "question": "¿Cómo se integran la entrada, el algoritmo y la traducción en una arquitectura real de software?",
+      "lessonText": "# El Ciclo Periódico del Software\n\nUn programa de software en un robot o sistema autónomo no es un texto estático: es un **ciclo de control continuo** que se repite decenas de veces por segundo (típicamente a 50 Hz, o cada 20 milisegundos).\n\nEn cada ciclo periódico ocurren tres pasos sincronizados:\n1. **Lectura de Entrada (Input):** Sensores, cámaras y mandos del piloto inyectan mediciones frescas en la memoria RAM.\n2. **Ejecución Lógica (Proceso):** El código máquina (previamente traducido por el compilador) procesa esas entradas aplicando reglas matemáticas deterministas y sin ambigüedad.\n3. **Emisión de Salida (Output):** La computadora despacha señales a actuadores, motores o pantallas de diagnóstico.\n\n### La Diferencia Crítica entre Sintaxis y Lógica\n- Un **Error de Sintaxis** impide que el compilador cree el código binario. El programa jamás arranca, protegiendo al robot de actuar a ciegas.\n- Un **Error de Lógica** sí compila y sí genera binario. El hardware lo ejecutará ciegamente a máxima velocidad, lo que en robótica puede traducirse en una colisión o en un mecanismo roto.\n\n**La Regla de Oro:**\nEl software de calidad es aquel que no solo compila sin errores de sintaxis, sino cuya lógica contempla todos los casos extremos antes de enviar potencia al hardware.",
       "options": [
         {
-          "text": "¡Estoy listo para escribir instrucciones precisas y sin ambigüedad!",
+          "text": "Mediante un ciclo periódico determinista que lee entradas (Input), ejecuta la lógica compilada (Proceso) y despacha órdenes físicas (Output) múltiples veces por segundo",
           "correct": true
         },
         {
-          "text": "Prefiero saltarme las reglas gramaticales y ver qué pasa",
+          "text": "Mediante una conexión directa entre los cables de la batería y los sensores sin pasar por el procesador",
           "correct": false
         },
         {
-          "text": "Voy a intentar escribir instrucciones binarias a mano",
+          "text": "Reiniciando el sistema operativo cada vez que el robot debe tomar una decisión nueva en la cancha",
           "correct": false
         },
         {
-          "text": "Esperaré a que la roboRIO adivine lo que quiero que haga",
+          "text": "Permitiendo que cada motor decida su propia velocidad independientemente del código central",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Identifica en qué fase del ciclo de software se origina cada problema técnico:",
+      "options": [
+        {
+          "text": "Olvidar cerrar un paréntesis en una instrucción|||Fallo de Sintaxis (Bloqueado por el compilador antes de correr)",
+          "correct": true
+        },
+        {
+          "text": "Lente de la cámara de visión cubierto por polvo|||Fallo de Input (Datos corruptos del mundo exterior)",
+          "correct": true
+        },
+        {
+          "text": "Calcular la velocidad dividiendo entre cero|||Fallo de Lógica (Colapso durante el Proceso de ejecución)",
+          "correct": true
+        },
+        {
+          "text": "Cable de alimentación del motor desconectado|||Fallo de Output (La orden lógica no llega al actuador físico)",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena las líneas simulando el proceso lógico de inicialización de un robot (Input -> Proceso -> Output):",
+      "question": "Ordena la rutina de seguridad que un sistema autónomo debe ejecutar en cada ciclo periódico:",
       "options": [
         {
-          "text": "print('1. Leyendo datos del sensor de visión (Input)')",
+          "text": "voltajeActual = leerVoltajeBateria()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "print('2. Calculando distancia al objetivo (Proceso)')",
+          "text": "if (voltajeActual < 11.0):",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "print('3. Activando motores de disparo (Output)')",
+          "text": "    desactivarMecanismosDeAltoConsumo()",
           "correct": true,
           "audioSrc": "3"
+        },
+        {
+          "text": "enviarTelemetriaAConsola(voltajeActual)",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa el comando para enviar un mensaje Output al log (consola):",
-      "codeSnippet": "_____('Sistema de Telemetría Iniciado')",
+      "question": "Completa la instrucción para emitir un mensaje de diagnóstico por el canal de salida estándar (consola):",
+      "codeSnippet": "temperaturaMotor = 85\n\nif (temperaturaMotor > 80):\n    _____('[ALERTA] Temperatura critica en motor')",
       "options": [
         {
           "text": "print",
@@ -63,44 +90,52 @@
           "correct": false
         },
         {
-          "text": "hardware",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la consola exactamente al ejecutar estas dos instrucciones secuenciales?",
-      "codeSnippet": "print('Robot encendido')\nprint('Esperando al Driver')",
-      "options": [
-        {
-          "text": "Robot encendido\nEsperando al Driver",
-          "correct": true
-        },
-        {
-          "text": "Robot encendido Esperando al Driver",
+          "text": "sensor",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Al final del día, ¿qué afirmación resume mejor qué es programar?",
+      "question": "¿Por qué un error de lógica es sustancialmente más peligroso en robótica que un error de sintaxis?",
       "options": [
         {
-          "text": "Es el diseño de algoritmos (input-proceso-output) y su traducción a lenguajes estructurados que el compilador convierte a instrucciones de hardware",
+          "text": "Porque el error de sintaxis es detectado y bloqueado por el compilador antes de ejecutar, mientras que el de lógica corre en hardware real y puede provocar colisiones o daños mecánicos",
           "correct": true
         },
         {
-          "text": "Es memorizar cómo se enchufan los cables en el panel de distribución eléctrica",
+          "text": "Porque los errores de lógica provocan un cortocircuito inmediato en las celdas químicas de la batería",
           "correct": false
         },
         {
-          "text": "Es escribir textos largos para que otras personas los lean",
+          "text": "Porque los errores de sintaxis borran permanentemente el disco de almacenamiento del robot",
           "correct": false
         },
         {
-          "text": "Es una técnica para acelerar físicamente el movimiento de los motores",
+          "text": "Porque los errores de lógica solo ocurren cuando el robot pierde la conexión inalámbrica de radio",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la ejecución secuencial del acumulador de errores de diagnóstico. ¿Cuál es el valor final de 'fallasDetectadas'?",
+      "codeSnippet": "fallasDetectadas = 0\nsensorVision_ok = True\nsensorPresion_ok = False\n\nif not sensorVision_ok:\n    fallasDetectadas = fallasDetectadas + 1\n\nif not sensorPresion_ok:\n    fallasDetectadas = fallasDetectadas + 1\n\nprint(fallasDetectadas)",
+      "options": [
+        {
+          "text": "1",
+          "correct": true
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "0",
+          "correct": false
+        },
+        {
+          "text": "False",
           "correct": false
         }
       ]
