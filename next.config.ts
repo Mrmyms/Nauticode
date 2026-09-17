@@ -2,6 +2,16 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  rewrites: async () => [
+    {
+      source: "/__clerk/npm/:path*",
+      destination: "https://npm.clerk.dev/:path*",
+    },
+    {
+      source: "/__clerk/:path*",
+      destination: "https://frontend-api.clerk.dev/:path*",
+    },
+  ],
   headers: async () => [
     {
       source: "/api/(.*)",
