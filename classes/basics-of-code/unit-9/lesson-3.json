@@ -1,32 +1,108 @@
 {
-  "title": "Part 3",
+  "title": "Condiciones Anidadas (Ifs dentro de Ifs)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Else Conditions - Concept 3",
-      "lessonText": "# Else Conditions (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es un 'if anidado' (nested if)?",
+      "lessonText": "# Decisiones Dentro de Decisiones 🪆\n\nA veces una decisión depende de que una decisión previa ya se haya cumplido.\n\nEjemplo en la arena de FIRST:\n```python\nif robotHabilitado:\n    print('Paso 1: Robot encendido')\n    if botonDisparoPresionado:\n        print('Paso 2: Disparando')\n```\n- Si `robotHabilitado` es `false`, la computadora ni siquiera se molesta en mirar `botonDisparoPresionado`.\n- El código interior solo se alcanza si **ambas compuertas se abrieron sucesivamente**.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Una sentencia if colocada dentro del bloque de otra sentencia if previa",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un if que se ejecuta hacia atrás",
+          "correct": false
+        },
+        {
+          "text": "Un error que destruye las variables",
+          "correct": false
+        },
+        {
+          "text": "Un if que solo funciona con números primos",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá este programa?",
+      "codeSnippet": "autonomoActivo = true\ntieneNota = false\nif autonomoActivo:\n    if tieneNota:\n        print('Disparar Nota')\nprint('Fin del ciclo')",
+      "options": [
+        {
+          "text": "Fin del ciclo (porque tieneNota es false, el if interno no corre)",
+          "correct": true
+        },
+        {
+          "text": "Disparar Nota\nFin del ciclo",
+          "correct": false
+        },
+        {
+          "text": "Disparar Nota solamente",
+          "correct": false
+        },
+        {
+          "text": "No imprime nada",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la telemetría si ambas condiciones son verdaderas?",
+      "codeSnippet": "visionDetectada = true\ndistanciaCorta = true\nif visionDetectada:\n    if distanciaCorta:\n        print('BLANCO FIJADO')",
+      "options": [
+        {
+          "text": "BLANCO FIJADO",
+          "correct": true
+        },
+        {
+          "text": "",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Else Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿A cuál de las siguientes expresiones equivale lógicamente un if anidado `if A: if B: accion()`?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "if (A and B): accion()",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "if (A or B): accion()",
+          "correct": false
+        },
+        {
+          "text": "if (not A): accion()",
+          "correct": false
+        },
+        {
+          "text": "if (A == B): accion()",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el problema de legibilidad: Anidar 8 ifs seguidos hace que el código sea casi imposible de leer. ¿Cómo se llama esa mala práctica?",
+      "codeSnippet": "if a: if b: if c: if d: if e: if f: print('ok')",
+      "options": [
+        {
+          "text": "Código espagueti / Pyramid of Doom (Pirámide de la Muerte)",
+          "correct": true
+        },
+        {
+          "text": "Optimización cuántica de alta velocidad",
+          "correct": false
+        },
+        {
+          "text": "Compilación supersónica",
+          "correct": false
+        },
+        {
+          "text": "Algoritmo de campeonato mundial",
           "correct": false
         }
       ]

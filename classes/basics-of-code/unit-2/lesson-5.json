@@ -1,32 +1,116 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Algoritmo de Rutina Autónoma",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Algorithms - Concept 5",
-      "lessonText": "# Algorithms (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "El reto de los primeros 15 segundos en FIRST Robotics",
+      "lessonText": "# El Periodo Autónomo ⏱️\n\nEn cada match de FRC, los primeros 15 segundos son **100% autónomos**.\n\nNingún humano puede tocar los joysticks. El robot depende enteramente del **algoritmo preprogramado** en su memoria:\n1. Salir de la zona de inicio.\n2. Localizar la pieza con visión artificial.\n3. Recogerla con el intake.\n4. Apuntar y anotar puntos.\n\nSi el algoritmo es defectuoso, el robot puede chocar contra la pared o desperdiciar valiosos segundos de juego.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Diseñemos un algoritmo de autónomo infalible!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero que el robot se quede dormido los 15 segundos",
+          "correct": false
+        },
+        {
+          "text": "Quiero manejar el robot con mi mente durante el autónomo",
+          "correct": false
+        },
+        {
+          "text": "No me interesan los puntos del match",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la rutina autónoma de 4010 para anotar en el Speaker:",
+      "options": [
+        {
+          "text": "iniciarOdometria()",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "conducirAPosicionDisparo()",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "acelerarShooterRPM(4500)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "dispararNota()",
+          "correct": true,
+          "audioSrc": "4"
+        },
+        {
+          "text": "salirDeZonaComunidad()",
+          "correct": true,
+          "audioSrc": "5"
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la pantalla de telemetría de los jueces tras correr este algoritmo?",
+      "codeSnippet": "puntos = 0\npuntos = puntos + 2 // Salir de zona\npuntos = puntos + 5 // Anotar en speaker\nprint(puntos)",
+      "options": [
+        {
+          "text": "7",
+          "correct": true
+        },
+        {
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la verificación del tiempo de autónomo:",
+      "codeSnippet": "tiempoRestante = 15\n_____('Segundos de autónomo restantes: ' + str(tiempoRestante))",
+      "options": [
+        {
+          "text": "print",
+          "correct": true
+        },
+        {
+          "text": "wait",
+          "correct": false
+        },
+        {
+          "text": "motor",
+          "correct": false
+        },
+        {
+          "text": "gyro",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Algorithms",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Por qué es tan valioso simular y revisar algoritmos en equipo antes de cargar el código al robot físico?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Para evitar daños mecánicos en el robot, prevenir choques y asegurar puntos en competencia",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Para que el café de los mentores no se enfríe",
+          "correct": false
+        },
+        {
+          "text": "Porque el robot pesa demasiado para moverlo",
+          "correct": false
+        },
+        {
+          "text": "No tiene valor, es mejor probar directo a máxima potencia en la cancha",
           "correct": false
         }
       ]

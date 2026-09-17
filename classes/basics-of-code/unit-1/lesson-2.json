@@ -1,32 +1,111 @@
 {
-  "title": "Part 2",
+  "title": "Instrucciones Paso a Paso",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "What is Programming? - Concept 2",
-      "lessonText": "# What is Programming? (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo procesa las instrucciones una computadora?",
+      "lessonText": "# Paso a Paso (Step-by-Step)\n\nUna computadora ejecuta las instrucciones **una a una**, de arriba hacia abajo (*top-to-bottom*).\n\nSi le pides a un novato del equipo:\n1. 'Ve al taller'\n2. 'Toma un cautín'\n3. 'Enciéndelo'\n\nTiene sentido. Pero si alteras el orden y dices:\n1. 'Enciéndelo'\n2. 'Toma un cautín'\n3. 'Ve al taller'\n\n¡El resultado será un desastre! En código, saltarse un paso o dar una instrucción fuera de tiempo crea un **bug**.",
       "options": [
         {
-          "text": "Understood",
+          "text": "En secuencia ordenada, una tras otra de arriba a abajo",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Todas al mismo milisegundo al azar",
+          "correct": false
+        },
+        {
+          "text": "De abajo hacia arriba al revés",
+          "correct": false
+        },
+        {
+          "text": "Sólo las instrucciones que le parecen divertidas",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on What is Programming?",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "CODE_FILL",
+      "question": "Completa el comando para imprimir un aviso cuando el robot inicie:",
+      "codeSnippet": "_____('Robot Iniciado: Sistema Listo')",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "print",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "shout",
+          "correct": false
+        },
+        {
+          "text": "speak",
+          "correct": false
+        },
+        {
+          "text": "makeNoise",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será la salida en la consola tras ejecutar este bloque?",
+      "codeSnippet": "print('Paso 1: Calibrando')\nprint('Paso 2: Listo')",
+      "options": [
+        {
+          "text": "Paso 1: Calibrando Paso 2: Listo",
+          "correct": false
+        },
+        {
+          "text": "Paso 1: Calibrando\nPaso 2: Listo",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena los pasos lógicos para disparar una pelota en FRC:",
+      "options": [
+        {
+          "text": "encenderShooter()",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "esperarVelocidadOptima()",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "activarFeeder()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "detenerShooter()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué ocurre si le pedimos al feeder meter la pelota antes de que el shooter esté girando a velocidad?",
+      "options": [
+        {
+          "text": "La pelota se atasca o el tiro sale sin fuerza",
+          "correct": true
+        },
+        {
+          "text": "El robot vuela",
+          "correct": false
+        },
+        {
+          "text": "El código se borra automáticamente",
+          "correct": false
+        },
+        {
+          "text": "El procesador se apaga por vergüenza",
           "correct": false
         }
       ]

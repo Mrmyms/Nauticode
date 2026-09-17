@@ -1,5 +1,6 @@
 {
-  "title": "Sequential Order",
-  "description": "Why order matters",
-  "order": 3
+  "title": "Sequential Execution",
+  "description": "Flujo línea por línea: Por qué el orden lo cambia todo",
+  "order": 3,
+  "guidebookText": "# Guía de Estudio: Unit 3 - Sequential Execution\n\nLas computadoras procesan las instrucciones en **orden secuencial estricto**, línea por línea, de arriba hacia abajo (*Top-to-Bottom*).\n\n### Puntos Cruciales:\n1. **El Puntero de Instrucción:** La CPU mantiene un registro interno que apunta a la línea actual en ejecución. Una vez terminada, salta a la siguiente.\n2. **Dependencias:** Si la línea 4 usa el resultado de la línea 2, la línea 2 DEBE ejecutarse primero.\n3. **Efectos Secundarios en Robótica:** En software puro, un cálculo fuera de orden produce un resultado numérico incorrecto. En robótica, un comando de motor fuera de orden puede romper un eje de transmisión o doblar una placa de policarbonato."
 }

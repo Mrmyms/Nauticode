@@ -1,33 +1,119 @@
 {
-  "title": "Part 4",
+  "title": "Diagramas de Flujo y Rutas Lógicas",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Algorithms - Concept 4",
-      "lessonText": "# Algorithms (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es un diagrama de flujo en desarrollo de software?",
+      "lessonText": "# Mapas Visuales de Decisiones 🗺️\n\nUn **diagrama de flujo** representa visualmente un algoritmo usando símbolos estándar:\n- **Óvalo:** Inicio o Fin del programa.\n- **Rectángulo:** Una acción o proceso (ej: `avanzar 2 metros`).\n- **Rombo:** Una decisión con dos salidas: `SÍ` o `NO` (ej: `¿hay obstáculo?`).\n- **Flechas:** Indican la dirección del flujo de ejecución.\n\nVer el flujo con tus propios ojos te ayuda a descubrir de inmediato caminos sin salida o bucles infinitos no deseados.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Una representación gráfica de la secuencia de pasos y decisiones de un algoritmo",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "El plano eléctrico de los cables de poder del robot",
+          "correct": false
+        },
+        {
+          "text": "Un dibujo artístico para decorar la lona del pit de Nautilus",
+          "correct": false
+        },
+        {
+          "text": "Una gráfica que muestra el precio de las piezas de aluminio",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Algorithms",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "MATCHING",
+      "question": "Asocia cada figura geométrica con su significado en diagramas de flujo:",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Óvalo|||Inicio o Fin del programa",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Rectángulo|||Acción o proceso de cálculo",
+          "correct": true
+        },
+        {
+          "text": "Rombo|||Decisión o condición (Verdadero / Falso)",
+          "correct": true
+        },
+        {
+          "text": "Flecha|||Dirección y flujo de la ejecución",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Dentro de un rombo de decisión, ¿cuántos caminos de salida mínimos deben existir?",
+      "options": [
+        {
+          "text": "2 caminos (uno para Verdadero / Sí y otro para Falso / No)",
+          "correct": true
+        },
+        {
+          "text": "Infinitos caminos simultáneos",
           "correct": false
+        },
+        {
+          "text": "Ninguno, la decisión es un callejón sin salida",
+          "correct": false
+        },
+        {
+          "text": "Solo 1 camino que siempre avanza sin importar la condición",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Identifica el fallo lógico en este algoritmo de autonomous:",
+      "codeSnippet": "// 1. Avanzar 3 metros\n// 2. Disparar bola al objetivo\n// 3. Tomar bola del piso\n// 4. Fin",
+      "options": [
+        {
+          "text": "Intenta disparar la bola (paso 2) antes de haber tomado la bola del piso (paso 3)",
+          "correct": true
+        },
+        {
+          "text": "No se puede avanzar 3 metros en un autonomous",
+          "correct": false
+        },
+        {
+          "text": "Falta poner la palabra start al inicio",
+          "correct": false
+        },
+        {
+          "text": "El paso 4 no debe decir Fin",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena correctamente el flujo lógico para corregir el bug anterior:",
+      "options": [
+        {
+          "text": "tomarBolaDelPiso()",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "avanzarMetros(3)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "dispararBolaAlObjetivo()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "detenerTodo()",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     }

@@ -1,32 +1,108 @@
 {
-  "title": "Part 1",
+  "title": "La Sentencia If",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Else Conditions - Concept 1",
-      "lessonText": "# Else Conditions (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es una sentencia 'if' y para qué sirve?",
+      "lessonText": "# El Guardián del Camino 🚦\n\nEn la vida diaria tomas decisiones condicionales:\n*'SI está lloviendo, tomo una sombrilla'*. Si no está lloviendo, simplemente ignoras la sombrilla y sigues caminando.\n\nEn código, la instrucción **`if`** funciona exactamente igual:\n```python\nif distanciaCM < 20:\n    print('¡Frenar! Obstáculo detectado')\n```\n- La computadora evalúa la condición entre el `if` y los dos puntos.\n- **Si es `true`:** Entra y ejecuta el bloque de código indentado.\n- **Si es `false`:** Se salta ese bloque por completo y continúa con lo que sigue.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Una estructura de control que ejecuta un bloque de código únicamente si su condición es verdadera",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un comando que apaga la computadora si hay un error",
+          "correct": false
+        },
+        {
+          "text": "Una variable que solo guarda números pares",
+          "correct": false
+        },
+        {
+          "text": "Un bucle que se repite para siempre",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá este programa?",
+      "codeSnippet": "bateria = 10.5\nif bateria < 12.0:\n    print('Alerta de Batería Baja')\nprint('Chequeo Finalizado')",
+      "options": [
+        {
+          "text": "Alerta de Batería Baja en la primera línea y Chequeo Finalizado en la segunda",
+          "correct": true
+        },
+        {
+          "text": "Solamente 'Chequeo Finalizado'",
+          "correct": false
+        },
+        {
+          "text": "Solamente 'Alerta de Batería Baja'",
+          "correct": false
+        },
+        {
+          "text": "No imprime absolutamente nada",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué imprimirá la consola si la condición del 'if' es falsa?",
+      "codeSnippet": "temperatura = 35\nif temperatura > 80:\n    print('¡Motor sobrecalentado!')\nprint('Todo en orden')",
+      "options": [
+        {
+          "text": "Todo en orden",
+          "correct": true
+        },
+        {
+          "text": "¡Motor sobrecalentado!\nTodo en orden",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la palabra clave para tomar la decisión condicional:",
+      "codeSnippet": "_____ targetVisible == true:\n    iniciarApuntadoAutomatico()",
+      "options": [
+        {
+          "text": "if",
+          "correct": true
+        },
+        {
+          "text": "when",
+          "correct": false
+        },
+        {
+          "text": "then",
+          "correct": false
+        },
+        {
+          "text": "loop",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Else Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "En la sentencia `if condicion:` en Python, ¿cómo sabe la computadora qué líneas de código pertenecen al 'if'?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Por la indentación (espacios de sangría hacia la derecha)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Por el color del texto en el editor",
+          "correct": false
+        },
+        {
+          "text": "Por el tamaño de la letra",
+          "correct": false
+        },
+        {
+          "text": "La computadora no lo sabe y adivina",
           "correct": false
         }
       ]

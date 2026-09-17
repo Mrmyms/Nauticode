@@ -1,32 +1,119 @@
 {
-  "title": "Part 2",
+  "title": "Indentación y Bloques de Código",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Else Conditions - Concept 2",
-      "lessonText": "# Else Conditions (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué la indentación es obligatoria en Python y el orden visual en todos los lenguajes?",
+      "lessonText": "# El Espacio es Estructura 📐\n\nObserva con atención este ejemplo:\n```python\nif robotHabilitado:\n    print('Encendiendo compresor')\n    print('Calibrando encoders')\nprint('Programa activo')\n```\n- Las líneas que tienen **4 espacios de sangría** hacia adentro forman el **cuerpo del `if`**. Solo corren si `robotHabilitado` es `true`.\n- La última línea (`print('Programa activo')`) no tiene sangría: está **afuera del `if`** y se ejecutará SIEMPRE, sin importar la condición.\n\nEn Java y C++ el cuerpo se delimita con llaves `{ ... }`, pero los buenos programadores siempre indentan para que el código sea legible.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Porque define los límites de qué instrucciones están dentro de la condición y cuáles están fuera",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque a la CPU le gusta ver márgenes anchos",
+          "correct": false
+        },
+        {
+          "text": "Para que el archivo pese más kilobytes",
+          "correct": false
+        },
+        {
+          "text": "Es solo decorativo y nunca afecta el funcionamiento en ningún lenguaje",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Else Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "DEBUG",
+      "question": "Encuentra el bug en este bloque en Python (IndentationError):",
+      "codeSnippet": "if velocidad > 0:\nprint('Robot en movimiento')",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "La línea del print debe estar indentada (con sangría) debajo del 'if'",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Falta un punto y coma al final",
+          "correct": false
+        },
+        {
+          "text": "No se puede usar la palabra velocidad",
+          "correct": false
+        },
+        {
+          "text": "El signo '>' no existe",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué líneas se ejecutarán si 'sensor' vale 5?",
+      "codeSnippet": "sensor = 5\nif sensor > 10:\n    print('A')\n    print('B')\nprint('C')",
+      "options": [
+        {
+          "text": "Solamente 'C' (porque A y B están dentro del if que dio false)",
+          "correct": true
+        },
+        {
+          "text": "A, B y C",
+          "correct": false
+        },
+        {
+          "text": "A y B solamente",
+          "correct": false
+        },
+        {
+          "text": "Ninguna",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena este bloque condicional correctamente:",
+      "options": [
+        {
+          "text": "sensorOptico = true",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "if sensorOptico == true:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    detenerMotorIntake()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    print('Pieza asegurada')",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "En Java y C++, ¿qué símbolos se utilizan para abrir y cerrar el bloque de un if?",
+      "options": [
+        {
+          "text": "Llaves { y }",
+          "correct": true
+        },
+        {
+          "text": "Corchetes [ y ]",
+          "correct": false
+        },
+        {
+          "text": "Comillas \" y \"",
+          "correct": false
+        },
+        {
+          "text": "Flechas <- y ->",
           "correct": false
         }
       ]

@@ -1,32 +1,108 @@
 {
-  "title": "Part 1",
+  "title": "Operaciones Aritméticas Básicas",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Boolean Logic - Concept 1",
-      "lessonText": "# Boolean Logic (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cuáles son los 4 operadores aritméticos esenciales?",
+      "lessonText": "# Las 4 Operaciones de la CPU ➕➖✖️➗\n\nTu computadora puede realizar miles de millones de operaciones matemáticas por segundo:\n- **Suma (`+`):** `totalPuntos = puntosAutonomo + puntosTeleop`\n- **Resta (`-`):** `distanciaFaltante = meta - posicionActual`\n- **Multiplicación (`*`):** `potencia = inputJoystick * 0.85`\n- **División (`/`):** `promedio = suma / cantidad`\n\nEn programación, el asterisco `*` siempre representa la multiplicación y la barra `/` la división.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Suma (+), Resta (-), Multiplicación (*) y División (/)",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Copiar, Pegar, Cortar y Guardar",
+          "correct": false
+        },
+        {
+          "text": "Enter, Espacio, Shift y Control",
+          "correct": false
+        },
+        {
+          "text": "Encender, Apagar, Calibrar y Conectar",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué resultado se almacena en la variable 'distancia'?",
+      "codeSnippet": "distancia = 100 - 35\nprint(distancia)",
+      "options": [
+        {
+          "text": "65",
+          "correct": true
+        },
+        {
+          "text": "135",
+          "correct": false
+        },
+        {
+          "text": "35",
+          "correct": false
+        },
+        {
+          "text": "100",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la operación para calcular el doble de las RPM actuales:",
+      "codeSnippet": "rpm = 1500\nrpmDoble = rpm _____ 2\nprint(rpmDoble)",
+      "options": [
+        {
+          "text": "*",
+          "correct": true
+        },
+        {
+          "text": "+",
+          "correct": false
+        },
+        {
+          "text": "/",
+          "correct": false
+        },
+        {
+          "text": "%",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué imprimirá esta división en pantalla?",
+      "codeSnippet": "voltajeTotal = 24\ncantidadMotores = 2\nprint(voltajeTotal / cantidadMotores)",
+      "options": [
+        {
+          "text": "12.0",
+          "correct": true
+        },
+        {
+          "text": "24",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Boolean Logic",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué sucede si intentas dividir cualquier número entre CERO (`x / 0`)?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Ocurre un error fatal de división por cero (ZeroDivisionError / ArithmeticException)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "El resultado siempre es infinito sin causar errores",
+          "correct": false
+        },
+        {
+          "text": "La computadora se congela para siempre",
+          "correct": false
+        },
+        {
+          "text": "El resultado se convierte en cero",
           "correct": false
         }
       ]

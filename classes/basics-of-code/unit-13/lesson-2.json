@@ -1,0 +1,110 @@
+{
+  "title": "Saltando de Turno: La Sentencia Continue",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Cuál es la diferencia entre 'break' y 'continue'?",
+      "lessonText": "# Pasar de Largo 🦘\n\nA veces no quieres cancelar todo el bucle, sino **ignorar únicamente la iteración actual** y pasar de largo al siguiente ciclo.\n\nPara eso usamos **`continue`**:\n```python\nfor motor in range(4):\n    if motor == 2:  # El motor 2 está en mantenimiento\n        continue    # ¡Salta este motor y ve al siguiente!\n    probarMotor(motor)\n```\n- `break`: Aborta y destruye el bucle por completo.\n- `continue`: Aborta el turno actual y salta al siguiente número del ciclo.",
+      "options": [
+        {
+          "text": "break cancela todo el bucle definitivamente; continue solo salta a la siguiente iteración",
+          "correct": true
+        },
+        {
+          "text": "Son exactamente la misma instrucción con dos nombres distintos",
+          "correct": false
+        },
+        {
+          "text": "continue apaga la pantalla",
+          "correct": false
+        },
+        {
+          "text": "break solo se puede usar los lunes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué números imprimirá este script con continue?",
+      "codeSnippet": "for i in range(1, 5):\n    if i == 3:\n        continue\n    print(i)",
+      "options": [
+        {
+          "text": "1, 2, 4 (el 3 fue saltado por el continue)",
+          "correct": true
+        },
+        {
+          "text": "1, 2",
+          "correct": false
+        },
+        {
+          "text": "1, 2, 3, 4",
+          "correct": false
+        },
+        {
+          "text": "3",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja la instrucción de control con su efecto exacto:",
+      "options": [
+        {
+          "text": "break|||Sale del bucle de inmediato sin ejecutar más ciclos",
+          "correct": true
+        },
+        {
+          "text": "continue|||Salta al inicio de la siguiente iteración del bucle",
+          "correct": true
+        },
+        {
+          "text": "pass|||No hace nada (marcador de posición temporal)",
+          "correct": true
+        },
+        {
+          "text": "while true|||Bucle potencialmente infinito hasta un break",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la consola tras ejecutar este filtrado?",
+      "codeSnippet": "for n in range(4):\n    if n % 2 == 0:\n        continue  # Salta los pares\n    print(n)",
+      "options": [
+        {
+          "text": "1\n3",
+          "correct": true
+        },
+        {
+          "text": "0\n2",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿En qué situación de robótica es muy útil 'continue'?",
+      "options": [
+        {
+          "text": "Para omitir paquetes de sensores con lecturas corruptas o ruidosas sin detener el robot",
+          "correct": true
+        },
+        {
+          "text": "Para gastar más rápido la batería",
+          "correct": false
+        },
+        {
+          "text": "Para apagar los motores permanentemente",
+          "correct": false
+        },
+        {
+          "text": "Para reiniciar el match",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

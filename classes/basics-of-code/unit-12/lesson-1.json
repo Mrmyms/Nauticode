@@ -1,32 +1,108 @@
 {
-  "title": "Part 1",
+  "title": "Iteración Controlada: Repetir N Veces",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Breaking Loops - Concept 1",
-      "lessonText": "# Breaking Loops (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Para qué sirve un bucle 'for' y cuándo es la mejor opción?",
+      "lessonText": "# El Contador Automático ⏱️\n\n¿Qué pasa si necesitas:\n- Enviar 5 pulsos de señal a la radio.\n- Calentar los 4 motores del chasis uno por uno.\n- Contar regresivamente del 3 al 1 antes del autónomo.\n\nPodrías usar un `while`, pero tienes que declarar la variable afuera, escribir la condición y acordarte de incrementarla. ¡Es fácil cometer un error!\n\nEl **`for` loop** empaqueta todo de forma compacta y elegante:\n```python\nfor i in range(3):\n    print('¡Paso completado!')\n```\nEsto se ejecutará **exactamente 3 veces** sin riesgo de bucles infinitos por olvido.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Para repetir una secuencia de instrucciones una cantidad predeterminada y conocida de veces",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Para apagar el robot cuando la batería llega a cero",
+          "correct": false
+        },
+        {
+          "text": "Para cambiar el color de la pintura del chasis",
+          "correct": false
+        },
+        {
+          "text": "Para escribir texto en minúsculas únicamente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "En Python, ¿qué valores toma la variable 'i' en `range(4)`?",
+      "codeSnippet": "for i in range(4):\n    print(i)",
+      "options": [
+        {
+          "text": "0, 1, 2, 3 (empieza en 0 y se detiene antes del 4)",
+          "correct": true
+        },
+        {
+          "text": "1, 2, 3, 4",
+          "correct": false
+        },
+        {
+          "text": "4, 4, 4, 4",
+          "correct": false
+        },
+        {
+          "text": "0 y 4 solamente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuántas veces se imprimirá 'Gol' en consola?",
+      "codeSnippet": "for tiro in range(3):\n    print('Gol')",
+      "options": [
+        {
+          "text": "Gol\nGol\nGol",
+          "correct": true
+        },
+        {
+          "text": "Gol",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el bucle for para repetir 5 veces:",
+      "codeSnippet": "_____ paso in range(5):\n    avanzarCentimetro()",
+      "options": [
+        {
+          "text": "for",
+          "correct": true
+        },
+        {
+          "text": "while",
+          "correct": false
+        },
+        {
+          "text": "each",
+          "correct": false
+        },
+        {
+          "text": "loop",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Breaking Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¡Cuidado con el índice cero! En informática, ¿en qué número inician los rangos por defecto en la inmensa mayoría de lenguajes?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "En 0 (Zero-indexed)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "En 1",
+          "correct": false
+        },
+        {
+          "text": "En 10",
+          "correct": false
+        },
+        {
+          "text": "En -1",
           "correct": false
         }
       ]

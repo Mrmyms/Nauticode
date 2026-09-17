@@ -1,32 +1,107 @@
 {
-  "title": "Part 4",
+  "title": "Cuándo Usar For vs Cuándo Usar While",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Breaking Loops - Concept 4",
-      "lessonText": "# Breaking Loops (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo saber cuándo usar un 'for' y cuándo usar un 'while'?",
+      "lessonText": "# La Decisión del Arquitecto 🏛️\n\nAmbos bucles pueden lograr cosas similares, pero cada uno tiene su especialidad:\n\n**Usa `for` cuando:**\n- Sabes **exactamente cuántas veces** quieres iterar (ej: repetir 4 veces para las 4 llantas del robot swerve).\n- Vas a recorrer una lista de elementos uno por uno.\n\n**Usa `while` cuando:**\n- La repetición depende de una **condición que no sabes cuándo cambiará** (ej: esperar a que la pelota entre al intake, o mientras el match siga activo).\n\nElegir el bucle correcto hace que tu código sea más simple, limpio y seguro.",
       "options": [
         {
-          "text": "Understood",
+          "text": "For para número conocido de iteraciones; While para condiciones dependientes del estado",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "For es para la mañana y While es para la tarde",
+          "correct": false
+        },
+        {
+          "text": "For solo sirve en Python y While solo en Java",
+          "correct": false
+        },
+        {
+          "text": "No hay ninguna diferencia, son nombres sinónimos",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Breaking Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "MATCHING",
+      "question": "Clasifica cada caso de robótica con el mejor tipo de bucle a utilizar:",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Parpadear un LED de advertencia 5 veces|||for loop",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Revisar los 4 módulos de giro del chasis|||for loop",
+          "correct": true
+        },
+        {
+          "text": "Avanzar hasta que el sensor detecte la pared|||while loop",
+          "correct": true
+        },
+        {
+          "text": "Bucle principal de teleoperado del match|||while loop",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Quieres probar individualmente los 4 motores del chasis swerve (Motor 0, 1, 2, 3). ¿Cuál es la estructura más limpia?",
+      "options": [
+        {
+          "text": "for motorID in range(4): probarMotor(motorID)",
+          "correct": true
+        },
+        {
+          "text": "Copiar y pegar la misma línea 4 veces a mano",
+          "correct": false
+        },
+        {
+          "text": "Un while con 10 variables distintas",
+          "correct": false
+        },
+        {
+          "text": "No probar los motores y esperar que funcionen",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el error de tipeo en este for loop en Python:",
+      "codeSnippet": "for i in range(5)\n    print(i)",
+      "options": [
+        {
+          "text": "Faltan los dos puntos ':' al final de la línea del for",
+          "correct": true
+        },
+        {
+          "text": "Falta un punto y coma",
+          "correct": false
+        },
+        {
+          "text": "La palabra range debe estar en mayúsculas",
+          "correct": false
+        },
+        {
+          "text": "No se puede usar la letra i",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe el encabezado de un bucle for que itere con la variable 'k' en un rango de 10:",
+      "codeSnippet": "// Encabezado de for",
+      "options": [
+        {
+          "text": "for k in range(10):",
+          "correct": true
+        },
+        {
+          "text": "for k in range(10)",
           "correct": false
         }
       ]

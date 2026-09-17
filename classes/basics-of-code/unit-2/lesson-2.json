@@ -1,32 +1,115 @@
 {
-  "title": "Part 2",
+  "title": "Inputs, Procesamiento y Outputs",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Algorithms - Concept 2",
-      "lessonText": "# Algorithms (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo interactúan las 3 fases de un sistema computacional?",
+      "lessonText": "# El Ciclo IPO (Input -> Process -> Output) 🔄\n\nTodo programa o robot en el universo opera bajo este ciclo continuo:\n\n1. **INPUT (Entrada):** Información que entra al sistema. En un robot, son los joysticks del piloto o los sensores (cámara Limelight, encoder de ruedas, giroscopio).\n2. **PROCESS (Procesamiento):** Las operaciones matemáticas y decisiones lógicas que ejecuta el microprocesador.\n3. **OUTPUT (Salida):** La respuesta al exterior. Motores girando, un pistón neumático abriéndose, luces LED cambiando a color amarillo o telemetría en la pantalla.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Entrada de datos -> Procesamiento lógico -> Salida de acciones",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Salida primero -> luego la entrada -> y no hay procesamiento",
+          "correct": false
+        },
+        {
+          "text": "Procesamiento sin datos de entrada ni salida",
+          "correct": false
+        },
+        {
+          "text": "El ciclo sólo funciona si no hay humanos cerca",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Clasifica cada elemento de un robot de FRC en su fase correspondiente:",
+      "options": [
+        {
+          "text": "Joystick del piloto|||Input (Entrada de control)",
+          "correct": true
+        },
+        {
+          "text": "Sensor ultrasónico|||Input (Entrada de telemetría)",
+          "correct": true
+        },
+        {
+          "text": "Cálculo de velocidad en la roboRIO|||Process (Procesamiento)",
+          "correct": true
+        },
+        {
+          "text": "Motor del intake encendido|||Output (Salida de acción)",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "En este snippet de código, ¿cuál es el Output generado?",
+      "codeSnippet": "distancia = 12\nresultado = distancia * 2\nprint(resultado)",
+      "options": [
+        {
+          "text": "El número 24 impreso en la consola",
+          "correct": true
+        },
+        {
+          "text": "El número 12",
+          "correct": false
+        },
+        {
+          "text": "La palabra 'distancia'",
+          "correct": false
+        },
+        {
+          "text": "No produce ningún output",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el código para generar el output con el resultado:",
+      "codeSnippet": "lecturaSensor = 40\n_____('Lectura: ' + str(lecturaSensor))",
+      "options": [
+        {
+          "text": "print",
+          "correct": true
+        },
+        {
+          "text": "input",
+          "correct": false
+        },
+        {
+          "text": "save",
+          "correct": false
+        },
+        {
+          "text": "read",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Algorithms",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "Si el piloto no mueve la palanca del joystick (Input = 0), ¿cuál debería ser el Output de velocidad del motor en reposo?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "0 (Motor detenido)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "100% a máxima velocidad",
+          "correct": false
+        },
+        {
+          "text": "-50% en reversa",
+          "correct": false
+        },
+        {
+          "text": "Girar en círculos sin control",
           "correct": false
         }
       ]

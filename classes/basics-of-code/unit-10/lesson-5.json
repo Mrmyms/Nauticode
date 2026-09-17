@@ -1,32 +1,121 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Selector de Modos de Conducción",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "For Loops - Concept 5",
-      "lessonText": "# For Loops (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡Los modos de manejo del piloto de Nautilus 4010!",
+      "lessonText": "# El Selector de Velocidad en el Control 🎮\n\nEl piloto de nuestro equipo tiene un selector de 3 posiciones en su joystick:\n1. **Modo 'SLOW' (Precisión):** Potencia al `30%` (para alinear al milímetro con el alimentador).\n2. **Modo 'NORMAL':** Potencia al `75%` (para recorrer la cancha en teleoperado).\n3. **Modo 'BOOST' (Turbo):** Potencia al `100%` (para escapar de la defensa rival a toda máquina).\n\nEn este reto final de la Unidad 10, implementarás la máquina de decisiones completa con `if`, `elif` y `else`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a configurar el selector de manejo de Teus!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero que el robot maneje a una sola velocidad para siempre",
+          "correct": false
+        },
+        {
+          "text": "No me gusta tener control del chasis",
+          "correct": false
+        },
+        {
+          "text": "Quiero desactivar los motores",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on For Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "CODE_TEST",
+      "question": "El piloto selecciona el modo 'BOOST'. ¿Qué potencia se le asignará al chasis?",
+      "codeSnippet": "modo = 'BOOST'\nif modo == 'SLOW':\n    potencia = 0.3\nelif modo == 'NORMAL':\n    potencia = 0.75\nelif modo == 'BOOST':\n    potencia = 1.0\nelse:\n    potencia = 0.0\nprint(potencia)",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "1.0",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "0.75",
+          "correct": false
+        },
+        {
+          "text": "0.3",
+          "correct": false
+        },
+        {
+          "text": "0.0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "El piloto presiona una tecla inválida ('FLY'). ¿Qué potencia de seguridad tomará el else?",
+      "codeSnippet": "modo = 'FLY'\nif modo == 'SLOW':\n    potencia = 0.3\nelif modo == 'NORMAL':\n    potencia = 0.75\nelif modo == 'BOOST':\n    potencia = 1.0\nelse:\n    potencia = 0.0\nprint(potencia)",
+      "options": [
+        {
+          "text": "0.0",
+          "correct": true
+        },
+        {
+          "text": "1.0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura del selector de conducción completo:",
+      "options": [
+        {
+          "text": "if modo == 'SLOW':",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    setChasisSpeed(0.3)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "elif modo == 'NORMAL':",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    setChasisSpeed(0.75)",
+          "correct": true,
+          "audioSrc": "4"
+        },
+        {
+          "text": "else:",
+          "correct": true,
+          "audioSrc": "5"
+        },
+        {
+          "text": "    setChasisSpeed(1.0)",
+          "correct": true,
+          "audioSrc": "6"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué dominar 'if', 'elif' y 'else' te convierte oficialmente en un programador con criterio?",
+      "options": [
+        {
+          "text": "Porque pasas de escribir listas rígidas de instrucciones a crear sistemas inteligentes que se adaptan al entorno",
+          "correct": true
+        },
+        {
+          "text": "Porque ya no necesitas sensores mecánicos",
+          "correct": false
+        },
+        {
+          "text": "Porque las computadoras te dan un diploma automático",
+          "correct": false
+        },
+        {
+          "text": "Porque hace que el robot pese menos kilos",
           "correct": false
         }
       ]

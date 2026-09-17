@@ -1,32 +1,111 @@
 {
-  "title": "Part 4",
+  "title": "Reasignación y Mutabilidad",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Variables & Boxes - Concept 4",
-      "lessonText": "# Variables & Boxes (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué significa que una variable sea mutable?",
+      "lessonText": "# El Flujo del Tiempo ⏳\n\nEl estado de un robot cambia constantemente durante un match:\n- En el segundo 0, la velocidad es 0.\n- En el segundo 5, la velocidad sube a 100.\n- En el segundo 15, la velocidad cae a 0 al terminar el autónomo.\n\nLa **reasignación** consiste en guardar un dato nuevo en una caja que ya existía, reemplazando el valor viejo por completo.\n```python\nvelocidad = 0     # Arranca en reposo\nvelocidad = 100   # Acelera a fondo\nvelocidad = 0     # Frena\n```",
       "options": [
         {
-          "text": "Understood",
+          "text": "Que su contenido puede modificarse a lo largo del tiempo durante la ejecución",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Que la variable cambia de color según la temperatura",
+          "correct": false
+        },
+        {
+          "text": "Que puede convertirse en un cable físico",
+          "correct": false
+        },
+        {
+          "text": "Que se borra si no la usas durante 3 segundos",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola al final de esta serie de reasignaciones?",
+      "codeSnippet": "contador = 1\ncontador = contador + 2\ncontador = 10\nprint(contador)",
+      "options": [
+        {
+          "text": "10 (la última reasignación sobrescribió cualquier cálculo previo)",
+          "correct": true
+        },
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "13",
+          "correct": false
+        },
+        {
+          "text": "1",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena las líneas para incrementar el contador de notas de 0 a 2 paso a paso:",
+      "options": [
+        {
+          "text": "notasAnotadas = 0",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "notasAnotadas = notasAnotadas + 1",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "notasAnotadas = notasAnotadas + 1",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print(notasAnotadas)",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción que duplica el valor actual de la variable 'rpm':",
+      "codeSnippet": "// Multiplica rpm por 2 y guarda el resultado",
+      "options": [
+        {
+          "text": "rpm = rpm * 2",
+          "correct": true
+        },
+        {
+          "text": "rpm * 2",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Variables & Boxes",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "Si una variable cambia de valor cientos de veces por segundo (como la lectura de un encoder de rueda), ¿se llena la memoria RAM?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "No, porque reutiliza la misma caja de memoria, simplemente sobrescribe el dato anterior",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Sí, la memoria explota en 5 segundos",
+          "correct": false
+        },
+        {
+          "text": "Solo si el robot gira a la derecha",
+          "correct": false
+        },
+        {
+          "text": "Sí, a menos que borres la variable manualmente",
           "correct": false
         }
       ]

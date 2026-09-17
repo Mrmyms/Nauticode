@@ -1,0 +1,6 @@
+{
+  "title": "Functions II: Parameters & Returns",
+  "description": "Funciones poderosas: Pasar argumentos y devolver resultados con return",
+  "order": 15,
+  "guidebookText": "# Guía de Estudio: Unit 15 - Functions II: Parameters & Returns\n\nUna función sin parámetros siempre hace exactamente lo mismo. Para que una función sea verdaderamente versátil, necesitamos **pasarle datos de entrada (Parámetros)** y **recibir un resultado calculado (Valor de Retorno)**.\n\n### 1. Parámetros y Argumentos:\n- **Parámetro:** La variable que la función espera recibir en su definición (`def avanzar(distanciaMetros):`).\n- **Argumento:** El valor real que le envías al momento de llamarla (`avanzar(2.5)`).\n\n### 2. La Sentencia `return`:\n- La palabra clave **`return`** toma el resultado final de un cálculo y lo **devuelve** al lugar donde la función fue llamada.\n- Cuando la CPU encuentra un `return`, la función **termina de inmediato**.\n```python\ndef calcularDistancia(ticks):\n    return ticks * 0.05\n\ncm = calcularDistancia(400) # cm ahora vale 20.0\n```"
+}

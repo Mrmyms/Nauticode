@@ -1,32 +1,115 @@
 {
-  "title": "Part 3",
+  "title": "Lenguajes, Compiladores e Intérpretes",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "What is Programming? - Concept 3",
-      "lessonText": "# What is Programming? (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué papel juega el compilador o intérprete?",
+      "lessonText": "# El Traductor Universal 🌐\n\nLos microprocesadores sólo entienden voltajes: presencia o ausencia de corriente, representados como **0 y 1** (código binario).\n\nEscribir en ceros y unos sería infernalmente lento para los humanos. Por eso usamos **lenguajes de alto nivel** como Python, Java o C++.\n\nEl **compilador** o **intérprete** es el software traductor que toma nuestro código en texto legible y lo convierte en el código máquina que el chip entiende.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Traduce el código legible por humanos a ceros y unos para el procesador",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Limpia el polvo de la placa de circuitos del robot",
+          "correct": false
+        },
+        {
+          "text": "Acelera la batería del robot conectándola a la red",
+          "correct": false
+        },
+        {
+          "text": "Es un robot físico que escribe código con un teclado gigante",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on What is Programming?",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "MATCHING",
+      "question": "Relaciona cada término con su significado:",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Código Binario|||Ceros y unos que procesa el circuito",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Lenguaje Alto Nivel|||Código comprensible con palabras en inglés",
+          "correct": true
+        },
+        {
+          "text": "Compilador|||Traductor de código fuente a lenguaje máquina",
+          "correct": true
+        },
+        {
+          "text": "Bug|||Un error o fallo lógico en el programa",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuáles de los siguientes son lenguajes de alto nivel utilizados en FIRST Robotics?",
+      "options": [
+        {
+          "text": "Java, C++ y Python",
+          "correct": true
+        },
+        {
+          "text": "Morse, Semáforo y Braille",
+          "correct": false
+        },
+        {
+          "text": "HTML, CSS y Photoshop",
+          "correct": false
+        },
+        {
+          "text": "Bluetooth, Wi-Fi y Radiofrecuencia",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Este programa no corre porque tiene un error de sintaxis en el print. ¿Cuál es el error?",
+      "codeSnippet": "print 'Iniciando teleoperado'",
+      "options": [
+        {
+          "text": "Faltan los paréntesis () alrededor del texto",
+          "correct": true
+        },
+        {
+          "text": "No se puede usar la palabra print",
+          "correct": false
+        },
+        {
+          "text": "La palabra print debe estar toda en mayúsculas",
+          "correct": false
+        },
+        {
+          "text": "El texto no puede llevar espacios",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Corrige el error agregando los paréntesis correctos:",
+      "codeSnippet": "print_____'Nautilus 4010'_____",
+      "options": [
+        {
+          "text": "( y )",
+          "correct": true
+        },
+        {
+          "text": "[ y ]",
+          "correct": false
+        },
+        {
+          "text": "{ y }",
+          "correct": false
+        },
+        {
+          "text": "< y >",
           "correct": false
         }
       ]

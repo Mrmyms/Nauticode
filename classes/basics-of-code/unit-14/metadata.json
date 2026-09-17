@@ -1,0 +1,6 @@
+{
+  "title": "Functions I: Reusable Code",
+  "description": "Modularización: El principio DRY y cómo crear tus propios comandos",
+  "order": 14,
+  "guidebookText": "# Guía de Estudio: Unit 14 - Functions I: Reusable Code\n\nUna **función** es un bloque de código empaquetado con un nombre que realiza una tarea específica y que puedes **reutilizar** cuantas veces quieras sin reescribirlo.\n\n### El Principio DRY (Don't Repeat Yourself):\nEn ingeniería de software profesional, si copias y pegas el mismo bloque de código más de dos veces, estás cometiendo un grave error arquitectónico. Si encuentras un bug, tendrías que corregirlo en 10 lugares distintos. Con una función, solo lo corriges una vez.\n\n### Anatomía de una Función:\n1. **Definición (`def` / `void`):** Especifica el nombre de la función y las instrucciones que contiene.\n2. **Invocación / Llamada (`nombreFuncion()`):** Los paréntesis `()` le dicen a la CPU: *'¡Ejecuta este bloque ahora mismo!'*.\n3. **Scope (Ámbito):** Las variables creadas dentro de una función son **locales** y desaparecen cuando la función termina."
+}

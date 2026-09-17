@@ -1,32 +1,108 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Lógica de Seguridad del Elevador",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "If Conditions - Concept 5",
-      "lessonText": "# If Conditions (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡Seguridad de alto voltaje en Nautilus 4010!",
+      "lessonText": "# El Enclavamiento de Seguridad (Interlock) 🛑\n\nEl mecanismo de elevación de nuestro robot puede levantar 30 kg a toda velocidad. Para que sea 100% seguro, el software tiene una regla de oro:\n\n**Solo se permite subir el elevador si:**\n1. El limit switch superior NO ha sido alcanzado (`not limiteSuperior`).\n2. Y además, la presión de aire es correcta O el motor está habilitado.\n\nEn este reto final de la Unidad 8, pondrás a prueba tu dominio de comparadores, AND, OR y NOT.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a programar el interlock de seguridad!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero que el elevador choque contra el techo",
+          "correct": false
+        },
+        {
+          "text": "No me importa la seguridad mecánica",
+          "correct": false
+        },
+        {
+          "text": "Quiero desconectar los sensores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Evalúa si el elevador puede subir con estas condiciones:",
+      "codeSnippet": "limiteAlcanzado = false\nmotorListo = true\npuedeSubir = (not limiteAlcanzado) and motorListo\nprint(puedeSubir)",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "false",
+          "correct": false
+        },
+        {
+          "text": "none",
+          "correct": false
+        },
+        {
+          "text": "error",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "El robot alcanzó el límite mecánico superior (`limiteAlcanzado = true`). ¿Qué imprimirá ahora?",
+      "codeSnippet": "limiteAlcanzado = true\nmotorListo = true\npuedeSubir = (not limiteAlcanzado) and motorListo\nprint(puedeSubir)",
+      "options": [
+        {
+          "text": "false",
+          "correct": true
+        },
+        {
+          "text": "true",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la verificación: El robot puede disparar si tiene la pieza Y la mira Limelight está fija:",
+      "codeSnippet": "listoDisparo = (tienePieza _____ limelightBloqueada)",
+      "options": [
+        {
+          "text": "and",
+          "correct": true
+        },
+        {
+          "text": "or",
+          "correct": false
+        },
+        {
+          "text": "not",
+          "correct": false
+        },
+        {
+          "text": "==",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on If Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Por qué la lógica booleana es la piedra angular de la autonomía en robótica?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Porque permite al robot combinar múltiples señales sensoriales para tomar decisiones certeras y seguras",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Porque ahorra espacio físico en el chasis de metal",
+          "correct": false
+        },
+        {
+          "text": "Porque hace que las luces del robot brillen más fuerte",
+          "correct": false
+        },
+        {
+          "text": "No es necesaria, basta con mover motores a ciegas",
           "correct": false
         }
       ]

@@ -1,32 +1,111 @@
 {
-  "title": "Part 3",
+  "title": "Bucles Descendentes y Cuenta Regresiva",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Breaking Loops - Concept 3",
-      "lessonText": "# Breaking Loops (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo hacemos una cuenta regresiva con un bucle for?",
+      "lessonText": "# ¡3, 2, 1... Despegue! 🚀\n\nPara contar hacia atrás, simplemente usamos un **paso negativo** (`step = -1`):\n```python\nfor s in range(3, 0, -1):\n    print(s)\nprint('¡Match Iniciado!')\n```\n- Inicia en `3`.\n- Resta 1 en cada ciclo: `2`, luego `1`.\n- Se detiene antes del `0`.\n- Imprime `¡Match Iniciado!`.\n\nEn robótica es común para secuencias de calibración, temporizadores de autonomous o rampas de frenado suave.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Usando un valor de paso negativo (ej: -1) para decrementar en cada ciclo",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Girando la pantalla de cabeza",
+          "correct": false
+        },
+        {
+          "text": "Poniendo números negativos en el nombre de la variable",
+          "correct": false
+        },
+        {
+          "text": "Los bucles for no pueden ir hacia atrás",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Breaking Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará en consola esta cuenta regresiva?",
+      "codeSnippet": "for c in range(3, 0, -1):\n    print(c)\nprint('GO!')",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "3\n2\n1\nGO!",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "GO!\n1\n2\n3",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál será la suma final de los números de esta secuencia?",
+      "codeSnippet": "suma = 0\nfor i in range(1, 4):\n    suma += i\nprint(suma)",
+      "options": [
+        {
+          "text": "6 (1 + 2 + 3 = 6)",
+          "correct": true
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "10",
+          "correct": false
+        },
+        {
+          "text": "3",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena este script para hacer una secuencia de calibración de 3 pasos:",
+      "options": [
+        {
+          "text": "print('Iniciando calibración')",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "for paso in range(1, 4):",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    print('Calibrando sensor ' + str(paso))",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Calibración completada')",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué sucede si en `range(10, 0, 1)` pones un paso positivo en vez de negativo?",
+      "options": [
+        {
+          "text": "El bucle no se ejecutará ninguna vez porque 10 ya superó el límite de 0 hacia adelante",
+          "correct": true
+        },
+        {
+          "text": "La computadora se congela",
+          "correct": false
+        },
+        {
+          "text": "Cuenta hasta el infinito",
+          "correct": false
+        },
+        {
+          "text": "Invierte los números automáticamente",
           "correct": false
         }
       ]

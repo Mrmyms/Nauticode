@@ -1,0 +1,106 @@
+{
+  "title": "Reto: Comandos Base del Chasis",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¡Construyendo la librería de movimientos de Nautilus 4010!",
+      "lessonText": "# El Kit de Movimiento de Teus 🎮\n\nPara que los pilotos y los programadores de autónomo no tengan que lidiar con voltajes individuales de 4 ruedas en cada línea, creamos la capa de abstracción de comandos:\n- `avanzar()`\n- `retroceder()`\n- `girarDerecha()`\n- `frenar()`\n\nEn este reto final de la Unidad 14, definirás y enlazarás las funciones base del chasis para crear una coreografía limpia de movimientos.",
+      "options": [
+        {
+          "text": "¡Vamos a programar los comandos del chasis con Teus!",
+          "correct": true
+        },
+        {
+          "text": "Prefiero mover cada rueda escribiendo voltajes a mano",
+          "correct": false
+        },
+        {
+          "text": "No quiero modularizar",
+          "correct": false
+        },
+        {
+          "text": "Quiero desconectar los motores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Define la función 'frenar' que imprima 'MOTORES DETENIDOS':",
+      "codeSnippet": "// Define la función frenar",
+      "options": [
+        {
+          "text": "def frenar():\n    print('MOTORES DETENIDOS')",
+          "correct": true
+        },
+        {
+          "text": "def frenar: print('MOTORES DETENIDOS')",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué secuencia de acciones mostrará este autónomo modular?",
+      "codeSnippet": "def avanzar():\n    print('AVANZANDO')\ndef disparar():\n    print('DISPARANDO')\n\navanzar()\ndisparar()",
+      "options": [
+        {
+          "text": "AVANZANDO\nDISPARANDO",
+          "correct": true
+        },
+        {
+          "text": "DISPARANDO\nAVANZANDO",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la rutina para definir y ejecutar la maniobra de giro:",
+      "options": [
+        {
+          "text": "def girar90Grados():",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    print('Iniciando rotación...')",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    print('Rotación de 90 grados completada')",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "girar90Grados()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál es el resumen de la Unidad 14 sobre Funciones?",
+      "options": [
+        {
+          "text": "Las funciones nos permiten organizar código complejo en bloques reutilizables, legibles y fáciles de mantener",
+          "correct": true
+        },
+        {
+          "text": "Las funciones solo sirven para imprimir texto",
+          "correct": false
+        },
+        {
+          "text": "Usar funciones hace que el programa consuma toda la memoria",
+          "correct": false
+        },
+        {
+          "text": "Las funciones están prohibidas en competencias de robótica",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "title": "Pasando Datos: Parámetros y Argumentos",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Cuál es la diferencia entre un parámetro y un argumento?",
+      "lessonText": "# Funciones Personalizables 🎛️\n\nImagina una función `avanzar()`. Si siempre avanza a velocidad fija de 50%, no nos sirve cuando queremos ir despacio o a fondo.\n\nPara hacerla flexible, agregamos **Parámetros** entre los paréntesis:\n```python\ndef avanzar(velocidad):\n    print('Avanzando a potencia: ' + str(velocidad))\n```\n- **Parámetro:** El nombre de la variable receptora en la definición (`velocidad`).\n- **Argumento:** El valor concreto que le pasas al llamarla: `avanzar(0.3)` o `avanzar(1.0)`.\n\n¡La misma función ahora sirve para cualquier velocidad imaginable!",
+      "options": [
+        {
+          "text": "El parámetro es la variable en la definición; el argumento es el valor real enviado en la llamada",
+          "correct": true
+        },
+        {
+          "text": "Parámetro es para números y argumento es para letras",
+          "correct": false
+        },
+        {
+          "text": "Son exactamente lo mismo sin ninguna diferencia técnica",
+          "correct": false
+        },
+        {
+          "text": "El argumento se usa solo cuando hay un error en el código",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá esta llamada con argumento 80?",
+      "codeSnippet": "def setShooter(rpm):\n    print('Shooter a ' + str(rpm) + ' RPM')\n\nsetShooter(3500)",
+      "options": [
+        {
+          "text": "Shooter a 3500 RPM",
+          "correct": true
+        },
+        {
+          "text": "Shooter a rpm RPM",
+          "correct": false
+        },
+        {
+          "text": "Shooter a 80 RPM",
+          "correct": false
+        },
+        {
+          "text": "Error",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la llamada a la función pasando el argumento 90:",
+      "codeSnippet": "def girar(grados):\n    print('Girando ' + str(grados) + ' deg')\n\ngirar(_____)",
+      "options": [
+        {
+          "text": "90",
+          "correct": true
+        },
+        {
+          "text": "'noventa'",
+          "correct": false
+        },
+        {
+          "text": "grados = 90",
+          "correct": false
+        },
+        {
+          "text": "[90]",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué imprimirá la función tras recibir el nombre del piloto?",
+      "codeSnippet": "def reportarPiloto(nombre):\n    print('Piloto: ' + nombre)\n\nreportarPiloto('Alex')",
+      "options": [
+        {
+          "text": "Piloto: Alex",
+          "correct": true
+        },
+        {
+          "text": "Piloto: nombre",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué sucede si una función exige un parámetro (ej: `def f(x):`) y la llamas sin argumentos (`f()`)?",
+      "options": [
+        {
+          "text": "Error: TypeError (Falta 1 argumento posicional requerido)",
+          "correct": true
+        },
+        {
+          "text": "La computadora inventa el número 0",
+          "correct": false
+        },
+        {
+          "text": "La función se salta sin avisar",
+          "correct": false
+        },
+        {
+          "text": "El procesador se apaga",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

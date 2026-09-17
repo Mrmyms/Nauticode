@@ -1,32 +1,108 @@
 {
-  "title": "Part 1",
+  "title": "El Plan de Respaldo: Sentencia Else",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "For Loops - Concept 1",
-      "lessonText": "# For Loops (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Para qué sirve la cláusula 'else'?",
+      "lessonText": "# El Plan B 🛡️\n\nImagina un cruce de caminos: o vas por la izquierda, o vas por la derecha. No puedes ir por ambos lados a la vez.\n\nLa sentencia **`else`** define el bloque de código que se ejecutará **cuando la condición del `if` resulte ser `false`**:\n```python\nif sensorOptico == true:\n    print('Pieza detectada: Lista para tirar')\nelse:\n    print('Buscando pieza en la alfombra...')\n```\n- Si el sensor marca `true`: corre el bloque del `if`.\n- Si marca `false`: corre el bloque del `else`.\n¡Uno de los dos caminos se ejecutará siempre de forma garantizada!",
       "options": [
         {
-          "text": "Understood",
+          "text": "Define el bloque de código alternativo que se ejecuta cuando la condición del if es falsa",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un comando que apaga la consola si hay un error",
+          "correct": false
+        },
+        {
+          "text": "Una instrucción que repite el programa desde el inicio",
+          "correct": false
+        },
+        {
+          "text": "Una variable que solo guarda textos en mayúsculas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola con este valor de batería?",
+      "codeSnippet": "bateria = 12.8\nif bateria < 12.0:\n    print('Recargar batería')\nelse:\n    print('Voltaje excelente')\nprint('Fin del test')",
+      "options": [
+        {
+          "text": "Voltaje excelente\nFin del test",
+          "correct": true
+        },
+        {
+          "text": "Recargar batería\nFin del test",
+          "correct": false
+        },
+        {
+          "text": "Voltaje excelente solamente",
+          "correct": false
+        },
+        {
+          "text": "Recargar batería solamente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará este chequeo de modo de juego?",
+      "codeSnippet": "esAutonomo = false\nif esAutonomo:\n    print('MODO AUTO')\nelse:\n    print('MODO TELEOP')",
+      "options": [
+        {
+          "text": "MODO TELEOP",
+          "correct": true
+        },
+        {
+          "text": "MODO AUTO",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on For Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Puede existir una sentencia `else` sola sin un `if` previo que la acompañe?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "No, 'else' siempre debe estar ligado obligatoriamente a un 'if' que lo anteceda",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Sí, puedes poner 'else' en cualquier lugar del código",
+          "correct": false
+        },
+        {
+          "text": "Solo si se escribe con mayúscula 'ELSE'",
+          "correct": false
+        },
+        {
+          "text": "Solo si el robot está apagado",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el bloque alternativo:",
+      "codeSnippet": "if joystickMovido:\n    moverChasis()\n_____\n    detenerChasis()",
+      "options": [
+        {
+          "text": "else:",
+          "correct": true
+        },
+        {
+          "text": "then:",
+          "correct": false
+        },
+        {
+          "text": "otherwise:",
+          "correct": false
+        },
+        {
+          "text": "if not:",
           "correct": false
         }
       ]

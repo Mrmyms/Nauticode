@@ -1,32 +1,107 @@
 {
-  "title": "Part 1",
+  "title": "¿Qué es una Variable?",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Variables & Boxes - Concept 1",
-      "lessonText": "# Variables & Boxes (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué analogía describe mejor una variable en programación?",
+      "lessonText": "# La Caja con Etiqueta 📦\n\nImagina que en el taller de robótica tienes varias cajas de plástico organizadoras.\n\nEn una caja pegas una cinta con la etiqueta **'velocidadMaxima'** y guardas adentro un papel que dice **80**.\nEn otra caja pegas la etiqueta **'nombrePiloto'** y guardas el texto **'Alex'**.\n\nUna **variable** es exactamente eso: una caja en la memoria RAM con un nombre asignado donde guardas un dato. Cada vez que tu código mencione `velocidadMaxima`, la computadora abrirá esa caja y leerá lo que tiene adentro.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Un espacio nombrado en memoria para almacenar y consultar datos",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un tornillo que sujeta el motor al chasis",
+          "correct": false
+        },
+        {
+          "text": "Un cable suelto que hace chispas en la batería",
+          "correct": false
+        },
+        {
+          "text": "Un botón secreto que reinicia internet",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Variables & Boxes",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "En la instrucción `potencia = 75`, ¿qué elemento es el nombre de la variable y cuál es el valor almacenado?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "'potencia' es el nombre de la variable y 75 es el valor guardado",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "75 es el nombre y 'potencia' es el valor",
+          "correct": false
+        },
+        {
+          "text": "Ambos son nombres sin ningún valor",
+          "correct": false
+        },
+        {
+          "text": "El signo '=' es la variable",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la asignación para crear una variable llamada `angulo` con valor 90:",
+      "codeSnippet": "_____ = 90\nprint(angulo)",
+      "options": [
+        {
+          "text": "angulo",
+          "correct": true
+        },
+        {
+          "text": "varAngulo()",
+          "correct": false
+        },
+        {
+          "text": "90",
+          "correct": false
+        },
+        {
+          "text": "Angulo.set",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará en consola este programa?",
+      "codeSnippet": "equipo = 'Nautilus 4010'\nprint(equipo)",
+      "options": [
+        {
+          "text": "Nautilus 4010",
+          "correct": true
+        },
+        {
+          "text": "equipo",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "¿Dónde residen físicamente las variables mientras el robot está encendido y ejecutando el programa?",
+      "options": [
+        {
+          "text": "En la memoria RAM del procesador",
+          "correct": true
+        },
+        {
+          "text": "En las llantas de goma del chasis",
+          "correct": false
+        },
+        {
+          "text": "En el aire gracias a la gravedad",
+          "correct": false
+        },
+        {
+          "text": "En los cables del joystick",
           "correct": false
         }
       ]

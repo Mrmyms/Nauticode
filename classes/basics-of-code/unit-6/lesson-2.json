@@ -1,32 +1,107 @@
 {
-  "title": "Part 2",
+  "title": "Números Decimales (float / double)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Data Types - Concept 2",
-      "lessonText": "# Data Types (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es un número flotante (float) y por qué es esencial en robótica?",
+      "lessonText": "# La Precisión del Mundo Real 🎯\n\nEn el mundo físico, casi nada es un número entero exacto:\n- El voltaje de la batería del robot es `12.65` voltios.\n- La distancia a la pared es `1.82` metros.\n- La potencia del motor varía continuamente entre `-1.0` y `1.0`.\n\nPara representar valores con fracciones o puntos decimales usamos **float** (o **double** en lenguajes como Java y C++ para doble precisión).",
       "options": [
         {
-          "text": "Understood",
+          "text": "Un tipo de dato numérico que permite representar fracciones y valores con punto decimal",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un número que flota en el aire físicamente",
+          "correct": false
+        },
+        {
+          "text": "Una palabra con letras flotantes",
+          "correct": false
+        },
+        {
+          "text": "Un tipo de cable que conecta los sensores",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Data Types",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál de estos valores debe almacenarse obligatoriamente como float/double?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "12.4 (Voltaje de la batería)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "4010 (Número de equipo)",
+          "correct": false
+        },
+        {
+          "text": "5 (Cantidad de pelotas)",
+          "correct": false
+        },
+        {
+          "text": "1 (ID del control)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá este programa?",
+      "codeSnippet": "velocidad = 0.5\nvelocidad = velocidad * 2.0\nprint(velocidad)",
+      "options": [
+        {
+          "text": "1.0",
+          "correct": true
+        },
+        {
+          "text": "0.5",
+          "correct": false
+        },
+        {
+          "text": "2.0",
+          "correct": false
+        },
+        {
+          "text": "Error de tipos",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Asigna a la variable 'potencia' el valor decimal 0.75:",
+      "codeSnippet": "// Asigna el float",
+      "options": [
+        {
+          "text": "potencia = 0.75",
+          "correct": true
+        },
+        {
+          "text": "potencia = 0,75",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "¡Cuidado internacional! En código de programación, ¿qué símbolo se usa SIEMPRE para separar los decimales?",
+      "options": [
+        {
+          "text": "El punto (.)",
+          "correct": true
+        },
+        {
+          "text": "La coma (,)",
+          "correct": false
+        },
+        {
+          "text": "El guión (-)",
+          "correct": false
+        },
+        {
+          "text": "La barra diagonal (/)",
           "correct": false
         }
       ]

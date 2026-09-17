@@ -1,5 +1,6 @@
 {
-  "title": "For Loops",
-  "description": "Repeating actions",
-  "order": 10
+  "title": "Else & Else-If Branches",
+  "description": "Caminos alternativos: else, elif y selectores múltiples",
+  "order": 10,
+  "guidebookText": "# Guía de Estudio: Unit 10 - Else & Else-If Branches\n\n¿Qué pasa cuando la condición de un `if` es falsa y queremos ejecutar una **acción de respaldo**? Para eso existe la sentencia **`else`**.\n\nY cuando tenemos **múltiples alternativas mutuamente excluyentes** (ej: velocidad baja, media o alta), usamos **`else if`** (`elif` en Python).\n\n### Estructura Completa:\n```python\nif condicionA:\n    # Camino 1: Si A es verdadera\n    accionA()\nelif condicionB:\n    # Camino 2: Si A fue falsa pero B es verdadera\n    accionB()\nelse:\n    # Camino 3: Plan de respaldo si NINGUNA de las anteriores fue verdadera\n    accionPorDefecto()\n```\n\n### Principio Clave:\nEn una cadena de `if-elif-else`, **SOLO UN CAMINO se ejecuta**. En cuanto una condición se cumple, la computadora ejecuta ese bloque y salta de inmediato al final de toda la estructura."
 }

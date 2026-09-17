@@ -1,5 +1,6 @@
 {
-  "title": "Naming Variables",
-  "description": "Clean code practices",
-  "order": 5
+  "title": "Naming Conventions & Clean Code",
+  "description": "Buenas prácticas: Escribir código legible y profesional",
+  "order": 5,
+  "guidebookText": "# Guía de Estudio: Unit 5 - Naming Conventions & Clean Code\n\nCualquier novato puede escribir código que una computadora entienda. Los verdaderos ingenieros escriben código que **otros humanos pueden entender y mantener**.\n\n### Convenciones de Nombres:\n1. **camelCase:** Primera palabra en minúscula, las siguientes con mayúscula (`shooterSpeed`, `armAngle`). Estándar en Java y C++.\n2. **snake_case:** Palabras en minúsculas separadas por guión bajo (`shooter_speed`, `arm_angle`). Estándar en Python.\n3. **UPPER_SNAKE_CASE:** Letras mayúsculas para **Constantes** (`MAX_VELOCITY`, `SHOOTER_CAN_ID`).\n\n### Principios de Código Limpio:\n- Nombres descriptivos y con propósito (adiós a variables como `x`, `temp1`, `cosa`).\n- Comentarios explicativos: Explica el **POR QUÉ** de una decisión compleja, no lo obvio."
 }

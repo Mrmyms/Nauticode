@@ -1,32 +1,108 @@
 {
-  "title": "Part 4",
+  "title": "Valores Booleanos (bool)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Data Types - Concept 4",
-      "lessonText": "# Data Types (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es un valor booleano y por qué es el rey de las decisiones?",
+      "lessonText": "# La Verdad Binaria 💡\n\nUn **Boolean (bool)** es el tipo de dato más simple y poderoso que existe. Solo puede tener dos valores:\n- **`true` (Verdadero)**\n- **`false` (Falso)**\n\nEn un robot de competencia, el mundo está lleno de preguntas binarias:\n- ¿El sensor de límite está presionado? (`true` / `false`)\n- ¿El autonomous está activo? (`true` / `false`)\n- ¿El voltaje es peligroso? (`true` / `false`)\n\nLos booleanos son la llave que abre las puertas de las sentencias condicionales `if` y los bucles `while`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Un tipo de dato que solo puede ser Verdadero (True) o Falso (False)",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un número que va del 0 al 100",
+          "correct": false
+        },
+        {
+          "text": "Una lista de nombres de pilotos",
+          "correct": false
+        },
+        {
+          "text": "Un comando que apaga la consola",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Data Types",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál de las siguientes opciones representa un booleano en código?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "true",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "'true'",
+          "correct": false
+        },
+        {
+          "text": "100",
+          "correct": false
+        },
+        {
+          "text": "'verdadero'",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la asignación para indicar que el freno de seguridad está activo:",
+      "codeSnippet": "frenoActivo = _____\nprint('¿Freno activado? ' + str(frenoActivo))",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "'activo'",
+          "correct": false
+        },
+        {
+          "text": "1.0",
+          "correct": false
+        },
+        {
+          "text": "frenar",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola al evaluar si 10 es mayor que 5?",
+      "codeSnippet": "resultado = (10 > 5)\nprint(resultado)",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "false",
+          "correct": false
+        },
+        {
+          "text": "10",
+          "correct": false
+        },
+        {
+          "text": "5",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Asigna el valor booleano false a la variable 'isAutonomousFinished':",
+      "codeSnippet": "// Inicializa el booleano",
+      "options": [
+        {
+          "text": "isAutonomousFinished = false",
+          "correct": true
+        },
+        {
+          "text": "isAutonomousFinished = 'false'",
           "correct": false
         }
       ]

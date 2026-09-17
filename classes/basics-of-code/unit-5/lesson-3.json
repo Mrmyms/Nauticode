@@ -1,32 +1,99 @@
 {
-  "title": "Part 3",
+  "title": "Constantes: Valores Sagrados",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Naming Variables - Concept 3",
-      "lessonText": "# Naming Variables (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es una constante en programación y por qué es vital en robótica?",
+      "lessonText": "# Valores Inmutables 🔒\n\nHay datos que **NUNCA** deben cambiar mientras el robot está operando:\n- El número de puerto CAN de un motor (`MOTOR_PORT = 3`).\n- La relación de engranes del chasis (`GEAR_RATIO = 6.75`).\n- La aceleración de la gravedad (`GRAVITY = 9.81`).\n\nEstos valores se llaman **Constantes**. Por convención universal, se escriben en **UPPER_SNAKE_CASE** para alertar a cualquiera: *'¡Cuidado! No reasignes este valor bajo ninguna circunstancia'*.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Una variable diseñada para no cambiar su valor original durante la ejecución del programa",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un valor que cambia cada 2 segundos",
+          "correct": false
+        },
+        {
+          "text": "Una instrucción que apaga el robot",
+          "correct": false
+        },
+        {
+          "text": "Una batería que nunca se descarga",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Naming Variables",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál de los siguientes identificadores sigue la convención estándar para una constante?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "MAX_MOTOR_VOLTAGE",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "maxMotorVoltage",
+          "correct": false
+        },
+        {
+          "text": "max_motor_voltage",
+          "correct": false
+        },
+        {
+          "text": "max-motor-voltage",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Declara la constante CAN_ID con el valor 12:",
+      "codeSnippet": "// Declara la constante",
+      "options": [
+        {
+          "text": "CAN_ID = 12",
+          "correct": true
+        },
+        {
+          "text": "can_id = 12",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué valor imprimirá este bloque?",
+      "codeSnippet": "WHEEL_DIAMETER_INCHES = 4.0\nprint(WHEEL_DIAMETER_INCHES)",
+      "options": [
+        {
+          "text": "4.0",
+          "correct": true
+        },
+        {
+          "text": "WHEEL_DIAMETER_INCHES",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "¿Por qué es mejor definir `SHOOTER_CAN_ID = 5` al inicio del código en lugar de escribir el número 5 disperso por 50 archivos distintos?",
+      "options": [
+        {
+          "text": "Porque si el equipo cambia el motor de puerto en el taller, solo modificas un único lugar en el código",
+          "correct": true
+        },
+        {
+          "text": "Porque al compilador no le gusta el número 5",
+          "correct": false
+        },
+        {
+          "text": "Para que el código pese el doble",
+          "correct": false
+        },
+        {
+          "text": "Porque los números pares son mejores que los impares",
           "correct": false
         }
       ]

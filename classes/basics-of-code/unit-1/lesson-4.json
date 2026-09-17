@@ -1,32 +1,107 @@
 {
-  "title": "Part 4",
+  "title": "¿Cómo Piensa una Computadora?",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "What is Programming? - Concept 4",
-      "lessonText": "# What is Programming? (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué se dice que las computadoras son literales?",
+      "lessonText": "# El Pensamiento Computacional 🧠\n\nUn humano promedio puede deducir intenciones. Si le dices a tu compañero de pits 'pásame esa cosa que gira tornillos', sabe que te refieres al destornillador.\n\nUna computadora **no puede inferir nada**. Si tu código tiene una letra mayúscula en vez de minúscula, o te falta una coma, el programa fallará con un **Syntax Error**.\n\nAprender a programar es aprender a pensar con **precisión matemática y claridad quirúrgica**.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Porque ejecutan exactamente lo escrito sin interpretar la intención",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque sólo leen libros de ciencia ficción",
+          "correct": false
+        },
+        {
+          "text": "Porque no les gusta ayudar a los programadores novatos",
+          "correct": false
+        },
+        {
+          "text": "Porque las baterías de 12V no transmiten metáforas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "¿Cómo se llama el error que ocurre cuando violamos las reglas gramaticales de un lenguaje de programación?",
+      "options": [
+        {
+          "text": "Syntax Error (Error de Sintaxis)",
+          "correct": true
+        },
+        {
+          "text": "Hardware Crash",
+          "correct": false
+        },
+        {
+          "text": "Battery Drain",
+          "correct": false
+        },
+        {
+          "text": "Mechanical Jam",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola tras ejecutar este código?",
+      "codeSnippet": "print('Nautilus')\nprint('4010')",
+      "options": [
+        {
+          "text": "Nautilus en la primera línea y 4010 en la segunda",
+          "correct": true
+        },
+        {
+          "text": "Nautilus4010 todo pegado en una sola palabra",
+          "correct": false
+        },
+        {
+          "text": "4010 Nautilus al revés",
+          "correct": false
+        },
+        {
+          "text": "Error porque 4010 es un número",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe una instrucción que imprima exactamente el texto: Ready",
+      "codeSnippet": "// Tu turno de escribir código",
+      "options": [
+        {
+          "text": "print('Ready')",
+          "correct": true
+        },
+        {
+          "text": "print(Ready)",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on What is Programming?",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Es lo mismo escribir `Print('Hola')` que `print('Hola')` en la mayoría de lenguajes?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "No, la mayoría de lenguajes son case-sensitive (distinguen mayúsculas de minúsculas)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Sí, a las computadoras les da igual el tamaño de las letras",
+          "correct": false
+        },
+        {
+          "text": "Sí, siempre y cuando esté en cursiva",
+          "correct": false
+        },
+        {
+          "text": "Sólo si el robot está conectado a la luz",
           "correct": false
         }
       ]

@@ -1,32 +1,107 @@
 {
-  "title": "Part 2",
+  "title": "Convenciones: camelCase y snake_case",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Naming Variables - Concept 2",
-      "lessonText": "# Naming Variables (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cuáles son las convenciones de nomenclatura más populares?",
+      "lessonText": "# El Estilo Sí Importa 🎨\n\nEn la mayoría de los lenguajes no podemos usar espacios en los nombres de variables (ej: `velocidad maxima` dará un Syntax Error).\n\nPara resolver esto, la comunidad creó **estilos de capitalización**:\n\n1. **camelCase (El camello):** La primera palabra inicia en minúscula y cada nueva palabra inicia con Mayúscula.\n   - Ejemplo: `velocidadMaxima`, `sensorOptico`, `anguloDelBrazo`.\n   - *Muy usado en Java, JavaScript y C++.*\n\n2. **snake_case (La serpiente):** Todo en minúsculas separado por guiones bajos.\n   - Ejemplo: `velocidad_maxima`, `sensor_optico`, `angulo_del_brazo`.\n   - *El estándar oficial de Python (PEP 8).*",
       "options": [
         {
-          "text": "Understood",
+          "text": "camelCase usa mayúsculas intermedias y snake_case usa guiones bajos entre palabras",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "camelCase solo se usa en desiertos y snake_case en la selva",
+          "correct": false
+        },
+        {
+          "text": "Son lenguajes de programación distintos",
+          "correct": false
+        },
+        {
+          "text": "Uno sirve para hardware y el otro para pantallas",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Naming Variables",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "MATCHING",
+      "question": "Identifica qué estilo representa cada identificador:",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "targetAngle|||camelCase",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "target_angle|||snake_case",
+          "correct": true
+        },
+        {
+          "text": "TARGET_ANGLE|||UPPER_SNAKE_CASE (Constante)",
+          "correct": true
+        },
+        {
+          "text": "targetangle|||Sin convención (difícil de leer)",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál de estos nombres viola las reglas gramaticales de la mayoría de los lenguajes de programación?",
+      "options": [
+        {
+          "text": "velocidad del robot (contiene espacios)",
+          "correct": true
+        },
+        {
+          "text": "velocidadDelRobot",
+          "correct": false
+        },
+        {
+          "text": "velocidad_del_robot",
+          "correct": false
+        },
+        {
+          "text": "velocidadRobot2",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el error de sintaxis al nombrar esta variable:",
+      "codeSnippet": "4010Nautilus = 'Equipo de Robótica'",
+      "options": [
+        {
+          "text": "Los nombres de variables NO pueden comenzar con un número",
+          "correct": true
+        },
+        {
+          "text": "No se puede usar la palabra Nautilus",
+          "correct": false
+        },
+        {
+          "text": "El texto entre comillas no puede llevar acentos",
+          "correct": false
+        },
+        {
+          "text": "Falta un punto antes del 4010",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe el nombre de la variable 'leftMotorSpeed' en formato snake_case:",
+      "codeSnippet": "// Convierte a snake_case",
+      "options": [
+        {
+          "text": "left_motor_speed",
+          "correct": true
+        },
+        {
+          "text": "leftmotorspeed",
           "correct": false
         }
       ]

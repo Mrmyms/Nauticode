@@ -1,32 +1,111 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Detección y Freno Preventivo",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Else Conditions - Concept 5",
-      "lessonText": "# Else Conditions (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡Evitando colisiones en la arena con Teus!",
+      "lessonText": "# El Sensor de Distancia Láser (LiDAR / ToF) 🚨\n\nNautilus 4010 tiene un sensor de distancia Time-of-Flight en el parachoques delantero.\n\nDurante el partido, si el sensor detecta que la distancia a otro robot o a la pared cae por debajo del umbral de seguridad de `25.0` cm:\n¡El software debe aplicar frenado preventivo de inmediato para evitar una tarjeta de penalización!\n\nEn este reto final de la Unidad 9, ensamblarás y verificarás la lógica condicional de frenado.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a programar el freno preventivo con Teus!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero chocar a toda velocidad contra la pared",
+          "correct": false
+        },
+        {
+          "text": "No quiero frenar nunca",
+          "correct": false
+        },
+        {
+          "text": "Quiero ignorar el sensor de distancia",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Else Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "CODE_TEST",
+      "question": "El sensor mide 18 cm. ¿Qué imprimirá este sistema de frenado?",
+      "codeSnippet": "distanciaCM = 18.0\nif distanciaCM < 25.0:\n    print('FRENO_PREVENTIVO_ACTIVO')\nprint('MONITOREO_OK')",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "FRENO_PREVENTIVO_ACTIVO\nMONITOREO_OK",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "MONITOREO_OK solamente",
+          "correct": false
+        },
+        {
+          "text": "FRENO_PREVENTIVO_ACTIVO solamente",
+          "correct": false
+        },
+        {
+          "text": "Error",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "Ahora la distancia es segura (60 cm). ¿Qué imprimirá?",
+      "codeSnippet": "distanciaCM = 60.0\nif distanciaCM < 25.0:\n    print('FRENO_PREVENTIVO_ACTIVO')\nprint('MONITOREO_OK')",
+      "options": [
+        {
+          "text": "MONITOREO_OK",
+          "correct": true
+        },
+        {
+          "text": "FRENO_PREVENTIVO_ACTIVO\nMONITOREO_OK",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la rutina de frenado de emergencia completa:",
+      "options": [
+        {
+          "text": "distanciaCM = leerSensorToF()",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "if distanciaCM <= 20.0:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    detenerChasisInmediato()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    print('Freno de emergencia completado')",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál es el aprendizaje central que te llevas de esta Unidad 9 sobre sentencias If?",
+      "options": [
+        {
+          "text": "El if es la herramienta que permite a un programa reaccionar al mundo real ejecutando código solo cuando es necesario",
+          "correct": true
+        },
+        {
+          "text": "El if solo se puede usar una vez por programa",
+          "correct": false
+        },
+        {
+          "text": "El if borra las variables después de evaluarlas",
+          "correct": false
+        },
+        {
+          "text": "El if obliga a la computadora a reiniciar el match",
           "correct": false
         }
       ]

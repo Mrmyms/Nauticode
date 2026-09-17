@@ -1,0 +1,110 @@
+{
+  "title": "Funciones Puras vs Efectos Secundarios",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Qué diferencia a una función matemática de una función con efectos secundarios?",
+      "lessonText": "# Matemáticas vs Acciones Físicas 🦾📐\n\nEn software de robótica trabajamos con dos tipos de funciones:\n\n1. **Funciones Puras (Cálculos):**\n   - Reciben datos y devuelven un resultado sin modificar el mundo exterior.\n   - Ejemplo: `convertirPulgadasACentimetros(pulgadas)`\n   - Siempre que le des el mismo número, devuelve exactamente el mismo resultado.\n\n2. **Funciones con Efectos Secundarios (Side Effects):**\n   - Interactúan con el hardware real del robot.\n   - Ejemplo: `moverBrazo(1.0)`, `encenderLuces()`, `tocarBuzzer()`.\n   - Modifican el mundo físico exterior.",
+      "options": [
+        {
+          "text": "Las funciones puras solo calculan y retornan valores; las funciones con efectos secundarios interactúan con hardware",
+          "correct": true
+        },
+        {
+          "text": "Las funciones puras son más lentas",
+          "correct": false
+        },
+        {
+          "text": "Los efectos secundarios son siempre virus",
+          "correct": false
+        },
+        {
+          "text": "Las funciones puras no usan matemáticas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Clasifica cada función según su naturaleza:",
+      "options": [
+        {
+          "text": "calcularHipotenusa(a, b)|||Función pura (Cálculo matemático)",
+          "correct": true
+        },
+        {
+          "text": "convertirTicksAMetros(ticks)|||Función pura (Conversión de unidades)",
+          "correct": true
+        },
+        {
+          "text": "motorChasis.set(0.8)|||Efecto secundario (Actuador físico)",
+          "correct": true
+        },
+        {
+          "text": "solenoideNeumatico.abrir()|||Efecto secundario (Hardware)",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué devolverá la función de conversión de pulgadas a centímetros para 10 pulgadas?",
+      "codeSnippet": "def pulgadasACentimetros(inVal):\n    return inVal * 2.54\n\nprint(pulgadasACentimetros(10))",
+      "options": [
+        {
+          "text": "25.4",
+          "correct": true
+        },
+        {
+          "text": "254.0",
+          "correct": false
+        },
+        {
+          "text": "10.0",
+          "correct": false
+        },
+        {
+          "text": "2.54",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué los ingenieros de software intentan aislar los cálculos puros de los comandos de hardware?",
+      "options": [
+        {
+          "text": "Porque las funciones puras se pueden probar y simular con pruebas unitarias sin necesitar el robot físico conectado",
+          "correct": true
+        },
+        {
+          "text": "Para que el código pese más gigabytes",
+          "correct": false
+        },
+        {
+          "text": "Porque las funciones con hardware son ilegales",
+          "correct": false
+        },
+        {
+          "text": "No tiene ninguna ventaja",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe una función pura llamada 'cuadrado' que reciba 'x' y retorne 'x * x':",
+      "codeSnippet": "// Define la función cuadrado",
+      "options": [
+        {
+          "text": "def cuadrado(x):\n    return x * x",
+          "correct": true
+        },
+        {
+          "text": "def cuadrado(x): return x * x",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

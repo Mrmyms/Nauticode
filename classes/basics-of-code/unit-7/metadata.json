@@ -1,5 +1,6 @@
 {
-  "title": "Boolean Logic",
-  "description": "True or False",
-  "order": 7
+  "title": "Arithmetic Operators",
+  "description": "Cálculos matemáticos: Aritmética, residuo y precedencia",
+  "order": 7,
+  "guidebookText": "# Guía de Estudio: Unit 7 - Arithmetic Operators\n\nEl procesador es ante todo una máquina de cálculo hiperveloz. Los **operadores aritméticos** nos permiten transformar y combinar datos numéricos.\n\n### Operadores Básicos:\n- Suma (`+`): `5 + 3 = 8`\n- Resta (`-`): `10 - 4 = 6`\n- Multiplicación (`*`): `6 * 7 = 42`\n- División (`/`): `15 / 2 = 7.5`\n- Módulo / Residuo (`%`): `10 % 3 = 1` (el sobrante de dividir 10 entre 3).\n\n### Precedencia de Operadores (PEMDAS):\nAl igual que en matemáticas, la multiplicación y división tienen prioridad sobre la suma y la resta. Usa paréntesis `()` para forzar el orden deseado: `(2 + 3) * 4 = 20`."
 }

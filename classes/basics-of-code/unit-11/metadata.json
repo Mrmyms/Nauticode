@@ -1,5 +1,6 @@
 {
   "title": "While Loops",
-  "description": "Loops based on conditions",
-  "order": 11
+  "description": "Bucles condicionales: Repetir tareas mientras una condición sea verdadera",
+  "order": 11,
+  "guidebookText": "# Guía de Estudio: Unit 11 - While Loops\n\nEl poder de las computadoras radica en su capacidad de repetir una tarea millones de veces sin cansarse ni cometer errores por aburrimiento.\n\nUn bucle **`while`** repite un bloque de código **MIENTRAS** una condición booleana sea verdadera (`true`).\n\n### Los 3 Componentes Sagrados de Todo While Loop:\n1. **Estado Inicial:** Declarar la variable de control antes del bucle (`contador = 0`).\n2. **Condición de Parada:** La prueba que se evalúa antes de cada ciclo (`while contador < 5:`).\n3. **Paso de Actualización:** Modificar la variable DENTRO del bucle (`contador += 1`).\n\n### El Terror del Bucle Infinito (Infinite Loop):\nSi olvidas el paso de actualización o la condición nunca se vuelve falsa, el programa se quedará atrapado para siempre consumiendo el 100% de la CPU."
 }

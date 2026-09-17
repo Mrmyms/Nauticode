@@ -1,32 +1,107 @@
 {
-  "title": "Part 2",
+  "title": "Estructura del For: Inicio, Fin y Paso",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Breaking Loops - Concept 2",
-      "lessonText": "# Breaking Loops (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo funciona la función `range(inicio, fin, paso)`?",
+      "lessonText": "# El Control Total del Rango 🎛️\n\nEn Python, la función `range` tiene 3 parámetros súper versátiles:\n`range(inicio, fin, paso)`\n\n1. **`range(5)`:**\n   - Inicia en 0, llega hasta 4 (el fin nunca se incluye).\n2. **`range(2, 6)`:**\n   - Inicia en 2 y llega hasta 5 -> `[2, 3, 4, 5]`.\n3. **`range(0, 10, 2)` (Con paso / step):\n   - Avanza de 2 en 2 -> `[0, 2, 4, 6, 8]`.\n\n¡Esto te permite crear cualquier secuencia matemática en una sola línea!",
       "options": [
         {
-          "text": "Understood",
+          "text": "Permite especificar el valor inicial, el límite superior (no inclusivo) y el incremento entre saltos",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Mide la distancia física entre dos robots en metros",
+          "correct": false
+        },
+        {
+          "text": "Calcula el porcentaje de batería que queda",
+          "correct": false
+        },
+        {
+          "text": "Convierte texto a números automáticamente",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Breaking Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "CODE_TEST",
+      "question": "¿Qué números imprimirá este rango con salto de 2?",
+      "codeSnippet": "for n in range(1, 6, 2):\n    print(n)",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "1, 3, 5",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "1, 2, 3, 4, 5",
+          "correct": false
+        },
+        {
+          "text": "2, 4, 6",
+          "correct": false
+        },
+        {
+          "text": "1 y 6 solamente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será la salida de este código?",
+      "codeSnippet": "total = 0\nfor x in range(3):\n    total += x\nprint(total)",
+      "options": [
+        {
+          "text": "3 (porque total = 0 + 0 + 1 + 2 = 3)",
+          "correct": true
+        },
+        {
+          "text": "6",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada llamada de range con los números que produce:",
+      "options": [
+        {
+          "text": "range(3)|||0, 1, 2",
+          "correct": true
+        },
+        {
+          "text": "range(1, 4)|||1, 2, 3",
+          "correct": true
+        },
+        {
+          "text": "range(2, 7, 2)|||2, 4, 6",
+          "correct": true
+        },
+        {
+          "text": "range(5, 0, -1)|||5, 4, 3, 2, 1 (cuenta regresiva)",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "En Java y C++, ¿cómo se escribe el bucle for equivalente a `range(5)`?",
+      "options": [
+        {
+          "text": "for (int i = 0; i < 5; i++)",
+          "correct": true
+        },
+        {
+          "text": "for i in 5",
+          "correct": false
+        },
+        {
+          "text": "loop (i = 5)",
+          "correct": false
+        },
+        {
+          "text": "while (for i = 0)",
           "correct": false
         }
       ]

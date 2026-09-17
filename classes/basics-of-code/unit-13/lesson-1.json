@@ -1,0 +1,111 @@
+{
+  "title": "Rompiendo el Ciclo: La Sentencia Break",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Qué hace la instrucción 'break' dentro de un bucle?",
+      "lessonText": "# El Botón de Parada Inmediata 🛑\n\nImagina que estás buscando una nota naranja en la alfombra con un bucle que revisa 10 posiciones:\n```python\nfor pos in range(10):\n    if notaDetectada == true:\n        print('¡Nota encontrada!')\n        break  # ¡Se detiene de inmediato!\n    avanzarSiguientePunto()\n```\n¿Para qué seguir buscando las otras posiciones si ya encontraste la pieza?\n\nLa instrucción **`break` rompe el bucle al instante**, sin esperar a que termine el rango ni a que la condición del while se vuelva falsa.",
+      "options": [
+        {
+          "text": "Termina el bucle de forma inmediata y transfiere el control a la línea siguiente fuera del bucle",
+          "correct": true
+        },
+        {
+          "text": "Pausa el programa por 10 minutos",
+          "correct": false
+        },
+        {
+          "text": "Rompe físicamente la tarjeta madre del robot",
+          "correct": false
+        },
+        {
+          "text": "Reinicia el bucle desde cero",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá este bucle con break?",
+      "codeSnippet": "for num in range(1, 6):\n    if num == 3:\n        break\n    print(num)\nprint('Fin')",
+      "options": [
+        {
+          "text": "1\n2\nFin (se detuvo en cuanto num fue igual a 3)",
+          "correct": true
+        },
+        {
+          "text": "1\n2\n3\nFin",
+          "correct": false
+        },
+        {
+          "text": "1\n2\n3\n4\n5\nFin",
+          "correct": false
+        },
+        {
+          "text": "Solo imprime 'Fin'",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será la salida de este código?",
+      "codeSnippet": "x = 0\nwhile true:\n    x += 1\n    if x == 2:\n        break\nprint(x)",
+      "options": [
+        {
+          "text": "2",
+          "correct": true
+        },
+        {
+          "text": "1",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la instrucción para abortar la búsqueda:",
+      "codeSnippet": "if piezaAsegurada == true:\n    _____",
+      "options": [
+        {
+          "text": "break",
+          "correct": true
+        },
+        {
+          "text": "stop",
+          "correct": false
+        },
+        {
+          "text": "exit",
+          "correct": false
+        },
+        {
+          "text": "halt",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Si tienes dos bucles anidados (un for dentro de otro for), ¿qué bucle se rompe cuando ejecutas 'break'?",
+      "options": [
+        {
+          "text": "Únicamente el bucle más interno donde está colocado el break",
+          "correct": true
+        },
+        {
+          "text": "Ambos bucles se cierran al mismo tiempo",
+          "correct": false
+        },
+        {
+          "text": "El bucle exterior únicamente",
+          "correct": false
+        },
+        {
+          "text": "Ninguno, dará un error",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

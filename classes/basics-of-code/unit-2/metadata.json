@@ -1,5 +1,6 @@
 {
-  "title": "Algorithms",
-  "description": "Step-by-step instructions",
-  "order": 2
+  "title": "Algorithms & Logic",
+  "description": "Paso a paso: Instrucciones finitas y sin ambigüedad",
+  "order": 2,
+  "guidebookText": "# Guía de Estudio: Unit 2 - Algorithms & Logic\n\nUn **algoritmo** es un conjunto finito, ordenado y no ambiguo de pasos para resolver un problema o alcanzar un objetivo.\n\n### Las 3 Fases de Todo Algoritmo:\n1. **Entrada (Input):** Los datos con los que trabajamos (ejemplo: lectura de un sensor ultrasónico = 15 cm).\n2. **Procesamiento:** La lógica de cálculo o decisión (ejemplo: ¿15 cm es menor a la distancia segura de 30 cm?).\n3. **Salida (Output):** La acción o resultado generado (ejemplo: activar el freno en los motores).\n\n### Pseudocódigo y Diagramas de Flujo\nAntes de escribir código en un lenguaje formal (Java, Python, C++), los ingenieros diseñamos la lógica en **pseudocódigo** (código en lenguaje humano estructurado). Esto ahorra horas de errores en la cancha."
 }

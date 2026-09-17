@@ -1,32 +1,100 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Telemetría del Giroscopio",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Variables & Boxes - Concept 5",
-      "lessonText": "# Variables & Boxes (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "Midiendo la orientación del chasis en tiempo real",
+      "lessonText": "# El Giroscopio de Nautilus 4010 🧭\n\nEl sensor **NavX Gyro** mide el ángulo de rotación de nuestro robot en la cancha.\n\nCuando el robot inicia el match de cara a la pared contraria, el ángulo es `0.0` grados.\nCuando gira a la derecha, el ángulo se actualiza a `90.0`.\n\nEn este reto final de la Unidad 4, aplicarás el manejo de variables para almacenar, actualizar y desplegar la orientación del robot.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a calibrar la orientación con Teus!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero que el robot gire en círculos sin saber su ángulo",
+          "correct": false
+        },
+        {
+          "text": "No me importa la orientación",
+          "correct": false
+        },
+        {
+          "text": "Quiero girar el sensor con un desarmador",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Inicializa la variable 'anguloYaw' en 0:",
+      "codeSnippet": "_____ = 0\nprint('Ángulo inicial: ' + str(anguloYaw))",
+      "options": [
+        {
+          "text": "anguloYaw",
+          "correct": true
+        },
+        {
+          "text": "motorYaw",
+          "correct": false
+        },
+        {
+          "text": "giroTotal",
+          "correct": false
+        },
+        {
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "El robot giró 45 grados dos veces consecutivas. ¿Qué ángulo mostrará la telemetría?",
+      "codeSnippet": "angulo = 0\nangulo = angulo + 45\nangulo = angulo + 45\nprint(angulo)",
+      "options": [
+        {
+          "text": "90",
+          "correct": true
+        },
+        {
+          "text": "45",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción que resetea la variable 'angulo' a cero:",
+      "codeSnippet": "// Reset de orientación",
+      "options": [
+        {
+          "text": "angulo = 0",
+          "correct": true
+        },
+        {
+          "text": "angulo == 0",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Variables & Boxes",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Por qué las variables son la base indispensable de cualquier software de robótica?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Porque permiten recordar el estado del robot, leer sensores dinámicos y adaptar el comportamiento en tiempo real",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Porque decoran el código para que se vea más profesional",
+          "correct": false
+        },
+        {
+          "text": "Porque son obligatorias por el reglamento de FIRST",
+          "correct": false
+        },
+        {
+          "text": "En realidad podríamos hacer todo el robot sin ninguna variable",
           "correct": false
         }
       ]

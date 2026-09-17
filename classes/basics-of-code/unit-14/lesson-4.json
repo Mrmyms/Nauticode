@@ -1,0 +1,114 @@
+{
+  "title": "Leyendo y Organizando Código Modular",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Cómo transforman las funciones la legibilidad de un sistema robótico?",
+      "lessonText": "# Código que Cuenta una Historia 📖\n\nCompara estos dos estilos para el autonomous de Nautilus:\n\n**Estilo 1 (Caótico sin funciones):**\n```python\n# 400 líneas de cálculos matemáticos, números mágicos y registros de puertos revueltos...\n```\n\n**Estilo 2 (Elegante y Modular con funciones):**\n```python\ndef rutinaAutonomo():\n    salirDeZonaInicio()\n    localizarNotaConLimelight()\n    recogerNotaConIntake()\n    apuntarYShoot()\n```\n¡Cualquier integrante del equipo (mecánica, eléctrica, mentores) puede leer el código y entender la estrategia al instante!",
+      "options": [
+        {
+          "text": "Dividen la complejidad en módulos comprensibles con nombres que describen acciones humanas",
+          "correct": true
+        },
+        {
+          "text": "Aumentan la complejidad para que nadie más pueda entender el código",
+          "correct": false
+        },
+        {
+          "text": "Hacen que el archivo tenga más hojas al imprimirlo",
+          "correct": false
+        },
+        {
+          "text": "Sirven únicamente para cambiar el idioma de la computadora",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la arquitectura limpia de este archivo (Funciones primero -> Código ejecutor al final):",
+      "options": [
+        {
+          "text": "def calibrarSensores(): print('Sensores OK')",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "def encenderMotores(): print('Motores OK')",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "calibrarSensores()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "encenderMotores()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué ocurre si intentas llamar a una función en la línea 1 antes de haberla definido en la línea 10 en lenguajes como Python?",
+      "options": [
+        {
+          "text": "Error: La función aún no está definida en ese punto de la ejecución secuencial",
+          "correct": true
+        },
+        {
+          "text": "Python viaja en el tiempo y la ejecuta sin problemas",
+          "correct": false
+        },
+        {
+          "text": "La función se borra sola",
+          "correct": false
+        },
+        {
+          "text": "El monitor se pone en pausa",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué salida producirá este conjunto de funciones?",
+      "codeSnippet": "def paso1():\n    print('A')\ndef paso2():\n    print('B')\n\npaso2()\npaso1()",
+      "options": [
+        {
+          "text": "B\nA",
+          "correct": true
+        },
+        {
+          "text": "A\nB",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la invocación de la función de parada:",
+      "codeSnippet": "def pararTodo():\n    print('Robot en Alto Total')\n\n_____",
+      "options": [
+        {
+          "text": "pararTodo()",
+          "correct": true
+        },
+        {
+          "text": "pararTodo;",
+          "correct": false
+        },
+        {
+          "text": "call pararTodo",
+          "correct": false
+        },
+        {
+          "text": "run(pararTodo)",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

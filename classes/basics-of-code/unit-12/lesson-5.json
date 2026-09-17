@@ -1,32 +1,111 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Escaneo LED y Calentamiento de Motores",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Breaking Loops - Concept 5",
-      "lessonText": "# Breaking Loops (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡Chequeo de subsistemas con Teus!",
+      "lessonText": "# El Test de Pits Pre-Match 🏎️\n\nAntes de colocar a Nautilus 4010 en la cancha, el equipo corre un script de diagnóstico que:\n1. Parpadea la tira de luces LED CANdle 3 veces en color dorado (`#EDB824`).\n2. Realiza un test de pulso en los 4 motores de tracción.\n\nEn este reto final de la Unidad 12, programarás estos bucles de chequeo con `for`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a programar el test de diagnóstico!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero entrar a la cancha sin probar los sistemas",
+          "correct": false
+        },
+        {
+          "text": "No me interesan las luces LED",
+          "correct": false
+        },
+        {
+          "text": "Quiero borrar el script de test",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la rutina para hacer parpadear el LED 3 veces:",
+      "options": [
+        {
+          "text": "for pulso in range(3):",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    encenderLED('Dorado')",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    esperarMilisegundos(200)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    apagarLED()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la consola tras probar los 4 módulos de rueda?",
+      "codeSnippet": "for rueda in range(4):\n    print('Rueda ' + str(rueda) + ' OK')",
+      "options": [
+        {
+          "text": "Rueda 0 OK\nRueda 1 OK\nRueda 2 OK\nRueda 3 OK",
+          "correct": true
+        },
+        {
+          "text": "Rueda 4 OK",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuántas veces en total se imprimirá la palabra 'Check'?",
+      "codeSnippet": "for a in range(2):\n    for b in range(3):\n        print('Check')",
+      "options": [
+        {
+          "text": "6 veces (2 * 3 = 6 iteraciones en bucles anidados)",
+          "correct": true
+        },
+        {
+          "text": "5 veces",
+          "correct": false
+        },
+        {
+          "text": "3 veces",
+          "correct": false
+        },
+        {
+          "text": "2 veces",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Breaking Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál es el resumen de la Unidad 12 sobre bucles For?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "El bucle for es el estándar por excelencia para realizar tareas repetitivas un número determinado de veces con total seguridad",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Los bucles for siempre son infinitos",
+          "correct": false
+        },
+        {
+          "text": "El bucle for sustituye a los cables de corriente",
+          "correct": false
+        },
+        {
+          "text": "Solo los mentores pueden escribir bucles for",
           "correct": false
         }
       ]

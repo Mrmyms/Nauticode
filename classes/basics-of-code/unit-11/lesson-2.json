@@ -1,32 +1,111 @@
 {
-  "title": "Part 2",
+  "title": "Los 3 Elementos de un Loop Saludable",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "While Loops - Concept 2",
-      "lessonText": "# While Loops (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cuáles son las 3 partes obligatorias de un bucle while?",
+      "lessonText": "# El Trío Indispensable 📐\n\nPara que un bucle funcione perfectamente y sepa cuándo detenerse, requiere 3 elementos:\n\n1. **Inicialización (Antes del loop):** Crear la variable que controla el ciclo.\n   - `intentos = 0`\n2. **Condición de Salida (En el encabezado):** La prueba lógica que decide si se continúa.\n   - `while intentos < 3:`\n3. **Actualización (Dentro del loop):** Cambiar el valor de la variable en cada ciclo para acercarse a la salida.\n   - `intentos += 1`\n\nSi falta cualquiera de los tres, tu bucle no funcionará o se quedará atrapado para siempre.",
       "options": [
         {
-          "text": "Understood",
+          "text": "1. Inicialización, 2. Condición lógica y 3. Actualización de la variable",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "1. Encender, 2. Acelerar y 3. Frenar",
+          "correct": false
+        },
+        {
+          "text": "1. Java, 2. Python y 3. C++",
+          "correct": false
+        },
+        {
+          "text": "Solo necesita el nombre del robot y la batería",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on While Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "MATCHING",
+      "question": "Identifica cada una de las 3 partes en este bucle:",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "i = 0|||Inicialización de la variable",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "while i < 10:|||Condición de permanencia",
+          "correct": true
+        },
+        {
+          "text": "i += 1|||Paso de actualización",
+          "correct": true
+        },
+        {
+          "text": "print(i)|||Cuerpo / Acción del bucle",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el bug en este bucle: Falta el paso de actualización de la variable.",
+      "codeSnippet": "contador = 0\nwhile contador < 5:\n    print('Procesando...')\n    // ¡Falta algo aquí!",
+      "options": [
+        {
+          "text": "Falta incrementar el contador (ej: contador += 1), de lo contrario nunca llegará a 5",
+          "correct": true
+        },
+        {
+          "text": "Hay que cambiar el 5 por 0",
+          "correct": false
+        },
+        {
+          "text": "El print no puede llevar puntos suspensivos",
+          "correct": false
+        },
+        {
+          "text": "Falta poner una coma después de while",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena los 4 pasos para construir un contador de 0 a 3 con while:",
+      "options": [
+        {
+          "text": "c = 0",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "while c < 3:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    print(c)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    c = c + 1",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué número final se imprimirá DESPUÉS de que el bucle termine?",
+      "codeSnippet": "puntos = 0\nwhile puntos < 4:\n    puntos += 2\nprint(puntos)",
+      "options": [
+        {
+          "text": "4",
+          "correct": true
+        },
+        {
+          "text": "2",
           "correct": false
         }
       ]

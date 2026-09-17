@@ -1,0 +1,114 @@
+{
+  "title": "Parada de Emergencia (E-Stop)",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Cómo se implementa una parada de emergencia en software?",
+      "lessonText": "# El Protocolo E-Stop 🚨\n\nEn FIRST Robotics, la seguridad es primero. Si un sensor de corriente reporta que un motor está atorado consumiendo más de 40 Amperes:\n¡El motor se quemará en menos de 3 segundos si no se corta la energía!\n\nEn el bucle de control:\n```python\nwhile robotEnMovimiento:\n    if corrienteAmperes > 40.0:\n        print('¡SOBRECORRIENTE! E-STOP ACTIVADO')\n        cortarEnergiaInmediata()\n        break  # Salida instantánea\n    actualizarControl()\n```\nEl `break` garantiza que no se ejecuten más ciclos de control con corriente excesiva.",
+      "options": [
+        {
+          "text": "Interrumpiendo inmediatamente el bucle de movimiento con break al detectar sobrecorriente o anomalías críticas",
+          "correct": true
+        },
+        {
+          "text": "Esperando a que el motor se queme para saber que falló",
+          "correct": false
+        },
+        {
+          "text": "Gritando fuerte en el estadio",
+          "correct": false
+        },
+        {
+          "text": "Desconectando la antena del Wi-Fi",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el fallo: Este sistema de seguridad imprime la alerta pero NUNCA sale del bucle, manteniendo los motores encendidos.",
+      "codeSnippet": "while true:\n    if botonEmergenciaPresionado:\n        print('ALERTA DE EMERGENCIA')\n        // ¡Falta el comando para detener el bucle!\n    avanzar()",
+      "options": [
+        {
+          "text": "Falta agregar la instrucción 'break' dentro del if para salir del bucle",
+          "correct": true
+        },
+        {
+          "text": "Hay que quitar el while",
+          "correct": false
+        },
+        {
+          "text": "No se puede usar la palabra ALERTA",
+          "correct": false
+        },
+        {
+          "text": "El código es correcto y seguro",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena el protocolo de parada de emergencia en código:",
+      "options": [
+        {
+          "text": "if switchEmergencia == true:",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    desactivarVoltajeMotores()",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    print('E-STOP EJECUTADO')",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    break",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mensaje se imprimirá?",
+      "codeSnippet": "for i in range(10):\n    if i == 1:\n        print('PARADA')\n        break\n    print('PASO')",
+      "options": [
+        {
+          "text": "PASO\nPARADA",
+          "correct": true
+        },
+        {
+          "text": "PARADA",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál es la regla sagrada respecto a la parada de emergencia en equipos como Nautilus 4010?",
+      "options": [
+        {
+          "text": "La seguridad es innegociable: el código debe estar programado para fallar de forma segura (fail-safe)",
+          "correct": true
+        },
+        {
+          "text": "Intentar seguir jugando aunque el robot esté echando humo",
+          "correct": false
+        },
+        {
+          "text": "Ignorar las alarmas en las finales",
+          "correct": false
+        },
+        {
+          "text": "Desactivar los sensores de corriente para que el robot sea más rápido",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

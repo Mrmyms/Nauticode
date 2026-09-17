@@ -1,32 +1,107 @@
 {
-  "title": "Part 3",
+  "title": "Tracing Mental: Siguiendo el Puntero",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Sequential Order - Concept 3",
-      "lessonText": "# Sequential Order (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es el 'tracing' en programación?",
+      "lessonText": "# El Superpoder de Rastrear Código 🕵️‍♂️\n\nEl **Tracing** (rastreo manual de código) es la habilidad de convertirte en el procesador.\n\nTomas una libreta y una pluma, y anotas:\n- ¿En qué línea estoy?\n- ¿Qué variables existen en este instante?\n- ¿Qué valores tienen adentro?\n\nLos mejores programadores del mundo no son los que escriben más rápido, sino los que pueden ejecutar el código en su cabeza paso a paso antes de correrlo.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Seguir la ejecución de un programa paso a paso para verificar el estado de las variables",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Rastrear la ubicación GPS del robot en el mapa",
+          "correct": false
+        },
+        {
+          "text": "Copiar código de internet sin entenderlo",
+          "correct": false
+        },
+        {
+          "text": "Dibujar el contorno del chasis en un cartón",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Haz el tracing: ¿Cuál es el valor de 'potencia' en la línea 3?",
+      "codeSnippet": "# Línea 1: potencia = 20\n# Línea 2: potencia = potencia + 30\n# Línea 3: potencia = potencia * 2",
+      "options": [
+        {
+          "text": "100",
+          "correct": true
+        },
+        {
+          "text": "50",
+          "correct": false
+        },
+        {
+          "text": "40",
+          "correct": false
+        },
+        {
+          "text": "20",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja cada línea de código con el estado de la variable `x` tras ejecutarse:",
+      "options": [
+        {
+          "text": "x = 10|||x vale 10",
+          "correct": true
+        },
+        {
+          "text": "x = x + 5|||x vale 15",
+          "correct": true
+        },
+        {
+          "text": "x = x * 2|||x vale 30",
+          "correct": true
+        },
+        {
+          "text": "x = 0|||x vale 0",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción que actualiza la variable 'vidas' restándole 1:",
+      "codeSnippet": "// Disminuye vidas en 1",
+      "options": [
+        {
+          "text": "vidas = vidas - 1",
+          "correct": true
+        },
+        {
+          "text": "vidas - 1",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Sequential Order",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Por qué `x = x + 1` es completamente válido en programación pero parece absurdo en álgebra pura?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Porque el símbolo '=' en código no significa igualdad, sino ASIGNACIÓN del nuevo valor a la variable",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Porque en computación las matemáticas no aplican",
+          "correct": false
+        },
+        {
+          "text": "Porque la variable x siempre vale infinito",
+          "correct": false
+        },
+        {
+          "text": "Porque el procesador comete errores de álgebra",
           "correct": false
         }
       ]

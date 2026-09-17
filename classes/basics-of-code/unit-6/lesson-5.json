@@ -1,32 +1,107 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Clasificación de Sensores",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Data Types - Concept 5",
-      "lessonText": "# Data Types (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡El laboratorio de sensores de Teus!",
+      "lessonText": "# El Dashboard de Telemetría 📊\n\nNautilus 4010 tiene múltiples subsistemas transmitiendo telemetría en vivo a la pantalla del drive team:\n- Giroscopio Yaw (`float`)\n- Contador de notas (`int`)\n- Estado de conexión al Field Management System (`bool`)\n- Nombre del modo de juego (`string`)\n\nEn este reto final de la Unidad 6, demostrarás tu maestría clasificando y operando los 4 tipos de datos primitivos.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a clasificar la telemetría del robot!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero mezclar textos con números al azar",
+          "correct": false
+        },
+        {
+          "text": "No me interesa saber el tipo de dato",
+          "correct": false
+        },
+        {
+          "text": "Quiero apagar los sensores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Clasifica cada valor con su tipo de dato primitivo correspondiente:",
+      "options": [
+        {
+          "text": "4010|||int (Entero)",
+          "correct": true
+        },
+        {
+          "text": "12.65|||float (Decimal)",
+          "correct": true
+        },
+        {
+          "text": "'Nautilus'|||string (Texto)",
+          "correct": true
+        },
+        {
+          "text": "true|||bool (Booleano)",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la consola en esta combinación de telemetría?",
+      "codeSnippet": "equipo = 'Nautilus'\nnumero = 4010\nprint(equipo + ' ' + str(numero))",
+      "options": [
+        {
+          "text": "Nautilus 4010",
+          "correct": true
+        },
+        {
+          "text": "Nautilus4010",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el fallo de tipos: No se puede sumar un número directamente con un texto sin convertirlo.",
+      "codeSnippet": "puntos = 10\nmensaje = 'Puntos: ' + puntos",
+      "options": [
+        {
+          "text": "Hay que convertir 'puntos' a texto usando str(puntos) o String.valueOf(puntos)",
+          "correct": true
+        },
+        {
+          "text": "Hay que cambiar el 10 por 0",
+          "correct": false
+        },
+        {
+          "text": "No se puede usar el signo '+'",
+          "correct": false
+        },
+        {
+          "text": "La variable mensaje debe ser un entero",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Data Types",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Por qué es tan importante entender los tipos de datos en la programación de FIRST?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Porque cada sensor y motor trabaja con tipos específicos (voltajes con floats, estados con booleans)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Para que el código se pinte de colores bonitos en el editor",
+          "correct": false
+        },
+        {
+          "text": "Porque los tipos de datos deciden la velocidad máxima física del motor",
+          "correct": false
+        },
+        {
+          "text": "No es importante, en robótica todo se puede tratar como texto",
           "correct": false
         }
       ]

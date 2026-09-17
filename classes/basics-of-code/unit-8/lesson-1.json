@@ -1,32 +1,115 @@
 {
-  "title": "Part 1",
+  "title": "Operadores de Comparación",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "If Conditions - Concept 1",
-      "lessonText": "# If Conditions (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo compara la computadora dos datos numéricos?",
+      "lessonText": "# Las Balanzas de la CPU ⚖️\n\nLos **operadores relacionales** comparan dos valores y siempre producen un booleano (`true` o `false`):\n- `==` : ¿Es exactamente igual? (`5 == 5` -> `true`)\n- `!=` : ¿Es diferente? (`5 != 3` -> `true`)\n- `>` y `<` : Mayor que y menor que (`12 > 10` -> `true`)\n- `>=` y `<=` : Mayor o igual, y menor o igual.\n\nEn FIRST Robotics comparamos todo el tiempo:\n`bateria >= 12.0` (¿La batería tiene suficiente carga?)\n`distanciaCM < 30.0` (¿Hay un obstáculo demasiado cerca?).",
       "options": [
         {
-          "text": "Understood",
+          "text": "Comparan dos valores y devuelven un booleano (true o false)",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Cambian el valor del número a cero automáticamente",
+          "correct": false
+        },
+        {
+          "text": "Apagan el motor si el número es negativo",
+          "correct": false
+        },
+        {
+          "text": "Solo funcionan con letras y nunca con números",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué resultado imprimirá la consola?",
+      "codeSnippet": "voltaje = 11.2\nestaBajo = (voltaje < 12.0)\nprint(estaBajo)",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "false",
+          "correct": false
+        },
+        {
+          "text": "11.2",
+          "correct": false
+        },
+        {
+          "text": "12.0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada operador de comparación con su significado:",
+      "options": [
+        {
+          "text": "==|||Igual a (compara igualdad)",
+          "correct": true
+        },
+        {
+          "text": "!=|||Diferente de (no es igual)",
+          "correct": true
+        },
+        {
+          "text": ">=|||Mayor o igual que",
+          "correct": true
+        },
+        {
+          "text": "<=|||Menor o igual que",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "¡La trampa más clásica del mundo! Este código asigna en lugar de comparar. ¿Cómo se corrige?",
+      "codeSnippet": "esCampeon = (puntos = 100)",
+      "options": [
+        {
+          "text": "Debe usar '==' para comparar igualdad: (puntos == 100)",
+          "correct": true
+        },
+        {
+          "text": "Debe usar tres signos iguales '==='",
+          "correct": false
+        },
+        {
+          "text": "No se pueden comparar puntos",
+          "correct": false
+        },
+        {
+          "text": "Hay que quitar los paréntesis",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on If Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál de las siguientes comparaciones evalúa a FALSE?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "10 != 10",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "10 == 10",
+          "correct": false
+        },
+        {
+          "text": "15 >= 10",
+          "correct": false
+        },
+        {
+          "text": "5 < 8",
           "correct": false
         }
       ]

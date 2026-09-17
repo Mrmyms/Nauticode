@@ -1,0 +1,111 @@
+{
+  "title": "Reto: Rescate de un Bucle Trabado",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¡Misión de rescate de código en la arena!",
+      "lessonText": "# El Elevador Trabado ⚙️\n\nDurante una prueba en el taller, el mecanismo elevador sube escalón por escalón hasta el piso 5.\n\nSin embargo, el sensor del piso 5 tiene un cable flojo y nunca marca `true`. El bucle `while` se quedaría intentando subir indefinidamente y rompería la polea.\n\nEn este reto final de la Unidad 13, implementarás un **límite de seguridad por tiempo / intentos (Timeout Sentinel)** usando `break` para proteger el robot de fallas de sensores.",
+      "options": [
+        {
+          "text": "¡Vamos a salvar el mecanismo con un break de seguridad!",
+          "correct": true
+        },
+        {
+          "text": "Prefiero que la polea se rompa",
+          "correct": false
+        },
+        {
+          "text": "No me importa la integridad del robot",
+          "correct": false
+        },
+        {
+          "text": "Quiero borrar el programa",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "El sensor no responde, pero el contador de intentos alcanza el límite de 4. ¿Qué imprimirá?",
+      "codeSnippet": "intentos = 0\nwhile true:\n    intentos += 1\n    if intentos >= 4:\n        print('TIMEOUT: LÍMITE DE SEGURIDAD')\n        break\nprint('Mecanismo detenido')",
+      "options": [
+        {
+          "text": "TIMEOUT: LÍMITE DE SEGURIDAD\nMecanismo detenido",
+          "correct": true
+        },
+        {
+          "text": "Mecanismo detenido solamente",
+          "correct": false
+        },
+        {
+          "text": "TIMEOUT: LÍMITE DE SEGURIDAD solamente",
+          "correct": false
+        },
+        {
+          "text": "Loop infinito",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será el número final de intentos registrados?",
+      "codeSnippet": "intentos = 0\nwhile true:\n    intentos += 1\n    if intentos == 3:\n        break\nprint(intentos)",
+      "options": [
+        {
+          "text": "3",
+          "correct": true
+        },
+        {
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la salida de emergencia del bucle:",
+      "codeSnippet": "if errorCritico == true:\n    desconectar()\n    _____",
+      "options": [
+        {
+          "text": "break",
+          "correct": true
+        },
+        {
+          "text": "continue",
+          "correct": false
+        },
+        {
+          "text": "skip",
+          "correct": false
+        },
+        {
+          "text": "loop",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué lección fundamental te llevas de esta Unidad 13 sobre Break y Continue?",
+      "options": [
+        {
+          "text": "Que break y continue nos dan control quirúrgico para salir de emergencias y filtrar datos sin atascar la ejecución del robot",
+          "correct": true
+        },
+        {
+          "text": "Que los bucles no se pueden controlar una vez iniciados",
+          "correct": false
+        },
+        {
+          "text": "Que es mejor nunca usar bucles en programación",
+          "correct": false
+        },
+        {
+          "text": "Que el procesador no necesita descansos",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

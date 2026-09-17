@@ -1,32 +1,119 @@
 {
-  "title": "Part 4",
+  "title": "Peligros de Secuencia en Robótica",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Sequential Order - Concept 4",
-      "lessonText": "# Sequential Order (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué los errores de secuencia son peligrosos con motores reales?",
+      "lessonText": "# Código en el Mundo Físico 💥\n\nEn un videojuego, si un personaje intenta saltar antes de tocar el suelo, solo se ve extraño en pantalla.\n\nEn un robot de 55 kg en FIRST Robotics:\n1. Si ordenas `moverBrazoAlMaximo()` **antes** de `calibrarSensorDeLimite()`...\n2. El motor empujará el brazo contra la estructura de metal con toda su fuerza.\n3. El engrane se barrerá y el motor Neo o Falcon se quemará.\n\n**El orden de las instrucciones en robótica protege la integridad física de las personas y de la máquina.**",
       "options": [
         {
-          "text": "Understood",
+          "text": "Porque ejecutar acciones físicas antes de calibrar sensores puede romper componentes mecánicos",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque la cancha de FRC se destruye automáticamente",
+          "correct": false
+        },
+        {
+          "text": "Porque los robots se ponen tristes cuando se equivocan",
+          "correct": false
+        },
+        {
+          "text": "Porque se pierde la conexión a internet en todo el estadio",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Sequential Order",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "DEBUG",
+      "question": "Encuentra el error de secuencia crítico en este inicio de teleoperado:",
+      "codeSnippet": "activarMotoresChasis(1.0)\nverificarFrenoDeEmergencia()\nconectarControladorRadio()",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Los motores se activan antes de conectar el radio y verificar la parada de emergencia",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "No se puede usar la potencia 1.0",
+          "correct": false
+        },
+        {
+          "text": "Falta poner una línea con el nombre del piloto",
+          "correct": false
+        },
+        {
+          "text": "No hay ningún problema, el robot frenará después",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Reordena la secuencia para que el arranque sea 100% seguro:",
+      "options": [
+        {
+          "text": "conectarControladorRadio()",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "verificarFrenoDeEmergencia()",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "calibrarSensores()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "activarMotoresChasis(1.0)",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "¿Cuál es la regla de oro para la lectura de sensores y control de motores?",
+      "options": [
+        {
+          "text": "Primero leer sensores, luego tomar la decisión, y al final accionar los motores",
+          "correct": true
+        },
+        {
+          "text": "Primero mover los motores a toda velocidad y después averiguar qué pasó",
+          "correct": false
+        },
+        {
+          "text": "Apagar todos los sensores para que el código corra más rápido",
+          "correct": false
+        },
+        {
+          "text": "Mover motores únicamente cuando la batería esté por debajo del 10%",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el aviso de seguridad en consola antes de encender motores:",
+      "codeSnippet": "_____('Atención: Área despejada, encendiendo motores')",
+      "options": [
+        {
+          "text": "print",
+          "correct": true
+        },
+        {
+          "text": "warning",
+          "correct": false
+        },
+        {
+          "text": "alarm",
+          "correct": false
+        },
+        {
+          "text": "buzzer",
           "correct": false
         }
       ]

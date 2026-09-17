@@ -1,32 +1,116 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Moviendo el Brazo Mecánico",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "While Loops - Concept 5",
-      "lessonText": "# While Loops (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡Control en lazo cerrado para el brazo de Nautilus 4010!",
+      "lessonText": "# Llevando el Brazo a su Posición 🦾\n\nEl brazo articulado de nuestro robot tiene un encoder magnético que mide el ángulo actual en grados.\n\nQueremos mover el brazo desde `0` grados hasta alcanzar el ángulo objetivo de `90` grados:\n- Mientras `anguloActual < 90`:\n  - Aplicamos potencia suave al motor del brazo.\n  - En cada ciclo leemos el nuevo ángulo del encoder.\n- En cuanto llega a 90, el bucle concluye y frenamos el motor.\n\nEn este reto final de la Unidad 11, programarás este movimiento preciso.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a programar el movimiento con Teus!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero que el brazo gire sin parar hasta doblar el chasis",
+          "correct": false
+        },
+        {
+          "text": "No quiero usar bucles",
+          "correct": false
+        },
+        {
+          "text": "Quiero mover el brazo con la mano durante el match",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "El ángulo avanza de 30 en 30 grados. ¿Qué ángulo final registrará la consola tras salir del bucle?",
+      "codeSnippet": "angulo = 0\nwhile angulo < 90:\n    angulo += 30\nprint(angulo)",
+      "options": [
+        {
+          "text": "90",
+          "correct": true
+        },
+        {
+          "text": "60",
+          "correct": false
+        },
+        {
+          "text": "120",
+          "correct": false
+        },
+        {
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena el algoritmo completo de control del brazo con encoder:",
+      "options": [
+        {
+          "text": "anguloActual = leerEncoderBrazo()",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "while anguloActual < 90:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    motorBrazo.set(0.4)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    anguloActual = leerEncoderBrazo()",
+          "correct": true,
+          "audioSrc": "4"
+        },
+        {
+          "text": "motorBrazo.set(0.0)",
+          "correct": true,
+          "audioSrc": "5"
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la consola tras el ciclo de advertencia?",
+      "codeSnippet": "intentos = 1\nwhile intentos <= 2:\n    print('Alerta ' + str(intentos))\n    intentos += 1",
+      "options": [
+        {
+          "text": "Alerta 1\nAlerta 2",
+          "correct": true
+        },
+        {
+          "text": "Alerta 1",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on While Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Por qué el bucle while es la herramienta perfecta cuando NO sabemos de antemano cuántos segundos exactos tardará una acción mecánica?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Porque se basa en una condición de estado (el sensor llegó a la meta) y no en una cantidad fija de tiempo",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Porque los bucles while tienen poderes mágicos de adivinanza",
+          "correct": false
+        },
+        {
+          "text": "Porque solo consume 1 voltio de la batería",
+          "correct": false
+        },
+        {
+          "text": "No es verdad, siempre es mejor adivinar el tiempo con pausas fijas",
           "correct": false
         }
       ]

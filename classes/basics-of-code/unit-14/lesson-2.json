@@ -1,0 +1,112 @@
+{
+  "title": "Definición e Invocación de Funciones",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Cómo se define y cómo se ejecuta una función?",
+      "lessonText": "# El Botón Personalizado 🔘\n\nCrear una función es como construir un botón en una máquina:\n\n1. **Definir la función (Construir el botón):**\nEn Python usamos la palabra clave `def`:\n```python\ndef pitarAlarma():\n    print('¡BEEP! Robot en movimiento')\n```\n*Nota: Definir la función NO ejecuta el código todavía. Solo le enseña a la computadora qué hacer cuando se le pida.*\n\n2. **Invocar / Llamar a la función (Apretar el botón):**\n```python\npitarAlarma()  # ¡Aquí es donde la CPU corre el código!\n```\nLos paréntesis `()` son los que activan la ejecución.",
+      "options": [
+        {
+          "text": "Se define con def/void y se ejecuta escribiendo su nombre seguido de paréntesis ()",
+          "correct": true
+        },
+        {
+          "text": "Se ejecuta automáticamente al escribir su nombre con mayúsculas",
+          "correct": false
+        },
+        {
+          "text": "Las funciones se ejecutan solas cada 5 segundos sin llamarlas",
+          "correct": false
+        },
+        {
+          "text": "No se pueden crear funciones propias en ningún lenguaje",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la palabra clave para definir la función en Python:",
+      "codeSnippet": "_____ encenderLuces():\n    print('LEDs Dorados Encendidos')",
+      "options": [
+        {
+          "text": "def",
+          "correct": true
+        },
+        {
+          "text": "function",
+          "correct": false
+        },
+        {
+          "text": "create",
+          "correct": false
+        },
+        {
+          "text": "make",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué imprimirá la consola tras ejecutar este programa?",
+      "codeSnippet": "def saludo():\n    print('Hola Nautilus')\n\nprint('Inicio')\nsaludo()\nprint('Fin')",
+      "options": [
+        {
+          "text": "Inicio\nHola Nautilus\nFin",
+          "correct": true
+        },
+        {
+          "text": "Hola Nautilus\nInicio\nFin",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué ocurre si defines una función pero NUNCA la llamas en el código principal?",
+      "codeSnippet": "def dispararPelota():\n    print('¡Fuego!')\n\nprint('Robot esperando...')",
+      "options": [
+        {
+          "text": "Solo imprime 'Robot esperando...'; el código dentro de la función nunca se ejecuta",
+          "correct": true
+        },
+        {
+          "text": "Se ejecuta de todos modos al final del archivo",
+          "correct": false
+        },
+        {
+          "text": "Dará un error de compilación",
+          "correct": false
+        },
+        {
+          "text": "La computadora se confunde",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el error: Olvidaron los paréntesis para invocar la función.",
+      "codeSnippet": "def calibrar():\n    print('Calibrando gyro...')\n\ncalibrar",
+      "options": [
+        {
+          "text": "Faltan los paréntesis () al final: calibrar()",
+          "correct": true
+        },
+        {
+          "text": "La palabra calibrar está mal escrita",
+          "correct": false
+        },
+        {
+          "text": "Hay que quitar el print",
+          "correct": false
+        },
+        {
+          "text": "No se puede usar la palabra gyro",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

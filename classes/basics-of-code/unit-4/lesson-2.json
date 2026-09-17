@@ -1,32 +1,107 @@
 {
-  "title": "Part 2",
+  "title": "Declaración e Inicialización",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Variables & Boxes - Concept 2",
-      "lessonText": "# Variables & Boxes (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cuál es la diferencia entre declarar e inicializar?",
+      "lessonText": "# Dar a Luz una Variable 🐣\n\nEn desarrollo de software existen dos momentos clave:\n\n1. **Declaración:** Crear la variable y avisarle a la computadora que existirá.\n   - Ejemplo: `int puntos;` (¡La caja fue creada pero está vacía!)\n2. **Inicialización:** Darle su primer valor inicial de vida.\n   - Ejemplo: `puntos = 0;` (¡Ahora la caja tiene un valor concreto!)\n\nMuchos lenguajes modernos permiten hacer ambas cosas en una sola línea elegante:\n`int puntos = 0;` o en Python simplemente `puntos = 0`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Declarar es crear la variable; inicializar es darle su primer valor",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Declarar es borrar la variable; inicializar es enviarla por internet",
+          "correct": false
+        },
+        {
+          "text": "Son exactamente la misma palabra con diferente color",
+          "correct": false
+        },
+        {
+          "text": "Declarar solo sirve para números y nunca para texto",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada término con su significado:",
+      "options": [
+        {
+          "text": "Declarar|||Reservar el espacio y nombre de la variable",
+          "correct": true
+        },
+        {
+          "text": "Inicializar|||Asignar el primer valor de arranque a la variable",
+          "correct": true
+        },
+        {
+          "text": "Valor por defecto|||El valor que toma una variable no inicializada",
+          "correct": true
+        },
+        {
+          "text": "Asignación|||Guardar un dato usando el operador =",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Declara e inicializa la variable 'meta' con el valor 100:",
+      "codeSnippet": "// Crea la variable meta",
+      "options": [
+        {
+          "text": "meta = 100",
+          "correct": true
+        },
+        {
+          "text": "meta == 100",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de la variable 'sensor'?",
+      "codeSnippet": "sensor = 0\nsensor = 45\nprint(sensor)",
+      "options": [
+        {
+          "text": "45 (el valor inicial 0 fue sobreescrito)",
+          "correct": true
+        },
+        {
+          "text": "0",
+          "correct": false
+        },
+        {
+          "text": "450",
+          "correct": false
+        },
+        {
+          "text": "Error por asignar dos veces",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Variables & Boxes",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué pasa si intentas usar una variable que nunca fue declarada ni inicializada?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Ocurre un error en tiempo de compilación o ejecución (NameError)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "La computadora inventa un número de la suerte",
+          "correct": false
+        },
+        {
+          "text": "El robot frena suavemente",
+          "correct": false
+        },
+        {
+          "text": "Se apaga la luz del taller",
           "correct": false
         }
       ]

@@ -1,32 +1,119 @@
 {
-  "title": "Part 4",
+  "title": "Debugging de Condiciones Solapadas",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "For Loops - Concept 4",
-      "lessonText": "# For Loops (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué el orden de las condiciones en una cadena if-elif importa tanto?",
+      "lessonText": "# El Error del Orden Invertido ⚠️\n\nAnaliza este intento de clasificar velocidades:\n```python\nvelocidad = 95\nif velocidad > 50:\n    print('Rápido')\nelif velocidad > 90:\n    print('Súper Rápido')  # ¡ESTA LÍNEA NUNCA SE EJECUTARÁ!\n```\n¿Por qué jamás dirá 'Súper Rápido'?\nPorque como `95` ya es mayor a `50`, la primera condición se cumple inmediatamente. La CPU ejecuta `'Rápido'` y **se salta todo lo demás**.\n\n**Regla de Oro:** Siempre coloca las condiciones **más específicas y estrictas primero**, y las más generales después.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Porque la primera condición que sea verdadera consume la ejecución y descarta las siguientes",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque el procesador se confunde con el número 90",
+          "correct": false
+        },
+        {
+          "text": "Porque elif solo acepta números menores a 50",
+          "correct": false
+        },
+        {
+          "text": "En realidad sí se ejecutan ambos mensajes a la vez",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on For Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "DEBUG",
+      "question": "¿Cómo solucionamos el bug del ejemplo anterior para que reconozca 'Súper Rápido'?",
+      "codeSnippet": "// Código con bug:\n// if velocidad > 50: print('Rápido')\n// elif velocidad > 90: print('Súper Rápido')",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Poner primero 'if velocidad > 90:' y luego 'elif velocidad > 50:'",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Cambiar ambos por 'else'",
+          "correct": false
+        },
+        {
+          "text": "Quitar los signos de mayor que",
+          "correct": false
+        },
+        {
+          "text": "Cambiar el número 95 por 0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Con la corrección aplicada, ¿qué imprimirá para velocidad = 95?",
+      "codeSnippet": "velocidad = 95\nif velocidad > 90:\n    print('Súper Rápido')\nelif velocidad > 50:\n    print('Rápido')\nelse:\n    print('Lento')",
+      "options": [
+        {
+          "text": "Súper Rápido",
+          "correct": true
+        },
+        {
+          "text": "Rápido",
+          "correct": false
+        },
+        {
+          "text": "Lento",
+          "correct": false
+        },
+        {
+          "text": "Súper Rápido\nRápido",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena correctamente las condiciones de mayor a menor jerarquía para calificar puntajes:",
+      "options": [
+        {
+          "text": "if score >= 90: print('Excelente')",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "elif score >= 70: print('Bueno')",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "elif score >= 50: print('Suficiente')",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "else: print('Insuficiente')",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál es la diferencia entre usar múltiples `if` separados vs una cadena `if-elif-else`?",
+      "options": [
+        {
+          "text": "En múltiples ifs separados se pueden ejecutar varios bloques a la vez; en if-elif-else solo se ejecuta uno",
+          "correct": true
+        },
+        {
+          "text": "No hay ninguna diferencia, funcionan idéntico",
+          "correct": false
+        },
+        {
+          "text": "Los ifs separados no aceptan números",
+          "correct": false
+        },
+        {
+          "text": "if-elif-else es exclusivo de robots voladores",
           "correct": false
         }
       ]

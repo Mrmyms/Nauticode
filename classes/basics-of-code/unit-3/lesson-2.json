@@ -1,32 +1,108 @@
 {
-  "title": "Part 2",
+  "title": "El Orden Altera el Resultado",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Sequential Order - Concept 2",
-      "lessonText": "# Sequential Order (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué el orden de las operaciones cambia el resultado?",
+      "lessonText": "# Las Matemáticas de la Secuencia 🧮\n\nAnaliza estos dos programas. Parecen iguales, pero no lo son:\n\n**Programa A:**\n```python\nvalor = 10\nvalor = valor + 5  # Ahora valor es 15\nvalor = valor * 2  # 15 * 2 = 30\nprint(valor)       # Imprime 30\n```\n\n**Programa B (Invertido):**\n```python\nvalor = 10\nvalor = valor * 2  # Ahora valor es 20\nvalor = valor + 5  # 20 + 5 = 25\nprint(valor)       # Imprime 25\n```\n\n¡Las mismas operaciones en diferente orden dan resultados totalmente distintos!",
       "options": [
         {
-          "text": "Understood",
+          "text": "Porque cada línea opera sobre el estado acumulado de las líneas anteriores",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque a la multiplicación le da miedo la suma",
+          "correct": false
+        },
+        {
+          "text": "Porque la computadora calcula números al azar",
+          "correct": false
+        },
+        {
+          "text": "En realidad dan el mismo resultado, es una ilusión óptica",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué valor final se imprime en este código?",
+      "codeSnippet": "score = 5\nscore = score * 3\nscore = score - 2\nprint(score)",
+      "options": [
+        {
+          "text": "13",
+          "correct": true
+        },
+        {
+          "text": "15",
+          "correct": false
+        },
+        {
+          "text": "9",
+          "correct": false
+        },
+        {
+          "text": "5",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué imprimirá este programa?",
+      "codeSnippet": "pasos = 0\npasos = pasos + 1\npasos = pasos + 1\nprint(pasos)",
+      "options": [
+        {
+          "text": "2",
+          "correct": true
+        },
+        {
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el código para que el resultado final sea 100:",
+      "codeSnippet": "x = 50\nx = x _____ 2\nprint(x)",
+      "options": [
+        {
+          "text": "*",
+          "correct": true
+        },
+        {
+          "text": "-",
+          "correct": false
+        },
+        {
+          "text": "/",
+          "correct": false
+        },
+        {
+          "text": "%",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Sequential Order",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "Si intentas imprimir una variable antes de crearla (ej: `print(energia)` antes de `energia = 100`), ¿qué sucederá?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Error: La variable no está definida (NameError / Undefined)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "La computadora inventa un valor de energía",
+          "correct": false
+        },
+        {
+          "text": "Imprime cero sin avisar",
+          "correct": false
+        },
+        {
+          "text": "Se apaga el monitor",
           "correct": false
         }
       ]

@@ -1,32 +1,116 @@
 {
-  "title": "Part 3",
+  "title": "Precedencia de Operadores y Paréntesis",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Boolean Logic - Concept 3",
-      "lessonText": "# Boolean Logic (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo decide la computadora qué operación resolver primero?",
+      "lessonText": "# El Orden Jerárquico (PEMDAS) 📐\n\nEn código, las operaciones no siempre se resuelven de izquierda a derecha. Siguen las reglas universales de precedencia:\n\n1. **Paréntesis `()`:** Siempre tienen la máxima prioridad.\n2. **Multiplicación `*`, División `/` y Módulo `%`:** Tienen prioridad intermedia.\n3. **Suma `+` y Resta `-`:** Se resuelven al final.\n\nEjemplo crucial:\n`2 + 3 * 4`\n- Primero se calcula `3 * 4 = 12`.\n- Luego `2 + 12 = 14`.\nSi querías sumar primero, **debes usar paréntesis**: `(2 + 3) * 4 = 20`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Primero paréntesis, luego multiplicación/división/módulo, y al final suma/resta",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Siempre estrictamente de derecha a izquierda",
+          "correct": false
+        },
+        {
+          "text": "La operación con números más grandes siempre va primero",
+          "correct": false
+        },
+        {
+          "text": "La computadora elige el orden más fácil al azar",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'x'?",
+      "codeSnippet": "x = 10 + 5 * 2\nprint(x)",
+      "options": [
+        {
+          "text": "20 (porque 5 * 2 = 10, y 10 + 10 = 20)",
+          "correct": true
+        },
+        {
+          "text": "30",
+          "correct": false
+        },
+        {
+          "text": "100",
+          "correct": false
+        },
+        {
+          "text": "25",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final si usamos paréntesis?",
+      "codeSnippet": "x = (10 + 5) * 2\nprint(x)",
+      "options": [
+        {
+          "text": "30 (porque (10 + 5) = 15, y 15 * 2 = 30)",
+          "correct": true
+        },
+        {
+          "text": "20",
+          "correct": false
+        },
+        {
+          "text": "15",
+          "correct": false
+        },
+        {
+          "text": "50",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Queremos calcular el promedio de dos sensores, pero da un número absurdo. ¿Dónde faltan los paréntesis?",
+      "codeSnippet": "sensorA = 10\nsensorB = 20\npromedio = sensorA + sensorB / 2\nprint(promedio)  // Imprime 20 en lugar de 15",
+      "options": [
+        {
+          "text": "Debe ser: (sensorA + sensorB) / 2",
+          "correct": true
+        },
+        {
+          "text": "Debe ser: sensorA + (sensorB / 2)",
+          "correct": false
+        },
+        {
+          "text": "Hay que dividir entre 3",
+          "correct": false
+        },
+        {
+          "text": "No se pueden promediar variables",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Boolean Logic",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Por qué los desarrolladores experimentados usan paréntesis incluso cuando la precedencia ya es clara?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Para que el código sea 100% explícito y evitar confusiones a otros humanos que lean el archivo",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Porque el procesador se confunde sin paréntesis",
+          "correct": false
+        },
+        {
+          "text": "Para que el programa corra más rápido",
+          "correct": false
+        },
+        {
+          "text": "Para evitar que el código sea hackeado",
           "correct": false
         }
       ]

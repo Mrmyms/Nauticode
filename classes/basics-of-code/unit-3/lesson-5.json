@@ -1,32 +1,103 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Secuencia de Arranque Seguro",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Sequential Order - Concept 5",
-      "lessonText": "# Sequential Order (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡El ritual de inicio de Nautilus 4010!",
+      "lessonText": "# El Checklist de Inicio de Teus 🚀\n\nAntes de cada match oficial de FIRST, el equipo de drive team sigue un protocolo estricto de software en la Driver Station.\n\nEn este reto final de la Unidad 3, vas a ensamblar y verificar la secuencia de encendido y telemetría de Nautilus 4010.\n\n¡La secuencia correcta garantiza que el robot salga a la arena a ganar!",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a ensamblar la secuencia de arranque!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "No quiero revisar la secuencia",
+          "correct": false
+        },
+        {
+          "text": "Prefiero ir directo a la final sin probar el robot",
+          "correct": false
+        },
+        {
+          "text": "Quiero desconectar la batería",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia completa de chequeo del robot:",
+      "options": [
+        {
+          "text": "print('1. Verificando voltaje de batería...')",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "print('2. Calibrando NavX Gyro...')",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "print('3. Sincronizando cámaras Limelight...')",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('4. Sistema Nautilus 4010 ONLINE!')",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué número final de advertencias se mostrará?",
+      "codeSnippet": "warnings = 0\nwarnings = warnings + 1  // Batería tibia\nwarnings = warnings + 1  // Presión de aire baja\nprint(warnings)",
+      "options": [
+        {
+          "text": "2",
+          "correct": true
+        },
+        {
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción final que imprime el mensaje de confirmación: SISTEMA LISTO",
+      "codeSnippet": "// Imprime la confirmación",
+      "options": [
+        {
+          "text": "print('SISTEMA LISTO')",
+          "correct": true
+        },
+        {
+          "text": "print(SISTEMA LISTO)",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Sequential Order",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué conclusión fundamental te llevas de esta Unidad 3 sobre Sequential Execution?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "El orden en que escribimos el código define el orden en que suceden las cosas en el mundo real",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "El procesador lee las instrucciones en círculos",
+          "correct": false
+        },
+        {
+          "text": "No importa dónde declares las variables ni dónde enciendas los motores",
+          "correct": false
+        },
+        {
+          "text": "Es mejor escribir todo el programa en una sola línea larguísima",
           "correct": false
         }
       ]

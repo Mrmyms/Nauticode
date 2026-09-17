@@ -1,32 +1,108 @@
 {
-  "title": "Part 4",
+  "title": "La Trampa Mortal: = vs ==",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Else Conditions - Concept 4",
-      "lessonText": "# Else Conditions (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué confundir '=' con '==' causa desastres en los novatos?",
+      "lessonText": "# El Error Más Costoso de la Historia 💀\n\nRecuerda la regla de oro:\n- **`=` es ASIGNACIÓN:** Guarda un dato dentro de una variable (`velocidad = 100`).\n- **`==` es COMPARACIÓN:** Pregunta si dos cosas son iguales (`if velocidad == 100:`).\n\nEn lenguajes como C++ y Java, escribir accidentalmente:\n`if (potencia = 0)`\nNo compara si la potencia es 0... ¡**Le asigna 0 a la potencia en ese mismo instante**! Tu robot se detendrá de golpe o se comportará de forma errática sin que el compilador te avise del error lógico.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Porque '=' modifica la variable asignándole un valor, mientras que '==' sólo compara sin alterar nada",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque un '=' gasta la mitad de la batería que dos '=='",
+          "correct": false
+        },
+        {
+          "text": "Porque el procesador no sabe leer dos signos juntos",
+          "correct": false
+        },
+        {
+          "text": "No hay diferencia, ambos hacen exactamente lo mismo en todos lados",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Else Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál es la forma correcta de preguntar si el sensor marca exactamente 45 grados?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "if sensor == 45:",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "if sensor = 45:",
+          "correct": false
+        },
+        {
+          "text": "if sensor === 45::",
+          "correct": false
+        },
+        {
+          "text": "if 45 -> sensor:",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa con el operador de comparación para verificar si la alianza es 'Azul':",
+      "codeSnippet": "if colorAlianza _____ 'Azul':\n    print('Iniciando en estación Azul')",
+      "options": [
+        {
+          "text": "==",
+          "correct": true
+        },
+        {
+          "text": "=",
+          "correct": false
+        },
+        {
+          "text": "+=",
+          "correct": false
+        },
+        {
+          "text": ":=",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Corrige este código para que compare en lugar de reasignar:",
+      "codeSnippet": "if matchNumero = 1:\n    print('Primer match regional')",
+      "options": [
+        {
+          "text": "Cambiar '=' por '==': if matchNumero == 1:",
+          "correct": true
+        },
+        {
+          "text": "Cambiar el 1 por 'primer'",
+          "correct": false
+        },
+        {
+          "text": "Quitar los dos puntos del final",
+          "correct": false
+        },
+        {
+          "text": "No hay nada que corregir",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la condición que verifica si 'estado' es igual al string 'READY':",
+      "codeSnippet": "// Compara estado con 'READY'",
+      "options": [
+        {
+          "text": "estado == 'READY'",
+          "correct": true
+        },
+        {
+          "text": "estado = 'READY'",
           "correct": false
         }
       ]

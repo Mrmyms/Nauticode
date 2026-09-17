@@ -1,5 +1,6 @@
 {
-  "title": "Variables & Boxes",
-  "description": "Storing data in memory",
-  "order": 4
+  "title": "Variables & Memory",
+  "description": "Cajas con etiqueta: Guardar y actualizar datos en memoria",
+  "order": 4,
+  "guidebookText": "# Guía de Estudio: Unit 4 - Variables & Memory\n\nUna **variable** es un espacio reservado en la memoria RAM de la computadora al que le asignamos un **nombre simbólico (etiqueta)** para almacenar y recuperar información.\n\n### Conceptos Clave:\n1. **Declaración:** Crear la variable y reservar el espacio en memoria (ej: en Java/C++ indicamos el tipo: `int score;`).\n2. **Inicialización:** Asignarle su primer valor (`score = 0;`).\n3. **El Operador de Asignación (`=`):** Toma lo que está a la derecha del signo igual, lo calcula y lo guarda en la caja que está a la izquierda.\n4. **Mutabilidad:** El valor dentro de la caja puede cambiar a lo largo del tiempo. Por eso se llaman *variables*."
 }

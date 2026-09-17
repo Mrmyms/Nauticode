@@ -1,0 +1,110 @@
+{
+  "title": "Scope de Variables: Local vs Global",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Qué es el 'Scope' (alcance) de una variable?",
+      "lessonText": "# Lo Que Pasa en la Función, Se Queda en la Función 🔒\n\nEl **Scope** determina en qué partes de tu programa una variable es visible y accesible:\n\n1. **Variables Locales:** Se crean DENTRO de una función.\n   - Solo existen mientras la función se está ejecutando.\n   - En cuanto la función termina, la caja de memoria **se destruye**.\n   - ¡El código de afuera no puede verlas ni usarlas!\n\n2. **Variables Globales:** Se crean AFUERA de todas las funciones.\n   - Cualquier función puede leerlas a lo largo de todo el archivo.",
+      "options": [
+        {
+          "text": "La región del programa donde una variable existe y puede ser consultada",
+          "correct": true
+        },
+        {
+          "text": "La distancia a la que llega el radio Wi-Fi del robot",
+          "correct": false
+        },
+        {
+          "text": "El tamaño en píxeles del monitor del programador",
+          "correct": false
+        },
+        {
+          "text": "Un telescopio para ver las estrellas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué pasará al intentar imprimir 'sensorInterno' fuera de la función?",
+      "codeSnippet": "def leer():\n    sensorInterno = 55\n\nleer()\nprint(sensorInterno)",
+      "options": [
+        {
+          "text": "Error (NameError: sensorInterno is not defined) porque la variable murió al terminar la función",
+          "correct": true
+        },
+        {
+          "text": "Imprime 55 perfectamente",
+          "correct": false
+        },
+        {
+          "text": "Imprime 0",
+          "correct": false
+        },
+        {
+          "text": "Imprime null",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué es una pésima práctica llenar tu programa de variables 100% globales?",
+      "options": [
+        {
+          "text": "Porque cualquier función puede modificarlas por accidente, creando bugs invisibles difíciles de rastrear",
+          "correct": true
+        },
+        {
+          "text": "Porque las variables globales hacen que el chasis pese el doble",
+          "correct": false
+        },
+        {
+          "text": "Porque a los compiladores les gustan solo las variables locales",
+          "correct": false
+        },
+        {
+          "text": "No es mala práctica, todas las variables deberían ser globales siempre",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja cada concepto de Scope con su característica:",
+      "options": [
+        {
+          "text": "Variable Local|||Vive solo dentro de la función donde nació",
+          "correct": true
+        },
+        {
+          "text": "Variable Global|||Accesible desde cualquier punto del programa",
+          "correct": true
+        },
+        {
+          "text": "Shadowing|||Cuando una variable local tiene el mismo nombre que una global",
+          "correct": true
+        },
+        {
+          "text": "Parámetro|||Variable local que recibe un dato desde el exterior",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué valor imprimirá la variable global 'puntos'?",
+      "codeSnippet": "puntos = 100\n\ndef jugar():\n    puntosLocales = 20\n\njugar()\nprint(puntos)",
+      "options": [
+        {
+          "text": "100",
+          "correct": true
+        },
+        {
+          "text": "20",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

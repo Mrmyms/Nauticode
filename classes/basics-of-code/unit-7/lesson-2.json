@@ -1,32 +1,100 @@
 {
-  "title": "Part 2",
+  "title": "El Operador Residuo / Módulo (%)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Boolean Logic - Concept 2",
-      "lessonText": "# Boolean Logic (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué calcula exactamente el operador módulo (`%`)?",
+      "lessonText": "# El Secreto del Residuo 🍰\n\nEl operador **Módulo (`%`)** no calcula el cociente de una división, sino el **residuo (lo que sobra)** tras dividir dos números enteros.\n\nEjemplo de la vida real:\nTienes 7 galletas y las repartes equitativamente entre 3 amigos de robótica:\n- Cada amigo recibe 2 galletas (2 * 3 = 6).\n- **Sobra 1 galleta.**\n- Por lo tanto: `7 % 3 = 1`.\n\n¿Para qué sirve en robótica?\n- **Saber si un número es par o impar:** `numero % 2 == 0`.\n- **Hacer ciclos cíclicos:** Limitar un contador entre 0 y 360 grados.",
       "options": [
         {
-          "text": "Understood",
+          "text": "El sobrante o residuo entero de una división",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "El porcentaje de descuento en la tienda",
+          "correct": false
+        },
+        {
+          "text": "La raíz cuadrada del número",
+          "correct": false
+        },
+        {
+          "text": "La velocidad máxima permitida",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuánto es `10 % 4`?",
+      "codeSnippet": "resultado = 10 % 4\nprint(resultado)",
+      "options": [
+        {
+          "text": "2 (porque 4 cabe dos veces en 10 y sobran 2)",
+          "correct": true
+        },
+        {
+          "text": "2.5",
+          "correct": false
+        },
+        {
+          "text": "0",
+          "correct": false
+        },
+        {
+          "text": "40",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuánto es `8 % 2`?",
+      "codeSnippet": "print(8 % 2)",
+      "options": [
+        {
+          "text": "0",
+          "correct": true
+        },
+        {
+          "text": "4",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Boolean Logic",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "Si `numero % 2 == 0`, ¿qué podemos afirmar con 100% de certeza matemática?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Que el número es PAR",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Que el número es IMPAR",
+          "correct": false
+        },
+        {
+          "text": "Que el número es negativo",
+          "correct": false
+        },
+        {
+          "text": "Que el número es primo",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la expresión que calcula el residuo de dividir 'grados' entre 360:",
+      "codeSnippet": "// Calcula el residuo",
+      "options": [
+        {
+          "text": "grados % 360",
+          "correct": true
+        },
+        {
+          "text": "grados / 360",
           "correct": false
         }
       ]

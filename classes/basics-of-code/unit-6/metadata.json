@@ -1,5 +1,6 @@
 {
-  "title": "Data Types",
-  "description": "Text, Numbers, Booleans",
-  "order": 6
+  "title": "Primitive Data Types",
+  "description": "Enteros, decimales, texto y booleanos: Cada dato en su lugar",
+  "order": 6,
+  "guidebookText": "# Guía de Estudio: Unit 6 - Primitive Data Types\n\nNo toda la información es igual. Una computadora necesita saber exactamente qué **tipo de dato** almacena para reservar la cantidad correcta de memoria y saber qué operaciones están permitidas.\n\n### Los 4 Tipos Primitivos Fundamentales:\n1. **`int` (Integer / Entero):** Números sin decimales (`-5`, `0`, `42`). Ideal para contadores, ciclos y número de piezas recogidas.\n2. **`float` / `double` (Punto Flotante):** Números con punto decimal (`3.1416`, `0.75`, `-12.4`). Ideal para voltajes, velocidades continuas, distancias y ángulos.\n3. **`string` (Cadena de Texto):** Secuencia de caracteres rodeados de comillas (`'Nautilus'`, `\"Autónomo Listo\"`). Ideal para mensajes, nombres y telemetría.\n4. **`bool` (Booleano):** Solo dos valores posibles: `true` o `false`. Ideal para interruptores, sensores de límite y condiciones lógicas."
 }

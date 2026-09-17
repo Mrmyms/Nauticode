@@ -1,5 +1,6 @@
 {
-  "title": "If Conditions",
-  "description": "Making decisions",
-  "order": 8
+  "title": "Boolean Logic & Comparisons",
+  "description": "Comparadores y compuertas lógicas: AND, OR y NOT en sensores",
+  "order": 8,
+  "guidebookText": "# Guía de Estudio: Unit 8 - Boolean Logic & Comparisons\n\nLa inteligencia de un robot comienza cuando puede comparar valores y evaluar condiciones lógicas complejas.\n\n### 1. Operadores de Comparación (Relacionales):\nComparan dos valores y siempre devuelven un resultado booleano (`true` o `false`):\n- Igualdad: `==` (¡Ojo! Dos signos iguales para comparar, uno solo para asignar).\n- Desigualdad: `!=` (Diferente de).\n- Mayor / Menor que: `>`, `<`.\n- Mayor o igual / Menor o igual: `>=`, `<=`.\n\n### 2. Operadores Lógicos:\n- **AND (`&&`):** Da `true` SOLAMENTE si **ambas** condiciones son verdaderas.\n- **OR (`||`):** Da `true` si **al menos una** de las condiciones es verdadera.\n- **NOT (`!`):** Invierte el valor (`!true` se convierte en `false`)."
 }

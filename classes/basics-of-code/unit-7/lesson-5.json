@@ -1,32 +1,100 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Relación de Engranes y Reducciones",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Boolean Logic - Concept 5",
-      "lessonText": "# Boolean Logic (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡Matemáticas mecánicas en el robot!",
+      "lessonText": "# Gear Ratios en Nautilus 4010 ⚙️\n\nUn motor brushless Falcon 500 gira a 6000 RPM (revoluciones por minuto), ¡demasiado rápido para mover una rueda directamente!\n\nPor eso usamos una caja reductora de engranes con una relación (Gear Ratio) de `5:1`:\n`rpmRueda = rpmMotor / gearRatio`\n`rpmRueda = 6000 / 5 = 1200 RPM`\n\nEn este reto final de la Unidad 7, usarás operadores aritméticos para calcular velocidades, relaciones de transmisión y promedios.",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a calcular la física del chasis!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero que los engranes se traben",
+          "correct": false
+        },
+        {
+          "text": "No quiero hacer cálculos",
+          "correct": false
+        },
+        {
+          "text": "Quiero girar el motor sin caja reductora",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción para calcular 'rpmFinal' dividiendo 'rpmMotor' entre 'gearRatio':",
+      "codeSnippet": "// Calcula la reducción",
+      "options": [
+        {
+          "text": "rpmFinal = rpmMotor / gearRatio",
+          "correct": true
+        },
+        {
+          "text": "rpmFinal = rpmMotor * gearRatio",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué RPM final arrojará este cálculo?",
+      "codeSnippet": "rpmMotor = 6000\ngearRatio = 6\nrpmFinal = rpmMotor / gearRatio\nprint(rpmFinal)",
+      "options": [
+        {
+          "text": "1000.0",
+          "correct": true
+        },
+        {
+          "text": "36000.0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Calcula el promedio de las lecturas de dos encoders en el chasis:",
+      "codeSnippet": "encoderIzquierdo = 400\nencoderDerecho = 600\npromedioTicks = (encoderIzquierdo + encoderDerecho) / 2\nprint(promedioTicks)",
+      "options": [
+        {
+          "text": "500.0",
+          "correct": true
+        },
+        {
+          "text": "700.0",
+          "correct": false
+        },
+        {
+          "text": "1000.0",
+          "correct": false
+        },
+        {
+          "text": "500",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Boolean Logic",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué conclusión fundamental te deja esta Unidad 7 sobre Operadores Aritméticos?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Las matemáticas son el motor que transforma lecturas crudas de sensores en movimientos mecánicos precisos",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "El procesador solo puede sumar, nunca restar ni multiplicar",
+          "correct": false
+        },
+        {
+          "text": "Los paréntesis están prohibidos en la programación de FIRST",
+          "correct": false
+        },
+        {
+          "text": "Es mejor calcular todo a mano con calculadora durante el match",
           "correct": false
         }
       ]

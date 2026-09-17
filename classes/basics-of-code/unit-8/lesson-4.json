@@ -1,32 +1,100 @@
 {
-  "title": "Part 4",
+  "title": "El Operador Lógico NOT (!)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "If Conditions - Concept 4",
-      "lessonText": "# If Conditions (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué hace el operador lógico NOT?",
+      "lessonText": "# El Inversor de Realidad 🪞\n\nEl operador **NOT** (en Java/C++ se escribe `!`, en Python se escribe `not`) es un operador unario que **invierte el valor de cualquier booleano**:\n- `not true` se convierte en `false`.\n- `not false` se convierte en `true`.\n\nEjemplo práctico:\n`hayObstaculo = false`\n`caminoLibre = not hayObstaculo` (¡caminoLibre ahora es `true`!)\n\nEn robótica se usa todo el tiempo con interruptores normalmente cerrados (NC) o para comprobar si una tarea aún no ha terminado.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Invierte el valor de verdad: convierte true en false y false en true",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Borra la variable para siempre",
+          "correct": false
+        },
+        {
+          "text": "Vuelve positivo cualquier número negativo",
+          "correct": false
+        },
+        {
+          "text": "Duplica el valor booleano",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá este código con NOT?",
+      "codeSnippet": "motorEncendido = true\nprint(not motorEncendido)",
+      "options": [
+        {
+          "text": "false",
+          "correct": true
+        },
+        {
+          "text": "true",
+          "correct": false
+        },
+        {
+          "text": "motorEncendido",
+          "correct": false
+        },
+        {
+          "text": "none",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la expresión que niega el booleano 'isBlocked':",
+      "codeSnippet": "// Invierte isBlocked con not",
+      "options": [
+        {
+          "text": "not isBlocked",
+          "correct": true
+        },
+        {
+          "text": "!isBlocked",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué imprimirá una doble negación (`not not true`)?",
+      "codeSnippet": "print(not (not true))",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "false",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on If Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿A cuál de las siguientes expresiones equivale exactamente `not (x == 10)`?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "x != 10",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "x == 10",
+          "correct": false
+        },
+        {
+          "text": "x > 10",
+          "correct": false
+        },
+        {
+          "text": "x < 10",
           "correct": false
         }
       ]

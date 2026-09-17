@@ -1,32 +1,117 @@
 {
-  "title": "Part 1",
+  "title": "¿Qué es un Algoritmo?",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Algorithms - Concept 1",
-      "lessonText": "# Algorithms (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué define a un algoritmo?",
+      "lessonText": "# La Receta del Éxito 📋\n\n¿Alguna vez has seguido una receta para hornear un pastel? Sigues una lista de pasos finitos:\n1. Medir harina\n2. Mezclar huevos\n3. Precalentar horno a 180°C\n4. Hornear por 25 minutos\n\nEso es un **algoritmo**. En programación y robótica, un algoritmo debe cumplir 3 propiedades sagradas:\n- **Finito:** Debe terminar en algún momento.\n- **Definido:** Cada vez que le des los mismos datos, debe producir el mismo resultado.\n- **Preciso:** No puede haber ambigüedad ni pasos vagos como 'hazlo bien'.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Una serie ordenada de pasos finitos y precisos para resolver un problema",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un tipo de procesador que sólo usan los militares",
+          "correct": false
+        },
+        {
+          "text": "Un error que destruye la memoria de la máquina",
+          "correct": false
+        },
+        {
+          "text": "Un baile que hacen los programadores cuando su código compila",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Algorithms",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál de las siguientes instrucciones NO es un buen paso para un algoritmo de robot?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "'Gira el robot más o menos un poquito'",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "'Avanza 1.5 metros hacia adelante a 50% de potencia'",
+          "correct": false
+        },
+        {
+          "text": "'Gira 90 grados a la derecha usando el giroscopio'",
+          "correct": false
+        },
+        {
+          "text": "'Detén los motores si el sensor de distancia marca menos de 10 cm'",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada característica de un buen algoritmo con su significado:",
+      "options": [
+        {
+          "text": "Finito|||Tiene un principio y un final claro",
+          "correct": true
+        },
+        {
+          "text": "Preciso|||Cada paso indica la acción exacta sin dudas",
+          "correct": true
+        },
+        {
+          "text": "Determinista|||Mismos datos siempre dan el mismo resultado",
+          "correct": true
+        },
+        {
+          "text": "Eficiente|||Resuelve el problema usando el mínimo tiempo/memoria",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena el algoritmo para cruzar la calle de forma segura:",
+      "options": [
+        {
+          "text": "Detenerse en la banqueta",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "Mirar a la izquierda y a la derecha",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "Verificar si vienen autos",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "Cruzar caminando a paso constante",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "Si un algoritmo nunca termina y se queda atrapado repitiéndose eternamente, decimos que entró en:",
+      "options": [
+        {
+          "text": "Un bucle infinito (Infinite Loop)",
+          "correct": true
+        },
+        {
+          "text": "Modo de hibernación cósmica",
+          "correct": false
+        },
+        {
+          "text": "Sobrecarga de combustible",
+          "correct": false
+        },
+        {
+          "text": "Velocidad de la luz",
           "correct": false
         }
       ]

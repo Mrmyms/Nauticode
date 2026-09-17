@@ -1,32 +1,107 @@
 {
-  "title": "Part 4",
+  "title": "Comentarios: Escribiendo para Humanos",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Naming Variables - Concept 4",
-      "lessonText": "# Naming Variables (Part 4)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué son los comentarios y cómo los interpreta la computadora?",
+      "lessonText": "# Notas al Margen 📝\n\nUn **comentario** es una anotación en el código fuente que la computadora **ignora por completo** al momento de compilar o ejecutar.\n\nEn Python se usa el símbolo `#`:\n```python\n# Iniciar motores en reversa para expulsar nota atorada\nmotorIntake.set(-1.0)\n```\n\nEn Java y C++ se usa `//` para una línea y `/* ... */` para bloques multilínea.\n\nLos comentarios son cartas que le dejas a tus compañeros (y a tu yo del futuro) explicando **por qué tomaste una decisión técnica compleja**.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Texto explicativo dentro del código que la máquina ignora pero ayuda a los humanos",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Mensajes que se envían directamente a los rivales del match",
+          "correct": false
+        },
+        {
+          "text": "Instrucciones de audio que el robot lee en voz alta",
+          "correct": false
+        },
+        {
+          "text": "Errores que la computadora oculta automáticamente",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on Naming Variables",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "MATCHING",
+      "question": "Identifica la sintaxis de comentarios según el lenguaje:",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "# Comentario de línea|||Python",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "// Comentario de línea|||Java / C++ / C#",
+          "correct": true
+        },
+        {
+          "text": "/* Bloque multilínea */|||Java / C++ / CSS",
+          "correct": true
+        },
+        {
+          "text": "Ignorado por la máquina|||Todos los comentarios",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál de los siguientes es un comentario de ALTO VALOR en robótica?",
+      "options": [
+        {
+          "text": "# Multiplicamos por 0.85 para compensar la fricción de la alfombra en la arena",
+          "correct": true
+        },
+        {
+          "text": "# x = 5 (aquí x es 5)",
+          "correct": false
+        },
+        {
+          "text": "# Este es un comentario porque el profe me obligó",
+          "correct": false
+        },
+        {
+          "text": "# Hola mamá salgo en el código del robot",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Este archivo no compila porque un comentario no tiene el símbolo adecuado. Encuentra el fallo:",
+      "codeSnippet": "Configuracion de motores\nleftMotorSpeed = 0.5",
+      "options": [
+        {
+          "text": "La primera línea no tiene '#' o '//' al inicio, por lo que el compilador la confunde con código",
+          "correct": true
+        },
+        {
+          "text": "No se puede usar la palabra leftMotorSpeed",
+          "correct": false
+        },
+        {
+          "text": "El valor 0.5 debe ser entero",
+          "correct": false
+        },
+        {
+          "text": "Falta un print al final",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la línea correcta comentando 'Calibrando odometria' en estilo Python:",
+      "codeSnippet": "// Escribe el comentario en Python",
+      "options": [
+        {
+          "text": "# Calibrando odometria",
+          "correct": true
+        },
+        {
+          "text": "// Calibrando odometria",
           "correct": false
         }
       ]

@@ -1,32 +1,108 @@
 {
-  "title": "Part 3",
+  "title": "Casos Exhaustivos y el Valor por Defecto",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "For Loops - Concept 3",
-      "lessonText": "# For Loops (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué el 'else' final es el guardián de los imprevistos?",
+      "lessonText": "# El Escudo Contra lo Inesperado 🛡️\n\n¿Qué pasa si un sensor devuelve un valor corrupto por estática en la cancha de FIRST? Por ejemplo, una cámara de visión envía un estado no contemplado: `estado = 'UNKNOWN_GLITCH'`.\n\nSi solo tienes `if` y `elif` específicos, el programa ignorará todo silenciosamente y el robot quedará congelado sin saber qué hacer.\n\nEl **`else` final** actúa como red de seguridad (*fallback*):\n```python\nif estado == 'TRACKING':\n    apuntar()\nelif estado == 'SEARCHING':\n    girarLentamente()\nelse:\n    # Caso por defecto ante datos extraños\n    detenerTodoYSonarAlerta()\n```",
       "options": [
         {
-          "text": "Understood",
+          "text": "Asegura que el programa siempre tenga una respuesta segura ante cualquier valor inesperado",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Hace que los sensores fallen a propósito",
+          "correct": false
+        },
+        {
+          "text": "Duplica la memoria RAM del procesador",
+          "correct": false
+        },
+        {
+          "text": "Es solo un adorno visual que no hace nada",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on For Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "En un control con selector de 3 posiciones (Autónomo 1, 2 o 3), ¿cuál debería ser la acción del `else` por defecto si el switch se desconecta?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Autónomo Seguro por Defecto (ej: solo salir de la zona sin disparar a ciegas)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Girar los motores a máxima velocidad hacia las gradas",
+          "correct": false
+        },
+        {
+          "text": "Apagar la batería del estadio",
+          "correct": false
+        },
+        {
+          "text": "Disparar todas las pelotas al techo",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el error de sintaxis en este else: El else nunca lleva una condición entre paréntesis.",
+      "codeSnippet": "if puntos > 10:\n    print('Ganamos')\nelse (puntos <= 10):\n    print('Perdimos')",
+      "options": [
+        {
+          "text": "El 'else' no lleva condición; si quieres condición debes usar 'elif puntos <= 10:' o dejar solo 'else:'",
+          "correct": true
+        },
+        {
+          "text": "Falta un print adicional",
+          "correct": false
+        },
+        {
+          "text": "Los dos puntos son opcionales",
+          "correct": false
+        },
+        {
+          "text": "La palabra Ganamos está prohibida",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Corrige el bloque final para que sea un fallback limpio:",
+      "codeSnippet": "if modo == 'AUTO':\n    iniciarAuto()\n_____\n    iniciarTeleop()",
+      "options": [
+        {
+          "text": "else:",
+          "correct": true
+        },
+        {
+          "text": "else if:",
+          "correct": false
+        },
+        {
+          "text": "elif:",
+          "correct": false
+        },
+        {
+          "text": "default:",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué imprimirá este código si el comando es 'RESET'?",
+      "codeSnippet": "cmd = 'RESET'\nif cmd == 'START':\n    print('Arrancando')\nelif cmd == 'STOP':\n    print('Parando')\nelse:\n    print('COMANDO DESCONOCIDO')",
+      "options": [
+        {
+          "text": "COMANDO DESCONOCIDO",
+          "correct": true
+        },
+        {
+          "text": "Arrancando",
           "correct": false
         }
       ]

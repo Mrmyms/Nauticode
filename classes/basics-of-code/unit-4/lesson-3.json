@@ -1,32 +1,108 @@
 {
-  "title": "Part 3",
+  "title": "El Operador de Asignación (=)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Variables & Boxes - Concept 3",
-      "lessonText": "# Variables & Boxes (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué el signo `=` no significa igualdad en código?",
+      "lessonText": "# El Signo '=' es una Flecha de Guardado 🏹\n\nEn matemáticas de primaria nos enseñaron que `A = B` significa que A y B son equivalentes.\n\nEn programación, **`=` es un operador de asignación activa**:\nPiensa en el signo `=` como una flecha que apunta a la izquierda: `A <- B`.\n\n1. La computadora evalúa **todo lo que está a la derecha del `=`**.\n2. Una vez que tiene el resultado definitivo, lo mete dentro de la variable de la izquierda.\n\nPor eso la línea `puntos = puntos + 1` tiene total sentido: calcula `puntos + 1` y guarda el nuevo total de vuelta en `puntos`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Porque evalúa la expresión de la derecha y guarda el resultado en la izquierda",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque los teclados antiguos no tenían tecla para flecha",
+          "correct": false
+        },
+        {
+          "text": "Porque a los programadores no les gustaban las matemáticas",
+          "correct": false
+        },
+        {
+          "text": "En realidad sí significa igualdad matemática en todos los casos",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el bug: En programación, la variable receptora siempre debe ir a la izquierda.",
+      "codeSnippet": "50 = velocidad",
+      "options": [
+        {
+          "text": "Debe ser 'velocidad = 50', la variable siempre va a la izquierda del '='",
+          "correct": true
+        },
+        {
+          "text": "El número 50 no puede usarse en robótica",
+          "correct": false
+        },
+        {
+          "text": "Falta poner una coma después de velocidad",
+          "correct": false
+        },
+        {
+          "text": "No hay ningún error, es código perfectamente válido",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la asignación para sumar 10 a la distancia actual:",
+      "codeSnippet": "distancia = 20\ndistancia = _____ + 10\nprint(distancia)",
+      "options": [
+        {
+          "text": "distancia",
+          "correct": true
+        },
+        {
+          "text": "20.0",
+          "correct": false
+        },
+        {
+          "text": "nuevaDistancia",
+          "correct": false
+        },
+        {
+          "text": "input",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué valor imprimirá este script?",
+      "codeSnippet": "a = 5\nb = a\na = 10\nprint(b)",
+      "options": [
+        {
+          "text": "5",
+          "correct": true
+        },
+        {
+          "text": "10",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Variables & Boxes",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "En el ejercicio anterior, ¿por qué `b` se quedó con el valor 5 en lugar de cambiar a 10?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Porque se copió el valor que tenía 'a' en ese momento (5); las variables primitivas no se ligan mágicamente",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Porque la variable b se congeló",
+          "correct": false
+        },
+        {
+          "text": "Porque la letra b va después de la a en el abecedario",
+          "correct": false
+        },
+        {
+          "text": "Porque el número 10 es muy pesado para la memoria",
           "correct": false
         }
       ]

@@ -1,32 +1,116 @@
 {
-  "title": "Part 1",
+  "title": "¿Por Qué Repetir Tareas?",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "While Loops - Concept 1",
-      "lessonText": "# While Loops (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es un bucle 'while' y cuál es su superpoder?",
+      "lessonText": "# El Motor de Repetición 🔄\n\nImagina que tienes que mover un brazo robótico hasta que toque el limit switch superior.\n\nSin bucles, tendrías que escribir:\n```python\nmoverUnPoco()\nmoverUnPoco()\nmoverUnPoco()\n# ¿Y si se necesitan 500 veces? ¡Imposible!\n```\n\nCon un **while loop**, le dices a la computadora:\n```python\nwhile limitSwitchAlcanzado == false:\n    moverUnPoco()\n```\nLa computadora evalúa la condición:\n- Si es `true`: ejecuta el bloque y **vuelve a subir a comprobar la condición**.\n- Solo se detiene cuando la condición finalmente se vuelve `false`.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Una estructura que repite un bloque de instrucciones mientras su condición sea verdadera",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un comando que apaga la máquina si se calienta",
+          "correct": false
+        },
+        {
+          "text": "Una variable que solo acepta números enteros",
+          "correct": false
+        },
+        {
+          "text": "Un cable especial para conectar motores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuántas veces se imprimirá la palabra 'Tick' en este bucle?",
+      "codeSnippet": "cuenta = 0\nwhile cuenta < 3:\n    print('Tick')\n    cuenta = cuenta + 1",
+      "options": [
+        {
+          "text": "3 veces (para cuenta = 0, 1 y 2)",
+          "correct": true
+        },
+        {
+          "text": "Infinitas veces",
+          "correct": false
+        },
+        {
+          "text": "1 sola vez",
+          "correct": false
+        },
+        {
+          "text": "Ninguna",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será el valor final de 'x' tras salir del bucle?",
+      "codeSnippet": "x = 1\nwhile x < 5:\n    x = x + 2\nprint(x)",
+      "options": [
+        {
+          "text": "5 (porque 1 + 2 = 3, y 3 + 2 = 5, y 5 ya no es menor a 5)",
+          "correct": true
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "7",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la palabra clave para iniciar el bucle condicional:",
+      "codeSnippet": "_____ presionBaja == true:\n    encenderCompresor()",
+      "options": [
+        {
+          "text": "while",
+          "correct": true
+        },
+        {
+          "text": "loop",
+          "correct": false
+        },
+        {
+          "text": "repeat",
+          "correct": false
+        },
+        {
+          "text": "until",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on While Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "Si la condición del while es FALSE desde el primer instante (ej: `while 10 < 5:`), ¿cuántas veces se ejecuta su contenido?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "0 veces (nunca llega a entrar al bucle)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Exactamente 1 vez",
+          "correct": false
+        },
+        {
+          "text": "Infinitas veces",
+          "correct": false
+        },
+        {
+          "text": "Dará un error de compilación",
           "correct": false
         }
       ]

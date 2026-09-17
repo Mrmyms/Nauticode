@@ -1,32 +1,115 @@
 {
-  "title": "Part 3",
+  "title": "Pseudocódigo: Diseñando en Humano",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Algorithms - Concept 3",
-      "lessonText": "# Algorithms (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué los desarrolladores usamos pseudocódigo?",
+      "lessonText": "# Pensar Antes de Escribir ✍️\n\nEl **pseudocódigo** es una descripción de alto nivel de un algoritmo que combina lenguaje natural con estructuras de programación.\n\nNo le importa si olvidas un punto y coma o si usas mayúsculas: su objetivo es que el **equipo de ingeniería se ponga de acuerdo en la lógica** antes de pasar horas depurando en Java o C++.\n\nEjemplo de pseudocódigo en Nautilus:\n```text\nSI botónDisparar está presionado ENTONCES:\n    acelerarFlywheel()\n    esperar 1 segundo\n    alimentarNota()\nSINO:\n    apagarFlywheel()\n```",
       "options": [
         {
-          "text": "Understood",
+          "text": "Para diseñar y validar la lógica en palabras claras antes de programar formalmente",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque las computadoras ejecutan el pseudocódigo más rápido que el código real",
+          "correct": false
+        },
+        {
+          "text": "Para ocultarle el código a los jueces de FIRST",
+          "correct": false
+        },
+        {
+          "text": "Es un lenguaje inventado para engañar a los virus informáticos",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Algorithms",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál de estos ejemplos representa mejor un pseudocódigo limpio?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "SI bateria < 11.5 ENTONCES alertarPiloto()",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "01000101 01101100 01100101",
+          "correct": false
+        },
+        {
+          "text": "hacer cosas del robot muy rapido",
+          "correct": false
+        },
+        {
+          "text": "System.out.println(Double.parseDouble(args[0]));",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena este pseudocódigo para recoger una nota del suelo (Intake):",
+      "options": [
+        {
+          "text": "bajarMecanismoIntake()",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "encenderRodillosIntake()",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "esperar sensorOptico == TRUE",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "detenerRodillosIntake()",
+          "correct": true,
+          "audioSrc": "4"
+        },
+        {
+          "text": "subirMecanismoIntake()",
+          "correct": true,
+          "audioSrc": "5"
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "En el pseudocódigo anterior, ¿por qué es crucial esperar a que el sensor marque TRUE antes de detener los rodillos?",
+      "options": [
+        {
+          "text": "Para garantizar que la pieza ya entró completamente al robot antes de apagar los motores",
+          "correct": true
+        },
+        {
+          "text": "Para gastar toda la batería del robot",
+          "correct": false
+        },
+        {
+          "text": "Porque al sensor le gusta ver girar los rodillos",
+          "correct": false
+        },
+        {
+          "text": "Para que el árbitro pite una falta",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe en pseudocódigo la instrucción básica para imprimir el mensaje: ALGORITMO OK",
+      "codeSnippet": "// Imprime el mensaje",
+      "options": [
+        {
+          "text": "print('ALGORITMO OK')",
+          "correct": true
+        },
+        {
+          "text": "wrong",
           "correct": false
         }
       ]

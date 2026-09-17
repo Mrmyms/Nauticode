@@ -1,0 +1,104 @@
+{
+  "title": "Múltiples Parámetros: Flexibilidad Total",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Cómo pasamos más de un dato a una misma función?",
+      "lessonText": "# El Panel con Múltiples Perillas 🎚️🎚️\n\nPuedes agregar tantos parámetros como requiera la acción, **separándolos por comas**:\n```python\ndef moverMecanismo(potencia, duracionSegundos):\n    print('Moviendo a potencia ' + str(potencia) + ' durante ' + str(duracionSegundos) + 's')\n```\nAl llamarla, debes pasar los argumentos en el mismo orden:\n`moverMecanismo(0.75, 3.0)`\n- `potencia` toma el valor `0.75`.\n- `duracionSegundos` toma el valor `3.0`.",
+      "options": [
+        {
+          "text": "Separando los parámetros con comas entre los paréntesis en orden correspondiente",
+          "correct": true
+        },
+        {
+          "text": "Creando una función distinta para cada número",
+          "correct": false
+        },
+        {
+          "text": "Uniendo todos los números en una sola palabra",
+          "correct": false
+        },
+        {
+          "text": "Solo se puede pasar un parámetro por función en todos los lenguajes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá esta función de cálculo de potencia?",
+      "codeSnippet": "def potencia(base, expo):\n    print(base ** expo)\n\npotencia(2, 3)",
+      "options": [
+        {
+          "text": "8 (porque 2 elevado a la 3 es 8)",
+          "correct": true
+        },
+        {
+          "text": "6",
+          "correct": false
+        },
+        {
+          "text": "5",
+          "correct": false
+        },
+        {
+          "text": "9",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será la salida de este coordinado de movimientos?",
+      "codeSnippet": "def mover(eje, distancia):\n    print(eje + ': ' + str(distancia))\n\nmover('X', 10)\nmover('Y', 25)",
+      "options": [
+        {
+          "text": "X: 10\nY: 25",
+          "correct": true
+        },
+        {
+          "text": "X: 25\nY: 10",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el fallo: La función espera 2 parámetros pero solo le enviaron 1.",
+      "codeSnippet": "def fijarCoordenadas(x, y):\n    print('X=' + str(x) + ' Y=' + str(y))\n\nfijarCoordenadas(12)",
+      "options": [
+        {
+          "text": "Falta pasar el segundo argumento 'y' en la llamada (ej: fijarCoordenadas(12, 5))",
+          "correct": true
+        },
+        {
+          "text": "Falta cambiar el 12 por un texto",
+          "correct": false
+        },
+        {
+          "text": "No se pueden usar las letras x e y",
+          "correct": false
+        },
+        {
+          "text": "No hay ningún error",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Llama a la función 'setMotors' pasando 0.5 a la izquierda y 0.5 a la derecha:",
+      "codeSnippet": "// Llama con dos parámetros",
+      "options": [
+        {
+          "text": "setMotors(0.5, 0.5)",
+          "correct": true
+        },
+        {
+          "text": "setMotors(0.5; 0.5)",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

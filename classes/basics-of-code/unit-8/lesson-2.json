@@ -1,32 +1,108 @@
 {
-  "title": "Part 2",
+  "title": "El Operador Lógico AND (&&)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "If Conditions - Concept 2",
-      "lessonText": "# If Conditions (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo funciona el operador lógico AND?",
+      "lessonText": "# Ambas Condiciones o Nada 🤝\n\nEl operador **AND** (en Java/C++ se escribe `&&`, en Python se escribe `and`) exige que **ambas condiciones sean verdaderas simultáneamente** para que el resultado sea `true`.\n\nEjemplo en el robot Nautilus:\n¿Cuándo podemos disparar una pieza al Speaker?\n`shooterListo && robotAlineado`\n- Si el shooter está listo (`true`) PERO el robot no está alineado (`false`)... **NO disparas** (`false`).\n- Si el robot está alineado (`true`) pero el shooter está frío (`false`)... **NO disparas** (`false`).\n- ¡SOLO si ambos son `true` la compuerta AND abre el paso!",
       "options": [
         {
-          "text": "Understood",
+          "text": "Devuelve true únicamente si TODAS las condiciones conectadas son verdaderas",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Devuelve true si al menos una de las dos condiciones es falsa",
+          "correct": false
+        },
+        {
+          "text": "Suma los dos números y saca el promedio",
+          "correct": false
+        },
+        {
+          "text": "Siempre devuelve false sin importar nada",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la evaluación de este sistema de disparo?",
+      "codeSnippet": "shooterListo = true\nrobotAlineado = false\npuedeDisparar = (shooterListo and robotAlineado)\nprint(puedeDisparar)",
+      "options": [
+        {
+          "text": "false (porque una de las condiciones es falsa)",
+          "correct": true
+        },
+        {
+          "text": "true",
+          "correct": false
+        },
+        {
+          "text": "error",
+          "correct": false
+        },
+        {
+          "text": "none",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la condición para que el robot avance solo si está habilitado Y el camino está libre:",
+      "codeSnippet": "puedeAvanzar = (robotHabilitado _____ caminoLibre)",
+      "options": [
+        {
+          "text": "and",
+          "correct": true
+        },
+        {
+          "text": "or",
+          "correct": false
+        },
+        {
+          "text": "not",
+          "correct": false
+        },
+        {
+          "text": "==",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será la salida de esta expresión lógica?",
+      "codeSnippet": "a = (5 > 2) and (10 == 10)\nprint(a)",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "false",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on If Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "En una expresión con 3 condiciones unidas por AND (`A and B and C`), ¿qué ocurre si la primera condición (A) es falsa?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "El resultado final ya es FALSE automáticamente (evaluación de cortocircuito / short-circuit)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "La computadora explota",
+          "correct": false
+        },
+        {
+          "text": "Se evalúa al revés",
+          "correct": false
+        },
+        {
+          "text": "El resultado se convierte en true",
           "correct": false
         }
       ]

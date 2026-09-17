@@ -1,5 +1,6 @@
 {
-  "title": "Breaking Loops",
-  "description": "Stopping execution early",
-  "order": 12
+  "title": "For Loops",
+  "description": "Bucles contadores: Repetir secuencias exactamente N veces",
+  "order": 12,
+  "guidebookText": "# Guía de Estudio: Unit 12 - For Loops\n\nA diferencia del `while` (que corre hasta que una condición cambia), el bucle **`for`** está diseñado para **repetir una acción un número exacto y conocido de veces** o para recorrer colecciones de elementos.\n\n### Anatomía del For Loop:\n1. **En Python:** Usa la función `range(inicio, fin, paso)`:\n```python\nfor i in range(5):\n    # Corre para i = 0, 1, 2, 3, 4 (exactamente 5 veces)\n    print(i)\n```\n2. **En Java / C++:** La estructura clásica de 3 partes:\n```java\nfor (int i = 0; i < 5; i++) {\n    // Inicialización; Condición; Incremento\n}\n```\n\n### Cuándo elegir `for` vs `while`:\n- Usa **`for`** cuando sabes de antemano cuántas veces debe ocurrir la tarea (ej: parpadear un LED 5 veces).\n- Usa **`while`** cuando la repetición depende de un evento externo (ej: mover motor hasta que el sensor detecte una pieza)."
 }

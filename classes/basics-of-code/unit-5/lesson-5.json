@@ -1,32 +1,110 @@
 {
-  "title": "Part 5",
+  "title": "Reto: Refactor en los Pits",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Naming Variables - Concept 5",
-      "lessonText": "# Naming Variables (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡Momento de limpiar el código de competencia!",
+      "lessonText": "# Emergencia en los Pits de 4010 🛠️\n\nFaltan 15 minutos para la semifinal. Un compañero escribió un script rápido para el elevador pero usó nombres crípticos, variables sin convención y comentarios vacíos.\n\nEn este reto final de la Unidad 5, aplicarás tus conocimientos de **Clean Code** para refactorizar y dejar el código impecable, legible y seguro.\n\n¡La limpieza del código previene fallas en la final!",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Vamos a refactorizar el código de Teus!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero dejar el código sucio y arriesgar el robot",
+          "correct": false
+        },
+        {
+          "text": "No me gusta el código limpio",
+          "correct": false
+        },
+        {
+          "text": "Quiero borrar el repositorio completo",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Naming Variables",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "Si queremos almacenar la altura actual del elevador en milímetros, ¿cuál es el mejor nombre?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "currentElevatorHeightMm",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "h",
+          "correct": false
+        },
+        {
+          "text": "altura_mm_elevador_robot_nautilus_4010_oficial",
+          "correct": false
+        },
+        {
+          "text": "cosaArriba",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena este archivo siguiendo la estructura limpia estándar (Constantes -> Variables -> Acciones):",
+      "options": [
+        {
+          "text": "MAX_RPM = 5000",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "currentRpm = 0",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "currentRpm = 2500",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('RPM actual: ' + str(currentRpm))",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la consola tras ejecutar este código limpio?",
+      "codeSnippet": "# Constantes de chasis\nTRACK_WIDTH_METERS = 0.65\nprint(TRACK_WIDTH_METERS)",
+      "options": [
+        {
+          "text": "0.65",
+          "correct": true
+        },
+        {
+          "text": "TRACK_WIDTH_METERS",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál es el resumen de la filosofía de código limpio de Nautilus 4010?",
+      "options": [
+        {
+          "text": "Nombres autoexplicativos, convenciones consistentes (camelCase/snake_case) y constantes en mayúsculas",
+          "correct": true
+        },
+        {
+          "text": "Escribir la mayor cantidad de líneas posibles para impresionar a los jueces",
+          "correct": false
+        },
+        {
+          "text": "Usar nombres en clave que solo una persona entienda",
+          "correct": false
+        },
+        {
+          "text": "No usar nunca variables ni funciones",
           "correct": false
         }
       ]

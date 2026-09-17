@@ -1,32 +1,106 @@
 {
-  "title": "Part 5",
+  "title": "Desafío Práctico: Tu Primera Instrucción",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "What is Programming? - Concept 5",
-      "lessonText": "# What is Programming? (Part 5)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¡Momento de poner a prueba lo aprendido!",
+      "lessonText": "# ¡Bienvenido al equipo de programación! 🤖\n\nEstás en la arena de competencia preparando las primeras instrucciones para el robot.\n\nEn esta lección final de la Unidad 1, pondrás en práctica la sintaxis correcta de impresión, el orden de instrucciones y el vocabulario básico que todo programador de Nautilus 4010 domina.\n\n¡Vamos a dejar el código impecable!",
       "options": [
         {
-          "text": "Understood",
+          "text": "¡Estoy listo para programar las primeras instrucciones!",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Prefiero que el robot maneje solo a ciegas",
+          "correct": false
+        },
+        {
+          "text": "No quiero aprender programación",
+          "correct": false
+        },
+        {
+          "text": "Quiero apagar la computadora",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena las líneas para mostrar el mensaje oficial de bienvenida:",
+      "options": [
+        {
+          "text": "print('Bienvenido a Nauticode')",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "print('Equipo 4010 Nautilus')",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "print('Building a Legacy')",
+          "correct": true,
+          "audioSrc": "3"
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el bug: Falta cerrar las comillas en el mensaje.",
+      "codeSnippet": "print('Teus está listo para competir)",
+      "options": [
+        {
+          "text": "Falta una comilla de cierre ' antes del paréntesis final",
+          "correct": true
+        },
+        {
+          "text": "Hay que quitar los paréntesis",
+          "correct": false
+        },
+        {
+          "text": "Falta un punto y coma al inicio",
+          "correct": false
+        },
+        {
+          "text": "La palabra Teus no se puede imprimir",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción de código correcta y con comillas cerradas:",
+      "codeSnippet": "// Corrige el print",
+      "options": [
+        {
+          "text": "print('Teus está listo para competir')",
+          "correct": true
+        },
+        {
+          "text": "wrong",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on What is Programming?",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Qué afirmación resume mejor lo que aprendiste en esta Unidad 1?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Programar es dar instrucciones ordenadas, precisas y sin errores de sintaxis a una máquina",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "El hardware no necesita software para funcionar",
+          "correct": false
+        },
+        {
+          "text": "Las computadoras adivinan lo que quieres decir sin importar cómo lo escribas",
+          "correct": false
+        },
+        {
+          "text": "Los robots de FRC funcionan con pura suerte y buena vibra",
           "correct": false
         }
       ]

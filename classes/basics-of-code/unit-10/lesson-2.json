@@ -1,32 +1,107 @@
 {
-  "title": "Part 2",
+  "title": "Múltiples Alternativas: Else-If (Elif)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "For Loops - Concept 2",
-      "lessonText": "# For Loops (Part 2)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cuándo se utiliza 'else if' (elif)?",
+      "lessonText": "# El Semáforo de 3 Colores 🚦\n\n¿Qué pasa si tienes más de dos opciones posibles? Por ejemplo, un semáforo tiene Verde, Amarillo y Rojo.\n\nPara encadenar múltiples condiciones excluyentes usamos **`elif`** (en Python) o **`else if`** (en Java/C++):\n```python\nif luz == 'Verde':\n    avanzar()\nelif luz == 'Amarillo':\n    desacelerar()\nelif luz == 'Rojo':\n    frenar()\nelse:\n    print('Luz desconocida')\n```\nLa computadora evalúa de arriba a abajo. **En cuanto una condición sea `true`, ejecuta su bloque y se salta todas las demás.**",
       "options": [
         {
-          "text": "Understood",
+          "text": "Para evaluar múltiples condiciones en secuencia donde solo una de ellas debe ejecutarse",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Para repetir una instrucción 100 veces seguidas",
+          "correct": false
+        },
+        {
+          "text": "Para borrar el código anterior",
+          "correct": false
+        },
+        {
+          "text": "Es un sinónimo exacto de print",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Test your knowledge on For Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá este selector de velocidad con un input de 0.85?",
+      "codeSnippet": "inputPotencia = 0.85\nif inputPotencia < 0.2:\n    print('Zona Muerta')\nelif inputPotencia < 0.8:\n    print('Marcha Normal')\nelse:\n    print('MODO TURBO')",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "MODO TURBO (porque 0.85 no es menor a 0.2 ni a 0.8)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Marcha Normal",
+          "correct": false
+        },
+        {
+          "text": "Zona Muerta",
+          "correct": false
+        },
+        {
+          "text": "Imprime los tres mensajes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mensaje se mostrará con un puntaje de 45?",
+      "codeSnippet": "puntos = 45\nif puntos >= 100:\n    print('Oro')\nelif puntos >= 40:\n    print('Plata')\nelse:\n    print('Bronce')",
+      "options": [
+        {
+          "text": "Plata",
+          "correct": true
+        },
+        {
+          "text": "Oro",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada parte de la estructura condicional con su rol:",
+      "options": [
+        {
+          "text": "if|||La primera condición a evaluar obligatoriamente",
+          "correct": true
+        },
+        {
+          "text": "elif / else if|||Condiciones intermedias adicionales",
+          "correct": true
+        },
+        {
+          "text": "else|||El caso por defecto si ninguna condición previa se cumplió",
+          "correct": true
+        },
+        {
+          "text": "Mutuamente excluyente|||Solo un bloque de la cadena se ejecutará",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuántas sentencias `elif` intermedias puedes colocar entre un `if` y un `else`?",
+      "options": [
+        {
+          "text": "Tantas como necesites (desde 1 hasta decenas de alternativas)",
+          "correct": true
+        },
+        {
+          "text": "Exactamente una sola",
+          "correct": false
+        },
+        {
+          "text": "Máximo dos",
+          "correct": false
+        },
+        {
+          "text": "Ninguna, está prohibido",
           "correct": false
         }
       ]

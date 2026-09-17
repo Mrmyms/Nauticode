@@ -1,32 +1,114 @@
 {
-  "title": "Part 1",
+  "title": "Nombres Descriptivos vs Nombres Crípticos",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Naming Variables - Concept 1",
-      "lessonText": "# Naming Variables (Part 1)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Por qué los nombres de las variables deben ser claros y descriptivos?",
+      "lessonText": "# El Dilema del Código Incomprensible 🤦‍♂️\n\nImagina que entras a la final regional de FRC en 10 minutos y hay un bug en el chasis. Abres el archivo y encuentras esto:\n```python\na = 0.8\nb = 12.4\nc = a * b\n```\n¿Qué rayos es `a`? ¿Qué significa `b`? Nadie lo sabe.\n\nAhora compara con esto:\n```python\npotenciaMotor = 0.8\nvoltajeBateria = 12.4\npotenciaEfectiva = potenciaMotor * voltajeBateria\n```\n¡La intención es cristalina en un segundo! **El código se lee muchas más veces de las que se escribe.**",
       "options": [
         {
-          "text": "Understood",
+          "text": "Porque ahorra tiempo de depuración y permite que todo el equipo entienda la intención del código",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Porque las variables largas hacen que la batería dure más tiempo",
+          "correct": false
+        },
+        {
+          "text": "Porque el procesador solo acepta palabras del diccionario en inglés",
+          "correct": false
+        },
+        {
+          "text": "No importa el nombre, es mejor usar letras individuales para escribir más rápido",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Naming Variables",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál de los siguientes nombres de variable es el más apropiado para guardar la velocidad del intake?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "intakeSpeed",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "x",
+          "correct": false
+        },
+        {
+          "text": "cosaQueGira123",
+          "correct": false
+        },
+        {
+          "text": "velocidad_del_motor_que_recoge_las_piezas_del_piso_en_el_chasis",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja cada nombre críptico con su versión limpia y profesional:",
+      "options": [
+        {
+          "text": "v|||targetVelocity",
+          "correct": true
+        },
+        {
+          "text": "btn|||isEmergencyStopPressed",
+          "correct": true
+        },
+        {
+          "text": "ang|||gyroHeadingAngle",
+          "correct": true
+        },
+        {
+          "text": "dist|||distanceToTargetMeters",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Este código usa nombres pésimos. ¿Qué cambio hace que la intención sea evidente?",
+      "codeSnippet": "t = 15\nprint('Tiempo de autonomo: ' + str(t))",
+      "options": [
+        {
+          "text": "Renombrar 't' por 'autonomousSecondsRemaining'",
+          "correct": true
+        },
+        {
+          "text": "Cambiar 't' por 'a'",
+          "correct": false
+        },
+        {
+          "text": "Borrar el print por completo",
+          "correct": false
+        },
+        {
+          "text": "Poner el número 15 entre comillas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "En un equipo de robótica, ¿a quién perjudica más el código con nombres de variables confusos?",
+      "options": [
+        {
+          "text": "A tus compañeros de equipo y a ti mismo cuando tengas que arreglar un bug bajo presión",
+          "correct": true
+        },
+        {
+          "text": "A la conexión Wi-Fi de la cancha",
+          "correct": false
+        },
+        {
+          "text": "Al material de aluminio del robot",
+          "correct": false
+        },
+        {
+          "text": "Al equipo contrario",
           "correct": false
         }
       ]

@@ -1,0 +1,111 @@
+{
+  "title": "Variables Bandera (Flags)",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Qué es una variable bandera (flag variable)?",
+      "lessonText": "# Levantando la Bandera 🚩\n\nUna **Flag (bandera)** es una variable booleana que actúa como señal de alerta entre diferentes partes del código.\n\nEjemplo clásico:\n```python\npeligroDetectado = false  # Bandera abajo\n\nfor sensor in listaSensores:\n    if sensor.temperatura > 90:\n        peligroDetectado = true  # ¡Bandera arriba!\n        break\n\nif peligroDetectado:\n    activarVentiladores()\n```\nLa bandera recuerda el resultado de la búsqueda para que otras partes del programa puedan actuar en consecuencia.",
+      "options": [
+        {
+          "text": "Una variable booleana que cambia de estado para señalar que un evento o condición ocurrió",
+          "correct": true
+        },
+        {
+          "text": "La bandera de tela que lleva el robot en el desfile",
+          "correct": false
+        },
+        {
+          "text": "Un archivo de imagen en la computadora",
+          "correct": false
+        },
+        {
+          "text": "Un botón físico en el joystick",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola tras evaluar la bandera?",
+      "codeSnippet": "hayFalla = false\nfor modulo in range(3):\n    if modulo == 1:\n        hayFalla = true\n        break\nprint(hayFalla)",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "false",
+          "correct": false
+        },
+        {
+          "text": "none",
+          "correct": false
+        },
+        {
+          "text": "1",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la inicialización estándar de una bandera de estado:",
+      "codeSnippet": "sistemaListo = _____\nwhile not sistemaListo:\n    sistemaListo = verificarComponentes()",
+      "options": [
+        {
+          "text": "false",
+          "correct": true
+        },
+        {
+          "text": "'listo'",
+          "correct": false
+        },
+        {
+          "text": "0.0",
+          "correct": false
+        },
+        {
+          "text": "none",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué combinar una variable bandera con un 'break' es una excelente práctica de optimización?",
+      "options": [
+        {
+          "text": "Porque ahorra ciclos de cómputo al no seguir buscando innecesariamente una vez que la meta fue cumplida",
+          "correct": true
+        },
+        {
+          "text": "Porque hace que el robot pese menos",
+          "correct": false
+        },
+        {
+          "text": "Porque borra los virus automáticamente",
+          "correct": false
+        },
+        {
+          "text": "No tiene ninguna ventaja",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción que levanta la bandera asignando true a 'targetFound':",
+      "codeSnippet": "// Levanta la bandera",
+      "options": [
+        {
+          "text": "targetFound = true",
+          "correct": true
+        },
+        {
+          "text": "targetFound == true",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

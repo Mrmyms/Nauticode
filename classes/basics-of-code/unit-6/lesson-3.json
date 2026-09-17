@@ -1,32 +1,108 @@
 {
-  "title": "Part 3",
+  "title": "Cadenas de Texto (string)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Data Types - Concept 3",
-      "lessonText": "# Data Types (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es un string y cómo se declara?",
+      "lessonText": "# Texto Entre Comillas 📜\n\nUn **String** (cadena) es una secuencia ordenada de caracteres: letras, números, espacios y símbolos, **siempre rodeados por comillas** (simples `'texto'` o dobles `\"texto\"`).\n\nEjemplos:\n- `robotName = 'Nautilus 4010'`\n- `status = 'AUTO_RUNNING'`\n\nSi olvidas las comillas, la computadora pensará que el texto es el nombre de una variable y arrojará un error.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Una secuencia de caracteres delimitada por comillas",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Una cuerda física para amarrar el robot al transporte",
+          "correct": false
+        },
+        {
+          "text": "Un número sin signos",
+          "correct": false
+        },
+        {
+          "text": "Un archivo de música",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "Encuentra el error: Falta poner comillas para que sea un string válido.",
+      "codeSnippet": "mensaje = Hola Nautilus",
+      "options": [
+        {
+          "text": "Debe estar entre comillas: mensaje = 'Hola Nautilus'",
+          "correct": true
+        },
+        {
+          "text": "Hay que quitar el signo '='",
+          "correct": false
+        },
+        {
+          "text": "La palabra mensaje no puede usarse",
+          "correct": false
+        },
+        {
+          "text": "Falta un número al final",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué ocurre cuando 'sumas' dos strings en código (ej: `'40' + '10'`)?",
+      "codeSnippet": "a = '40'\nb = '10'\nprint(a + b)",
+      "options": [
+        {
+          "text": "'4010' (Se concatenan/unen los textos)",
+          "correct": true
+        },
+        {
+          "text": "50 (Se suman matemáticamente)",
+          "correct": false
+        },
+        {
+          "text": "400",
+          "correct": false
+        },
+        {
+          "text": "Error porque el texto no se puede sumar",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será la salida de esta concatenación?",
+      "codeSnippet": "saludo = 'Team '\nequipo = '4010'\nprint(saludo + equipo)",
+      "options": [
+        {
+          "text": "Team 4010",
+          "correct": true
+        },
+        {
+          "text": "Team4010",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on Data Types",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál es la diferencia crucial entre el número `42` y el string `'42'`?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Con 42 puedes hacer operaciones matemáticas (sumar, multiplicar); '42' es solo texto plano",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "No hay ninguna diferencia, son idénticos",
+          "correct": false
+        },
+        {
+          "text": "42 es para letras y '42' es para números",
+          "correct": false
+        },
+        {
+          "text": "El string '42' gasta más batería",
           "correct": false
         }
       ]

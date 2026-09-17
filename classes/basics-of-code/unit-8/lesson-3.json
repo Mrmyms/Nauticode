@@ -1,32 +1,107 @@
 {
-  "title": "Part 3",
+  "title": "El Operador Lógico OR (||)",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "If Conditions - Concept 3",
-      "lessonText": "# If Conditions (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Cómo funciona el operador lógico OR?",
+      "lessonText": "# Basta Con Una Sola Verdad 🚪\n\nEl operador **OR** (en Java/C++ se escribe `||`, en Python se escribe `or`) es mucho más flexible que el AND: **devuelve `true` si al menos una de las condiciones es verdadera**.\n\nEjemplo de seguridad en Nautilus:\n¿Cuándo debemos frenar el robot de emergencia?\n`botonEStopPresionado || bateriaPeligrosamenteBaja`\n- Si el botón de E-Stop se presiona (`true`), ¡frenamos de inmediato!\n- Si la batería cae a nivel crítico (`true`), ¡frenamos de inmediato!\n- Solo si NINGUNA de las dos situaciones ocurre (`false || false`), el robot continúa.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Devuelve true si al menos UNA de las condiciones es verdadera",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Exige que todas las condiciones sean falsas obligatoriamente",
+          "correct": false
+        },
+        {
+          "text": "Multiplica los valores booleanos",
+          "correct": false
+        },
+        {
+          "text": "Solo funciona los fines de semana",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá este chequeo de seguridad?",
+      "codeSnippet": "sensorLimite = false\nbotonManual = true\nfrenar = (sensorLimite or botonManual)\nprint(frenar)",
+      "options": [
+        {
+          "text": "true (porque botonManual es true)",
+          "correct": true
+        },
+        {
+          "text": "false",
+          "correct": false
+        },
+        {
+          "text": "none",
+          "correct": false
+        },
+        {
+          "text": "error",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Empareja la operación booleana con su resultado final:",
+      "options": [
+        {
+          "text": "true and true|||true",
+          "correct": true
+        },
+        {
+          "text": "true and false|||false",
+          "correct": true
+        },
+        {
+          "text": "false or true|||true",
+          "correct": true
+        },
+        {
+          "text": "false or false|||false",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Cuál será la salida de este código?",
+      "codeSnippet": "alarma = (10 > 20) or (5 == 5)\nprint(alarma)",
+      "options": [
+        {
+          "text": "true",
+          "correct": true
+        },
+        {
+          "text": "false",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on If Conditions",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "¿Cuál es el único caso donde un operador OR devuelve FALSE?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Cuando absolutamente TODAS las condiciones conectadas son falsas",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Cuando la primera condición es verdadera",
+          "correct": false
+        },
+        {
+          "text": "Cuando hay más de tres condiciones",
+          "correct": false
+        },
+        {
+          "text": "Nunca devuelve false",
           "correct": false
         }
       ]

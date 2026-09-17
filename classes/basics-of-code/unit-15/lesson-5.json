@@ -1,0 +1,114 @@
+{
+  "title": "Reto: Conversor de Encoders a Metros",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¡La odometría real de Nautilus 4010!",
+      "lessonText": "# Traduciendo Ticks a Metros en la Cancha 📏\n\nUn encoder en el eje del motor genera miles de pulsos electrónicos llamados **ticks** por cada vuelta de la rueda.\n\nEl procesador no puede tomar decisiones estratégicas pensando en '15,420 ticks': el piloto y el autonomous necesitan saber **cuántos metros reales avanzó el robot**.\n\nEn este reto final de la Unidad 15, construirás la función de telemetría que recibe los ticks del sensor, aplica la constante de reducción y retorna los metros recorridos.",
+      "options": [
+        {
+          "text": "¡Vamos a programar el conversor de odometría con Teus!",
+          "correct": true
+        },
+        {
+          "text": "Prefiero medir la distancia con una regla durante el match",
+          "correct": false
+        },
+        {
+          "text": "No me interesan los metros",
+          "correct": false
+        },
+        {
+          "text": "Quiero desconectar los encoders",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Si cada 1000 ticks equivalen a 0.5 metros, ¿cuántos metros retorna para 4000 ticks?",
+      "codeSnippet": "def ticksAMetros(ticks):\n    METROS_POR_TICK = 0.0005\n    return ticks * METROS_POR_TICK\n\nprint(ticksAMetros(4000))",
+      "options": [
+        {
+          "text": "2.0 (4000 * 0.0005 = 2.0 metros)",
+          "correct": true
+        },
+        {
+          "text": "4.0",
+          "correct": false
+        },
+        {
+          "text": "20.0",
+          "correct": false
+        },
+        {
+          "text": "0.5",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la consola al evaluar la función con 2000 ticks?",
+      "codeSnippet": "def ticksAMetros(ticks):\n    return ticks * 0.0005\n\ndistancia = ticksAMetros(2000)\nprint('Avanzamos: ' + str(distancia) + 'm')",
+      "options": [
+        {
+          "text": "Avanzamos: 1.0m",
+          "correct": true
+        },
+        {
+          "text": "Avanzamos: 2000m",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la función completa de cálculo de odometría:",
+      "options": [
+        {
+          "text": "def calcularOdometria(ticksIzquierda, ticksDerecha):",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    promedioTicks = (ticksIzquierda + ticksDerecha) / 2",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    metros = promedioTicks * 0.0005",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    return metros",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué los parámetros y los valores de retorno convierten a las funciones en la herramienta más poderosa de la programación?",
+      "options": [
+        {
+          "text": "Porque permiten crear módulos dinámicos, reutilizables e independientes que transforman datos con precisión quirúrgica",
+          "correct": true
+        },
+        {
+          "text": "Porque evitan tener que conectar la batería del robot",
+          "correct": false
+        },
+        {
+          "text": "Porque hacen que las computadoras no se calienten",
+          "correct": false
+        },
+        {
+          "text": "No son necesarios, es mejor usar variables globales para todo",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

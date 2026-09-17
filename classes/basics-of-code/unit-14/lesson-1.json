@@ -1,0 +1,109 @@
+{
+  "title": "El Principio DRY: No Te Repitas",
+  "challenges": [
+    {
+      "type": "THEORY",
+      "question": "¿Por qué copiar y pegar código es peligroso y cómo lo resuelven las funciones?",
+      "lessonText": "# La Pesadilla de Copiar y Pegar 🍝\n\nImagina que para encender el robot necesitas ejecutar 5 líneas de configuración.\n\nSi copias y pegas esas 5 líneas en 10 lugares diferentes de tu programa:\n- Tu código tendrá 50 líneas repetitivas y sucias.\n- Si descubres que uno de los puertos del motor cambió, ¡tienes que buscar y editar los 10 lugares a mano!\n- Si olvidas uno solo, tu robot tendrá un bug fantasma.\n\nEl **Principio DRY (Don't Repeat Yourself)** dice:\n*'Empaqueta esas 5 líneas dentro de una función llamada `iniciarRobot()` y solo llámala cuando la necesites'*. Limpio, modular y profesional.",
+      "options": [
+        {
+          "text": "Empaquetar código repetitivo en una función para reutilizarlo y mantenerlo en un solo lugar",
+          "correct": true
+        },
+        {
+          "text": "Copiar y pegar la mayor cantidad de veces posible para hacer el archivo más grande",
+          "correct": false
+        },
+        {
+          "text": "Borrar todo el código y dejar el archivo en blanco",
+          "correct": false
+        },
+        {
+          "text": "No usar nunca motores ni sensores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "¿Qué significan las siglas del principio fundamental de la ingeniería de software 'DRY'?",
+      "options": [
+        {
+          "text": "Don't Repeat Yourself (No te repitas a ti mismo)",
+          "correct": true
+        },
+        {
+          "text": "Do Robots Yesterday",
+          "correct": false
+        },
+        {
+          "text": "Drive Right Yearly",
+          "correct": false
+        },
+        {
+          "text": "Delete Random Yields",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál de los siguientes problemas es una consecuencia directa de NO usar funciones?",
+      "options": [
+        {
+          "text": "Código duplicado imposible de mantener y con alto riesgo de bugs inconsistentes",
+          "correct": true
+        },
+        {
+          "text": "La computadora se queda sin batería en 1 minuto",
+          "correct": false
+        },
+        {
+          "text": "Los motores giran al revés automáticamente",
+          "correct": false
+        },
+        {
+          "text": "Se apaga el monitor de la computadora",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de funciones con su rol:",
+      "options": [
+        {
+          "text": "Definir función|||Crear el bloque de instrucciones con un nombre",
+          "correct": true
+        },
+        {
+          "text": "Llamar función|||Ejecutar las instrucciones usando ()",
+          "correct": true
+        },
+        {
+          "text": "DRY|||Principio de evitar la duplicación de código",
+          "correct": true
+        },
+        {
+          "text": "Modularidad|||Dividir un programa grande en piezas pequeñas y legibles",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción para invocar la función 'frenarRobot':",
+      "codeSnippet": "// Llama a la función",
+      "options": [
+        {
+          "text": "frenarRobot()",
+          "correct": true
+        },
+        {
+          "text": "frenarRobot",
+          "correct": false
+        }
+      ]
+    }
+  ]
+}

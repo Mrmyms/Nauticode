@@ -1,0 +1,6 @@
+{
+  "title": "Loop Control: Break & Continue",
+  "description": "Control de flujo en bucles: Salidas tempranas, centinelas y paradas de emergencia",
+  "order": 13,
+  "guidebookText": "# Guía de Estudio: Unit 13 - Loop Control: Break & Continue\n\nA veces, las reglas fijas de un bucle no son suficientes. Durante la ejecución en el mundo real, puede ocurrir un evento imprevisto (un sensor detecta un obstáculo súbito, o una lectura resulta inválida) que nos obliga a alterar el curso normal de la iteración.\n\n### Instrucciones Especiales de Bucles:\n1. **`break` (Romper el bucle):** Aborta el bucle de inmediato y salta a la primera línea fuera de él. Es el equivalente a una **Parada de Emergencia (E-Stop)**.\n2. **`continue` (Saltar turno):** Ignora el resto del código del ciclo actual y salta de inmediato a la siguiente iteración.\n3. **Variables Bandera (Flags):** Variables booleanas (`encontrado = false`) usadas para coordinar la salida de bucles complejos."
+}

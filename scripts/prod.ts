@@ -57,7 +57,10 @@ const main = async () => {
       }
 
       const coursePath = path.join(CLASSES_DIR, courseFolderName);
-      const unitFolders = fs.readdirSync(coursePath).filter(f => f.startsWith("unit-") && fs.statSync(path.join(coursePath, f)).isDirectory());
+      const unitFolders = fs
+        .readdirSync(coursePath)
+        .filter(f => f.startsWith("unit-") && fs.statSync(path.join(coursePath, f)).isDirectory())
+        .sort((a, b) => parseInt(a.replace("unit-", ""), 10) - parseInt(b.replace("unit-", ""), 10));
 
       for (const unitFolderName of unitFolders) {
         const unitPath = path.join(coursePath, unitFolderName);
@@ -65,7 +68,8 @@ const main = async () => {
         
         let unitTitle = unitFolderName;
         let unitDesc = "Description not found";
-        let unitOrder = parseInt(unitFolderName.replace("unit-", ""));
+        let unitOrder = parseInt(unitFolderName.replace("unit-", ""), 10);
+        let guidebookText: string | null = null;
 
         if (fs.existsSync(metadataPath)) {
           try {
@@ -73,6 +77,7 @@ const main = async () => {
             unitTitle = meta.title || unitTitle;
             unitDesc = meta.description || unitDesc;
             unitOrder = meta.order || unitOrder;
+            guidebookText = meta.guidebookText || null;
           } catch (e) {
             console.error(`Error parsing ${metadataPath}. Using fallback metadata.`, e);
           }
@@ -82,11 +87,15 @@ const main = async () => {
           courseId,
           title: unitTitle,
           description: unitDesc,
+          guidebookText,
           order: unitOrder,
         }).returning();
 
         // Read Lesson files (e.g. lesson-1.json)
-        const lessonFiles = fs.readdirSync(unitPath).filter(f => f.startsWith("lesson-") && f.endsWith(".json"));
+        const lessonFiles = fs
+          .readdirSync(unitPath)
+          .filter(f => f.startsWith("lesson-") && f.endsWith(".json"))
+          .sort((a, b) => parseInt(a.replace("lesson-", "").replace(".json", ""), 10) - parseInt(b.replace("lesson-", "").replace(".json", ""), 10));
         
         for (const lessonFile of lessonFiles) {
           const lessonPath = path.join(unitPath, lessonFile);

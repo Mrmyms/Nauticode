@@ -1,5 +1,6 @@
 {
   "title": "What is Programming?",
-  "description": "Learn the absolute basics",
-  "order": 1
+  "description": "El lenguaje de las máquinas y el robot",
+  "order": 1,
+  "guidebookText": "# Guía de Estudio: Unit 1 - What is Programming?\n\n¡Bienvenido a **Nauticode** de **Nautilus 4010**!\n\nProgramar es simplemente **dar instrucciones precisas a una máquina para resolver problemas o realizar tareas**. A diferencia de los humanos, las computadoras y los controladores de robots (como la *roboRIO* en FIRST Robotics) no tienen intuición: ejecutan exactamente lo que les dices, ni más ni menos.\n\n### Conceptos Clave:\n- **Hardware:** La parte física del robot (motores, chasis, sensores, cables).\n- **Software (Código):** Las instrucciones lógicas que le dan vida al hardware.\n- **Lenguaje de Programación:** El puente entre el pensamiento humano y el lenguaje binario (ceros y unos) del procesador.\n- **Regla de Oro:** Si un robot comete un error, el 99.9% de las veces la computadora no se equivocó; ejecutó fielmente una instrucción con un bug."
 }

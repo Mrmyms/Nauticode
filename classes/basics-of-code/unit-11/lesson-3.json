@@ -1,32 +1,107 @@
 {
-  "title": "Part 3",
+  "title": "El Terror del Loop Infinito",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "While Loops - Concept 3",
-      "lessonText": "# While Loops (Part 3)\n\nThis is auto-generated content for basics-of-code. Replace this with your actual markdown theory.",
+      "question": "¿Qué es un bucle infinito (infinite loop) y por qué es peligroso?",
+      "lessonText": "# La Trampa Eterna 🕳️\n\nUn **bucle infinito** ocurre cuando la condición de un `while` **NUNCA se vuelve falsa**.\n```python\n# ¡PELIGRO! Esto nunca se detiene\nwhile true:\n    print('¡Auxilio, no puedo parar!')\n```\n¿Qué le pasa a la computadora?\n- El ventilador empieza a zumbar al máximo.\n- La CPU se satura al 100% en ese hilo.\n- El programa deja de responder (se 'congela').\n\nEn un robot de competencia, si el código entra en un bucle infinito en un subproceso crítico, el robot dejará de procesar los comandos del joystick y quedará inerte en medio de la cancha.",
       "options": [
         {
-          "text": "Understood",
+          "text": "Un bucle cuya condición nunca cambia a false, congelando el programa y saturando la CPU",
           "correct": true
         },
         {
-          "text": "Need help",
+          "text": "Un bucle que acelera la velocidad del robot al infinito físicamente",
+          "correct": false
+        },
+        {
+          "text": "Un truco para duplicar la memoria RAM gratis",
+          "correct": false
+        },
+        {
+          "text": "Un cable desconectado en el chasis",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "¿Por qué este código genera un bucle infinito?",
+      "codeSnippet": "distancia = 10\nwhile distancia > 0:\n    print('Avanzando...')\n    distancia = distancia + 1",
+      "options": [
+        {
+          "text": "Porque 'distancia' está aumentando (10, 11, 12...) en vez de disminuir hacia 0",
+          "correct": true
+        },
+        {
+          "text": "Porque la palabra Avanzando tiene mayúscula",
+          "correct": false
+        },
+        {
+          "text": "Porque el número 10 es par",
+          "correct": false
+        },
+        {
+          "text": "Porque falta una coma",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Corrige la actualización para que decremente hacia cero restando 1 en cada ciclo:",
+      "codeSnippet": "// Decrementa distancia",
+      "options": [
+        {
+          "text": "distancia = distancia - 1",
+          "correct": true
+        },
+        {
+          "text": "distancia = distancia + 1",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Test your knowledge on While Loops",
-      "lessonText": "# Review\n\nAnswer the question to proceed.",
+      "question": "En una computadora personal o terminal de desarrollo, ¿cuál es el atajo de teclado universal para forzar la detención de un programa atrapado en un loop infinito?",
       "options": [
         {
-          "text": "Correct Option",
+          "text": "Ctrl + C (KeyboardInterrupt / Cancel)",
           "correct": true
         },
         {
-          "text": "Wrong Option",
+          "text": "Ctrl + Z y luego Enter",
+          "correct": false
+        },
+        {
+          "text": "Presionar la barra espaciadora 10 veces",
+          "correct": false
+        },
+        {
+          "text": "Desconectar el mouse",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "ASSIST",
+      "question": "¿Existe alguna situación en FIRST Robotics donde un bucle infinito SI sea deseado deliberadamente?",
+      "options": [
+        {
+          "text": "Sí, en el bucle principal de control del robot (Main Control Loop) que debe correr continuamente mientras el robot esté encendido",
+          "correct": true
+        },
+        {
+          "text": "No, nunca jamás bajo ninguna circunstancia",
+          "correct": false
+        },
+        {
+          "text": "Solo cuando el robot pierde el match",
+          "correct": false
+        },
+        {
+          "text": "Solo durante la noche cuando no hay gente en el taller",
           "correct": false
         }
       ]
