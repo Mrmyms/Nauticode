@@ -15,16 +15,16 @@ export const Sidebar = ({ className }: SidebarProps) => {
   return (
     <div
       className={cn(
-        "left-0 top-0 flex h-full flex-col border-r-2 px-4 lg:fixed lg:w-[256px]",
+        "left-0 top-0 flex h-full flex-col border-r-2 border-[#451F66] bg-[#010124] px-4 lg:fixed lg:w-[256px]",
         className
       )}
     >
       <Link href="/learn" prefetch>
-        <div className="flex items-center gap-x-2 pb-7 pl-4 pt-8">
-          <Image src="/mascot.jpg" alt="FIRST Logo" height={34} width={34} className="rounded" />
+        <div className="flex items-center gap-x-2.5 pb-7 pl-4 pt-8">
+          <Image src="/teus_happy.png" alt="Teus" height={36} width={36} className="rounded-full border border-[#EDB824]" />
           <Image src="/nautilus-logo.png" alt="Nautilus Logo" height={34} width={34} className="rounded" />
 
-          <h1 className="text-2xl font-extrabold tracking-wide text-yellow-600">
+          <h1 className="text-2xl font-black uppercase tracking-wider text-[#EDB824]">
             Nauticode
           </h1>
         </div>

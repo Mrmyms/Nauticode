@@ -1,7 +1,7 @@
 "use server";
 
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { and, eq } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -12,7 +12,7 @@ import {
   getUserProgress,
   getUserSubscription,
 } from "@/db/queries";
-import { challengeProgress, challenges, userProgress } from "@/db/schema";
+import { challenges, userProgress } from "@/db/schema";
 
 export const upsertUserProgress = async (courseId: number) => {
   const { userId } = await auth();
@@ -71,17 +71,6 @@ export const reduceHearts = async (challengeId: number) => {
   if (!challenge) throw new Error("Challenge not found.");
 
   const lessonId = challenge.lessonId;
-
-  const existingChallengeProgress = await db.query.challengeProgress.findFirst({
-    where: and(
-      eq(challengeProgress.userId, userId),
-      eq(challengeProgress.challengeId, challengeId)
-    ),
-  });
-
-  const isPractice = !!existingChallengeProgress;
-
-  if (isPractice) return { error: "practice" };
 
   if (!currentUserProgress) throw new Error("User progress not found.");
 

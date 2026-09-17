@@ -31,16 +31,17 @@ export const Items = ({
 
   return (
     <ul className="w-full">
-      <div className="flex w-full items-center gap-x-4 border-t-2 p-4">
+      <div className="flex w-full items-center gap-x-4 border-t-2 border-[#451F66] p-4">
         <Image src="/heart.svg" alt="Heart" height={60} width={60} />
 
         <div className="flex-1">
-          <p className="text-base font-bold text-slate-200 lg:text-xl">
+          <p className="text-base font-bold text-white lg:text-xl">
             Refill hearts
           </p>
         </div>
 
         <Button
+          variant="primary"
           onClick={onRefillHearts}
           disabled={
             pending || hearts === MAX_HEARTS || points < POINTS_TO_REFILL

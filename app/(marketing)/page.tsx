@@ -24,10 +24,15 @@ export default function MarketingPage() {
         />
       </div>
 
-      <div className="flex flex-col items-center gap-y-8">
-        <h1 className="max-w-[480px] text-center text-xl font-bold text-neutral-100 lg:text-3xl">
-          Learn, Practice and master coding for FIRST with Nauticode.
-        </h1>
+      <div className="flex flex-col items-center gap-y-6">
+        <div className="flex flex-col items-center gap-y-2 text-center">
+          <span className="text-xs font-extrabold uppercase tracking-widest text-[#EDB824] lg:text-sm">
+            Nautilus 4010 &bull; &ldquo;Building a Legacy&rdquo;
+          </span>
+          <h1 className="max-w-[520px] text-center text-2xl font-black uppercase tracking-tight text-white lg:text-4xl">
+            Learn, Practice and master coding for FIRST with <span className="text-[#EDB824]">Nauticode</span>.
+          </h1>
+        </div>
 
         <div className="flex w-full max-w-[330px] flex-col items-center gap-y-3">
           <ClerkLoading>
@@ -36,7 +41,7 @@ export default function MarketingPage() {
 
           <ClerkLoaded>
             <Show when="signed-in">
-              <Button size="lg" variant="secondary" className="w-full" asChild>
+              <Button size="lg" variant="primary" className="w-full" asChild>
                 <Link href="/learn" prefetch>
                   Continue Learning
                 </Link>
@@ -45,7 +50,7 @@ export default function MarketingPage() {
 
             <Show when="signed-out">
               <SignUpButton mode="modal">
-                <Button size="lg" variant="secondary" className="w-full">
+                <Button size="lg" variant="primary" className="w-full">
                   Get Started
                 </Button>
               </SignUpButton>

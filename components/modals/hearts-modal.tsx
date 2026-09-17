@@ -32,22 +32,23 @@ export const HeartsModal = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={close}>
-      <DialogContent className="max-w-md">
+      <DialogContent className="max-w-md border-2 border-[#451F66] bg-[#010124] text-white">
         <DialogHeader>
           <div className="mb-5 flex w-full items-center justify-center">
             <Image
-              src="/mascot_bad.svg"
-              alt="Mascot Bad"
-              height={80}
-              width={80}
+              src="/teus_sad.png"
+              alt="Teus Sad"
+              height={100}
+              width={100}
+              className="rounded-full border-2 border-[#451F66]"
             />
           </div>
 
-          <DialogTitle className="text-center text-2xl font-bold">
+          <DialogTitle className="text-center text-2xl font-extrabold uppercase tracking-wide text-[#EDB824]">
             You ran out of hearts!
           </DialogTitle>
 
-          <DialogDescription className="text-center text-base">
+          <DialogDescription className="text-center text-base text-neutral-200">
             Practice previous lessons to earn hearts back. Each completed review gives you a heart!
           </DialogDescription>
         </DialogHeader>

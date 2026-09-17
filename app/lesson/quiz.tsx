@@ -106,6 +106,11 @@ export const Quiz = ({
     if (!selectedOption) return;
 
     if (status === "wrong") {
+      if (hearts === 0) {
+        openHeartsModal();
+        return;
+      }
+
       setStatus("none");
       setSelectedOption(undefined);
       return;
@@ -154,7 +159,15 @@ export const Quiz = ({
             void incorrectControls.play();
             setStatus("wrong");
 
-            if (!response?.error) setHearts((prev) => Math.max(prev - 1, 0));
+            if (!response?.error) {
+              setHearts((prev) => {
+                const nextHearts = Math.max(prev - 1, 0);
+                if (nextHearts === 0) {
+                  openHeartsModal();
+                }
+                return nextHearts;
+              });
+            }
           })
           .catch(() => toast.error("Something went wrong. Please try again."));
       });

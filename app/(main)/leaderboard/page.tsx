@@ -55,32 +55,32 @@ const LeaderboardPage = async () => {
             width={90}
           />
 
-          <h1 className="my-6 text-center text-2xl font-bold text-neutral-800">
+          <h1 className="my-6 text-center text-2xl font-black uppercase tracking-wider text-[#EDB824]">
             Leaderboard
           </h1>
-          <p className="mb-6 text-center text-lg text-muted-foreground">
+          <p className="mb-6 text-center text-lg text-neutral-300">
             See where you stand among other learners in the community.
           </p>
 
-          <Separator className="mb-4 h-0.5 rounded-full" />
+          <Separator className="mb-4 h-0.5 bg-[#451F66]" />
           {leaderboard.map((userProgress, i) => (
             <div
               key={userProgress.userId}
-              className="flex w-full items-center rounded-xl p-2 px-4 hover:bg-gray-200/50"
+              className="flex w-full items-center rounded-xl p-2 px-4 hover:bg-[#451F66]/20 border border-transparent hover:border-[#451F66]/40 transition"
             >
-              <p className="mr-4 font-bold text-lime-700">{i + 1}</p>
+              <p className="mr-4 font-black text-[#EDB824]">{i + 1}</p>
 
-              <Avatar className="ml-3 mr-6 h-12 w-12 border bg-yellow-500">
+              <Avatar className="ml-3 mr-6 h-12 w-12 border border-[#451F66] bg-[#010124]">
                 <AvatarImage
                   src={userProgress.userImageSrc}
                   className="object-cover"
                 />
               </Avatar>
 
-              <p className="flex-1 font-bold text-neutral-800">
+              <p className="flex-1 font-bold text-white">
                 {userProgress.userName}
               </p>
-              <p className="text-muted-foreground">{userProgress.points} XP</p>
+              <p className="font-extrabold text-[#EDB824]">{userProgress.points} XP</p>
             </div>
           ))}
         </div>

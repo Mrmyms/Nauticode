@@ -53,6 +53,18 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        nautilus: {
+          blue: "#010124",
+          gold: "#EDB824",
+          goldDark: "#C99B1A",
+          purple: "#451F66",
+          purpleDark: "#32144D",
+          purpleLight: "#5D2A8A",
+          white: "#FFFFFF",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-hanken)", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

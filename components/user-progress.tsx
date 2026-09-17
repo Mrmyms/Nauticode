@@ -32,7 +32,7 @@ export const UserProgress = ({
         </Button>
       </Link>
 
-      <Button variant="ghost" className="text-orange-500 cursor-default">
+      <Button variant="ghost" className="text-[#EDB824] cursor-default font-extrabold">
         <Image
           src="/points.svg"
           height={28}

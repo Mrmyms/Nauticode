@@ -1,6 +1,6 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata, Viewport } from "next";
-import { Nunito } from "next/font/google";
+import { Hanken_Grotesk } from "next/font/google";
 
 import { ExitModal } from "@/components/modals/exit-modal";
 import { HeartsModal } from "@/components/modals/hearts-modal";
@@ -10,10 +10,14 @@ import { siteConfig } from "@/config";
 
 import "./globals.css";
 
-const font = Nunito({ subsets: ["latin"] });
+const font = Hanken_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-hanken",
+  weight: ["400", "500", "700", "800"],
+});
 
 export const viewport: Viewport = {
-  themeColor: "#22C55E",
+  themeColor: "#010124",
 };
 
 export const metadata: Metadata = siteConfig;
@@ -27,10 +31,11 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         options: {
-          logoImageUrl: "/favicon.ico",
+          logoImageUrl: "/nautilus-logo.png",
         },
         variables: {
-          colorPrimary: "#22C55E",
+          colorPrimary: "#EDB824",
+          colorBackground: "#010124",
         },
       }}
       telemetry={false}

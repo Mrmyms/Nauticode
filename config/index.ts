@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  title: "Nauticode",
+  title: "Nauticode | Nautilus 4010 - Building a Legacy",
   description:
-    "Interactive platform for FIRST Robotics programming with lessons, quizzes, and progress tracking.",
+    "Interactive platform for FIRST Robotics programming by Nautilus 4010. Learn, practice and master coding for FIRST with Nauticode.",
   keywords: [
     "reactjs",
     "nextjs",

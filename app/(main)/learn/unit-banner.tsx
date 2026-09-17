@@ -11,16 +11,16 @@ type UnitBannerProps = {
 
 export const UnitBanner = ({ id, title, description }: UnitBannerProps) => {
   return (
-    <div className="flex w-full items-center justify-between rounded-xl bg-yellow-500 p-5 text-white">
-      <div className="space-y-2.5">
-        <h3 className="text-2xl font-bold">{title}</h3>
-        <p className="text-lg">{description}</p>
+    <div className="flex w-full items-center justify-between rounded-xl border-2 border-[#451F66] bg-[#451F66] p-5 text-white shadow-lg">
+      <div className="space-y-2">
+        <h3 className="text-2xl font-black uppercase tracking-wide text-[#EDB824]">{title}</h3>
+        <p className="text-lg text-neutral-100">{description}</p>
       </div>
 
       <Link href="/lesson" prefetch>
         <Button
           size="lg"
-          variant="secondary"
+          variant="primary"
           className="hidden border-2 border-b-4 active:border-b-2 xl:flex"
         >
           <NotebookText className="mr-2" />

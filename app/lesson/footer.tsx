@@ -23,21 +23,21 @@ export const Footer = ({
   return (
     <footer
       className={cn(
-        "h-[100px] border-t-2 lg:h-[140px]",
-        status === "correct" && "border-transparent bg-yellow-100",
-        status === "wrong" && "border-transparent bg-rose-100"
+        "h-[100px] border-t-2 border-[#451F66] bg-[#010124] lg:h-[140px]",
+        status === "correct" && "border-transparent bg-[#EDB824]/20",
+        status === "wrong" && "border-transparent bg-rose-950/50"
       )}
     >
       <div className="mx-auto flex h-full max-w-[1140px] items-center justify-between px-6 lg:px-10">
         {status === "correct" && (
-          <div className="flex items-center text-base font-bold text-yellow-500 lg:text-2xl">
-            <CheckCircle className="mr-4 h-6 w-6 lg:h-10 lg:w-10" />
+          <div className="flex items-center text-base font-extrabold text-[#EDB824] lg:text-2xl">
+            <CheckCircle className="mr-4 h-6 w-6 lg:h-10 lg:w-10 text-[#EDB824]" />
             Nicely done!
           </div>
         )}
 
         {status === "wrong" && (
-          <div className="flex items-center text-base font-bold text-rose-500 lg:text-2xl">
+          <div className="flex items-center text-base font-extrabold text-rose-500 lg:text-2xl">
             <XCircle className="mr-4 h-6 w-6 lg:h-10 lg:w-10" />
             Try again.
           </div>
@@ -59,7 +59,7 @@ export const Footer = ({
           className="ml-auto"
           onClick={onCheck}
           size={isMobile ? "sm" : "lg"}
-          variant={status === "wrong" ? "danger" : "secondary"}
+          variant={status === "wrong" ? "danger" : "primary"}
         >
           {status === "none" && "Check"}
           {status === "correct" && "Next"}

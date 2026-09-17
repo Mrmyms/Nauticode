@@ -22,17 +22,17 @@ export const Header = () => {
   const { isSignedIn } = useAuth();
   return (
     <>
-      <header className="h-20 w-full border-b-2 border-purple-600 px-4">
+      <header className="h-20 w-full border-b-2 border-[#451F66] bg-[#010124] px-4">
         <div className="mx-auto flex h-full items-center justify-between lg:max-w-screen-lg">
           <Link
             href="/"
             prefetch
-            className="flex items-center gap-x-2 pb-7 pl-4 pt-8"
+            className="flex items-center gap-x-2.5 pb-7 pl-4 pt-8"
           >
-            <Image src="/mascot.jpg" alt="FIRST Logo" height={34} width={34} className="rounded" />
+            <Image src="/teus_happy.png" alt="Teus" height={36} width={36} className="rounded-full border border-[#EDB824]" />
             <Image src="/nautilus-logo.png" alt="Nautilus Logo" height={34} width={34} className="rounded" />
 
-            <h1 className="text-2xl font-extrabold tracking-wide text-yellow-600">
+            <h1 className="text-2xl font-black uppercase tracking-wider text-[#EDB824]">
               Nauticode
             </h1>
           </Link>

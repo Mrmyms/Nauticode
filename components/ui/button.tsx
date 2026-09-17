@@ -11,35 +11,37 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-black text-white border-slate-800 border-2 border-b-4 active:border-b-2 hover:bg-slate-900 text-slate-400",
+          "bg-[#010124] text-white border-[#451F66] border-2 border-b-4 active:border-b-2 hover:bg-[#451F66]/30 text-neutral-200",
 
         // custom
         locked:
-          "bg-neutral-200 text-primary-foreground hover:bg-neutral-200/90 border-neutral-400 border-b-4 active:border-b-0",
+          "bg-neutral-800 text-neutral-500 hover:bg-neutral-800 border-neutral-700 border-b-4 active:border-b-0",
 
         primary:
-          "bg-sky-400 text-primary-foreground hover:bg-sky-400/90 border-sky-500 border-b-4 active:border-b-0",
-        primaryOutline: "bg-black text-sky-500 hover:bg-slate-900",
+          "bg-[#EDB824] text-[#010124] hover:bg-[#EDB824]/90 border-[#C99B1A] border-b-4 active:border-b-0 font-extrabold",
+        primaryOutline:
+          "bg-transparent text-[#EDB824] border-2 border-[#EDB824] hover:bg-[#EDB824]/10 active:bg-[#EDB824]/20",
 
         secondary:
-          "bg-yellow-500 text-primary-foreground hover:bg-yellow-500/90 border-yellow-600 border-b-4 active:border-b-0",
-        secondaryOutline: "bg-black text-yellow-500 hover:bg-slate-900",
+          "bg-[#451F66] text-white hover:bg-[#5D2A8A] border-[#32144D] border-b-4 active:border-b-0 font-bold",
+        secondaryOutline:
+          "bg-transparent text-purple-300 border-2 border-[#451F66] hover:bg-[#451F66]/20 active:bg-[#451F66]/30",
 
         danger:
           "bg-rose-500 text-primary-foreground hover:bg-rose-500/90 border-rose-600 border-b-4 active:border-b-0",
-        dangerOutline: "bg-black text-rose-500 hover:bg-slate-900",
+        dangerOutline: "bg-transparent text-rose-500 border-2 border-rose-500 hover:bg-rose-500/10",
 
         super:
           "bg-indigo-500 text-primary-foreground hover:bg-indigo-500/90 border-indigo-600 border-b-4 active:border-b-0",
-        superOutline: "bg-black text-indigo-500 hover:bg-slate-900",
+        superOutline: "bg-transparent text-indigo-500 border-2 border-indigo-500 hover:bg-indigo-500/10",
 
         ghost:
-          "bg-transparent text-slate-400 border-transparent border-0 hover:bg-slate-900",
+          "bg-transparent text-neutral-300 border-transparent border-0 hover:bg-white/10 hover:text-white",
 
         sidebar:
-          "bg-transparent text-slate-400 border-2 border-transparent hover:bg-slate-900 transition-none",
+          "bg-transparent text-neutral-300 border-2 border-transparent hover:bg-white/5 transition-none",
         sidebarOutline:
-          "bg-sky-500/15 text-sky-500 border-sky-300 border-2 hover:bg-sky-500/20 transition-none",
+          "bg-[#451F66]/30 text-[#EDB824] border-[#EDB824]/60 border-2 hover:bg-[#451F66]/40 transition-none",
       },
       size: {
         default: "h-11 px-4 py-2",
