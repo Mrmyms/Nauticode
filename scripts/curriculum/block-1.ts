@@ -95,43 +95,65 @@ Programar **no** es magia ni adivinación; es la ciencia de diseñar algoritmos 
         challenges: [
           {
             type: "THEORY",
-            question: "¿Por qué las computadoras son estrictamente literales?",
-            lessonText: "# Ausencia de Ambigüedad \n\nSi le dices a un mecánico: *'Ajusta la llanta de allá'*, él usará su intuición, sabrá a qué llanta te refieres y usará la herramienta correcta.\n\nLas computadoras **carecen de intuición**. Exigen que elimines toda ambigüedad. Si escribes `EncenderMotor()` pero la regla del lenguaje era que la primera letra fuera minúscula (`encenderMotor()`), la computadora no intentará adivinar tu intención. Detendrá la ejecución y lanzará un **Syntax Error** (Error de Sintaxis).\n\nAprender a programar es aprender a pensar con precisión milimétrica.",
+            question: "¿Por qué decimos que una computadora carece de intuición y es 100% literal?",
+            lessonText: "# La Tiranía de la Precisión Literal\n\nSi le dices a un compañero de equipo en el taller: *'Pásame la llave que está sobre la mesa'*, su cerebro humano deduce inmediatamente el contexto: sabe qué mesa es, busca una herramienta de metal y no atraviesa una pared para buscarla. Los humanos nos comunicamos asumiendo contexto e intenciones.\n\n**Las computadoras carecen por completo de intuición.**\n\nUna computadora es un motor determinista: ejecuta única, exclusiva y ciegamente lo que tú escribes, no lo que *quisiste* escribir.\n\n### El Experimento de la Mantequilla de Maní (o la Rutina Autónoma)\nEn ciencias de la computación existe un experimento clásico: pedirle a alguien que actúe como una computadora y siga las instrucciones para hacer un sándwich de mantequilla de maní. Si la instrucción dice *'Pon la mantequilla sobre el pan'*, la computadora tomará el frasco de vidrio cerrado y lo aplastará contra la bolsa plástica de pan. La máquina no sabe que el frasco debe abrirse primero ni que el pan debe sacarse de la bolsa, porque **nadie se lo indicó explícitamente**.\n\nEn robótica FRC ocurre lo mismo: si en la rutina autónoma ordenas `dispararNota()` antes de que el motor del lanzador alcance las 5,000 RPM, la máquina disparará en frío y la pieza caerá al suelo. La máquina jamás dirá: *'Espera, el motor aún está detenido, voy a esperar'*. Ejecuta la orden en el milisegundo exacto en que fue convocada.\n\n### Dos Tipos de Consecuencias Literales:\n1. **Error de Sintaxis (Syntax Error):** Violas las reglas ortográficas o gramaticales del lenguaje (por ejemplo, escribir `Print` con mayúscula en vez de `print`, o olvidar un paréntesis). El compilador detiene todo de inmediato porque no sabe qué significa esa palabra desconocida.\n2. **Error de Lógica (Bug Semántico):** Tu código corre sin marcar errores rojos, pero hace un cálculo equivocado o invierte la dirección de los motores. Para la computadora la instrucción fue perfecta, pero para ti el resultado es catastrófico.\n\n**La Regla de Oro del Programador:**\nLa computadora nunca se equivoca al ejecutar; la computadora hace exactamente lo que le ordenaste.",
             options: [
-              { text: "Porque carecen de intuición y solo ejecutan comandos precisos e inequívocos, rechazando cualquier ambigüedad gramatical", correct: true },
-              { text: "Porque internamente odian a los humanos y prefieren lanzar errores antes que trabajar", correct: false },
-              { text: "Porque su memoria RAM se borra cada vez que leen una palabra mal escrita", correct: false },
-              { text: "Porque la electricidad no fluye si el código no está escrito en un teclado mecánico", correct: false }
+              { text: "Porque es un sistema determinista sin sentido común: ejecuta ciegamente las instrucciones exactas que recibe, sin deducir intenciones ni tolerar ambigüedades", correct: true },
+              { text: "Porque los procesadores modernos cuentan con un módulo de inteligencia que rechaza instrucciones si el programador escribe lento", correct: false },
+              { text: "Porque el hardware borra las instrucciones si la sintaxis contiene palabras en minúsculas", correct: false },
+              { text: "Porque las computadoras deducen la intención del programador únicamente cuando se reinicia el sistema operativo", correct: false }
+            ]
+          },
+          {
+            type: "MATCHING",
+            question: "Clasifica cómo reacciona una computadora ante cada situación técnica:",
+            options: [
+              { text: "Escribir 'imprimir' en vez de 'print'|||Error de Sintaxis (Gramática rechazada)", correct: true },
+              { text: "Girar el motor al 100% hacia atrás en vez de hacia adelante|||Error de Lógica (Instrucción válida pero resultado erróneo)", correct: true },
+              { text: "Asumir que la máquina sabe cuándo frenar sin decírselo|||Falsa Intuición (La máquina continuará hasta estrellarse)", correct: true },
+              { text: "Mismo código ejecutado 1,000 veces con idéntico resultado|||Determinismo (Comportamiento predecible y matemático)", correct: true }
+            ]
+          },
+          {
+            type: "CODE_ORDER",
+            question: "Un brazo robótico debe recoger una pieza del suelo sin romperla. Ordena la secuencia estricta que la máquina debe seguir:",
+            options: [
+              { text: "abrirPinza()", correct: true, audioSrc: "1" },
+              { text: "bajarBrazoAPosicionSuelo()", correct: true, audioSrc: "2" },
+              { text: "cerrarPinzaSobrePieza()", correct: true, audioSrc: "3" },
+              { text: "subirBrazoAPosicionTransporte()", correct: true, audioSrc: "4" }
+            ]
+          },
+          {
+            type: "CODE_FILL",
+            question: "Los lenguajes de programación son estrictos con mayúsculas y minúsculas (Case Sensitivity). Completa la llamada exacta a la función ya definida:",
+            codeSnippet: "def activarCompresor():\n    presion = 120\n    return presion\n\n# Llamada exacta sin violar la precisión del nombre:\nestado = _____()",
+            options: [
+              { text: "activarCompresor", correct: true },
+              { text: "ActivarCompresor", correct: false },
+              { text: "activar_compresor", correct: false },
+              { text: "activarcompresor", correct: false }
             ]
           },
           {
             type: "SELECT",
-            question: "¿Cuál de las siguientes afirmaciones describe un error común de los programadores novatos derivado de la precisión literal?",
+            question: "Un programador escribe un algoritmo para que el robot avance 3 metros, pero en la cancha avanza 30 metros y choca. La consola no arrojó ningún error rojo (Syntax Error). ¿Qué ocurrió técnicamente?",
             options: [
-              { text: "Creer que la computadora entenderá que 'velocidad' y 'Velocidad' son lo mismo, cuando para la máquina son totalmente distintos", correct: true },
-              { text: "Creer que si le hablan fuerte a la pantalla, la computadora correrá más rápido", correct: false },
-              { text: "Olvidar cargar la batería del robot antes de compilar el código", correct: false },
-              { text: "Conectar los cables del motor al revés en la placa electrónica", correct: false }
+              { text: "Un Error de Lógica: La sintaxis fue correcta, por lo que la computadora obedeció ciegamente la instrucción matemática equivocada del programador", correct: true },
+              { text: "Un Error de Sintaxis: El procesador no reconoció la unidad de metros y multiplicó la distancia por diez de forma aleatoria", correct: false },
+              { text: "Fallo de intuición de la máquina: El robot vio que había espacio libre en la cancha y decidió explorar por iniciativa propia", correct: false },
+              { text: "El compilador tradujo mal el código deliberadamente porque la computadora se sobrecalentó", correct: false }
             ]
           },
           {
-            type: "DEBUG",
-            question: "La computadora no puede compilar este código. ¿Cuál es la violación de precisión?",
-            codeSnippet: "Print('Preparando el sistema autónomo')",
+            type: "CODE_TEST",
+            question: "La computadora ejecuta las instrucciones estrictamente en orden secuencial, paso a paso. ¿Cuál será el Output impreso en la consola?",
+            codeSnippet: "velocidad = 0\nvelocidad = velocidad + 50\nvelocidad = 10\nprint(velocidad)",
             options: [
-              { text: "La instrucción 'print' lleva mayúscula inicial (Print), cuando debería ser minúscula exacta", correct: true },
-              { text: "La palabra 'sistema' no puede usarse en código robótico", correct: false },
-              { text: "Faltan números en la instrucción para que la computadora entienda", correct: false },
-              { text: "El código no incluye comandos de movimiento", correct: false }
-            ]
-          },
-          {
-            type: "CODE_WRITE",
-            question: "Escribe la instrucción con precisión absoluta en minúsculas para imprimir: Calibrando",
-            codeSnippet: "// Tu turno de escribir código preciso",
-            options: [
-              { text: "print('Calibrando')", correct: true },
-              { text: "print('Calibrando')", correct: false }
+              { text: "10", correct: true },
+              { text: "50", correct: false },
+              { text: "60", correct: false },
+              { text: "0", correct: false }
             ]
           }
         ]
