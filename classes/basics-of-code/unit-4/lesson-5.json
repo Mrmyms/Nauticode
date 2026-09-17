@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "Midiendo la orientación del chasis en tiempo real",
-      "lessonText": "# El Giroscopio de Nautilus 4010 🧭\n\nEl sensor **NavX Gyro** mide el ángulo de rotación de nuestro robot en la cancha.\n\nCuando el robot inicia el match de cara a la pared contraria, el ángulo es `0.0` grados.\nCuando gira a la derecha, el ángulo se actualiza a `90.0`.\n\nEn este reto final de la Unidad 4, aplicarás el manejo de variables para almacenar, actualizar y desplegar la orientación del robot.",
+      "lessonText": "# El Giroscopio de Nautilus 4010 \n\nEl sensor **NavX Gyro** mide el ángulo de rotación de nuestro robot en la cancha.\n\nCuando el robot inicia el match de cara a la pared contraria, el ángulo es `0.0` grados.\nCuando gira a la derecha, el ángulo se actualiza a `90.0`.\n\nEn este reto final de la Unidad 4, aplicarás el manejo de variables para almacenar, actualizar y desplegar la orientación del robot.",
       "options": [
         {
           "text": "¡Vamos a calibrar la orientación con Teus!",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cuáles son las convenciones de nomenclatura más populares?",
-      "lessonText": "# El Estilo Sí Importa 🎨\n\nEn la mayoría de los lenguajes no podemos usar espacios en los nombres de variables (ej: `velocidad maxima` dará un Syntax Error).\n\nPara resolver esto, la comunidad creó **estilos de capitalización**:\n\n1. **camelCase (El camello):** La primera palabra inicia en minúscula y cada nueva palabra inicia con Mayúscula.\n   - Ejemplo: `velocidadMaxima`, `sensorOptico`, `anguloDelBrazo`.\n   - *Muy usado en Java, JavaScript y C++.*\n\n2. **snake_case (La serpiente):** Todo en minúsculas separado por guiones bajos.\n   - Ejemplo: `velocidad_maxima`, `sensor_optico`, `angulo_del_brazo`.\n   - *El estándar oficial de Python (PEP 8).*",
+      "lessonText": "# El Estilo Sí Importa \n\nEn la mayoría de los lenguajes no podemos usar espacios en los nombres de variables (ej: `velocidad maxima` dará un Syntax Error).\n\nPara resolver esto, la comunidad creó **estilos de capitalización**:\n\n1. **camelCase (El camello):** La primera palabra inicia en minúscula y cada nueva palabra inicia con Mayúscula.\n   - Ejemplo: `velocidadMaxima`, `sensorOptico`, `anguloDelBrazo`.\n   - *Muy usado en Java, JavaScript y C++.*\n\n2. **snake_case (La serpiente):** Todo en minúsculas separado por guiones bajos.\n   - Ejemplo: `velocidad_maxima`, `sensor_optico`, `angulo_del_brazo`.\n   - *El estándar oficial de Python (PEP 8).*",
       "options": [
         {
           "text": "camelCase usa mayúsculas intermedias y snake_case usa guiones bajos entre palabras",

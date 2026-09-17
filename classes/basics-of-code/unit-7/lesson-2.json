@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué calcula exactamente el operador módulo (`%`)?",
-      "lessonText": "# El Secreto del Residuo 🍰\n\nEl operador **Módulo (`%`)** no calcula el cociente de una división, sino el **residuo (lo que sobra)** tras dividir dos números enteros.\n\nEjemplo de la vida real:\nTienes 7 galletas y las repartes equitativamente entre 3 amigos de robótica:\n- Cada amigo recibe 2 galletas (2 * 3 = 6).\n- **Sobra 1 galleta.**\n- Por lo tanto: `7 % 3 = 1`.\n\n¿Para qué sirve en robótica?\n- **Saber si un número es par o impar:** `numero % 2 == 0`.\n- **Hacer ciclos cíclicos:** Limitar un contador entre 0 y 360 grados.",
+      "lessonText": "# El Secreto del Residuo \n\nEl operador **Módulo (`%`)** no calcula el cociente de una división, sino el **residuo (lo que sobra)** tras dividir dos números enteros.\n\nEjemplo de la vida real:\nTienes 7 galletas y las repartes equitativamente entre 3 amigos de robótica:\n- Cada amigo recibe 2 galletas (2 * 3 = 6).\n- **Sobra 1 galleta.**\n- Por lo tanto: `7 % 3 = 1`.\n\n¿Para qué sirve en robótica?\n- **Saber si un número es par o impar:** `numero % 2 == 0`.\n- **Hacer ciclos cíclicos:** Limitar un contador entre 0 y 360 grados.",
       "options": [
         {
           "text": "El sobrante o residuo entero de una división",

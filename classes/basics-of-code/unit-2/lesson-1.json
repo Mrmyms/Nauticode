@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué define a un algoritmo?",
-      "lessonText": "# La Receta del Éxito 📋\n\n¿Alguna vez has seguido una receta para hornear un pastel? Sigues una lista de pasos finitos:\n1. Medir harina\n2. Mezclar huevos\n3. Precalentar horno a 180°C\n4. Hornear por 25 minutos\n\nEso es un **algoritmo**. En programación y robótica, un algoritmo debe cumplir 3 propiedades sagradas:\n- **Finito:** Debe terminar en algún momento.\n- **Definido:** Cada vez que le des los mismos datos, debe producir el mismo resultado.\n- **Preciso:** No puede haber ambigüedad ni pasos vagos como 'hazlo bien'.",
+      "lessonText": "# La Receta del Éxito \n\n¿Alguna vez has seguido una receta para hornear un pastel? Sigues una lista de pasos finitos:\n1. Medir harina\n2. Mezclar huevos\n3. Precalentar horno a 180°C\n4. Hornear por 25 minutos\n\nEso es un **algoritmo**. En programación y robótica, un algoritmo debe cumplir 3 propiedades sagradas:\n- **Finito:** Debe terminar en algún momento.\n- **Definido:** Cada vez que le des los mismos datos, debe producir el mismo resultado.\n- **Preciso:** No puede haber ambigüedad ni pasos vagos como 'hazlo bien'.",
       "options": [
         {
           "text": "Una serie ordenada de pasos finitos y precisos para resolver un problema",

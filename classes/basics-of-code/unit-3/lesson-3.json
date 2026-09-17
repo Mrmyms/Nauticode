@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es el 'tracing' en programación?",
-      "lessonText": "# El Superpoder de Rastrear Código 🕵️‍♂️\n\nEl **Tracing** (rastreo manual de código) es la habilidad de convertirte en el procesador.\n\nTomas una libreta y una pluma, y anotas:\n- ¿En qué línea estoy?\n- ¿Qué variables existen en este instante?\n- ¿Qué valores tienen adentro?\n\nLos mejores programadores del mundo no son los que escriben más rápido, sino los que pueden ejecutar el código en su cabeza paso a paso antes de correrlo.",
+      "lessonText": "# El Superpoder de Rastrear Código ️‍️\n\nEl **Tracing** (rastreo manual de código) es la habilidad de convertirte en el procesador.\n\nTomas una libreta y una pluma, y anotas:\n- ¿En qué línea estoy?\n- ¿Qué variables existen en este instante?\n- ¿Qué valores tienen adentro?\n\nLos mejores programadores del mundo no son los que escriben más rápido, sino los que pueden ejecutar el código en su cabeza paso a paso antes de correrlo.",
       "options": [
         {
           "text": "Seguir la ejecución de un programa paso a paso para verificar el estado de las variables",

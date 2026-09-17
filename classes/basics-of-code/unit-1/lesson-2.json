@@ -1,111 +1,85 @@
 {
-  "title": "Instrucciones Paso a Paso",
+  "title": "Precisión Literal vs Intuición Humana",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo procesa las instrucciones una computadora?",
-      "lessonText": "# Paso a Paso (Step-by-Step)\n\nUna computadora ejecuta las instrucciones **una a una**, de arriba hacia abajo (*top-to-bottom*).\n\nSi le pides a un novato del equipo:\n1. 'Ve al taller'\n2. 'Toma un cautín'\n3. 'Enciéndelo'\n\nTiene sentido. Pero si alteras el orden y dices:\n1. 'Enciéndelo'\n2. 'Toma un cautín'\n3. 'Ve al taller'\n\n¡El resultado será un desastre! En código, saltarse un paso o dar una instrucción fuera de tiempo crea un **bug**.",
+      "question": "¿Por qué las computadoras son estrictamente literales?",
+      "lessonText": "# Ausencia de Ambigüedad \n\nSi le dices a un mecánico: *'Ajusta la llanta de allá'*, él usará su intuición, sabrá a qué llanta te refieres y usará la herramienta correcta.\n\nLas computadoras **carecen de intuición**. Exigen que elimines toda ambigüedad. Si escribes `EncenderMotor()` pero la regla del lenguaje era que la primera letra fuera minúscula (`encenderMotor()`), la computadora no intentará adivinar tu intención. Detendrá la ejecución y lanzará un **Syntax Error** (Error de Sintaxis).\n\nAprender a programar es aprender a pensar con precisión milimétrica.",
       "options": [
         {
-          "text": "En secuencia ordenada, una tras otra de arriba a abajo",
+          "text": "Porque carecen de intuición y solo ejecutan comandos precisos e inequívocos, rechazando cualquier ambigüedad gramatical",
           "correct": true
         },
         {
-          "text": "Todas al mismo milisegundo al azar",
+          "text": "Porque internamente odian a los humanos y prefieren lanzar errores antes que trabajar",
           "correct": false
         },
         {
-          "text": "De abajo hacia arriba al revés",
+          "text": "Porque su memoria RAM se borra cada vez que leen una palabra mal escrita",
           "correct": false
         },
         {
-          "text": "Sólo las instrucciones que le parecen divertidas",
+          "text": "Porque la electricidad no fluye si el código no está escrito en un teclado mecánico",
           "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_FILL",
-      "question": "Completa el comando para imprimir un aviso cuando el robot inicie:",
-      "codeSnippet": "_____('Robot Iniciado: Sistema Listo')",
-      "options": [
-        {
-          "text": "print",
-          "correct": true
-        },
-        {
-          "text": "shout",
-          "correct": false
-        },
-        {
-          "text": "speak",
-          "correct": false
-        },
-        {
-          "text": "makeNoise",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida en la consola tras ejecutar este bloque?",
-      "codeSnippet": "print('Paso 1: Calibrando')\nprint('Paso 2: Listo')",
-      "options": [
-        {
-          "text": "Paso 1: Calibrando Paso 2: Listo",
-          "correct": false
-        },
-        {
-          "text": "Paso 1: Calibrando\nPaso 2: Listo",
-          "correct": true
-        }
-      ]
-    },
-    {
-      "type": "CODE_ORDER",
-      "question": "Ordena los pasos lógicos para disparar una pelota en FRC:",
-      "options": [
-        {
-          "text": "encenderShooter()",
-          "correct": true,
-          "audioSrc": "1"
-        },
-        {
-          "text": "esperarVelocidadOptima()",
-          "correct": true,
-          "audioSrc": "2"
-        },
-        {
-          "text": "activarFeeder()",
-          "correct": true,
-          "audioSrc": "3"
-        },
-        {
-          "text": "detenerShooter()",
-          "correct": true,
-          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Qué ocurre si le pedimos al feeder meter la pelota antes de que el shooter esté girando a velocidad?",
+      "question": "¿Cuál de las siguientes afirmaciones describe un error común de los programadores novatos derivado de la precisión literal?",
       "options": [
         {
-          "text": "La pelota se atasca o el tiro sale sin fuerza",
+          "text": "Creer que la computadora entenderá que 'velocidad' y 'Velocidad' son lo mismo, cuando para la máquina son totalmente distintos",
           "correct": true
         },
         {
-          "text": "El robot vuela",
+          "text": "Creer que si le hablan fuerte a la pantalla, la computadora correrá más rápido",
           "correct": false
         },
         {
-          "text": "El código se borra automáticamente",
+          "text": "Olvidar cargar la batería del robot antes de compilar el código",
           "correct": false
         },
         {
-          "text": "El procesador se apaga por vergüenza",
+          "text": "Conectar los cables del motor al revés en la placa electrónica",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "DEBUG",
+      "question": "La computadora no puede compilar este código. ¿Cuál es la violación de precisión?",
+      "codeSnippet": "Print('Preparando el sistema autónomo')",
+      "options": [
+        {
+          "text": "La instrucción 'print' lleva mayúscula inicial (Print), cuando debería ser minúscula exacta",
+          "correct": true
+        },
+        {
+          "text": "La palabra 'sistema' no puede usarse en código robótico",
+          "correct": false
+        },
+        {
+          "text": "Faltan números en la instrucción para que la computadora entienda",
+          "correct": false
+        },
+        {
+          "text": "El código no incluye comandos de movimiento",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_WRITE",
+      "question": "Escribe la instrucción con precisión absoluta en minúsculas para imprimir: Calibrando",
+      "codeSnippet": "// Tu turno de escribir código preciso",
+      "options": [
+        {
+          "text": "print('Calibrando')",
+          "correct": true
+        },
+        {
+          "text": "print('Calibrando')",
           "correct": false
         }
       ]

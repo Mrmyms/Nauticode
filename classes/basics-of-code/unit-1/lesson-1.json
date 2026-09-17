@@ -1,107 +1,141 @@
 {
-  "title": "¿Qué es Programar?",
+  "title": "¿Qué es Programar en Realidad?",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es la programación en el mundo real?",
-      "lessonText": "# El Cerebro del Robot 🤖\n\nImagina que tienes un robot de competencia frente a ti. Tiene motores de alta potencia, sensores ultrasónicos y un chasis de aluminio impecable.\n\nSin embargo, **no se moverá un solo centímetro** a menos que le des instrucciones claras.\n\n**Programar** es el arte de escribir esas instrucciones en un formato que la computadora del robot pueda comprender y ejecutar al pie de la letra.\n\nEs exactamente como una **receta de cocina** o el manual de armado de un LEGO: cada paso debe ser claro y estar en el momento adecuado.",
+      "question": "¿Qué es en esencia la programación de computadoras?",
+      "lessonText": "# El Modelo de la Caja Negra \n\nSi le preguntas a un extraño qué es programar, te dirá que es 'escribir código verde en una pantalla negra'. Pero en la ciencia de la computación, **programar es simplemente diseñar un algoritmo que transforma datos.**\n\nTodo programa en el universo, desde una calculadora hasta la Inteligencia Artificial de un Tesla, obedece al modelo fundamental **Input -> Proceso -> Output**.\n\n### 1. Input (Entrada)\nSon los datos que el sistema recibe del mundo exterior. En un robot, el Input proviene de los sensores (cámaras, ultrasonido) o del joystick del piloto.\n\n### 2. Proceso (Algoritmo)\nEs la **Caja Negra**. La computadora toma el Input y sigue una lista estricta de instrucciones lógicas y matemáticas para decidir qué hacer con él. **Aquí es donde tú, el programador, existes.** Tu trabajo es escribir esas reglas lógicas.\n\n### 3. Output (Salida)\nEs el resultado físico o digital de la decisión tomada en el proceso. En robótica, el Output es el voltaje enviado a los motores para moverse, o un mensaje de error impreso en la consola.\n\nProgramar no es memorizar palabras raras en inglés, es **tener la habilidad mental de dividir un problema gigante en pequeños pasos lógicos (Proceso) para convertir un Input en un Output.**",
       "options": [
         {
-          "text": "Escribir instrucciones ordenadas para que una máquina las ejecute",
+          "text": "Es el diseño de algoritmos para procesar una entrada de datos (Input) y generar un resultado útil (Output)",
           "correct": true
         },
         {
-          "text": "Hablarle telepáticamente al robot para que gane el match",
+          "text": "Es la habilidad de escribir rápidamente comandos al azar hasta que el procesador arranque",
           "correct": false
         },
         {
-          "text": "Apretar tornillos en el chasis con una llave inglesa",
+          "text": "Es el proceso físico de ensamblar los componentes electrónicos en la placa madre",
           "correct": false
         },
         {
-          "text": "Esperar a que la computadora aprenda sola por arte de magia",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "¿Por qué una computadora necesita instrucciones tan exactas?",
-      "lessonText": "# Precisión Absoluta\n\nLos humanos usamos el contexto y adivinamos lo que otros quieren decir. Una computadora no tiene esa capacidad.",
-      "options": [
-        {
-          "text": "Porque no puede pensar ni adivinar por sí misma; sólo ejecuta órdenes literales",
-          "correct": true
-        },
-        {
-          "text": "Porque se aburre si las instrucciones son muy cortas",
-          "correct": false
-        },
-        {
-          "text": "Porque la electricidad sólo viaja en línea recta",
-          "correct": false
-        },
-        {
-          "text": "Porque prefiere jugar videojuegos antes de trabajar",
+          "text": "Es la capacidad de la computadora de sentir emociones y tomar decisiones por intuición",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Empareja cada concepto con su rol en la robótica:",
+      "question": "Identifica qué rol cumple cada elemento en el modelo de un robot FRC:",
       "options": [
         {
-          "text": "Hardware|||Componentes físicos como motores y sensores",
+          "text": "Cámara Vision detecta el objetivo a 3 metros|||Input (Entrada de datos)",
           "correct": true
         },
         {
-          "text": "Software|||Instrucciones de código que controlan al robot",
+          "text": "Código calcula la curva balística perfecta|||Proceso (Algoritmo)",
           "correct": true
         },
         {
-          "text": "Programador|||Humano que diseña la lógica de las acciones",
+          "text": "Motores giran a 4500 RPM para disparar|||Output (Salida física)",
           "correct": true
         },
         {
-          "text": "roboRIO|||La computadora controladora central del robot",
+          "text": "El Programador|||Mente maestra que diseña el Proceso",
           "correct": true
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Escribe la instrucción en pseudocódigo para imprimir 'Go Nautilus!' en consola:",
-      "codeSnippet": "// Envía un mensaje a la pantalla de telemetría",
+      "type": "CODE_ORDER",
+      "question": "Ordena lógicamente los pasos de un programa autónomo que frena al ver un obstáculo (Input -> Proceso -> Output):",
       "options": [
         {
-          "text": "print('Go Nautilus!')",
+          "text": "distancia = leerSensorUltrasonido()",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "if (distancia < 20):",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    potencia = 0",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "enviarPotenciaAMotores(potencia)",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la línea para recolectar el Input del sensor antes de procesarlo:",
+      "codeSnippet": "_____ = obtenerDistanciaUltrasonido()\nif (distancia < 10):\n    frenar()",
+      "options": [
+        {
+          "text": "distancia",
           "correct": true
         },
         {
-          "text": "wrong",
+          "text": "frenar",
+          "correct": false
+        },
+        {
+          "text": "Output",
+          "correct": false
+        },
+        {
+          "text": "motor",
           "correct": false
         }
       ]
     },
     {
-      "type": "ASSIST",
-      "question": "¿Cómo se llama el texto con instrucciones que escribimos los programadores?",
+      "type": "SELECT",
+      "question": "Imagina que el sensor lee correctamente que el obstáculo está a 5 cm (Input), pero el robot acelera en lugar de frenar y choca (Output erróneo). ¿Dónde está la falla el 99.9% de las veces?",
       "options": [
         {
-          "text": "Código Fuente (Source Code)",
+          "text": "En el Proceso: El algoritmo o lógica matemática escrita por el programador está mal estructurada",
           "correct": true
         },
         {
-          "text": "Manifiesto Secreto",
+          "text": "En el Input: Los sensores de la vida real mienten a propósito",
           "correct": false
         },
         {
-          "text": "Binario de la Suerte",
+          "text": "En el Output: Los motores decidieron rebelarse contra los humanos",
           "correct": false
         },
         {
-          "text": "Plan de Vuelo",
+          "text": "En la suerte: La programación es puramente impredecible",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Lee el siguiente algoritmo (Proceso). Si el Input es 100, ¿cuál será el Output impreso?",
+      "codeSnippet": "inputBateria = 100\n\nif (inputBateria > 20):\n    print('Voltaje Óptimo')\nelse:\n    print('Cambiar Batería')",
+      "options": [
+        {
+          "text": "Voltaje Óptimo",
+          "correct": true
+        },
+        {
+          "text": "Cambiar Batería",
+          "correct": false
+        },
+        {
+          "text": "100",
+          "correct": false
+        },
+        {
+          "text": "Error de Sintaxis",
           "correct": false
         }
       ]

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Evitando colisiones en la arena con Teus!",
-      "lessonText": "# El Sensor de Distancia Láser (LiDAR / ToF) 🚨\n\nNautilus 4010 tiene un sensor de distancia Time-of-Flight en el parachoques delantero.\n\nDurante el partido, si el sensor detecta que la distancia a otro robot o a la pared cae por debajo del umbral de seguridad de `25.0` cm:\n¡El software debe aplicar frenado preventivo de inmediato para evitar una tarjeta de penalización!\n\nEn este reto final de la Unidad 9, ensamblarás y verificarás la lógica condicional de frenado.",
+      "lessonText": "# El Sensor de Distancia Láser (LiDAR / ToF) \n\nNautilus 4010 tiene un sensor de distancia Time-of-Flight en el parachoques delantero.\n\nDurante el partido, si el sensor detecta que la distancia a otro robot o a la pared cae por debajo del umbral de seguridad de `25.0` cm:\n¡El software debe aplicar frenado preventivo de inmediato para evitar una tarjeta de penalización!\n\nEn este reto final de la Unidad 9, ensamblarás y verificarás la lógica condicional de frenado.",
       "options": [
         {
           "text": "¡Vamos a programar el freno preventivo con Teus!",

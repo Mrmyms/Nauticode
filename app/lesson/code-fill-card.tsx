@@ -39,15 +39,15 @@ export const CodeFillCard = ({
     if (parts.length === 1) return <code>{codeSnippet}</code>;
 
     return (
-      <code className="text-lg bg-neutral-900 text-yellow-400 p-4 rounded-xl flex items-center flex-wrap gap-2">
+      <code className="text-lg bg-neutral-900 text-yellow-400 p-4 rounded-xl block whitespace-pre-wrap font-mono leading-relaxed">
         {parts.map((part, index) => {
           if (index === parts.length - 1) return <span key={index}>{part}</span>;
           return (
-            <span key={index} className="flex items-center">
+            <span key={index}>
               {part}
               <span
                 className={cn(
-                  "mx-2 px-3 py-1 border-b-2 font-bold min-w-[3rem] text-center",
+                  "mx-1 px-3 py-1 border-b-2 font-bold min-w-[3rem] text-center inline-block",
                   selectedOption ? "border-primary text-primary" : "border-neutral-500 text-neutral-500"
                 )}
               >

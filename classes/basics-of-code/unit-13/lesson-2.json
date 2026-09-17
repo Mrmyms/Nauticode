@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cuál es la diferencia entre 'break' y 'continue'?",
-      "lessonText": "# Pasar de Largo 🦘\n\nA veces no quieres cancelar todo el bucle, sino **ignorar únicamente la iteración actual** y pasar de largo al siguiente ciclo.\n\nPara eso usamos **`continue`**:\n```python\nfor motor in range(4):\n    if motor == 2:  # El motor 2 está en mantenimiento\n        continue    # ¡Salta este motor y ve al siguiente!\n    probarMotor(motor)\n```\n- `break`: Aborta y destruye el bucle por completo.\n- `continue`: Aborta el turno actual y salta al siguiente número del ciclo.",
+      "lessonText": "# Pasar de Largo \n\nA veces no quieres cancelar todo el bucle, sino **ignorar únicamente la iteración actual** y pasar de largo al siguiente ciclo.\n\nPara eso usamos **`continue`**:\n```python\nfor motor in range(4):\n    if motor == 2:  # El motor 2 está en mantenimiento\n        continue    # ¡Salta este motor y ve al siguiente!\n    probarMotor(motor)\n```\n- `break`: Aborta y destruye el bucle por completo.\n- `continue`: Aborta el turno actual y salta al siguiente número del ciclo.",
       "options": [
         {
           "text": "break cancela todo el bucle definitivamente; continue solo salta a la siguiente iteración",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué la indentación es obligatoria en Python y el orden visual en todos los lenguajes?",
-      "lessonText": "# El Espacio es Estructura 📐\n\nObserva con atención este ejemplo:\n```python\nif robotHabilitado:\n    print('Encendiendo compresor')\n    print('Calibrando encoders')\nprint('Programa activo')\n```\n- Las líneas que tienen **4 espacios de sangría** hacia adentro forman el **cuerpo del `if`**. Solo corren si `robotHabilitado` es `true`.\n- La última línea (`print('Programa activo')`) no tiene sangría: está **afuera del `if`** y se ejecutará SIEMPRE, sin importar la condición.\n\nEn Java y C++ el cuerpo se delimita con llaves `{ ... }`, pero los buenos programadores siempre indentan para que el código sea legible.",
+      "lessonText": "# El Espacio es Estructura \n\nObserva con atención este ejemplo:\n```python\nif robotHabilitado:\n    print('Encendiendo compresor')\n    print('Calibrando encoders')\nprint('Programa activo')\n```\n- Las líneas que tienen **4 espacios de sangría** hacia adentro forman el **cuerpo del `if`**. Solo corren si `robotHabilitado` es `true`.\n- La última línea (`print('Programa activo')`) no tiene sangría: está **afuera del `if`** y se ejecutará SIEMPRE, sin importar la condición.\n\nEn Java y C++ el cuerpo se delimita con llaves `{ ... }`, pero los buenos programadores siempre indentan para que el código sea legible.",
       "options": [
         {
           "text": "Porque define los límites de qué instrucciones están dentro de la condición y cuáles están fuera",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué el orden de las operaciones cambia el resultado?",
-      "lessonText": "# Las Matemáticas de la Secuencia 🧮\n\nAnaliza estos dos programas. Parecen iguales, pero no lo son:\n\n**Programa A:**\n```python\nvalor = 10\nvalor = valor + 5  # Ahora valor es 15\nvalor = valor * 2  # 15 * 2 = 30\nprint(valor)       # Imprime 30\n```\n\n**Programa B (Invertido):**\n```python\nvalor = 10\nvalor = valor * 2  # Ahora valor es 20\nvalor = valor + 5  # 20 + 5 = 25\nprint(valor)       # Imprime 25\n```\n\n¡Las mismas operaciones en diferente orden dan resultados totalmente distintos!",
+      "lessonText": "# Las Matemáticas de la Secuencia \n\nAnaliza estos dos programas. Parecen iguales, pero no lo son:\n\n**Programa A:**\n```python\nvalor = 10\nvalor = valor + 5  # Ahora valor es 15\nvalor = valor * 2  # 15 * 2 = 30\nprint(valor)       # Imprime 30\n```\n\n**Programa B (Invertido):**\n```python\nvalor = 10\nvalor = valor * 2  # Ahora valor es 20\nvalor = valor + 5  # 20 + 5 = 25\nprint(valor)       # Imprime 25\n```\n\n¡Las mismas operaciones en diferente orden dan resultados totalmente distintos!",
       "options": [
         {
           "text": "Porque cada línea opera sobre el estado acumulado de las líneas anteriores",

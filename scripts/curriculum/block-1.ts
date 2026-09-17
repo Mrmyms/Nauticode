@@ -8,241 +8,177 @@ export const block1Units: UnitDefinition[] = [
     order: 1,
     slug: "unit-1",
     title: "What is Programming?",
-    description: "El lenguaje de las máquinas y el robot",
+    description: "Input, Proceso, Output y el lenguaje de las máquinas",
     guidebookText: `# Guía de Estudio: Unit 1 - What is Programming?
 
 ¡Bienvenido a **Nauticode** de **Nautilus 4010**!
 
-Programar es simplemente **dar instrucciones precisas a una máquina para resolver problemas o realizar tareas**. A diferencia de los humanos, las computadoras y los controladores de robots (como la *roboRIO* en FIRST Robotics) no tienen intuición: ejecutan exactamente lo que les dices, ni más ni menos.
+Programar **no** es magia ni adivinación; es la ciencia de diseñar algoritmos que convierten datos de entrada en datos de salida, y luego traducirlos a un idioma que la máquina pueda ejecutar.
 
-### Conceptos Clave:
-- **Hardware:** La parte física del robot (motores, chasis, sensores, cables).
-- **Software (Código):** Las instrucciones lógicas que le dan vida al hardware.
-- **Lenguaje de Programación:** El puente entre el pensamiento humano y el lenguaje binario (ceros y unos) del procesador.
-- **Regla de Oro:** Si un robot comete un error, el 99.9% de las veces la computadora no se equivocó; ejecutó fielmente una instrucción con un bug.`,
+### Conceptos Clave (Basado en CS50):
+- **Input -> Caja Negra (Proceso) -> Output:** Una computadora solo toma información, la procesa siguiendo reglas matemáticas o lógicas, y genera un resultado.
+- **Hardware y Ceros/Unos:** El procesador está lleno de transistores microscópicos que actúan como interruptores (ON/OFF). Todo lo que la computadora entiende se reduce a impulsos eléctricos: **1 (Alto Voltaje)** y **0 (Bajo Voltaje)**.
+- **Precisión vs Intuición:** A diferencia de un humano que deduce intenciones, una computadora ejecuta instrucciones **literales**. Si falta un paréntesis, no adivina qué quisiste decir; el programa colapsa.
+- **Lenguajes de Alto Nivel:** Como no podemos programar eficientemente escribiendo millones de ceros y unos, usamos lenguajes legibles para humanos (Python, Java, C++).
+- **Compilador / Intérprete:** Es el software encargado de traducir nuestro "código fuente" en inglés estructural, a los ceros y unos que el hardware de la roboRIO comprende.`,
     lessons: [
       {
-        title: "¿Qué es Programar?",
+        title: "¿Qué es Programar en Realidad?",
         challenges: [
           {
             type: "THEORY",
-            question: "¿Qué es la programación en el mundo real?",
-            lessonText: "# El Cerebro del Robot 🤖\n\nImagina que tienes un robot de competencia frente a ti. Tiene motores de alta potencia, sensores ultrasónicos y un chasis de aluminio impecable.\n\nSin embargo, **no se moverá un solo centímetro** a menos que le des instrucciones claras.\n\n**Programar** es el arte de escribir esas instrucciones en un formato que la computadora del robot pueda comprender y ejecutar al pie de la letra.\n\nEs exactamente como una **receta de cocina** o el manual de armado de un LEGO: cada paso debe ser claro y estar en el momento adecuado.",
+            question: "¿Qué es en esencia la programación de computadoras?",
+            lessonText: "# El Modelo de la Caja Negra \n\nSi le preguntas a un extraño qué es programar, te dirá que es 'escribir código verde en una pantalla negra'. Pero en la ciencia de la computación, **programar es simplemente diseñar un algoritmo que transforma datos.**\n\nTodo programa en el universo, desde una calculadora hasta la Inteligencia Artificial de un Tesla, obedece al modelo fundamental **Input -> Proceso -> Output**.\n\n### 1. Input (Entrada)\nSon los datos que el sistema recibe del mundo exterior. En un robot, el Input proviene de los sensores (cámaras, ultrasonido) o del joystick del piloto.\n\n### 2. Proceso (Algoritmo)\nEs la **Caja Negra**. La computadora toma el Input y sigue una lista estricta de instrucciones lógicas y matemáticas para decidir qué hacer con él. **Aquí es donde tú, el programador, existes.** Tu trabajo es escribir esas reglas lógicas.\n\n### 3. Output (Salida)\nEs el resultado físico o digital de la decisión tomada en el proceso. En robótica, el Output es el voltaje enviado a los motores para moverse, o un mensaje de error impreso en la consola.\n\nProgramar no es memorizar palabras raras en inglés, es **tener la habilidad mental de dividir un problema gigante en pequeños pasos lógicos (Proceso) para convertir un Input en un Output.**",
             options: [
-              { text: "Escribir instrucciones ordenadas para que una máquina las ejecute", correct: true },
-              { text: "Hablarle telepáticamente al robot para que gane el match", correct: false },
-              { text: "Apretar tornillos en el chasis con una llave inglesa", correct: false },
-              { text: "Esperar a que la computadora aprenda sola por arte de magia", correct: false }
-            ]
-          },
-          {
-            type: "SELECT",
-            question: "¿Por qué una computadora necesita instrucciones tan exactas?",
-            lessonText: "# Precisión Absoluta\n\nLos humanos usamos el contexto y adivinamos lo que otros quieren decir. Una computadora no tiene esa capacidad.",
-            options: [
-              { text: "Porque no puede pensar ni adivinar por sí misma; sólo ejecuta órdenes literales", correct: true },
-              { text: "Porque se aburre si las instrucciones son muy cortas", correct: false },
-              { text: "Porque la electricidad sólo viaja en línea recta", correct: false },
-              { text: "Porque prefiere jugar videojuegos antes de trabajar", correct: false }
+              { text: "Es el diseño de algoritmos para procesar una entrada de datos (Input) y generar un resultado útil (Output)", correct: true },
+              { text: "Es la habilidad de escribir rápidamente comandos al azar hasta que el procesador arranque", correct: false },
+              { text: "Es el proceso físico de ensamblar los componentes electrónicos en la placa madre", correct: false },
+              { text: "Es la capacidad de la computadora de sentir emociones y tomar decisiones por intuición", correct: false }
             ]
           },
           {
             type: "MATCHING",
-            question: "Empareja cada concepto con su rol en la robótica:",
+            question: "Identifica qué rol cumple cada elemento en el modelo de un robot FRC:",
             options: [
-              { text: "Hardware|||Componentes físicos como motores y sensores", correct: true },
-              { text: "Software|||Instrucciones de código que controlan al robot", correct: true },
-              { text: "Programador|||Humano que diseña la lógica de las acciones", correct: true },
-              { text: "roboRIO|||La computadora controladora central del robot", correct: true }
-            ]
-          },
-          {
-            type: "CODE_WRITE",
-            question: "Escribe la instrucción en pseudocódigo para imprimir 'Go Nautilus!' en consola:",
-            codeSnippet: "// Envía un mensaje a la pantalla de telemetría",
-            options: [
-              { text: "print('Go Nautilus!')", correct: true },
-              { text: "wrong", correct: false }
-            ]
-          },
-          {
-            type: "ASSIST",
-            question: "¿Cómo se llama el texto con instrucciones que escribimos los programadores?",
-            options: [
-              { text: "Código Fuente (Source Code)", correct: true },
-              { text: "Manifiesto Secreto", correct: false },
-              { text: "Binario de la Suerte", correct: false },
-              { text: "Plan de Vuelo", correct: false }
-            ]
-          }
-        ]
-      },
-      {
-        title: "Instrucciones Paso a Paso",
-        challenges: [
-          {
-            type: "THEORY",
-            question: "¿Cómo procesa las instrucciones una computadora?",
-            lessonText: "# Paso a Paso (Step-by-Step)\n\nUna computadora ejecuta las instrucciones **una a una**, de arriba hacia abajo (*top-to-bottom*).\n\nSi le pides a un novato del equipo:\n1. 'Ve al taller'\n2. 'Toma un cautín'\n3. 'Enciéndelo'\n\nTiene sentido. Pero si alteras el orden y dices:\n1. 'Enciéndelo'\n2. 'Toma un cautín'\n3. 'Ve al taller'\n\n¡El resultado será un desastre! En código, saltarse un paso o dar una instrucción fuera de tiempo crea un **bug**.",
-            options: [
-              { text: "En secuencia ordenada, una tras otra de arriba a abajo", correct: true },
-              { text: "Todas al mismo milisegundo al azar", correct: false },
-              { text: "De abajo hacia arriba al revés", correct: false },
-              { text: "Sólo las instrucciones que le parecen divertidas", correct: false }
-            ]
-          },
-          {
-            type: "CODE_FILL",
-            question: "Completa el comando para imprimir un aviso cuando el robot inicie:",
-            codeSnippet: "_____('Robot Iniciado: Sistema Listo')",
-            options: [
-              { text: "print", correct: true },
-              { text: "shout", correct: false },
-              { text: "speak", correct: false },
-              { text: "makeNoise", correct: false }
-            ]
-          },
-          {
-            type: "PREDICT_OUTPUT",
-            question: "¿Cuál será la salida en la consola tras ejecutar este bloque?",
-            codeSnippet: "print('Paso 1: Calibrando')\nprint('Paso 2: Listo')",
-            options: [
-              { text: "Paso 1: Calibrando Paso 2: Listo", correct: false },
-              { text: "Paso 1: Calibrando\nPaso 2: Listo", correct: true }
+              { text: "Cámara Vision detecta el objetivo a 3 metros|||Input (Entrada de datos)", correct: true },
+              { text: "Código calcula la curva balística perfecta|||Proceso (Algoritmo)", correct: true },
+              { text: "Motores giran a 4500 RPM para disparar|||Output (Salida física)", correct: true },
+              { text: "El Programador|||Mente maestra que diseña el Proceso", correct: true }
             ]
           },
           {
             type: "CODE_ORDER",
-            question: "Ordena los pasos lógicos para disparar una pelota en FRC:",
+            question: "Ordena lógicamente los pasos de un programa autónomo que frena al ver un obstáculo (Input -> Proceso -> Output):",
             options: [
-              { text: "encenderShooter()", correct: true, audioSrc: "1" },
-              { text: "esperarVelocidadOptima()", correct: true, audioSrc: "2" },
-              { text: "activarFeeder()", correct: true, audioSrc: "3" },
-              { text: "detenerShooter()", correct: true, audioSrc: "4" }
-            ]
-          },
-          {
-            type: "SELECT",
-            question: "¿Qué ocurre si le pedimos al feeder meter la pelota antes de que el shooter esté girando a velocidad?",
-            options: [
-              { text: "La pelota se atasca o el tiro sale sin fuerza", correct: true },
-              { text: "El robot vuela", correct: false },
-              { text: "El código se borra automáticamente", correct: false },
-              { text: "El procesador se apaga por vergüenza", correct: false }
-            ]
-          }
-        ]
-      },
-      {
-        title: "Lenguajes, Compiladores e Intérpretes",
-        challenges: [
-          {
-            type: "THEORY",
-            question: "¿Qué papel juega el compilador o intérprete?",
-            lessonText: "# El Traductor Universal 🌐\n\nLos microprocesadores sólo entienden voltajes: presencia o ausencia de corriente, representados como **0 y 1** (código binario).\n\nEscribir en ceros y unos sería infernalmente lento para los humanos. Por eso usamos **lenguajes de alto nivel** como Python, Java o C++.\n\nEl **compilador** o **intérprete** es el software traductor que toma nuestro código en texto legible y lo convierte en el código máquina que el chip entiende.",
-            options: [
-              { text: "Traduce el código legible por humanos a ceros y unos para el procesador", correct: true },
-              { text: "Limpia el polvo de la placa de circuitos del robot", correct: false },
-              { text: "Acelera la batería del robot conectándola a la red", correct: false },
-              { text: "Es un robot físico que escribe código con un teclado gigante", correct: false }
-            ]
-          },
-          {
-            type: "MATCHING",
-            question: "Relaciona cada término con su significado:",
-            options: [
-              { text: "Código Binario|||Ceros y unos que procesa el circuito", correct: true },
-              { text: "Lenguaje Alto Nivel|||Código comprensible con palabras en inglés", correct: true },
-              { text: "Compilador|||Traductor de código fuente a lenguaje máquina", correct: true },
-              { text: "Bug|||Un error o fallo lógico en el programa", correct: true }
-            ]
-          },
-          {
-            type: "SELECT",
-            question: "¿Cuáles de los siguientes son lenguajes de alto nivel utilizados en FIRST Robotics?",
-            options: [
-              { text: "Java, C++ y Python", correct: true },
-              { text: "Morse, Semáforo y Braille", correct: false },
-              { text: "HTML, CSS y Photoshop", correct: false },
-              { text: "Bluetooth, Wi-Fi y Radiofrecuencia", correct: false }
-            ]
-          },
-          {
-            type: "DEBUG",
-            question: "Este programa no corre porque tiene un error de sintaxis en el print. ¿Cuál es el error?",
-            codeSnippet: "print 'Iniciando teleoperado'",
-            options: [
-              { text: "Faltan los paréntesis () alrededor del texto", correct: true },
-              { text: "No se puede usar la palabra print", correct: false },
-              { text: "La palabra print debe estar toda en mayúsculas", correct: false },
-              { text: "El texto no puede llevar espacios", correct: false }
+              { text: "distancia = leerSensorUltrasonido()", correct: true, audioSrc: "1" },
+              { text: "if (distancia < 20):", correct: true, audioSrc: "2" },
+              { text: "    potencia = 0", correct: true, audioSrc: "3" },
+              { text: "enviarPotenciaAMotores(potencia)", correct: true, audioSrc: "4" }
             ]
           },
           {
             type: "CODE_FILL",
-            question: "Corrige el error agregando los paréntesis correctos:",
-            codeSnippet: "print_____'Nautilus 4010'_____",
+            question: "Completa la línea para recolectar el Input del sensor antes de procesarlo:",
+            codeSnippet: "_____ = obtenerDistanciaUltrasonido()\nif (distancia < 10):\n    frenar()",
             options: [
-              { text: "( y )", correct: true },
-              { text: "[ y ]", correct: false },
-              { text: "{ y }", correct: false },
-              { text: "< y >", correct: false }
+              { text: "distancia", correct: true },
+              { text: "frenar", correct: false },
+              { text: "Output", correct: false },
+              { text: "motor", correct: false }
+            ]
+          },
+          {
+            type: "SELECT",
+            question: "Imagina que el sensor lee correctamente que el obstáculo está a 5 cm (Input), pero el robot acelera en lugar de frenar y choca (Output erróneo). ¿Dónde está la falla el 99.9% de las veces?",
+            options: [
+              { text: "En el Proceso: El algoritmo o lógica matemática escrita por el programador está mal estructurada", correct: true },
+              { text: "En el Input: Los sensores de la vida real mienten a propósito", correct: false },
+              { text: "En el Output: Los motores decidieron rebelarse contra los humanos", correct: false },
+              { text: "En la suerte: La programación es puramente impredecible", correct: false }
+            ]
+          },
+          {
+            type: "CODE_TEST",
+            question: "Lee el siguiente algoritmo (Proceso). Si el Input es 100, ¿cuál será el Output impreso?",
+            codeSnippet: "inputBateria = 100\n\nif (inputBateria > 20):\n    print('Voltaje Óptimo')\nelse:\n    print('Cambiar Batería')",
+            options: [
+              { text: "Voltaje Óptimo", correct: true },
+              { text: "Cambiar Batería", correct: false },
+              { text: "100", correct: false },
+              { text: "Error de Sintaxis", correct: false }
             ]
           }
         ]
       },
       {
-        title: "¿Cómo Piensa una Computadora?",
+        title: "Precisión Literal vs Intuición Humana",
         challenges: [
           {
             type: "THEORY",
-            question: "¿Por qué se dice que las computadoras son literales?",
-            lessonText: "# El Pensamiento Computacional 🧠\n\nUn humano promedio puede deducir intenciones. Si le dices a tu compañero de pits 'pásame esa cosa que gira tornillos', sabe que te refieres al destornillador.\n\nUna computadora **no puede inferir nada**. Si tu código tiene una letra mayúscula en vez de minúscula, o te falta una coma, el programa fallará con un **Syntax Error**.\n\nAprender a programar es aprender a pensar con **precisión matemática y claridad quirúrgica**.",
+            question: "¿Por qué las computadoras son estrictamente literales?",
+            lessonText: "# Ausencia de Ambigüedad \n\nSi le dices a un mecánico: *'Ajusta la llanta de allá'*, él usará su intuición, sabrá a qué llanta te refieres y usará la herramienta correcta.\n\nLas computadoras **carecen de intuición**. Exigen que elimines toda ambigüedad. Si escribes `EncenderMotor()` pero la regla del lenguaje era que la primera letra fuera minúscula (`encenderMotor()`), la computadora no intentará adivinar tu intención. Detendrá la ejecución y lanzará un **Syntax Error** (Error de Sintaxis).\n\nAprender a programar es aprender a pensar con precisión milimétrica.",
             options: [
-              { text: "Porque ejecutan exactamente lo escrito sin interpretar la intención", correct: true },
-              { text: "Porque sólo leen libros de ciencia ficción", correct: false },
-              { text: "Porque no les gusta ayudar a los programadores novatos", correct: false },
-              { text: "Porque las baterías de 12V no transmiten metáforas", correct: false }
-            ]
-          },
-          {
-            type: "ASSIST",
-            question: "¿Cómo se llama el error que ocurre cuando violamos las reglas gramaticales de un lenguaje de programación?",
-            options: [
-              { text: "Syntax Error (Error de Sintaxis)", correct: true },
-              { text: "Hardware Crash", correct: false },
-              { text: "Battery Drain", correct: false },
-              { text: "Mechanical Jam", correct: false }
-            ]
-          },
-          {
-            type: "CODE_TEST",
-            question: "¿Qué imprimirá la consola tras ejecutar este código?",
-            codeSnippet: "print('Nautilus')\nprint('4010')",
-            options: [
-              { text: "Nautilus en la primera línea y 4010 en la segunda", correct: true },
-              { text: "Nautilus4010 todo pegado en una sola palabra", correct: false },
-              { text: "4010 Nautilus al revés", correct: false },
-              { text: "Error porque 4010 es un número", correct: false }
-            ]
-          },
-          {
-            type: "CODE_WRITE",
-            question: "Escribe una instrucción que imprima exactamente el texto: Ready",
-            codeSnippet: "// Tu turno de escribir código",
-            options: [
-              { text: "print('Ready')", correct: true },
-              { text: "print(Ready)", correct: false }
+              { text: "Porque carecen de intuición y solo ejecutan comandos precisos e inequívocos, rechazando cualquier ambigüedad gramatical", correct: true },
+              { text: "Porque internamente odian a los humanos y prefieren lanzar errores antes que trabajar", correct: false },
+              { text: "Porque su memoria RAM se borra cada vez que leen una palabra mal escrita", correct: false },
+              { text: "Porque la electricidad no fluye si el código no está escrito en un teclado mecánico", correct: false }
             ]
           },
           {
             type: "SELECT",
-            question: "¿Es lo mismo escribir `Print('Hola')` que `print('Hola')` en la mayoría de lenguajes?",
+            question: "¿Cuál de las siguientes afirmaciones describe un error común de los programadores novatos derivado de la precisión literal?",
             options: [
-              { text: "No, la mayoría de lenguajes son case-sensitive (distinguen mayúsculas de minúsculas)", correct: true },
-              { text: "Sí, a las computadoras les da igual el tamaño de las letras", correct: false },
-              { text: "Sí, siempre y cuando esté en cursiva", correct: false },
-              { text: "Sólo si el robot está conectado a la luz", correct: false }
+              { text: "Creer que la computadora entenderá que 'velocidad' y 'Velocidad' son lo mismo, cuando para la máquina son totalmente distintos", correct: true },
+              { text: "Creer que si le hablan fuerte a la pantalla, la computadora correrá más rápido", correct: false },
+              { text: "Olvidar cargar la batería del robot antes de compilar el código", correct: false },
+              { text: "Conectar los cables del motor al revés en la placa electrónica", correct: false }
+            ]
+          },
+          {
+            type: "DEBUG",
+            question: "La computadora no puede compilar este código. ¿Cuál es la violación de precisión?",
+            codeSnippet: "Print('Preparando el sistema autónomo')",
+            options: [
+              { text: "La instrucción 'print' lleva mayúscula inicial (Print), cuando debería ser minúscula exacta", correct: true },
+              { text: "La palabra 'sistema' no puede usarse en código robótico", correct: false },
+              { text: "Faltan números en la instrucción para que la computadora entienda", correct: false },
+              { text: "El código no incluye comandos de movimiento", correct: false }
+            ]
+          },
+          {
+            type: "CODE_WRITE",
+            question: "Escribe la instrucción con precisión absoluta en minúsculas para imprimir: Calibrando",
+            codeSnippet: "// Tu turno de escribir código preciso",
+            options: [
+              { text: "print('Calibrando')", correct: true },
+              { text: "print('Calibrando')", correct: false }
+            ]
+          }
+        ]
+      },
+      {
+        title: "Traduciendo a Ceros y Unos",
+        challenges: [
+          {
+            type: "THEORY",
+            question: "¿Cómo entienden las computadoras las instrucciones?",
+            lessonText: "# El Alfabeto Binario y los Transistores \n\nEn el nivel más bajo (Hardware), una computadora es solo una gigantesca red de interruptores microscópicos llamados **transistores**.\n\nUn transistor solo tiene dos estados: encendido (dejando pasar voltaje) o apagado (bloqueando el voltaje). Nosotros representamos estos estados como **1** y **0**.\n\nPara no tener que escribir millones de unos y ceros manualmente, usamos **Lenguajes de Alto Nivel** (como Java, Python o C++). Estos lenguajes usan palabras en inglés (if, while, print) que son fáciles de leer para los humanos.",
+            options: [
+              { text: "Mediante transistores que actúan como interruptores (1 = encendido, 0 = apagado)", correct: true },
+              { text: "Con un diccionario interno de español a inglés almacenado en el disco duro", correct: false },
+              { text: "Mediante pequeños engranajes mecánicos dentro del procesador que giran al recibir código", correct: false },
+              { text: "A través de ondas de radio transmitidas desde el teclado hasta la pantalla", correct: false }
+            ]
+          },
+          {
+            type: "SELECT",
+            question: "Si los procesadores solo entienden ceros y unos, ¿por qué los programadores de FIRST Robotics escriben código en Java o C++?",
+            options: [
+              { text: "Porque son lenguajes de alto nivel (legibles para humanos) que luego un programa traductor convertirá a binario", correct: true },
+              { text: "Porque Java y C++ son los únicos lenguajes que usan ceros y unos en sus letras", correct: false },
+              { text: "Porque a los jueces de la competencia les gusta más leer palabras en inglés que números", correct: false },
+              { text: "Porque es un requisito instalar teclados binarios especiales", correct: false }
+            ]
+          },
+          {
+            type: "THEORY",
+            question: "¿Qué herramienta hace de puente entre el lenguaje de alto nivel y la máquina?",
+            lessonText: "# El Compilador: El Traductor Universal \n\nPara que el procesador de la roboRIO ejecute el código que escribiste en Java o C++, necesitamos un traductor.\n\nEl **Compilador** (o Intérprete, según el lenguaje) es un programa especializado que toma tu **Código Fuente** (el texto legible) y lo traduce por completo a **Código Máquina** (instrucciones binarias). \n\nSi hay un solo error gramatical, el compilador se detiene, te muestra el error en la consola y se niega a traducir.",
+            options: [
+              { text: "El Compilador o Intérprete, que traduce el código fuente a código máquina (binario)", correct: true },
+              { text: "El Disco Duro, que lee el código en voz alta para que la placa madre lo escuche", correct: false },
+              { text: "El Motor, que transforma las letras de código directamente en movimiento rotacional", correct: false },
+              { text: "La Batería, que inyecta los caracteres en la corriente eléctrica", correct: false }
+            ]
+          },
+          {
+            type: "MATCHING",
+            question: "Relaciona los conceptos de la cadena de traducción de software:",
+            options: [
+              { text: "Código Fuente|||Las instrucciones legibles escritas por el programador", correct: true },
+              { text: "Lenguaje de Alto Nivel|||Java, C++, Python, JavaScript", correct: true },
+              { text: "Compilador|||El programa que traduce las instrucciones al lenguaje del hardware", correct: true },
+              { text: "Código Binario (Máquina)|||Ceros y unos que controlan directamente los transistores", correct: true }
             ]
           }
         ]
@@ -253,51 +189,51 @@ Programar es simplemente **dar instrucciones precisas a una máquina para resolv
           {
             type: "THEORY",
             question: "¡Momento de poner a prueba lo aprendido!",
-            lessonText: "# ¡Bienvenido al equipo de programación! 🤖\n\nEstás en la arena de competencia preparando las primeras instrucciones para el robot.\n\nEn esta lección final de la Unidad 1, pondrás en práctica la sintaxis correcta de impresión, el orden de instrucciones y el vocabulario básico que todo programador de Nautilus 4010 domina.\n\n¡Vamos a dejar el código impecable!",
+            lessonText: "# ¡Bienvenido al equipo de programación! \n\nEstás en la arena de competencia preparando las primeras instrucciones para el robot.\n\nEn esta lección final de la Unidad 1, demostrarás que comprendes la naturaleza del código, la precisión absoluta y la ejecución de sentencias de output en la consola.\n\n¡Vamos a dejar el código impecable!",
             options: [
-              { text: "¡Estoy listo para programar las primeras instrucciones!", correct: true },
-              { text: "Prefiero que el robot maneje solo a ciegas", correct: false },
-              { text: "No quiero aprender programación", correct: false },
-              { text: "Quiero apagar la computadora", correct: false }
+              { text: "¡Estoy listo para escribir instrucciones precisas y sin ambigüedad!", correct: true },
+              { text: "Prefiero saltarme las reglas gramaticales y ver qué pasa", correct: false },
+              { text: "Voy a intentar escribir instrucciones binarias a mano", correct: false },
+              { text: "Esperaré a que la roboRIO adivine lo que quiero que haga", correct: false }
             ]
           },
           {
             type: "CODE_ORDER",
-            question: "Ordena las líneas para mostrar el mensaje oficial de bienvenida:",
+            question: "Ordena las líneas simulando el proceso lógico de inicialización de un robot (Input -> Proceso -> Output):",
             options: [
-              { text: "print('Bienvenido a Nauticode')", correct: true, audioSrc: "1" },
-              { text: "print('Equipo 4010 Nautilus')", correct: true, audioSrc: "2" },
-              { text: "print('Building a Legacy')", correct: true, audioSrc: "3" }
+              { text: "print('1. Leyendo datos del sensor de visión (Input)')", correct: true, audioSrc: "1" },
+              { text: "print('2. Calculando distancia al objetivo (Proceso)')", correct: true, audioSrc: "2" },
+              { text: "print('3. Activando motores de disparo (Output)')", correct: true, audioSrc: "3" }
             ]
           },
           {
-            type: "DEBUG",
-            question: "Encuentra el bug: Falta cerrar las comillas en el mensaje.",
-            codeSnippet: "print('Teus está listo para competir)",
+            type: "CODE_FILL",
+            question: "Completa el comando para enviar un mensaje Output al log (consola):",
+            codeSnippet: "_____('Sistema de Telemetría Iniciado')",
             options: [
-              { text: "Falta una comilla de cierre ' antes del paréntesis final", correct: true },
-              { text: "Hay que quitar los paréntesis", correct: false },
-              { text: "Falta un punto y coma al inicio", correct: false },
-              { text: "La palabra Teus no se puede imprimir", correct: false }
+              { text: "print", correct: true },
+              { text: "Print", correct: false },
+              { text: "input", correct: false },
+              { text: "hardware", correct: false }
             ]
           },
           {
-            type: "CODE_WRITE",
-            question: "Escribe la instrucción de código correcta y con comillas cerradas:",
-            codeSnippet: "// Corrige el print",
+            type: "PREDICT_OUTPUT",
+            question: "¿Qué mostrará la consola exactamente al ejecutar estas dos instrucciones secuenciales?",
+            codeSnippet: "print('Robot encendido')\nprint('Esperando al Driver')",
             options: [
-              { text: "print('Teus está listo para competir')", correct: true },
-              { text: "wrong", correct: false }
+              { text: "Robot encendido\nEsperando al Driver", correct: true },
+              { text: "Robot encendido Esperando al Driver", correct: false }
             ]
           },
           {
             type: "SELECT",
-            question: "¿Qué afirmación resume mejor lo que aprendiste en esta Unidad 1?",
+            question: "Al final del día, ¿qué afirmación resume mejor qué es programar?",
             options: [
-              { text: "Programar es dar instrucciones ordenadas, precisas y sin errores de sintaxis a una máquina", correct: true },
-              { text: "El hardware no necesita software para funcionar", correct: false },
-              { text: "Las computadoras adivinan lo que quieres decir sin importar cómo lo escribas", correct: false },
-              { text: "Los robots de FRC funcionan con pura suerte y buena vibra", correct: false }
+              { text: "Es el diseño de algoritmos (input-proceso-output) y su traducción a lenguajes estructurados que el compilador convierte a instrucciones de hardware", correct: true },
+              { text: "Es memorizar cómo se enchufan los cables en el panel de distribución eléctrica", correct: false },
+              { text: "Es escribir textos largos para que otras personas los lean", correct: false },
+              { text: "Es una técnica para acelerar físicamente el movimiento de los motores", correct: false }
             ]
           }
         ]
@@ -331,7 +267,7 @@ Antes de escribir código en un lenguaje formal (Java, Python, C++), los ingenie
           {
             type: "THEORY",
             question: "¿Qué define a un algoritmo?",
-            lessonText: "# La Receta del Éxito 📋\n\n¿Alguna vez has seguido una receta para hornear un pastel? Sigues una lista de pasos finitos:\n1. Medir harina\n2. Mezclar huevos\n3. Precalentar horno a 180°C\n4. Hornear por 25 minutos\n\nEso es un **algoritmo**. En programación y robótica, un algoritmo debe cumplir 3 propiedades sagradas:\n- **Finito:** Debe terminar en algún momento.\n- **Definido:** Cada vez que le des los mismos datos, debe producir el mismo resultado.\n- **Preciso:** No puede haber ambigüedad ni pasos vagos como 'hazlo bien'.",
+            lessonText: "# La Receta del Éxito \n\n¿Alguna vez has seguido una receta para hornear un pastel? Sigues una lista de pasos finitos:\n1. Medir harina\n2. Mezclar huevos\n3. Precalentar horno a 180°C\n4. Hornear por 25 minutos\n\nEso es un **algoritmo**. En programación y robótica, un algoritmo debe cumplir 3 propiedades sagradas:\n- **Finito:** Debe terminar en algún momento.\n- **Definido:** Cada vez que le des los mismos datos, debe producir el mismo resultado.\n- **Preciso:** No puede haber ambigüedad ni pasos vagos como 'hazlo bien'.",
             options: [
               { text: "Una serie ordenada de pasos finitos y precisos para resolver un problema", correct: true },
               { text: "Un tipo de procesador que sólo usan los militares", correct: false },
@@ -387,7 +323,7 @@ Antes de escribir código en un lenguaje formal (Java, Python, C++), los ingenie
           {
             type: "THEORY",
             question: "¿Cómo interactúan las 3 fases de un sistema computacional?",
-            lessonText: "# El Ciclo IPO (Input -> Process -> Output) 🔄\n\nTodo programa o robot en el universo opera bajo este ciclo continuo:\n\n1. **INPUT (Entrada):** Información que entra al sistema. En un robot, son los joysticks del piloto o los sensores (cámara Limelight, encoder de ruedas, giroscopio).\n2. **PROCESS (Procesamiento):** Las operaciones matemáticas y decisiones lógicas que ejecuta el microprocesador.\n3. **OUTPUT (Salida):** La respuesta al exterior. Motores girando, un pistón neumático abriéndose, luces LED cambiando a color amarillo o telemetría en la pantalla.",
+            lessonText: "# El Ciclo IPO (Input -> Process -> Output) \n\nTodo programa o robot en el universo opera bajo este ciclo continuo:\n\n1. **INPUT (Entrada):** Información que entra al sistema. En un robot, son los joysticks del piloto o los sensores (cámara Limelight, encoder de ruedas, giroscopio).\n2. **PROCESS (Procesamiento):** Las operaciones matemáticas y decisiones lógicas que ejecuta el microprocesador.\n3. **OUTPUT (Salida):** La respuesta al exterior. Motores girando, un pistón neumático abriéndose, luces LED cambiando a color amarillo o telemetría en la pantalla.",
             options: [
               { text: "Entrada de datos -> Procesamiento lógico -> Salida de acciones", correct: true },
               { text: "Salida primero -> luego la entrada -> y no hay procesamiento", correct: false },
@@ -445,7 +381,7 @@ Antes de escribir código en un lenguaje formal (Java, Python, C++), los ingenie
           {
             type: "THEORY",
             question: "¿Por qué los desarrolladores usamos pseudocódigo?",
-            lessonText: "# Pensar Antes de Escribir ✍️\n\nEl **pseudocódigo** es una descripción de alto nivel de un algoritmo que combina lenguaje natural con estructuras de programación.\n\nNo le importa si olvidas un punto y coma o si usas mayúsculas: su objetivo es que el **equipo de ingeniería se ponga de acuerdo en la lógica** antes de pasar horas depurando en Java o C++.\n\nEjemplo de pseudocódigo en Nautilus:\n```text\nSI botónDisparar está presionado ENTONCES:\n    acelerarFlywheel()\n    esperar 1 segundo\n    alimentarNota()\nSINO:\n    apagarFlywheel()\n```",
+            lessonText: "# Pensar Antes de Escribir ️\n\nEl **pseudocódigo** es una descripción de alto nivel de un algoritmo que combina lenguaje natural con estructuras de programación.\n\nNo le importa si olvidas un punto y coma o si usas mayúsculas: su objetivo es que el **equipo de ingeniería se ponga de acuerdo en la lógica** antes de pasar horas depurando en Java o C++.\n\nEjemplo de pseudocódigo en Nautilus:\n```text\nSI botónDisparar está presionado ENTONCES:\n    acelerarFlywheel()\n    esperar 1 segundo\n    alimentarNota()\nSINO:\n    apagarFlywheel()\n```",
             options: [
               { text: "Para diseñar y validar la lógica en palabras claras antes de programar formalmente", correct: true },
               { text: "Porque las computadoras ejecutan el pseudocódigo más rápido que el código real", correct: false },
@@ -501,7 +437,7 @@ Antes de escribir código en un lenguaje formal (Java, Python, C++), los ingenie
           {
             type: "THEORY",
             question: "¿Qué es un diagrama de flujo en desarrollo de software?",
-            lessonText: "# Mapas Visuales de Decisiones 🗺️\n\nUn **diagrama de flujo** representa visualmente un algoritmo usando símbolos estándar:\n- **Óvalo:** Inicio o Fin del programa.\n- **Rectángulo:** Una acción o proceso (ej: `avanzar 2 metros`).\n- **Rombo:** Una decisión con dos salidas: `SÍ` o `NO` (ej: `¿hay obstáculo?`).\n- **Flechas:** Indican la dirección del flujo de ejecución.\n\nVer el flujo con tus propios ojos te ayuda a descubrir de inmediato caminos sin salida o bucles infinitos no deseados.",
+            lessonText: "# Mapas Visuales de Decisiones ️\n\nUn **diagrama de flujo** representa visualmente un algoritmo usando símbolos estándar:\n- **Óvalo:** Inicio o Fin del programa.\n- **Rectángulo:** Una acción o proceso (ej: `avanzar 2 metros`).\n- **Rombo:** Una decisión con dos salidas: `SÍ` o `NO` (ej: `¿hay obstáculo?`).\n- **Flechas:** Indican la dirección del flujo de ejecución.\n\nVer el flujo con tus propios ojos te ayuda a descubrir de inmediato caminos sin salida o bucles infinitos no deseados.",
             options: [
               { text: "Una representación gráfica de la secuencia de pasos y decisiones de un algoritmo", correct: true },
               { text: "El plano eléctrico de los cables de poder del robot", correct: false },
@@ -558,7 +494,7 @@ Antes de escribir código en un lenguaje formal (Java, Python, C++), los ingenie
           {
             type: "THEORY",
             question: "El reto de los primeros 15 segundos en FIRST Robotics",
-            lessonText: "# El Periodo Autónomo ⏱️\n\nEn cada match de FRC, los primeros 15 segundos son **100% autónomos**.\n\nNingún humano puede tocar los joysticks. El robot depende enteramente del **algoritmo preprogramado** en su memoria:\n1. Salir de la zona de inicio.\n2. Localizar la pieza con visión artificial.\n3. Recogerla con el intake.\n4. Apuntar y anotar puntos.\n\nSi el algoritmo es defectuoso, el robot puede chocar contra la pared o desperdiciar valiosos segundos de juego.",
+            lessonText: "# El Periodo Autónomo ️\n\nEn cada match de FRC, los primeros 15 segundos son **100% autónomos**.\n\nNingún humano puede tocar los joysticks. El robot depende enteramente del **algoritmo preprogramado** en su memoria:\n1. Salir de la zona de inicio.\n2. Localizar la pieza con visión artificial.\n3. Recogerla con el intake.\n4. Apuntar y anotar puntos.\n\nSi el algoritmo es defectuoso, el robot puede chocar contra la pared o desperdiciar valiosos segundos de juego.",
             options: [
               { text: "¡Diseñemos un algoritmo de autónomo infalible!", correct: true },
               { text: "Prefiero que el robot se quede dormido los 15 segundos", correct: false },
@@ -635,7 +571,7 @@ Las computadoras procesan las instrucciones en **orden secuencial estricto**, l�
           {
             type: "THEORY",
             question: "¿Cómo recorre el procesador un archivo de código?",
-            lessonText: "# El Hilo de la Secuencia 🧵\n\nImagina que estás leyendo un libro: lees la primera palabra, luego la segunda, completas el renglón y bajas al siguiente.\n\nUna computadora hace exactamente lo mismo con un script de código:\n```python\n# Línea 1\nprint('Iniciando sistemas')\n# Línea 2\nprint('Comprobando sensores')\n# Línea 3\nprint('Robot habilitado')\n```\n\nJamás se ejecutará la línea 3 antes que la línea 1 a menos que usemos estructuras especiales de control de flujo. La ejecución es **secuencial y determinista**.",
+            lessonText: "# El Hilo de la Secuencia \n\nImagina que estás leyendo un libro: lees la primera palabra, luego la segunda, completas el renglón y bajas al siguiente.\n\nUna computadora hace exactamente lo mismo con un script de código:\n```python\n# Línea 1\nprint('Iniciando sistemas')\n# Línea 2\nprint('Comprobando sensores')\n# Línea 3\nprint('Robot habilitado')\n```\n\nJamás se ejecutará la línea 3 antes que la línea 1 a menos que usemos estructuras especiales de control de flujo. La ejecución es **secuencial y determinista**.",
             options: [
               { text: "Línea por línea de arriba hacia abajo, una después de otra", correct: true },
               { text: "Al azar según qué línea esté escrita en palabras más largas", correct: false },
@@ -690,7 +626,7 @@ Las computadoras procesan las instrucciones en **orden secuencial estricto**, l�
           {
             type: "THEORY",
             question: "¿Por qué el orden de las operaciones cambia el resultado?",
-            lessonText: "# Las Matemáticas de la Secuencia 🧮\n\nAnaliza estos dos programas. Parecen iguales, pero no lo son:\n\n**Programa A:**\n```python\nvalor = 10\nvalor = valor + 5  # Ahora valor es 15\nvalor = valor * 2  # 15 * 2 = 30\nprint(valor)       # Imprime 30\n```\n\n**Programa B (Invertido):**\n```python\nvalor = 10\nvalor = valor * 2  # Ahora valor es 20\nvalor = valor + 5  # 20 + 5 = 25\nprint(valor)       # Imprime 25\n```\n\n¡Las mismas operaciones en diferente orden dan resultados totalmente distintos!",
+            lessonText: "# Las Matemáticas de la Secuencia \n\nAnaliza estos dos programas. Parecen iguales, pero no lo son:\n\n**Programa A:**\n```python\nvalor = 10\nvalor = valor + 5  # Ahora valor es 15\nvalor = valor * 2  # 15 * 2 = 30\nprint(valor)       # Imprime 30\n```\n\n**Programa B (Invertido):**\n```python\nvalor = 10\nvalor = valor * 2  # Ahora valor es 20\nvalor = valor + 5  # 20 + 5 = 25\nprint(valor)       # Imprime 25\n```\n\n¡Las mismas operaciones en diferente orden dan resultados totalmente distintos!",
             options: [
               { text: "Porque cada línea opera sobre el estado acumulado de las líneas anteriores", correct: true },
               { text: "Porque a la multiplicación le da miedo la suma", correct: false },
@@ -747,7 +683,7 @@ Las computadoras procesan las instrucciones en **orden secuencial estricto**, l�
           {
             type: "THEORY",
             question: "¿Qué es el 'tracing' en programación?",
-            lessonText: "# El Superpoder de Rastrear Código 🕵️‍♂️\n\nEl **Tracing** (rastreo manual de código) es la habilidad de convertirte en el procesador.\n\nTomas una libreta y una pluma, y anotas:\n- ¿En qué línea estoy?\n- ¿Qué variables existen en este instante?\n- ¿Qué valores tienen adentro?\n\nLos mejores programadores del mundo no son los que escriben más rápido, sino los que pueden ejecutar el código en su cabeza paso a paso antes de correrlo.",
+            lessonText: "# El Superpoder de Rastrear Código ️‍️\n\nEl **Tracing** (rastreo manual de código) es la habilidad de convertirte en el procesador.\n\nTomas una libreta y una pluma, y anotas:\n- ¿En qué línea estoy?\n- ¿Qué variables existen en este instante?\n- ¿Qué valores tienen adentro?\n\nLos mejores programadores del mundo no son los que escriben más rápido, sino los que pueden ejecutar el código en su cabeza paso a paso antes de correrlo.",
             options: [
               { text: "Seguir la ejecución de un programa paso a paso para verificar el estado de las variables", correct: true },
               { text: "Rastrear la ubicación GPS del robot en el mapa", correct: false },
@@ -803,7 +739,7 @@ Las computadoras procesan las instrucciones en **orden secuencial estricto**, l�
           {
             type: "THEORY",
             question: "¿Por qué los errores de secuencia son peligrosos con motores reales?",
-            lessonText: "# Código en el Mundo Físico 💥\n\nEn un videojuego, si un personaje intenta saltar antes de tocar el suelo, solo se ve extraño en pantalla.\n\nEn un robot de 55 kg en FIRST Robotics:\n1. Si ordenas `moverBrazoAlMaximo()` **antes** de `calibrarSensorDeLimite()`...\n2. El motor empujará el brazo contra la estructura de metal con toda su fuerza.\n3. El engrane se barrerá y el motor Neo o Falcon se quemará.\n\n**El orden de las instrucciones en robótica protege la integridad física de las personas y de la máquina.**",
+            lessonText: "# Código en el Mundo Físico \n\nEn un videojuego, si un personaje intenta saltar antes de tocar el suelo, solo se ve extraño en pantalla.\n\nEn un robot de 55 kg en FIRST Robotics:\n1. Si ordenas `moverBrazoAlMaximo()` **antes** de `calibrarSensorDeLimite()`...\n2. El motor empujará el brazo contra la estructura de metal con toda su fuerza.\n3. El engrane se barrerá y el motor Neo o Falcon se quemará.\n\n**El orden de las instrucciones en robótica protege la integridad física de las personas y de la máquina.**",
             options: [
               { text: "Porque ejecutar acciones físicas antes de calibrar sensores puede romper componentes mecánicos", correct: true },
               { text: "Porque la cancha de FRC se destruye automáticamente", correct: false },
@@ -861,7 +797,7 @@ Las computadoras procesan las instrucciones en **orden secuencial estricto**, l�
           {
             type: "THEORY",
             question: "¡El ritual de inicio de Nautilus 4010!",
-            lessonText: "# El Checklist de Inicio de Teus 🚀\n\nAntes de cada match oficial de FIRST, el equipo de drive team sigue un protocolo estricto de software en la Driver Station.\n\nEn este reto final de la Unidad 3, vas a ensamblar y verificar la secuencia de encendido y telemetría de Nautilus 4010.\n\n¡La secuencia correcta garantiza que el robot salga a la arena a ganar!",
+            lessonText: "# El Checklist de Inicio de Teus \n\nAntes de cada match oficial de FIRST, el equipo de drive team sigue un protocolo estricto de software en la Driver Station.\n\nEn este reto final de la Unidad 3, vas a ensamblar y verificar la secuencia de encendido y telemetría de Nautilus 4010.\n\n¡La secuencia correcta garantiza que el robot salga a la arena a ganar!",
             options: [
               { text: "¡Vamos a ensamblar la secuencia de arranque!", correct: true },
               { text: "No quiero revisar la secuencia", correct: false },

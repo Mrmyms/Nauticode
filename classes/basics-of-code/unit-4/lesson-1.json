@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué analogía describe mejor una variable en programación?",
-      "lessonText": "# La Caja con Etiqueta 📦\n\nImagina que en el taller de robótica tienes varias cajas de plástico organizadoras.\n\nEn una caja pegas una cinta con la etiqueta **'velocidadMaxima'** y guardas adentro un papel que dice **80**.\nEn otra caja pegas la etiqueta **'nombrePiloto'** y guardas el texto **'Alex'**.\n\nUna **variable** es exactamente eso: una caja en la memoria RAM con un nombre asignado donde guardas un dato. Cada vez que tu código mencione `velocidadMaxima`, la computadora abrirá esa caja y leerá lo que tiene adentro.",
+      "lessonText": "# La Caja con Etiqueta \n\nImagina que en el taller de robótica tienes varias cajas de plástico organizadoras.\n\nEn una caja pegas una cinta con la etiqueta **'velocidadMaxima'** y guardas adentro un papel que dice **80**.\nEn otra caja pegas la etiqueta **'nombrePiloto'** y guardas el texto **'Alex'**.\n\nUna **variable** es exactamente eso: una caja en la memoria RAM con un nombre asignado donde guardas un dato. Cada vez que tu código mencione `velocidadMaxima`, la computadora abrirá esa caja y leerá lo que tiene adentro.",
       "options": [
         {
           "text": "Un espacio nombrado en memoria para almacenar y consultar datos",

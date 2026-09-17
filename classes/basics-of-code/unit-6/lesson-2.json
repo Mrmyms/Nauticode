@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es un número flotante (float) y por qué es esencial en robótica?",
-      "lessonText": "# La Precisión del Mundo Real 🎯\n\nEn el mundo físico, casi nada es un número entero exacto:\n- El voltaje de la batería del robot es `12.65` voltios.\n- La distancia a la pared es `1.82` metros.\n- La potencia del motor varía continuamente entre `-1.0` y `1.0`.\n\nPara representar valores con fracciones o puntos decimales usamos **float** (o **double** en lenguajes como Java y C++ para doble precisión).",
+      "lessonText": "# La Precisión del Mundo Real \n\nEn el mundo físico, casi nada es un número entero exacto:\n- El voltaje de la batería del robot es `12.65` voltios.\n- La distancia a la pared es `1.82` metros.\n- La potencia del motor varía continuamente entre `-1.0` y `1.0`.\n\nPara representar valores con fracciones o puntos decimales usamos **float** (o **double** en lenguajes como Java y C++ para doble precisión).",
       "options": [
         {
           "text": "Un tipo de dato numérico que permite representar fracciones y valores con punto decimal",

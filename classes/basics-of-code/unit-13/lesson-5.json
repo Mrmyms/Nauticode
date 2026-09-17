@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Misión de rescate de código en la arena!",
-      "lessonText": "# El Elevador Trabado ⚙️\n\nDurante una prueba en el taller, el mecanismo elevador sube escalón por escalón hasta el piso 5.\n\nSin embargo, el sensor del piso 5 tiene un cable flojo y nunca marca `true`. El bucle `while` se quedaría intentando subir indefinidamente y rompería la polea.\n\nEn este reto final de la Unidad 13, implementarás un **límite de seguridad por tiempo / intentos (Timeout Sentinel)** usando `break` para proteger el robot de fallas de sensores.",
+      "lessonText": "# El Elevador Trabado ️\n\nDurante una prueba en el taller, el mecanismo elevador sube escalón por escalón hasta el piso 5.\n\nSin embargo, el sensor del piso 5 tiene un cable flojo y nunca marca `true`. El bucle `while` se quedaría intentando subir indefinidamente y rompería la polea.\n\nEn este reto final de la Unidad 13, implementarás un **límite de seguridad por tiempo / intentos (Timeout Sentinel)** usando `break` para proteger el robot de fallas de sensores.",
       "options": [
         {
           "text": "¡Vamos a salvar el mecanismo con un break de seguridad!",

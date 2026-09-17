@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Construyendo la librería de movimientos de Nautilus 4010!",
-      "lessonText": "# El Kit de Movimiento de Teus 🎮\n\nPara que los pilotos y los programadores de autónomo no tengan que lidiar con voltajes individuales de 4 ruedas en cada línea, creamos la capa de abstracción de comandos:\n- `avanzar()`\n- `retroceder()`\n- `girarDerecha()`\n- `frenar()`\n\nEn este reto final de la Unidad 14, definirás y enlazarás las funciones base del chasis para crear una coreografía limpia de movimientos.",
+      "lessonText": "# El Kit de Movimiento de Teus \n\nPara que los pilotos y los programadores de autónomo no tengan que lidiar con voltajes individuales de 4 ruedas en cada línea, creamos la capa de abstracción de comandos:\n- `avanzar()`\n- `retroceder()`\n- `girarDerecha()`\n- `frenar()`\n\nEn este reto final de la Unidad 14, definirás y enlazarás las funciones base del chasis para crear una coreografía limpia de movimientos.",
       "options": [
         {
           "text": "¡Vamos a programar los comandos del chasis con Teus!",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es un bucle infinito (infinite loop) y por qué es peligroso?",
-      "lessonText": "# La Trampa Eterna 🕳️\n\nUn **bucle infinito** ocurre cuando la condición de un `while` **NUNCA se vuelve falsa**.\n```python\n# ¡PELIGRO! Esto nunca se detiene\nwhile true:\n    print('¡Auxilio, no puedo parar!')\n```\n¿Qué le pasa a la computadora?\n- El ventilador empieza a zumbar al máximo.\n- La CPU se satura al 100% en ese hilo.\n- El programa deja de responder (se 'congela').\n\nEn un robot de competencia, si el código entra en un bucle infinito en un subproceso crítico, el robot dejará de procesar los comandos del joystick y quedará inerte en medio de la cancha.",
+      "lessonText": "# La Trampa Eterna ️\n\nUn **bucle infinito** ocurre cuando la condición de un `while` **NUNCA se vuelve falsa**.\n```python\n# ¡PELIGRO! Esto nunca se detiene\nwhile true:\n    print('¡Auxilio, no puedo parar!')\n```\n¿Qué le pasa a la computadora?\n- El ventilador empieza a zumbar al máximo.\n- La CPU se satura al 100% en ese hilo.\n- El programa deja de responder (se 'congela').\n\nEn un robot de competencia, si el código entra en un bucle infinito en un subproceso crítico, el robot dejará de procesar los comandos del joystick y quedará inerte en medio de la cancha.",
       "options": [
         {
           "text": "Un bucle cuya condición nunca cambia a false, congelando el programa y saturando la CPU",

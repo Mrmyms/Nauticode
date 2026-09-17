@@ -1,116 +1,93 @@
 {
-  "title": "Lenguajes, Compiladores e Intérpretes",
+  "title": "Traduciendo a Ceros y Unos",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué papel juega el compilador o intérprete?",
-      "lessonText": "# El Traductor Universal 🌐\n\nLos microprocesadores sólo entienden voltajes: presencia o ausencia de corriente, representados como **0 y 1** (código binario).\n\nEscribir en ceros y unos sería infernalmente lento para los humanos. Por eso usamos **lenguajes de alto nivel** como Python, Java o C++.\n\nEl **compilador** o **intérprete** es el software traductor que toma nuestro código en texto legible y lo convierte en el código máquina que el chip entiende.",
+      "question": "¿Cómo entienden las computadoras las instrucciones?",
+      "lessonText": "# El Alfabeto Binario y los Transistores \n\nEn el nivel más bajo (Hardware), una computadora es solo una gigantesca red de interruptores microscópicos llamados **transistores**.\n\nUn transistor solo tiene dos estados: encendido (dejando pasar voltaje) o apagado (bloqueando el voltaje). Nosotros representamos estos estados como **1** y **0**.\n\nPara no tener que escribir millones de unos y ceros manualmente, usamos **Lenguajes de Alto Nivel** (como Java, Python o C++). Estos lenguajes usan palabras en inglés (if, while, print) que son fáciles de leer para los humanos.",
       "options": [
         {
-          "text": "Traduce el código legible por humanos a ceros y unos para el procesador",
+          "text": "Mediante transistores que actúan como interruptores (1 = encendido, 0 = apagado)",
           "correct": true
         },
         {
-          "text": "Limpia el polvo de la placa de circuitos del robot",
+          "text": "Con un diccionario interno de español a inglés almacenado en el disco duro",
           "correct": false
         },
         {
-          "text": "Acelera la batería del robot conectándola a la red",
+          "text": "Mediante pequeños engranajes mecánicos dentro del procesador que giran al recibir código",
           "correct": false
         },
         {
-          "text": "Es un robot físico que escribe código con un teclado gigante",
+          "text": "A través de ondas de radio transmitidas desde el teclado hasta la pantalla",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Si los procesadores solo entienden ceros y unos, ¿por qué los programadores de FIRST Robotics escriben código en Java o C++?",
+      "options": [
+        {
+          "text": "Porque son lenguajes de alto nivel (legibles para humanos) que luego un programa traductor convertirá a binario",
+          "correct": true
+        },
+        {
+          "text": "Porque Java y C++ son los únicos lenguajes que usan ceros y unos en sus letras",
+          "correct": false
+        },
+        {
+          "text": "Porque a los jueces de la competencia les gusta más leer palabras en inglés que números",
+          "correct": false
+        },
+        {
+          "text": "Porque es un requisito instalar teclados binarios especiales",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "THEORY",
+      "question": "¿Qué herramienta hace de puente entre el lenguaje de alto nivel y la máquina?",
+      "lessonText": "# El Compilador: El Traductor Universal \n\nPara que el procesador de la roboRIO ejecute el código que escribiste en Java o C++, necesitamos un traductor.\n\nEl **Compilador** (o Intérprete, según el lenguaje) es un programa especializado que toma tu **Código Fuente** (el texto legible) y lo traduce por completo a **Código Máquina** (instrucciones binarias). \n\nSi hay un solo error gramatical, el compilador se detiene, te muestra el error en la consola y se niega a traducir.",
+      "options": [
+        {
+          "text": "El Compilador o Intérprete, que traduce el código fuente a código máquina (binario)",
+          "correct": true
+        },
+        {
+          "text": "El Disco Duro, que lee el código en voz alta para que la placa madre lo escuche",
+          "correct": false
+        },
+        {
+          "text": "El Motor, que transforma las letras de código directamente en movimiento rotacional",
+          "correct": false
+        },
+        {
+          "text": "La Batería, que inyecta los caracteres en la corriente eléctrica",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Relaciona cada término con su significado:",
+      "question": "Relaciona los conceptos de la cadena de traducción de software:",
       "options": [
         {
-          "text": "Código Binario|||Ceros y unos que procesa el circuito",
+          "text": "Código Fuente|||Las instrucciones legibles escritas por el programador",
           "correct": true
         },
         {
-          "text": "Lenguaje Alto Nivel|||Código comprensible con palabras en inglés",
+          "text": "Lenguaje de Alto Nivel|||Java, C++, Python, JavaScript",
           "correct": true
         },
         {
-          "text": "Compilador|||Traductor de código fuente a lenguaje máquina",
+          "text": "Compilador|||El programa que traduce las instrucciones al lenguaje del hardware",
           "correct": true
         },
         {
-          "text": "Bug|||Un error o fallo lógico en el programa",
+          "text": "Código Binario (Máquina)|||Ceros y unos que controlan directamente los transistores",
           "correct": true
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "¿Cuáles de los siguientes son lenguajes de alto nivel utilizados en FIRST Robotics?",
-      "options": [
-        {
-          "text": "Java, C++ y Python",
-          "correct": true
-        },
-        {
-          "text": "Morse, Semáforo y Braille",
-          "correct": false
-        },
-        {
-          "text": "HTML, CSS y Photoshop",
-          "correct": false
-        },
-        {
-          "text": "Bluetooth, Wi-Fi y Radiofrecuencia",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "DEBUG",
-      "question": "Este programa no corre porque tiene un error de sintaxis en el print. ¿Cuál es el error?",
-      "codeSnippet": "print 'Iniciando teleoperado'",
-      "options": [
-        {
-          "text": "Faltan los paréntesis () alrededor del texto",
-          "correct": true
-        },
-        {
-          "text": "No se puede usar la palabra print",
-          "correct": false
-        },
-        {
-          "text": "La palabra print debe estar toda en mayúsculas",
-          "correct": false
-        },
-        {
-          "text": "El texto no puede llevar espacios",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_FILL",
-      "question": "Corrige el error agregando los paréntesis correctos:",
-      "codeSnippet": "print_____'Nautilus 4010'_____",
-      "options": [
-        {
-          "text": "( y )",
-          "correct": true
-        },
-        {
-          "text": "[ y ]",
-          "correct": false
-        },
-        {
-          "text": "{ y }",
-          "correct": false
-        },
-        {
-          "text": "< y >",
-          "correct": false
         }
       ]
     }

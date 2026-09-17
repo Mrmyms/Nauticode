@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es un valor booleano y por qué es el rey de las decisiones?",
-      "lessonText": "# La Verdad Binaria 💡\n\nUn **Boolean (bool)** es el tipo de dato más simple y poderoso que existe. Solo puede tener dos valores:\n- **`true` (Verdadero)**\n- **`false` (Falso)**\n\nEn un robot de competencia, el mundo está lleno de preguntas binarias:\n- ¿El sensor de límite está presionado? (`true` / `false`)\n- ¿El autonomous está activo? (`true` / `false`)\n- ¿El voltaje es peligroso? (`true` / `false`)\n\nLos booleanos son la llave que abre las puertas de las sentencias condicionales `if` y los bucles `while`.",
+      "lessonText": "# La Verdad Binaria \n\nUn **Boolean (bool)** es el tipo de dato más simple y poderoso que existe. Solo puede tener dos valores:\n- **`true` (Verdadero)**\n- **`false` (Falso)**\n\nEn un robot de competencia, el mundo está lleno de preguntas binarias:\n- ¿El sensor de límite está presionado? (`true` / `false`)\n- ¿El autonomous está activo? (`true` / `false`)\n- ¿El voltaje es peligroso? (`true` / `false`)\n\nLos booleanos son la llave que abre las puertas de las sentencias condicionales `if` y los bucles `while`.",
       "options": [
         {
           "text": "Un tipo de dato que solo puede ser Verdadero (True) o Falso (False)",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué hace la instrucción 'break' dentro de un bucle?",
-      "lessonText": "# El Botón de Parada Inmediata 🛑\n\nImagina que estás buscando una nota naranja en la alfombra con un bucle que revisa 10 posiciones:\n```python\nfor pos in range(10):\n    if notaDetectada == true:\n        print('¡Nota encontrada!')\n        break  # ¡Se detiene de inmediato!\n    avanzarSiguientePunto()\n```\n¿Para qué seguir buscando las otras posiciones si ya encontraste la pieza?\n\nLa instrucción **`break` rompe el bucle al instante**, sin esperar a que termine el rango ni a que la condición del while se vuelva falsa.",
+      "lessonText": "# El Botón de Parada Inmediata \n\nImagina que estás buscando una nota naranja en la alfombra con un bucle que revisa 10 posiciones:\n```python\nfor pos in range(10):\n    if notaDetectada == true:\n        print('¡Nota encontrada!')\n        break  # ¡Se detiene de inmediato!\n    avanzarSiguientePunto()\n```\n¿Para qué seguir buscando las otras posiciones si ya encontraste la pieza?\n\nLa instrucción **`break` rompe el bucle al instante**, sin esperar a que termine el rango ni a que la condición del while se vuelva falsa.",
       "options": [
         {
           "text": "Termina el bucle de forma inmediata y transfiere el control a la línea siguiente fuera del bucle",

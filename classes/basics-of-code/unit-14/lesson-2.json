@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo se define y cómo se ejecuta una función?",
-      "lessonText": "# El Botón Personalizado 🔘\n\nCrear una función es como construir un botón en una máquina:\n\n1. **Definir la función (Construir el botón):**\nEn Python usamos la palabra clave `def`:\n```python\ndef pitarAlarma():\n    print('¡BEEP! Robot en movimiento')\n```\n*Nota: Definir la función NO ejecuta el código todavía. Solo le enseña a la computadora qué hacer cuando se le pida.*\n\n2. **Invocar / Llamar a la función (Apretar el botón):**\n```python\npitarAlarma()  # ¡Aquí es donde la CPU corre el código!\n```\nLos paréntesis `()` son los que activan la ejecución.",
+      "lessonText": "# El Botón Personalizado \n\nCrear una función es como construir un botón en una máquina:\n\n1. **Definir la función (Construir el botón):**\nEn Python usamos la palabra clave `def`:\n```python\ndef pitarAlarma():\n    print('¡BEEP! Robot en movimiento')\n```\n*Nota: Definir la función NO ejecuta el código todavía. Solo le enseña a la computadora qué hacer cuando se le pida.*\n\n2. **Invocar / Llamar a la función (Apretar el botón):**\n```python\npitarAlarma()  # ¡Aquí es donde la CPU corre el código!\n```\nLos paréntesis `()` son los que activan la ejecución.",
       "options": [
         {
           "text": "Se define con def/void y se ejecuta escribiendo su nombre seguido de paréntesis ()",

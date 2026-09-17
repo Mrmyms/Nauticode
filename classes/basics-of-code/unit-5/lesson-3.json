@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es una constante en programación y por qué es vital en robótica?",
-      "lessonText": "# Valores Inmutables 🔒\n\nHay datos que **NUNCA** deben cambiar mientras el robot está operando:\n- El número de puerto CAN de un motor (`MOTOR_PORT = 3`).\n- La relación de engranes del chasis (`GEAR_RATIO = 6.75`).\n- La aceleración de la gravedad (`GRAVITY = 9.81`).\n\nEstos valores se llaman **Constantes**. Por convención universal, se escriben en **UPPER_SNAKE_CASE** para alertar a cualquiera: *'¡Cuidado! No reasignes este valor bajo ninguna circunstancia'*.",
+      "lessonText": "# Valores Inmutables \n\nHay datos que **NUNCA** deben cambiar mientras el robot está operando:\n- El número de puerto CAN de un motor (`MOTOR_PORT = 3`).\n- La relación de engranes del chasis (`GEAR_RATIO = 6.75`).\n- La aceleración de la gravedad (`GRAVITY = 9.81`).\n\nEstos valores se llaman **Constantes**. Por convención universal, se escriben en **UPPER_SNAKE_CASE** para alertar a cualquiera: *'¡Cuidado! No reasignes este valor bajo ninguna circunstancia'*.",
       "options": [
         {
           "text": "Una variable diseñada para no cambiar su valor original durante la ejecución del programa",

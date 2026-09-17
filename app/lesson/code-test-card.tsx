@@ -55,9 +55,10 @@ export const CodeTestCard = ({
         disabled={disabled}
         placeholder="Type your code here..."
         className={cn(
-          "w-full h-40 p-4 rounded-xl border-2 resize-none font-mono text-sm",
-          status === "correct" && "border-green-500 bg-green-50",
-          status === "wrong" && "border-rose-500 bg-rose-50",
+          "w-full h-40 p-4 rounded-xl border-2 resize-none font-mono text-sm outline-none transition-colors",
+          status === "none" && "border-slate-700 bg-slate-800 text-white focus:border-slate-500",
+          status === "correct" && "border-green-400 bg-green-900/30 text-green-400",
+          status === "wrong" && "border-rose-400 bg-rose-900/30 text-rose-400",
           disabled && "opacity-50"
         )}
       />

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Matemáticas mecánicas en el robot!",
-      "lessonText": "# Gear Ratios en Nautilus 4010 ⚙️\n\nUn motor brushless Falcon 500 gira a 6000 RPM (revoluciones por minuto), ¡demasiado rápido para mover una rueda directamente!\n\nPor eso usamos una caja reductora de engranes con una relación (Gear Ratio) de `5:1`:\n`rpmRueda = rpmMotor / gearRatio`\n`rpmRueda = 6000 / 5 = 1200 RPM`\n\nEn este reto final de la Unidad 7, usarás operadores aritméticos para calcular velocidades, relaciones de transmisión y promedios.",
+      "lessonText": "# Gear Ratios en Nautilus 4010 ️\n\nUn motor brushless Falcon 500 gira a 6000 RPM (revoluciones por minuto), ¡demasiado rápido para mover una rueda directamente!\n\nPor eso usamos una caja reductora de engranes con una relación (Gear Ratio) de `5:1`:\n`rpmRueda = rpmMotor / gearRatio`\n`rpmRueda = 6000 / 5 = 1200 RPM`\n\nEn este reto final de la Unidad 7, usarás operadores aritméticos para calcular velocidades, relaciones de transmisión y promedios.",
       "options": [
         {
           "text": "¡Vamos a calcular la física del chasis!",

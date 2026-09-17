@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo funciona el ciclo principal de control (Periodic Loop) en un robot?",
-      "lessonText": "# El Latido del Corazón del Robot (50 Hz) 💓\n\nEn FIRST Robotics y en la industria automotriz, los robots no ejecutan un script una sola vez y se apagan. Tienen un **bucle periódico continuo**:\n\n```python\nwhile robotEstaHabilitado == true:\n    # 1. Leer sensores y joystick (50 veces por segundo)\n    leerTelemetria()\n    # 2. Calcular cinemática de swerve drive o chasis\n    calcularTrayectoria()\n    # 3. Enviar voltajes a los motores\n    actualizarMotores()\n```\n\nEste ciclo corre típicamente cada **20 milisegundos (50 Hz)**. ¡Es el pulso vital que mantiene al robot despierto y receptivo!",
+      "lessonText": "# El Latido del Corazón del Robot (50 Hz) \n\nEn FIRST Robotics y en la industria automotriz, los robots no ejecutan un script una sola vez y se apagan. Tienen un **bucle periódico continuo**:\n\n```python\nwhile robotEstaHabilitado == true:\n    # 1. Leer sensores y joystick (50 veces por segundo)\n    leerTelemetria()\n    # 2. Calcular cinemática de swerve drive o chasis\n    calcularTrayectoria()\n    # 3. Enviar voltajes a los motores\n    actualizarMotores()\n```\n\nEste ciclo corre típicamente cada **20 milisegundos (50 Hz)**. ¡Es el pulso vital que mantiene al robot despierto y receptivo!",
       "options": [
         {
           "text": "Un ciclo continuo que lee sensores, calcula decisiones y actualiza motores decenas de veces por segundo",

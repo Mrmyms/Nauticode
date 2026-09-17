@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué hace el operador lógico NOT?",
-      "lessonText": "# El Inversor de Realidad 🪞\n\nEl operador **NOT** (en Java/C++ se escribe `!`, en Python se escribe `not`) es un operador unario que **invierte el valor de cualquier booleano**:\n- `not true` se convierte en `false`.\n- `not false` se convierte en `true`.\n\nEjemplo práctico:\n`hayObstaculo = false`\n`caminoLibre = not hayObstaculo` (¡caminoLibre ahora es `true`!)\n\nEn robótica se usa todo el tiempo con interruptores normalmente cerrados (NC) o para comprobar si una tarea aún no ha terminado.",
+      "lessonText": "# El Inversor de Realidad \n\nEl operador **NOT** (en Java/C++ se escribe `!`, en Python se escribe `not`) es un operador unario que **invierte el valor de cualquier booleano**:\n- `not true` se convierte en `false`.\n- `not false` se convierte en `true`.\n\nEjemplo práctico:\n`hayObstaculo = false`\n`caminoLibre = not hayObstaculo` (¡caminoLibre ahora es `true`!)\n\nEn robótica se usa todo el tiempo con interruptores normalmente cerrados (NC) o para comprobar si una tarea aún no ha terminado.",
       "options": [
         {
           "text": "Invierte el valor de verdad: convierte true en false y false en true",

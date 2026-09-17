@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo funciona el operador lógico OR?",
-      "lessonText": "# Basta Con Una Sola Verdad 🚪\n\nEl operador **OR** (en Java/C++ se escribe `||`, en Python se escribe `or`) es mucho más flexible que el AND: **devuelve `true` si al menos una de las condiciones es verdadera**.\n\nEjemplo de seguridad en Nautilus:\n¿Cuándo debemos frenar el robot de emergencia?\n`botonEStopPresionado || bateriaPeligrosamenteBaja`\n- Si el botón de E-Stop se presiona (`true`), ¡frenamos de inmediato!\n- Si la batería cae a nivel crítico (`true`), ¡frenamos de inmediato!\n- Solo si NINGUNA de las dos situaciones ocurre (`false || false`), el robot continúa.",
+      "lessonText": "# Basta Con Una Sola Verdad \n\nEl operador **OR** (en Java/C++ se escribe `||`, en Python se escribe `or`) es mucho más flexible que el AND: **devuelve `true` si al menos una de las condiciones es verdadera**.\n\nEjemplo de seguridad en Nautilus:\n¿Cuándo debemos frenar el robot de emergencia?\n`botonEStopPresionado || bateriaPeligrosamenteBaja`\n- Si el botón de E-Stop se presiona (`true`), ¡frenamos de inmediato!\n- Si la batería cae a nivel crítico (`true`), ¡frenamos de inmediato!\n- Solo si NINGUNA de las dos situaciones ocurre (`false || false`), el robot continúa.",
       "options": [
         {
           "text": "Devuelve true si al menos UNA de las condiciones es verdadera",

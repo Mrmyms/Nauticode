@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es un bucle 'while' y cuál es su superpoder?",
-      "lessonText": "# El Motor de Repetición 🔄\n\nImagina que tienes que mover un brazo robótico hasta que toque el limit switch superior.\n\nSin bucles, tendrías que escribir:\n```python\nmoverUnPoco()\nmoverUnPoco()\nmoverUnPoco()\n# ¿Y si se necesitan 500 veces? ¡Imposible!\n```\n\nCon un **while loop**, le dices a la computadora:\n```python\nwhile limitSwitchAlcanzado == false:\n    moverUnPoco()\n```\nLa computadora evalúa la condición:\n- Si es `true`: ejecuta el bloque y **vuelve a subir a comprobar la condición**.\n- Solo se detiene cuando la condición finalmente se vuelve `false`.",
+      "lessonText": "# El Motor de Repetición \n\nImagina que tienes que mover un brazo robótico hasta que toque el limit switch superior.\n\nSin bucles, tendrías que escribir:\n```python\nmoverUnPoco()\nmoverUnPoco()\nmoverUnPoco()\n# ¿Y si se necesitan 500 veces? ¡Imposible!\n```\n\nCon un **while loop**, le dices a la computadora:\n```python\nwhile limitSwitchAlcanzado == false:\n    moverUnPoco()\n```\nLa computadora evalúa la condición:\n- Si es `true`: ejecuta el bloque y **vuelve a subir a comprobar la condición**.\n- Solo se detiene cuando la condición finalmente se vuelve `false`.",
       "options": [
         {
           "text": "Una estructura que repite un bloque de instrucciones mientras su condición sea verdadera",

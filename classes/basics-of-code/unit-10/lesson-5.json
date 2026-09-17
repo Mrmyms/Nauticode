@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Los modos de manejo del piloto de Nautilus 4010!",
-      "lessonText": "# El Selector de Velocidad en el Control 🎮\n\nEl piloto de nuestro equipo tiene un selector de 3 posiciones en su joystick:\n1. **Modo 'SLOW' (Precisión):** Potencia al `30%` (para alinear al milímetro con el alimentador).\n2. **Modo 'NORMAL':** Potencia al `75%` (para recorrer la cancha en teleoperado).\n3. **Modo 'BOOST' (Turbo):** Potencia al `100%` (para escapar de la defensa rival a toda máquina).\n\nEn este reto final de la Unidad 10, implementarás la máquina de decisiones completa con `if`, `elif` y `else`.",
+      "lessonText": "# El Selector de Velocidad en el Control \n\nEl piloto de nuestro equipo tiene un selector de 3 posiciones en su joystick:\n1. **Modo 'SLOW' (Precisión):** Potencia al `30%` (para alinear al milímetro con el alimentador).\n2. **Modo 'NORMAL':** Potencia al `75%` (para recorrer la cancha en teleoperado).\n3. **Modo 'BOOST' (Turbo):** Potencia al `100%` (para escapar de la defensa rival a toda máquina).\n\nEn este reto final de la Unidad 10, implementarás la máquina de decisiones completa con `if`, `elif` y `else`.",
       "options": [
         {
           "text": "¡Vamos a configurar el selector de manejo de Teus!",

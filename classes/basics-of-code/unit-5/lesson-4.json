@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué son los comentarios y cómo los interpreta la computadora?",
-      "lessonText": "# Notas al Margen 📝\n\nUn **comentario** es una anotación en el código fuente que la computadora **ignora por completo** al momento de compilar o ejecutar.\n\nEn Python se usa el símbolo `#`:\n```python\n# Iniciar motores en reversa para expulsar nota atorada\nmotorIntake.set(-1.0)\n```\n\nEn Java y C++ se usa `//` para una línea y `/* ... */` para bloques multilínea.\n\nLos comentarios son cartas que le dejas a tus compañeros (y a tu yo del futuro) explicando **por qué tomaste una decisión técnica compleja**.",
+      "lessonText": "# Notas al Margen \n\nUn **comentario** es una anotación en el código fuente que la computadora **ignora por completo** al momento de compilar o ejecutar.\n\nEn Python se usa el símbolo `#`:\n```python\n# Iniciar motores en reversa para expulsar nota atorada\nmotorIntake.set(-1.0)\n```\n\nEn Java y C++ se usa `//` para una línea y `/* ... */` para bloques multilínea.\n\nLos comentarios son cartas que le dejas a tus compañeros (y a tu yo del futuro) explicando **por qué tomaste una decisión técnica compleja**.",
       "options": [
         {
           "text": "Texto explicativo dentro del código que la máquina ignora pero ayuda a los humanos",

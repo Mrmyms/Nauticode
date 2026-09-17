@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Para qué sirve la cláusula 'else'?",
-      "lessonText": "# El Plan B 🛡️\n\nImagina un cruce de caminos: o vas por la izquierda, o vas por la derecha. No puedes ir por ambos lados a la vez.\n\nLa sentencia **`else`** define el bloque de código que se ejecutará **cuando la condición del `if` resulte ser `false`**:\n```python\nif sensorOptico == true:\n    print('Pieza detectada: Lista para tirar')\nelse:\n    print('Buscando pieza en la alfombra...')\n```\n- Si el sensor marca `true`: corre el bloque del `if`.\n- Si marca `false`: corre el bloque del `else`.\n¡Uno de los dos caminos se ejecutará siempre de forma garantizada!",
+      "lessonText": "# El Plan B ️\n\nImagina un cruce de caminos: o vas por la izquierda, o vas por la derecha. No puedes ir por ambos lados a la vez.\n\nLa sentencia **`else`** define el bloque de código que se ejecutará **cuando la condición del `if` resulte ser `false`**:\n```python\nif sensorOptico == true:\n    print('Pieza detectada: Lista para tirar')\nelse:\n    print('Buscando pieza en la alfombra...')\n```\n- Si el sensor marca `true`: corre el bloque del `if`.\n- Si marca `false`: corre el bloque del `else`.\n¡Uno de los dos caminos se ejecutará siempre de forma garantizada!",
       "options": [
         {
           "text": "Define el bloque de código alternativo que se ejecuta cuando la condición del if es falsa",

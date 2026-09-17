@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cuál es la diferencia entre un parámetro y un argumento?",
-      "lessonText": "# Funciones Personalizables 🎛️\n\nImagina una función `avanzar()`. Si siempre avanza a velocidad fija de 50%, no nos sirve cuando queremos ir despacio o a fondo.\n\nPara hacerla flexible, agregamos **Parámetros** entre los paréntesis:\n```python\ndef avanzar(velocidad):\n    print('Avanzando a potencia: ' + str(velocidad))\n```\n- **Parámetro:** El nombre de la variable receptora en la definición (`velocidad`).\n- **Argumento:** El valor concreto que le pasas al llamarla: `avanzar(0.3)` o `avanzar(1.0)`.\n\n¡La misma función ahora sirve para cualquier velocidad imaginable!",
+      "lessonText": "# Funciones Personalizables ️\n\nImagina una función `avanzar()`. Si siempre avanza a velocidad fija de 50%, no nos sirve cuando queremos ir despacio o a fondo.\n\nPara hacerla flexible, agregamos **Parámetros** entre los paréntesis:\n```python\ndef avanzar(velocidad):\n    print('Avanzando a potencia: ' + str(velocidad))\n```\n- **Parámetro:** El nombre de la variable receptora en la definición (`velocidad`).\n- **Argumento:** El valor concreto que le pasas al llamarla: `avanzar(0.3)` o `avanzar(1.0)`.\n\n¡La misma función ahora sirve para cualquier velocidad imaginable!",
       "options": [
         {
           "text": "El parámetro es la variable en la definición; el argumento es el valor real enviado en la llamada",

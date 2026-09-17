@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es una sentencia 'if' y para qué sirve?",
-      "lessonText": "# El Guardián del Camino 🚦\n\nEn la vida diaria tomas decisiones condicionales:\n*'SI está lloviendo, tomo una sombrilla'*. Si no está lloviendo, simplemente ignoras la sombrilla y sigues caminando.\n\nEn código, la instrucción **`if`** funciona exactamente igual:\n```python\nif distanciaCM < 20:\n    print('¡Frenar! Obstáculo detectado')\n```\n- La computadora evalúa la condición entre el `if` y los dos puntos.\n- **Si es `true`:** Entra y ejecuta el bloque de código indentado.\n- **Si es `false`:** Se salta ese bloque por completo y continúa con lo que sigue.",
+      "lessonText": "# El Guardián del Camino \n\nEn la vida diaria tomas decisiones condicionales:\n*'SI está lloviendo, tomo una sombrilla'*. Si no está lloviendo, simplemente ignoras la sombrilla y sigues caminando.\n\nEn código, la instrucción **`if`** funciona exactamente igual:\n```python\nif distanciaCM < 20:\n    print('¡Frenar! Obstáculo detectado')\n```\n- La computadora evalúa la condición entre el `if` y los dos puntos.\n- **Si es `true`:** Entra y ejecuta el bloque de código indentado.\n- **Si es `false`:** Se salta ese bloque por completo y continúa con lo que sigue.",
       "options": [
         {
           "text": "Una estructura de control que ejecuta un bloque de código únicamente si su condición es verdadera",

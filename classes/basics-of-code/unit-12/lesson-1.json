@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Para qué sirve un bucle 'for' y cuándo es la mejor opción?",
-      "lessonText": "# El Contador Automático ⏱️\n\n¿Qué pasa si necesitas:\n- Enviar 5 pulsos de señal a la radio.\n- Calentar los 4 motores del chasis uno por uno.\n- Contar regresivamente del 3 al 1 antes del autónomo.\n\nPodrías usar un `while`, pero tienes que declarar la variable afuera, escribir la condición y acordarte de incrementarla. ¡Es fácil cometer un error!\n\nEl **`for` loop** empaqueta todo de forma compacta y elegante:\n```python\nfor i in range(3):\n    print('¡Paso completado!')\n```\nEsto se ejecutará **exactamente 3 veces** sin riesgo de bucles infinitos por olvido.",
+      "lessonText": "# El Contador Automático ️\n\n¿Qué pasa si necesitas:\n- Enviar 5 pulsos de señal a la radio.\n- Calentar los 4 motores del chasis uno por uno.\n- Contar regresivamente del 3 al 1 antes del autónomo.\n\nPodrías usar un `while`, pero tienes que declarar la variable afuera, escribir la condición y acordarte de incrementarla. ¡Es fácil cometer un error!\n\nEl **`for` loop** empaqueta todo de forma compacta y elegante:\n```python\nfor i in range(3):\n    print('¡Paso completado!')\n```\nEsto se ejecutará **exactamente 3 veces** sin riesgo de bucles infinitos por olvido.",
       "options": [
         {
           "text": "Para repetir una secuencia de instrucciones una cantidad predeterminada y conocida de veces",

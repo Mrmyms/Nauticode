@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo decide la computadora qué operación resolver primero?",
-      "lessonText": "# El Orden Jerárquico (PEMDAS) 📐\n\nEn código, las operaciones no siempre se resuelven de izquierda a derecha. Siguen las reglas universales de precedencia:\n\n1. **Paréntesis `()`:** Siempre tienen la máxima prioridad.\n2. **Multiplicación `*`, División `/` y Módulo `%`:** Tienen prioridad intermedia.\n3. **Suma `+` y Resta `-`:** Se resuelven al final.\n\nEjemplo crucial:\n`2 + 3 * 4`\n- Primero se calcula `3 * 4 = 12`.\n- Luego `2 + 12 = 14`.\nSi querías sumar primero, **debes usar paréntesis**: `(2 + 3) * 4 = 20`.",
+      "lessonText": "# El Orden Jerárquico (PEMDAS) \n\nEn código, las operaciones no siempre se resuelven de izquierda a derecha. Siguen las reglas universales de precedencia:\n\n1. **Paréntesis `()`:** Siempre tienen la máxima prioridad.\n2. **Multiplicación `*`, División `/` y Módulo `%`:** Tienen prioridad intermedia.\n3. **Suma `+` y Resta `-`:** Se resuelven al final.\n\nEjemplo crucial:\n`2 + 3 * 4`\n- Primero se calcula `3 * 4 = 12`.\n- Luego `2 + 12 = 14`.\nSi querías sumar primero, **debes usar paréntesis**: `(2 + 3) * 4 = 20`.",
       "options": [
         {
           "text": "Primero paréntesis, luego multiplicación/división/módulo, y al final suma/resta",

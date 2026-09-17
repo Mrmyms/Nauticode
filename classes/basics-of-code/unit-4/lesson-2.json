@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cuál es la diferencia entre declarar e inicializar?",
-      "lessonText": "# Dar a Luz una Variable 🐣\n\nEn desarrollo de software existen dos momentos clave:\n\n1. **Declaración:** Crear la variable y avisarle a la computadora que existirá.\n   - Ejemplo: `int puntos;` (¡La caja fue creada pero está vacía!)\n2. **Inicialización:** Darle su primer valor inicial de vida.\n   - Ejemplo: `puntos = 0;` (¡Ahora la caja tiene un valor concreto!)\n\nMuchos lenguajes modernos permiten hacer ambas cosas en una sola línea elegante:\n`int puntos = 0;` o en Python simplemente `puntos = 0`.",
+      "lessonText": "# Dar a Luz una Variable \n\nEn desarrollo de software existen dos momentos clave:\n\n1. **Declaración:** Crear la variable y avisarle a la computadora que existirá.\n   - Ejemplo: `int puntos;` (¡La caja fue creada pero está vacía!)\n2. **Inicialización:** Darle su primer valor inicial de vida.\n   - Ejemplo: `puntos = 0;` (¡Ahora la caja tiene un valor concreto!)\n\nMuchos lenguajes modernos permiten hacer ambas cosas en una sola línea elegante:\n`int puntos = 0;` o en Python simplemente `puntos = 0`.",
       "options": [
         {
           "text": "Declarar es crear la variable; inicializar es darle su primer valor",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo pasamos más de un dato a una misma función?",
-      "lessonText": "# El Panel con Múltiples Perillas 🎚️🎚️\n\nPuedes agregar tantos parámetros como requiera la acción, **separándolos por comas**:\n```python\ndef moverMecanismo(potencia, duracionSegundos):\n    print('Moviendo a potencia ' + str(potencia) + ' durante ' + str(duracionSegundos) + 's')\n```\nAl llamarla, debes pasar los argumentos en el mismo orden:\n`moverMecanismo(0.75, 3.0)`\n- `potencia` toma el valor `0.75`.\n- `duracionSegundos` toma el valor `3.0`.",
+      "lessonText": "# El Panel con Múltiples Perillas ️️\n\nPuedes agregar tantos parámetros como requiera la acción, **separándolos por comas**:\n```python\ndef moverMecanismo(potencia, duracionSegundos):\n    print('Moviendo a potencia ' + str(potencia) + ' durante ' + str(duracionSegundos) + 's')\n```\nAl llamarla, debes pasar los argumentos en el mismo orden:\n`moverMecanismo(0.75, 3.0)`\n- `potencia` toma el valor `0.75`.\n- `duracionSegundos` toma el valor `3.0`.",
       "options": [
         {
           "text": "Separando los parámetros con comas entre los paréntesis en orden correspondiente",

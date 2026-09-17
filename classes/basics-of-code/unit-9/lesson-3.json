@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es un 'if anidado' (nested if)?",
-      "lessonText": "# Decisiones Dentro de Decisiones 🪆\n\nA veces una decisión depende de que una decisión previa ya se haya cumplido.\n\nEjemplo en la arena de FIRST:\n```python\nif robotHabilitado:\n    print('Paso 1: Robot encendido')\n    if botonDisparoPresionado:\n        print('Paso 2: Disparando')\n```\n- Si `robotHabilitado` es `false`, la computadora ni siquiera se molesta en mirar `botonDisparoPresionado`.\n- El código interior solo se alcanza si **ambas compuertas se abrieron sucesivamente**.",
+      "lessonText": "# Decisiones Dentro de Decisiones \n\nA veces una decisión depende de que una decisión previa ya se haya cumplido.\n\nEjemplo en la arena de FIRST:\n```python\nif robotHabilitado:\n    print('Paso 1: Robot encendido')\n    if botonDisparoPresionado:\n        print('Paso 2: Disparando')\n```\n- Si `robotHabilitado` es `false`, la computadora ni siquiera se molesta en mirar `botonDisparoPresionado`.\n- El código interior solo se alcanza si **ambas compuertas se abrieron sucesivamente**.",
       "options": [
         {
           "text": "Una sentencia if colocada dentro del bloque de otra sentencia if previa",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo hacemos una cuenta regresiva con un bucle for?",
-      "lessonText": "# ¡3, 2, 1... Despegue! 🚀\n\nPara contar hacia atrás, simplemente usamos un **paso negativo** (`step = -1`):\n```python\nfor s in range(3, 0, -1):\n    print(s)\nprint('¡Match Iniciado!')\n```\n- Inicia en `3`.\n- Resta 1 en cada ciclo: `2`, luego `1`.\n- Se detiene antes del `0`.\n- Imprime `¡Match Iniciado!`.\n\nEn robótica es común para secuencias de calibración, temporizadores de autonomous o rampas de frenado suave.",
+      "lessonText": "# ¡3, 2, 1... Despegue! \n\nPara contar hacia atrás, simplemente usamos un **paso negativo** (`step = -1`):\n```python\nfor s in range(3, 0, -1):\n    print(s)\nprint('¡Match Iniciado!')\n```\n- Inicia en `3`.\n- Resta 1 en cada ciclo: `2`, luego `1`.\n- Se detiene antes del `0`.\n- Imprime `¡Match Iniciado!`.\n\nEn robótica es común para secuencias de calibración, temporizadores de autonomous o rampas de frenado suave.",
       "options": [
         {
           "text": "Usando un valor de paso negativo (ej: -1) para decrementar en cada ciclo",

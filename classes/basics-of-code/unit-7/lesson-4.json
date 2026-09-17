@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué son los operadores de asignación compuesta como `+=` y `-=`?",
-      "lessonText": "# Atajos para Programadores Inteligentes ⚡\n\nEn robótica es súper común modificar una variable basándote en su propio valor anterior:\n`puntos = puntos + 5`\n\nEscribir el nombre de la variable dos veces es repetitivo. Por eso los lenguajes crearon los **operadores compuestos**:\n- `puntos += 5` (Equivale a: `puntos = puntos + 5`)\n- `energia -= 10` (Equivale a: `energia = energia - 10`)\n- `velocidad *= 2` (Equivale a: `velocidad = velocidad * 2`)\n- `contador++` (En Java/C++ incrementa en 1 exactamente).\n\nHacen exactamente lo mismo, pero tu código queda más limpio y legible.",
+      "lessonText": "# Atajos para Programadores Inteligentes \n\nEn robótica es súper común modificar una variable basándote en su propio valor anterior:\n`puntos = puntos + 5`\n\nEscribir el nombre de la variable dos veces es repetitivo. Por eso los lenguajes crearon los **operadores compuestos**:\n- `puntos += 5` (Equivale a: `puntos = puntos + 5`)\n- `energia -= 10` (Equivale a: `energia = energia - 10`)\n- `velocidad *= 2` (Equivale a: `velocidad = velocidad * 2`)\n- `contador++` (En Java/C++ incrementa en 1 exactamente).\n\nHacen exactamente lo mismo, pero tu código queda más limpio y legible.",
       "options": [
         {
           "text": "Atajos de sintaxis para actualizar una variable sumando, restando o multiplicando su propio valor",

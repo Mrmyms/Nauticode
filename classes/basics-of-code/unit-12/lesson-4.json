@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo saber cuándo usar un 'for' y cuándo usar un 'while'?",
-      "lessonText": "# La Decisión del Arquitecto 🏛️\n\nAmbos bucles pueden lograr cosas similares, pero cada uno tiene su especialidad:\n\n**Usa `for` cuando:**\n- Sabes **exactamente cuántas veces** quieres iterar (ej: repetir 4 veces para las 4 llantas del robot swerve).\n- Vas a recorrer una lista de elementos uno por uno.\n\n**Usa `while` cuando:**\n- La repetición depende de una **condición que no sabes cuándo cambiará** (ej: esperar a que la pelota entre al intake, o mientras el match siga activo).\n\nElegir el bucle correcto hace que tu código sea más simple, limpio y seguro.",
+      "lessonText": "# La Decisión del Arquitecto ️\n\nAmbos bucles pueden lograr cosas similares, pero cada uno tiene su especialidad:\n\n**Usa `for` cuando:**\n- Sabes **exactamente cuántas veces** quieres iterar (ej: repetir 4 veces para las 4 llantas del robot swerve).\n- Vas a recorrer una lista de elementos uno por uno.\n\n**Usa `while` cuando:**\n- La repetición depende de una **condición que no sabes cuándo cambiará** (ej: esperar a que la pelota entre al intake, o mientras el match siga activo).\n\nElegir el bucle correcto hace que tu código sea más simple, limpio y seguro.",
       "options": [
         {
           "text": "For para número conocido de iteraciones; While para condiciones dependientes del estado",

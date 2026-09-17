@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué los errores de secuencia son peligrosos con motores reales?",
-      "lessonText": "# Código en el Mundo Físico 💥\n\nEn un videojuego, si un personaje intenta saltar antes de tocar el suelo, solo se ve extraño en pantalla.\n\nEn un robot de 55 kg en FIRST Robotics:\n1. Si ordenas `moverBrazoAlMaximo()` **antes** de `calibrarSensorDeLimite()`...\n2. El motor empujará el brazo contra la estructura de metal con toda su fuerza.\n3. El engrane se barrerá y el motor Neo o Falcon se quemará.\n\n**El orden de las instrucciones en robótica protege la integridad física de las personas y de la máquina.**",
+      "lessonText": "# Código en el Mundo Físico \n\nEn un videojuego, si un personaje intenta saltar antes de tocar el suelo, solo se ve extraño en pantalla.\n\nEn un robot de 55 kg en FIRST Robotics:\n1. Si ordenas `moverBrazoAlMaximo()` **antes** de `calibrarSensorDeLimite()`...\n2. El motor empujará el brazo contra la estructura de metal con toda su fuerza.\n3. El engrane se barrerá y el motor Neo o Falcon se quemará.\n\n**El orden de las instrucciones en robótica protege la integridad física de las personas y de la máquina.**",
       "options": [
         {
           "text": "Porque ejecutar acciones físicas antes de calibrar sensores puede romper componentes mecánicos",

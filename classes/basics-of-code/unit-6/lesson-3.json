@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es un string y cómo se declara?",
-      "lessonText": "# Texto Entre Comillas 📜\n\nUn **String** (cadena) es una secuencia ordenada de caracteres: letras, números, espacios y símbolos, **siempre rodeados por comillas** (simples `'texto'` o dobles `\"texto\"`).\n\nEjemplos:\n- `robotName = 'Nautilus 4010'`\n- `status = 'AUTO_RUNNING'`\n\nSi olvidas las comillas, la computadora pensará que el texto es el nombre de una variable y arrojará un error.",
+      "lessonText": "# Texto Entre Comillas \n\nUn **String** (cadena) es una secuencia ordenada de caracteres: letras, números, espacios y símbolos, **siempre rodeados por comillas** (simples `'texto'` o dobles `\"texto\"`).\n\nEjemplos:\n- `robotName = 'Nautilus 4010'`\n- `status = 'AUTO_RUNNING'`\n\nSi olvidas las comillas, la computadora pensará que el texto es el nombre de una variable y arrojará un error.",
       "options": [
         {
           "text": "Una secuencia de caracteres delimitada por comillas",

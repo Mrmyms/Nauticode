@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué significa que una variable sea mutable?",
-      "lessonText": "# El Flujo del Tiempo ⏳\n\nEl estado de un robot cambia constantemente durante un match:\n- En el segundo 0, la velocidad es 0.\n- En el segundo 5, la velocidad sube a 100.\n- En el segundo 15, la velocidad cae a 0 al terminar el autónomo.\n\nLa **reasignación** consiste en guardar un dato nuevo en una caja que ya existía, reemplazando el valor viejo por completo.\n```python\nvelocidad = 0     # Arranca en reposo\nvelocidad = 100   # Acelera a fondo\nvelocidad = 0     # Frena\n```",
+      "lessonText": "# El Flujo del Tiempo \n\nEl estado de un robot cambia constantemente durante un match:\n- En el segundo 0, la velocidad es 0.\n- En el segundo 5, la velocidad sube a 100.\n- En el segundo 15, la velocidad cae a 0 al terminar el autónomo.\n\nLa **reasignación** consiste en guardar un dato nuevo en una caja que ya existía, reemplazando el valor viejo por completo.\n```python\nvelocidad = 0     # Arranca en reposo\nvelocidad = 100   # Acelera a fondo\nvelocidad = 0     # Frena\n```",
       "options": [
         {
           "text": "Que su contenido puede modificarse a lo largo del tiempo durante la ejecución",

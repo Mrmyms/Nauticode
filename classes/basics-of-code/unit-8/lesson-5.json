@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Seguridad de alto voltaje en Nautilus 4010!",
-      "lessonText": "# El Enclavamiento de Seguridad (Interlock) 🛑\n\nEl mecanismo de elevación de nuestro robot puede levantar 30 kg a toda velocidad. Para que sea 100% seguro, el software tiene una regla de oro:\n\n**Solo se permite subir el elevador si:**\n1. El limit switch superior NO ha sido alcanzado (`not limiteSuperior`).\n2. Y además, la presión de aire es correcta O el motor está habilitado.\n\nEn este reto final de la Unidad 8, pondrás a prueba tu dominio de comparadores, AND, OR y NOT.",
+      "lessonText": "# El Enclavamiento de Seguridad (Interlock) \n\nEl mecanismo de elevación de nuestro robot puede levantar 30 kg a toda velocidad. Para que sea 100% seguro, el software tiene una regla de oro:\n\n**Solo se permite subir el elevador si:**\n1. El limit switch superior NO ha sido alcanzado (`not limiteSuperior`).\n2. Y además, la presión de aire es correcta O el motor está habilitado.\n\nEn este reto final de la Unidad 8, pondrás a prueba tu dominio de comparadores, AND, OR y NOT.",
       "options": [
         {
           "text": "¡Vamos a programar el interlock de seguridad!",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué el 'else' final es el guardián de los imprevistos?",
-      "lessonText": "# El Escudo Contra lo Inesperado 🛡️\n\n¿Qué pasa si un sensor devuelve un valor corrupto por estática en la cancha de FIRST? Por ejemplo, una cámara de visión envía un estado no contemplado: `estado = 'UNKNOWN_GLITCH'`.\n\nSi solo tienes `if` y `elif` específicos, el programa ignorará todo silenciosamente y el robot quedará congelado sin saber qué hacer.\n\nEl **`else` final** actúa como red de seguridad (*fallback*):\n```python\nif estado == 'TRACKING':\n    apuntar()\nelif estado == 'SEARCHING':\n    girarLentamente()\nelse:\n    # Caso por defecto ante datos extraños\n    detenerTodoYSonarAlerta()\n```",
+      "lessonText": "# El Escudo Contra lo Inesperado ️\n\n¿Qué pasa si un sensor devuelve un valor corrupto por estática en la cancha de FIRST? Por ejemplo, una cámara de visión envía un estado no contemplado: `estado = 'UNKNOWN_GLITCH'`.\n\nSi solo tienes `if` y `elif` específicos, el programa ignorará todo silenciosamente y el robot quedará congelado sin saber qué hacer.\n\nEl **`else` final** actúa como red de seguridad (*fallback*):\n```python\nif estado == 'TRACKING':\n    apuntar()\nelif estado == 'SEARCHING':\n    girarLentamente()\nelse:\n    # Caso por defecto ante datos extraños\n    detenerTodoYSonarAlerta()\n```",
       "options": [
         {
           "text": "Asegura que el programa siempre tenga una respuesta segura ante cualquier valor inesperado",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo transforman las funciones la legibilidad de un sistema robótico?",
-      "lessonText": "# Código que Cuenta una Historia 📖\n\nCompara estos dos estilos para el autonomous de Nautilus:\n\n**Estilo 1 (Caótico sin funciones):**\n```python\n# 400 líneas de cálculos matemáticos, números mágicos y registros de puertos revueltos...\n```\n\n**Estilo 2 (Elegante y Modular con funciones):**\n```python\ndef rutinaAutonomo():\n    salirDeZonaInicio()\n    localizarNotaConLimelight()\n    recogerNotaConIntake()\n    apuntarYShoot()\n```\n¡Cualquier integrante del equipo (mecánica, eléctrica, mentores) puede leer el código y entender la estrategia al instante!",
+      "lessonText": "# Código que Cuenta una Historia \n\nCompara estos dos estilos para el autonomous de Nautilus:\n\n**Estilo 1 (Caótico sin funciones):**\n```python\n# 400 líneas de cálculos matemáticos, números mágicos y registros de puertos revueltos...\n```\n\n**Estilo 2 (Elegante y Modular con funciones):**\n```python\ndef rutinaAutonomo():\n    salirDeZonaInicio()\n    localizarNotaConLimelight()\n    recogerNotaConIntake()\n    apuntarYShoot()\n```\n¡Cualquier integrante del equipo (mecánica, eléctrica, mentores) puede leer el código y entender la estrategia al instante!",
       "options": [
         {
           "text": "Dividen la complejidad en módulos comprensibles con nombres que describen acciones humanas",

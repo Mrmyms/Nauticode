@@ -29,7 +29,7 @@ Si olvidas el paso de actualización o la condición nunca se vuelve falsa, el p
           {
             type: "THEORY",
             question: "¿Qué es un bucle 'while' y cuál es su superpoder?",
-            lessonText: "# El Motor de Repetición 🔄\n\nImagina que tienes que mover un brazo robótico hasta que toque el limit switch superior.\n\nSin bucles, tendrías que escribir:\n```python\nmoverUnPoco()\nmoverUnPoco()\nmoverUnPoco()\n# ¿Y si se necesitan 500 veces? ¡Imposible!\n```\n\nCon un **while loop**, le dices a la computadora:\n```python\nwhile limitSwitchAlcanzado == false:\n    moverUnPoco()\n```\nLa computadora evalúa la condición:\n- Si es `true`: ejecuta el bloque y **vuelve a subir a comprobar la condición**.\n- Solo se detiene cuando la condición finalmente se vuelve `false`.",
+            lessonText: "# El Motor de Repetición \n\nImagina que tienes que mover un brazo robótico hasta que toque el limit switch superior.\n\nSin bucles, tendrías que escribir:\n```python\nmoverUnPoco()\nmoverUnPoco()\nmoverUnPoco()\n# ¿Y si se necesitan 500 veces? ¡Imposible!\n```\n\nCon un **while loop**, le dices a la computadora:\n```python\nwhile limitSwitchAlcanzado == false:\n    moverUnPoco()\n```\nLa computadora evalúa la condición:\n- Si es `true`: ejecuta el bloque y **vuelve a subir a comprobar la condición**.\n- Solo se detiene cuando la condición finalmente se vuelve `false`.",
             options: [
               { text: "Una estructura que repite un bloque de instrucciones mientras su condición sea verdadera", correct: true },
               { text: "Un comando que apaga la máquina si se calienta", correct: false },
@@ -88,7 +88,7 @@ Si olvidas el paso de actualización o la condición nunca se vuelve falsa, el p
           {
             type: "THEORY",
             question: "¿Cuáles son las 3 partes obligatorias de un bucle while?",
-            lessonText: "# El Trío Indispensable 📐\n\nPara que un bucle funcione perfectamente y sepa cuándo detenerse, requiere 3 elementos:\n\n1. **Inicialización (Antes del loop):** Crear la variable que controla el ciclo.\n   - `intentos = 0`\n2. **Condición de Salida (En el encabezado):** La prueba lógica que decide si se continúa.\n   - `while intentos < 3:`\n3. **Actualización (Dentro del loop):** Cambiar el valor de la variable en cada ciclo para acercarse a la salida.\n   - `intentos += 1`\n\nSi falta cualquiera de los tres, tu bucle no funcionará o se quedará atrapado para siempre.",
+            lessonText: "# El Trío Indispensable \n\nPara que un bucle funcione perfectamente y sepa cuándo detenerse, requiere 3 elementos:\n\n1. **Inicialización (Antes del loop):** Crear la variable que controla el ciclo.\n   - `intentos = 0`\n2. **Condición de Salida (En el encabezado):** La prueba lógica que decide si se continúa.\n   - `while intentos < 3:`\n3. **Actualización (Dentro del loop):** Cambiar el valor de la variable en cada ciclo para acercarse a la salida.\n   - `intentos += 1`\n\nSi falta cualquiera de los tres, tu bucle no funcionará o se quedará atrapado para siempre.",
             options: [
               { text: "1. Inicialización, 2. Condición lógica y 3. Actualización de la variable", correct: true },
               { text: "1. Encender, 2. Acelerar y 3. Frenar", correct: false },
@@ -144,7 +144,7 @@ Si olvidas el paso de actualización o la condición nunca se vuelve falsa, el p
           {
             type: "THEORY",
             question: "¿Qué es un bucle infinito (infinite loop) y por qué es peligroso?",
-            lessonText: "# La Trampa Eterna 🕳️\n\nUn **bucle infinito** ocurre cuando la condición de un `while` **NUNCA se vuelve falsa**.\n```python\n# ¡PELIGRO! Esto nunca se detiene\nwhile true:\n    print('¡Auxilio, no puedo parar!')\n```\n¿Qué le pasa a la computadora?\n- El ventilador empieza a zumbar al máximo.\n- La CPU se satura al 100% en ese hilo.\n- El programa deja de responder (se 'congela').\n\nEn un robot de competencia, si el código entra en un bucle infinito en un subproceso crítico, el robot dejará de procesar los comandos del joystick y quedará inerte en medio de la cancha.",
+            lessonText: "# La Trampa Eterna ️\n\nUn **bucle infinito** ocurre cuando la condición de un `while` **NUNCA se vuelve falsa**.\n```python\n# ¡PELIGRO! Esto nunca se detiene\nwhile true:\n    print('¡Auxilio, no puedo parar!')\n```\n¿Qué le pasa a la computadora?\n- El ventilador empieza a zumbar al máximo.\n- La CPU se satura al 100% en ese hilo.\n- El programa deja de responder (se 'congela').\n\nEn un robot de competencia, si el código entra en un bucle infinito en un subproceso crítico, el robot dejará de procesar los comandos del joystick y quedará inerte en medio de la cancha.",
             options: [
               { text: "Un bucle cuya condición nunca cambia a false, congelando el programa y saturando la CPU", correct: true },
               { text: "Un bucle que acelera la velocidad del robot al infinito físicamente", correct: false },
@@ -200,7 +200,7 @@ Si olvidas el paso de actualización o la condición nunca se vuelve falsa, el p
           {
             type: "THEORY",
             question: "¿Cómo funciona el ciclo principal de control (Periodic Loop) en un robot?",
-            lessonText: "# El Latido del Corazón del Robot (50 Hz) 💓\n\nEn FIRST Robotics y en la industria automotriz, los robots no ejecutan un script una sola vez y se apagan. Tienen un **bucle periódico continuo**:\n\n```python\nwhile robotEstaHabilitado == true:\n    # 1. Leer sensores y joystick (50 veces por segundo)\n    leerTelemetria()\n    # 2. Calcular cinemática de swerve drive o chasis\n    calcularTrayectoria()\n    # 3. Enviar voltajes a los motores\n    actualizarMotores()\n```\n\nEste ciclo corre típicamente cada **20 milisegundos (50 Hz)**. ¡Es el pulso vital que mantiene al robot despierto y receptivo!",
+            lessonText: "# El Latido del Corazón del Robot (50 Hz) \n\nEn FIRST Robotics y en la industria automotriz, los robots no ejecutan un script una sola vez y se apagan. Tienen un **bucle periódico continuo**:\n\n```python\nwhile robotEstaHabilitado == true:\n    # 1. Leer sensores y joystick (50 veces por segundo)\n    leerTelemetria()\n    # 2. Calcular cinemática de swerve drive o chasis\n    calcularTrayectoria()\n    # 3. Enviar voltajes a los motores\n    actualizarMotores()\n```\n\nEste ciclo corre típicamente cada **20 milisegundos (50 Hz)**. ¡Es el pulso vital que mantiene al robot despierto y receptivo!",
             options: [
               { text: "Un ciclo continuo que lee sensores, calcula decisiones y actualiza motores decenas de veces por segundo", correct: true },
               { text: "Un motor físico que gira en círculos dentro de la roboRIO", correct: false },
@@ -255,7 +255,7 @@ Si olvidas el paso de actualización o la condición nunca se vuelve falsa, el p
           {
             type: "THEORY",
             question: "¡Control en lazo cerrado para el brazo de Nautilus 4010!",
-            lessonText: "# Llevando el Brazo a su Posición 🦾\n\nEl brazo articulado de nuestro robot tiene un encoder magnético que mide el ángulo actual en grados.\n\nQueremos mover el brazo desde `0` grados hasta alcanzar el ángulo objetivo de `90` grados:\n- Mientras `anguloActual < 90`:\n  - Aplicamos potencia suave al motor del brazo.\n  - En cada ciclo leemos el nuevo ángulo del encoder.\n- En cuanto llega a 90, el bucle concluye y frenamos el motor.\n\nEn este reto final de la Unidad 11, programarás este movimiento preciso.",
+            lessonText: "# Llevando el Brazo a su Posición \n\nEl brazo articulado de nuestro robot tiene un encoder magnético que mide el ángulo actual en grados.\n\nQueremos mover el brazo desde `0` grados hasta alcanzar el ángulo objetivo de `90` grados:\n- Mientras `anguloActual < 90`:\n  - Aplicamos potencia suave al motor del brazo.\n  - En cada ciclo leemos el nuevo ángulo del encoder.\n- En cuanto llega a 90, el bucle concluye y frenamos el motor.\n\nEn este reto final de la Unidad 11, programarás este movimiento preciso.",
             options: [
               { text: "¡Vamos a programar el movimiento con Teus!", correct: true },
               { text: "Prefiero que el brazo gire sin parar hasta doblar el chasis", correct: false },
@@ -343,7 +343,7 @@ for (int i = 0; i < 5; i++) {
           {
             type: "THEORY",
             question: "¿Para qué sirve un bucle 'for' y cuándo es la mejor opción?",
-            lessonText: "# El Contador Automático ⏱️\n\n¿Qué pasa si necesitas:\n- Enviar 5 pulsos de señal a la radio.\n- Calentar los 4 motores del chasis uno por uno.\n- Contar regresivamente del 3 al 1 antes del autónomo.\n\nPodrías usar un `while`, pero tienes que declarar la variable afuera, escribir la condición y acordarte de incrementarla. ¡Es fácil cometer un error!\n\nEl **`for` loop** empaqueta todo de forma compacta y elegante:\n```python\nfor i in range(3):\n    print('¡Paso completado!')\n```\nEsto se ejecutará **exactamente 3 veces** sin riesgo de bucles infinitos por olvido.",
+            lessonText: "# El Contador Automático ️\n\n¿Qué pasa si necesitas:\n- Enviar 5 pulsos de señal a la radio.\n- Calentar los 4 motores del chasis uno por uno.\n- Contar regresivamente del 3 al 1 antes del autónomo.\n\nPodrías usar un `while`, pero tienes que declarar la variable afuera, escribir la condición y acordarte de incrementarla. ¡Es fácil cometer un error!\n\nEl **`for` loop** empaqueta todo de forma compacta y elegante:\n```python\nfor i in range(3):\n    print('¡Paso completado!')\n```\nEsto se ejecutará **exactamente 3 veces** sin riesgo de bucles infinitos por olvido.",
             options: [
               { text: "Para repetir una secuencia de instrucciones una cantidad predeterminada y conocida de veces", correct: true },
               { text: "Para apagar el robot cuando la batería llega a cero", correct: false },
@@ -400,7 +400,7 @@ for (int i = 0; i < 5; i++) {
           {
             type: "THEORY",
             question: "¿Cómo funciona la función `range(inicio, fin, paso)`?",
-            lessonText: "# El Control Total del Rango 🎛️\n\nEn Python, la función `range` tiene 3 parámetros súper versátiles:\n`range(inicio, fin, paso)`\n\n1. **`range(5)`:**\n   - Inicia en 0, llega hasta 4 (el fin nunca se incluye).\n2. **`range(2, 6)`:**\n   - Inicia en 2 y llega hasta 5 -> `[2, 3, 4, 5]`.\n3. **`range(0, 10, 2)` (Con paso / step):\n   - Avanza de 2 en 2 -> `[0, 2, 4, 6, 8]`.\n\n¡Esto te permite crear cualquier secuencia matemática en una sola línea!",
+            lessonText: "# El Control Total del Rango ️\n\nEn Python, la función `range` tiene 3 parámetros súper versátiles:\n`range(inicio, fin, paso)`\n\n1. **`range(5)`:**\n   - Inicia en 0, llega hasta 4 (el fin nunca se incluye).\n2. **`range(2, 6)`:**\n   - Inicia en 2 y llega hasta 5 -> `[2, 3, 4, 5]`.\n3. **`range(0, 10, 2)` (Con paso / step):\n   - Avanza de 2 en 2 -> `[0, 2, 4, 6, 8]`.\n\n¡Esto te permite crear cualquier secuencia matemática en una sola línea!",
             options: [
               { text: "Permite especificar el valor inicial, el límite superior (no inclusivo) y el incremento entre saltos", correct: true },
               { text: "Mide la distancia física entre dos robots en metros", correct: false },
@@ -456,7 +456,7 @@ for (int i = 0; i < 5; i++) {
           {
             type: "THEORY",
             question: "¿Cómo hacemos una cuenta regresiva con un bucle for?",
-            lessonText: "# ¡3, 2, 1... Despegue! 🚀\n\nPara contar hacia atrás, simplemente usamos un **paso negativo** (`step = -1`):\n```python\nfor s in range(3, 0, -1):\n    print(s)\nprint('¡Match Iniciado!')\n```\n- Inicia en `3`.\n- Resta 1 en cada ciclo: `2`, luego `1`.\n- Se detiene antes del `0`.\n- Imprime `¡Match Iniciado!`.\n\nEn robótica es común para secuencias de calibración, temporizadores de autonomous o rampas de frenado suave.",
+            lessonText: "# ¡3, 2, 1... Despegue! \n\nPara contar hacia atrás, simplemente usamos un **paso negativo** (`step = -1`):\n```python\nfor s in range(3, 0, -1):\n    print(s)\nprint('¡Match Iniciado!')\n```\n- Inicia en `3`.\n- Resta 1 en cada ciclo: `2`, luego `1`.\n- Se detiene antes del `0`.\n- Imprime `¡Match Iniciado!`.\n\nEn robótica es común para secuencias de calibración, temporizadores de autonomous o rampas de frenado suave.",
             options: [
               { text: "Usando un valor de paso negativo (ej: -1) para decrementar en cada ciclo", correct: true },
               { text: "Girando la pantalla de cabeza", correct: false },
@@ -512,7 +512,7 @@ for (int i = 0; i < 5; i++) {
           {
             type: "THEORY",
             question: "¿Cómo saber cuándo usar un 'for' y cuándo usar un 'while'?",
-            lessonText: "# La Decisión del Arquitecto 🏛️\n\nAmbos bucles pueden lograr cosas similares, pero cada uno tiene su especialidad:\n\n**Usa `for` cuando:**\n- Sabes **exactamente cuántas veces** quieres iterar (ej: repetir 4 veces para las 4 llantas del robot swerve).\n- Vas a recorrer una lista de elementos uno por uno.\n\n**Usa `while` cuando:**\n- La repetición depende de una **condición que no sabes cuándo cambiará** (ej: esperar a que la pelota entre al intake, o mientras el match siga activo).\n\nElegir el bucle correcto hace que tu código sea más simple, limpio y seguro.",
+            lessonText: "# La Decisión del Arquitecto ️\n\nAmbos bucles pueden lograr cosas similares, pero cada uno tiene su especialidad:\n\n**Usa `for` cuando:**\n- Sabes **exactamente cuántas veces** quieres iterar (ej: repetir 4 veces para las 4 llantas del robot swerve).\n- Vas a recorrer una lista de elementos uno por uno.\n\n**Usa `while` cuando:**\n- La repetición depende de una **condición que no sabes cuándo cambiará** (ej: esperar a que la pelota entre al intake, o mientras el match siga activo).\n\nElegir el bucle correcto hace que tu código sea más simple, limpio y seguro.",
             options: [
               { text: "For para número conocido de iteraciones; While para condiciones dependientes del estado", correct: true },
               { text: "For es para la mañana y While es para la tarde", correct: false },
@@ -568,7 +568,7 @@ for (int i = 0; i < 5; i++) {
           {
             type: "THEORY",
             question: "¡Chequeo de subsistemas con Teus!",
-            lessonText: "# El Test de Pits Pre-Match 🏎️\n\nAntes de colocar a Nautilus 4010 en la cancha, el equipo corre un script de diagnóstico que:\n1. Parpadea la tira de luces LED CANdle 3 veces en color dorado (`#EDB824`).\n2. Realiza un test de pulso en los 4 motores de tracción.\n\nEn este reto final de la Unidad 12, programarás estos bucles de chequeo con `for`.",
+            lessonText: "# El Test de Pits Pre-Match ️\n\nAntes de colocar a Nautilus 4010 en la cancha, el equipo corre un script de diagnóstico que:\n1. Parpadea la tira de luces LED CANdle 3 veces en color dorado (`#EDB824`).\n2. Realiza un test de pulso en los 4 motores de tracción.\n\nEn este reto final de la Unidad 12, programarás estos bucles de chequeo con `for`.",
             options: [
               { text: "¡Vamos a programar el test de diagnóstico!", correct: true },
               { text: "Prefiero entrar a la cancha sin probar los sistemas", correct: false },
@@ -644,7 +644,7 @@ A veces, las reglas fijas de un bucle no son suficientes. Durante la ejecución 
           {
             type: "THEORY",
             question: "¿Qué hace la instrucción 'break' dentro de un bucle?",
-            lessonText: "# El Botón de Parada Inmediata 🛑\n\nImagina que estás buscando una nota naranja en la alfombra con un bucle que revisa 10 posiciones:\n```python\nfor pos in range(10):\n    if notaDetectada == true:\n        print('¡Nota encontrada!')\n        break  # ¡Se detiene de inmediato!\n    avanzarSiguientePunto()\n```\n¿Para qué seguir buscando las otras posiciones si ya encontraste la pieza?\n\nLa instrucción **`break` rompe el bucle al instante**, sin esperar a que termine el rango ni a que la condición del while se vuelva falsa.",
+            lessonText: "# El Botón de Parada Inmediata \n\nImagina que estás buscando una nota naranja en la alfombra con un bucle que revisa 10 posiciones:\n```python\nfor pos in range(10):\n    if notaDetectada == true:\n        print('¡Nota encontrada!')\n        break  # ¡Se detiene de inmediato!\n    avanzarSiguientePunto()\n```\n¿Para qué seguir buscando las otras posiciones si ya encontraste la pieza?\n\nLa instrucción **`break` rompe el bucle al instante**, sin esperar a que termine el rango ni a que la condición del while se vuelva falsa.",
             options: [
               { text: "Termina el bucle de forma inmediata y transfiere el control a la línea siguiente fuera del bucle", correct: true },
               { text: "Pausa el programa por 10 minutos", correct: false },
@@ -701,7 +701,7 @@ A veces, las reglas fijas de un bucle no son suficientes. Durante la ejecución 
           {
             type: "THEORY",
             question: "¿Cuál es la diferencia entre 'break' y 'continue'?",
-            lessonText: "# Pasar de Largo 🦘\n\nA veces no quieres cancelar todo el bucle, sino **ignorar únicamente la iteración actual** y pasar de largo al siguiente ciclo.\n\nPara eso usamos **`continue`**:\n```python\nfor motor in range(4):\n    if motor == 2:  # El motor 2 está en mantenimiento\n        continue    # ¡Salta este motor y ve al siguiente!\n    probarMotor(motor)\n```\n- `break`: Aborta y destruye el bucle por completo.\n- `continue`: Aborta el turno actual y salta al siguiente número del ciclo.",
+            lessonText: "# Pasar de Largo \n\nA veces no quieres cancelar todo el bucle, sino **ignorar únicamente la iteración actual** y pasar de largo al siguiente ciclo.\n\nPara eso usamos **`continue`**:\n```python\nfor motor in range(4):\n    if motor == 2:  # El motor 2 está en mantenimiento\n        continue    # ¡Salta este motor y ve al siguiente!\n    probarMotor(motor)\n```\n- `break`: Aborta y destruye el bucle por completo.\n- `continue`: Aborta el turno actual y salta al siguiente número del ciclo.",
             options: [
               { text: "break cancela todo el bucle definitivamente; continue solo salta a la siguiente iteración", correct: true },
               { text: "Son exactamente la misma instrucción con dos nombres distintos", correct: false },
@@ -757,7 +757,7 @@ A veces, las reglas fijas de un bucle no son suficientes. Durante la ejecución 
           {
             type: "THEORY",
             question: "¿Qué es una variable bandera (flag variable)?",
-            lessonText: "# Levantando la Bandera 🚩\n\nUna **Flag (bandera)** es una variable booleana que actúa como señal de alerta entre diferentes partes del código.\n\nEjemplo clásico:\n```python\npeligroDetectado = false  # Bandera abajo\n\nfor sensor in listaSensores:\n    if sensor.temperatura > 90:\n        peligroDetectado = true  # ¡Bandera arriba!\n        break\n\nif peligroDetectado:\n    activarVentiladores()\n```\nLa bandera recuerda el resultado de la búsqueda para que otras partes del programa puedan actuar en consecuencia.",
+            lessonText: "# Levantando la Bandera \n\nUna **Flag (bandera)** es una variable booleana que actúa como señal de alerta entre diferentes partes del código.\n\nEjemplo clásico:\n```python\npeligroDetectado = false  # Bandera abajo\n\nfor sensor in listaSensores:\n    if sensor.temperatura > 90:\n        peligroDetectado = true  # ¡Bandera arriba!\n        break\n\nif peligroDetectado:\n    activarVentiladores()\n```\nLa bandera recuerda el resultado de la búsqueda para que otras partes del programa puedan actuar en consecuencia.",
             options: [
               { text: "Una variable booleana que cambia de estado para señalar que un evento o condición ocurrió", correct: true },
               { text: "La bandera de tela que lleva el robot en el desfile", correct: false },
@@ -814,7 +814,7 @@ A veces, las reglas fijas de un bucle no son suficientes. Durante la ejecución 
           {
             type: "THEORY",
             question: "¿Cómo se implementa una parada de emergencia en software?",
-            lessonText: "# El Protocolo E-Stop 🚨\n\nEn FIRST Robotics, la seguridad es primero. Si un sensor de corriente reporta que un motor está atorado consumiendo más de 40 Amperes:\n¡El motor se quemará en menos de 3 segundos si no se corta la energía!\n\nEn el bucle de control:\n```python\nwhile robotEnMovimiento:\n    if corrienteAmperes > 40.0:\n        print('¡SOBRECORRIENTE! E-STOP ACTIVADO')\n        cortarEnergiaInmediata()\n        break  # Salida instantánea\n    actualizarControl()\n```\nEl `break` garantiza que no se ejecuten más ciclos de control con corriente excesiva.",
+            lessonText: "# El Protocolo E-Stop \n\nEn FIRST Robotics, la seguridad es primero. Si un sensor de corriente reporta que un motor está atorado consumiendo más de 40 Amperes:\n¡El motor se quemará en menos de 3 segundos si no se corta la energía!\n\nEn el bucle de control:\n```python\nwhile robotEnMovimiento:\n    if corrienteAmperes > 40.0:\n        print('¡SOBRECORRIENTE! E-STOP ACTIVADO')\n        cortarEnergiaInmediata()\n        break  # Salida instantánea\n    actualizarControl()\n```\nEl `break` garantiza que no se ejecuten más ciclos de control con corriente excesiva.",
             options: [
               { text: "Interrumpiendo inmediatamente el bucle de movimiento con break al detectar sobrecorriente o anomalías críticas", correct: true },
               { text: "Esperando a que el motor se queme para saber que falló", correct: false },
@@ -870,7 +870,7 @@ A veces, las reglas fijas de un bucle no son suficientes. Durante la ejecución 
           {
             type: "THEORY",
             question: "¡Misión de rescate de código en la arena!",
-            lessonText: "# El Elevador Trabado ⚙️\n\nDurante una prueba en el taller, el mecanismo elevador sube escalón por escalón hasta el piso 5.\n\nSin embargo, el sensor del piso 5 tiene un cable flojo y nunca marca `true`. El bucle `while` se quedaría intentando subir indefinidamente y rompería la polea.\n\nEn este reto final de la Unidad 13, implementarás un **límite de seguridad por tiempo / intentos (Timeout Sentinel)** usando `break` para proteger el robot de fallas de sensores.",
+            lessonText: "# El Elevador Trabado ️\n\nDurante una prueba en el taller, el mecanismo elevador sube escalón por escalón hasta el piso 5.\n\nSin embargo, el sensor del piso 5 tiene un cable flojo y nunca marca `true`. El bucle `while` se quedaría intentando subir indefinidamente y rompería la polea.\n\nEn este reto final de la Unidad 13, implementarás un **límite de seguridad por tiempo / intentos (Timeout Sentinel)** usando `break` para proteger el robot de fallas de sensores.",
             options: [
               { text: "¡Vamos a salvar el mecanismo con un break de seguridad!", correct: true },
               { text: "Prefiero que la polea se rompa", correct: false },

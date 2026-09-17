@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué los desarrolladores usamos pseudocódigo?",
-      "lessonText": "# Pensar Antes de Escribir ✍️\n\nEl **pseudocódigo** es una descripción de alto nivel de un algoritmo que combina lenguaje natural con estructuras de programación.\n\nNo le importa si olvidas un punto y coma o si usas mayúsculas: su objetivo es que el **equipo de ingeniería se ponga de acuerdo en la lógica** antes de pasar horas depurando en Java o C++.\n\nEjemplo de pseudocódigo en Nautilus:\n```text\nSI botónDisparar está presionado ENTONCES:\n    acelerarFlywheel()\n    esperar 1 segundo\n    alimentarNota()\nSINO:\n    apagarFlywheel()\n```",
+      "lessonText": "# Pensar Antes de Escribir ️\n\nEl **pseudocódigo** es una descripción de alto nivel de un algoritmo que combina lenguaje natural con estructuras de programación.\n\nNo le importa si olvidas un punto y coma o si usas mayúsculas: su objetivo es que el **equipo de ingeniería se ponga de acuerdo en la lógica** antes de pasar horas depurando en Java o C++.\n\nEjemplo de pseudocódigo en Nautilus:\n```text\nSI botónDisparar está presionado ENTONCES:\n    acelerarFlywheel()\n    esperar 1 segundo\n    alimentarNota()\nSINO:\n    apagarFlywheel()\n```",
       "options": [
         {
           "text": "Para diseñar y validar la lógica en palabras claras antes de programar formalmente",

@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Control en lazo cerrado para el brazo de Nautilus 4010!",
-      "lessonText": "# Llevando el Brazo a su Posición 🦾\n\nEl brazo articulado de nuestro robot tiene un encoder magnético que mide el ángulo actual en grados.\n\nQueremos mover el brazo desde `0` grados hasta alcanzar el ángulo objetivo de `90` grados:\n- Mientras `anguloActual < 90`:\n  - Aplicamos potencia suave al motor del brazo.\n  - En cada ciclo leemos el nuevo ángulo del encoder.\n- En cuanto llega a 90, el bucle concluye y frenamos el motor.\n\nEn este reto final de la Unidad 11, programarás este movimiento preciso.",
+      "lessonText": "# Llevando el Brazo a su Posición \n\nEl brazo articulado de nuestro robot tiene un encoder magnético que mide el ángulo actual en grados.\n\nQueremos mover el brazo desde `0` grados hasta alcanzar el ángulo objetivo de `90` grados:\n- Mientras `anguloActual < 90`:\n  - Aplicamos potencia suave al motor del brazo.\n  - En cada ciclo leemos el nuevo ángulo del encoder.\n- En cuanto llega a 90, el bucle concluye y frenamos el motor.\n\nEn este reto final de la Unidad 11, programarás este movimiento preciso.",
       "options": [
         {
           "text": "¡Vamos a programar el movimiento con Teus!",

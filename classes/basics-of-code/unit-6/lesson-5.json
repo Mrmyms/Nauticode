@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡El laboratorio de sensores de Teus!",
-      "lessonText": "# El Dashboard de Telemetría 📊\n\nNautilus 4010 tiene múltiples subsistemas transmitiendo telemetría en vivo a la pantalla del drive team:\n- Giroscopio Yaw (`float`)\n- Contador de notas (`int`)\n- Estado de conexión al Field Management System (`bool`)\n- Nombre del modo de juego (`string`)\n\nEn este reto final de la Unidad 6, demostrarás tu maestría clasificando y operando los 4 tipos de datos primitivos.",
+      "lessonText": "# El Dashboard de Telemetría \n\nNautilus 4010 tiene múltiples subsistemas transmitiendo telemetría en vivo a la pantalla del drive team:\n- Giroscopio Yaw (`float`)\n- Contador de notas (`int`)\n- Estado de conexión al Field Management System (`bool`)\n- Nombre del modo de juego (`string`)\n\nEn este reto final de la Unidad 6, demostrarás tu maestría clasificando y operando los 4 tipos de datos primitivos.",
       "options": [
         {
           "text": "¡Vamos a clasificar la telemetría del robot!",

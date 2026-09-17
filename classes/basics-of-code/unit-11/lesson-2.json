@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cuáles son las 3 partes obligatorias de un bucle while?",
-      "lessonText": "# El Trío Indispensable 📐\n\nPara que un bucle funcione perfectamente y sepa cuándo detenerse, requiere 3 elementos:\n\n1. **Inicialización (Antes del loop):** Crear la variable que controla el ciclo.\n   - `intentos = 0`\n2. **Condición de Salida (En el encabezado):** La prueba lógica que decide si se continúa.\n   - `while intentos < 3:`\n3. **Actualización (Dentro del loop):** Cambiar el valor de la variable en cada ciclo para acercarse a la salida.\n   - `intentos += 1`\n\nSi falta cualquiera de los tres, tu bucle no funcionará o se quedará atrapado para siempre.",
+      "lessonText": "# El Trío Indispensable \n\nPara que un bucle funcione perfectamente y sepa cuándo detenerse, requiere 3 elementos:\n\n1. **Inicialización (Antes del loop):** Crear la variable que controla el ciclo.\n   - `intentos = 0`\n2. **Condición de Salida (En el encabezado):** La prueba lógica que decide si se continúa.\n   - `while intentos < 3:`\n3. **Actualización (Dentro del loop):** Cambiar el valor de la variable en cada ciclo para acercarse a la salida.\n   - `intentos += 1`\n\nSi falta cualquiera de los tres, tu bucle no funcionará o se quedará atrapado para siempre.",
       "options": [
         {
           "text": "1. Inicialización, 2. Condición lógica y 3. Actualización de la variable",

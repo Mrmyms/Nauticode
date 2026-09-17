@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "El reto de los primeros 15 segundos en FIRST Robotics",
-      "lessonText": "# El Periodo Autónomo ⏱️\n\nEn cada match de FRC, los primeros 15 segundos son **100% autónomos**.\n\nNingún humano puede tocar los joysticks. El robot depende enteramente del **algoritmo preprogramado** en su memoria:\n1. Salir de la zona de inicio.\n2. Localizar la pieza con visión artificial.\n3. Recogerla con el intake.\n4. Apuntar y anotar puntos.\n\nSi el algoritmo es defectuoso, el robot puede chocar contra la pared o desperdiciar valiosos segundos de juego.",
+      "lessonText": "# El Periodo Autónomo ️\n\nEn cada match de FRC, los primeros 15 segundos son **100% autónomos**.\n\nNingún humano puede tocar los joysticks. El robot depende enteramente del **algoritmo preprogramado** en su memoria:\n1. Salir de la zona de inicio.\n2. Localizar la pieza con visión artificial.\n3. Recogerla con el intake.\n4. Apuntar y anotar puntos.\n\nSi el algoritmo es defectuoso, el robot puede chocar contra la pared o desperdiciar valiosos segundos de juego.",
       "options": [
         {
           "text": "¡Diseñemos un algoritmo de autónomo infalible!",

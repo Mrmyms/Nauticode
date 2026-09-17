@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo funciona el operador lógico AND?",
-      "lessonText": "# Ambas Condiciones o Nada 🤝\n\nEl operador **AND** (en Java/C++ se escribe `&&`, en Python se escribe `and`) exige que **ambas condiciones sean verdaderas simultáneamente** para que el resultado sea `true`.\n\nEjemplo en el robot Nautilus:\n¿Cuándo podemos disparar una pieza al Speaker?\n`shooterListo && robotAlineado`\n- Si el shooter está listo (`true`) PERO el robot no está alineado (`false`)... **NO disparas** (`false`).\n- Si el robot está alineado (`true`) pero el shooter está frío (`false`)... **NO disparas** (`false`).\n- ¡SOLO si ambos son `true` la compuerta AND abre el paso!",
+      "lessonText": "# Ambas Condiciones o Nada \n\nEl operador **AND** (en Java/C++ se escribe `&&`, en Python se escribe `and`) exige que **ambas condiciones sean verdaderas simultáneamente** para que el resultado sea `true`.\n\nEjemplo en el robot Nautilus:\n¿Cuándo podemos disparar una pieza al Speaker?\n`shooterListo && robotAlineado`\n- Si el shooter está listo (`true`) PERO el robot no está alineado (`false`)... **NO disparas** (`false`).\n- Si el robot está alineado (`true`) pero el shooter está frío (`false`)... **NO disparas** (`false`).\n- ¡SOLO si ambos son `true` la compuerta AND abre el paso!",
       "options": [
         {
           "text": "Devuelve true únicamente si TODAS las condiciones conectadas son verdaderas",

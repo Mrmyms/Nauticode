@@ -27,7 +27,7 @@ En ingeniería de software profesional, si copias y pegas el mismo bloque de có
           {
             type: "THEORY",
             question: "¿Por qué copiar y pegar código es peligroso y cómo lo resuelven las funciones?",
-            lessonText: "# La Pesadilla de Copiar y Pegar 🍝\n\nImagina que para encender el robot necesitas ejecutar 5 líneas de configuración.\n\nSi copias y pegas esas 5 líneas en 10 lugares diferentes de tu programa:\n- Tu código tendrá 50 líneas repetitivas y sucias.\n- Si descubres que uno de los puertos del motor cambió, ¡tienes que buscar y editar los 10 lugares a mano!\n- Si olvidas uno solo, tu robot tendrá un bug fantasma.\n\nEl **Principio DRY (Don't Repeat Yourself)** dice:\n*'Empaqueta esas 5 líneas dentro de una función llamada `iniciarRobot()` y solo llámala cuando la necesites'*. Limpio, modular y profesional.",
+            lessonText: "# La Pesadilla de Copiar y Pegar \n\nImagina que para encender el robot necesitas ejecutar 5 líneas de configuración.\n\nSi copias y pegas esas 5 líneas en 10 lugares diferentes de tu programa:\n- Tu código tendrá 50 líneas repetitivas y sucias.\n- Si descubres que uno de los puertos del motor cambió, ¡tienes que buscar y editar los 10 lugares a mano!\n- Si olvidas uno solo, tu robot tendrá un bug fantasma.\n\nEl **Principio DRY (Don't Repeat Yourself)** dice:\n*'Empaqueta esas 5 líneas dentro de una función llamada `iniciarRobot()` y solo llámala cuando la necesites'*. Limpio, modular y profesional.",
             options: [
               { text: "Empaquetar código repetitivo en una función para reutilizarlo y mantenerlo en un solo lugar", correct: true },
               { text: "Copiar y pegar la mayor cantidad de veces posible para hacer el archivo más grande", correct: false },
@@ -82,7 +82,7 @@ En ingeniería de software profesional, si copias y pegas el mismo bloque de có
           {
             type: "THEORY",
             question: "¿Cómo se define y cómo se ejecuta una función?",
-            lessonText: "# El Botón Personalizado 🔘\n\nCrear una función es como construir un botón en una máquina:\n\n1. **Definir la función (Construir el botón):**\nEn Python usamos la palabra clave `def`:\n```python\ndef pitarAlarma():\n    print('¡BEEP! Robot en movimiento')\n```\n*Nota: Definir la función NO ejecuta el código todavía. Solo le enseña a la computadora qué hacer cuando se le pida.*\n\n2. **Invocar / Llamar a la función (Apretar el botón):**\n```python\npitarAlarma()  # ¡Aquí es donde la CPU corre el código!\n```\nLos paréntesis `()` son los que activan la ejecución.",
+            lessonText: "# El Botón Personalizado \n\nCrear una función es como construir un botón en una máquina:\n\n1. **Definir la función (Construir el botón):**\nEn Python usamos la palabra clave `def`:\n```python\ndef pitarAlarma():\n    print('¡BEEP! Robot en movimiento')\n```\n*Nota: Definir la función NO ejecuta el código todavía. Solo le enseña a la computadora qué hacer cuando se le pida.*\n\n2. **Invocar / Llamar a la función (Apretar el botón):**\n```python\npitarAlarma()  # ¡Aquí es donde la CPU corre el código!\n```\nLos paréntesis `()` son los que activan la ejecución.",
             options: [
               { text: "Se define con def/void y se ejecuta escribiendo su nombre seguido de paréntesis ()", correct: true },
               { text: "Se ejecuta automáticamente al escribir su nombre con mayúsculas", correct: false },
@@ -140,7 +140,7 @@ En ingeniería de software profesional, si copias y pegas el mismo bloque de có
           {
             type: "THEORY",
             question: "¿Qué es el 'Scope' (alcance) de una variable?",
-            lessonText: "# Lo Que Pasa en la Función, Se Queda en la Función 🔒\n\nEl **Scope** determina en qué partes de tu programa una variable es visible y accesible:\n\n1. **Variables Locales:** Se crean DENTRO de una función.\n   - Solo existen mientras la función se está ejecutando.\n   - En cuanto la función termina, la caja de memoria **se destruye**.\n   - ¡El código de afuera no puede verlas ni usarlas!\n\n2. **Variables Globales:** Se crean AFUERA de todas las funciones.\n   - Cualquier función puede leerlas a lo largo de todo el archivo.",
+            lessonText: "# Lo Que Pasa en la Función, Se Queda en la Función \n\nEl **Scope** determina en qué partes de tu programa una variable es visible y accesible:\n\n1. **Variables Locales:** Se crean DENTRO de una función.\n   - Solo existen mientras la función se está ejecutando.\n   - En cuanto la función termina, la caja de memoria **se destruye**.\n   - ¡El código de afuera no puede verlas ni usarlas!\n\n2. **Variables Globales:** Se crean AFUERA de todas las funciones.\n   - Cualquier función puede leerlas a lo largo de todo el archivo.",
             options: [
               { text: "La región del programa donde una variable existe y puede ser consultada", correct: true },
               { text: "La distancia a la que llega el radio Wi-Fi del robot", correct: false },
@@ -196,7 +196,7 @@ En ingeniería de software profesional, si copias y pegas el mismo bloque de có
           {
             type: "THEORY",
             question: "¿Cómo transforman las funciones la legibilidad de un sistema robótico?",
-            lessonText: "# Código que Cuenta una Historia 📖\n\nCompara estos dos estilos para el autonomous de Nautilus:\n\n**Estilo 1 (Caótico sin funciones):**\n```python\n# 400 líneas de cálculos matemáticos, números mágicos y registros de puertos revueltos...\n```\n\n**Estilo 2 (Elegante y Modular con funciones):**\n```python\ndef rutinaAutonomo():\n    salirDeZonaInicio()\n    localizarNotaConLimelight()\n    recogerNotaConIntake()\n    apuntarYShoot()\n```\n¡Cualquier integrante del equipo (mecánica, eléctrica, mentores) puede leer el código y entender la estrategia al instante!",
+            lessonText: "# Código que Cuenta una Historia \n\nCompara estos dos estilos para el autonomous de Nautilus:\n\n**Estilo 1 (Caótico sin funciones):**\n```python\n# 400 líneas de cálculos matemáticos, números mágicos y registros de puertos revueltos...\n```\n\n**Estilo 2 (Elegante y Modular con funciones):**\n```python\ndef rutinaAutonomo():\n    salirDeZonaInicio()\n    localizarNotaConLimelight()\n    recogerNotaConIntake()\n    apuntarYShoot()\n```\n¡Cualquier integrante del equipo (mecánica, eléctrica, mentores) puede leer el código y entender la estrategia al instante!",
             options: [
               { text: "Dividen la complejidad en módulos comprensibles con nombres que describen acciones humanas", correct: true },
               { text: "Aumentan la complejidad para que nadie más pueda entender el código", correct: false },
@@ -252,7 +252,7 @@ En ingeniería de software profesional, si copias y pegas el mismo bloque de có
           {
             type: "THEORY",
             question: "¡Construyendo la librería de movimientos de Nautilus 4010!",
-            lessonText: "# El Kit de Movimiento de Teus 🎮\n\nPara que los pilotos y los programadores de autónomo no tengan que lidiar con voltajes individuales de 4 ruedas en cada línea, creamos la capa de abstracción de comandos:\n- `avanzar()`\n- `retroceder()`\n- `girarDerecha()`\n- `frenar()`\n\nEn este reto final de la Unidad 14, definirás y enlazarás las funciones base del chasis para crear una coreografía limpia de movimientos.",
+            lessonText: "# El Kit de Movimiento de Teus \n\nPara que los pilotos y los programadores de autónomo no tengan que lidiar con voltajes individuales de 4 ruedas en cada línea, creamos la capa de abstracción de comandos:\n- `avanzar()`\n- `retroceder()`\n- `girarDerecha()`\n- `frenar()`\n\nEn este reto final de la Unidad 14, definirás y enlazarás las funciones base del chasis para crear una coreografía limpia de movimientos.",
             options: [
               { text: "¡Vamos a programar los comandos del chasis con Teus!", correct: true },
               { text: "Prefiero mover cada rueda escribiendo voltajes a mano", correct: false },
@@ -335,7 +335,7 @@ cm = calcularDistancia(400) # cm ahora vale 20.0
           {
             type: "THEORY",
             question: "¿Cuál es la diferencia entre un parámetro y un argumento?",
-            lessonText: "# Funciones Personalizables 🎛️\n\nImagina una función `avanzar()`. Si siempre avanza a velocidad fija de 50%, no nos sirve cuando queremos ir despacio o a fondo.\n\nPara hacerla flexible, agregamos **Parámetros** entre los paréntesis:\n```python\ndef avanzar(velocidad):\n    print('Avanzando a potencia: ' + str(velocidad))\n```\n- **Parámetro:** El nombre de la variable receptora en la definición (`velocidad`).\n- **Argumento:** El valor concreto que le pasas al llamarla: `avanzar(0.3)` o `avanzar(1.0)`.\n\n¡La misma función ahora sirve para cualquier velocidad imaginable!",
+            lessonText: "# Funciones Personalizables ️\n\nImagina una función `avanzar()`. Si siempre avanza a velocidad fija de 50%, no nos sirve cuando queremos ir despacio o a fondo.\n\nPara hacerla flexible, agregamos **Parámetros** entre los paréntesis:\n```python\ndef avanzar(velocidad):\n    print('Avanzando a potencia: ' + str(velocidad))\n```\n- **Parámetro:** El nombre de la variable receptora en la definición (`velocidad`).\n- **Argumento:** El valor concreto que le pasas al llamarla: `avanzar(0.3)` o `avanzar(1.0)`.\n\n¡La misma función ahora sirve para cualquier velocidad imaginable!",
             options: [
               { text: "El parámetro es la variable en la definición; el argumento es el valor real enviado en la llamada", correct: true },
               { text: "Parámetro es para números y argumento es para letras", correct: false },
@@ -392,7 +392,7 @@ cm = calcularDistancia(400) # cm ahora vale 20.0
           {
             type: "THEORY",
             question: "¿Cómo pasamos más de un dato a una misma función?",
-            lessonText: "# El Panel con Múltiples Perillas 🎚️🎚️\n\nPuedes agregar tantos parámetros como requiera la acción, **separándolos por comas**:\n```python\ndef moverMecanismo(potencia, duracionSegundos):\n    print('Moviendo a potencia ' + str(potencia) + ' durante ' + str(duracionSegundos) + 's')\n```\nAl llamarla, debes pasar los argumentos en el mismo orden:\n`moverMecanismo(0.75, 3.0)`\n- `potencia` toma el valor `0.75`.\n- `duracionSegundos` toma el valor `3.0`.",
+            lessonText: "# El Panel con Múltiples Perillas ️️\n\nPuedes agregar tantos parámetros como requiera la acción, **separándolos por comas**:\n```python\ndef moverMecanismo(potencia, duracionSegundos):\n    print('Moviendo a potencia ' + str(potencia) + ' durante ' + str(duracionSegundos) + 's')\n```\nAl llamarla, debes pasar los argumentos en el mismo orden:\n`moverMecanismo(0.75, 3.0)`\n- `potencia` toma el valor `0.75`.\n- `duracionSegundos` toma el valor `3.0`.",
             options: [
               { text: "Separando los parámetros con comas entre los paréntesis en orden correspondiente", correct: true },
               { text: "Creando una función distinta para cada número", correct: false },
@@ -448,7 +448,7 @@ cm = calcularDistancia(400) # cm ahora vale 20.0
           {
             type: "THEORY",
             question: "¿Cuál es la diferencia radical entre `print()` y `return`?",
-            lessonText: "# El Mensajero del Resultado 📬\n\n- **`print()`** solo muestra texto en la pantalla para que un humano lo lea. **La computadora no puede usar ese texto para nada más**.\n- **`return`** devuelve el dato calculado directamente a la variable que llamó a la función para que el programa pueda seguir trabajando con él.\n\nEjemplo revelador:\n```python\ndef sumar(a, b):\n    return a + b\n\n# El valor devuelto (15) se guarda en la variable total\ntotal = sumar(10, 5)\nprint(total * 2)  # ¡Podemos usar el resultado para más cálculos!\n```\nAdemás, cuando la CPU ejecuta un `return`, **la función termina de inmediato**.",
+            lessonText: "# El Mensajero del Resultado \n\n- **`print()`** solo muestra texto en la pantalla para que un humano lo lea. **La computadora no puede usar ese texto para nada más**.\n- **`return`** devuelve el dato calculado directamente a la variable que llamó a la función para que el programa pueda seguir trabajando con él.\n\nEjemplo revelador:\n```python\ndef sumar(a, b):\n    return a + b\n\n# El valor devuelto (15) se guarda en la variable total\ntotal = sumar(10, 5)\nprint(total * 2)  # ¡Podemos usar el resultado para más cálculos!\n```\nAdemás, cuando la CPU ejecuta un `return`, **la función termina de inmediato**.",
             options: [
               { text: "print solo muestra texto en pantalla; return devuelve el dato a la variable para seguir operándolo", correct: true },
               { text: "print guarda el valor en el disco duro y return lo borra", correct: false },
@@ -505,7 +505,7 @@ cm = calcularDistancia(400) # cm ahora vale 20.0
           {
             type: "THEORY",
             question: "¿Qué diferencia a una función matemática de una función con efectos secundarios?",
-            lessonText: "# Matemáticas vs Acciones Físicas 🦾📐\n\nEn software de robótica trabajamos con dos tipos de funciones:\n\n1. **Funciones Puras (Cálculos):**\n   - Reciben datos y devuelven un resultado sin modificar el mundo exterior.\n   - Ejemplo: `convertirPulgadasACentimetros(pulgadas)`\n   - Siempre que le des el mismo número, devuelve exactamente el mismo resultado.\n\n2. **Funciones con Efectos Secundarios (Side Effects):**\n   - Interactúan con el hardware real del robot.\n   - Ejemplo: `moverBrazo(1.0)`, `encenderLuces()`, `tocarBuzzer()`.\n   - Modifican el mundo físico exterior.",
+            lessonText: "# Matemáticas vs Acciones Físicas \n\nEn software de robótica trabajamos con dos tipos de funciones:\n\n1. **Funciones Puras (Cálculos):**\n   - Reciben datos y devuelven un resultado sin modificar el mundo exterior.\n   - Ejemplo: `convertirPulgadasACentimetros(pulgadas)`\n   - Siempre que le des el mismo número, devuelve exactamente el mismo resultado.\n\n2. **Funciones con Efectos Secundarios (Side Effects):**\n   - Interactúan con el hardware real del robot.\n   - Ejemplo: `moverBrazo(1.0)`, `encenderLuces()`, `tocarBuzzer()`.\n   - Modifican el mundo físico exterior.",
             options: [
               { text: "Las funciones puras solo calculan y retornan valores; las funciones con efectos secundarios interactúan con hardware", correct: true },
               { text: "Las funciones puras son más lentas", correct: false },
@@ -561,7 +561,7 @@ cm = calcularDistancia(400) # cm ahora vale 20.0
           {
             type: "THEORY",
             question: "¡La odometría real de Nautilus 4010!",
-            lessonText: "# Traduciendo Ticks a Metros en la Cancha 📏\n\nUn encoder en el eje del motor genera miles de pulsos electrónicos llamados **ticks** por cada vuelta de la rueda.\n\nEl procesador no puede tomar decisiones estratégicas pensando en '15,420 ticks': el piloto y el autonomous necesitan saber **cuántos metros reales avanzó el robot**.\n\nEn este reto final de la Unidad 15, construirás la función de telemetría que recibe los ticks del sensor, aplica la constante de reducción y retorna los metros recorridos.",
+            lessonText: "# Traduciendo Ticks a Metros en la Cancha \n\nUn encoder en el eje del motor genera miles de pulsos electrónicos llamados **ticks** por cada vuelta de la rueda.\n\nEl procesador no puede tomar decisiones estratégicas pensando en '15,420 ticks': el piloto y el autonomous necesitan saber **cuántos metros reales avanzó el robot**.\n\nEn este reto final de la Unidad 15, construirás la función de telemetría que recibe los ticks del sensor, aplica la constante de reducción y retorna los metros recorridos.",
             options: [
               { text: "¡Vamos a programar el conversor de odometría con Teus!", correct: true },
               { text: "Prefiero medir la distancia con una regla durante el match", correct: false },

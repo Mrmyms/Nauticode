@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo compara la computadora dos datos numéricos?",
-      "lessonText": "# Las Balanzas de la CPU ⚖️\n\nLos **operadores relacionales** comparan dos valores y siempre producen un booleano (`true` o `false`):\n- `==` : ¿Es exactamente igual? (`5 == 5` -> `true`)\n- `!=` : ¿Es diferente? (`5 != 3` -> `true`)\n- `>` y `<` : Mayor que y menor que (`12 > 10` -> `true`)\n- `>=` y `<=` : Mayor o igual, y menor o igual.\n\nEn FIRST Robotics comparamos todo el tiempo:\n`bateria >= 12.0` (¿La batería tiene suficiente carga?)\n`distanciaCM < 30.0` (¿Hay un obstáculo demasiado cerca?).",
+      "lessonText": "# Las Balanzas de la CPU ️\n\nLos **operadores relacionales** comparan dos valores y siempre producen un booleano (`true` o `false`):\n- `==` : ¿Es exactamente igual? (`5 == 5` -> `true`)\n- `!=` : ¿Es diferente? (`5 != 3` -> `true`)\n- `>` y `<` : Mayor que y menor que (`12 > 10` -> `true`)\n- `>=` y `<=` : Mayor o igual, y menor o igual.\n\nEn FIRST Robotics comparamos todo el tiempo:\n`bateria >= 12.0` (¿La batería tiene suficiente carga?)\n`distanciaCM < 30.0` (¿Hay un obstáculo demasiado cerca?).",
       "options": [
         {
           "text": "Comparan dos valores y devuelven un booleano (true o false)",

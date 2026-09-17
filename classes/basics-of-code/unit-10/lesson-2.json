@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cuándo se utiliza 'else if' (elif)?",
-      "lessonText": "# El Semáforo de 3 Colores 🚦\n\n¿Qué pasa si tienes más de dos opciones posibles? Por ejemplo, un semáforo tiene Verde, Amarillo y Rojo.\n\nPara encadenar múltiples condiciones excluyentes usamos **`elif`** (en Python) o **`else if`** (en Java/C++):\n```python\nif luz == 'Verde':\n    avanzar()\nelif luz == 'Amarillo':\n    desacelerar()\nelif luz == 'Rojo':\n    frenar()\nelse:\n    print('Luz desconocida')\n```\nLa computadora evalúa de arriba a abajo. **En cuanto una condición sea `true`, ejecuta su bloque y se salta todas las demás.**",
+      "lessonText": "# El Semáforo de 3 Colores \n\n¿Qué pasa si tienes más de dos opciones posibles? Por ejemplo, un semáforo tiene Verde, Amarillo y Rojo.\n\nPara encadenar múltiples condiciones excluyentes usamos **`elif`** (en Python) o **`else if`** (en Java/C++):\n```python\nif luz == 'Verde':\n    avanzar()\nelif luz == 'Amarillo':\n    desacelerar()\nelif luz == 'Rojo':\n    frenar()\nelse:\n    print('Luz desconocida')\n```\nLa computadora evalúa de arriba a abajo. **En cuanto una condición sea `true`, ejecuta su bloque y se salta todas las demás.**",
       "options": [
         {
           "text": "Para evaluar múltiples condiciones en secuencia donde solo una de ellas debe ejecutarse",

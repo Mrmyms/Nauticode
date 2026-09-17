@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es el 'Scope' (alcance) de una variable?",
-      "lessonText": "# Lo Que Pasa en la Función, Se Queda en la Función 🔒\n\nEl **Scope** determina en qué partes de tu programa una variable es visible y accesible:\n\n1. **Variables Locales:** Se crean DENTRO de una función.\n   - Solo existen mientras la función se está ejecutando.\n   - En cuanto la función termina, la caja de memoria **se destruye**.\n   - ¡El código de afuera no puede verlas ni usarlas!\n\n2. **Variables Globales:** Se crean AFUERA de todas las funciones.\n   - Cualquier función puede leerlas a lo largo de todo el archivo.",
+      "lessonText": "# Lo Que Pasa en la Función, Se Queda en la Función \n\nEl **Scope** determina en qué partes de tu programa una variable es visible y accesible:\n\n1. **Variables Locales:** Se crean DENTRO de una función.\n   - Solo existen mientras la función se está ejecutando.\n   - En cuanto la función termina, la caja de memoria **se destruye**.\n   - ¡El código de afuera no puede verlas ni usarlas!\n\n2. **Variables Globales:** Se crean AFUERA de todas las funciones.\n   - Cualquier función puede leerlas a lo largo de todo el archivo.",
       "options": [
         {
           "text": "La región del programa donde una variable existe y puede ser consultada",

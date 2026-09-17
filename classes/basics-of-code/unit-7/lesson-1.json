@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cuáles son los 4 operadores aritméticos esenciales?",
-      "lessonText": "# Las 4 Operaciones de la CPU ➕➖✖️➗\n\nTu computadora puede realizar miles de millones de operaciones matemáticas por segundo:\n- **Suma (`+`):** `totalPuntos = puntosAutonomo + puntosTeleop`\n- **Resta (`-`):** `distanciaFaltante = meta - posicionActual`\n- **Multiplicación (`*`):** `potencia = inputJoystick * 0.85`\n- **División (`/`):** `promedio = suma / cantidad`\n\nEn programación, el asterisco `*` siempre representa la multiplicación y la barra `/` la división.",
+      "lessonText": "# Las 4 Operaciones de la CPU ️\n\nTu computadora puede realizar miles de millones de operaciones matemáticas por segundo:\n- **Suma (`+`):** `totalPuntos = puntosAutonomo + puntosTeleop`\n- **Resta (`-`):** `distanciaFaltante = meta - posicionActual`\n- **Multiplicación (`*`):** `potencia = inputJoystick * 0.85`\n- **División (`/`):** `promedio = suma / cantidad`\n\nEn programación, el asterisco `*` siempre representa la multiplicación y la barra `/` la división.",
       "options": [
         {
           "text": "Suma (+), Resta (-), Multiplicación (*) y División (/)",

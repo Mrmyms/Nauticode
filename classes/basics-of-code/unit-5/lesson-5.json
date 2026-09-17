@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Momento de limpiar el código de competencia!",
-      "lessonText": "# Emergencia en los Pits de 4010 🛠️\n\nFaltan 15 minutos para la semifinal. Un compañero escribió un script rápido para el elevador pero usó nombres crípticos, variables sin convención y comentarios vacíos.\n\nEn este reto final de la Unidad 5, aplicarás tus conocimientos de **Clean Code** para refactorizar y dejar el código impecable, legible y seguro.\n\n¡La limpieza del código previene fallas en la final!",
+      "lessonText": "# Emergencia en los Pits de 4010 ️\n\nFaltan 15 minutos para la semifinal. Un compañero escribió un script rápido para el elevador pero usó nombres crípticos, variables sin convención y comentarios vacíos.\n\nEn este reto final de la Unidad 5, aplicarás tus conocimientos de **Clean Code** para refactorizar y dejar el código impecable, legible y seguro.\n\n¡La limpieza del código previene fallas en la final!",
       "options": [
         {
           "text": "¡Vamos a refactorizar el código de Teus!",

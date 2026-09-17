@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡La odometría real de Nautilus 4010!",
-      "lessonText": "# Traduciendo Ticks a Metros en la Cancha 📏\n\nUn encoder en el eje del motor genera miles de pulsos electrónicos llamados **ticks** por cada vuelta de la rueda.\n\nEl procesador no puede tomar decisiones estratégicas pensando en '15,420 ticks': el piloto y el autonomous necesitan saber **cuántos metros reales avanzó el robot**.\n\nEn este reto final de la Unidad 15, construirás la función de telemetría que recibe los ticks del sensor, aplica la constante de reducción y retorna los metros recorridos.",
+      "lessonText": "# Traduciendo Ticks a Metros en la Cancha \n\nUn encoder en el eje del motor genera miles de pulsos electrónicos llamados **ticks** por cada vuelta de la rueda.\n\nEl procesador no puede tomar decisiones estratégicas pensando en '15,420 ticks': el piloto y el autonomous necesitan saber **cuántos metros reales avanzó el robot**.\n\nEn este reto final de la Unidad 15, construirás la función de telemetría que recibe los ticks del sensor, aplica la constante de reducción y retorna los metros recorridos.",
       "options": [
         {
           "text": "¡Vamos a programar el conversor de odometría con Teus!",

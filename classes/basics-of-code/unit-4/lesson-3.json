@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué el signo `=` no significa igualdad en código?",
-      "lessonText": "# El Signo '=' es una Flecha de Guardado 🏹\n\nEn matemáticas de primaria nos enseñaron que `A = B` significa que A y B son equivalentes.\n\nEn programación, **`=` es un operador de asignación activa**:\nPiensa en el signo `=` como una flecha que apunta a la izquierda: `A <- B`.\n\n1. La computadora evalúa **todo lo que está a la derecha del `=`**.\n2. Una vez que tiene el resultado definitivo, lo mete dentro de la variable de la izquierda.\n\nPor eso la línea `puntos = puntos + 1` tiene total sentido: calcula `puntos + 1` y guarda el nuevo total de vuelta en `puntos`.",
+      "lessonText": "# El Signo '=' es una Flecha de Guardado \n\nEn matemáticas de primaria nos enseñaron que `A = B` significa que A y B son equivalentes.\n\nEn programación, **`=` es un operador de asignación activa**:\nPiensa en el signo `=` como una flecha que apunta a la izquierda: `A <- B`.\n\n1. La computadora evalúa **todo lo que está a la derecha del `=`**.\n2. Una vez que tiene el resultado definitivo, lo mete dentro de la variable de la izquierda.\n\nPor eso la línea `puntos = puntos + 1` tiene total sentido: calcula `puntos + 1` y guarda el nuevo total de vuelta en `puntos`.",
       "options": [
         {
           "text": "Porque evalúa la expresión de la derecha y guarda el resultado en la izquierda",

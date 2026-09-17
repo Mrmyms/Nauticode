@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es un entero (int) y cuándo se utiliza?",
-      "lessonText": "# Contando Cosas Enteras 🔢\n\nUn **Integer (int)** es un número completo, positivo, negativo o cero, **sin parte decimal**.\n\nEjemplos en FIRST Robotics:\n- Número de piezas anotadas en el Speaker: `3` (no puedes anotar 3.5 piezas).\n- Puerto USB donde está conectado el control: `0`.\n- Match actual del torneo: `42`.\n\nLos enteros son ultra-rápidos de procesar para la CPU y ocupan un espacio de memoria fijo (típicamente 32 o 64 bits).",
+      "lessonText": "# Contando Cosas Enteras \n\nUn **Integer (int)** es un número completo, positivo, negativo o cero, **sin parte decimal**.\n\nEjemplos en FIRST Robotics:\n- Número de piezas anotadas en el Speaker: `3` (no puedes anotar 3.5 piezas).\n- Puerto USB donde está conectado el control: `0`.\n- Match actual del torneo: `42`.\n\nLos enteros son ultra-rápidos de procesar para la CPU y ocupan un espacio de memoria fijo (típicamente 32 o 64 bits).",
       "options": [
         {
           "text": "Un número completo sin decimales, positivo, negativo o cero",

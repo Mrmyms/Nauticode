@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo interactúan las 3 fases de un sistema computacional?",
-      "lessonText": "# El Ciclo IPO (Input -> Process -> Output) 🔄\n\nTodo programa o robot en el universo opera bajo este ciclo continuo:\n\n1. **INPUT (Entrada):** Información que entra al sistema. En un robot, son los joysticks del piloto o los sensores (cámara Limelight, encoder de ruedas, giroscopio).\n2. **PROCESS (Procesamiento):** Las operaciones matemáticas y decisiones lógicas que ejecuta el microprocesador.\n3. **OUTPUT (Salida):** La respuesta al exterior. Motores girando, un pistón neumático abriéndose, luces LED cambiando a color amarillo o telemetría en la pantalla.",
+      "lessonText": "# El Ciclo IPO (Input -> Process -> Output) \n\nTodo programa o robot en el universo opera bajo este ciclo continuo:\n\n1. **INPUT (Entrada):** Información que entra al sistema. En un robot, son los joysticks del piloto o los sensores (cámara Limelight, encoder de ruedas, giroscopio).\n2. **PROCESS (Procesamiento):** Las operaciones matemáticas y decisiones lógicas que ejecuta el microprocesador.\n3. **OUTPUT (Salida):** La respuesta al exterior. Motores girando, un pistón neumático abriéndose, luces LED cambiando a color amarillo o telemetría en la pantalla.",
       "options": [
         {
           "text": "Entrada de datos -> Procesamiento lógico -> Salida de acciones",

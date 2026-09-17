@@ -25,7 +25,7 @@ Una **variable** es un espacio reservado en la memoria RAM de la computadora al 
           {
             type: "THEORY",
             question: "¿Qué analogía describe mejor una variable en programación?",
-            lessonText: "# La Caja con Etiqueta 📦\n\nImagina que en el taller de robótica tienes varias cajas de plástico organizadoras.\n\nEn una caja pegas una cinta con la etiqueta **'velocidadMaxima'** y guardas adentro un papel que dice **80**.\nEn otra caja pegas la etiqueta **'nombrePiloto'** y guardas el texto **'Alex'**.\n\nUna **variable** es exactamente eso: una caja en la memoria RAM con un nombre asignado donde guardas un dato. Cada vez que tu código mencione `velocidadMaxima`, la computadora abrirá esa caja y leerá lo que tiene adentro.",
+            lessonText: "# La Caja con Etiqueta \n\nImagina que en el taller de robótica tienes varias cajas de plástico organizadoras.\n\nEn una caja pegas una cinta con la etiqueta **'velocidadMaxima'** y guardas adentro un papel que dice **80**.\nEn otra caja pegas la etiqueta **'nombrePiloto'** y guardas el texto **'Alex'**.\n\nUna **variable** es exactamente eso: una caja en la memoria RAM con un nombre asignado donde guardas un dato. Cada vez que tu código mencione `velocidadMaxima`, la computadora abrirá esa caja y leerá lo que tiene adentro.",
             options: [
               { text: "Un espacio nombrado en memoria para almacenar y consultar datos", correct: true },
               { text: "Un tornillo que sujeta el motor al chasis", correct: false },
@@ -81,7 +81,7 @@ Una **variable** es un espacio reservado en la memoria RAM de la computadora al 
           {
             type: "THEORY",
             question: "¿Cuál es la diferencia entre declarar e inicializar?",
-            lessonText: "# Dar a Luz una Variable 🐣\n\nEn desarrollo de software existen dos momentos clave:\n\n1. **Declaración:** Crear la variable y avisarle a la computadora que existirá.\n   - Ejemplo: `int puntos;` (¡La caja fue creada pero está vacía!)\n2. **Inicialización:** Darle su primer valor inicial de vida.\n   - Ejemplo: `puntos = 0;` (¡Ahora la caja tiene un valor concreto!)\n\nMuchos lenguajes modernos permiten hacer ambas cosas en una sola línea elegante:\n`int puntos = 0;` o en Python simplemente `puntos = 0`.",
+            lessonText: "# Dar a Luz una Variable \n\nEn desarrollo de software existen dos momentos clave:\n\n1. **Declaración:** Crear la variable y avisarle a la computadora que existirá.\n   - Ejemplo: `int puntos;` (¡La caja fue creada pero está vacía!)\n2. **Inicialización:** Darle su primer valor inicial de vida.\n   - Ejemplo: `puntos = 0;` (¡Ahora la caja tiene un valor concreto!)\n\nMuchos lenguajes modernos permiten hacer ambas cosas en una sola línea elegante:\n`int puntos = 0;` o en Python simplemente `puntos = 0`.",
             options: [
               { text: "Declarar es crear la variable; inicializar es darle su primer valor", correct: true },
               { text: "Declarar es borrar la variable; inicializar es enviarla por internet", correct: false },
@@ -137,7 +137,7 @@ Una **variable** es un espacio reservado en la memoria RAM de la computadora al 
           {
             type: "THEORY",
             question: "¿Por qué el signo `=` no significa igualdad en código?",
-            lessonText: "# El Signo '=' es una Flecha de Guardado 🏹\n\nEn matemáticas de primaria nos enseñaron que `A = B` significa que A y B son equivalentes.\n\nEn programación, **`=` es un operador de asignación activa**:\nPiensa en el signo `=` como una flecha que apunta a la izquierda: `A <- B`.\n\n1. La computadora evalúa **todo lo que está a la derecha del `=`**.\n2. Una vez que tiene el resultado definitivo, lo mete dentro de la variable de la izquierda.\n\nPor eso la línea `puntos = puntos + 1` tiene total sentido: calcula `puntos + 1` y guarda el nuevo total de vuelta en `puntos`.",
+            lessonText: "# El Signo '=' es una Flecha de Guardado \n\nEn matemáticas de primaria nos enseñaron que `A = B` significa que A y B son equivalentes.\n\nEn programación, **`=` es un operador de asignación activa**:\nPiensa en el signo `=` como una flecha que apunta a la izquierda: `A <- B`.\n\n1. La computadora evalúa **todo lo que está a la derecha del `=`**.\n2. Una vez que tiene el resultado definitivo, lo mete dentro de la variable de la izquierda.\n\nPor eso la línea `puntos = puntos + 1` tiene total sentido: calcula `puntos + 1` y guarda el nuevo total de vuelta en `puntos`.",
             options: [
               { text: "Porque evalúa la expresión de la derecha y guarda el resultado en la izquierda", correct: true },
               { text: "Porque los teclados antiguos no tenían tecla para flecha", correct: false },
@@ -194,7 +194,7 @@ Una **variable** es un espacio reservado en la memoria RAM de la computadora al 
           {
             type: "THEORY",
             question: "¿Qué significa que una variable sea mutable?",
-            lessonText: "# El Flujo del Tiempo ⏳\n\nEl estado de un robot cambia constantemente durante un match:\n- En el segundo 0, la velocidad es 0.\n- En el segundo 5, la velocidad sube a 100.\n- En el segundo 15, la velocidad cae a 0 al terminar el autónomo.\n\nLa **reasignación** consiste en guardar un dato nuevo en una caja que ya existía, reemplazando el valor viejo por completo.\n```python\nvelocidad = 0     # Arranca en reposo\nvelocidad = 100   # Acelera a fondo\nvelocidad = 0     # Frena\n```",
+            lessonText: "# El Flujo del Tiempo \n\nEl estado de un robot cambia constantemente durante un match:\n- En el segundo 0, la velocidad es 0.\n- En el segundo 5, la velocidad sube a 100.\n- En el segundo 15, la velocidad cae a 0 al terminar el autónomo.\n\nLa **reasignación** consiste en guardar un dato nuevo en una caja que ya existía, reemplazando el valor viejo por completo.\n```python\nvelocidad = 0     # Arranca en reposo\nvelocidad = 100   # Acelera a fondo\nvelocidad = 0     # Frena\n```",
             options: [
               { text: "Que su contenido puede modificarse a lo largo del tiempo durante la ejecución", correct: true },
               { text: "Que la variable cambia de color según la temperatura", correct: false },
@@ -250,7 +250,7 @@ Una **variable** es un espacio reservado en la memoria RAM de la computadora al 
           {
             type: "THEORY",
             question: "Midiendo la orientación del chasis en tiempo real",
-            lessonText: "# El Giroscopio de Nautilus 4010 🧭\n\nEl sensor **NavX Gyro** mide el ángulo de rotación de nuestro robot en la cancha.\n\nCuando el robot inicia el match de cara a la pared contraria, el ángulo es `0.0` grados.\nCuando gira a la derecha, el ángulo se actualiza a `90.0`.\n\nEn este reto final de la Unidad 4, aplicarás el manejo de variables para almacenar, actualizar y desplegar la orientación del robot.",
+            lessonText: "# El Giroscopio de Nautilus 4010 \n\nEl sensor **NavX Gyro** mide el ángulo de rotación de nuestro robot en la cancha.\n\nCuando el robot inicia el match de cara a la pared contraria, el ángulo es `0.0` grados.\nCuando gira a la derecha, el ángulo se actualiza a `90.0`.\n\nEn este reto final de la Unidad 4, aplicarás el manejo de variables para almacenar, actualizar y desplegar la orientación del robot.",
             options: [
               { text: "¡Vamos a calibrar la orientación con Teus!", correct: true },
               { text: "Prefiero que el robot gire en círculos sin saber su ángulo", correct: false },
@@ -329,7 +329,7 @@ Cualquier novato puede escribir código que una computadora entienda. Los verdad
           {
             type: "THEORY",
             question: "¿Por qué los nombres de las variables deben ser claros y descriptivos?",
-            lessonText: "# El Dilema del Código Incomprensible 🤦‍♂️\n\nImagina que entras a la final regional de FRC en 10 minutos y hay un bug en el chasis. Abres el archivo y encuentras esto:\n```python\na = 0.8\nb = 12.4\nc = a * b\n```\n¿Qué rayos es `a`? ¿Qué significa `b`? Nadie lo sabe.\n\nAhora compara con esto:\n```python\npotenciaMotor = 0.8\nvoltajeBateria = 12.4\npotenciaEfectiva = potenciaMotor * voltajeBateria\n```\n¡La intención es cristalina en un segundo! **El código se lee muchas más veces de las que se escribe.**",
+            lessonText: "# El Dilema del Código Incomprensible ‍️\n\nImagina que entras a la final regional de FRC en 10 minutos y hay un bug en el chasis. Abres el archivo y encuentras esto:\n```python\na = 0.8\nb = 12.4\nc = a * b\n```\n¿Qué rayos es `a`? ¿Qué significa `b`? Nadie lo sabe.\n\nAhora compara con esto:\n```python\npotenciaMotor = 0.8\nvoltajeBateria = 12.4\npotenciaEfectiva = potenciaMotor * voltajeBateria\n```\n¡La intención es cristalina en un segundo! **El código se lee muchas más veces de las que se escribe.**",
             options: [
               { text: "Porque ahorra tiempo de depuración y permite que todo el equipo entienda la intención del código", correct: true },
               { text: "Porque las variables largas hacen que la batería dure más tiempo", correct: false },
@@ -386,7 +386,7 @@ Cualquier novato puede escribir código que una computadora entienda. Los verdad
           {
             type: "THEORY",
             question: "¿Cuáles son las convenciones de nomenclatura más populares?",
-            lessonText: "# El Estilo Sí Importa 🎨\n\nEn la mayoría de los lenguajes no podemos usar espacios en los nombres de variables (ej: `velocidad maxima` dará un Syntax Error).\n\nPara resolver esto, la comunidad creó **estilos de capitalización**:\n\n1. **camelCase (El camello):** La primera palabra inicia en minúscula y cada nueva palabra inicia con Mayúscula.\n   - Ejemplo: `velocidadMaxima`, `sensorOptico`, `anguloDelBrazo`.\n   - *Muy usado en Java, JavaScript y C++.*\n\n2. **snake_case (La serpiente):** Todo en minúsculas separado por guiones bajos.\n   - Ejemplo: `velocidad_maxima`, `sensor_optico`, `angulo_del_brazo`.\n   - *El estándar oficial de Python (PEP 8).*",
+            lessonText: "# El Estilo Sí Importa \n\nEn la mayoría de los lenguajes no podemos usar espacios en los nombres de variables (ej: `velocidad maxima` dará un Syntax Error).\n\nPara resolver esto, la comunidad creó **estilos de capitalización**:\n\n1. **camelCase (El camello):** La primera palabra inicia en minúscula y cada nueva palabra inicia con Mayúscula.\n   - Ejemplo: `velocidadMaxima`, `sensorOptico`, `anguloDelBrazo`.\n   - *Muy usado en Java, JavaScript y C++.*\n\n2. **snake_case (La serpiente):** Todo en minúsculas separado por guiones bajos.\n   - Ejemplo: `velocidad_maxima`, `sensor_optico`, `angulo_del_brazo`.\n   - *El estándar oficial de Python (PEP 8).*",
             options: [
               { text: "camelCase usa mayúsculas intermedias y snake_case usa guiones bajos entre palabras", correct: true },
               { text: "camelCase solo se usa en desiertos y snake_case en la selva", correct: false },
@@ -442,7 +442,7 @@ Cualquier novato puede escribir código que una computadora entienda. Los verdad
           {
             type: "THEORY",
             question: "¿Qué es una constante en programación y por qué es vital en robótica?",
-            lessonText: "# Valores Inmutables 🔒\n\nHay datos que **NUNCA** deben cambiar mientras el robot está operando:\n- El número de puerto CAN de un motor (`MOTOR_PORT = 3`).\n- La relación de engranes del chasis (`GEAR_RATIO = 6.75`).\n- La aceleración de la gravedad (`GRAVITY = 9.81`).\n\nEstos valores se llaman **Constantes**. Por convención universal, se escriben en **UPPER_SNAKE_CASE** para alertar a cualquiera: *'¡Cuidado! No reasignes este valor bajo ninguna circunstancia'*.",
+            lessonText: "# Valores Inmutables \n\nHay datos que **NUNCA** deben cambiar mientras el robot está operando:\n- El número de puerto CAN de un motor (`MOTOR_PORT = 3`).\n- La relación de engranes del chasis (`GEAR_RATIO = 6.75`).\n- La aceleración de la gravedad (`GRAVITY = 9.81`).\n\nEstos valores se llaman **Constantes**. Por convención universal, se escriben en **UPPER_SNAKE_CASE** para alertar a cualquiera: *'¡Cuidado! No reasignes este valor bajo ninguna circunstancia'*.",
             options: [
               { text: "Una variable diseñada para no cambiar su valor original durante la ejecución del programa", correct: true },
               { text: "Un valor que cambia cada 2 segundos", correct: false },
@@ -496,7 +496,7 @@ Cualquier novato puede escribir código que una computadora entienda. Los verdad
           {
             type: "THEORY",
             question: "¿Qué son los comentarios y cómo los interpreta la computadora?",
-            lessonText: "# Notas al Margen 📝\n\nUn **comentario** es una anotación en el código fuente que la computadora **ignora por completo** al momento de compilar o ejecutar.\n\nEn Python se usa el símbolo `#`:\n```python\n# Iniciar motores en reversa para expulsar nota atorada\nmotorIntake.set(-1.0)\n```\n\nEn Java y C++ se usa `//` para una línea y `/* ... */` para bloques multilínea.\n\nLos comentarios son cartas que le dejas a tus compañeros (y a tu yo del futuro) explicando **por qué tomaste una decisión técnica compleja**.",
+            lessonText: "# Notas al Margen \n\nUn **comentario** es una anotación en el código fuente que la computadora **ignora por completo** al momento de compilar o ejecutar.\n\nEn Python se usa el símbolo `#`:\n```python\n# Iniciar motores en reversa para expulsar nota atorada\nmotorIntake.set(-1.0)\n```\n\nEn Java y C++ se usa `//` para una línea y `/* ... */` para bloques multilínea.\n\nLos comentarios son cartas que le dejas a tus compañeros (y a tu yo del futuro) explicando **por qué tomaste una decisión técnica compleja**.",
             options: [
               { text: "Texto explicativo dentro del código que la máquina ignora pero ayuda a los humanos", correct: true },
               { text: "Mensajes que se envían directamente a los rivales del match", correct: false },
@@ -552,7 +552,7 @@ Cualquier novato puede escribir código que una computadora entienda. Los verdad
           {
             type: "THEORY",
             question: "¡Momento de limpiar el código de competencia!",
-            lessonText: "# Emergencia en los Pits de 4010 🛠️\n\nFaltan 15 minutos para la semifinal. Un compañero escribió un script rápido para el elevador pero usó nombres crípticos, variables sin convención y comentarios vacíos.\n\nEn este reto final de la Unidad 5, aplicarás tus conocimientos de **Clean Code** para refactorizar y dejar el código impecable, legible y seguro.\n\n¡La limpieza del código previene fallas en la final!",
+            lessonText: "# Emergencia en los Pits de 4010 ️\n\nFaltan 15 minutos para la semifinal. Un compañero escribió un script rápido para el elevador pero usó nombres crípticos, variables sin convención y comentarios vacíos.\n\nEn este reto final de la Unidad 5, aplicarás tus conocimientos de **Clean Code** para refactorizar y dejar el código impecable, legible y seguro.\n\n¡La limpieza del código previene fallas en la final!",
             options: [
               { text: "¡Vamos a refactorizar el código de Teus!", correct: true },
               { text: "Prefiero dejar el código sucio y arriesgar el robot", correct: false },
@@ -628,7 +628,7 @@ No toda la información es igual. Una computadora necesita saber exactamente qu�
           {
             type: "THEORY",
             question: "¿Qué es un entero (int) y cuándo se utiliza?",
-            lessonText: "# Contando Cosas Enteras 🔢\n\nUn **Integer (int)** es un número completo, positivo, negativo o cero, **sin parte decimal**.\n\nEjemplos en FIRST Robotics:\n- Número de piezas anotadas en el Speaker: `3` (no puedes anotar 3.5 piezas).\n- Puerto USB donde está conectado el control: `0`.\n- Match actual del torneo: `42`.\n\nLos enteros son ultra-rápidos de procesar para la CPU y ocupan un espacio de memoria fijo (típicamente 32 o 64 bits).",
+            lessonText: "# Contando Cosas Enteras \n\nUn **Integer (int)** es un número completo, positivo, negativo o cero, **sin parte decimal**.\n\nEjemplos en FIRST Robotics:\n- Número de piezas anotadas en el Speaker: `3` (no puedes anotar 3.5 piezas).\n- Puerto USB donde está conectado el control: `0`.\n- Match actual del torneo: `42`.\n\nLos enteros son ultra-rápidos de procesar para la CPU y ocupan un espacio de memoria fijo (típicamente 32 o 64 bits).",
             options: [
               { text: "Un número completo sin decimales, positivo, negativo o cero", correct: true },
               { text: "Cualquier texto entre comillas dobles", correct: false },
@@ -684,7 +684,7 @@ No toda la información es igual. Una computadora necesita saber exactamente qu�
           {
             type: "THEORY",
             question: "¿Qué es un número flotante (float) y por qué es esencial en robótica?",
-            lessonText: "# La Precisión del Mundo Real 🎯\n\nEn el mundo físico, casi nada es un número entero exacto:\n- El voltaje de la batería del robot es `12.65` voltios.\n- La distancia a la pared es `1.82` metros.\n- La potencia del motor varía continuamente entre `-1.0` y `1.0`.\n\nPara representar valores con fracciones o puntos decimales usamos **float** (o **double** en lenguajes como Java y C++ para doble precisión).",
+            lessonText: "# La Precisión del Mundo Real \n\nEn el mundo físico, casi nada es un número entero exacto:\n- El voltaje de la batería del robot es `12.65` voltios.\n- La distancia a la pared es `1.82` metros.\n- La potencia del motor varía continuamente entre `-1.0` y `1.0`.\n\nPara representar valores con fracciones o puntos decimales usamos **float** (o **double** en lenguajes como Java y C++ para doble precisión).",
             options: [
               { text: "Un tipo de dato numérico que permite representar fracciones y valores con punto decimal", correct: true },
               { text: "Un número que flota en el aire físicamente", correct: false },
@@ -740,7 +740,7 @@ No toda la información es igual. Una computadora necesita saber exactamente qu�
           {
             type: "THEORY",
             question: "¿Qué es un string y cómo se declara?",
-            lessonText: "# Texto Entre Comillas 📜\n\nUn **String** (cadena) es una secuencia ordenada de caracteres: letras, números, espacios y símbolos, **siempre rodeados por comillas** (simples `'texto'` o dobles `\"texto\"`).\n\nEjemplos:\n- `robotName = 'Nautilus 4010'`\n- `status = 'AUTO_RUNNING'`\n\nSi olvidas las comillas, la computadora pensará que el texto es el nombre de una variable y arrojará un error.",
+            lessonText: "# Texto Entre Comillas \n\nUn **String** (cadena) es una secuencia ordenada de caracteres: letras, números, espacios y símbolos, **siempre rodeados por comillas** (simples `'texto'` o dobles `\"texto\"`).\n\nEjemplos:\n- `robotName = 'Nautilus 4010'`\n- `status = 'AUTO_RUNNING'`\n\nSi olvidas las comillas, la computadora pensará que el texto es el nombre de una variable y arrojará un error.",
             options: [
               { text: "Una secuencia de caracteres delimitada por comillas", correct: true },
               { text: "Una cuerda física para amarrar el robot al transporte", correct: false },
@@ -797,7 +797,7 @@ No toda la información es igual. Una computadora necesita saber exactamente qu�
           {
             type: "THEORY",
             question: "¿Qué es un valor booleano y por qué es el rey de las decisiones?",
-            lessonText: "# La Verdad Binaria 💡\n\nUn **Boolean (bool)** es el tipo de dato más simple y poderoso que existe. Solo puede tener dos valores:\n- **`true` (Verdadero)**\n- **`false` (Falso)**\n\nEn un robot de competencia, el mundo está lleno de preguntas binarias:\n- ¿El sensor de límite está presionado? (`true` / `false`)\n- ¿El autonomous está activo? (`true` / `false`)\n- ¿El voltaje es peligroso? (`true` / `false`)\n\nLos booleanos son la llave que abre las puertas de las sentencias condicionales `if` y los bucles `while`.",
+            lessonText: "# La Verdad Binaria \n\nUn **Boolean (bool)** es el tipo de dato más simple y poderoso que existe. Solo puede tener dos valores:\n- **`true` (Verdadero)**\n- **`false` (Falso)**\n\nEn un robot de competencia, el mundo está lleno de preguntas binarias:\n- ¿El sensor de límite está presionado? (`true` / `false`)\n- ¿El autonomous está activo? (`true` / `false`)\n- ¿El voltaje es peligroso? (`true` / `false`)\n\nLos booleanos son la llave que abre las puertas de las sentencias condicionales `if` y los bucles `while`.",
             options: [
               { text: "Un tipo de dato que solo puede ser Verdadero (True) o Falso (False)", correct: true },
               { text: "Un número que va del 0 al 100", correct: false },
@@ -854,7 +854,7 @@ No toda la información es igual. Una computadora necesita saber exactamente qu�
           {
             type: "THEORY",
             question: "¡El laboratorio de sensores de Teus!",
-            lessonText: "# El Dashboard de Telemetría 📊\n\nNautilus 4010 tiene múltiples subsistemas transmitiendo telemetría en vivo a la pantalla del drive team:\n- Giroscopio Yaw (`float`)\n- Contador de notas (`int`)\n- Estado de conexión al Field Management System (`bool`)\n- Nombre del modo de juego (`string`)\n\nEn este reto final de la Unidad 6, demostrarás tu maestría clasificando y operando los 4 tipos de datos primitivos.",
+            lessonText: "# El Dashboard de Telemetría \n\nNautilus 4010 tiene múltiples subsistemas transmitiendo telemetría en vivo a la pantalla del drive team:\n- Giroscopio Yaw (`float`)\n- Contador de notas (`int`)\n- Estado de conexión al Field Management System (`bool`)\n- Nombre del modo de juego (`string`)\n\nEn este reto final de la Unidad 6, demostrarás tu maestría clasificando y operando los 4 tipos de datos primitivos.",
             options: [
               { text: "¡Vamos a clasificar la telemetría del robot!", correct: true },
               { text: "Prefiero mezclar textos con números al azar", correct: false },
@@ -935,7 +935,7 @@ Al igual que en matemáticas, la multiplicación y división tienen prioridad so
           {
             type: "THEORY",
             question: "¿Cuáles son los 4 operadores aritméticos esenciales?",
-            lessonText: "# Las 4 Operaciones de la CPU ➕➖✖️➗\n\nTu computadora puede realizar miles de millones de operaciones matemáticas por segundo:\n- **Suma (`+`):** `totalPuntos = puntosAutonomo + puntosTeleop`\n- **Resta (`-`):** `distanciaFaltante = meta - posicionActual`\n- **Multiplicación (`*`):** `potencia = inputJoystick * 0.85`\n- **División (`/`):** `promedio = suma / cantidad`\n\nEn programación, el asterisco `*` siempre representa la multiplicación y la barra `/` la división.",
+            lessonText: "# Las 4 Operaciones de la CPU ️\n\nTu computadora puede realizar miles de millones de operaciones matemáticas por segundo:\n- **Suma (`+`):** `totalPuntos = puntosAutonomo + puntosTeleop`\n- **Resta (`-`):** `distanciaFaltante = meta - posicionActual`\n- **Multiplicación (`*`):** `potencia = inputJoystick * 0.85`\n- **División (`/`):** `promedio = suma / cantidad`\n\nEn programación, el asterisco `*` siempre representa la multiplicación y la barra `/` la división.",
             options: [
               { text: "Suma (+), Resta (-), Multiplicación (*) y División (/)", correct: true },
               { text: "Copiar, Pegar, Cortar y Guardar", correct: false },
@@ -992,7 +992,7 @@ Al igual que en matemáticas, la multiplicación y división tienen prioridad so
           {
             type: "THEORY",
             question: "¿Qué calcula exactamente el operador módulo (`%`)?",
-            lessonText: "# El Secreto del Residuo 🍰\n\nEl operador **Módulo (`%`)** no calcula el cociente de una división, sino el **residuo (lo que sobra)** tras dividir dos números enteros.\n\nEjemplo de la vida real:\nTienes 7 galletas y las repartes equitativamente entre 3 amigos de robótica:\n- Cada amigo recibe 2 galletas (2 * 3 = 6).\n- **Sobra 1 galleta.**\n- Por lo tanto: `7 % 3 = 1`.\n\n¿Para qué sirve en robótica?\n- **Saber si un número es par o impar:** `numero % 2 == 0`.\n- **Hacer ciclos cíclicos:** Limitar un contador entre 0 y 360 grados.",
+            lessonText: "# El Secreto del Residuo \n\nEl operador **Módulo (`%`)** no calcula el cociente de una división, sino el **residuo (lo que sobra)** tras dividir dos números enteros.\n\nEjemplo de la vida real:\nTienes 7 galletas y las repartes equitativamente entre 3 amigos de robótica:\n- Cada amigo recibe 2 galletas (2 * 3 = 6).\n- **Sobra 1 galleta.**\n- Por lo tanto: `7 % 3 = 1`.\n\n¿Para qué sirve en robótica?\n- **Saber si un número es par o impar:** `numero % 2 == 0`.\n- **Hacer ciclos cíclicos:** Limitar un contador entre 0 y 360 grados.",
             options: [
               { text: "El sobrante o residuo entero de una división", correct: true },
               { text: "El porcentaje de descuento en la tienda", correct: false },
@@ -1047,7 +1047,7 @@ Al igual que en matemáticas, la multiplicación y división tienen prioridad so
           {
             type: "THEORY",
             question: "¿Cómo decide la computadora qué operación resolver primero?",
-            lessonText: "# El Orden Jerárquico (PEMDAS) 📐\n\nEn código, las operaciones no siempre se resuelven de izquierda a derecha. Siguen las reglas universales de precedencia:\n\n1. **Paréntesis `()`:** Siempre tienen la máxima prioridad.\n2. **Multiplicación `*`, División `/` y Módulo `%`:** Tienen prioridad intermedia.\n3. **Suma `+` y Resta `-`:** Se resuelven al final.\n\nEjemplo crucial:\n`2 + 3 * 4`\n- Primero se calcula `3 * 4 = 12`.\n- Luego `2 + 12 = 14`.\nSi querías sumar primero, **debes usar paréntesis**: `(2 + 3) * 4 = 20`.",
+            lessonText: "# El Orden Jerárquico (PEMDAS) \n\nEn código, las operaciones no siempre se resuelven de izquierda a derecha. Siguen las reglas universales de precedencia:\n\n1. **Paréntesis `()`:** Siempre tienen la máxima prioridad.\n2. **Multiplicación `*`, División `/` y Módulo `%`:** Tienen prioridad intermedia.\n3. **Suma `+` y Resta `-`:** Se resuelven al final.\n\nEjemplo crucial:\n`2 + 3 * 4`\n- Primero se calcula `3 * 4 = 12`.\n- Luego `2 + 12 = 14`.\nSi querías sumar primero, **debes usar paréntesis**: `(2 + 3) * 4 = 20`.",
             options: [
               { text: "Primero paréntesis, luego multiplicación/división/módulo, y al final suma/resta", correct: true },
               { text: "Siempre estrictamente de derecha a izquierda", correct: false },
@@ -1106,7 +1106,7 @@ Al igual que en matemáticas, la multiplicación y división tienen prioridad so
           {
             type: "THEORY",
             question: "¿Qué son los operadores de asignación compuesta como `+=` y `-=`?",
-            lessonText: "# Atajos para Programadores Inteligentes ⚡\n\nEn robótica es súper común modificar una variable basándote en su propio valor anterior:\n`puntos = puntos + 5`\n\nEscribir el nombre de la variable dos veces es repetitivo. Por eso los lenguajes crearon los **operadores compuestos**:\n- `puntos += 5` (Equivale a: `puntos = puntos + 5`)\n- `energia -= 10` (Equivale a: `energia = energia - 10`)\n- `velocidad *= 2` (Equivale a: `velocidad = velocidad * 2`)\n- `contador++` (En Java/C++ incrementa en 1 exactamente).\n\nHacen exactamente lo mismo, pero tu código queda más limpio y legible.",
+            lessonText: "# Atajos para Programadores Inteligentes \n\nEn robótica es súper común modificar una variable basándote en su propio valor anterior:\n`puntos = puntos + 5`\n\nEscribir el nombre de la variable dos veces es repetitivo. Por eso los lenguajes crearon los **operadores compuestos**:\n- `puntos += 5` (Equivale a: `puntos = puntos + 5`)\n- `energia -= 10` (Equivale a: `energia = energia - 10`)\n- `velocidad *= 2` (Equivale a: `velocidad = velocidad * 2`)\n- `contador++` (En Java/C++ incrementa en 1 exactamente).\n\nHacen exactamente lo mismo, pero tu código queda más limpio y legible.",
             options: [
               { text: "Atajos de sintaxis para actualizar una variable sumando, restando o multiplicando su propio valor", correct: true },
               { text: "Operadores que solo funcionan con números negativos", correct: false },
@@ -1163,7 +1163,7 @@ Al igual que en matemáticas, la multiplicación y división tienen prioridad so
           {
             type: "THEORY",
             question: "¡Matemáticas mecánicas en el robot!",
-            lessonText: "# Gear Ratios en Nautilus 4010 ⚙️\n\nUn motor brushless Falcon 500 gira a 6000 RPM (revoluciones por minuto), ¡demasiado rápido para mover una rueda directamente!\n\nPor eso usamos una caja reductora de engranes con una relación (Gear Ratio) de `5:1`:\n`rpmRueda = rpmMotor / gearRatio`\n`rpmRueda = 6000 / 5 = 1200 RPM`\n\nEn este reto final de la Unidad 7, usarás operadores aritméticos para calcular velocidades, relaciones de transmisión y promedios.",
+            lessonText: "# Gear Ratios en Nautilus 4010 ️\n\nUn motor brushless Falcon 500 gira a 6000 RPM (revoluciones por minuto), ¡demasiado rápido para mover una rueda directamente!\n\nPor eso usamos una caja reductora de engranes con una relación (Gear Ratio) de `5:1`:\n`rpmRueda = rpmMotor / gearRatio`\n`rpmRueda = 6000 / 5 = 1200 RPM`\n\nEn este reto final de la Unidad 7, usarás operadores aritméticos para calcular velocidades, relaciones de transmisión y promedios.",
             options: [
               { text: "¡Vamos a calcular la física del chasis!", correct: true },
               { text: "Prefiero que los engranes se traben", correct: false },

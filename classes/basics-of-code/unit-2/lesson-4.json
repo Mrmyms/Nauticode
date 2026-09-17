@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es un diagrama de flujo en desarrollo de software?",
-      "lessonText": "# Mapas Visuales de Decisiones 🗺️\n\nUn **diagrama de flujo** representa visualmente un algoritmo usando símbolos estándar:\n- **Óvalo:** Inicio o Fin del programa.\n- **Rectángulo:** Una acción o proceso (ej: `avanzar 2 metros`).\n- **Rombo:** Una decisión con dos salidas: `SÍ` o `NO` (ej: `¿hay obstáculo?`).\n- **Flechas:** Indican la dirección del flujo de ejecución.\n\nVer el flujo con tus propios ojos te ayuda a descubrir de inmediato caminos sin salida o bucles infinitos no deseados.",
+      "lessonText": "# Mapas Visuales de Decisiones ️\n\nUn **diagrama de flujo** representa visualmente un algoritmo usando símbolos estándar:\n- **Óvalo:** Inicio o Fin del programa.\n- **Rectángulo:** Una acción o proceso (ej: `avanzar 2 metros`).\n- **Rombo:** Una decisión con dos salidas: `SÍ` o `NO` (ej: `¿hay obstáculo?`).\n- **Flechas:** Indican la dirección del flujo de ejecución.\n\nVer el flujo con tus propios ojos te ayuda a descubrir de inmediato caminos sin salida o bucles infinitos no deseados.",
       "options": [
         {
           "text": "Una representación gráfica de la secuencia de pasos y decisiones de un algoritmo",

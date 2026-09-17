@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué confundir '=' con '==' causa desastres en los novatos?",
-      "lessonText": "# El Error Más Costoso de la Historia 💀\n\nRecuerda la regla de oro:\n- **`=` es ASIGNACIÓN:** Guarda un dato dentro de una variable (`velocidad = 100`).\n- **`==` es COMPARACIÓN:** Pregunta si dos cosas son iguales (`if velocidad == 100:`).\n\nEn lenguajes como C++ y Java, escribir accidentalmente:\n`if (potencia = 0)`\nNo compara si la potencia es 0... ¡**Le asigna 0 a la potencia en ese mismo instante**! Tu robot se detendrá de golpe o se comportará de forma errática sin que el compilador te avise del error lógico.",
+      "lessonText": "# El Error Más Costoso de la Historia \n\nRecuerda la regla de oro:\n- **`=` es ASIGNACIÓN:** Guarda un dato dentro de una variable (`velocidad = 100`).\n- **`==` es COMPARACIÓN:** Pregunta si dos cosas son iguales (`if velocidad == 100:`).\n\nEn lenguajes como C++ y Java, escribir accidentalmente:\n`if (potencia = 0)`\nNo compara si la potencia es 0... ¡**Le asigna 0 a la potencia en ese mismo instante**! Tu robot se detendrá de golpe o se comportará de forma errática sin que el compilador te avise del error lógico.",
       "options": [
         {
           "text": "Porque '=' modifica la variable asignándole un valor, mientras que '==' sólo compara sin alterar nada",

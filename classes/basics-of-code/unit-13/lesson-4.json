@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo se implementa una parada de emergencia en software?",
-      "lessonText": "# El Protocolo E-Stop 🚨\n\nEn FIRST Robotics, la seguridad es primero. Si un sensor de corriente reporta que un motor está atorado consumiendo más de 40 Amperes:\n¡El motor se quemará en menos de 3 segundos si no se corta la energía!\n\nEn el bucle de control:\n```python\nwhile robotEnMovimiento:\n    if corrienteAmperes > 40.0:\n        print('¡SOBRECORRIENTE! E-STOP ACTIVADO')\n        cortarEnergiaInmediata()\n        break  # Salida instantánea\n    actualizarControl()\n```\nEl `break` garantiza que no se ejecuten más ciclos de control con corriente excesiva.",
+      "lessonText": "# El Protocolo E-Stop \n\nEn FIRST Robotics, la seguridad es primero. Si un sensor de corriente reporta que un motor está atorado consumiendo más de 40 Amperes:\n¡El motor se quemará en menos de 3 segundos si no se corta la energía!\n\nEn el bucle de control:\n```python\nwhile robotEnMovimiento:\n    if corrienteAmperes > 40.0:\n        print('¡SOBRECORRIENTE! E-STOP ACTIVADO')\n        cortarEnergiaInmediata()\n        break  # Salida instantánea\n    actualizarControl()\n```\nEl `break` garantiza que no se ejecuten más ciclos de control con corriente excesiva.",
       "options": [
         {
           "text": "Interrumpiendo inmediatamente el bucle de movimiento con break al detectar sobrecorriente o anomalías críticas",

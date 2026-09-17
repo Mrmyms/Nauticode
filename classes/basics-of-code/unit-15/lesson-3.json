@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cuál es la diferencia radical entre `print()` y `return`?",
-      "lessonText": "# El Mensajero del Resultado 📬\n\n- **`print()`** solo muestra texto en la pantalla para que un humano lo lea. **La computadora no puede usar ese texto para nada más**.\n- **`return`** devuelve el dato calculado directamente a la variable que llamó a la función para que el programa pueda seguir trabajando con él.\n\nEjemplo revelador:\n```python\ndef sumar(a, b):\n    return a + b\n\n# El valor devuelto (15) se guarda en la variable total\ntotal = sumar(10, 5)\nprint(total * 2)  # ¡Podemos usar el resultado para más cálculos!\n```\nAdemás, cuando la CPU ejecuta un `return`, **la función termina de inmediato**.",
+      "lessonText": "# El Mensajero del Resultado \n\n- **`print()`** solo muestra texto en la pantalla para que un humano lo lea. **La computadora no puede usar ese texto para nada más**.\n- **`return`** devuelve el dato calculado directamente a la variable que llamó a la función para que el programa pueda seguir trabajando con él.\n\nEjemplo revelador:\n```python\ndef sumar(a, b):\n    return a + b\n\n# El valor devuelto (15) se guarda en la variable total\ntotal = sumar(10, 5)\nprint(total * 2)  # ¡Podemos usar el resultado para más cálculos!\n```\nAdemás, cuando la CPU ejecuta un `return`, **la función termina de inmediato**.",
       "options": [
         {
           "text": "print solo muestra texto en pantalla; return devuelve el dato a la variable para seguir operándolo",

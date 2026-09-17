@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué copiar y pegar código es peligroso y cómo lo resuelven las funciones?",
-      "lessonText": "# La Pesadilla de Copiar y Pegar 🍝\n\nImagina que para encender el robot necesitas ejecutar 5 líneas de configuración.\n\nSi copias y pegas esas 5 líneas en 10 lugares diferentes de tu programa:\n- Tu código tendrá 50 líneas repetitivas y sucias.\n- Si descubres que uno de los puertos del motor cambió, ¡tienes que buscar y editar los 10 lugares a mano!\n- Si olvidas uno solo, tu robot tendrá un bug fantasma.\n\nEl **Principio DRY (Don't Repeat Yourself)** dice:\n*'Empaqueta esas 5 líneas dentro de una función llamada `iniciarRobot()` y solo llámala cuando la necesites'*. Limpio, modular y profesional.",
+      "lessonText": "# La Pesadilla de Copiar y Pegar \n\nImagina que para encender el robot necesitas ejecutar 5 líneas de configuración.\n\nSi copias y pegas esas 5 líneas en 10 lugares diferentes de tu programa:\n- Tu código tendrá 50 líneas repetitivas y sucias.\n- Si descubres que uno de los puertos del motor cambió, ¡tienes que buscar y editar los 10 lugares a mano!\n- Si olvidas uno solo, tu robot tendrá un bug fantasma.\n\nEl **Principio DRY (Don't Repeat Yourself)** dice:\n*'Empaqueta esas 5 líneas dentro de una función llamada `iniciarRobot()` y solo llámala cuando la necesites'*. Limpio, modular y profesional.",
       "options": [
         {
           "text": "Empaquetar código repetitivo en una función para reutilizarlo y mantenerlo en un solo lugar",

@@ -1,107 +1,106 @@
 {
-  "title": "¿Cómo Piensa una Computadora?",
+  "title": "Desafío Práctico: Tu Primera Instrucción",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué se dice que las computadoras son literales?",
-      "lessonText": "# El Pensamiento Computacional 🧠\n\nUn humano promedio puede deducir intenciones. Si le dices a tu compañero de pits 'pásame esa cosa que gira tornillos', sabe que te refieres al destornillador.\n\nUna computadora **no puede inferir nada**. Si tu código tiene una letra mayúscula en vez de minúscula, o te falta una coma, el programa fallará con un **Syntax Error**.\n\nAprender a programar es aprender a pensar con **precisión matemática y claridad quirúrgica**.",
+      "question": "¡Momento de poner a prueba lo aprendido!",
+      "lessonText": "# ¡Bienvenido al equipo de programación! \n\nEstás en la arena de competencia preparando las primeras instrucciones para el robot.\n\nEn esta lección final de la Unidad 1, demostrarás que comprendes la naturaleza del código, la precisión absoluta y la ejecución de sentencias de output en la consola.\n\n¡Vamos a dejar el código impecable!",
       "options": [
         {
-          "text": "Porque ejecutan exactamente lo escrito sin interpretar la intención",
+          "text": "¡Estoy listo para escribir instrucciones precisas y sin ambigüedad!",
           "correct": true
         },
         {
-          "text": "Porque sólo leen libros de ciencia ficción",
+          "text": "Prefiero saltarme las reglas gramaticales y ver qué pasa",
           "correct": false
         },
         {
-          "text": "Porque no les gusta ayudar a los programadores novatos",
+          "text": "Voy a intentar escribir instrucciones binarias a mano",
           "correct": false
         },
         {
-          "text": "Porque las baterías de 12V no transmiten metáforas",
+          "text": "Esperaré a que la roboRIO adivine lo que quiero que haga",
           "correct": false
         }
       ]
     },
     {
-      "type": "ASSIST",
-      "question": "¿Cómo se llama el error que ocurre cuando violamos las reglas gramaticales de un lenguaje de programación?",
+      "type": "CODE_ORDER",
+      "question": "Ordena las líneas simulando el proceso lógico de inicialización de un robot (Input -> Proceso -> Output):",
       "options": [
         {
-          "text": "Syntax Error (Error de Sintaxis)",
+          "text": "print('1. Leyendo datos del sensor de visión (Input)')",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "print('2. Calculando distancia al objetivo (Proceso)')",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "print('3. Activando motores de disparo (Output)')",
+          "correct": true,
+          "audioSrc": "3"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el comando para enviar un mensaje Output al log (consola):",
+      "codeSnippet": "_____('Sistema de Telemetría Iniciado')",
+      "options": [
+        {
+          "text": "print",
           "correct": true
         },
         {
-          "text": "Hardware Crash",
+          "text": "Print",
           "correct": false
         },
         {
-          "text": "Battery Drain",
+          "text": "input",
           "correct": false
         },
         {
-          "text": "Mechanical Jam",
+          "text": "hardware",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá la consola tras ejecutar este código?",
-      "codeSnippet": "print('Nautilus')\nprint('4010')",
+      "type": "PREDICT_OUTPUT",
+      "question": "¿Qué mostrará la consola exactamente al ejecutar estas dos instrucciones secuenciales?",
+      "codeSnippet": "print('Robot encendido')\nprint('Esperando al Driver')",
       "options": [
         {
-          "text": "Nautilus en la primera línea y 4010 en la segunda",
+          "text": "Robot encendido\nEsperando al Driver",
           "correct": true
         },
         {
-          "text": "Nautilus4010 todo pegado en una sola palabra",
-          "correct": false
-        },
-        {
-          "text": "4010 Nautilus al revés",
-          "correct": false
-        },
-        {
-          "text": "Error porque 4010 es un número",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_WRITE",
-      "question": "Escribe una instrucción que imprima exactamente el texto: Ready",
-      "codeSnippet": "// Tu turno de escribir código",
-      "options": [
-        {
-          "text": "print('Ready')",
-          "correct": true
-        },
-        {
-          "text": "print(Ready)",
+          "text": "Robot encendido Esperando al Driver",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Es lo mismo escribir `Print('Hola')` que `print('Hola')` en la mayoría de lenguajes?",
+      "question": "Al final del día, ¿qué afirmación resume mejor qué es programar?",
       "options": [
         {
-          "text": "No, la mayoría de lenguajes son case-sensitive (distinguen mayúsculas de minúsculas)",
+          "text": "Es el diseño de algoritmos (input-proceso-output) y su traducción a lenguajes estructurados que el compilador convierte a instrucciones de hardware",
           "correct": true
         },
         {
-          "text": "Sí, a las computadoras les da igual el tamaño de las letras",
+          "text": "Es memorizar cómo se enchufan los cables en el panel de distribución eléctrica",
           "correct": false
         },
         {
-          "text": "Sí, siempre y cuando esté en cursiva",
+          "text": "Es escribir textos largos para que otras personas los lean",
           "correct": false
         },
         {
-          "text": "Sólo si el robot está conectado a la luz",
+          "text": "Es una técnica para acelerar físicamente el movimiento de los motores",
           "correct": false
         }
       ]

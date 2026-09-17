@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué el orden de las condiciones en una cadena if-elif importa tanto?",
-      "lessonText": "# El Error del Orden Invertido ⚠️\n\nAnaliza este intento de clasificar velocidades:\n```python\nvelocidad = 95\nif velocidad > 50:\n    print('Rápido')\nelif velocidad > 90:\n    print('Súper Rápido')  # ¡ESTA LÍNEA NUNCA SE EJECUTARÁ!\n```\n¿Por qué jamás dirá 'Súper Rápido'?\nPorque como `95` ya es mayor a `50`, la primera condición se cumple inmediatamente. La CPU ejecuta `'Rápido'` y **se salta todo lo demás**.\n\n**Regla de Oro:** Siempre coloca las condiciones **más específicas y estrictas primero**, y las más generales después.",
+      "lessonText": "# El Error del Orden Invertido ️\n\nAnaliza este intento de clasificar velocidades:\n```python\nvelocidad = 95\nif velocidad > 50:\n    print('Rápido')\nelif velocidad > 90:\n    print('Súper Rápido')  # ¡ESTA LÍNEA NUNCA SE EJECUTARÁ!\n```\n¿Por qué jamás dirá 'Súper Rápido'?\nPorque como `95` ya es mayor a `50`, la primera condición se cumple inmediatamente. La CPU ejecuta `'Rápido'` y **se salta todo lo demás**.\n\n**Regla de Oro:** Siempre coloca las condiciones **más específicas y estrictas primero**, y las más generales después.",
       "options": [
         {
           "text": "Porque la primera condición que sea verdadera consume la ejecución y descarta las siguientes",

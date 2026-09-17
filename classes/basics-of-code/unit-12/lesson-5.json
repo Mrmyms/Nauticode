@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¡Chequeo de subsistemas con Teus!",
-      "lessonText": "# El Test de Pits Pre-Match 🏎️\n\nAntes de colocar a Nautilus 4010 en la cancha, el equipo corre un script de diagnóstico que:\n1. Parpadea la tira de luces LED CANdle 3 veces en color dorado (`#EDB824`).\n2. Realiza un test de pulso en los 4 motores de tracción.\n\nEn este reto final de la Unidad 12, programarás estos bucles de chequeo con `for`.",
+      "lessonText": "# El Test de Pits Pre-Match ️\n\nAntes de colocar a Nautilus 4010 en la cancha, el equipo corre un script de diagnóstico que:\n1. Parpadea la tira de luces LED CANdle 3 veces en color dorado (`#EDB824`).\n2. Realiza un test de pulso en los 4 motores de tracción.\n\nEn este reto final de la Unidad 12, programarás estos bucles de chequeo con `for`.",
       "options": [
         {
           "text": "¡Vamos a programar el test de diagnóstico!",

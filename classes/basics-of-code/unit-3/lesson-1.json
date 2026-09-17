@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo recorre el procesador un archivo de código?",
-      "lessonText": "# El Hilo de la Secuencia 🧵\n\nImagina que estás leyendo un libro: lees la primera palabra, luego la segunda, completas el renglón y bajas al siguiente.\n\nUna computadora hace exactamente lo mismo con un script de código:\n```python\n# Línea 1\nprint('Iniciando sistemas')\n# Línea 2\nprint('Comprobando sensores')\n# Línea 3\nprint('Robot habilitado')\n```\n\nJamás se ejecutará la línea 3 antes que la línea 1 a menos que usemos estructuras especiales de control de flujo. La ejecución es **secuencial y determinista**.",
+      "lessonText": "# El Hilo de la Secuencia \n\nImagina que estás leyendo un libro: lees la primera palabra, luego la segunda, completas el renglón y bajas al siguiente.\n\nUna computadora hace exactamente lo mismo con un script de código:\n```python\n# Línea 1\nprint('Iniciando sistemas')\n# Línea 2\nprint('Comprobando sensores')\n# Línea 3\nprint('Robot habilitado')\n```\n\nJamás se ejecutará la línea 3 antes que la línea 1 a menos que usemos estructuras especiales de control de flujo. La ejecución es **secuencial y determinista**.",
       "options": [
         {
           "text": "Línea por línea de arriba hacia abajo, una después de otra",

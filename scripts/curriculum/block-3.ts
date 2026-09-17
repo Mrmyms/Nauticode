@@ -31,7 +31,7 @@ Comparan dos valores y siempre devuelven un resultado booleano (\`true\` o \`fal
           {
             type: "THEORY",
             question: "¿Cómo compara la computadora dos datos numéricos?",
-            lessonText: "# Las Balanzas de la CPU ⚖️\n\nLos **operadores relacionales** comparan dos valores y siempre producen un booleano (`true` o `false`):\n- `==` : ¿Es exactamente igual? (`5 == 5` -> `true`)\n- `!=` : ¿Es diferente? (`5 != 3` -> `true`)\n- `>` y `<` : Mayor que y menor que (`12 > 10` -> `true`)\n- `>=` y `<=` : Mayor o igual, y menor o igual.\n\nEn FIRST Robotics comparamos todo el tiempo:\n`bateria >= 12.0` (¿La batería tiene suficiente carga?)\n`distanciaCM < 30.0` (¿Hay un obstáculo demasiado cerca?).",
+            lessonText: "# Las Balanzas de la CPU ️\n\nLos **operadores relacionales** comparan dos valores y siempre producen un booleano (`true` o `false`):\n- `==` : ¿Es exactamente igual? (`5 == 5` -> `true`)\n- `!=` : ¿Es diferente? (`5 != 3` -> `true`)\n- `>` y `<` : Mayor que y menor que (`12 > 10` -> `true`)\n- `>=` y `<=` : Mayor o igual, y menor o igual.\n\nEn FIRST Robotics comparamos todo el tiempo:\n`bateria >= 12.0` (¿La batería tiene suficiente carga?)\n`distanciaCM < 30.0` (¿Hay un obstáculo demasiado cerca?).",
             options: [
               { text: "Comparan dos valores y devuelven un booleano (true o false)", correct: true },
               { text: "Cambian el valor del número a cero automáticamente", correct: false },
@@ -89,7 +89,7 @@ Comparan dos valores y siempre devuelven un resultado booleano (\`true\` o \`fal
           {
             type: "THEORY",
             question: "¿Cómo funciona el operador lógico AND?",
-            lessonText: "# Ambas Condiciones o Nada 🤝\n\nEl operador **AND** (en Java/C++ se escribe `&&`, en Python se escribe `and`) exige que **ambas condiciones sean verdaderas simultáneamente** para que el resultado sea `true`.\n\nEjemplo en el robot Nautilus:\n¿Cuándo podemos disparar una pieza al Speaker?\n`shooterListo && robotAlineado`\n- Si el shooter está listo (`true`) PERO el robot no está alineado (`false`)... **NO disparas** (`false`).\n- Si el robot está alineado (`true`) pero el shooter está frío (`false`)... **NO disparas** (`false`).\n- ¡SOLO si ambos son `true` la compuerta AND abre el paso!",
+            lessonText: "# Ambas Condiciones o Nada \n\nEl operador **AND** (en Java/C++ se escribe `&&`, en Python se escribe `and`) exige que **ambas condiciones sean verdaderas simultáneamente** para que el resultado sea `true`.\n\nEjemplo en el robot Nautilus:\n¿Cuándo podemos disparar una pieza al Speaker?\n`shooterListo && robotAlineado`\n- Si el shooter está listo (`true`) PERO el robot no está alineado (`false`)... **NO disparas** (`false`).\n- Si el robot está alineado (`true`) pero el shooter está frío (`false`)... **NO disparas** (`false`).\n- ¡SOLO si ambos son `true` la compuerta AND abre el paso!",
             options: [
               { text: "Devuelve true únicamente si TODAS las condiciones conectadas son verdaderas", correct: true },
               { text: "Devuelve true si al menos una de las dos condiciones es falsa", correct: false },
@@ -146,7 +146,7 @@ Comparan dos valores y siempre devuelven un resultado booleano (\`true\` o \`fal
           {
             type: "THEORY",
             question: "¿Cómo funciona el operador lógico OR?",
-            lessonText: "# Basta Con Una Sola Verdad 🚪\n\nEl operador **OR** (en Java/C++ se escribe `||`, en Python se escribe `or`) es mucho más flexible que el AND: **devuelve `true` si al menos una de las condiciones es verdadera**.\n\nEjemplo de seguridad en Nautilus:\n¿Cuándo debemos frenar el robot de emergencia?\n`botonEStopPresionado || bateriaPeligrosamenteBaja`\n- Si el botón de E-Stop se presiona (`true`), ¡frenamos de inmediato!\n- Si la batería cae a nivel crítico (`true`), ¡frenamos de inmediato!\n- Solo si NINGUNA de las dos situaciones ocurre (`false || false`), el robot continúa.",
+            lessonText: "# Basta Con Una Sola Verdad \n\nEl operador **OR** (en Java/C++ se escribe `||`, en Python se escribe `or`) es mucho más flexible que el AND: **devuelve `true` si al menos una de las condiciones es verdadera**.\n\nEjemplo de seguridad en Nautilus:\n¿Cuándo debemos frenar el robot de emergencia?\n`botonEStopPresionado || bateriaPeligrosamenteBaja`\n- Si el botón de E-Stop se presiona (`true`), ¡frenamos de inmediato!\n- Si la batería cae a nivel crítico (`true`), ¡frenamos de inmediato!\n- Solo si NINGUNA de las dos situaciones ocurre (`false || false`), el robot continúa.",
             options: [
               { text: "Devuelve true si al menos UNA de las condiciones es verdadera", correct: true },
               { text: "Exige que todas las condiciones sean falsas obligatoriamente", correct: false },
@@ -202,7 +202,7 @@ Comparan dos valores y siempre devuelven un resultado booleano (\`true\` o \`fal
           {
             type: "THEORY",
             question: "¿Qué hace el operador lógico NOT?",
-            lessonText: "# El Inversor de Realidad 🪞\n\nEl operador **NOT** (en Java/C++ se escribe `!`, en Python se escribe `not`) es un operador unario que **invierte el valor de cualquier booleano**:\n- `not true` se convierte en `false`.\n- `not false` se convierte en `true`.\n\nEjemplo práctico:\n`hayObstaculo = false`\n`caminoLibre = not hayObstaculo` (¡caminoLibre ahora es `true`!)\n\nEn robótica se usa todo el tiempo con interruptores normalmente cerrados (NC) o para comprobar si una tarea aún no ha terminado.",
+            lessonText: "# El Inversor de Realidad \n\nEl operador **NOT** (en Java/C++ se escribe `!`, en Python se escribe `not`) es un operador unario que **invierte el valor de cualquier booleano**:\n- `not true` se convierte en `false`.\n- `not false` se convierte en `true`.\n\nEjemplo práctico:\n`hayObstaculo = false`\n`caminoLibre = not hayObstaculo` (¡caminoLibre ahora es `true`!)\n\nEn robótica se usa todo el tiempo con interruptores normalmente cerrados (NC) o para comprobar si una tarea aún no ha terminado.",
             options: [
               { text: "Invierte el valor de verdad: convierte true en false y false en true", correct: true },
               { text: "Borra la variable para siempre", correct: false },
@@ -257,7 +257,7 @@ Comparan dos valores y siempre devuelven un resultado booleano (\`true\` o \`fal
           {
             type: "THEORY",
             question: "¡Seguridad de alto voltaje en Nautilus 4010!",
-            lessonText: "# El Enclavamiento de Seguridad (Interlock) 🛑\n\nEl mecanismo de elevación de nuestro robot puede levantar 30 kg a toda velocidad. Para que sea 100% seguro, el software tiene una regla de oro:\n\n**Solo se permite subir el elevador si:**\n1. El limit switch superior NO ha sido alcanzado (`not limiteSuperior`).\n2. Y además, la presión de aire es correcta O el motor está habilitado.\n\nEn este reto final de la Unidad 8, pondrás a prueba tu dominio de comparadores, AND, OR y NOT.",
+            lessonText: "# El Enclavamiento de Seguridad (Interlock) \n\nEl mecanismo de elevación de nuestro robot puede levantar 30 kg a toda velocidad. Para que sea 100% seguro, el software tiene una regla de oro:\n\n**Solo se permite subir el elevador si:**\n1. El limit switch superior NO ha sido alcanzado (`not limiteSuperior`).\n2. Y además, la presión de aire es correcta O el motor está habilitado.\n\nEn este reto final de la Unidad 8, pondrás a prueba tu dominio de comparadores, AND, OR y NOT.",
             options: [
               { text: "¡Vamos a programar el interlock de seguridad!", correct: true },
               { text: "Prefiero que el elevador choque contra el techo", correct: false },
@@ -341,7 +341,7 @@ if condicion:
           {
             type: "THEORY",
             question: "¿Qué es una sentencia 'if' y para qué sirve?",
-            lessonText: "# El Guardián del Camino 🚦\n\nEn la vida diaria tomas decisiones condicionales:\n*'SI está lloviendo, tomo una sombrilla'*. Si no está lloviendo, simplemente ignoras la sombrilla y sigues caminando.\n\nEn código, la instrucción **`if`** funciona exactamente igual:\n```python\nif distanciaCM < 20:\n    print('¡Frenar! Obstáculo detectado')\n```\n- La computadora evalúa la condición entre el `if` y los dos puntos.\n- **Si es `true`:** Entra y ejecuta el bloque de código indentado.\n- **Si es `false`:** Se salta ese bloque por completo y continúa con lo que sigue.",
+            lessonText: "# El Guardián del Camino \n\nEn la vida diaria tomas decisiones condicionales:\n*'SI está lloviendo, tomo una sombrilla'*. Si no está lloviendo, simplemente ignoras la sombrilla y sigues caminando.\n\nEn código, la instrucción **`if`** funciona exactamente igual:\n```python\nif distanciaCM < 20:\n    print('¡Frenar! Obstáculo detectado')\n```\n- La computadora evalúa la condición entre el `if` y los dos puntos.\n- **Si es `true`:** Entra y ejecuta el bloque de código indentado.\n- **Si es `false`:** Se salta ese bloque por completo y continúa con lo que sigue.",
             options: [
               { text: "Una estructura de control que ejecuta un bloque de código únicamente si su condición es verdadera", correct: true },
               { text: "Un comando que apaga la computadora si hay un error", correct: false },
@@ -398,7 +398,7 @@ if condicion:
           {
             type: "THEORY",
             question: "¿Por qué la indentación es obligatoria en Python y el orden visual en todos los lenguajes?",
-            lessonText: "# El Espacio es Estructura 📐\n\nObserva con atención este ejemplo:\n```python\nif robotHabilitado:\n    print('Encendiendo compresor')\n    print('Calibrando encoders')\nprint('Programa activo')\n```\n- Las líneas que tienen **4 espacios de sangría** hacia adentro forman el **cuerpo del `if`**. Solo corren si `robotHabilitado` es `true`.\n- La última línea (`print('Programa activo')`) no tiene sangría: está **afuera del `if`** y se ejecutará SIEMPRE, sin importar la condición.\n\nEn Java y C++ el cuerpo se delimita con llaves `{ ... }`, pero los buenos programadores siempre indentan para que el código sea legible.",
+            lessonText: "# El Espacio es Estructura \n\nObserva con atención este ejemplo:\n```python\nif robotHabilitado:\n    print('Encendiendo compresor')\n    print('Calibrando encoders')\nprint('Programa activo')\n```\n- Las líneas que tienen **4 espacios de sangría** hacia adentro forman el **cuerpo del `if`**. Solo corren si `robotHabilitado` es `true`.\n- La última línea (`print('Programa activo')`) no tiene sangría: está **afuera del `if`** y se ejecutará SIEMPRE, sin importar la condición.\n\nEn Java y C++ el cuerpo se delimita con llaves `{ ... }`, pero los buenos programadores siempre indentan para que el código sea legible.",
             options: [
               { text: "Porque define los límites de qué instrucciones están dentro de la condición y cuáles están fuera", correct: true },
               { text: "Porque a la CPU le gusta ver márgenes anchos", correct: false },
@@ -456,7 +456,7 @@ if condicion:
           {
             type: "THEORY",
             question: "¿Qué es un 'if anidado' (nested if)?",
-            lessonText: "# Decisiones Dentro de Decisiones 🪆\n\nA veces una decisión depende de que una decisión previa ya se haya cumplido.\n\nEjemplo en la arena de FIRST:\n```python\nif robotHabilitado:\n    print('Paso 1: Robot encendido')\n    if botonDisparoPresionado:\n        print('Paso 2: Disparando')\n```\n- Si `robotHabilitado` es `false`, la computadora ni siquiera se molesta en mirar `botonDisparoPresionado`.\n- El código interior solo se alcanza si **ambas compuertas se abrieron sucesivamente**.",
+            lessonText: "# Decisiones Dentro de Decisiones \n\nA veces una decisión depende de que una decisión previa ya se haya cumplido.\n\nEjemplo en la arena de FIRST:\n```python\nif robotHabilitado:\n    print('Paso 1: Robot encendido')\n    if botonDisparoPresionado:\n        print('Paso 2: Disparando')\n```\n- Si `robotHabilitado` es `false`, la computadora ni siquiera se molesta en mirar `botonDisparoPresionado`.\n- El código interior solo se alcanza si **ambas compuertas se abrieron sucesivamente**.",
             options: [
               { text: "Una sentencia if colocada dentro del bloque de otra sentencia if previa", correct: true },
               { text: "Un if que se ejecuta hacia atrás", correct: false },
@@ -513,7 +513,7 @@ if condicion:
           {
             type: "THEORY",
             question: "¿Por qué confundir '=' con '==' causa desastres en los novatos?",
-            lessonText: "# El Error Más Costoso de la Historia 💀\n\nRecuerda la regla de oro:\n- **`=` es ASIGNACIÓN:** Guarda un dato dentro de una variable (`velocidad = 100`).\n- **`==` es COMPARACIÓN:** Pregunta si dos cosas son iguales (`if velocidad == 100:`).\n\nEn lenguajes como C++ y Java, escribir accidentalmente:\n`if (potencia = 0)`\nNo compara si la potencia es 0... ¡**Le asigna 0 a la potencia en ese mismo instante**! Tu robot se detendrá de golpe o se comportará de forma errática sin que el compilador te avise del error lógico.",
+            lessonText: "# El Error Más Costoso de la Historia \n\nRecuerda la regla de oro:\n- **`=` es ASIGNACIÓN:** Guarda un dato dentro de una variable (`velocidad = 100`).\n- **`==` es COMPARACIÓN:** Pregunta si dos cosas son iguales (`if velocidad == 100:`).\n\nEn lenguajes como C++ y Java, escribir accidentalmente:\n`if (potencia = 0)`\nNo compara si la potencia es 0... ¡**Le asigna 0 a la potencia en ese mismo instante**! Tu robot se detendrá de golpe o se comportará de forma errática sin que el compilador te avise del error lógico.",
             options: [
               { text: "Porque '=' modifica la variable asignándole un valor, mientras que '==' sólo compara sin alterar nada", correct: true },
               { text: "Porque un '=' gasta la mitad de la batería que dos '=='", correct: false },
@@ -570,7 +570,7 @@ if condicion:
           {
             type: "THEORY",
             question: "¡Evitando colisiones en la arena con Teus!",
-            lessonText: "# El Sensor de Distancia Láser (LiDAR / ToF) 🚨\n\nNautilus 4010 tiene un sensor de distancia Time-of-Flight en el parachoques delantero.\n\nDurante el partido, si el sensor detecta que la distancia a otro robot o a la pared cae por debajo del umbral de seguridad de `25.0` cm:\n¡El software debe aplicar frenado preventivo de inmediato para evitar una tarjeta de penalización!\n\nEn este reto final de la Unidad 9, ensamblarás y verificarás la lógica condicional de frenado.",
+            lessonText: "# El Sensor de Distancia Láser (LiDAR / ToF) \n\nNautilus 4010 tiene un sensor de distancia Time-of-Flight en el parachoques delantero.\n\nDurante el partido, si el sensor detecta que la distancia a otro robot o a la pared cae por debajo del umbral de seguridad de `25.0` cm:\n¡El software debe aplicar frenado preventivo de inmediato para evitar una tarjeta de penalización!\n\nEn este reto final de la Unidad 9, ensamblarás y verificarás la lógica condicional de frenado.",
             options: [
               { text: "¡Vamos a programar el freno preventivo con Teus!", correct: true },
               { text: "Prefiero chocar a toda velocidad contra la pared", correct: false },
@@ -659,7 +659,7 @@ En una cadena de \`if-elif-else\`, **SOLO UN CAMINO se ejecuta**. En cuanto una 
           {
             type: "THEORY",
             question: "¿Para qué sirve la cláusula 'else'?",
-            lessonText: "# El Plan B 🛡️\n\nImagina un cruce de caminos: o vas por la izquierda, o vas por la derecha. No puedes ir por ambos lados a la vez.\n\nLa sentencia **`else`** define el bloque de código que se ejecutará **cuando la condición del `if` resulte ser `false`**:\n```python\nif sensorOptico == true:\n    print('Pieza detectada: Lista para tirar')\nelse:\n    print('Buscando pieza en la alfombra...')\n```\n- Si el sensor marca `true`: corre el bloque del `if`.\n- Si marca `false`: corre el bloque del `else`.\n¡Uno de los dos caminos se ejecutará siempre de forma garantizada!",
+            lessonText: "# El Plan B ️\n\nImagina un cruce de caminos: o vas por la izquierda, o vas por la derecha. No puedes ir por ambos lados a la vez.\n\nLa sentencia **`else`** define el bloque de código que se ejecutará **cuando la condición del `if` resulte ser `false`**:\n```python\nif sensorOptico == true:\n    print('Pieza detectada: Lista para tirar')\nelse:\n    print('Buscando pieza en la alfombra...')\n```\n- Si el sensor marca `true`: corre el bloque del `if`.\n- Si marca `false`: corre el bloque del `else`.\n¡Uno de los dos caminos se ejecutará siempre de forma garantizada!",
             options: [
               { text: "Define el bloque de código alternativo que se ejecuta cuando la condición del if es falsa", correct: true },
               { text: "Un comando que apaga la consola si hay un error", correct: false },
@@ -716,7 +716,7 @@ En una cadena de \`if-elif-else\`, **SOLO UN CAMINO se ejecuta**. En cuanto una 
           {
             type: "THEORY",
             question: "¿Cuándo se utiliza 'else if' (elif)?",
-            lessonText: "# El Semáforo de 3 Colores 🚦\n\n¿Qué pasa si tienes más de dos opciones posibles? Por ejemplo, un semáforo tiene Verde, Amarillo y Rojo.\n\nPara encadenar múltiples condiciones excluyentes usamos **`elif`** (en Python) o **`else if`** (en Java/C++):\n```python\nif luz == 'Verde':\n    avanzar()\nelif luz == 'Amarillo':\n    desacelerar()\nelif luz == 'Rojo':\n    frenar()\nelse:\n    print('Luz desconocida')\n```\nLa computadora evalúa de arriba a abajo. **En cuanto una condición sea `true`, ejecuta su bloque y se salta todas las demás.**",
+            lessonText: "# El Semáforo de 3 Colores \n\n¿Qué pasa si tienes más de dos opciones posibles? Por ejemplo, un semáforo tiene Verde, Amarillo y Rojo.\n\nPara encadenar múltiples condiciones excluyentes usamos **`elif`** (en Python) o **`else if`** (en Java/C++):\n```python\nif luz == 'Verde':\n    avanzar()\nelif luz == 'Amarillo':\n    desacelerar()\nelif luz == 'Rojo':\n    frenar()\nelse:\n    print('Luz desconocida')\n```\nLa computadora evalúa de arriba a abajo. **En cuanto una condición sea `true`, ejecuta su bloque y se salta todas las demás.**",
             options: [
               { text: "Para evaluar múltiples condiciones en secuencia donde solo una de ellas debe ejecutarse", correct: true },
               { text: "Para repetir una instrucción 100 veces seguidas", correct: false },
@@ -772,7 +772,7 @@ En una cadena de \`if-elif-else\`, **SOLO UN CAMINO se ejecuta**. En cuanto una 
           {
             type: "THEORY",
             question: "¿Por qué el 'else' final es el guardián de los imprevistos?",
-            lessonText: "# El Escudo Contra lo Inesperado 🛡️\n\n¿Qué pasa si un sensor devuelve un valor corrupto por estática en la cancha de FIRST? Por ejemplo, una cámara de visión envía un estado no contemplado: `estado = 'UNKNOWN_GLITCH'`.\n\nSi solo tienes `if` y `elif` específicos, el programa ignorará todo silenciosamente y el robot quedará congelado sin saber qué hacer.\n\nEl **`else` final** actúa como red de seguridad (*fallback*):\n```python\nif estado == 'TRACKING':\n    apuntar()\nelif estado == 'SEARCHING':\n    girarLentamente()\nelse:\n    # Caso por defecto ante datos extraños\n    detenerTodoYSonarAlerta()\n```",
+            lessonText: "# El Escudo Contra lo Inesperado ️\n\n¿Qué pasa si un sensor devuelve un valor corrupto por estática en la cancha de FIRST? Por ejemplo, una cámara de visión envía un estado no contemplado: `estado = 'UNKNOWN_GLITCH'`.\n\nSi solo tienes `if` y `elif` específicos, el programa ignorará todo silenciosamente y el robot quedará congelado sin saber qué hacer.\n\nEl **`else` final** actúa como red de seguridad (*fallback*):\n```python\nif estado == 'TRACKING':\n    apuntar()\nelif estado == 'SEARCHING':\n    girarLentamente()\nelse:\n    # Caso por defecto ante datos extraños\n    detenerTodoYSonarAlerta()\n```",
             options: [
               { text: "Asegura que el programa siempre tenga una respuesta segura ante cualquier valor inesperado", correct: true },
               { text: "Hace que los sensores fallen a propósito", correct: false },
@@ -829,7 +829,7 @@ En una cadena de \`if-elif-else\`, **SOLO UN CAMINO se ejecuta**. En cuanto una 
           {
             type: "THEORY",
             question: "¿Por qué el orden de las condiciones en una cadena if-elif importa tanto?",
-            lessonText: "# El Error del Orden Invertido ⚠️\n\nAnaliza este intento de clasificar velocidades:\n```python\nvelocidad = 95\nif velocidad > 50:\n    print('Rápido')\nelif velocidad > 90:\n    print('Súper Rápido')  # ¡ESTA LÍNEA NUNCA SE EJECUTARÁ!\n```\n¿Por qué jamás dirá 'Súper Rápido'?\nPorque como `95` ya es mayor a `50`, la primera condición se cumple inmediatamente. La CPU ejecuta `'Rápido'` y **se salta todo lo demás**.\n\n**Regla de Oro:** Siempre coloca las condiciones **más específicas y estrictas primero**, y las más generales después.",
+            lessonText: "# El Error del Orden Invertido ️\n\nAnaliza este intento de clasificar velocidades:\n```python\nvelocidad = 95\nif velocidad > 50:\n    print('Rápido')\nelif velocidad > 90:\n    print('Súper Rápido')  # ¡ESTA LÍNEA NUNCA SE EJECUTARÁ!\n```\n¿Por qué jamás dirá 'Súper Rápido'?\nPorque como `95` ya es mayor a `50`, la primera condición se cumple inmediatamente. La CPU ejecuta `'Rápido'` y **se salta todo lo demás**.\n\n**Regla de Oro:** Siempre coloca las condiciones **más específicas y estrictas primero**, y las más generales después.",
             options: [
               { text: "Porque la primera condición que sea verdadera consume la ejecución y descarta las siguientes", correct: true },
               { text: "Porque el procesador se confunde con el número 90", correct: false },
@@ -887,7 +887,7 @@ En una cadena de \`if-elif-else\`, **SOLO UN CAMINO se ejecuta**. En cuanto una 
           {
             type: "THEORY",
             question: "¡Los modos de manejo del piloto de Nautilus 4010!",
-            lessonText: "# El Selector de Velocidad en el Control 🎮\n\nEl piloto de nuestro equipo tiene un selector de 3 posiciones en su joystick:\n1. **Modo 'SLOW' (Precisión):** Potencia al `30%` (para alinear al milímetro con el alimentador).\n2. **Modo 'NORMAL':** Potencia al `75%` (para recorrer la cancha en teleoperado).\n3. **Modo 'BOOST' (Turbo):** Potencia al `100%` (para escapar de la defensa rival a toda máquina).\n\nEn este reto final de la Unidad 10, implementarás la máquina de decisiones completa con `if`, `elif` y `else`.",
+            lessonText: "# El Selector de Velocidad en el Control \n\nEl piloto de nuestro equipo tiene un selector de 3 posiciones en su joystick:\n1. **Modo 'SLOW' (Precisión):** Potencia al `30%` (para alinear al milímetro con el alimentador).\n2. **Modo 'NORMAL':** Potencia al `75%` (para recorrer la cancha en teleoperado).\n3. **Modo 'BOOST' (Turbo):** Potencia al `100%` (para escapar de la defensa rival a toda máquina).\n\nEn este reto final de la Unidad 10, implementarás la máquina de decisiones completa con `if`, `elif` y `else`.",
             options: [
               { text: "¡Vamos a configurar el selector de manejo de Teus!", correct: true },
               { text: "Prefiero que el robot maneje a una sola velocidad para siempre", correct: false },

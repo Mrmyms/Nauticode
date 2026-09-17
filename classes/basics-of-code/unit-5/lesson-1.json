@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Por qué los nombres de las variables deben ser claros y descriptivos?",
-      "lessonText": "# El Dilema del Código Incomprensible 🤦‍♂️\n\nImagina que entras a la final regional de FRC en 10 minutos y hay un bug en el chasis. Abres el archivo y encuentras esto:\n```python\na = 0.8\nb = 12.4\nc = a * b\n```\n¿Qué rayos es `a`? ¿Qué significa `b`? Nadie lo sabe.\n\nAhora compara con esto:\n```python\npotenciaMotor = 0.8\nvoltajeBateria = 12.4\npotenciaEfectiva = potenciaMotor * voltajeBateria\n```\n¡La intención es cristalina en un segundo! **El código se lee muchas más veces de las que se escribe.**",
+      "lessonText": "# El Dilema del Código Incomprensible ‍️\n\nImagina que entras a la final regional de FRC en 10 minutos y hay un bug en el chasis. Abres el archivo y encuentras esto:\n```python\na = 0.8\nb = 12.4\nc = a * b\n```\n¿Qué rayos es `a`? ¿Qué significa `b`? Nadie lo sabe.\n\nAhora compara con esto:\n```python\npotenciaMotor = 0.8\nvoltajeBateria = 12.4\npotenciaEfectiva = potenciaMotor * voltajeBateria\n```\n¡La intención es cristalina en un segundo! **El código se lee muchas más veces de las que se escribe.**",
       "options": [
         {
           "text": "Porque ahorra tiempo de depuración y permite que todo el equipo entienda la intención del código",

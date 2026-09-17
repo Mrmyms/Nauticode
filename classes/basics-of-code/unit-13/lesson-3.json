@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Qué es una variable bandera (flag variable)?",
-      "lessonText": "# Levantando la Bandera 🚩\n\nUna **Flag (bandera)** es una variable booleana que actúa como señal de alerta entre diferentes partes del código.\n\nEjemplo clásico:\n```python\npeligroDetectado = false  # Bandera abajo\n\nfor sensor in listaSensores:\n    if sensor.temperatura > 90:\n        peligroDetectado = true  # ¡Bandera arriba!\n        break\n\nif peligroDetectado:\n    activarVentiladores()\n```\nLa bandera recuerda el resultado de la búsqueda para que otras partes del programa puedan actuar en consecuencia.",
+      "lessonText": "# Levantando la Bandera \n\nUna **Flag (bandera)** es una variable booleana que actúa como señal de alerta entre diferentes partes del código.\n\nEjemplo clásico:\n```python\npeligroDetectado = false  # Bandera abajo\n\nfor sensor in listaSensores:\n    if sensor.temperatura > 90:\n        peligroDetectado = true  # ¡Bandera arriba!\n        break\n\nif peligroDetectado:\n    activarVentiladores()\n```\nLa bandera recuerda el resultado de la búsqueda para que otras partes del programa puedan actuar en consecuencia.",
       "options": [
         {
           "text": "Una variable booleana que cambia de estado para señalar que un evento o condición ocurrió",

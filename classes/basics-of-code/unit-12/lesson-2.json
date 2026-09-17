@@ -4,7 +4,7 @@
     {
       "type": "THEORY",
       "question": "¿Cómo funciona la función `range(inicio, fin, paso)`?",
-      "lessonText": "# El Control Total del Rango 🎛️\n\nEn Python, la función `range` tiene 3 parámetros súper versátiles:\n`range(inicio, fin, paso)`\n\n1. **`range(5)`:**\n   - Inicia en 0, llega hasta 4 (el fin nunca se incluye).\n2. **`range(2, 6)`:**\n   - Inicia en 2 y llega hasta 5 -> `[2, 3, 4, 5]`.\n3. **`range(0, 10, 2)` (Con paso / step):\n   - Avanza de 2 en 2 -> `[0, 2, 4, 6, 8]`.\n\n¡Esto te permite crear cualquier secuencia matemática en una sola línea!",
+      "lessonText": "# El Control Total del Rango ️\n\nEn Python, la función `range` tiene 3 parámetros súper versátiles:\n`range(inicio, fin, paso)`\n\n1. **`range(5)`:**\n   - Inicia en 0, llega hasta 4 (el fin nunca se incluye).\n2. **`range(2, 6)`:**\n   - Inicia en 2 y llega hasta 5 -> `[2, 3, 4, 5]`.\n3. **`range(0, 10, 2)` (Con paso / step):\n   - Avanza de 2 en 2 -> `[0, 2, 4, 6, 8]`.\n\n¡Esto te permite crear cualquier secuencia matemática en una sola línea!",
       "options": [
         {
           "text": "Permite especificar el valor inicial, el límite superior (no inclusivo) y el incremento entre saltos",
