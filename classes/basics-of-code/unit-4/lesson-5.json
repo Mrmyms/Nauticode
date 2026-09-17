@@ -7,19 +7,19 @@
       "lessonText": "# Telemetría en Tiempo Real: NavX Gyro en Nautilus 4010\n\nEn un robot de competencia con tracción holonómica (Swerve Drive), el chasis necesita conocer su orientación angular respecto al campo (*field-oriented drive*) en cada milisegundo.\n\nPara lograrlo, el software del robot sigue este ciclo estricto de variables:\n\n1. **En `robotInit()`:** Se declara e inicializa la variable `anguloYaw = 0.0` asumiendo que el robot inicia mirando a la pared opuesta de la cancha.\n2. **En cada iteración del bucle autónomo (cada 20ms):** La IMU (Unidad de Medición Inercial) lee la velocidad angular de los giróscopos y el procesador **reasigna** la variable integrando el desplazamiento:\n```python\nanguloYaw = anguloYaw + lecturaGiro\n```\n3. **Si el piloto presiona el botón de recalibración:** El sistema ejecuta una reasignación directa `anguloYaw = 0.0` para corregir la deriva inercial (*drift*).\n\nEn este reto final de la Unidad 4, demostrarás tu dominio sobre la memoria, la mutabilidad y la actualización de variables en un sistema de ingeniería real.\n\n**La Regla de Oro:**\nLa telemetría de un sistema embebido es una red de variables mutables que sincronizan el estado interno de la CPU con las variables físicas del mundo real.",
       "options": [
         {
-          "text": "Se declara e inicializa una referencia base que se reasigna periódicamente con las lecturas inerciales de los sensores",
-          "correct": true
-        },
-        {
           "text": "Se crean 50 variables nuevas por segundo con nombres aleatorios para evitar colisiones en RAM",
           "correct": false
         },
         {
-          "text": "Se fija el ángulo en una constante inmutable que no puede modificarse aunque el robot gire físicamente",
-          "correct": false
+          "text": "Se declara e inicializa una referencia base que se reasigna periódicamente con las lecturas inerciales de los sensores",
+          "correct": true
         },
         {
           "text": "Se borra la memoria del giroscopio cada vez que se lee su valor para ahorrar ancho de banda",
+          "correct": false
+        },
+        {
+          "text": "Se fija el ángulo en una constante inmutable que no puede modificarse aunque el robot gire físicamente",
           "correct": false
         }
       ]
@@ -29,19 +29,19 @@
       "question": "Relaciona cada operación de código con su efecto físico en el sistema de navegación del robot:",
       "options": [
         {
-          "text": "anguloYaw = 0.0|||Inicialización del marco de referencia en orientación frontal hacia la cancha",
-          "correct": true
-        },
-        {
-          "text": "anguloYaw = anguloYaw + 45.0|||Reasignación acumulativa que registra un giro hacia la derecha",
-          "correct": true
-        },
-        {
           "text": "print(anguloYaw)|||Transmisión del valor actual de orientación a la Driver Station",
           "correct": true
         },
         {
+          "text": "anguloYaw = 0.0|||Inicialización del marco de referencia en orientación frontal hacia la cancha",
+          "correct": true
+        },
+        {
           "text": "anguloYaw = 0.0 (Reset)|||Recalibración en caliente solicitada por el conductor para eliminar drift",
+          "correct": true
+        },
+        {
+          "text": "anguloYaw = anguloYaw + 45.0|||Reasignación acumulativa que registra un giro hacia la derecha",
           "correct": true
         }
       ]
@@ -78,8 +78,8 @@
       "codeSnippet": "anguloNavX = 145.8\n// Conductor presiona boton de alineacion de campo\nanguloNavX = _____\nprint('Orientacion de campo restablecida')",
       "options": [
         {
-          "text": "0.0",
-          "correct": true
+          "text": "None",
+          "correct": false
         },
         {
           "text": "145.8",
@@ -90,8 +90,8 @@
           "correct": false
         },
         {
-          "text": "None",
-          "correct": false
+          "text": "0.0",
+          "correct": true
         }
       ]
     },
@@ -100,20 +100,20 @@
       "question": "¿Por qué es indispensable que `anguloNavX` sea una variable de tipo numérico y no una cadena de texto en un robot FRC?",
       "options": [
         {
-          "text": "Porque el controlador PID requiere realizar sustracciones y cálculos trigonométricos vectoriales de alta velocidad con ese valor",
-          "correct": true
-        },
-        {
-          "text": "Porque los cables de los motores solo transmiten números y rechazan caracteres alfabéticos",
-          "correct": false
-        },
-        {
           "text": "Porque las cadenas de texto se borran instantáneamente si el chasis vibra mecánicamente",
           "correct": false
         },
         {
           "text": "Porque la memoria RAM no puede almacenar caracteres alfanuméricos bajo ninguna circunstancia",
           "correct": false
+        },
+        {
+          "text": "Porque los cables de los motores solo transmiten números y rechazan caracteres alfabéticos",
+          "correct": false
+        },
+        {
+          "text": "Porque el controlador PID requiere realizar sustracciones y cálculos trigonométricos vectoriales de alta velocidad con ese valor",
+          "correct": true
         }
       ]
     },
@@ -127,7 +127,7 @@
           "correct": true
         },
         {
-          "text": "45.0",
+          "text": "0.0",
           "correct": false
         },
         {
@@ -135,7 +135,7 @@
           "correct": false
         },
         {
-          "text": "0.0",
+          "text": "45.0",
           "correct": false
         }
       ]

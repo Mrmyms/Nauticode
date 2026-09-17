@@ -7,10 +7,6 @@
       "lessonText": "# Aritmética Modular: El Reloj Numérico de la Computación\n\nEl operador **Módulo (`%`)** calcula el **residuo entero ($r$)** que resulta de la división euclidiana entre dos cantidades enteras ($a = b \\times q + r$). A diferencia de la división estándar, el módulo no devuelve el cociente ($q$), sino el sobrante exacto ($0 \\le r < |b|$).\n\n### Dos Aplicaciones Críticas en FIRST Robotics:\n\n1. **Normalización Angular de Orientación:**\nUn sensor de giro (como el giróscopo NavX o Pigeon 2.0) puede acumular rotaciones infinitas (`750.0°`). Para mapear esa rotación dentro del círculo trigonométrico estándar de 0 a 359 grados, aplicamos módulo 360:\n```python\nrumboCirculo = anguloAcumulado % 360\n# Si anguloAcumulado = 750, 750 % 360 devuelve 30 grados\n```\n\n2. **Temporización Periódica en Bucles Rápidos:**\nEl bucle de control de la roboRIO corre a $50\\text{ Hz}$ ($50$ ciclos por segundo). Si intentas imprimir telemetría en pantalla 50 veces por segundo, saturarás el bus de comunicación. Usando el módulo sobre el contador de ciclos:\n```python\nif ciclo % 50 == 0:\n    enviarTelemetriaPesada() # Se ejecuta exactamente una vez cada 50 ciclos (1 segundo)\n```\n\n**La Regla de Oro:**\nEl operador módulo (%) devuelve el residuo entero de una división; es la herramienta predilecta para normalizar rangos angulares y regular frecuencias de ejecución cíclica.",
       "options": [
         {
-          "text": "Devuelve el residuo entero de una división, permitiendo normalizar ángulos en 360 grados y coordinar frecuencias cíclicas",
-          "correct": true
-        },
-        {
           "text": "Calcula el porcentaje de descuento comercial de los componentes del robot",
           "correct": false
         },
@@ -21,6 +17,10 @@
         {
           "text": "Multiplica el valor por cien para convertir decimales en enteros",
           "correct": false
+        },
+        {
+          "text": "Devuelve el residuo entero de una división, permitiendo normalizar ángulos en 360 grados y coordinar frecuencias cíclicas",
+          "correct": true
         }
       ]
     },
@@ -29,7 +29,7 @@
       "question": "Relaciona cada uso del operador módulo con su impacto algorítmico:",
       "options": [
         {
-          "text": "angulo % 360|||Normalización angular que confina los giros al rango de 0 a 359 grados",
+          "text": "Residuo Cero (a % b == 0)|||Indica divisibilidad exacta entre ambos números",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "Residuo Cero (a % b == 0)|||Indica divisibilidad exacta entre ambos números",
+          "text": "angulo % 360|||Normalización angular que confina los giros al rango de 0 a 359 grados",
           "correct": true
         }
       ]
@@ -82,7 +82,7 @@
           "correct": true
         },
         {
-          "text": "/",
+          "text": "==",
           "correct": false
         },
         {
@@ -90,7 +90,7 @@
           "correct": false
         },
         {
-          "text": "==",
+          "text": "/",
           "correct": false
         }
       ]
@@ -100,19 +100,19 @@
       "question": "Si evaluamos la expresión `19 % 4` en cualquier procesador, ¿cuál es el resultado matemático exacto?",
       "options": [
         {
-          "text": "3 (porque 4 cabe 4 veces en 19 sumando 16, y restan exactamente 3 unidades)",
-          "correct": true
+          "text": "76 (porque multiplica ambos números)",
+          "correct": false
         },
         {
-          "text": "4.75 (porque calcula la división decimal continua entre 19 y 4)",
-          "correct": false
+          "text": "3 (porque 4 cabe 4 veces en 19 sumando 16, y restan exactamente 3 unidades)",
+          "correct": true
         },
         {
           "text": "4 (porque solo toma el cociente entero)",
           "correct": false
         },
         {
-          "text": "76 (porque multiplica ambos números)",
+          "text": "4.75 (porque calcula la división decimal continua entre 19 y 4)",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "gradosGiro = 450\nrumboNormalizado = gradosGiro % 360\nprint(rumboNormalizado)",
       "options": [
         {
-          "text": "90",
-          "correct": true
-        },
-        {
-          "text": "450",
-          "correct": false
-        },
-        {
           "text": "1.25",
           "correct": false
         },
         {
           "text": "0",
+          "correct": false
+        },
+        {
+          "text": "90",
+          "correct": true
+        },
+        {
+          "text": "450",
           "correct": false
         }
       ]

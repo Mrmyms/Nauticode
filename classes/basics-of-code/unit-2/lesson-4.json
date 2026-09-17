@@ -11,15 +11,15 @@
           "correct": true
         },
         {
-          "text": "Ilustrar la distribución física de los cables y fusibles en el chasis del robot",
-          "correct": false
-        },
-        {
           "text": "Generar automáticamente planos en tres dimensiones para las impresoras 3D",
           "correct": false
         },
         {
           "text": "Decorar la documentación del equipo para obtener puntos artísticos de los jueces",
+          "correct": false
+        },
+        {
+          "text": "Ilustrar la distribución física de los cables y fusibles en el chasis del robot",
           "correct": false
         }
       ]
@@ -33,11 +33,11 @@
           "correct": true
         },
         {
-          "text": "Rectángulo|||Operación matemática o instrucción de cálculo (Proceso)",
+          "text": "Rombo|||Bifurcación de decisión condicional (Verdadero o Falso)",
           "correct": true
         },
         {
-          "text": "Rombo|||Bifurcación de decisión condicional (Verdadero o Falso)",
+          "text": "Rectángulo|||Operación matemática o instrucción de cálculo (Proceso)",
           "correct": true
         },
         {
@@ -78,15 +78,15 @@
       "codeSnippet": "# Bifurcación del rombo de decisión:\n_____ (distanciaObstaculo < 15.0):\n    frenar()\nelse:\n    avanzar()",
       "options": [
         {
+          "text": "motor",
+          "correct": false
+        },
+        {
           "text": "if",
           "correct": true
         },
         {
           "text": "loop",
-          "correct": false
-        },
-        {
-          "text": "motor",
           "correct": false
         },
         {
@@ -108,11 +108,11 @@
           "correct": false
         },
         {
-          "text": "Tantas flechas como letras tenga la pregunta de decisión",
+          "text": "Ninguna flecha, el rombo siempre detiene la ejecución del programa",
           "correct": false
         },
         {
-          "text": "Ninguna flecha, el rombo siempre detiene la ejecución del programa",
+          "text": "Tantas flechas como letras tenga la pregunta de decisión",
           "correct": false
         }
       ]
@@ -123,11 +123,11 @@
       "codeSnippet": "potenciaBateria = 12.6\npresionNeumatica = 115\n\nif (potenciaBateria > 12.0 and presionNeumatica >= 110):\n    diagnostico = 'LISTO_PARA_PARTIDA'\nelse:\n    diagnostico = 'REVISAR_SUBSISTEMAS'\n\nprint(diagnostico)",
       "options": [
         {
-          "text": "LISTO_PARA_PARTIDA",
-          "correct": true
+          "text": "REVISAR_SUBSISTEMAS",
+          "correct": false
         },
         {
-          "text": "REVISAR_SUBSISTEMAS",
+          "text": "115",
           "correct": false
         },
         {
@@ -135,8 +135,8 @@
           "correct": false
         },
         {
-          "text": "115",
-          "correct": false
+          "text": "LISTO_PARA_PARTIDA",
+          "correct": true
         }
       ]
     }

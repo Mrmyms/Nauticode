@@ -7,16 +7,16 @@
       "lessonText": "# Disyunción Lógica y Disparadores Redundantes de Falla\n\nEl operador lógico **OR** (`||` en Java/C++, `or` en Python) implementa la disyunción booleana: la proposición `A or B` evalúa a `True` **si al menos una de las condiciones conectadas es verdadera**. El único escenario en que un operador OR produce `False` ocurre cuando absolutamente todas sus premisas son simultáneamente falsas.\n\n### Tabla de Verdad de la Disyunción:\n- `True or True` -> `True`\n- `True or False` -> `True`\n- `False or True` -> `True`\n- `False or False` -> `False`\n\n### Cortocircuito en Disyunción:\nSi el primer término ($A$) es `True`, la CPU **no evalúa el resto de las condiciones** y concluye instantáneamente que la expresión global es `True`.\n\n### Arquitectura Fail-Safe en Robótica:\nMientras que el operador AND actúa como un filtro restrictivo para autorizar acciones de alto riesgo, el operador OR es el cimiento de los **protocolos de parada de emergencia**: cualquier anomalía individual debe disparar de inmediato la detención preventiva:\n```python\nfrenarEmergencia = (botonEStopPresionado or voltajeCritico or temperaturaMotorPeligrosa)\n```\nSi el botón físico de E-Stop es presionado, el robot se congela en microsegundos sin esperar a consultar el sensor de temperatura.\n\n**La Regla de Oro:**\nLa disyunción lógica OR devuelve True si al menos una premisa es afirmativa; es la estructura fundamental para diseñar protocolos de parada de emergencia y disparadores redundantes.",
       "options": [
         {
-          "text": "Devuelve True si al menos una premisa es afirmativa, requiriendo que todas sean falsas para producir False",
-          "correct": true
+          "text": "Suma los voltajes de los sensores conectados y calcula el porcentaje restante",
+          "correct": false
         },
         {
           "text": "Exige estrictamente que todas las condiciones sean verdaderas al mismo tiempo",
           "correct": false
         },
         {
-          "text": "Suma los voltajes de los sensores conectados y calcula el porcentaje restante",
-          "correct": false
+          "text": "Devuelve True si al menos una premisa es afirmativa, requiriendo que todas sean falsas para producir False",
+          "correct": true
         },
         {
           "text": "Solo produce True cuando ambas variables tienen el valor False",
@@ -29,7 +29,7 @@
       "question": "Relaciona cada caso de evaluación de la compuerta OR con su resultado formal:",
       "options": [
         {
-          "text": "True or False|||True (la primera premisa afirmativa basta para satisfacer la disyunción)",
+          "text": "Short-Circuit en OR|||Resuelve True de inmediato al encontrar el primer operando verdadero",
           "correct": true
         },
         {
@@ -37,7 +37,7 @@
           "correct": true
         },
         {
-          "text": "Short-Circuit en OR|||Resuelve True de inmediato al encontrar el primer operando verdadero",
+          "text": "True or False|||True (la primera premisa afirmativa basta para satisfacer la disyunción)",
           "correct": true
         },
         {
@@ -78,6 +78,10 @@
       "codeSnippet": "temperaturaExcesiva = False\ncorrientePeligrosa = True\nalertaActiva = temperaturaExcesiva _____ corrientePeligrosa\nprint('Alarma de seguridad activada: ' + str(alertaActiva))",
       "options": [
         {
+          "text": "==",
+          "correct": false
+        },
+        {
           "text": "or",
           "correct": true
         },
@@ -88,10 +92,6 @@
         {
           "text": "not",
           "correct": false
-        },
-        {
-          "text": "==",
-          "correct": false
         }
       ]
     },
@@ -100,12 +100,12 @@
       "question": "¿Cuál es la diferencia algorítmica fundamental entre emplear AND versus OR en el diseño de software de control?",
       "options": [
         {
-          "text": "AND opera como un filtro restrictivo exigiendo consenso absoluto, mientras que OR opera como un disparador permisivo sensible a cualquier señal",
-          "correct": true
-        },
-        {
           "text": "AND consume el doble de memoria RAM en comparación con OR",
           "correct": false
+        },
+        {
+          "text": "AND opera como un filtro restrictivo exigiendo consenso absoluto, mientras que OR opera como un disparador permisivo sensible a cualquier señal",
+          "correct": true
         },
         {
           "text": "AND solo admite números pares y OR solo números de punto flotante",
@@ -123,20 +123,20 @@
       "codeSnippet": "sensorToqueA = False\nsensorToqueB = False\nsensorOptico = True\npiezaDetectada = sensorToqueA or sensorToqueB or sensorOptico\nprint(piezaDetectada)",
       "options": [
         {
-          "text": "True",
-          "correct": true
+          "text": "None",
+          "correct": false
         },
         {
           "text": "False",
           "correct": false
         },
         {
-          "text": "None",
+          "text": "Error de tipos",
           "correct": false
         },
         {
-          "text": "Error de tipos",
-          "correct": false
+          "text": "True",
+          "correct": true
         }
       ]
     }

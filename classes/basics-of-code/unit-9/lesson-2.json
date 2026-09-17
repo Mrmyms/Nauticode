@@ -7,19 +7,19 @@
       "lessonText": "# Estructura y Alcance Léxico\n\nEn ciencias de la computación, agrupar instrucciones determina qué líneas pertenecen al cuerpo condicional y cuáles pertenecen al flujo incondicional de la aplicación. Mientras que lenguajes como C++, Java y Rust utilizan llaves `{}` para delimitar bloques, Python emplea **whitespace significativo** (indentación estándar de 4 espacios según PEP 8).\n\n```python\nif sensor_presencia == True:\n    cerrar_garra()\n    encender_indicador_led()\naplicar_torque_traccion()\n```\nEn este fragmento, `cerrar_garra()` y `encender_indicador_led()` sólo se ejecutan si la condición es verdadera. Sin embargo, `aplicar_torque_traccion()` está en la columna base exterior, por lo que se ejecuta siempre sin importar la condición.\n\nEn FRC Nautilus 4010, un error de indentación donde la retracción del pistón quedó fuera del bloque condicional provocó que el mecanismo se accionara repetidamente a 50 Hz en cada ciclo del procesador roboRIO, despresurizando el tanque de aire en menos de dos segundos.\n\n**Regla de Oro: La indentación define jerarquías de ejecución deterministas; cada instrucción indentada pertenece al bloque de la sentencia superior, mientras que regresar a la columna base marca el reingreso al flujo incondicional.**",
       "options": [
         {
-          "text": "Porque establece de forma explícita qué instrucciones pertenecen al cuerpo condicional y cuáles se ejecutan incondicionalmente",
-          "correct": true
+          "text": "Porque permite que el compilador ejecute el programa en sentido inverso cuando hay un error",
+          "correct": false
         },
         {
           "text": "Porque duplica la memoria asignada a las variables numéricas para evitar desbordamientos",
           "correct": false
         },
         {
-          "text": "Porque indica al procesador qué líneas de código deben enviarse a la tarjeta gráfica",
-          "correct": false
+          "text": "Porque establece de forma explícita qué instrucciones pertenecen al cuerpo condicional y cuáles se ejecutan incondicionalmente",
+          "correct": true
         },
         {
-          "text": "Porque permite que el compilador ejecute el programa en sentido inverso cuando hay un error",
+          "text": "Porque indica al procesador qué líneas de código deben enviarse a la tarjeta gráfica",
           "correct": false
         }
       ]
@@ -33,11 +33,11 @@
           "correct": true
         },
         {
-          "text": "IndentationError|||Fallo léxico generado cuando los espacios de una línea no concuerdan con su bloque",
+          "text": "Delimitación por llaves {}|||Mecanismo de alcance léxico utilizado en C, C++, Java y Rust",
           "correct": true
         },
         {
-          "text": "Delimitación por llaves {}|||Mecanismo de alcance léxico utilizado en C, C++, Java y Rust",
+          "text": "IndentationError|||Fallo léxico generado cuando los espacios de una línea no concuerdan con su bloque",
           "correct": true
         },
         {
@@ -78,15 +78,15 @@
       "codeSnippet": "velocidad_rpm = 4500\nif velocidad_rpm > 4000:\n____alerta_sobregiro = True\nregistro_can.guardar(velocidad_rpm)",
       "options": [
         {
+          "text": "->",
+          "correct": false
+        },
+        {
           "text": "    ",
           "correct": true
         },
         {
           "text": ";",
-          "correct": false
-        },
-        {
-          "text": "->",
           "correct": false
         },
         {
@@ -123,19 +123,19 @@
       "codeSnippet": "disparador_listo = False\nmunicion = 3\nif municion > 0:\n    disparador_listo = True\n    municion = municion - 1\nmunicion = 0\nprint(disparador_listo, municion)",
       "options": [
         {
-          "text": "True 0",
-          "correct": true
-        },
-        {
           "text": "True 2",
           "correct": false
         },
         {
-          "text": "False 0",
-          "correct": false
+          "text": "True 0",
+          "correct": true
         },
         {
           "text": "False 3",
+          "correct": false
+        },
+        {
+          "text": "False 0",
           "correct": false
         }
       ]

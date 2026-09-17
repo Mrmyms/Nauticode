@@ -11,15 +11,15 @@
           "correct": true
         },
         {
-          "text": "Se crea un archivo de texto permanente en el almacenamiento secundario sin ocupar memoria volátil",
-          "correct": false
-        },
-        {
           "text": "Se transmite una señal analógica a los actuadores mecánicos para memorizar el voltaje en las bobinas",
           "correct": false
         },
         {
           "text": "Se despliega el nombre del identificador en la consola sin consumir recursos del procesador",
+          "correct": false
+        },
+        {
+          "text": "Se crea un archivo de texto permanente en el almacenamiento secundario sin ocupar memoria volátil",
           "correct": false
         }
       ]
@@ -29,11 +29,7 @@
       "question": "Relaciona cada componente técnico de una variable con su función precisa en la arquitectura de computadoras:",
       "options": [
         {
-          "text": "Identificador Simbólico|||Nombre legible que asigna el desarrollador para referenciar la celda",
-          "correct": true
-        },
-        {
-          "text": "Dirección de Memoria|||Ubicación física hexadecimal única en la memoria RAM",
+          "text": "Operador de Asignación (=)|||Instrucción imperativa que transfiere un dato hacia la memoria",
           "correct": true
         },
         {
@@ -41,7 +37,11 @@
           "correct": true
         },
         {
-          "text": "Operador de Asignación (=)|||Instrucción imperativa que transfiere un dato hacia la memoria",
+          "text": "Dirección de Memoria|||Ubicación física hexadecimal única en la memoria RAM",
+          "correct": true
+        },
+        {
+          "text": "Identificador Simbólico|||Nombre legible que asigna el desarrollador para referenciar la celda",
           "correct": true
         }
       ]
@@ -82,7 +82,7 @@
           "correct": true
         },
         {
-          "text": "90.0",
+          "text": "float",
           "correct": false
         },
         {
@@ -90,7 +90,7 @@
           "correct": false
         },
         {
-          "text": "float",
+          "text": "90.0",
           "correct": false
         }
       ]
@@ -104,15 +104,15 @@
           "correct": true
         },
         {
+          "text": "Porque las direcciones físicas de memoria RAM se destruyen físicamente si se escriben directamente",
+          "correct": false
+        },
+        {
           "text": "Porque el procesador solo puede leer palabras del diccionario y no números hexadecimales",
           "correct": false
         },
         {
           "text": "Porque las direcciones hexadecimales consumen el doble de energía de la batería de la roboRIO",
-          "correct": false
-        },
-        {
-          "text": "Porque las direcciones físicas de memoria RAM se destruyen físicamente si se escriben directamente",
           "correct": false
         }
       ]
@@ -123,6 +123,10 @@
       "codeSnippet": "equipo = 'Nautilus 4010'\nprint(equipo)",
       "options": [
         {
+          "text": "4010",
+          "correct": false
+        },
+        {
           "text": "Nautilus 4010",
           "correct": true
         },
@@ -132,10 +136,6 @@
         },
         {
           "text": "'equipo'",
-          "correct": false
-        },
-        {
-          "text": "4010",
           "correct": false
         }
       ]

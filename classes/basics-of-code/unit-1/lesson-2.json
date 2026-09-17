@@ -15,11 +15,11 @@
           "correct": false
         },
         {
-          "text": "Porque el hardware borra las instrucciones si la sintaxis contiene palabras en minúsculas",
+          "text": "Porque las computadoras deducen la intención del programador únicamente cuando se reinicia el sistema operativo",
           "correct": false
         },
         {
-          "text": "Porque las computadoras deducen la intención del programador únicamente cuando se reinicia el sistema operativo",
+          "text": "Porque el hardware borra las instrucciones si la sintaxis contiene palabras en minúsculas",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Clasifica cómo reacciona una computadora ante cada situación técnica:",
       "options": [
         {
-          "text": "Escribir 'imprimir' en vez de 'print'|||Error de Sintaxis (Gramática rechazada)",
+          "text": "Asumir que la máquina sabe cuándo frenar sin decírselo|||Falsa Intuición (La máquina continuará hasta estrellarse)",
           "correct": true
         },
         {
@@ -37,11 +37,11 @@
           "correct": true
         },
         {
-          "text": "Asumir que la máquina sabe cuándo frenar sin decírselo|||Falsa Intuición (La máquina continuará hasta estrellarse)",
+          "text": "Mismo código ejecutado 1,000 veces con idéntico resultado|||Determinismo (Comportamiento predecible y matemático)",
           "correct": true
         },
         {
-          "text": "Mismo código ejecutado 1,000 veces con idéntico resultado|||Determinismo (Comportamiento predecible y matemático)",
+          "text": "Escribir 'imprimir' en vez de 'print'|||Error de Sintaxis (Gramática rechazada)",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "def activarCompresor():\n    presion = 120\n    return presion\n\n# Llamada exacta sin violar la precisión del nombre:\nestado = _____()",
       "options": [
         {
-          "text": "activarCompresor",
-          "correct": true
+          "text": "activarcompresor",
+          "correct": false
         },
         {
           "text": "ActivarCompresor",
           "correct": false
         },
         {
-          "text": "activar_compresor",
-          "correct": false
+          "text": "activarCompresor",
+          "correct": true
         },
         {
-          "text": "activarcompresor",
+          "text": "activar_compresor",
           "correct": false
         }
       ]
@@ -100,19 +100,19 @@
       "question": "Un programador escribe un algoritmo para que el robot avance 3 metros, pero en la cancha avanza 30 metros y choca. La consola no arrojó ningún error rojo (Syntax Error). ¿Qué ocurrió técnicamente?",
       "options": [
         {
-          "text": "Un Error de Lógica: La sintaxis fue correcta, por lo que la computadora obedeció ciegamente la instrucción matemática equivocada del programador",
-          "correct": true
-        },
-        {
-          "text": "Un Error de Sintaxis: El procesador no reconoció la unidad de metros y multiplicó la distancia por diez de forma aleatoria",
-          "correct": false
-        },
-        {
           "text": "Fallo de intuición de la máquina: El robot vio que había espacio libre en la cancha y decidió explorar por iniciativa propia",
           "correct": false
         },
         {
+          "text": "Un Error de Lógica: La sintaxis fue correcta, por lo que la computadora obedeció ciegamente la instrucción matemática equivocada del programador",
+          "correct": true
+        },
+        {
           "text": "El compilador tradujo mal el código deliberadamente porque la computadora se sobrecalentó",
+          "correct": false
+        },
+        {
+          "text": "Un Error de Sintaxis: El procesador no reconoció la unidad de metros y multiplicó la distancia por diez de forma aleatoria",
           "correct": false
         }
       ]
@@ -123,16 +123,16 @@
       "codeSnippet": "velocidad = 0\nvelocidad = velocidad + 50\nvelocidad = 10\nprint(velocidad)",
       "options": [
         {
-          "text": "10",
-          "correct": true
-        },
-        {
           "text": "50",
           "correct": false
         },
         {
           "text": "60",
           "correct": false
+        },
+        {
+          "text": "10",
+          "correct": true
         },
         {
           "text": "0",

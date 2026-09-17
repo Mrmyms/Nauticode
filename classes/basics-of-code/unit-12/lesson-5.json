@@ -7,19 +7,19 @@
       "lessonText": "# Secuencias de Pits y Diagnóstico Pre-Match\n\nAntes de cada enfrentamiento en la arena de competencia, el equipo de pits de Nautilus 4010 ejecuta un script de validación que previene fallas mecánicas en pista:\n\n1. **Animación CANdle:** Se comanda a la tira de luces LED CANdle destellar 3 veces en el color dorado de identidad (`#EDB824`) para confirmar la sincronización de la radio.\n2. **Prueba Secuencial de Motores:** Enviar un pulso de corriente de 20A a cada motor individual durante 50 milisegundos para medir la resistencia de fase sin sobrecargar la batería principal.\n\nAmbas rutinas se implementan con bucles `for`, garantizando exactamente la cantidad de ciclos requerida sin retardos imprevistos ni peligro de bloqueos de comunicación.\n\n**Regla de Oro: La automatización de chequeos con bucles for finitos garantiza que cada componente del sistema reciba pruebas idénticas sin omisiones humanas antes de la competencia.**",
       "options": [
         {
-          "text": "Automatizando pruebas idénticas y finitas sobre luces y motores para verificar componentes antes de la competencia",
-          "correct": true
+          "text": "Borrando los archivos de configuración del bus CAN para empezar de cero en cada match",
+          "correct": false
         },
         {
           "text": "Acelerando todos los motores al máximo en vacío para calentar la batería de 12V",
           "correct": false
         },
         {
-          "text": "Desactivando los frenos neumáticos para que el robot se deslice por inercia en la alfombra",
-          "correct": false
+          "text": "Automatizando pruebas idénticas y finitas sobre luces y motores para verificar componentes antes de la competencia",
+          "correct": true
         },
         {
-          "text": "Borrando los archivos de configuración del bus CAN para empezar de cero en cada match",
+          "text": "Desactivando los frenos neumáticos para que el robot se deslice por inercia en la alfombra",
           "correct": false
         }
       ]
@@ -37,11 +37,11 @@
           "correct": true
         },
         {
-          "text": "Bucle de pre-arranque|||Rutina de for loops que valida integridad de subsistemas antes del partido",
+          "text": "Telemetría de pits|||Transmisión de estados de diagnóstico a la pantalla de los ingenieros",
           "correct": true
         },
         {
-          "text": "Telemetría de pits|||Transmisión de estados de diagnóstico a la pantalla de los ingenieros",
+          "text": "Bucle de pre-arranque|||Rutina de for loops que valida integridad de subsistemas antes del partido",
           "correct": true
         }
       ]
@@ -78,11 +78,7 @@
       "codeSnippet": "for motor_id in range(___):\n    corriente = leer_corriente_amperes(motor_id)\n    validar_resistencia_devanado(corriente)",
       "options": [
         {
-          "text": "4",
-          "correct": true
-        },
-        {
-          "text": "'4'",
+          "text": "0",
           "correct": false
         },
         {
@@ -90,8 +86,12 @@
           "correct": false
         },
         {
-          "text": "0",
+          "text": "'4'",
           "correct": false
+        },
+        {
+          "text": "4",
+          "correct": true
         }
       ]
     },
@@ -100,20 +100,20 @@
       "question": "¿Qué beneficio ofrece ejecutar el calentamiento de motores con un bucle 'for' en vez de enviar potencia a todos al mismo tiempo en paralelo?",
       "options": [
         {
-          "text": "Evita picos de corriente masivos en la batería principal probando cada motor secuencialmente con telemetría individualizada",
-          "correct": true
-        },
-        {
-          "text": "Permite que los motores giren sin necesidad de conectar la batería de 12V",
-          "correct": false
-        },
-        {
           "text": "Multiplica por cuatro la velocidad máxima de avance del chasis durante el partido",
           "correct": false
         },
         {
           "text": "Borra automáticamente los logs de fallas del procesador roboRIO",
           "correct": false
+        },
+        {
+          "text": "Permite que los motores giren sin necesidad de conectar la batería de 12V",
+          "correct": false
+        },
+        {
+          "text": "Evita picos de corriente masivos en la batería principal probando cada motor secuencialmente con telemetría individualizada",
+          "correct": true
         }
       ]
     },
@@ -123,12 +123,12 @@
       "codeSnippet": "repeticiones = 0\nfor a in range(2):\n    for b in range(2):\n        repeticiones = repeticiones + 1\nprint(repeticiones)",
       "options": [
         {
-          "text": "4",
-          "correct": true
-        },
-        {
           "text": "2",
           "correct": false
+        },
+        {
+          "text": "4",
+          "correct": true
         },
         {
           "text": "3",

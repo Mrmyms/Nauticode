@@ -29,19 +29,19 @@
       "question": "Relaciona cada operación con el operador de negación con su equivalencia técnica formal:",
       "options": [
         {
-          "text": "not True|||False (inversión directa de valor afirmativo)",
-          "correct": true
-        },
-        {
-          "text": "not False|||True (inversión directa de valor negativo)",
-          "correct": true
-        },
-        {
           "text": "not (A and B)|||(not A) or (not B) (Primera ley de De Morgan)",
           "correct": true
         },
         {
           "text": "Lógica Active-Low|||Configuración donde la ausencia de señal eléctrica denota el estado activo",
+          "correct": true
+        },
+        {
+          "text": "not True|||False (inversión directa de valor afirmativo)",
+          "correct": true
+        },
+        {
+          "text": "not False|||True (inversión directa de valor negativo)",
           "correct": true
         }
       ]
@@ -100,11 +100,7 @@
       "question": "De acuerdo con las Leyes de De Morgan, ¿a cuál de las siguientes expresiones equivale exactamente `not (sensorA and sensorB)`?",
       "options": [
         {
-          "text": "(not sensorA) or (not sensorB)",
-          "correct": true
-        },
-        {
-          "text": "(not sensorA) and (not sensorB)",
+          "text": "not (sensorA or sensorB)",
           "correct": false
         },
         {
@@ -112,8 +108,12 @@
           "correct": false
         },
         {
-          "text": "not (sensorA or sensorB)",
+          "text": "(not sensorA) and (not sensorB)",
           "correct": false
+        },
+        {
+          "text": "(not sensorA) or (not sensorB)",
+          "correct": true
         }
       ]
     },
@@ -123,19 +123,19 @@
       "codeSnippet": "sistemaBloqueado = False\nautorizarArranque = not sistemaBloqueado\nprint(autorizarArranque)",
       "options": [
         {
-          "text": "True",
-          "correct": true
-        },
-        {
           "text": "False",
           "correct": false
         },
         {
-          "text": "sistemaBloqueado",
+          "text": "None",
           "correct": false
         },
         {
-          "text": "None",
+          "text": "True",
+          "correct": true
+        },
+        {
+          "text": "sistemaBloqueado",
           "correct": false
         }
       ]

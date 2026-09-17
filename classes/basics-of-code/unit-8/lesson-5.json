@@ -7,11 +7,7 @@
       "lessonText": "# Interbloqueos de Seguridad: El Elevador de Nautilus 4010\n\nEn un robot de competencia FRC, el elevador es un subsistema mecánico de alto riesgo: desplaza una carga pesada a alta velocidad impulsado por dos motores Falcon 500. Un error lógico puede romper cables de acero, doblar perfiles de aluminio o quemar controladores por sobrecorriente.\n\nPara autorizar la elevación hacia arriba (`canRaiseElevator`), el software debe verificar una matriz booleana rigurosa:\n1. **Condición de Límite Mecánico:** El sensor de fin de carrera superior no debe estar activado (`not isTopLimitHit`).\n2. **Condición de Corriente:** El consumo eléctrico de los motores debe mantenerse dentro del límite seguro (`motorCurrentAmps < MAX_SAFE_CURRENT`).\n3. **Condición de Emergencia:** No debe existir ninguna señal de parada de emergencia (`not (isEStopEngaged or isDriverStopPressed)`).\n\nEn este reto final de la Unidad 8, orquestarás operadores relacionales (`<`, `==`), conjunciones (`and`), disyunciones (`or`) e inversiones (`not`) para construir la arquitectura lógica a prueba de fallos de Nautilus 4010.\n\n**La Regla de Oro:**\nLa seguridad en sistemas embebidos se diseña mediante matrices booleanas de enclavamiento estricto; cada condición de riesgo debe ser un candado inviolable.",
       "options": [
         {
-          "text": "Integran operadores relacionales con compuertas restrictivas AND e inversiones NOT para construir interbloqueos a prueba de fallos",
-          "correct": true
-        },
-        {
-          "text": "Permiten mover los mecanismos a máxima potencia ignorando las lecturas físicas de los sensores de límite",
+          "text": "Convierten las señales de parada de emergencia en comandos de aceleración inmediata",
           "correct": false
         },
         {
@@ -19,8 +15,12 @@
           "correct": false
         },
         {
-          "text": "Convierten las señales de parada de emergencia en comandos de aceleración inmediata",
+          "text": "Permiten mover los mecanismos a máxima potencia ignorando las lecturas físicas de los sensores de límite",
           "correct": false
+        },
+        {
+          "text": "Integran operadores relacionales con compuertas restrictivas AND e inversiones NOT para construir interbloqueos a prueba de fallos",
+          "correct": true
         }
       ]
     },
@@ -29,19 +29,19 @@
       "question": "Relaciona cada condición del interbloqueo con su protección mecánica correspondiente:",
       "options": [
         {
-          "text": "not isTopLimitHit|||Impide que el mecanismo colisione físicamente contra el tope estructural superior",
-          "correct": true
-        },
-        {
           "text": "motorCurrentAmps < 35.0|||Protección térmica que previene la sobrecorriente y bloqueo de motores",
           "correct": true
         },
         {
-          "text": "not isEStopPressed|||Garantiza que ninguna orden humana de parada de emergencia esté activa",
+          "text": "not isTopLimitHit|||Impide que el mecanismo colisione físicamente contra el tope estructural superior",
           "correct": true
         },
         {
           "text": "canRaise = limit and current and safe|||Interbloqueo de conjunción final que autoriza el movimiento seguro",
+          "correct": true
+        },
+        {
+          "text": "not isEStopPressed|||Garantiza que ninguna orden humana de parada de emergencia esté activa",
           "correct": true
         }
       ]
@@ -82,15 +82,15 @@
           "correct": true
         },
         {
-          "text": "or",
-          "correct": false
-        },
-        {
           "text": "==",
           "correct": false
         },
         {
           "text": "not",
+          "correct": false
+        },
+        {
+          "text": "or",
           "correct": false
         }
       ]
@@ -100,16 +100,16 @@
       "question": "¿Por qué en sistemas críticos de robótica los interbloqueos de seguridad se estructuran siempre con compuertas restrictivas AND en lugar de OR?",
       "options": [
         {
-          "text": "Porque el movimiento de alto riesgo solo debe autorizarse si TODAS las condiciones de seguridad son simultáneamente válidas y verificadas",
-          "correct": true
-        },
-        {
           "text": "Porque las compuertas OR consumen el doble de corriente de la batería",
           "correct": false
         },
         {
           "text": "Porque los sensores mecánicos son incompatibles con el álgebra booleana",
           "correct": false
+        },
+        {
+          "text": "Porque el movimiento de alto riesgo solo debe autorizarse si TODAS las condiciones de seguridad son simultáneamente válidas y verificadas",
+          "correct": true
         },
         {
           "text": "Porque las computadoras no pueden procesar más de dos variables a la vez",
@@ -123,15 +123,15 @@
       "codeSnippet": "isEStop = False\nisTopLimit = True\nisCurrentOk = True\ncanMoveUp = (not isEStop) and (not isTopLimit) and isCurrentOk\nprint(canMoveUp)",
       "options": [
         {
+          "text": "isTopLimit",
+          "correct": false
+        },
+        {
           "text": "False",
           "correct": true
         },
         {
           "text": "True",
-          "correct": false
-        },
-        {
-          "text": "isTopLimit",
           "correct": false
         },
         {

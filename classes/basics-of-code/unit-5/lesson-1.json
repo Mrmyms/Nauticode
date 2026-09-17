@@ -11,7 +11,7 @@
           "correct": true
         },
         {
-          "text": "Porque el procesador ejecuta más rápido los identificadores largos que las letras individuales",
+          "text": "Porque el estándar IEEE prohíbe el uso de identificadores de menos de cuatro caracteres",
           "correct": false
         },
         {
@@ -19,7 +19,7 @@
           "correct": false
         },
         {
-          "text": "Porque el estándar IEEE prohíbe el uso de identificadores de menos de cuatro caracteres",
+          "text": "Porque el procesador ejecuta más rápido los identificadores largos que las letras individuales",
           "correct": false
         }
       ]
@@ -28,10 +28,6 @@
       "type": "MATCHING",
       "question": "Relaciona cada identificador críptico con su contraparte profesional y descriptiva:",
       "options": [
-        {
-          "text": "v|||targetVelocityMetersPerSecond",
-          "correct": true
-        },
         {
           "text": "ang|||chassisHeadingDegrees",
           "correct": true
@@ -42,6 +38,10 @@
         },
         {
           "text": "p|||proportionalGainConstant",
+          "correct": true
+        },
+        {
+          "text": "v|||targetVelocityMetersPerSecond",
           "correct": true
         }
       ]
@@ -78,20 +78,20 @@
       "codeSnippet": "_____ = 1200\nprint('Velocidad del mecanismo en RPM: ' + str(elevatorSpeedRpm))",
       "options": [
         {
-          "text": "elevatorSpeedRpm",
-          "correct": true
+          "text": "variableTemporal",
+          "correct": false
         },
         {
           "text": "x",
           "correct": false
         },
         {
-          "text": "variableTemporal",
+          "text": "cosaQueGira",
           "correct": false
         },
         {
-          "text": "cosaQueGira",
-          "correct": false
+          "text": "elevatorSpeedRpm",
+          "correct": true
         }
       ]
     },
@@ -104,15 +104,15 @@
           "correct": true
         },
         {
+          "text": "shooterTemperature (indica temperatura cuando almacena velocidad)",
+          "correct": false
+        },
+        {
           "text": "v1 (extremadamente corto y ambiguo)",
           "correct": false
         },
         {
           "text": "motor_que_dispara_la_pieza_al_speaker_en_la_cancha_regional (excesivamente verboso e impráctico)",
-          "correct": false
-        },
-        {
-          "text": "shooterTemperature (indica temperatura cuando almacena velocidad)",
           "correct": false
         }
       ]
@@ -123,15 +123,15 @@
       "codeSnippet": "autonomousDurationSeconds = 15\nprint('Tiempo de autonomo: ' + str(autonomousDurationSeconds) + 's')",
       "options": [
         {
+          "text": "Tiempo de autonomo: 15",
+          "correct": false
+        },
+        {
           "text": "Tiempo de autonomo: 15s",
           "correct": true
         },
         {
           "text": "Tiempo de autonomo: autonomousDurationSeconds s",
-          "correct": false
-        },
-        {
-          "text": "Tiempo de autonomo: 15",
           "correct": false
         },
         {

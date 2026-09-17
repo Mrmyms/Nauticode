@@ -7,16 +7,16 @@
       "lessonText": "# El Antipatrón de los Números Mágicos y la Inmutabilidad\n\nEn robótica e ingeniería existen parámetros físicos que representan verdades inmutables del diseño mecánico y eléctrico:\n- El número de puerto CAN de un controlador SparkMax (`SHOOTER_CAN_ID = 5`).\n- La relación de reducción mecánica del chasis (`DRIVE_GEAR_RATIO = 6.75`).\n- La aceleración de la gravedad terrestre (`GRAVITY_METERS_PER_S2 = 9.80665`).\n\nSi un programador escribe el número literal `6.75` disperso en 20 funciones de cálculo cinemático diferentes, ese valor se conoce como un **Número Mágico (Magic Number)**: un valor huérfano de contexto semántico. Si el equipo de manufactura cambia el engrane del chasis por uno de `8.14` en los pits, habrá que buscar y reemplazar ese número en decenas de líneas de código, con el riesgo casi seguro de olvidar una y arruinar la odometría.\n\n### La Solución: Constantes Centralizadas\nPor convención universal en la industria del software, las constantes se escriben en **SCREAMING_SNAKE_CASE** (todas las letras en mayúsculas separadas por guiones bajos). Esto comunica visualmente a cualquier ingeniero: *'Este valor es sagrado e inmutable; no debe ser modificado en tiempo de ejecución'*.\n\nEn lenguajes como Java o C++, se refuerza con modificadores de inmutabilidad en tiempo de compilación (`final` o `const`).\n\n**La Regla de Oro:**\nCentraliza todos los parámetros físicos y de configuración como constantes en mayúsculas; una única fuente de verdad evita inconsistencias y facilita adaptaciones mecánicas inmediatas.",
       "options": [
         {
-          "text": "Porque centralizan la verdad del sistema en un único punto y eliminan números mágicos dispersos e inconsistentes",
-          "correct": true
+          "text": "Porque las constantes en mayúsculas consumen la mitad de energía de la batería de 12V",
+          "correct": false
         },
         {
           "text": "Porque el procesador solo puede leer números mayores a 100 si están escritos en letras mayúsculas",
           "correct": false
         },
         {
-          "text": "Porque las constantes en mayúsculas consumen la mitad de energía de la batería de 12V",
-          "correct": false
+          "text": "Porque centralizan la verdad del sistema en un único punto y eliminan números mágicos dispersos e inconsistentes",
+          "correct": true
         },
         {
           "text": "Porque el compilador borra automáticamente las variables que no estén escritas en mayúsculas",
@@ -78,19 +78,19 @@
       "codeSnippet": "_____ = 12\nprint('Iniciando TalonFX en puerto CAN: ' + str(DRIVE_MOTOR_CAN_ID))",
       "options": [
         {
-          "text": "DRIVE_MOTOR_CAN_ID",
-          "correct": true
+          "text": "can_id",
+          "correct": false
         },
         {
-          "text": "drive_motor_can_id",
-          "correct": false
+          "text": "DRIVE_MOTOR_CAN_ID",
+          "correct": true
         },
         {
           "text": "DriveMotorCanId",
           "correct": false
         },
         {
-          "text": "can_id",
+          "text": "drive_motor_can_id",
           "correct": false
         }
       ]
@@ -100,11 +100,7 @@
       "question": "¿Cuál de los siguientes identificadores cumple rigurosamente el estándar de nomenclatura para una constante inmutable?",
       "options": [
         {
-          "text": "MAX_ALLOWABLE_VOLTAGE",
-          "correct": true
-        },
-        {
-          "text": "maxAllowableVoltage",
+          "text": "max-allowable-voltage",
           "correct": false
         },
         {
@@ -112,8 +108,12 @@
           "correct": false
         },
         {
-          "text": "max-allowable-voltage",
+          "text": "maxAllowableVoltage",
           "correct": false
+        },
+        {
+          "text": "MAX_ALLOWABLE_VOLTAGE",
+          "correct": true
         }
       ]
     },
@@ -123,19 +123,19 @@
       "codeSnippet": "WHEEL_RADIUS_METERS = 0.05\nPI = 3.1416\nCIRCUMFERENCE = 2 * PI * WHEEL_RADIUS_METERS\nprint(round(CIRCUMFERENCE, 4))",
       "options": [
         {
-          "text": "0.3142",
-          "correct": true
+          "text": "0.05",
+          "correct": false
         },
         {
           "text": "0.6283",
           "correct": false
         },
         {
-          "text": "3.1416",
-          "correct": false
+          "text": "0.3142",
+          "correct": true
         },
         {
-          "text": "0.05",
+          "text": "3.1416",
           "correct": false
         }
       ]

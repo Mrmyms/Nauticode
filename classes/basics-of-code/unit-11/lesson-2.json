@@ -11,7 +11,7 @@
           "correct": true
         },
         {
-          "text": "Asignación de memoria virtual, apertura de puertos TCP y reinicio de la tarjeta madre",
+          "text": "Conexión de antena Wi-Fi, calibración del giroscopio y carga completa de batería",
           "correct": false
         },
         {
@@ -19,7 +19,7 @@
           "correct": false
         },
         {
-          "text": "Conexión de antena Wi-Fi, calibración del giroscopio y carga completa de batería",
+          "text": "Asignación de memoria virtual, apertura de puertos TCP y reinicio de la tarjeta madre",
           "correct": false
         }
       ]
@@ -29,11 +29,11 @@
       "question": "Relaciona cada fase del ciclo de vida del bucle con su definición formal:",
       "options": [
         {
-          "text": "Inicialización|||Declaración y asignación del valor inicial de la variable de control antes del bucle",
+          "text": "Condición de prueba|||Expresión lógica evaluada al inicio de cada iteración para decidir si se continúa",
           "correct": true
         },
         {
-          "text": "Condición de prueba|||Expresión lógica evaluada al inicio de cada iteración para decidir si se continúa",
+          "text": "Inicialización|||Declaración y asignación del valor inicial de la variable de control antes del bucle",
           "correct": true
         },
         {
@@ -78,16 +78,16 @@
       "codeSnippet": "paso = 0\nwhile paso < 5:\n    ejecutar_diagnostico()\n    paso = ___ + 1",
       "options": [
         {
-          "text": "paso",
-          "correct": true
+          "text": "5",
+          "correct": false
         },
         {
           "text": "contador",
           "correct": false
         },
         {
-          "text": "5",
-          "correct": false
+          "text": "paso",
+          "correct": true
         },
         {
           "text": "True",
@@ -100,19 +100,19 @@
       "question": "¿Cuál es la causa técnica de que un bucle while se quede ejecutando indefinidamente sin terminar jamás?",
       "options": [
         {
-          "text": "La omisión de la mutación de la variable de control dentro del cuerpo, haciendo que la condición permanezca siempre verdadera",
-          "correct": true
-        },
-        {
-          "text": "La saturación de registros enteros de 32 bits en la unidad aritmético-lógica del procesador",
-          "correct": false
-        },
-        {
           "text": "El uso de comparadores de desigualdad estricta en lugar de comparadores inclusivos",
           "correct": false
         },
         {
+          "text": "La omisión de la mutación de la variable de control dentro del cuerpo, haciendo que la condición permanezca siempre verdadera",
+          "correct": true
+        },
+        {
           "text": "La fragmentación de la memoria caché de nivel 1 en el microcontrolador",
+          "correct": false
+        },
+        {
+          "text": "La saturación de registros enteros de 32 bits en la unidad aritmético-lógica del procesador",
           "correct": false
         }
       ]
@@ -127,7 +127,7 @@
           "correct": true
         },
         {
-          "text": "16",
+          "text": "7",
           "correct": false
         },
         {
@@ -135,7 +135,7 @@
           "correct": false
         },
         {
-          "text": "7",
+          "text": "16",
           "correct": false
         }
       ]

@@ -11,15 +11,15 @@
           "correct": true
         },
         {
+          "text": "Es una instrucción que reserva memoria RAM pero borra el valor cada 10 milisegundos",
+          "correct": false
+        },
+        {
           "text": "Almacena secuencias de texto alfanumérico que solo pueden contener dígitos del 0 al 9",
           "correct": false
         },
         {
           "text": "Representa valores continuos con punto decimal pero limitados a un tamaño de 8 bits",
-          "correct": false
-        },
-        {
-          "text": "Es una instrucción que reserva memoria RAM pero borra el valor cada 10 milisegundos",
           "correct": false
         }
       ]
@@ -29,19 +29,19 @@
       "question": "Relaciona cada concepto formal sobre números enteros con su definición técnica:",
       "options": [
         {
-          "text": "32-bit Signed Integer|||Rango de -2,147,483,648 a 2,147,483,647 en 4 bytes de memoria RAM",
-          "correct": true
-        },
-        {
-          "text": "Complemento a Dos|||Esquema de codificación binaria en la ALU para enteros con signo",
-          "correct": true
-        },
-        {
           "text": "Desbordamiento (Overflow)|||Error al superar el valor numérico máximo almacenable en los bits asignados",
           "correct": true
         },
         {
           "text": "División Entera (//)|||Operación que descarta la fracción decimal conservando solo el cociente",
+          "correct": true
+        },
+        {
+          "text": "32-bit Signed Integer|||Rango de -2,147,483,648 a 2,147,483,647 en 4 bytes de memoria RAM",
+          "correct": true
+        },
+        {
+          "text": "Complemento a Dos|||Esquema de codificación binaria en la ALU para enteros con signo",
           "correct": true
         }
       ]
@@ -78,11 +78,7 @@
       "codeSnippet": "aprilTagSpeakerId = _____\nprint('Rastreando AprilTag ID: ' + str(aprilTagSpeakerId))",
       "options": [
         {
-          "text": "7",
-          "correct": true
-        },
-        {
-          "text": "7.0",
+          "text": "None",
           "correct": false
         },
         {
@@ -90,8 +86,12 @@
           "correct": false
         },
         {
-          "text": "None",
+          "text": "7.0",
           "correct": false
+        },
+        {
+          "text": "7",
+          "correct": true
         }
       ]
     },
@@ -100,19 +100,19 @@
       "question": "¿Por qué en robótica de competencia los identificadores de bus CAN y los puertos de comunicación deben ser estrictamente de tipo entero?",
       "options": [
         {
-          "text": "Porque el direccionamiento de hardware físico opera con direcciones numéricas discretas y únicas que no admiten valores fraccionarios",
-          "correct": true
-        },
-        {
-          "text": "Porque los cables de cobre solo transmiten corriente si el número es par",
-          "correct": false
-        },
-        {
           "text": "Porque los tipos decimales dañan los circuitos de memoria flash de la roboRIO",
           "correct": false
         },
         {
+          "text": "Porque el direccionamiento de hardware físico opera con direcciones numéricas discretas y únicas que no admiten valores fraccionarios",
+          "correct": true
+        },
+        {
           "text": "Porque la red Ethernet descarta paquetes con menos de diez caracteres de texto",
+          "correct": false
+        },
+        {
+          "text": "Porque los cables de cobre solo transmiten corriente si el número es par",
           "correct": false
         }
       ]
@@ -123,20 +123,20 @@
       "codeSnippet": "totalNotas = 15\ncapacidadContenedor = 4\nviajesCompletos = totalNotas // capacidadContenedor\nprint(viajesCompletos)",
       "options": [
         {
-          "text": "3",
-          "correct": true
-        },
-        {
-          "text": "3.75",
-          "correct": false
-        },
-        {
           "text": "4",
           "correct": false
         },
         {
           "text": "3.0",
           "correct": false
+        },
+        {
+          "text": "3.75",
+          "correct": false
+        },
+        {
+          "text": "3",
+          "correct": true
         }
       ]
     }

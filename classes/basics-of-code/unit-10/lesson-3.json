@@ -7,15 +7,15 @@
       "lessonText": "# Exhaustividad y Estados Seguros de Fallo\n\nEn la ingeniería de software de control de procesos y aviónica, un sistema debe ser **exhaustivo**: debe contemplar el 100% de las combinaciones posibles de entrada, incluyendo datos corruptos por ruido electromagnético en buses de comunicación o lecturas fuera de rango. La cláusula `else` al término de una cadena `elif` actúa como el **manejador de reserva por defecto (default fallback)**.\n\n```python\nif comando == 'DISPARAR':\n    disparar()\nelif comando == 'RECOLECTAR':\n    intake()\nelse:\n    frenar_seguridad()\n    registrar_anomalia('Comando Desconocido')\n```\n\nDurante la final regional de FRC, el radio inalámbrico de Nautilus 4010 recibió un byte corrupto en la trama UDP. Gracias a que el selector de comandos incluía un bloque `else` que colocaba los motores en velocidad 0.0 y activaba el estado seguro, el robot no ejecutó una acción errática ni descalificó a la alianza.\n\n**Regla de Oro: Todo despachador multicamino debe cerrarse con una cláusula else exhaustiva que maneje entradas inesperadas colocando al sistema en un estado seguro conocido.**",
       "options": [
         {
+          "text": "Para compilar el programa sin necesidad de comprobar la sintaxis de las ramas superiores",
+          "correct": false
+        },
+        {
           "text": "Para garantizar que cualquier entrada imprevista o corrupta sea capturada y dirigida a un estado seguro controlado",
           "correct": true
         },
         {
           "text": "Para que el programa ignore automáticamente los comandos de parada de emergencia",
-          "correct": false
-        },
-        {
-          "text": "Para compilar el programa sin necesidad de comprobar la sintaxis de las ramas superiores",
           "correct": false
         },
         {
@@ -29,19 +29,19 @@
       "question": "Relaciona cada concepto de robustez y contención con su significado en ingeniería:",
       "options": [
         {
-          "text": "Manejador por defecto|||Bloque final else que procesa cualquier entrada que no encaje en ramas previas",
-          "correct": true
-        },
-        {
-          "text": "Estado seguro (Safe State)|||Configuración de parada o contención que previene daños ante datos anómalos",
-          "correct": true
-        },
-        {
           "text": "Entrada corrupta|||Valor fuera de rango producido por ruido o fallas de comunicación en el bus",
           "correct": true
         },
         {
           "text": "Exhaustividad total|||Propiedad donde ningún valor de entrada produce un cuelgue o estado indefinido",
+          "correct": true
+        },
+        {
+          "text": "Manejador por defecto|||Bloque final else que procesa cualquier entrada que no encaje en ramas previas",
+          "correct": true
+        },
+        {
+          "text": "Estado seguro (Safe State)|||Configuración de parada o contención que previene daños ante datos anómalos",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "if modo == 'P' or modo == 'N':\n    velocidad = 0\nelif modo == 'D':\n    velocidad = 15\n___:\n    velocidad = 0\n    notificar_error('Modo Desconocido')",
       "options": [
         {
-          "text": "else",
-          "correct": true
-        },
-        {
-          "text": "otherwise",
-          "correct": false
-        },
-        {
           "text": "fail",
           "correct": false
         },
         {
           "text": "catch",
+          "correct": false
+        },
+        {
+          "text": "else",
+          "correct": true
+        },
+        {
+          "text": "otherwise",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "codigo_estado = 7\nestado_salida = 'DESCONOCIDO'\nif codigo_estado == 0:\n    estado_salida = 'STANDBY'\nelif codigo_estado == 1:\n    estado_salida = 'OPERATIVO'\nelse:\n    estado_salida = 'ERROR_CRITICO'\nprint(estado_salida)",
       "options": [
         {
-          "text": "'ERROR_CRITICO'",
-          "correct": true
+          "text": "'STANDBY'",
+          "correct": false
         },
         {
-          "text": "'DESCONOCIDO'",
-          "correct": false
+          "text": "'ERROR_CRITICO'",
+          "correct": true
         },
         {
           "text": "'OPERATIVO'",
           "correct": false
         },
         {
-          "text": "'STANDBY'",
+          "text": "'DESCONOCIDO'",
           "correct": false
         }
       ]

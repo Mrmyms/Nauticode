@@ -7,19 +7,19 @@
       "lessonText": "# El Hilo de la Secuencia: El Program Counter\n\nCuando una computadora ejecuta un programa, no procesa todas las líneas simultáneamente ni salta al azar. El microprocesador contiene un registro interno de hardware esencial llamado **Program Counter (PC)** o Puntero de Instrucción.\n\n### El Ciclo de Instrucción de la CPU:\n1. **Fetch (Búsqueda):** La CPU consulta la dirección en memoria señalada por el Program Counter y carga la instrucción actual.\n2. **Decode (Decodificación):** El circuito decodificador traduce los bits de la instrucción en señales de control.\n3. **Execute (Ejecución):** La Unidad Aritmético Lógica (ALU) o el bus de memoria ejecuta la acción.\n4. **Incremento:** El Program Counter avanza automáticamente a la siguiente línea en secuencia descendente (*Top-to-Bottom*).\n\n### La Ilusión del Paralelismo\nIncluso cuando un robot realiza múltiples tareas que parecen simultáneas, a nivel de un solo núcleo de procesador, cada línea se ejecuta en un turno temporal estricto. La única forma de alterar este flujo natural es mediante estructuras de salto y control (`if`, `while`, llamadas a funciones).\n\n**La Regla de Oro:**\nLa computadora lee y ejecuta estrictamente de arriba hacia abajo; ninguna línea futura puede influir en el pasado de la ejecución.",
       "options": [
         {
-          "text": "Mantiene un registro interno (Program Counter) que apunta a la línea actual, la ejecuta y avanza a la siguiente en secuencia descendente",
-          "correct": true
-        },
-        {
           "text": "Ejecuta todas las líneas al mismo tiempo dividiendo el voltaje de la batería en partes iguales",
           "correct": false
         },
         {
-          "text": "Lee el archivo de abajo hacia arriba para anticipar los errores antes de que ocurran",
-          "correct": false
+          "text": "Mantiene un registro interno (Program Counter) que apunta a la línea actual, la ejecuta y avanza a la siguiente en secuencia descendente",
+          "correct": true
         },
         {
           "text": "Ordena las instrucciones alfabéticamente antes de enviarlas al hardware",
+          "correct": false
+        },
+        {
+          "text": "Lee el archivo de abajo hacia arriba para anticipar los errores antes de que ocurran",
           "correct": false
         }
       ]
@@ -29,19 +29,19 @@
       "question": "Relaciona cada fase del ciclo de instrucción con su operación interna en la CPU:",
       "options": [
         {
-          "text": "Program Counter (PC)|||Registro de hardware que almacena la dirección de la siguiente instrucción",
-          "correct": true
-        },
-        {
-          "text": "Fase Fetch|||Carga la instrucción desde la memoria RAM hacia la CPU",
-          "correct": true
-        },
-        {
           "text": "Fase Decode|||Interpreta el código binario para saber qué circuitos activar",
           "correct": true
         },
         {
           "text": "Fase Execute|||Lleva a cabo la operación matemática o el comando de memoria",
+          "correct": true
+        },
+        {
+          "text": "Program Counter (PC)|||Registro de hardware que almacena la dirección de la siguiente instrucción",
+          "correct": true
+        },
+        {
+          "text": "Fase Fetch|||Carga la instrucción desde la memoria RAM hacia la CPU",
           "correct": true
         }
       ]
@@ -78,11 +78,11 @@
       "codeSnippet": "print('Iniciando comunicacion...')\n_____('Enlace de radio establecido')\nprint('Robot habilitado')",
       "options": [
         {
-          "text": "print",
-          "correct": true
+          "text": "Print",
+          "correct": false
         },
         {
-          "text": "Print",
+          "text": "while",
           "correct": false
         },
         {
@@ -90,8 +90,8 @@
           "correct": false
         },
         {
-          "text": "while",
-          "correct": false
+          "text": "print",
+          "correct": true
         }
       ]
     },
@@ -100,19 +100,19 @@
       "question": "Si en la línea 4 de un programa ocurre un error fatal (como dividir entre cero), ¿qué sucede con las instrucciones de la línea 5 en adelante?",
       "options": [
         {
-          "text": "El hilo de ejecución colapsa de inmediato en la línea 4 y ninguna instrucción posterior llega a ejecutarse",
-          "correct": true
+          "text": "Las líneas restantes se ejecutan pero los motores giran a la mitad de potencia",
+          "correct": false
         },
         {
           "text": "La CPU salta la línea dañada y ejecuta la línea 5 asumiendo un resultado aproximado",
           "correct": false
         },
         {
-          "text": "El procesador reinicia automáticamente todo el sistema operativo desde la línea 1",
-          "correct": false
+          "text": "El hilo de ejecución colapsa de inmediato en la línea 4 y ninguna instrucción posterior llega a ejecutarse",
+          "correct": true
         },
         {
-          "text": "Las líneas restantes se ejecutan pero los motores giran a la mitad de potencia",
+          "text": "El procesador reinicia automáticamente todo el sistema operativo desde la línea 1",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "print('A')\nprint('B')\nprint('A')",
       "options": [
         {
-          "text": "A seguido de B y luego A (en líneas separadas)",
-          "correct": true
-        },
-        {
           "text": "Solo imprimirá A y B una sola vez porque descarta repetidos",
           "correct": false
         },
         {
-          "text": "B seguido de A y luego A",
-          "correct": false
+          "text": "A seguido de B y luego A (en líneas separadas)",
+          "correct": true
         },
         {
           "text": "Error de sintaxis por imprimir la misma letra dos veces",
+          "correct": false
+        },
+        {
+          "text": "B seguido de A y luego A",
           "correct": false
         }
       ]

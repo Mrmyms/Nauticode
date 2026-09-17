@@ -11,15 +11,15 @@
           "correct": true
         },
         {
+          "text": "Un cable físico del bus CAN diseñado para alimentar motores trifásicos de alta potencia",
+          "correct": false
+        },
+        {
           "text": "Un comando del sistema operativo que apaga el microcontrolador cuando detecta alta temperatura",
           "correct": false
         },
         {
           "text": "Una variable especial de memoria que únicamente puede almacenar números enteros positivos",
-          "correct": false
-        },
-        {
-          "text": "Un cable físico del bus CAN diseñado para alimentar motores trifásicos de alta potencia",
           "correct": false
         }
       ]
@@ -33,15 +33,15 @@
           "correct": true
         },
         {
-          "text": "Ciclo de control|||Iteración periódica que lee sensores, calcula decisiones y actualiza motores",
-          "correct": true
-        },
-        {
           "text": "Condición de parada|||Expresión booleana que al volverse false permite al programa salir del bucle",
           "correct": true
         },
         {
           "text": "Salto incondicional (JMP)|||Instrucción de bajo nivel que devuelve el flujo al inicio de la evaluación condicional",
+          "correct": true
+        },
+        {
+          "text": "Ciclo de control|||Iteración periódica que lee sensores, calcula decisiones y actualiza motores",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "temperatura_chasis = 85.0\n_____ temperatura_chasis > 50.0:\n    ventilador_disipador.encender()\n    temperatura_chasis = leer_temperatura()",
       "options": [
         {
-          "text": "while",
-          "correct": true
-        },
-        {
-          "text": "if",
-          "correct": false
-        },
-        {
           "text": "repeat",
           "correct": false
         },
         {
+          "text": "while",
+          "correct": true
+        },
+        {
           "text": "until",
+          "correct": false
+        },
+        {
+          "text": "if",
           "correct": false
         }
       ]
@@ -100,8 +100,8 @@
       "question": "¿Qué sucede si la condición evaluada en la cabecera del bucle 'while' es falsa desde la primera comprobación?",
       "options": [
         {
-          "text": "El cuerpo del bucle se ignora completamente y el flujo salta a la siguiente instrucción fuera de él",
-          "correct": true
+          "text": "El procesador entra en un ciclo de espera activo consumiendo el 100% de la CPU",
+          "correct": false
         },
         {
           "text": "El cuerpo del bucle se ejecuta exactamente una vez por defecto de hardware",
@@ -112,8 +112,8 @@
           "correct": false
         },
         {
-          "text": "El procesador entra en un ciclo de espera activo consumiendo el 100% de la CPU",
-          "correct": false
+          "text": "El cuerpo del bucle se ignora completamente y el flujo salta a la siguiente instrucción fuera de él",
+          "correct": true
         }
       ]
     },
@@ -123,19 +123,19 @@
       "codeSnippet": "contador = 0\nwhile contador < 3:\n    contador = contador + 1\nprint(contador)",
       "options": [
         {
-          "text": "3",
-          "correct": true
-        },
-        {
-          "text": "2",
-          "correct": false
-        },
-        {
           "text": "4",
           "correct": false
         },
         {
           "text": "0",
+          "correct": false
+        },
+        {
+          "text": "3",
+          "correct": true
+        },
+        {
+          "text": "2",
           "correct": false
         }
       ]

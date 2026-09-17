@@ -11,15 +11,15 @@
           "correct": true
         },
         {
-          "text": "Colocando siempre la condición con números más grandes al inicio sin importar el operador relacional",
-          "correct": false
-        },
-        {
           "text": "Duplicando cada condición con un operador lógico NOT para forzar una doble comprobación",
           "correct": false
         },
         {
           "text": "Usando exclusivamente comparadores de igualdad estricta para números continuos con decimales",
+          "correct": false
+        },
+        {
+          "text": "Colocando siempre la condición con números más grandes al inicio sin importar el operador relacional",
           "correct": false
         }
       ]
@@ -28,6 +28,10 @@
       "type": "MATCHING",
       "question": "Relaciona cada concepto de depuración de intervalos con su efecto computacional:",
       "options": [
+        {
+          "text": "Canibalización lógica|||Ocurre cuando una condición permisiva bloquea la activación de una condición crítica",
+          "correct": true
+        },
         {
           "text": "Código inalcanzable|||Bloque que jamás puede ejecutarse porque una condición superior absorbe el flujo",
           "correct": true
@@ -38,10 +42,6 @@
         },
         {
           "text": "Orden de especificidad|||Regla de diseño que exige colocar las restricciones más estrictas al principio",
-          "correct": true
-        },
-        {
-          "text": "Canibalización lógica|||Ocurre cuando una condición permisiva bloquea la activación de una condición crítica",
           "correct": true
         }
       ]
@@ -82,11 +82,11 @@
           "correct": true
         },
         {
-          "text": "if",
+          "text": "then",
           "correct": false
         },
         {
-          "text": "then",
+          "text": "if",
           "correct": false
         },
         {
@@ -100,12 +100,12 @@
       "question": "Si un desarrollador escribe 'if puntaje >= 50: nivel = \"Basico\"' antes de 'elif puntaje >= 90: nivel = \"Experto\"', ¿qué resultado obtendrá un usuario con puntaje de 95?",
       "options": [
         {
-          "text": "'Basico', porque la condición '>= 50' es verdadera para 95 y la estructura if-elif cortocircuita de inmediato sin evaluar el nivel Experto",
-          "correct": true
-        },
-        {
           "text": "'Experto', porque el compilador detecta automáticamente el número mayor y reordena la cadena",
           "correct": false
+        },
+        {
+          "text": "'Basico', porque la condición '>= 50' es verdadera para 95 y la estructura if-elif cortocircuita de inmediato sin evaluar el nivel Experto",
+          "correct": true
         },
         {
           "text": "Un error de sintaxis en tiempo de ejecución por conflicto de ambigüedad numérica",
@@ -127,7 +127,7 @@
           "correct": true
         },
         {
-          "text": "'BRILLO_MEDIO'",
+          "text": "'INDEFINIDO'",
           "correct": false
         },
         {
@@ -135,7 +135,7 @@
           "correct": false
         },
         {
-          "text": "'INDEFINIDO'",
+          "text": "'BRILLO_MEDIO'",
           "correct": false
         }
       ]

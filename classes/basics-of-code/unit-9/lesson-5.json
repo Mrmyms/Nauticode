@@ -7,19 +7,19 @@
       "lessonText": "# Sistemas Ciberfísicos y Frenado Preventivo\n\nEn sistemas embebidos de tiempo real, la toma de decisiones basada en sensores exige validar condiciones críticas antes de activar actuadores mecánicos. Si la distancia medida por un sensor de proximidad cae por debajo de un umbral de seguridad mientras el robot se desplaza hacia el obstáculo, el software debe suprimir la orden del joystick del operador y ordenar frenado regenerativo inmediato.\n\n```python\nif distancia_cm < 40.0:\n    if velocidad_mps > 0.0:\n        chasis_swerve.frenar_en_x()\n```\n\nEn el chasis Swerve de Nautilus 4010, este algoritmo corre a 50 Hz en el bucle principal. Si la distancia al obstáculo es menor a 40 cm y la velocidad hacia adelante es positiva, las 4 ruedas del Swerve se orientan en un patrón cruzado en forma de 'X' (X-Brake), bloqueando mecánicamente cualquier desplazamiento y protegiendo tanto la estructura del robot como la integridad del personal en la cancha.\n\n**Regla de Oro: Los sistemas de seguridad preventivos priorizan la integridad estructural evaluando condiciones críticas antes de autorizar cualquier cambio de estado mecánico.**",
       "options": [
         {
-          "text": "Validando jerárquicamente distancia crítica y sentido de velocidad antes de ejecutar el protocolo de frenado físico",
-          "correct": true
-        },
-        {
-          "text": "Desconectando la batería principal mediante un relé térmico cada vez que se detecta un obstáculo",
-          "correct": false
-        },
-        {
           "text": "Invirtiendo aleatoriamente la polaridad de los motores sin consultar el estado cinemático",
           "correct": false
         },
         {
           "text": "Ignorando las lecturas del sensor si el robot se desplaza a alta velocidad para evitar lag",
+          "correct": false
+        },
+        {
+          "text": "Validando jerárquicamente distancia crítica y sentido de velocidad antes de ejecutar el protocolo de frenado físico",
+          "correct": true
+        },
+        {
+          "text": "Desconectando la batería principal mediante un relé térmico cada vez que se detecta un obstáculo",
           "correct": false
         }
       ]
@@ -29,15 +29,15 @@
       "question": "Relaciona cada componente del sistema de frenado preventivo con su función técnica:",
       "options": [
         {
-          "text": "Sensor de distancia ToF|||Dispositivo óptico que mide el tiempo de vuelo de fotones para calcular proximidad",
-          "correct": true
-        },
-        {
           "text": "Umbral de colisión|||Límite numérico por debajo del cual se dispara el protocolo de contención",
           "correct": true
         },
         {
           "text": "X-Brake en Swerve|||Configuración de ruedas en ángulo cruzado para fijar mecánicamente el chasis",
+          "correct": true
+        },
+        {
+          "text": "Sensor de distancia ToF|||Dispositivo óptico que mide el tiempo de vuelo de fotones para calcular proximidad",
           "correct": true
         },
         {
@@ -78,10 +78,6 @@
       "codeSnippet": "distancia = 32.5\nvelocidad = 2.0\nif distancia < 40.0:\n    ___ velocidad > 0.0:\n        frenar_emergencia()",
       "options": [
         {
-          "text": "if",
-          "correct": true
-        },
-        {
           "text": "and",
           "correct": false
         },
@@ -92,6 +88,10 @@
         {
           "text": "guard",
           "correct": false
+        },
+        {
+          "text": "if",
+          "correct": true
         }
       ]
     },
@@ -100,11 +100,7 @@
       "question": "En un sistema de frenado preventivo, ¿por qué es fundamental verificar tanto la proximidad como el sentido de la velocidad antes de clavar los frenos?",
       "options": [
         {
-          "text": "Para evitar frenar innecesariamente si el robot ya se encuentra alejándose o retrocediendo respecto al obstáculo detectado",
-          "correct": true
-        },
-        {
-          "text": "Porque los motores no consumen corriente eléctrica cuando giran en sentido de reversa",
+          "text": "Porque el bus de comunicaciones CAN únicamente admite tramas de frenado si la aceleración es negativa",
           "correct": false
         },
         {
@@ -112,7 +108,11 @@
           "correct": false
         },
         {
-          "text": "Porque el bus de comunicaciones CAN únicamente admite tramas de frenado si la aceleración es negativa",
+          "text": "Para evitar frenar innecesariamente si el robot ya se encuentra alejándose o retrocediendo respecto al obstáculo detectado",
+          "correct": true
+        },
+        {
+          "text": "Porque los motores no consumen corriente eléctrica cuando giran en sentido de reversa",
           "correct": false
         }
       ]
@@ -123,20 +123,20 @@
       "codeSnippet": "distancia_cm = 35\nvelocidad_mps = 1.8\nestado_freno = False\nif distancia_cm < 40:\n    if velocidad_mps > 1.0:\n        estado_freno = True\nprint(estado_freno)",
       "options": [
         {
-          "text": "True",
-          "correct": true
-        },
-        {
-          "text": "False",
-          "correct": false
-        },
-        {
           "text": "35",
           "correct": false
         },
         {
           "text": "None",
           "correct": false
+        },
+        {
+          "text": "False",
+          "correct": false
+        },
+        {
+          "text": "True",
+          "correct": true
         }
       ]
     }

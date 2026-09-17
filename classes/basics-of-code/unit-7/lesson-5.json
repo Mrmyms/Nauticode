@@ -7,12 +7,12 @@
       "lessonText": "# Cinemática Aplicada: Gear Ratios en Nautilus 4010\n\nEn robótica de competencia, el software no opera en el vacío; interactúa directamente con sistemas mecánicos. Un motor brushless Falcon 500 o Kraken X60 gira a $6,000\\text{ RPM}$ en vacío, una velocidad angular excesiva que carece del torque necesario para mover un chasis de $55\\text{ kg}$.\n\nPor ello, el motor se conecta a una caja reductora (*gearbox*) con una **Relación de Reducción (Gear Ratio $G$)** de $6:1$:\n$$\\text{RPM}_{\\text{rueda}} = \\frac{\\text{RPM}_{\\text{motor}}}{G}$$\n$$\\text{RPM}_{\\text{rueda}} = \\frac{6000}{6} = 1000\\text{ RPM}$$\n\nPara calcular la velocidad lineal del robot sobre la alfombra, convertimos revoluciones por minuto a metros por segundo incorporando el radio de la rueda ($r$ en metros) y el factor de tiempo ($60\\text{ s}$):\n$$v = \\left(\\frac{\\text{RPM}_{\\text{rueda}}}{60}\\right) \\times (2 \\times \\pi \\times r)$$\n\nEn este reto final de la Unidad 7, demostrarás tu dominio de los operadores aritméticos, la precedencia con paréntesis y las divisiones escaladas modelando el comportamiento cinemático real del robot.\n\n**La Regla de Oro:**\nLas matemáticas son el puente que traduce comandos de software en fuerzas mecánicas reales; dominar los operadores aritméticos es la base de la ingeniería mecatrónica.",
       "options": [
         {
-          "text": "Modelan la física del robot combinando divisiones de reducción angular y conversiones lineales con precedencia estricta",
-          "correct": true
-        },
-        {
           "text": "Son fórmulas empíricas que se descartan en competencia porque los motores giran a velocidad constante fija",
           "correct": false
+        },
+        {
+          "text": "Modelan la física del robot combinando divisiones de reducción angular y conversiones lineales con precedencia estricta",
+          "correct": true
         },
         {
           "text": "Calculan exclusivamente el consumo de combustible diésel de los generadores de la arena",
@@ -29,11 +29,7 @@
       "question": "Relaciona cada magnitud física del tren motriz con su fórmula matemática correspondiente:",
       "options": [
         {
-          "text": "Velocidad Angular Reducida|||rpmMotor / gearRatio",
-          "correct": true
-        },
-        {
-          "text": "Perímetro de Rueda|||2 * PI * radioRuedaMetros",
+          "text": "Velocidad Lineal (m/s)|||circunferencia * rps",
           "correct": true
         },
         {
@@ -41,7 +37,11 @@
           "correct": true
         },
         {
-          "text": "Velocidad Lineal (m/s)|||circunferencia * rps",
+          "text": "Perímetro de Rueda|||2 * PI * radioRuedaMetros",
+          "correct": true
+        },
+        {
+          "text": "Velocidad Angular Reducida|||rpmMotor / gearRatio",
           "correct": true
         }
       ]
@@ -78,6 +78,10 @@
       "codeSnippet": "rpmMotor = 6000\ngearRatio = 6\nrpmFinal = rpmMotor _____ gearRatio\nprint('RPM reducidas de la rueda: ' + str(rpmFinal))",
       "options": [
         {
+          "text": "+",
+          "correct": false
+        },
+        {
           "text": "/",
           "correct": true
         },
@@ -87,10 +91,6 @@
         },
         {
           "text": "%",
-          "correct": false
-        },
-        {
-          "text": "+",
           "correct": false
         }
       ]
@@ -123,20 +123,20 @@
       "codeSnippet": "encoderIzquierdo = 400\nencoderDerecho = 600\npromedioTicks = (encoderIzquierdo + encoderDerecho) / 2\nfactorMetros = 0.01\ndistanciaTotal = promedioTicks * factorMetros\nprint(distanciaTotal)",
       "options": [
         {
-          "text": "5.0",
-          "correct": true
-        },
-        {
-          "text": "500.0",
-          "correct": false
-        },
-        {
           "text": "7.0",
           "correct": false
         },
         {
           "text": "500",
           "correct": false
+        },
+        {
+          "text": "500.0",
+          "correct": false
+        },
+        {
+          "text": "5.0",
+          "correct": true
         }
       ]
     }

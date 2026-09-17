@@ -15,11 +15,11 @@
           "correct": false
         },
         {
-          "text": "Evalúa primero los números más grandes y al final los números menores a 10",
+          "text": "El orden es aleatorio y depende del nivel de carga de la batería de 12V",
           "correct": false
         },
         {
-          "text": "El orden es aleatorio y depende del nivel de carga de la batería de 12V",
+          "text": "Evalúa primero los números más grandes y al final los números menores a 10",
           "correct": false
         }
       ]
@@ -29,19 +29,19 @@
       "question": "Relaciona cada nivel de precedencia con los operadores correspondientes:",
       "options": [
         {
-          "text": "Paréntesis ()|||Nivel 1 (Máxima prioridad: fuerzan el orden de cálculo interno)",
-          "correct": true
-        },
-        {
-          "text": "Multiplicación, División y Módulo (*, /, %)|||Nivel 2 (Prioridad intermedia: se evalúan antes de sumas y restas)",
-          "correct": true
-        },
-        {
           "text": "Suma y Resta (+, -)|||Nivel 3 (Prioridad básica: se resuelven al final)",
           "correct": true
         },
         {
           "text": "Árbol AST|||Estructura generada por el compilador para ordenar las operaciones",
+          "correct": true
+        },
+        {
+          "text": "Paréntesis ()|||Nivel 1 (Máxima prioridad: fuerzan el orden de cálculo interno)",
+          "correct": true
+        },
+        {
+          "text": "Multiplicación, División y Módulo (*, /, %)|||Nivel 2 (Prioridad intermedia: se evalúan antes de sumas y restas)",
           "correct": true
         }
       ]
@@ -78,20 +78,20 @@
       "codeSnippet": "sensorA = 10\nsensorB = 20\npromedio = _____ / 2\nprint('Promedio calibrado: ' + str(promedio))",
       "options": [
         {
-          "text": "(sensorA + sensorB)",
-          "correct": true
-        },
-        {
-          "text": "sensorA + sensorB",
-          "correct": false
-        },
-        {
           "text": "(sensorA * sensorB)",
           "correct": false
         },
         {
           "text": "sensorA + (sensorB)",
           "correct": false
+        },
+        {
+          "text": "sensorA + sensorB",
+          "correct": false
+        },
+        {
+          "text": "(sensorA + sensorB)",
+          "correct": true
         }
       ]
     },
@@ -104,7 +104,7 @@
           "correct": true
         },
         {
-          "text": "Porque el procesador se bloquea si encuentra más de una multiplicación sin paréntesis",
+          "text": "Porque es un requisito impuesto por el protocolo de comunicación inalámbrica de la cancha",
           "correct": false
         },
         {
@@ -112,7 +112,7 @@
           "correct": false
         },
         {
-          "text": "Porque es un requisito impuesto por el protocolo de comunicación inalámbrica de la cancha",
+          "text": "Porque el procesador se bloquea si encuentra más de una multiplicación sin paréntesis",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "x = 10 + 5 * 2\nprint(x)",
       "options": [
         {
-          "text": "20",
-          "correct": true
-        },
-        {
           "text": "30",
           "correct": false
         },
         {
-          "text": "100",
+          "text": "25",
           "correct": false
         },
         {
-          "text": "25",
+          "text": "20",
+          "correct": true
+        },
+        {
+          "text": "100",
           "correct": false
         }
       ]

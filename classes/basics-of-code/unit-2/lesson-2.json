@@ -7,16 +7,16 @@
       "lessonText": "# El Ciclo Periódico IPO en Robótica\n\nEn un robot de competencia, el procesador central (como la roboRIO) no ejecuta un código lineal de principio a fin y se apaga. En su lugar, ejecuta el ciclo fundamental **Input -> Process -> Output (IPO)** de forma ininterrumpida decenas de veces por segundo.\n\n### 1. Fase de Entrada (Input)\nEl software captura la telemetría del entorno y las órdenes humanas:\n- Joysticks y gatillos del control del conductor.\n- Sensores de distancia ultrasónicos y láser (LiDAR).\n- Encoders rotativos en las ruedas y giroscopio (NavX).\n- Cámaras inteligentes de visión artificial (Limelight).\n\n### 2. Fase de Procesamiento (Process / Algoritmo)\nEs el cerebro lógico del sistema. Toma todos los números capturados en la entrada y realiza cálculos vectoriales, matrices cinemáticas y filtros de seguridad:\n- ¿El conductor pidió avanzar pero el sensor detectó una pared a 10 cm? El algoritmo decide anular la orden humana y aplicar frenado automático.\n\n### 3. Fase de Salida (Output)\nEl resultado matemático se traduce en señales físicas de hardware:\n- Modulación por Ancho de Pulsos (PWM) o comandos por bus CAN a los controladores de motor.\n- Activación de válvulas solenoides neumáticas.\n- Indicadores luminosos LED para informar el estado al equipo en la pista.\n\n**La Regla de Oro:**\nUn buen algoritmo nunca confía ciegamente en el Input sin filtrarlo, ni acciona el Output sin antes verificar las condiciones de seguridad en el Procesamiento.",
       "options": [
         {
-          "text": "Captura datos del entorno (Input), ejecuta la lógica de decisión y cálculo (Process), y traduce el resultado en acciones físicas en los actuadores (Output)",
-          "correct": true
+          "text": "Descarga las decisiones tomadas por los organizadores del torneo en cada milisegundo a través de radiofrecuencia",
+          "correct": false
         },
         {
           "text": "Envía potencia directa a los motores (Output) y luego calcula si el robot chocó contra un obstáculo (Process)",
           "correct": false
         },
         {
-          "text": "Descarga las decisiones tomadas por los organizadores del torneo en cada milisegundo a través de radiofrecuencia",
-          "correct": false
+          "text": "Captura datos del entorno (Input), ejecuta la lógica de decisión y cálculo (Process), y traduce el resultado en acciones físicas en los actuadores (Output)",
+          "correct": true
         },
         {
           "text": "Apaga los sensores para ahorrar batería y deja que los motores operen por impulso mecánico continuo",
@@ -29,7 +29,7 @@
       "question": "Clasifica cada componente de un robot FRC en su fase correspondiente del ciclo IPO:",
       "options": [
         {
-          "text": "Giroscopio NavX reportando inclinación de 15 grados|||Fase de Input (Entrada de telemetría)",
+          "text": "Pistón neumático extendiendo la garra recolectora|||Fase de Output (Salida mecánica)",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "Pistón neumático extendiendo la garra recolectora|||Fase de Output (Salida mecánica)",
+          "text": "Giroscopio NavX reportando inclinación de 15 grados|||Fase de Input (Entrada de telemetría)",
           "correct": true
         }
       ]
@@ -78,11 +78,11 @@
       "codeSnippet": "comandoPiloto = 0.75\nvelocidadSegura = procesarLimiteVelocidad(comandoPiloto)\n\n# Despachar al actuador (Output):\nmotorIntake._____(velocidadSegura)",
       "options": [
         {
-          "text": "setPower",
-          "correct": true
+          "text": "readSensor",
+          "correct": false
         },
         {
-          "text": "readSensor",
+          "text": "resetMemory",
           "correct": false
         },
         {
@@ -90,8 +90,8 @@
           "correct": false
         },
         {
-          "text": "resetMemory",
-          "correct": false
+          "text": "setPower",
+          "correct": true
         }
       ]
     },
@@ -100,16 +100,16 @@
       "question": "Durante una partida, un sensor ultrasónico reporta súbitamente -999 cm debido a polvo en el lente. ¿Cuál es la respuesta algorítmica correcta en la fase de Process?",
       "options": [
         {
-          "text": "Detectar que el valor está fuera del rango físico válido, descartarlo y utilizar la última medición segura o detener el robot por precaución",
-          "correct": true
-        },
-        {
           "text": "Acelerar los motores en reversa a máxima potencia porque el número es negativo",
           "correct": false
         },
         {
           "text": "Apagar el procesador de inmediato y esperar a que el polvo desaparezca por sí solo",
           "correct": false
+        },
+        {
+          "text": "Detectar que el valor está fuera del rango físico válido, descartarlo y utilizar la última medición segura o detener el robot por precaución",
+          "correct": true
         },
         {
           "text": "Multiplicar el valor por -1 para convertirlo en positivo y continuar avanzando a ciegas",
@@ -123,16 +123,16 @@
       "codeSnippet": "inputJoystick = 0.8\nseguridadActivada = True\n\nif seguridadActivada:\n    potenciaOutput = 0.0\nelse:\n    potenciaOutput = inputJoystick\n\nprint(potenciaOutput)",
       "options": [
         {
-          "text": "0.0",
-          "correct": true
-        },
-        {
           "text": "0.8",
           "correct": false
         },
         {
           "text": "True",
           "correct": false
+        },
+        {
+          "text": "0.0",
+          "correct": true
         },
         {
           "text": "seguridadActivada",

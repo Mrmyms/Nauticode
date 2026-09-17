@@ -7,11 +7,7 @@
       "lessonText": "# El Flujo del Tiempo y la Sobreescritura en RAM\n\nEl estado de un robot de competencia cambia decenas de veces por segundo:\n- En $t = 0\\text{ s}$, `velocidadChasis = 0.0` (robot inmóvil detrás de la línea de partida).\n- En $t = 2\\text{ s}$, `velocidadChasis = 3.8` (aceleración máxima hacia la nota central).\n- En $t = 5\\text{ s}$, `velocidadChasis = 0.0` (detención para disparar al Speaker).\n\nLas celdas de la memoria RAM están compuestas por transistores microscópicos. Cuando reasignas una variable escribiendo:\n```python\nvelocidadChasis = 3.8\n```\nLa CPU escribe un nuevo patrón de bits polarizando las mismas celdas de memoria asociadas a esa variable. **El dato anterior (0.0) es físicamente sobreescrito e irreversiblemente destruido**; no existe un historial automático en la RAM a menos que el programador declare explícitamente otra variable de respaldo.\n\nEsta capacidad de alterar el dato almacenado en una misma dirección a lo largo del tiempo se denomina **mutabilidad**.\n\n**La Regla de Oro:**\nReasignar una variable sobreescribe destructivamente la celda de memoria asignada; el dato previo desaparece para dar lugar al nuevo estado del sistema.",
       "options": [
         {
-          "text": "El dato anterior es físicamente sobreescrito en la misma celda de RAM y deja de existir de forma irreversible",
-          "correct": true
-        },
-        {
-          "text": "El sistema operativo guarda una copia en disco duro de cada valor previo de forma automática",
+          "text": "La computadora suma automáticamente el valor anterior con el nuevo para no perder información",
           "correct": false
         },
         {
@@ -19,7 +15,11 @@
           "correct": false
         },
         {
-          "text": "La computadora suma automáticamente el valor anterior con el nuevo para no perder información",
+          "text": "El dato anterior es físicamente sobreescrito en la misma celda de RAM y deja de existir de forma irreversible",
+          "correct": true
+        },
+        {
+          "text": "El sistema operativo guarda una copia en disco duro de cada valor previo de forma automática",
           "correct": false
         }
       ]
@@ -29,19 +29,19 @@
       "question": "Relaciona cada concepto sobre el estado en memoria con su principio fundamental:",
       "options": [
         {
-          "text": "Mutabilidad|||Propiedad de una celda de memoria cuyo contenido puede cambiar durante la ejecución",
-          "correct": true
-        },
-        {
-          "text": "Sobreescritura|||Reemplazo destructivo del patrón de bits en una dirección de memoria existente",
-          "correct": true
-        },
-        {
           "text": "Inmutabilidad|||Garantía de diseño donde una referencia jamás puede alterar su valor asignado",
           "correct": true
         },
         {
           "text": "Bucle de Control (20ms)|||Ciclo periódico donde las variables de sensores se reasignan constantemente",
+          "correct": true
+        },
+        {
+          "text": "Mutabilidad|||Propiedad de una celda de memoria cuyo contenido puede cambiar durante la ejecución",
+          "correct": true
+        },
+        {
+          "text": "Sobreescritura|||Reemplazo destructivo del patrón de bits en una dirección de memoria existente",
           "correct": true
         }
       ]
@@ -104,15 +104,15 @@
           "correct": true
         },
         {
+          "text": "Porque el procesador solo recuerda la última letra del nombre de la variable",
+          "correct": false
+        },
+        {
           "text": "Porque la roboRIO descarga la memoria RAM en un satélite al terminar cada segundo",
           "correct": false
         },
         {
           "text": "Porque las variables numéricas se comprimen a tamaño cero después del tercer cambio",
-          "correct": false
-        },
-        {
-          "text": "Porque el procesador solo recuerda la última letra del nombre de la variable",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "contador = 1\ncontador = contador + 4\ncontador = 20\nprint(contador)",
       "options": [
         {
-          "text": "20",
-          "correct": true
-        },
-        {
-          "text": "5",
-          "correct": false
-        },
-        {
           "text": "25",
           "correct": false
         },
         {
+          "text": "20",
+          "correct": true
+        },
+        {
           "text": "1",
+          "correct": false
+        },
+        {
+          "text": "5",
           "correct": false
         }
       ]

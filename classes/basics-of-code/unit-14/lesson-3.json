@@ -7,11 +7,7 @@
       "lessonText": "# Alcance Léxico y Marcos de Pila (Stack Frames)\n\nEl **Scope (ámbito)** define la región del código donde un identificador en memoria es visible y válido:\n\n1. **Variables Locales:** Se crean dentro del marco de pila de una función. Solo existen durante la ejecución de esa función y su memoria se libera inmediatamente al retornar. Ninguna otra parte del código exterior puede modificarlas ni consultarlas.\n2. **Variables Globales:** Viven durante toda la ejecución del proceso en el segmento de datos. Cualquier módulo puede leerlas o alterarlas, lo que introduce acoplamiento destructivo y bugs impredecibles.\n\n```python\nvoltaje_bateria = 12.6     # Global\n\ndef verificar_presion():\n    presion_psi = 110.0    # Local: desaparece al terminar la funcion\n    print(presion_psi)\n```\n\nEn Nautilus 4010, mantener variables de sensores como locales garantiza que el módulo de visión no sobreescriba accidentalmente las lecturas de los encoders del chasis Swerve.\n\n**Regla de Oro: Las variables locales nacen y mueren dentro del marco de pila (stack frame) de su función; minimizar el uso de variables globales previene acoplamiento destructivo y efectos colaterales invisibles.**",
       "options": [
         {
-          "text": "La región del programa donde una variable existe y es accesible; las locales aíslan la memoria previniendo colisiones de datos",
-          "correct": true
-        },
-        {
-          "text": "La distancia física de alcance de la antena de radio del chasis hacia los pits",
+          "text": "Un protocolo de comunicación serial exclusivo para transmisiones inalámbricas",
           "correct": false
         },
         {
@@ -19,7 +15,11 @@
           "correct": false
         },
         {
-          "text": "Un protocolo de comunicación serial exclusivo para transmisiones inalámbricas",
+          "text": "La región del programa donde una variable existe y es accesible; las locales aíslan la memoria previniendo colisiones de datos",
+          "correct": true
+        },
+        {
+          "text": "La distancia física de alcance de la antena de radio del chasis hacia los pits",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Relaciona cada concepto de memoria y alcance con su definición operativa:",
       "options": [
         {
-          "text": "Variable local|||Identificador asignado dentro de una función cuyo ciclo de vida se limita a su ejecución",
+          "text": "Variable Shadowing|||Ocultamiento de una variable global por una variable local con el mismo identificador",
           "correct": true
         },
         {
@@ -37,11 +37,11 @@
           "correct": true
         },
         {
-          "text": "Stack Frame|||Marco de memoria en la pila asignado a una función durante su invocación",
+          "text": "Variable local|||Identificador asignado dentro de una función cuyo ciclo de vida se limita a su ejecución",
           "correct": true
         },
         {
-          "text": "Variable Shadowing|||Ocultamiento de una variable global por una variable local con el mismo identificador",
+          "text": "Stack Frame|||Marco de memoria en la pila asignado a una función durante su invocación",
           "correct": true
         }
       ]
@@ -78,15 +78,15 @@
       "codeSnippet": "def medir_temperatura():\n    temp_celsius = 42.0\n    return temp_celsius\n\n# La variable 'temp_celsius' no existe fuera de la funcion debido a su _____ local",
       "options": [
         {
+          "text": "buffer",
+          "correct": false
+        },
+        {
           "text": "scope",
           "correct": true
         },
         {
           "text": "stack",
-          "correct": false
-        },
-        {
-          "text": "buffer",
           "correct": false
         },
         {
@@ -100,19 +100,19 @@
       "question": "¿Por qué en arquitectura de software profesional se desaconseja el uso indiscriminado de variables globales?",
       "options": [
         {
-          "text": "Porque cualquier parte del código puede mutar su valor sin control, dificultando el rastreo de bugs y rompiendo el encapsulamiento",
-          "correct": true
-        },
-        {
           "text": "Porque las variables globales incrementan físicamente el peso del robot en la báscula",
           "correct": false
         },
         {
-          "text": "Porque los procesadores multinúcleo no permiten leer variables fuera del método main",
+          "text": "Porque las variables globales se borran automáticamente cada 60 segundos",
           "correct": false
         },
         {
-          "text": "Porque las variables globales se borran automáticamente cada 60 segundos",
+          "text": "Porque cualquier parte del código puede mutar su valor sin control, dificultando el rastreo de bugs y rompiendo el encapsulamiento",
+          "correct": true
+        },
+        {
+          "text": "Porque los procesadores multinúcleo no permiten leer variables fuera del método main",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "valor = 10\ndef alterar():\n    valor = 99\n\nalterar()\nprint(valor)",
       "options": [
         {
-          "text": "10",
-          "correct": true
-        },
-        {
           "text": "99",
           "correct": false
         },
         {
-          "text": "0",
-          "correct": false
+          "text": "10",
+          "correct": true
         },
         {
           "text": "None",
+          "correct": false
+        },
+        {
+          "text": "0",
           "correct": false
         }
       ]

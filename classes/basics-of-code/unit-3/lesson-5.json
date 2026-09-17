@@ -7,11 +7,7 @@
       "lessonText": "# La Orquestación del Encendido: Secuencia de Arranque\n\nAl encender el interruptor principal (Main Breaker) de 120A en un robot de competencia, se desata una coreografía crítica de inicialización que debe ocurrir en una secuencia milimétricamente estructurada:\n\n### Fases de la Secuencia de Arranque (Boot Sequence):\n1. **Arranque de Kernel y Red:** La roboRIO inicializa su sistema operativo Linux en tiempo real (RTOS) y levanta la interfaz Ethernet y el bus CAN a 1 Mbps.\n2. **Enumeración de Dispositivos CAN:** El código escanea y verifica que los 16+ controladores de motor (SparkMax, TalonFX, Falcon 500) y sensores (CANcoder, Pigeon) estén conectados y reportando estado 'Saludable'.\n3. **Inicialización de Sensores y Puntos Cero:** Se leen los encoders absolutos para conocer la postura geométrica real del brazo y de los módulos de tracción swerve.\n4. **Publicación de Telemetría (Heartbeat):** Se envían paquetes a la consola del piloto confirmando que el software está listo y a la espera de la señal de 'HABILITAR' (*Enable*).\n\nSi alteras este orden (por ejemplo, intentar leer un sensor antes de que el bus CAN termine de enumerar), el robot sufrirá un fallo catastrófico de software (*NullPointerException* o caída de proceso) justo al entrar a la cancha.\n\n**La Regla de Oro:**\nLa secuencia de inicialización prepara los cimientos del sistema; un error de orden aquí condena toda la partida antes de que comience el juego.",
       "options": [
         {
-          "text": "Mediante un protocolo estricto por fases: inicializar bus de comunicaciones, verificar presencia de dispositivos, calibrar posturas cero y esperar la orden formal de habilitación",
-          "correct": true
-        },
-        {
-          "text": "Encendiendo todos los motores a máxima potencia al instante para comprobar si la batería soporta la carga",
+          "text": "Permitiendo que cada sensor decida aleatoriamente cuándo reportar datos a la computadora",
           "correct": false
         },
         {
@@ -19,7 +15,11 @@
           "correct": false
         },
         {
-          "text": "Permitiendo que cada sensor decida aleatoriamente cuándo reportar datos a la computadora",
+          "text": "Mediante un protocolo estricto por fases: inicializar bus de comunicaciones, verificar presencia de dispositivos, calibrar posturas cero y esperar la orden formal de habilitación",
+          "correct": true
+        },
+        {
+          "text": "Encendiendo todos los motores a máxima potencia al instante para comprobar si la batería soporta la carga",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Relaciona cada fase del procedimiento de arranque con su comprobación obligatoria:",
       "options": [
         {
-          "text": "Fase 1: Conexión Bus CAN|||Verificar que todos los controladores de motor respondan en el bus",
+          "text": "Fase 3: Presión Neumática|||Confirmar que el circuito tiene al menos 60 PSI para operar solenoides",
           "correct": true
         },
         {
@@ -37,7 +37,7 @@
           "correct": true
         },
         {
-          "text": "Fase 3: Presión Neumática|||Confirmar que el circuito tiene al menos 60 PSI para operar solenoides",
+          "text": "Fase 1: Conexión Bus CAN|||Verificar que todos los controladores de motor respondan en el bus",
           "correct": true
         },
         {
@@ -78,19 +78,19 @@
       "codeSnippet": "limelightConectada = verificarCamaraVision()\n\nif limelightConectada:\n    _____('[BOOT] Sistema de Vision: OK')\nelse:\n    _____('[ALERTA] Camara de Vision no responde')",
       "options": [
         {
-          "text": "print",
-          "correct": true
+          "text": "return",
+          "correct": false
         },
         {
           "text": "Print",
           "correct": false
         },
         {
-          "text": "input",
-          "correct": false
+          "text": "print",
+          "correct": true
         },
         {
-          "text": "return",
+          "text": "input",
           "correct": false
         }
       ]
@@ -100,11 +100,7 @@
       "question": "¿Qué peligro técnico existe si el código intenta encender el compresor de aire antes de verificar el sensor de presión neumática?",
       "options": [
         {
-          "text": "Si el tanque ya estuviera a presión máxima (120 PSI), el compresor podría sobrepresurizar la tubería o disparar la válvula de alivio violentamente",
-          "correct": true
-        },
-        {
-          "text": "El compresor transformaría el aire en líquido inflamable de inmediato",
+          "text": "El compilador borraría el archivo ejecutable del robot por precaución",
           "correct": false
         },
         {
@@ -112,8 +108,12 @@
           "correct": false
         },
         {
-          "text": "El compilador borraría el archivo ejecutable del robot por precaución",
+          "text": "El compresor transformaría el aire en líquido inflamable de inmediato",
           "correct": false
+        },
+        {
+          "text": "Si el tanque ya estuviera a presión máxima (120 PSI), el compresor podría sobrepresurizar la tubería o disparar la válvula de alivio violentamente",
+          "correct": true
         }
       ]
     },
@@ -123,19 +123,19 @@
       "codeSnippet": "subsistemasListos = 0\ncanBus_ok = True\ngyro_ok = True\nvision_ok = False\n\nif canBus_ok:\n    subsistemasListos = subsistemasListos + 1\n\nif gyro_ok:\n    subsistemasListos = subsistemasListos + 1\n\nif vision_ok:\n    subsistemasListos = subsistemasListos + 1\n\nprint(subsistemasListos)",
       "options": [
         {
-          "text": "2",
-          "correct": true
-        },
-        {
           "text": "3",
           "correct": false
         },
         {
-          "text": "1",
-          "correct": false
+          "text": "2",
+          "correct": true
         },
         {
           "text": "0",
+          "correct": false
+        },
+        {
+          "text": "1",
           "correct": false
         }
       ]

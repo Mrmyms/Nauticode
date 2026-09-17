@@ -7,12 +7,12 @@
       "lessonText": "# Lazo de Control Neumático y Presurización Segura\n\nLos sistemas neumáticos de potencia operan acumulando aire a presión (típicamente entre 60 y 115 PSI) en tanques de almacenamiento. El control de la recarga se realiza con un bucle `while` que evalúa la lectura analógica del transductor de presión.\n\n```python\npresion_psi = sensor_presion.leer()\nciclos_seguridad = 0\nwhile presion_psi < 115 and ciclos_seguridad < 200:\n    compresor.presurizar_pulso()\n    presion_psi = sensor_presion.leer()\n    ciclos_seguridad += 1\n```\n\nEn Nautilus 4010, este bucle presuriza los actuadores de la garra y los pistones del freno. Si una manguera de alta presión sufre una fisura o fuga durante el partido, la presión jamás alcanzará los 115 PSI. La guarda `ciclos_seguridad < 200` garantiza que el compresor se detenga tras un número seguro de ciclos, impidiendo que la bomba se sobrecaliente y funda sus sellos mecánicos.\n\n**Regla de Oro: Los bucles de presurización neumática deben validar tanto el manómetro analógico como un tiempo límite para proteger la bomba contra fugas no detectadas.**",
       "options": [
         {
-          "text": "Supervisando el transductor de presión junto con una guarda de ciclos máximos para evitar que una fuga queme la bomba",
-          "correct": true
-        },
-        {
           "text": "Manteniendo el compresor encendido permanentemente sin sensores para maximizar el flujo de aire",
           "correct": false
+        },
+        {
+          "text": "Supervisando el transductor de presión junto con una guarda de ciclos máximos para evitar que una fuga queme la bomba",
+          "correct": true
         },
         {
           "text": "Desconectando las mangueras de aire cada vez que el robot entra en la zona de puntuación",
@@ -29,19 +29,19 @@
       "question": "Relaciona cada elemento del control neumático con su definición operativa:",
       "options": [
         {
-          "text": "Manómetro analógico|||Transductor de presión que convierte fuerza neumática en señal de voltaje",
-          "correct": true
-        },
-        {
           "text": "Ciclo de bombeo|||Intervalo unitario de operación del pistón compresor para comprimir aire",
           "correct": true
         },
         {
-          "text": "Presión de corte|||Umbral de 115 PSI donde el sistema desenergiza el compresor por seguridad",
+          "text": "Guarda de seguridad|||Condición compuesta que detiene la carga si se excede el número máximo de ciclos",
           "correct": true
         },
         {
-          "text": "Guarda de seguridad|||Condición compuesta que detiene la carga si se excede el número máximo de ciclos",
+          "text": "Manómetro analógico|||Transductor de presión que convierte fuerza neumática en señal de voltaje",
+          "correct": true
+        },
+        {
+          "text": "Presión de corte|||Umbral de 115 PSI donde el sistema desenergiza el compresor por seguridad",
           "correct": true
         }
       ]
@@ -78,20 +78,20 @@
       "codeSnippet": "presion = 70\nwhile presion < 115:\n    inyectar_aire()\n    presion = presion ___ 15\nprint('Presion nominal lista')",
       "options": [
         {
-          "text": "+",
-          "correct": true
-        },
-        {
-          "text": "-",
-          "correct": false
-        },
-        {
           "text": "*",
           "correct": false
         },
         {
           "text": "==",
           "correct": false
+        },
+        {
+          "text": "-",
+          "correct": false
+        },
+        {
+          "text": "+",
+          "correct": true
         }
       ]
     },
@@ -100,11 +100,7 @@
       "question": "¿Por qué en un sistema neumático de alta presión es imperativo combinar la lectura de presión con un contador de ciclos máximos (timeout)?",
       "options": [
         {
-          "text": "Porque si existe una fuga en una manguera y la presión nunca sube, el compresor se quemaría al operar indefinidamente sin apagarse",
-          "correct": true
-        },
-        {
-          "text": "Porque los tanques de almacenamiento de aire no toleran más de dos lecturas analógicas continuas",
+          "text": "Porque el aire presurizado pierde densidad molecular si el ciclo de control excede los 100 ciclos",
           "correct": false
         },
         {
@@ -112,8 +108,12 @@
           "correct": false
         },
         {
-          "text": "Porque el aire presurizado pierde densidad molecular si el ciclo de control excede los 100 ciclos",
+          "text": "Porque los tanques de almacenamiento de aire no toleran más de dos lecturas analógicas continuas",
           "correct": false
+        },
+        {
+          "text": "Porque si existe una fuga en una manguera y la presión nunca sube, el compresor se quemaría al operar indefinidamente sin apagarse",
+          "correct": true
         }
       ]
     },

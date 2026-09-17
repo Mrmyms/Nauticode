@@ -7,19 +7,19 @@
       "lessonText": "# Cuando el Software Toca el Mundo Físico\n\nEn el desarrollo web o de videojuegos, si una animación intenta reproducirse antes de que cargue el modelo 3D, el usuario solo ve una pantalla negra o un fallo visual momentáneo.\n\nEn un robot de competencia de 55 kg alimentado por una batería de 12V capaz de entregar más de 300 Amperios:\n- Si ordenas `moverBrazoAlMaximo()` **antes** de ejecutar `calibrarSensorDeLimite()`...\n- El motor brushless empujará el brazo articulado contra los topes mecánicos con un torque descomunal.\n- En menos de 200 milisegundos, los engranes planetarios de acero se barrerán, la cadena se romperá y el motor se quemará por corriente de estancamiento (*stall current*).\n\n### La Secuencia Sagrada de Hardware:\n1. **Verificación de Seguridad:** Parada de emergencia (E-Stop) desarmada y voltaje nominal seguro.\n2. **Lectura y Calibración:** Los encoders y sensores de límite reportan sus puntos cero.\n3. **Cálculo de Control:** El algoritmo valida que el movimiento deseado esté dentro de los límites geométricos.\n4. **Actuación:** Finalmente, y solo entonces, se despacha potencia a los controladores de motor.\n\n**La Regla de Oro:**\nEn robótica, el orden secuencial no es solo estilo de programación: es el protocolo que protege la integridad física de las personas y de la máquina.",
       "options": [
         {
-          "text": "Porque aplicar potencia a actuadores antes de calibrar sensores de límite fuerza los mecanismos contra su estructura y destruye motores y transmisiones",
-          "correct": true
+          "text": "Porque los sensores láser pierden su calibración si detectan movimiento mecánico previo",
+          "correct": false
         },
         {
           "text": "Porque los árbitros descalifican al equipo si las líneas de código tienen más de 40 caracteres",
           "correct": false
         },
         {
-          "text": "Porque la electricidad estática de la pista borra el disco duro si el motor gira antes del sensor",
-          "correct": false
+          "text": "Porque aplicar potencia a actuadores antes de calibrar sensores de límite fuerza los mecanismos contra su estructura y destruye motores y transmisiones",
+          "correct": true
         },
         {
-          "text": "Porque los sensores láser pierden su calibración si detectan movimiento mecánico previo",
+          "text": "Porque la electricidad estática de la pista borra el disco duro si el motor gira antes del sensor",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Relaciona cada violación de secuencia física con su consecuencia destructiva directa:",
       "options": [
         {
-          "text": "Alimentar nota antes de que el shooter alcance 5000 RPM|||La nota se atora en el cañón y frena los motores",
+          "text": "Bajar elevador sin verificar interruptor de límite inferior|||El cable de acero se tensa de más y revienta la polea",
           "correct": true
         },
         {
@@ -37,11 +37,11 @@
           "correct": true
         },
         {
-          "text": "Acelerar tracción antes de calibrar el giroscopio|||El cálculo de orientación queda desfasado toda la partida",
+          "text": "Alimentar nota antes de que el shooter alcance 5000 RPM|||La nota se atora en el cañón y frena los motores",
           "correct": true
         },
         {
-          "text": "Bajar elevador sin verificar interruptor de límite inferior|||El cable de acero se tensa de más y revienta la polea",
+          "text": "Acelerar tracción antes de calibrar el giroscopio|||El cálculo de orientación queda desfasado toda la partida",
           "correct": true
         }
       ]
@@ -78,6 +78,10 @@
       "codeSnippet": "limiteAlcanzado = sensorTope.estaPresionado()\n\nif (_____ == False):\n    motorBrazo.setPower(0.5)\nelse:\n    motorBrazo.setPower(0.0)",
       "options": [
         {
+          "text": "0.5",
+          "correct": false
+        },
+        {
           "text": "limiteAlcanzado",
           "correct": true
         },
@@ -87,10 +91,6 @@
         },
         {
           "text": "motorBrazo",
-          "correct": false
-        },
-        {
-          "text": "0.5",
           "correct": false
         }
       ]
@@ -104,11 +104,11 @@
           "correct": true
         },
         {
-          "text": "La batería tenía demasiado voltaje acumulado y la gravedad atrajo el brazo al piso",
+          "text": "Los motores decidieron probar su potencia máxima por iniciativa propia",
           "correct": false
         },
         {
-          "text": "Los motores decidieron probar su potencia máxima por iniciativa propia",
+          "text": "La batería tenía demasiado voltaje acumulado y la gravedad atrajo el brazo al piso",
           "correct": false
         },
         {
@@ -123,16 +123,16 @@
       "codeSnippet": "potencia = 0.8\nsensorObstaculo = True\n\nif sensorObstaculo:\n    potencia = 0.0\n\nprint(potencia)",
       "options": [
         {
-          "text": "0.0",
-          "correct": true
-        },
-        {
           "text": "0.8",
           "correct": false
         },
         {
           "text": "True",
           "correct": false
+        },
+        {
+          "text": "0.0",
+          "correct": true
         },
         {
           "text": "potencia",

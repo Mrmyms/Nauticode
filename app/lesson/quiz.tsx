@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState, useTransition, useMemo } from "react";
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -90,7 +90,24 @@ export const Quiz = ({
   const [status, setStatus] = useState<"none" | "wrong" | "correct">("none");
 
   const challenge = challenges[activeIndex];
-  const options = challenge?.challengeOptions ?? [];
+
+  // Randomizer: shuffle options for choice-based challenges so answers do not always appear in the same position
+  const options = useMemo(() => {
+    const rawOptions = challenge?.challengeOptions ?? [];
+    if (rawOptions.length <= 1) return rawOptions;
+
+    // CODE_ORDER and MATCHING manage their own specialized shuffling mechanisms
+    if (challenge?.type === "CODE_ORDER" || challenge?.type === "MATCHING") {
+      return rawOptions;
+    }
+
+    const shuffled = [...rawOptions];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }, [challenge?.id, activeIndex]);
 
   const onNext = () => {
     setActiveIndex((current) => current + 1);

@@ -7,8 +7,8 @@
       "lessonText": "# Filtrado de Datos y Salto de Iteración\n\nMientras que `break` destruye el bucle por completo, la sentencia **`continue`** cancela **únicamente la iteración actual**. El Program Counter omite las líneas restantes de ese ciclo y regresa de inmediato a la cabecera del bucle para evaluar la condición o tomar el siguiente elemento.\n\n```python\nfor id_modulo in range(4):\n    if modulo_en_mantenimiento(id_modulo) == True:\n        continue  # Omitir modulo temporalmente inactivo\n    probar_sparkmax(id_modulo)\n```\n\nEn la arquitectura de telemetría de Nautilus 4010, `continue` es fundamental al procesar tramas del bus CAN: si una muestra analógica llega con un checksum inválido por ruido electromagnético, el código ejecuta `continue` para descartar esa muestra puntual sin interrumpir el flujo continuo de lecturas del resto de sensores.\n\n**Regla de Oro: 'continue' salta al inicio de la siguiente iteración omitiendo el código restante del ciclo actual.**",
       "options": [
         {
-          "text": "Aborta el turno actual y salta al inicio de la siguiente iteración sin destruir el bucle",
-          "correct": true
+          "text": "Es idéntico a break y los compiladores los tratan como la misma instrucción",
+          "correct": false
         },
         {
           "text": "Apaga la pantalla del piloto durante tres segundos para ahorrar energía",
@@ -19,8 +19,8 @@
           "correct": false
         },
         {
-          "text": "Es idéntico a break y los compiladores los tratan como la misma instrucción",
-          "correct": false
+          "text": "Aborta el turno actual y salta al inicio de la siguiente iteración sin destruir el bucle",
+          "correct": true
         }
       ]
     },
@@ -29,11 +29,11 @@
       "question": "Relaciona cada concepto de control de flujo con su comportamiento exacto:",
       "options": [
         {
-          "text": "Sentencia continue|||Interrumpe la vuelta actual y transfiere el control a la cabecera del siguiente ciclo",
+          "text": "Filtrado de muestras|||Omisión de lecturas ruidosas o corruptas sin detener el procesamiento de datos",
           "correct": true
         },
         {
-          "text": "Filtrado de muestras|||Omisión de lecturas ruidosas o corruptas sin detener el procesamiento de datos",
+          "text": "Salto a la cabecera|||Reevaluación inmediata de la condición del while o avance al siguiente elemento en for",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "Salto a la cabecera|||Reevaluación inmediata de la condición del while o avance al siguiente elemento en for",
+          "text": "Sentencia continue|||Interrumpe la vuelta actual y transfiere el control a la cabecera del siguiente ciclo",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "for lectura in lecturas_sensores:\n    if lectura < 0.0:\n        ____  # Ignorar lectura invalida y saltar al siguiente dato\n    procesar_dato(lectura)",
       "options": [
         {
-          "text": "continue",
-          "correct": true
+          "text": "skip",
+          "correct": false
         },
         {
           "text": "break",
           "correct": false
         },
         {
-          "text": "stop",
-          "correct": false
+          "text": "continue",
+          "correct": true
         },
         {
-          "text": "skip",
+          "text": "stop",
           "correct": false
         }
       ]
@@ -99,10 +99,6 @@
       "type": "SELECT",
       "question": "¿En qué escenario de procesamiento de telemetría es arquitectónicamente preferible usar 'continue' sobre 'break'?",
       "options": [
-        {
-          "text": "Al procesar un lote de paquetes de sensores donde un paquete corrupto debe descartarse sin cancelar el análisis de los paquetes restantes",
-          "correct": true
-        },
         {
           "text": "Al detectar un sobrecalentamiento crítico en un motor que exige desenergizar el mecanismo",
           "correct": false
@@ -114,6 +110,10 @@
         {
           "text": "Para evitar que el procesador ejecute instrucciones en registros impares",
           "correct": false
+        },
+        {
+          "text": "Al procesar un lote de paquetes de sensores donde un paquete corrupto debe descartarse sin cancelar el análisis de los paquetes restantes",
+          "correct": true
         }
       ]
     },
@@ -123,8 +123,8 @@
       "codeSnippet": "impresos = 0\nfor n in range(5):\n    if n == 2:\n        continue\n    impresos = impresos + 1\nprint(impresos)",
       "options": [
         {
-          "text": "4",
-          "correct": true
+          "text": "3",
+          "correct": false
         },
         {
           "text": "5",
@@ -135,8 +135,8 @@
           "correct": false
         },
         {
-          "text": "3",
-          "correct": false
+          "text": "4",
+          "correct": true
         }
       ]
     }

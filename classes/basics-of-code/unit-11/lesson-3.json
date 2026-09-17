@@ -11,11 +11,11 @@
           "correct": true
         },
         {
-          "text": "Descarga químicamente la batería del robot en menos de un segundo por exceso de corriente continua",
+          "text": "Borra el código fuente almacenado en el disco flash del microcontrolador de forma permanente",
           "correct": false
         },
         {
-          "text": "Borra el código fuente almacenado en el disco flash del microcontrolador de forma permanente",
+          "text": "Descarga químicamente la batería del robot en menos de un segundo por exceso de corriente continua",
           "correct": false
         },
         {
@@ -78,12 +78,12 @@
       "codeSnippet": "timeout = 0\nwhile motor_acelerando == True and timeout < 50:\n    esperar_milisegundos(10)\n    timeout = timeout ___ 1",
       "options": [
         {
-          "text": "+",
-          "correct": true
-        },
-        {
           "text": "-",
           "correct": false
+        },
+        {
+          "text": "+",
+          "correct": true
         },
         {
           "text": "*",
@@ -100,11 +100,11 @@
       "question": "¿Por qué en robótica y aviónica un bucle infinito por fallo de un sensor es infinitamente más peligroso que en una aplicación web?",
       "options": [
         {
-          "text": "Porque el bloqueo del hilo de control desactiva el Watchdog de seguridad y deja los motores mecánicos sin supervisión activa ni respuesta a comandos del operador",
-          "correct": true
+          "text": "Porque los bucles infinitos invierten la polaridad física del devanado de los motores eléctricos",
+          "correct": false
         },
         {
-          "text": "Porque los bucles infinitos invierten la polaridad física del devanado de los motores eléctricos",
+          "text": "Porque el lenguaje de programación borra el archivo fuente del disco flash automáticamente",
           "correct": false
         },
         {
@@ -112,8 +112,8 @@
           "correct": false
         },
         {
-          "text": "Porque el lenguaje de programación borra el archivo fuente del disco flash automáticamente",
-          "correct": false
+          "text": "Porque el bloqueo del hilo de control desactiva el Watchdog de seguridad y deja los motores mecánicos sin supervisión activa ni respuesta a comandos del operador",
+          "correct": true
         }
       ]
     },
@@ -122,10 +122,6 @@
       "question": "¿Cuántas iteraciones exactas completará el bucle para n = 1 incrementando de 3 en 3 hasta alcanzar o superar 10?",
       "codeSnippet": "n = 1\niteraciones = 0\nwhile n < 10:\n    n = n + 3\n    iteraciones = iteraciones + 1\nprint(iteraciones)",
       "options": [
-        {
-          "text": "3",
-          "correct": true
-        },
         {
           "text": "4",
           "correct": false
@@ -137,6 +133,10 @@
         {
           "text": "10",
           "correct": false
+        },
+        {
+          "text": "3",
+          "correct": true
         }
       ]
     }

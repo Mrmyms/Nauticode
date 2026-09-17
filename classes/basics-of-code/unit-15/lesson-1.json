@@ -7,11 +7,7 @@
       "lessonText": "# Parametrización y Flexibilidad de Comandos\n\nUna función sin parámetros realiza siempre una secuencia idéntica y estática. Para dotar a un bloque de código de adaptabilidad, se definen variables receptoras en su cabecera llamadas **parámetros**.\n\n- **Parámetro (Formal):** Identificador local declarado en la firma de la función que reserva espacio en el marco de pila para el dato de entrada.\n- **Argumento (Real):** El valor o expresión concreta transmitida a la función en el instante de su invocación.\n\n```python\ndef set_shooter_rpm(rpm_objetivo):  # rpm_objetivo es el parametro\n    controlador_flywheel.fijar_velocidad(rpm_objetivo)\n\nset_shooter_rpm(3500)               # 3500 es el argumento real\nset_shooter_rpm(5200)               # 5200 es otro argumento\n```\n\nEn Nautilus 4010, este diseño permite que la misma función de disparo sirva para anotar en el Subwoofer a 3500 RPM o para disparar a larga distancia desde el Podio a 5200 RPM simplemente cambiando el argumento transmitido.\n\n**Regla de Oro: Los parámetros son variables locales declaradas en la firma de la función; los argumentos son los valores concretos transmitidos a la función en el momento exacto de su invocación.**",
       "options": [
         {
-          "text": "El parámetro es la variable receptora en la definición; el argumento es el valor real enviado al invocarla",
-          "correct": true
-        },
-        {
-          "text": "El parámetro es para números decimales y el argumento es exclusivamente para cadenas de texto",
+          "text": "El argumento se emplea solo cuando la función produce un fallo de compilación",
           "correct": false
         },
         {
@@ -19,7 +15,11 @@
           "correct": false
         },
         {
-          "text": "El argumento se emplea solo cuando la función produce un fallo de compilación",
+          "text": "El parámetro es la variable receptora en la definición; el argumento es el valor real enviado al invocarla",
+          "correct": true
+        },
+        {
+          "text": "El parámetro es para números decimales y el argumento es exclusivamente para cadenas de texto",
           "correct": false
         }
       ]
@@ -29,11 +29,11 @@
       "question": "Relaciona cada concepto de transferencia de datos con su definición técnica:",
       "options": [
         {
-          "text": "Parámetro formal|||Variable receptora declarada en la definición de la función",
+          "text": "Argumento real|||Valor o expresión concreta enviada a la función al invocarla",
           "correct": true
         },
         {
-          "text": "Argumento real|||Valor o expresión concreta enviada a la función al invocarla",
+          "text": "Parámetro formal|||Variable receptora declarada en la definición de la función",
           "correct": true
         },
         {
@@ -78,19 +78,19 @@
       "codeSnippet": "def girar_grados(grados):\n    controlador_giro.rotar(grados)\n\n# Enviar el argumento de 90 grados a la llamada\ngirar_grados(____)",
       "options": [
         {
-          "text": "90",
-          "correct": true
+          "text": "[90]",
+          "correct": false
         },
         {
           "text": "'noventa'",
           "correct": false
         },
         {
-          "text": "grados = 90",
-          "correct": false
+          "text": "90",
+          "correct": true
         },
         {
-          "text": "[90]",
+          "text": "grados = 90",
           "correct": false
         }
       ]
@@ -108,11 +108,11 @@
           "correct": false
         },
         {
-          "text": "La función sustituye el parámetro por el valor cero sin notificar errores",
+          "text": "El procesador se apaga por falla de memoria virtual",
           "correct": false
         },
         {
-          "text": "El procesador se apaga por falla de memoria virtual",
+          "text": "La función sustituye el parámetro por el valor cero sin notificar errores",
           "correct": false
         }
       ]
@@ -127,15 +127,15 @@
           "correct": true
         },
         {
+          "text": "60.0",
+          "correct": false
+        },
+        {
           "text": "12.0",
           "correct": false
         },
         {
           "text": "0.5",
-          "correct": false
-        },
-        {
-          "text": "60.0",
           "correct": false
         }
       ]

@@ -7,19 +7,19 @@
       "lessonText": "# Las Dos Fases del Ciclo de Vida de una Variable\n\nEn la arquitectura del software existen dos momentos cruciales para cualquier dato:\n\n1. **Declaración:** Consiste en notificarle al compilador que reserve un espacio de memoria con un nombre y un tipo de dato específico (por ejemplo en C++ o Java: `double presionNeumatica;`). En este punto, la celda existe en la tabla de símbolos pero aún no contiene un dato deliberado.\n2. **Inicialización:** Consiste en depositar el primer valor formal dentro de esa celda reservada (`presionNeumatica = 115.0;`).\n\nEn lenguajes de tipado dinámico como Python, la declaración y la inicialización ocurren en la misma instrucción atómica en el momento exacto de la primera asignación.\n\n### El Peligro de la Basura en Memoria:\nSi un programa lee una variable declarada que nunca fue inicializada (un error común en C o C++ de bajo nivel), la CPU leerá cualquier residuo eléctrico de bits que haya quedado en esa celda de memoria antes de encender el programa. En robótica autónoma, leer basura puede traducirse en ordenar a los motores girar a máxima potencia de forma errática.\n\n**La Regla de Oro:**\nDeclarar reserva el casillero en la memoria RAM; inicializar deposita su primer estado conocido y seguro para evitar lecturas de datos basura.",
       "options": [
         {
-          "text": "Declarar reserva el espacio y nombre en memoria; inicializar le asigna su primer valor conocido",
-          "correct": true
-        },
-        {
           "text": "Declarar destruye la celda de memoria; inicializar la envía a través de la red local",
           "correct": false
         },
         {
-          "text": "Declarar e inicializar son exactamente la misma operación sin ninguna distinción técnica",
+          "text": "Declarar solo es necesario para variables de texto e inicializar solo para números enteros",
           "correct": false
         },
         {
-          "text": "Declarar solo es necesario para variables de texto e inicializar solo para números enteros",
+          "text": "Declarar reserva el espacio y nombre en memoria; inicializar le asigna su primer valor conocido",
+          "correct": true
+        },
+        {
+          "text": "Declarar e inicializar son exactamente la misma operación sin ninguna distinción técnica",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Relaciona cada término del ciclo de vida con su definición formal en programación:",
       "options": [
         {
-          "text": "Declaración|||Reserva formal de espacio en memoria y asignación de identificador y tipo",
+          "text": "Valor No Inicializado|||Estado indefinido que puede contener datos residuales o basura en RAM",
           "correct": true
         },
         {
@@ -37,7 +37,7 @@
           "correct": true
         },
         {
-          "text": "Valor No Inicializado|||Estado indefinido que puede contener datos residuales o basura en RAM",
+          "text": "Declaración|||Reserva formal de espacio en memoria y asignación de identificador y tipo",
           "correct": true
         },
         {
@@ -78,19 +78,19 @@
       "codeSnippet": "velocidadShooter = _____\nprint('Shooter inicializado en modo reposo: ' + str(velocidadShooter))",
       "options": [
         {
-          "text": "0",
-          "correct": true
-        },
-        {
-          "text": "velocidadShooter",
-          "correct": false
-        },
-        {
           "text": "'apagado'",
           "correct": false
         },
         {
           "text": "None",
+          "correct": false
+        },
+        {
+          "text": "0",
+          "correct": true
+        },
+        {
+          "text": "velocidadShooter",
           "correct": false
         }
       ]
@@ -104,11 +104,11 @@
           "correct": true
         },
         {
-          "text": "El microprocesador reduce físicamente el voltaje de alimentación de los sensores",
+          "text": "La variable se inicializa por ley universal siempre en el valor 999",
           "correct": false
         },
         {
-          "text": "La variable se inicializa por ley universal siempre en el valor 999",
+          "text": "El microprocesador reduce físicamente el voltaje de alimentación de los sensores",
           "correct": false
         },
         {
@@ -123,6 +123,10 @@
       "codeSnippet": "estadoAutonomo = 'ESPERANDO_SENAL'\nprint(estadoAutonomo)",
       "options": [
         {
+          "text": "None",
+          "correct": false
+        },
+        {
           "text": "ESPERANDO_SENAL",
           "correct": true
         },
@@ -132,10 +136,6 @@
         },
         {
           "text": "'ESPERANDO_SENAL'",
-          "correct": false
-        },
-        {
-          "text": "None",
           "correct": false
         }
       ]

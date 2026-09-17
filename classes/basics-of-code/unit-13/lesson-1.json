@@ -11,11 +11,11 @@
           "correct": true
         },
         {
-          "text": "Pausa el procesador durante 10 segundos antes de reanudar el bucle",
+          "text": "Desconecta físicamente la cámara de visión artificial del puerto Ethernet",
           "correct": false
         },
         {
-          "text": "Desconecta físicamente la cámara de visión artificial del puerto Ethernet",
+          "text": "Pausa el procesador durante 10 segundos antes de reanudar el bucle",
           "correct": false
         },
         {
@@ -29,7 +29,11 @@
       "question": "Relaciona cada concepto de salida temprana con su principio computacional:",
       "options": [
         {
-          "text": "Sentencia break|||Instrucción que cancela inmediatamente el bucle y salta al código posterior",
+          "text": "Salto incondicional exterior|||Transferencia del Program Counter fuera de la estructura de iteración",
+          "correct": true
+        },
+        {
+          "text": "Consumo de ciclos innecesario|||Desperdicio de CPU que ocurre cuando se continúa buscando tras hallar la solución",
           "correct": true
         },
         {
@@ -37,11 +41,7 @@
           "correct": true
         },
         {
-          "text": "Salto incondicional exterior|||Transferencia del Program Counter fuera de la estructura de iteración",
-          "correct": true
-        },
-        {
-          "text": "Consumo de ciclos innecesario|||Desperdicio de CPU que ocurre cuando se continúa buscando tras hallar la solución",
+          "text": "Sentencia break|||Instrucción que cancela inmediatamente el bucle y salta al código posterior",
           "correct": true
         }
       ]
@@ -78,15 +78,15 @@
       "codeSnippet": "while True:\n    distancia = sensor_sonar.medir()\n    if distancia < 10.0:\n        detener_chasis()\n        _____",
       "options": [
         {
+          "text": "pass",
+          "correct": false
+        },
+        {
           "text": "break",
           "correct": true
         },
         {
           "text": "continue",
-          "correct": false
-        },
-        {
-          "text": "pass",
           "correct": false
         },
         {
@@ -100,15 +100,15 @@
       "question": "Si se tienen dos bucles anidados (un bucle dentro de otro) y se ejecuta 'break' dentro del bucle interno, ¿qué bucle se interrumpe?",
       "options": [
         {
+          "text": "El bucle exterior únicamente, dejando al interior corriendo indefinidamente",
+          "correct": false
+        },
+        {
           "text": "Únicamente el bucle más interno donde está colocada la instrucción break",
           "correct": true
         },
         {
           "text": "Ambos bucles se cierran y terminan de manera simultánea",
-          "correct": false
-        },
-        {
-          "text": "El bucle exterior únicamente, dejando al interior corriendo indefinidamente",
           "correct": false
         },
         {
@@ -127,15 +127,15 @@
           "correct": true
         },
         {
-          "text": "6",
-          "correct": false
-        },
-        {
           "text": "1",
           "correct": false
         },
         {
           "text": "15",
+          "correct": false
+        },
+        {
+          "text": "6",
           "correct": false
         }
       ]

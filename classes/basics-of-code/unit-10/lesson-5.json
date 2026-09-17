@@ -7,11 +7,7 @@
       "lessonText": "# Perfiles de Actuación y Modos de Conducción\n\nEn mecatrónica de competición y automoción, la relación entre los joysticks del piloto y el voltaje de los motores de tracción se modula mediante **perfiles de conducción (Drive Profiles)**. Un selector multicamino implementado con `if-elif-else` toma el estado del conmutador de la Driver Station (`'ALINEACION'`, `'CRUCERO'`, `'SPRINT'`) y aplica los factores de escala matemáticos correspondientes.\n\n```python\nif modo == 'ALINEACION':\n    escalador = 0.25\nelif modo == 'CRUCERO':\n    escalador = 0.65\nelif modo == 'SPRINT':\n    escalador = 1.00\nelse:\n    escalador = 0.00\n    notificar_perfil_invalido()\n```\n\nEn las eliminatorias mundiales de FIRST Robotics Competition, el piloto de Nautilus 4010 activa el modo `ALINEACION` (escalador 0.25) para acoplar el gancho de escalada al trapecio central con precisión de milímetros, el modo `SPRINT` (escalador 1.00) para cruzar la cancha en menos de tres segundos, y el respaldo `else` asegura que ante cualquier desconexión del cable de red el robot quede en velocidad cero.\n\n**Regla de Oro: Un selector de perfiles de actuación modulariza la respuesta dinámica de la máquina, garantizando que cada modo tenga límites de aceleración calibrados y un protocolo de respaldo que proteja la transmisión mecánica.**",
       "options": [
         {
-          "text": "Modularizando la respuesta dinámica mediante factores de escala según el modo seleccionado, con freno de seguridad por defecto",
-          "correct": true
-        },
-        {
-          "text": "Modificando la tensión de la batería principal de 12V a 48V de forma instantánea",
+          "text": "Obligando al procesador a reescribir su propio firmware en cada curva del robot",
           "correct": false
         },
         {
@@ -19,8 +15,12 @@
           "correct": false
         },
         {
-          "text": "Obligando al procesador a reescribir su propio firmware en cada curva del robot",
+          "text": "Modificando la tensión de la batería principal de 12V a 48V de forma instantánea",
           "correct": false
+        },
+        {
+          "text": "Modularizando la respuesta dinámica mediante factores de escala según el modo seleccionado, con freno de seguridad por defecto",
+          "correct": true
         }
       ]
     },
@@ -28,10 +28,6 @@
       "type": "MATCHING",
       "question": "Relaciona cada perfil de conducción con sus características mecánicas y operativas:",
       "options": [
-        {
-          "text": "Drive Profile|||Mapeo matemático que modula la sensibilidad y velocidad de los motores",
-          "correct": true
-        },
         {
           "text": "Modo Alineación|||Perfil de baja velocidad y alto torque diseñado para maniobras de precisión",
           "correct": true
@@ -42,6 +38,10 @@
         },
         {
           "text": "Freno pasivo por defecto|||Asignación de factor 0.0 en la rama else para mitigar comandos corruptos",
+          "correct": true
+        },
+        {
+          "text": "Drive Profile|||Mapeo matemático que modula la sensibilidad y velocidad de los motores",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "if perfil == 'ALINEACION':\n    factor = 0.25\nelif perfil == 'RAPIDO':\n    factor = 1.0\n___:\n    factor = 0.0\n    alerta_perfil_invalido()",
       "options": [
         {
-          "text": "else",
-          "correct": true
+          "text": "finally",
+          "correct": false
         },
         {
-          "text": "fallback",
-          "correct": false
+          "text": "else",
+          "correct": true
         },
         {
           "text": "default",
           "correct": false
         },
         {
-          "text": "finally",
+          "text": "fallback",
           "correct": false
         }
       ]
@@ -104,15 +104,15 @@
           "correct": true
         },
         {
-          "text": "Porque el procesador no puede almacenar factores mayores a cero en una rama else",
-          "correct": false
-        },
-        {
           "text": "Porque mantener la velocidad anterior funde los fusibles térmicos en menos de 5 milisegundos",
           "correct": false
         },
         {
           "text": "Porque las leyes de la física exigen calibrar la adherencia de los neumáticos cada vez que cambia una variable",
+          "correct": false
+        },
+        {
+          "text": "Porque el procesador no puede almacenar factores mayores a cero en una rama else",
           "correct": false
         }
       ]
@@ -127,15 +127,15 @@
           "correct": true
         },
         {
-          "text": "100.0",
-          "correct": false
-        },
-        {
           "text": "30.0",
           "correct": false
         },
         {
           "text": "80.0",
+          "correct": false
+        },
+        {
+          "text": "100.0",
           "correct": false
         }
       ]

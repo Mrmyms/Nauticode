@@ -7,10 +7,6 @@
       "lessonText": "# El Abismo entre el Humano y el Silicio\n\nEn el mundo físico, el microprocesador de una computadora o de la roboRIO no sabe qué es una letra, una palabra o una instrucción en inglés. Lo único que existe dentro de un chip de silicio son miles de millones de interruptores microscópicos llamados **transistores**.\n\n### Niveles de Voltaje Físico\nUn transistor solo puede encontrarse en dos estados electrónicos:\n- **Conduciendo corriente (Alto Voltaje, ej. 3.3V o 5V):** Lo representamos matemáticamente como **1**.\n- **Bloqueando corriente (Bajo Voltaje, ej. 0V):** Lo representamos matemáticamente como **0**.\n\nA cada uno de estos dígitos binarios se le llama **Bit** (*Binary Digit*). Todo lo que ves en una pantalla, desde un número hasta un modelo de visión artificial, es una combinación gigantesca de bits.\n\n### La Pirámide de Abstracción\nComo sería imposible para un ser humano programar una rutina autónoma escribiendo a mano diez millones de unos y ceros, la ciencia de la computación creó niveles de abstracción:\n1. **Lenguajes de Alto Nivel (Python, Java, C++):** Usan vocabulario estructurado en inglés comprensible para humanos (`if`, `while`, `motor.set`).\n2. **El Compilador o Intérprete:** Un software traductor que analiza nuestro código fuente y lo traduce a código máquina binario.\n3. **Hardware (CPU):** Ejecuta físicamente los pulsos de voltaje a la velocidad de su reloj interno.\n\n**La Regla de Oro:**\nEl hardware no entiende intenciones ni sintaxis humana; solo conmuta interruptores eléctricos guiado por el código máquina generado por el compilador.",
       "options": [
         {
-          "text": "Porque el procesador está compuesto por transistores microscópicos que solo operan con dos estados físicos de voltaje: encendido (1) y apagado (0)",
-          "correct": true
-        },
-        {
           "text": "Porque los primeros programadores decidieron usar ceros y unos para ahorrar espacio en las pantallas de fósforo verde",
           "correct": false
         },
@@ -21,6 +17,10 @@
         {
           "text": "Porque el sistema binario es exclusivo de los motores de robótica y no se utiliza en computadoras convencionales",
           "correct": false
+        },
+        {
+          "text": "Porque el procesador está compuesto por transistores microscópicos que solo operan con dos estados físicos de voltaje: encendido (1) y apagado (0)",
+          "correct": true
         }
       ]
     },
@@ -29,11 +29,7 @@
       "question": "Relaciona cada eslabón de la cadena de traducción informática con su función técnica:",
       "options": [
         {
-          "text": "Código Fuente|||Texto legible escrito por el programador en un lenguaje estructurado",
-          "correct": true
-        },
-        {
-          "text": "Compilador o Intérprete|||Software traductor que convierte el código legible en instrucciones binarias",
+          "text": "Transistor|||Interruptor físico microscópico que conmuta entre alto y bajo voltaje",
           "correct": true
         },
         {
@@ -41,7 +37,11 @@
           "correct": true
         },
         {
-          "text": "Transistor|||Interruptor físico microscópico que conmuta entre alto y bajo voltaje",
+          "text": "Código Fuente|||Texto legible escrito por el programador en un lenguaje estructurado",
+          "correct": true
+        },
+        {
+          "text": "Compilador o Intérprete|||Software traductor que convierte el código legible en instrucciones binarias",
           "correct": true
         }
       ]
@@ -78,11 +78,7 @@
       "codeSnippet": "codigoFuente = \"motor.setPower(0.8)\"\ncodigoBinario = _____ (codigoFuente)\ncpu.ejecutarEnHardware(codigoBinario)",
       "options": [
         {
-          "text": "compilar",
-          "correct": true
-        },
-        {
-          "text": "adivinar",
+          "text": "conectar",
           "correct": false
         },
         {
@@ -90,8 +86,12 @@
           "correct": false
         },
         {
-          "text": "conectar",
+          "text": "adivinar",
           "correct": false
+        },
+        {
+          "text": "compilar",
+          "correct": true
         }
       ]
     },
@@ -100,16 +100,16 @@
       "question": "Si una computadora solo ejecuta ceros y unos en sus circuitos, ¿por qué no programamos los robots escribiendo binario directamente?",
       "options": [
         {
-          "text": "Porque la complejidad y tasa de error humano escribiendo millones de bits sería insostenible; los lenguajes de alto nivel nos permiten razonar con abstracciones humanas",
-          "correct": true
+          "text": "Porque el código binario es más lento de procesar para la computadora que un archivo de texto en Java",
+          "correct": false
         },
         {
           "text": "Porque los sistemas operativos modernos tienen bloqueada la entrada manual de números binarios por motivos de seguridad",
           "correct": false
         },
         {
-          "text": "Porque el código binario es más lento de procesar para la computadora que un archivo de texto en Java",
-          "correct": false
+          "text": "Porque la complejidad y tasa de error humano escribiendo millones de bits sería insostenible; los lenguajes de alto nivel nos permiten razonar con abstracciones humanas",
+          "correct": true
         },
         {
           "text": "Porque se requieren teclados especiales con solo dos teclas físicas que ya no se fabrican comercialmente",
@@ -123,12 +123,12 @@
       "codeSnippet": "linea1_valida = True\nlinea2_valida = False\n\nif (linea1_valida and linea2_valida):\n    estado = 'Compilacion Exitosa: Generando Binario'\nelse:\n    estado = 'Error de Compilacion: Ejecucion Detenida'\n\nprint(estado)",
       "options": [
         {
-          "text": "Error de Compilacion: Ejecucion Detenida",
-          "correct": true
-        },
-        {
           "text": "Compilacion Exitosa: Generando Binario",
           "correct": false
+        },
+        {
+          "text": "Error de Compilacion: Ejecucion Detenida",
+          "correct": true
         },
         {
           "text": "linea2_valida",

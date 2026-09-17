@@ -7,10 +7,6 @@
       "lessonText": "# Memoria Secuencial: Arreglos de Caracteres y Codificación\n\nA diferencia de un entero o un flotante que representan valores matemáticos escalares atómicos en un registro de la CPU, un **String (cadena)** es una secuencia contigua y ordenada de caracteres codificados (bajo estándares como ASCII o UTF-8) almacenados en memoria.\n\n### El Rol de los Delimitadores:\nLos delimitadores de comillas (`'texto'` o `\"texto\"`) le comunican al analizador léxico que la secuencia interior debe interpretarse como texto literal y no como identificadores de variables o palabras clave del lenguaje:\n```python\nestadoRobot = 'AUTO_ALIGNING'\n```\nSi omitieras las comillas, el compilador buscaría una variable llamada `AUTO_ALIGNING` en la tabla de símbolos y fallaría con un `NameError`.\n\n### Sobrecarga del Operador '+' (Concatenación vs Suma):\nCuando aplicas el operador `+` entre cadenas, la CPU no suma cantidades algebraicas; ejecuta una **concatenación**: reserva un nuevo bloque de memoria y copia las secuencias de caracteres una tras otra. Por ello, `'40' + '10'` produce el texto `'4010'` y no el número `50`.\n\nEn Nautilus 4010, los strings son indispensables para generar registros de depuración (*event logs*), transmitir el estado de los subsistemas al Dashboard de la Driver Station y comunicar alertas al equipo de pilotos.\n\n**La Regla de Oro:**\nUn string es una secuencia de caracteres delimitada por comillas; sumar dos strings concatena su contenido textual y no realiza operaciones aritméticas.",
       "options": [
         {
-          "text": "Es una secuencia de caracteres codificados en memoria delimitada por comillas donde el operador '+' ejecuta concatenación textual",
-          "correct": true
-        },
-        {
           "text": "Es un número entero que puede almacenar letras si se le asigna un signo de interrogación",
           "correct": false
         },
@@ -21,6 +17,10 @@
         {
           "text": "Es un bloque de memoria física que no admite espacios en blanco ni caracteres alfanuméricos",
           "correct": false
+        },
+        {
+          "text": "Es una secuencia de caracteres codificados en memoria delimitada por comillas donde el operador '+' ejecuta concatenación textual",
+          "correct": true
         }
       ]
     },
@@ -29,19 +29,19 @@
       "question": "Relaciona cada concepto sobre cadenas de texto con su principio computacional:",
       "options": [
         {
-          "text": "Concatenación (+)|||Unión secuencial de cadenas de texto en un único bloque de caracteres",
-          "correct": true
-        },
-        {
           "text": "Delimitadores (' ' / \" \")|||Símbolos que informan al compilador que los caracteres son datos literales",
           "correct": true
         },
         {
-          "text": "Conversión str()|||Función de casteo para traducir magnitudes numéricas a su representación textual",
+          "text": "Codificación UTF-8|||Estándar universal que asigna patrones binarios a caracteres de todo el mundo",
           "correct": true
         },
         {
-          "text": "Codificación UTF-8|||Estándar universal que asigna patrones binarios a caracteres de todo el mundo",
+          "text": "Concatenación (+)|||Unión secuencial de cadenas de texto en un único bloque de caracteres",
+          "correct": true
+        },
+        {
+          "text": "Conversión str()|||Función de casteo para traducir magnitudes numéricas a su representación textual",
           "correct": true
         }
       ]
@@ -78,16 +78,16 @@
       "codeSnippet": "equipoRobotics = _____\nprint('Equipo oficial: ' + equipoRobotics)",
       "options": [
         {
-          "text": "'Nautilus 4010'",
-          "correct": true
+          "text": "4010",
+          "correct": false
         },
         {
           "text": "Nautilus 4010",
           "correct": false
         },
         {
-          "text": "4010",
-          "correct": false
+          "text": "'Nautilus 4010'",
+          "correct": true
         },
         {
           "text": "str(Nautilus)",
@@ -100,20 +100,20 @@
       "question": "¿Cuál es la diferencia técnica fundamental entre el valor entero `42` y la cadena de texto `'42'`?",
       "options": [
         {
-          "text": "El entero 42 se codifica en binario para cálculo en la ALU; '42' es una secuencia de dos bytes con los caracteres ASCII '4' y '2'",
-          "correct": true
-        },
-        {
-          "text": "No existe ninguna diferencia interna; ambos consumen exactamente 1 bit en la memoria RAM",
-          "correct": false
-        },
-        {
           "text": "El entero 42 solo funciona en microcontroladores de 8 bits y '42' en computadoras modernas",
           "correct": false
         },
         {
           "text": "El string '42' consume el triple de voltaje en el circuito de alimentación de la batería",
           "correct": false
+        },
+        {
+          "text": "No existe ninguna diferencia interna; ambos consumen exactamente 1 bit en la memoria RAM",
+          "correct": false
+        },
+        {
+          "text": "El entero 42 se codifica en binario para cálculo en la ALU; '42' es una secuencia de dos bytes con los caracteres ASCII '4' y '2'",
+          "correct": true
         }
       ]
     },
@@ -122,6 +122,10 @@
       "question": "Rastrea la evaluación de la concatenación textual versus suma matemática. ¿Qué imprimirá la consola?",
       "codeSnippet": "prefijo = '40'\nsufijo = '10'\nprint(prefijo + sufijo)",
       "options": [
+        {
+          "text": "Error de sintaxis",
+          "correct": false
+        },
         {
           "text": "4010",
           "correct": true
@@ -132,10 +136,6 @@
         },
         {
           "text": "'4010'",
-          "correct": false
-        },
-        {
-          "text": "Error de sintaxis",
           "correct": false
         }
       ]

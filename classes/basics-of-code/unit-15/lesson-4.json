@@ -7,6 +7,10 @@
       "lessonText": "# Transparencia Referencial y Aislamiento de Hardware\n\nEn la arquitectura de sistemas mecatrónicos, las funciones se dividen en dos categorías fundamentales:\n\n1. **Funciones Puras (Cálculos Matemáticos):**\n   - Cumplen con **transparencia referencial**: para las mismas entradas, siempre producen la misma salida sin alterar el mundo exterior.\n   - No leen variables globales, no envían tramas al bus CAN ni mueven actuadores.\n   - Ejemplo: `calcular_solucion_balistica(distancia, velocidad_viento)`.\n\n2. **Funciones Impuras (Efectos Secundarios):**\n   - Mutan el estado del hardware, leen puertos I/O físicos o modifican variables globales.\n   - Ejemplo: `motor_sparkmax.set(0.8)`, `solenoide.abrir()`.\n\nEn Nautilus 4010, aislar las ecuaciones de tiro en funciones puras permite ejecutar miles de pruebas unitarias automáticas en GitHub Actions en menos de 2 segundos, validando la precisión balística sin necesidad de tener el robot físico encendido.\n\n**Regla de Oro: Aislar los cálculos matemáticos en funciones puras permite realizar pruebas unitarias automatizadas y desacopla la física del software de los actuadores de hardware.**",
       "options": [
         {
+          "text": "Las funciones puras están prohibidas en lenguajes modernos de robótica industrial",
+          "correct": false
+        },
+        {
           "text": "Las funciones puras únicamente transforman datos sin alterar el entorno externo, permitiendo pruebas unitarias sin hardware conectado",
           "correct": true
         },
@@ -17,10 +21,6 @@
         {
           "text": "Los efectos secundarios son considerados siempre errores de sintaxis en todos los compiladores",
           "correct": false
-        },
-        {
-          "text": "Las funciones puras están prohibidas en lenguajes modernos de robótica industrial",
-          "correct": false
         }
       ]
     },
@@ -29,7 +29,7 @@
       "question": "Relaciona cada categoría de función con su propiedad arquitectónica:",
       "options": [
         {
-          "text": "Función pura|||Rutina determinista que calcula un resultado a partir de sus entradas sin modificar el entorno externo",
+          "text": "Transparencia referencial|||Propiedad donde una llamada a función puede sustituirse directamente por su valor retornado",
           "correct": true
         },
         {
@@ -37,7 +37,7 @@
           "correct": true
         },
         {
-          "text": "Transparencia referencial|||Propiedad donde una llamada a función puede sustituirse directamente por su valor retornado",
+          "text": "Función pura|||Rutina determinista que calcula un resultado a partir de sus entradas sin modificar el entorno externo",
           "correct": true
         },
         {
@@ -82,11 +82,11 @@
           "correct": true
         },
         {
-          "text": "parametros",
+          "text": "valores de retorno",
           "correct": false
         },
         {
-          "text": "valores de retorno",
+          "text": "parametros",
           "correct": false
         },
         {
@@ -100,19 +100,19 @@
       "question": "¿Por qué los equipos de ingeniería de software robótico priorizan encapsular la cinemática y odometría en funciones puras?",
       "options": [
         {
-          "text": "Porque pueden someterse a miles de pruebas unitarias automatizadas en segundos sin riesgo de dañar mecanismos ni necesitar el robot físico encendido",
-          "correct": true
-        },
-        {
           "text": "Porque las funciones puras consumen la mitad de energía de la batería de 12V",
           "correct": false
         },
         {
-          "text": "Porque las funciones con efectos secundarios están prohibidas por la especificación de Python",
+          "text": "Porque las funciones puras eliminan la necesidad de conectar cables al bus CAN",
           "correct": false
         },
         {
-          "text": "Porque las funciones puras eliminan la necesidad de conectar cables al bus CAN",
+          "text": "Porque pueden someterse a miles de pruebas unitarias automatizadas en segundos sin riesgo de dañar mecanismos ni necesitar el robot físico encendido",
+          "correct": true
+        },
+        {
+          "text": "Porque las funciones con efectos secundarios están prohibidas por la especificación de Python",
           "correct": false
         }
       ]
@@ -123,16 +123,16 @@
       "codeSnippet": "def pulg_a_cm(pulgadas):\n    return pulgadas * 2.54\n\nmedida = pulg_a_cm(5)\nprint(medida)",
       "options": [
         {
-          "text": "12.7",
-          "correct": true
-        },
-        {
           "text": "10.0",
           "correct": false
         },
         {
           "text": "25.4",
           "correct": false
+        },
+        {
+          "text": "12.7",
+          "correct": true
         },
         {
           "text": "5.0",

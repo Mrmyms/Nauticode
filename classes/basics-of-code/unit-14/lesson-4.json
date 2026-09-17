@@ -7,11 +7,7 @@
       "lessonText": "# Arquitectura en Capas y Descomposición Modular\n\nUn programa de robótica sin funciones modulares se convierte en un monolito ininteligible de cientos de líneas donde las operaciones de hardware, cálculos trigonométricos y decisiones estratégicas están mezclados sin orden. La modularidad descompone el sistema en **capas de abstracción**:\n\n- **Capa Estratégica (Alto Nivel):** Expresa la lógica del juego con nombres descriptivos de intención humana.\n- **Capa de Control (Nivel Medio):** Calcula trayectorias, cinemática y resuelve lazos PID.\n- **Capa de Hardware (Bajo Nivel):** Escribe tramas directas al bus CAN y maneja pines digitales.\n\n```python\ndef rutina_autonomo_15s():\n    avanzar_hacia_pieza()\n    adquirir_nota_intake()\n    apuntar_con_limelight()\n    disparar_a_speaker()\n```\n\nEn Nautilus 4010, esta organización permite que cualquier integrante del equipo de programación o mentor entienda y audite la estrategia de Autonomous en segundos sin perderse en el mar de voltajes de bajo nivel.\n\n**Regla de Oro: La modularización organiza el software en capas jerárquicas: las rutinas estratégicas de alto nivel expresan el qué hacer, mientras que las funciones de bajo nivel implementan el cómo hacerlo.**",
       "options": [
         {
-          "text": "Dividiendo la complejidad en capas jerárquicas donde el alto nivel expresa la estrategia y el bajo nivel gestiona el hardware",
-          "correct": true
-        },
-        {
-          "text": "Ocultando todo el código en archivos protegidos para que los mentores no puedan revisarlo",
+          "text": "Cambiando las palabras clave del lenguaje por abreviaciones de una sola letra",
           "correct": false
         },
         {
@@ -19,7 +15,11 @@
           "correct": false
         },
         {
-          "text": "Cambiando las palabras clave del lenguaje por abreviaciones de una sola letra",
+          "text": "Dividiendo la complejidad en capas jerárquicas donde el alto nivel expresa la estrategia y el bajo nivel gestiona el hardware",
+          "correct": true
+        },
+        {
+          "text": "Ocultando todo el código en archivos protegidos para que los mentores no puedan revisarlo",
           "correct": false
         }
       ]
@@ -33,15 +33,15 @@
           "correct": true
         },
         {
+          "text": "Estrategia de alto nivel|||Función orquestadora que coordina subsistemas para cumplir un objetivo de juego",
+          "correct": true
+        },
+        {
           "text": "Capa de abstracción|||Nivel de software que oculta detalles de hardware detrás de interfaces limpias",
           "correct": true
         },
         {
           "text": "Driver de bajo nivel|||Función que interactúa directamente con voltajes, registros o pines físicos",
-          "correct": true
-        },
-        {
-          "text": "Estrategia de alto nivel|||Función orquestadora que coordina subsistemas para cumplir un objetivo de juego",
           "correct": true
         }
       ]
@@ -78,16 +78,16 @@
       "codeSnippet": "def alinear_chasis():\n    limelight.centrar_objetivo()\n\ndef rutina_disparo():\n    _____\n    lanzador.eyectar()",
       "options": [
         {
-          "text": "alinear_chasis()",
-          "correct": true
-        },
-        {
           "text": "alinear_chasis",
           "correct": false
         },
         {
           "text": "def alinear_chasis",
           "correct": false
+        },
+        {
+          "text": "alinear_chasis()",
+          "correct": true
         },
         {
           "text": "call alinear",
@@ -100,19 +100,19 @@
       "question": "¿Qué ocurre en Python si intentas invocar una función en la línea 2 antes de haberla definido formalmente en la línea 15?",
       "options": [
         {
-          "text": "Se produce un error NameError en tiempo de ejecución porque la función aún no ha sido cargada en memoria por el intérprete",
-          "correct": true
-        },
-        {
-          "text": "Python analiza el archivo en sentido inverso y ejecuta la función sin inconvenientes",
-          "correct": false
-        },
-        {
           "text": "La función se compila automáticamente en segundo plano sin respetar el orden secuencial",
           "correct": false
         },
         {
+          "text": "Se produce un error NameError en tiempo de ejecución porque la función aún no ha sido cargada en memoria por el intérprete",
+          "correct": true
+        },
+        {
           "text": "El monitor entra en estado de hibernación esperando la definición",
+          "correct": false
+        },
+        {
+          "text": "Python analiza el archivo en sentido inverso y ejecuta la función sin inconvenientes",
           "correct": false
         }
       ]
@@ -127,11 +127,11 @@
           "correct": true
         },
         {
-          "text": "A\nB",
+          "text": "AB",
           "correct": false
         },
         {
-          "text": "AB",
+          "text": "A\nB",
           "correct": false
         },
         {

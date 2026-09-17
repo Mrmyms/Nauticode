@@ -11,11 +11,11 @@
           "correct": true
         },
         {
-          "text": "Porque los microprocesadores ejecutan pseudocódigo más rápido que código binario compilado",
+          "text": "Porque las reglas de la competencia prohíben escribir código real hasta el día del torneo",
           "correct": false
         },
         {
-          "text": "Porque las reglas de la competencia prohíben escribir código real hasta el día del torneo",
+          "text": "Porque los microprocesadores ejecutan pseudocódigo más rápido que código binario compilado",
           "correct": false
         },
         {
@@ -29,7 +29,7 @@
       "question": "Relaciona la estructura en pseudocódigo con su contraparte lógica en lenguajes estructurados:",
       "options": [
         {
-          "text": "SI (condicion) ENTONCES|||Bifurcación condicional (if)",
+          "text": "MIENTRAS (condicion) HACER|||Estructura de repetición condicional (while)",
           "correct": true
         },
         {
@@ -37,11 +37,11 @@
           "correct": true
         },
         {
-          "text": "MIENTRAS (condicion) HACER|||Estructura de repetición condicional (while)",
+          "text": "RETORNAR resultado|||Devolver el valor calculado por la subrutina",
           "correct": true
         },
         {
-          "text": "RETORNAR resultado|||Devolver el valor calculado por la subrutina",
+          "text": "SI (condicion) ENTONCES|||Bifurcación condicional (if)",
           "correct": true
         }
       ]
@@ -78,20 +78,20 @@
       "codeSnippet": "SI presionAire >= 120 ENTONCES\n    apagarCompresor()\n_____\n    encenderCompresor()\nFIN_SI",
       "options": [
         {
-          "text": "SINO",
-          "correct": true
-        },
-        {
-          "text": "REPETIR",
-          "correct": false
-        },
-        {
           "text": "MIENTRAS",
           "correct": false
         },
         {
           "text": "RETORNAR",
           "correct": false
+        },
+        {
+          "text": "REPETIR",
+          "correct": false
+        },
+        {
+          "text": "SINO",
+          "correct": true
         }
       ]
     },
@@ -104,15 +104,15 @@
           "correct": true
         },
         {
+          "text": "Intentar prender los motores a ver si jala el sistema autónomo",
+          "correct": false
+        },
+        {
           "text": "Hacer que el robot se mueva bonito y tenga cuidado con las cosas que se crucen",
           "correct": false
         },
         {
           "text": "01001101 01101111 01110100 01101111 01110010 00100000 01001111 01001110",
-          "correct": false
-        },
-        {
-          "text": "Intentar prender los motores a ver si jala el sistema autónomo",
           "correct": false
         }
       ]
@@ -127,11 +127,11 @@
           "correct": true
         },
         {
-          "text": "BATERIA_NOMINAL",
+          "text": "10.5",
           "correct": false
         },
         {
-          "text": "10.5",
+          "text": "BATERIA_NOMINAL",
           "correct": false
         },
         {

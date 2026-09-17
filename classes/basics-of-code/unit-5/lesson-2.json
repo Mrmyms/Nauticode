@@ -7,6 +7,10 @@
       "lessonText": "# Estilos de Nomenclatura: La Gramática del Código\n\nLos analizadores sintácticos (*lexers/parsers*) de los compiladores interpretan los espacios en blanco como delimitadores estrictos que separan instrucciones o tokens. Por ello, escribir `velocidad maxima = 10` provoca un error de sintaxis inmediato (`SyntaxError: invalid syntax`).\n\nPara unir múltiples palabras en un único identificador continuo y legible, las comunidades de ingeniería establecieron estándares tipográficos universales:\n\n1. **camelCase:** La primera palabra inicia en minúscula y cada palabra subsiguiente comienza con una mayúscula interna (ej. `velocidadMaximaMps`, `brazoArticuladoGrados`). Es la convención estándar en el ecosistema Java, C++, TypeScript y en la librería oficial de robótica WPILib.\n2. **snake_case:** Todas las palabras van en minúsculas unidas por un guion bajo (ej. `velocidad_maxima_mps`, `brazo_articulado_grados`). Es la convención obligatoria según el estándar PEP 8 en el ecosistema Python.\n\n### Reglas Sintácticas Universales:\n- Un identificador **NUNCA puede comenzar con un dígito numérico** (ej. `4010_robot` es ilegal porque el compilador lo confunde con un literal numérico).\n- No se permiten caracteres especiales ni símbolos de puntuación salvo el guion bajo (`_`).\n\n**La Regla de Oro:**\nRespeta la convención dominante de tu ecosistema: camelCase para Java/C++ y snake_case para Python; la consistencia tipográfica previene errores ortográficos y acelera la lectura colectiva.",
       "options": [
         {
+          "text": "Son obligatorias únicamente cuando el código se transmite por fibra óptica",
+          "correct": false
+        },
+        {
           "text": "Permiten unir múltiples términos en un solo identificador legible respetando las reglas del analizador sintáctico",
           "correct": true
         },
@@ -16,10 +20,6 @@
         },
         {
           "text": "Indican a los motores físicos si deben girar en sentido horario o antihorario",
-          "correct": false
-        },
-        {
-          "text": "Son obligatorias únicamente cuando el código se transmite por fibra óptica",
           "correct": false
         }
       ]
@@ -82,7 +82,7 @@
           "correct": true
         },
         {
-          "text": "max_current_limit_amperes",
+          "text": "max current limit amperes",
           "correct": false
         },
         {
@@ -90,7 +90,7 @@
           "correct": false
         },
         {
-          "text": "max current limit amperes",
+          "text": "max_current_limit_amperes",
           "correct": false
         }
       ]
@@ -100,19 +100,19 @@
       "question": "¿Por qué el nombre de variable `4010_robot_heading` es rechazado por los compiladores como un error de sintaxis?",
       "options": [
         {
-          "text": "Porque las reglas léxicas prohíben que un identificador comience con un dígito para distinguirlo de literales numéricos",
-          "correct": true
-        },
-        {
-          "text": "Porque el número 4010 es una palabra clave reservada del sistema operativo Linux",
-          "correct": false
-        },
-        {
           "text": "Porque los guiones bajos solo pueden utilizarse al final de una palabra",
           "correct": false
         },
         {
+          "text": "Porque las reglas léxicas prohíben que un identificador comience con un dígito para distinguirlo de literales numéricos",
+          "correct": true
+        },
+        {
           "text": "Porque los nombres de variables deben tener exactamente 8 caracteres de longitud",
+          "correct": false
+        },
+        {
+          "text": "Porque el número 4010 es una palabra clave reservada del sistema operativo Linux",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "robot_mass_kg = 54.5\nprint('Masa de competencia: ' + str(robot_mass_kg) + ' kg')",
       "options": [
         {
-          "text": "Masa de competencia: 54.5 kg",
-          "correct": true
+          "text": "Error de sintaxis por usar guiones bajos",
+          "correct": false
         },
         {
-          "text": "Masa de competencia: robot_mass_kg kg",
-          "correct": false
+          "text": "Masa de competencia: 54.5 kg",
+          "correct": true
         },
         {
           "text": "Masa de competencia: 54 kg",
           "correct": false
         },
         {
-          "text": "Error de sintaxis por usar guiones bajos",
+          "text": "Masa de competencia: robot_mass_kg kg",
           "correct": false
         }
       ]

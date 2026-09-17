@@ -7,19 +7,19 @@
       "lessonText": "# Despacho Multicamino y Cortocircuito\n\nCuando un sistema presenta tres o más estados mutuamente excluyentes, evaluar múltiples sentencias `if` aisladas obliga al procesador a ejecutar todas las comprobaciones incondicionalmente, consumiendo tiempo de CPU y arriesgando inconsistencias lógicas. La palabra clave **`elif`** (abreviación de *else-if*) encadena condiciones con **cortocircuito evaluativo**.\n\nTan pronto como una de las condiciones resulta ser verdadera (`true`), la CPU ejecuta el bloque subordinado correspondiente y **salta de inmediato al final de toda la estructura**, omitiendo las ramas restantes.\n\n```python\nif voltaje_bateria >= 12.0:\n    modo = 'COMPETICION'\nelif voltaje_bateria >= 10.5:\n    modo = 'AHORRO_ENERGIA'\nelse:\n    modo = 'APAGADO_CRITICO'\n```\n\nEn Nautilus 4010, el selector de modo de juego utiliza esta arquitectura para fijar la potencia de tiro del shooter. Si el voltaje supera 12V, se fija potencia nominal; si cae entre 10.5V y 12V, el `elif` recalcula la compensación PID; si es menor a 10.5V, el `else` suspende el tiro para evitar un brownout en la roboRIO.\n\n**Regla de Oro: En una estructura if-elif-else, la primera condición verdadera gana y termina la evaluación de toda la cadena; el orden de los elif determina la prioridad de decisión del sistema.**",
       "options": [
         {
-          "text": "Ejecutando únicamente la primera rama cuya condición sea verdadera y cortocircuitando el resto de la cadena",
-          "correct": true
+          "text": "Ignorando la primera condición para evaluar siempre la rama más cercana al final",
+          "correct": false
         },
         {
-          "text": "Ejecutando todas las ramas al mismo tiempo en hilos de hardware independientes",
-          "correct": false
+          "text": "Ejecutando únicamente la primera rama cuya condición sea verdadera y cortocircuitando el resto de la cadena",
+          "correct": true
         },
         {
           "text": "Convirtiendo todas las variables numéricas a valores booleanos para ahorrar ancho de banda",
           "correct": false
         },
         {
-          "text": "Ignorando la primera condición para evaluar siempre la rama más cercana al final",
+          "text": "Ejecutando todas las ramas al mismo tiempo en hilos de hardware independientes",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Relaciona cada término del despacho condicional con su principio operativo:",
       "options": [
         {
-          "text": "Sentencia elif|||Bifurcación secundaria que solo se evalúa si todas las condiciones previas fueron false",
+          "text": "Mutua exclusión|||Propiedad arquitectónica donde solo un bloque de la cadena puede ejecutarse por ciclo",
           "correct": true
         },
         {
@@ -37,7 +37,7 @@
           "correct": true
         },
         {
-          "text": "Mutua exclusión|||Propiedad arquitectónica donde solo un bloque de la cadena puede ejecutarse por ciclo",
+          "text": "Sentencia elif|||Bifurcación secundaria que solo se evalúa si todas las condiciones previas fueron false",
           "correct": true
         },
         {
@@ -78,16 +78,16 @@
       "codeSnippet": "if estado_torreta == 'APUNTANDO':\n    velocidad_giro = 0.2\n____ estado_torreta == 'BUSCANDO':\n    velocidad_giro = 0.8\nelse:\n    velocidad_giro = 0.0",
       "options": [
         {
-          "text": "elif",
-          "correct": true
+          "text": "when",
+          "correct": false
         },
         {
           "text": "else if",
           "correct": false
         },
         {
-          "text": "when",
-          "correct": false
+          "text": "elif",
+          "correct": true
         },
         {
           "text": "case",
@@ -100,15 +100,15 @@
       "question": "¿Qué diferencia crítica de rendimiento y lógica existe entre tres bloques if independientes y una cadena if-elif-else?",
       "options": [
         {
+          "text": "La cadena 'if-elif-else' solo puede comparar cadenas de texto mientras que los 'if' solo comparan números",
+          "correct": false
+        },
+        {
           "text": "Los 'if' independientes se evalúan todos sin excepción; la cadena 'if-elif-else' detiene la evaluación tras la primera coincidencia garantizando exclusión mutua",
           "correct": true
         },
         {
           "text": "Los 'if' independientes se ejecutan en paralelo en subprocesos de hardware sin tocar la memoria RAM",
-          "correct": false
-        },
-        {
-          "text": "La cadena 'if-elif-else' solo puede comparar cadenas de texto mientras que los 'if' solo comparan números",
           "correct": false
         },
         {
@@ -123,19 +123,19 @@
       "codeSnippet": "selector = 2\nvelocidad = 0\nif selector == 1:\n    velocidad = 10\nelif selector == 2:\n    velocidad = 20\nelif selector == 2:\n    velocidad = 30\nelse:\n    velocidad = 50\nprint(velocidad)",
       "options": [
         {
-          "text": "20",
-          "correct": true
+          "text": "10",
+          "correct": false
         },
         {
           "text": "30",
           "correct": false
         },
         {
-          "text": "50",
-          "correct": false
+          "text": "20",
+          "correct": true
         },
         {
-          "text": "10",
+          "text": "50",
           "correct": false
         }
       ]

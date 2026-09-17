@@ -7,19 +7,19 @@
       "lessonText": "# Modificación en Sitio (In-Place) y Azúcar Sintáctico\n\nEn la programación de robótica en tiempo real, el patrón más común es actualizar una variable sumándole o restándole un incremento a su propio valor existente:\n```python\ncontadorNotas = contadorNotas + 1\n```\nEscribir el nombre del identificador dos veces genera código verboso y susceptible a errores tipográficos. Para resolver esto, los lenguajes crearon los **operadores de asignación compuesta**:\n- `a += b` equivale exactamente a `a = a + b`\n- `a -= b` equivale exactamente a `a = a - b`\n- `a *= b` equivale exactamente a `a = a * b`\n- `a /= b` equivale exactamente a `a = a / b`\n\n### Eficiencia en Bajo Nivel:\nEn lenguajes compilados de alto rendimiento como C++ o Java, una asignación compuesta le comunica directamente al optimizador del compilador que la operación se realice **in-place** sobre el mismo registro de memoria (`ADD [R_dest], R_src`), sin requerir variables temporales auxiliares.\n\nEn Nautilus 4010, los operadores compuestos son el estándar en los bucles de odometría e integradores PID:\n```python\nposicionTotalMetros += deltaAvanceMetros\nerrorIntegral += errorPosicion * tiempoDelta\n```\n\n**La Regla de Oro:**\nLos operadores compuestos (+=, -=) realizan modificaciones in-place sobre la misma celda de memoria; optimizan la legibilidad y eliminan redundancia en patrones acumuladores.",
       "options": [
         {
-          "text": "Son atajos sintácticos que ejecutan modificaciones in-place sobre la misma variable, mejorando la legibilidad y optimizando registros en bajo nivel",
-          "correct": true
-        },
-        {
           "text": "Son instrucciones especiales que solo se pueden utilizar cuando los números son mayores a mil",
           "correct": false
         },
         {
-          "text": "Operadores que crean una nueva variable con un nombre aleatorio en cada ciclo de reloj",
-          "correct": false
+          "text": "Son atajos sintácticos que ejecutan modificaciones in-place sobre la misma variable, mejorando la legibilidad y optimizando registros en bajo nivel",
+          "correct": true
         },
         {
           "text": "Comandos que borran permanentemente los datos almacenados en la memoria flash de la roboRIO",
+          "correct": false
+        },
+        {
+          "text": "Operadores que crean una nueva variable con un nombre aleatorio en cada ciclo de reloj",
           "correct": false
         }
       ]
@@ -33,15 +33,15 @@
           "correct": true
         },
         {
+          "text": "Patrón Acumulador|||Estructura donde una variable integra cambios continuos en su valor",
+          "correct": true
+        },
+        {
           "text": "variable -= decremento|||variable = variable - decremento",
           "correct": true
         },
         {
           "text": "variable *= factor|||variable = variable * factor",
-          "correct": true
-        },
-        {
-          "text": "Patrón Acumulador|||Estructura donde una variable integra cambios continuos en su valor",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "presionPSI = 115\npresionPSI _____ 15\nprint('Presion neumática restante: ' + str(presionPSI))",
       "options": [
         {
-          "text": "-=",
-          "correct": true
+          "text": "--",
+          "correct": false
         },
         {
           "text": "=-",
           "correct": false
         },
         {
-          "text": "- 15",
-          "correct": false
+          "text": "-=",
+          "correct": true
         },
         {
-          "text": "--",
+          "text": "- 15",
           "correct": false
         }
       ]
@@ -100,19 +100,19 @@
       "question": "¿A cuál de las siguientes expresiones equivale formalmente la instrucción `velocidadMotor *= 1.1`?",
       "options": [
         {
-          "text": "velocidadMotor = velocidadMotor * 1.1 (incrementa en un 10% la velocidad previa)",
-          "correct": true
+          "text": "1.1 = velocidadMotor (asigna la variable a un número literal)",
+          "correct": false
         },
         {
           "text": "velocidadMotor = 1.1 (fija la velocidad directamente en 1.1)",
           "correct": false
         },
         {
-          "text": "velocidadMotor + 1.1 (calcula una suma sin almacenarla en memoria)",
-          "correct": false
+          "text": "velocidadMotor = velocidadMotor * 1.1 (incrementa en un 10% la velocidad previa)",
+          "correct": true
         },
         {
-          "text": "1.1 = velocidadMotor (asigna la variable a un número literal)",
+          "text": "velocidadMotor + 1.1 (calcula una suma sin almacenarla en memoria)",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "totalPuntos = 5\ntotalPuntos += 10\ntotalPuntos *= 2\nprint(totalPuntos)",
       "options": [
         {
-          "text": "30",
-          "correct": true
+          "text": "35",
+          "correct": false
         },
         {
-          "text": "25",
-          "correct": false
+          "text": "30",
+          "correct": true
         },
         {
           "text": "15",
           "correct": false
         },
         {
-          "text": "35",
+          "text": "25",
           "correct": false
         }
       ]

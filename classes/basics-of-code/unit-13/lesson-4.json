@@ -11,7 +11,7 @@
           "correct": true
         },
         {
-          "text": "Aumentando la velocidad de los motores para intentar forzar la liberación del mecanismo atascado",
+          "text": "Desactivando los sensores de telemetría para no saturar los registros del procesador",
           "correct": false
         },
         {
@@ -19,7 +19,7 @@
           "correct": false
         },
         {
-          "text": "Desactivando los sensores de telemetría para no saturar los registros del procesador",
+          "text": "Aumentando la velocidad de los motores para intentar forzar la liberación del mecanismo atascado",
           "correct": false
         }
       ]
@@ -33,15 +33,15 @@
           "correct": true
         },
         {
-          "text": "Sobrecorriente crítica|||Consumo mayor a 40A en un motor que exige apagado inmediato para evitar ignición",
-          "correct": true
-        },
-        {
           "text": "Fail-Safe Actuation|||Mecanismo que retorna a una posición mecánicamente segura al cortar la señal",
           "correct": true
         },
         {
           "text": "Salida inmediata|||Uso de break para no esperar el término del ciclo en situaciones de riesgo físico",
+          "correct": true
+        },
+        {
+          "text": "Sobrecorriente crítica|||Consumo mayor a 40A en un motor que exige apagado inmediato para evitar ignición",
           "correct": true
         }
       ]
@@ -100,19 +100,19 @@
       "question": "¿Cuál es la regla fundamental de diseño respecto a la parada de emergencia en sistemas robóticos de alta potencia?",
       "options": [
         {
-          "text": "La seguridad es innegociable: el código debe estar programado para fallar de forma segura (fail-safe), cortando la actuación ante anomalías críticas",
-          "correct": true
+          "text": "La parada de emergencia solo debe programarse en lenguajes interpretados como HTML",
+          "correct": false
         },
         {
-          "text": "El software debe intentar continuar acelerando los motores aunque haya indicios de humo o atasco",
-          "correct": false
+          "text": "La seguridad es innegociable: el código debe estar programado para fallar de forma segura (fail-safe), cortando la actuación ante anomalías críticas",
+          "correct": true
         },
         {
           "text": "Los sensores de corriente deben deshabilitarse en partidos decisivos para maximizar el empuje",
           "correct": false
         },
         {
-          "text": "La parada de emergencia solo debe programarse en lenguajes interpretados como HTML",
+          "text": "El software debe intentar continuar acelerando los motores aunque haya indicios de humo o atasco",
           "correct": false
         }
       ]
@@ -123,16 +123,16 @@
       "codeSnippet": "estado = 'OPERATIVO'\nfor ciclo in range(5):\n    if ciclo == 2:\n        estado = 'ESTOP_EMERGENCIA'\n        break\nprint(estado)",
       "options": [
         {
-          "text": "'ESTOP_EMERGENCIA'",
-          "correct": true
+          "text": "'ESTOP_EMERGENCIA 2'",
+          "correct": false
         },
         {
           "text": "'OPERATIVO'",
           "correct": false
         },
         {
-          "text": "'ESTOP_EMERGENCIA 2'",
-          "correct": false
+          "text": "'ESTOP_EMERGENCIA'",
+          "correct": true
         },
         {
           "text": "None",

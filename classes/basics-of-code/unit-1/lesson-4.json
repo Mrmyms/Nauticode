@@ -7,15 +7,15 @@
       "lessonText": "# El Ciclo Periódico del Software\n\nUn programa de software en un robot o sistema autónomo no es un texto estático: es un **ciclo de control continuo** que se repite decenas de veces por segundo (típicamente a 50 Hz, o cada 20 milisegundos).\n\nEn cada ciclo periódico ocurren tres pasos sincronizados:\n1. **Lectura de Entrada (Input):** Sensores, cámaras y mandos del piloto inyectan mediciones frescas en la memoria RAM.\n2. **Ejecución Lógica (Proceso):** El código máquina (previamente traducido por el compilador) procesa esas entradas aplicando reglas matemáticas deterministas y sin ambigüedad.\n3. **Emisión de Salida (Output):** La computadora despacha señales a actuadores, motores o pantallas de diagnóstico.\n\n### La Diferencia Crítica entre Sintaxis y Lógica\n- Un **Error de Sintaxis** impide que el compilador cree el código binario. El programa jamás arranca, protegiendo al robot de actuar a ciegas.\n- Un **Error de Lógica** sí compila y sí genera binario. El hardware lo ejecutará ciegamente a máxima velocidad, lo que en robótica puede traducirse en una colisión o en un mecanismo roto.\n\n**La Regla de Oro:**\nEl software de calidad es aquel que no solo compila sin errores de sintaxis, sino cuya lógica contempla todos los casos extremos antes de enviar potencia al hardware.",
       "options": [
         {
+          "text": "Reiniciando el sistema operativo cada vez que el robot debe tomar una decisión nueva en la cancha",
+          "correct": false
+        },
+        {
           "text": "Mediante un ciclo periódico determinista que lee entradas (Input), ejecuta la lógica compilada (Proceso) y despacha órdenes físicas (Output) múltiples veces por segundo",
           "correct": true
         },
         {
           "text": "Mediante una conexión directa entre los cables de la batería y los sensores sin pasar por el procesador",
-          "correct": false
-        },
-        {
-          "text": "Reiniciando el sistema operativo cada vez que el robot debe tomar una decisión nueva en la cancha",
           "correct": false
         },
         {
@@ -33,15 +33,15 @@
           "correct": true
         },
         {
-          "text": "Lente de la cámara de visión cubierto por polvo|||Fallo de Input (Datos corruptos del mundo exterior)",
-          "correct": true
-        },
-        {
           "text": "Calcular la velocidad dividiendo entre cero|||Fallo de Lógica (Colapso durante el Proceso de ejecución)",
           "correct": true
         },
         {
           "text": "Cable de alimentación del motor desconectado|||Fallo de Output (La orden lógica no llega al actuador físico)",
+          "correct": true
+        },
+        {
+          "text": "Lente de la cámara de visión cubierto por polvo|||Fallo de Input (Datos corruptos del mundo exterior)",
           "correct": true
         }
       ]
@@ -78,11 +78,11 @@
       "codeSnippet": "temperaturaMotor = 85\n\nif (temperaturaMotor > 80):\n    _____('[ALERTA] Temperatura critica en motor')",
       "options": [
         {
-          "text": "print",
-          "correct": true
+          "text": "Print",
+          "correct": false
         },
         {
-          "text": "Print",
+          "text": "sensor",
           "correct": false
         },
         {
@@ -90,8 +90,8 @@
           "correct": false
         },
         {
-          "text": "sensor",
-          "correct": false
+          "text": "print",
+          "correct": true
         }
       ]
     },
@@ -100,20 +100,20 @@
       "question": "¿Por qué un error de lógica es sustancialmente más peligroso en robótica que un error de sintaxis?",
       "options": [
         {
-          "text": "Porque el error de sintaxis es detectado y bloqueado por el compilador antes de ejecutar, mientras que el de lógica corre en hardware real y puede provocar colisiones o daños mecánicos",
-          "correct": true
-        },
-        {
-          "text": "Porque los errores de lógica provocan un cortocircuito inmediato en las celdas químicas de la batería",
-          "correct": false
-        },
-        {
           "text": "Porque los errores de sintaxis borran permanentemente el disco de almacenamiento del robot",
           "correct": false
         },
         {
           "text": "Porque los errores de lógica solo ocurren cuando el robot pierde la conexión inalámbrica de radio",
           "correct": false
+        },
+        {
+          "text": "Porque los errores de lógica provocan un cortocircuito inmediato en las celdas químicas de la batería",
+          "correct": false
+        },
+        {
+          "text": "Porque el error de sintaxis es detectado y bloqueado por el compilador antes de ejecutar, mientras que el de lógica corre en hardware real y puede provocar colisiones o daños mecánicos",
+          "correct": true
         }
       ]
     },

@@ -7,20 +7,20 @@
       "lessonText": "# El Centinela de Timeout y la Falla de Hardware\n\nEn entornos reales de competencia robótica, los cables de señal pueden soltarse debido a vibraciones mecánicas violentas o impactos contra otros robots. Si un bucle `while` depende exclusivamente de que un sensor marque `True` (`while sensor_piso.detectado() == False:`) y el cable de señal se desconecta, el sensor jamás reportará contacto y el robot intentará empujar indefinidamente.\n\n```python\nintentos = 0\nwhile sensor_piso.detectado() == False:\n    motor_elevador.subir(0.3)\n    intentos += 1\n    if intentos >= 50:\n        notificar_falla('TIMEOUT_SENSOR_ELEVADOR')\n        motor_elevador.frenar()\n        break  # Rescate del bucle trabado\n```\n\nEl centinela de intentos supervisa la duración máxima permitida. Al superar el umbral de 50 ciclos (aproximadamente un segundo de movimiento), ejecuta `break`, salva el mecanismo de una fractura física y permite que el robot continúe disputando el partido con sus otros subsistemas activos.\n\n**Regla de Oro: La combinación de break con un contador de intentos límite previene que un bucle dependiente de sensores físicos quede atrapado para siempre ante una falla de cableado.**",
       "options": [
         {
-          "text": "Supervisando el bucle con un contador incremental que ejecuta break si se excede el límite temporal o de intentos seguro",
-          "correct": true
-        },
-        {
-          "text": "Eliminando todos los sensores mecánicos y operando el robot a ciegas sin verificar límites",
-          "correct": false
-        },
-        {
           "text": "Sustituyendo el código de control por instrucciones de espera pasiva indefinida",
           "correct": false
         },
         {
           "text": "Aumentando la velocidad del motor para compensar la falta de lectura del sensor",
           "correct": false
+        },
+        {
+          "text": "Eliminando todos los sensores mecánicos y operando el robot a ciegas sin verificar límites",
+          "correct": false
+        },
+        {
+          "text": "Supervisando el bucle con un contador incremental que ejecuta break si se excede el límite temporal o de intentos seguro",
+          "correct": true
         }
       ]
     },
@@ -33,7 +33,7 @@
           "correct": true
         },
         {
-          "text": "Cable flojo / desconectado|||Fallo físico común donde un sensor nunca envía la señal de confirmación",
+          "text": "Reporte de diagnóstico|||Notificación a la telemetría indicando que el mecanismo se detuvo por timeout",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "Reporte de diagnóstico|||Notificación a la telemetría indicando que el mecanismo se detuvo por timeout",
+          "text": "Cable flojo / desconectado|||Fallo físico común donde un sensor nunca envía la señal de confirmación",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "intentos = 0\nwhile sensor_activo == False:\n    intentos = intentos + 1\n    if intentos >= 100:\n        notificar_timeout()\n        _____",
       "options": [
         {
-          "text": "break",
-          "correct": true
+          "text": "pass",
+          "correct": false
         },
         {
-          "text": "continue",
-          "correct": false
+          "text": "break",
+          "correct": true
         },
         {
           "text": "loop",
           "correct": false
         },
         {
-          "text": "pass",
+          "text": "continue",
           "correct": false
         }
       ]
@@ -100,11 +100,11 @@
       "question": "¿Por qué añadir un centinela de intentos con 'break' es obligatorio en todo bucle que espera una confirmación de un sensor mecánico?",
       "options": [
         {
-          "text": "Porque si el sensor se rompe físicamente, el bucle se congelaría para siempre quemando el motor o bloqueando el procesador del robot",
-          "correct": true
+          "text": "Porque el lenguaje Python suspende la conexión Wi-Fi si un sensor lee más de 5 veces",
+          "correct": false
         },
         {
-          "text": "Porque el lenguaje Python suspende la conexión Wi-Fi si un sensor lee más de 5 veces",
+          "text": "Porque los sensores mecánicos se calientan si no se detiene el bucle con un número entero",
           "correct": false
         },
         {
@@ -112,8 +112,8 @@
           "correct": false
         },
         {
-          "text": "Porque los sensores mecánicos se calientan si no se detiene el bucle con un número entero",
-          "correct": false
+          "text": "Porque si el sensor se rompe físicamente, el bucle se congelaría para siempre quemando el motor o bloqueando el procesador del robot",
+          "correct": true
         }
       ]
     },
@@ -123,11 +123,7 @@
       "codeSnippet": "intentos = 0\nwhile True:\n    intentos = intentos + 1\n    if intentos == 4:\n        break\nprint(intentos)",
       "options": [
         {
-          "text": "4",
-          "correct": true
-        },
-        {
-          "text": "3",
+          "text": "0",
           "correct": false
         },
         {
@@ -135,7 +131,11 @@
           "correct": false
         },
         {
-          "text": "0",
+          "text": "4",
+          "correct": true
+        },
+        {
+          "text": "3",
           "correct": false
         }
       ]

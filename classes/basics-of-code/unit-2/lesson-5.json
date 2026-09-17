@@ -7,19 +7,19 @@
       "lessonText": "# La Prueba de Fuego: 15 Segundos de Autonomía Total\n\nEn la competencia de robótica FIRST Robotics Competition (FRC), cada match oficial comienza con un periodo de **15 segundos en el que ningún humano puede tocar los mandos**.\n\nTodo el desempeño del robot depende de los algoritmos pregrabados en la memoria de la roboRIO. En esos 15 segundos, el sistema debe:\n1. Calibrar odometría y giroscopio en el milisegundo cero.\n2. Conducir a lo largo de una trayectoria de splines precalculada.\n3. Usar visión computacional para identificar piezas en el piso y ajustar la trayectoria en tiempo real.\n4. Accionar el intake, subir el brazo articulado y acelerar los flywheels de disparo a 5,000 RPM.\n5. Disparar y retirarse para cruzar la línea de comunidad y sumar puntos.\n\n### Causas Reales de Fracaso de un Autónomo:\n- **Falta de Determinismo:** El robot funciona en el taller pero falla en la cancha oficial porque el algoritmo asumió niveles de fricción constantes en la alfombra sin compensar con encoders.\n- **Ausencia de Timeouts:** Un sensor falla en detectar que la pieza entró y el algoritmo se queda esperando infinitamente en ese paso, desperdiciando el resto de los 15 segundos.\n\n**La Regla de Oro:**\nUn algoritmo autónomo robusto siempre cuenta con mecanismos de salida por tiempo (timeouts) y verificación cruzada de sensores para evitar bloqueos catastróficos.",
       "options": [
         {
-          "text": "Porque el robot opera sin intervención humana directa, requiriendo algoritmos deterministas con timeouts y compensación de sensores en tiempo real",
-          "correct": true
-        },
-        {
-          "text": "Porque los árbitros apagan la electricidad de la arena si el código tarda más de 3 segundos en compilar",
-          "correct": false
-        },
-        {
           "text": "Porque en ese periodo el procesador del robot cambia su arquitectura a un sistema analógico de bulbos",
           "correct": false
         },
         {
+          "text": "Porque el robot opera sin intervención humana directa, requiriendo algoritmos deterministas con timeouts y compensación de sensores en tiempo real",
+          "correct": true
+        },
+        {
           "text": "Porque el robot debe inventar sus propios objetivos basándose en intuición artística",
+          "correct": false
+        },
+        {
+          "text": "Porque los árbitros apagan la electricidad de la arena si el código tarda más de 3 segundos en compilar",
           "correct": false
         }
       ]
@@ -37,11 +37,11 @@
           "correct": true
         },
         {
-          "text": "El lanzador disparó antes de que los motores alcanzaran velocidad|||Violación de secuencia estricta en el algoritmo",
+          "text": "La cámara se desconectó y el programa colapsó por completo|||Ausencia de manejo de fallos y valores por defecto",
           "correct": true
         },
         {
-          "text": "La cámara se desconectó y el programa colapsó por completo|||Ausencia de manejo de fallos y valores por defecto",
+          "text": "El lanzador disparó antes de que los motores alcanzaran velocidad|||Violación de secuencia estricta en el algoritmo",
           "correct": true
         }
       ]
@@ -82,11 +82,11 @@
           "correct": true
         },
         {
-          "text": "0",
+          "text": "activarAlimentador",
           "correct": false
         },
         {
-          "text": "activarAlimentador",
+          "text": "0",
           "correct": false
         },
         {
@@ -100,11 +100,11 @@
       "question": "Si tu algoritmo autónomo se queda atascado esperando que un sensor de visión detecte un objeto, ¿cuál es la mejor práctica de ingeniería para solucionarlo?",
       "options": [
         {
-          "text": "Implementar un temporizador de seguridad (Timeout): si pasan 1.5 segundos sin detección, abortar ese intento y avanzar al siguiente objetivo",
-          "correct": true
+          "text": "Aumentar la potencia de los motores al máximo para forzar al robot a moverse a ciegas",
+          "correct": false
         },
         {
-          "text": "Aumentar la potencia de los motores al máximo para forzar al robot a moverse a ciegas",
+          "text": "Reiniciar la batería principal del robot mientras el partido sigue en curso",
           "correct": false
         },
         {
@@ -112,8 +112,8 @@
           "correct": false
         },
         {
-          "text": "Reiniciar la batería principal del robot mientras el partido sigue en curso",
-          "correct": false
+          "text": "Implementar un temporizador de seguridad (Timeout): si pasan 1.5 segundos sin detección, abortar ese intento y avanzar al siguiente objetivo",
+          "correct": true
         }
       ]
     },
@@ -127,15 +127,15 @@
           "correct": true
         },
         {
-          "text": "12",
-          "correct": false
-        },
-        {
           "text": "2",
           "correct": false
         },
         {
           "text": "0",
+          "correct": false
+        },
+        {
+          "text": "12",
           "correct": false
         }
       ]

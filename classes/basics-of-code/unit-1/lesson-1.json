@@ -7,11 +7,7 @@
       "lessonText": "# El Modelo de la Caja Negra \n\nSi le preguntas a un extraño qué es programar, te dirá que es 'escribir código verde en una pantalla negra'. Pero en la ciencia de la computación, **programar es simplemente diseñar un algoritmo que transforma datos.**\n\nTodo programa en el universo, desde una calculadora hasta la Inteligencia Artificial de un Tesla, obedece al modelo fundamental **Input -> Proceso -> Output**.\n\n### 1. Input (Entrada)\nSon los datos que el sistema recibe del mundo exterior. En un robot, el Input proviene de los sensores (cámaras, ultrasonido) o del joystick del piloto.\n\n### 2. Proceso (Algoritmo)\nEs la **Caja Negra**. La computadora toma el Input y sigue una lista estricta de instrucciones lógicas y matemáticas para decidir qué hacer con él. **Aquí es donde tú, el programador, existes.** Tu trabajo es escribir esas reglas lógicas.\n\n### 3. Output (Salida)\nEs el resultado físico o digital de la decisión tomada en el proceso. En robótica, el Output es el voltaje enviado a los motores para moverse, o un mensaje de error impreso en la consola.\n\nProgramar no es memorizar palabras raras en inglés, es **tener la habilidad mental de dividir un problema gigante en pequeños pasos lógicos (Proceso) para convertir un Input en un Output.**",
       "options": [
         {
-          "text": "Es el diseño de algoritmos para procesar una entrada de datos (Input) y generar un resultado útil (Output)",
-          "correct": true
-        },
-        {
-          "text": "Es la habilidad de escribir rápidamente comandos al azar hasta que el procesador arranque",
+          "text": "Es la capacidad de la computadora de sentir emociones y tomar decisiones por intuición",
           "correct": false
         },
         {
@@ -19,8 +15,12 @@
           "correct": false
         },
         {
-          "text": "Es la capacidad de la computadora de sentir emociones y tomar decisiones por intuición",
+          "text": "Es la habilidad de escribir rápidamente comandos al azar hasta que el procesador arranque",
           "correct": false
+        },
+        {
+          "text": "Es el diseño de algoritmos para procesar una entrada de datos (Input) y generar un resultado útil (Output)",
+          "correct": true
         }
       ]
     },
@@ -29,19 +29,19 @@
       "question": "Identifica qué rol cumple cada elemento en el modelo de un robot FRC:",
       "options": [
         {
-          "text": "Cámara Vision detecta el objetivo a 3 metros|||Input (Entrada de datos)",
-          "correct": true
-        },
-        {
-          "text": "Código calcula la curva balística perfecta|||Proceso (Algoritmo)",
-          "correct": true
-        },
-        {
           "text": "Motores giran a 4500 RPM para disparar|||Output (Salida física)",
           "correct": true
         },
         {
           "text": "El Programador|||Mente maestra que diseña el Proceso",
+          "correct": true
+        },
+        {
+          "text": "Cámara Vision detecta el objetivo a 3 metros|||Input (Entrada de datos)",
+          "correct": true
+        },
+        {
+          "text": "Código calcula la curva balística perfecta|||Proceso (Algoritmo)",
           "correct": true
         }
       ]
@@ -82,7 +82,7 @@
           "correct": true
         },
         {
-          "text": "frenar",
+          "text": "motor",
           "correct": false
         },
         {
@@ -90,7 +90,7 @@
           "correct": false
         },
         {
-          "text": "motor",
+          "text": "frenar",
           "correct": false
         }
       ]
@@ -104,15 +104,15 @@
           "correct": true
         },
         {
+          "text": "En la suerte: La programación es puramente impredecible",
+          "correct": false
+        },
+        {
           "text": "En el Input: Los sensores de la vida real mienten a propósito",
           "correct": false
         },
         {
           "text": "En el Output: Los motores decidieron rebelarse contra los humanos",
-          "correct": false
-        },
-        {
-          "text": "En la suerte: La programación es puramente impredecible",
           "correct": false
         }
       ]
@@ -127,7 +127,7 @@
           "correct": true
         },
         {
-          "text": "Cambiar Batería",
+          "text": "Error de Sintaxis",
           "correct": false
         },
         {
@@ -135,7 +135,7 @@
           "correct": false
         },
         {
-          "text": "Error de Sintaxis",
+          "text": "Cambiar Batería",
           "correct": false
         }
       ]

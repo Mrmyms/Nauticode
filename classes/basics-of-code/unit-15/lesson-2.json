@@ -7,16 +7,16 @@
       "lessonText": "# Aridad y Mapeo Posicional\n\nEn matemáticas e informática, la **aridad** de una función representa la cantidad de operandos o argumentos que recibe. Para modelar procesos físicos complejos, una función puede requerir múltiples entradas separadas por comas en su cabecera.\n\n```python\ndef mover_trayectoria(velocidad_mps, duracion_s, direccion_angulo):\n    chasis.fijar_cinematica(velocidad_mps, direccion_angulo)\n    temporizador.esperar(duracion_s)\n```\n\nAl invocar la función, el orden de los argumentos debe coincidir estrictamente con el orden posicional de los parámetros:\n`mover_trayectoria(2.5, 1.2, 45.0)`\n- `velocidad_mps` recibe `2.5`.\n- `duracion_s` recibe `1.2`.\n- `direccion_angulo` recibe `45.0`.\n\nInvertir el orden de los argumentos en una función cinemática causaría que el robot aplique duración como velocidad, provocando una colisión violenta a plena potencia.\n\n**Regla de Oro: Múltiples parámetros permiten configurar funciones complejas con interfaces limpias; los argumentos deben suministrarse en el orden posicional exacto definido por la firma.**",
       "options": [
         {
-          "text": "Separando los parámetros por comas en la definición y suministrando argumentos en el mismo orden posicional",
-          "correct": true
+          "text": "Creando una función distinta en el disco duro para cada parámetro requerido",
+          "correct": false
         },
         {
           "text": "Concatenando todos los números en una sola cadena de texto alfanumérica",
           "correct": false
         },
         {
-          "text": "Creando una función distinta en el disco duro para cada parámetro requerido",
-          "correct": false
+          "text": "Separando los parámetros por comas en la definición y suministrando argumentos en el mismo orden posicional",
+          "correct": true
         },
         {
           "text": "Los microcontroladores solo soportan un parámetro por función en todos los lenguajes",
@@ -29,7 +29,7 @@
       "question": "Relaciona cada concepto de firmas múltiples con su descripción formal:",
       "options": [
         {
-          "text": "Firma multiparámetro|||Definición de función que acepta dos o más variables de entrada separadas por comas",
+          "text": "Desacoplamiento dimensional|||Capacidad de especificar variables independientes como coordenadas X e Y",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "Desacoplamiento dimensional|||Capacidad de especificar variables independientes como coordenadas X e Y",
+          "text": "Firma multiparámetro|||Definición de función que acepta dos o más variables de entrada separadas por comas",
           "correct": true
         }
       ]
@@ -78,15 +78,15 @@
       "codeSnippet": "def fijar_coordenadas(pos_x, pos_y):\n    print('Destino X:', pos_x, 'Y:', pos_y)\n\n# Enviar coordenadas X=15 e Y=25 separadas por coma\nfijar_coordenadas(15___ 25)",
       "options": [
         {
+          "text": ".",
+          "correct": false
+        },
+        {
           "text": ",",
           "correct": true
         },
         {
           "text": ";",
-          "correct": false
-        },
-        {
-          "text": ".",
           "correct": false
         },
         {
@@ -100,16 +100,16 @@
       "question": "¿Qué ocurre si una función está declarada con dos parámetros obligatorios (def f(a, b):) pero al invocarla se le pasa únicamente un argumento (f(10))?",
       "options": [
         {
-          "text": "Se lanza un error TypeError indicando que falta el argumento posicional 'b'",
-          "correct": true
-        },
-        {
           "text": "El segundo parámetro toma automáticamente el valor del primer parámetro duplicado",
           "correct": false
         },
         {
           "text": "El programa entra en un bucle infinito esperando el segundo argumento de red",
           "correct": false
+        },
+        {
+          "text": "Se lanza un error TypeError indicando que falta el argumento posicional 'b'",
+          "correct": true
         },
         {
           "text": "La función descarta el cálculo y devuelve una cadena vacía",
@@ -123,11 +123,11 @@
       "codeSnippet": "def calcular_fuerza(masa, aceleracion):\n    print(masa * aceleracion)\n\ncalcular_fuerza(25, 4)",
       "options": [
         {
-          "text": "100",
-          "correct": true
+          "text": "29",
+          "correct": false
         },
         {
-          "text": "29",
+          "text": "50",
           "correct": false
         },
         {
@@ -135,8 +135,8 @@
           "correct": false
         },
         {
-          "text": "50",
-          "correct": false
+          "text": "100",
+          "correct": true
         }
       ]
     }

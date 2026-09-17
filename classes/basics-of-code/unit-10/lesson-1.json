@@ -11,15 +11,15 @@
           "correct": true
         },
         {
-          "text": "Reiniciando el hilo principal si la condición previa no devuelve un valor numérico",
-          "correct": false
-        },
-        {
           "text": "Creando una variable secundaria en memoria para duplicar la velocidad del procesador",
           "correct": false
         },
         {
           "text": "Ejecutando ambos bloques de código simultáneamente en la tarjeta gráfica",
+          "correct": false
+        },
+        {
+          "text": "Reiniciando el hilo principal si la condición previa no devuelve un valor numérico",
           "correct": false
         }
       ]
@@ -29,11 +29,11 @@
       "question": "Relaciona cada concepto de la bifurcación binaria con su definición técnica:",
       "options": [
         {
-          "text": "Sentencia else|||Bloque de respaldo que se ejecuta cuando la prueba del if resulta false",
+          "text": "Dicotomía de estados|||División estricta del flujo donde exactamente un camino de dos se ejecuta",
           "correct": true
         },
         {
-          "text": "Dicotomía de estados|||División estricta del flujo donde exactamente un camino de dos se ejecuta",
+          "text": "Solenoid Fail-Safe|||Mecanismo de seguridad física que adopta una posición segura en el bloque else",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "Solenoid Fail-Safe|||Mecanismo de seguridad física que adopta una posición segura en el bloque else",
+          "text": "Sentencia else|||Bloque de respaldo que se ejecuta cuando la prueba del if resulta false",
           "correct": true
         }
       ]
@@ -78,20 +78,20 @@
       "codeSnippet": "if tension_cable_libras > 150.0:\n    activar_freno_tambor()\n___:\n    permitir_enrollado_cable()",
       "options": [
         {
-          "text": "else",
-          "correct": true
+          "text": "otherwise",
+          "correct": false
         },
         {
           "text": "elif",
           "correct": false
         },
         {
-          "text": "otherwise",
+          "text": "default",
           "correct": false
         },
         {
-          "text": "default",
-          "correct": false
+          "text": "else",
+          "correct": true
         }
       ]
     },
@@ -123,11 +123,11 @@
       "codeSnippet": "presion_psi = 55\nestado_compresor = 'APAGADO'\nif presion_psi >= 60:\n    estado_compresor = 'APAGADO'\nelse:\n    estado_compresor = 'ENCENDIDO'\nprint(estado_compresor)",
       "options": [
         {
-          "text": "'ENCENDIDO'",
-          "correct": true
+          "text": "'APAGADO'",
+          "correct": false
         },
         {
-          "text": "'APAGADO'",
+          "text": "'FALLO'",
           "correct": false
         },
         {
@@ -135,8 +135,8 @@
           "correct": false
         },
         {
-          "text": "'FALLO'",
-          "correct": false
+          "text": "'ENCENDIDO'",
+          "correct": true
         }
       ]
     }

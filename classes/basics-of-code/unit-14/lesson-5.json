@@ -7,20 +7,20 @@
       "lessonText": "# La Capa de Abstracción de Hardware (HAL)\n\nPara que los pilotos y programadores de estrategia autónoma no tengan que manipular tensiones eléctricas o paquetes individuales de 4 ruedas en cada maniobra, el software construye una **Capa de Abstracción de Hardware (HAL)** mediante funciones modulares:\n\n```python\ndef avanzar_lineal(potencia):\n    chasis_swerve.fijar_vector(0, potencia, 0)\n\ndef rotar_grados(grados):\n    chasis_swerve.orientar_azimut(grados)\n\ndef frenar_chasis():\n    chasis_swerve.configurar_xbraking()\n```\n\nEn Nautilus 4010, esta librería estandariza el control mecánico del robot. Si los ingenieros mecánicos reemplazan un motor o cambian el diámetro de las ruedas, los cambios se corrigen únicamente en la biblioteca HAL sin tocar una sola línea del código de estrategia de competencia.\n\n**Regla de Oro: Una librería de comandos de movimiento estandariza la interacción con el chasis, aislando la lógica estratégica de las variaciones cinemáticas de los motores.**",
       "options": [
         {
-          "text": "Estandarizando movimientos en funciones modulares que aíslan la lógica estratégica de los voltajes físicos de los motores",
-          "correct": true
+          "text": "Eliminando las ruedas del robot para reemplazar la tracción por patines deslizantes",
+          "correct": false
         },
         {
           "text": "Conectando los motores directamente a la batería sin fusibles ni controladores de potencia",
           "correct": false
         },
         {
-          "text": "Eliminando las ruedas del robot para reemplazar la tracción por patines deslizantes",
+          "text": "Escribiendo valores binarios directos en la memoria RAM del controlador sin funciones",
           "correct": false
         },
         {
-          "text": "Escribiendo valores binarios directos en la memoria RAM del controlador sin funciones",
-          "correct": false
+          "text": "Estandarizando movimientos en funciones modulares que aíslan la lógica estratégica de los voltajes físicos de los motores",
+          "correct": true
         }
       ]
     },
@@ -29,11 +29,11 @@
       "question": "Relaciona cada función de la capa de abstracción con su rol cinemático:",
       "options": [
         {
-          "text": "Capa HAL (Hardware Abstraction)|||Conjunto de funciones que unifican el control de motores bajo comandos claros",
+          "text": "Freno de retención pasivo|||Función que fija la velocidad en cero y conmuta los motores a modo freno (Brake)",
           "correct": true
         },
         {
-          "text": "Comando de traslación|||Función que aplica voltajes coordinados para desplazar el chasis en línea recta",
+          "text": "Capa HAL (Hardware Abstraction)|||Conjunto de funciones que unifican el control de motores bajo comandos claros",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "Freno de retención pasivo|||Función que fija la velocidad en cero y conmuta los motores a modo freno (Brake)",
+          "text": "Comando de traslación|||Función que aplica voltajes coordinados para desplazar el chasis en línea recta",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "def detener_chasis():\n    motor_fl.set(0.0)\n    motor_fr.set(0.0)\n    motor_bl.set(0.0)\n    motor_br.set(0.0)\n\n# Llamar al comando de frenado total\n_____",
       "options": [
         {
-          "text": "detener_chasis()",
-          "correct": true
-        },
-        {
-          "text": "detener_chasis;",
-          "correct": false
-        },
-        {
           "text": "run detener",
           "correct": false
         },
         {
           "text": "stop chasis",
+          "correct": false
+        },
+        {
+          "text": "detener_chasis()",
+          "correct": true
+        },
+        {
+          "text": "detener_chasis;",
           "correct": false
         }
       ]
@@ -104,7 +104,7 @@
           "correct": true
         },
         {
-          "text": "Porque elimina el consumo eléctrico de los controladores de motor durante la carrera",
+          "text": "Porque permite conducir el robot sin necesidad de compilar el código fuente",
           "correct": false
         },
         {
@@ -112,7 +112,7 @@
           "correct": false
         },
         {
-          "text": "Porque permite conducir el robot sin necesidad de compilar el código fuente",
+          "text": "Porque elimina el consumo eléctrico de los controladores de motor durante la carrera",
           "correct": false
         }
       ]

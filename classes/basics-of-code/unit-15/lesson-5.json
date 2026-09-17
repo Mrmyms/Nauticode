@@ -15,11 +15,11 @@
           "correct": false
         },
         {
-          "text": "Configurando los motores para que giren a una revolución por minuto fija sin sensores",
+          "text": "Dividiendo la velocidad entre cero para obtener la distancia instantánea",
           "correct": false
         },
         {
-          "text": "Dividiendo la velocidad entre cero para obtener la distancia instantánea",
+          "text": "Configurando los motores para que giren a una revolución por minuto fija sin sensores",
           "correct": false
         }
       ]
@@ -33,15 +33,15 @@
           "correct": true
         },
         {
-          "text": "Relación de reducción|||Factor mecánico de engranes entre el eje del motor y la rueda del chasis",
-          "correct": true
-        },
-        {
           "text": "Conversor de odometría|||Función parametrizada que transforma ticks acumulados en metros recorridos",
           "correct": true
         },
         {
           "text": "Constante de calibración|||Factor métrico que define cuántos metros avanza el robot por cada tick de encoder",
+          "correct": true
+        },
+        {
+          "text": "Relación de reducción|||Factor mecánico de engranes entre el eje del motor y la rueda del chasis",
           "correct": true
         }
       ]
@@ -78,10 +78,6 @@
       "codeSnippet": "def calcular_odometria(ticks):\n    METROS_POR_TICK = 0.0004\n    _____ ticks * METROS_POR_TICK\n\navance = calcular_odometria(5000)",
       "options": [
         {
-          "text": "return",
-          "correct": true
-        },
-        {
           "text": "print",
           "correct": false
         },
@@ -92,6 +88,10 @@
         {
           "text": "yield",
           "correct": false
+        },
+        {
+          "text": "return",
+          "correct": true
         }
       ]
     },
@@ -99,10 +99,6 @@
       "type": "SELECT",
       "question": "¿Por qué los parámetros y los valores de retorno convierten a las funciones en la herramienta arquitectónica más poderosa de la programación?",
       "options": [
-        {
-          "text": "Porque transforman bloques de código rígidos en componentes genéricos, reutilizables y verificables que reciben datos, computan soluciones y devuelven respuestas con precisión matemática",
-          "correct": true
-        },
         {
           "text": "Porque eliminan la necesidad de conectar sensores mecánicos al chasis del robot",
           "correct": false
@@ -114,6 +110,10 @@
         {
           "text": "Porque evitan tener que compilar el programa antes de ejecutarlo en el microcontrolador",
           "correct": false
+        },
+        {
+          "text": "Porque transforman bloques de código rígidos en componentes genéricos, reutilizables y verificables que reciben datos, computan soluciones y devuelven respuestas con precisión matemática",
+          "correct": true
         }
       ]
     },
@@ -122,6 +122,10 @@
       "question": "¿Cuántos metros calculó la odometría para un promedio de 4000 ticks con factor 0.001?",
       "codeSnippet": "def calcular_odometria(ticks_izq, ticks_der):\n    promedio = (ticks_izq + ticks_der) / 2\n    return promedio * 0.001\n\nmetros = calcular_odometria(3000, 5000)\nprint(metros)",
       "options": [
+        {
+          "text": "5.0",
+          "correct": false
+        },
         {
           "text": "4.0",
           "correct": true
@@ -132,10 +136,6 @@
         },
         {
           "text": "3.0",
-          "correct": false
-        },
-        {
-          "text": "5.0",
           "correct": false
         }
       ]

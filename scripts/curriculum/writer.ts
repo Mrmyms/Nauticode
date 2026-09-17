@@ -95,7 +95,19 @@ export function writeUnits(units: UnitDefinition[], courseFolder: string = "basi
 
       const lessonData = {
         title: lesson.title,
-        challenges: lesson.challenges,
+        challenges: lesson.challenges.map((c) => {
+          // CODE_ORDER preserves its canonical audioSrc sequential order
+          if (c.type === "CODE_ORDER") {
+            return c;
+          }
+          // Randomize option order so answers do not always appear at index 0
+          const shuffledOptions = [...c.options];
+          for (let i = shuffledOptions.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffledOptions[i], shuffledOptions[j]] = [shuffledOptions[j], shuffledOptions[i]];
+          }
+          return { ...c, options: shuffledOptions };
+        }),
       };
 
       fs.writeFileSync(

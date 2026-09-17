@@ -7,10 +7,6 @@
       "lessonText": "# Sondeo de Sensores y Lazo Cerrado\n\nEn robótica, el control en lazo cerrado (Closed-Loop) ajusta la conducta mecánica según el estado cambiante del mundo exterior. En lugar de iterar un número prefijado de veces, el bucle comprueba la lectura de un sensor físico en cada ciclo (**sensor polling**).\n\n```python\nswitch_superior = sensor_hall.leer()\nwhile switch_superior == False:\n    motor_elevador.subir(0.4)\n    switch_superior = sensor_hall.leer()  # Refresco obligatorio\nmotor_elevador.frenar()\n```\n\nEn Nautilus 4010, el elevador sube hasta que el sensor magnético de efecto Hall detecta el imán de neodimio ubicado en el travesaño del piso superior. Si el código olvidara volver a leer el pin del sensor dentro del bucle, la variable conservaría para siempre su valor inicial (`False`), provocando que el motor siga empujando hasta reventar las bandas y poleas mecánicas.\n\n**Regla de Oro: En bucles controlados por sensores físicos, el estado del sensor debe refrescarse en cada vuelta para reflejar la realidad del entorno mecánico.**",
       "options": [
         {
-          "text": "Actualizando periódicamente la lectura del sensor en cada ciclo para que la condición refleje el estado físico real del mecanismo",
-          "correct": true
-        },
-        {
           "text": "Fijando la velocidad del motor en números imaginarios para evitar el calentamiento de los rodamientos",
           "correct": false
         },
@@ -21,6 +17,10 @@
         {
           "text": "Desconectando la alimentación del sensor para evitar interferencias electromagnéticas en el bus",
           "correct": false
+        },
+        {
+          "text": "Actualizando periódicamente la lectura del sensor en cada ciclo para que la condición refleje el estado físico real del mecanismo",
+          "correct": true
         }
       ]
     },
@@ -29,19 +29,19 @@
       "question": "Relaciona cada concepto de instrumentación con su rol en el bucle condicional:",
       "options": [
         {
-          "text": "Sensor Hall|||Interruptor magnético de estado sólido que detecta la proximidad del mecanismo",
-          "correct": true
-        },
-        {
           "text": "Polling de sensor|||Consulta periódica del valor de un pin digital o bus en cada ciclo del bucle",
           "correct": true
         },
         {
-          "text": "Límite de recorrido|||Posición mecánica extrema donde el software debe detener el actuador",
+          "text": "Closed-Loop Sensing|||Lazo de control que retroalimenta la acción del motor según el cambio de entorno",
           "correct": true
         },
         {
-          "text": "Closed-Loop Sensing|||Lazo de control que retroalimenta la acción del motor según el cambio de entorno",
+          "text": "Sensor Hall|||Interruptor magnético de estado sólido que detecta la proximidad del mecanismo",
+          "correct": true
+        },
+        {
+          "text": "Límite de recorrido|||Posición mecánica extrema donde el software debe detener el actuador",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "while obstaculo_presente == False:\n    avanzar_trayectoria()\n    obstaculo_presente = _____()",
       "options": [
         {
-          "text": "escanear_lidar",
-          "correct": true
-        },
-        {
-          "text": "True",
-          "correct": false
-        },
-        {
           "text": "break",
           "correct": false
         },
         {
           "text": "contador",
+          "correct": false
+        },
+        {
+          "text": "escanear_lidar",
+          "correct": true
+        },
+        {
+          "text": "True",
           "correct": false
         }
       ]
@@ -100,19 +100,19 @@
       "question": "¿Qué falla catastrófica ocurre si se olvida volver a leer el sensor físico dentro del cuerpo del bucle while?",
       "options": [
         {
-          "text": "La variable evaluada conserva el valor antiguo y el bucle jamás se entera de que el sensor se activó, sobrecargando o rompiendo mecánicamente el mecanismo",
-          "correct": true
-        },
-        {
-          "text": "El sensor se desmagnetiza inmediatamente por falta de pulsos de reloj del procesador",
-          "correct": false
-        },
-        {
           "text": "El voltaje de la batería se eleva instantáneamente a niveles no regulados por el circuito",
           "correct": false
         },
         {
           "text": "El compilador sustituye automáticamente la lectura por una llamada a una función aleatoria",
+          "correct": false
+        },
+        {
+          "text": "La variable evaluada conserva el valor antiguo y el bucle jamás se entera de que el sensor se activó, sobrecargando o rompiendo mecánicamente el mecanismo",
+          "correct": true
+        },
+        {
+          "text": "El sensor se desmagnetiza inmediatamente por falta de pulsos de reloj del procesador",
           "correct": false
         }
       ]
@@ -123,20 +123,20 @@
       "codeSnippet": "distancia = 50\npasos = 0\nwhile distancia > 20:\n    distancia = distancia - 10\n    pasos = pasos + 1\nprint(pasos)",
       "options": [
         {
-          "text": "3",
-          "correct": true
+          "text": "2",
+          "correct": false
         },
         {
           "text": "4",
           "correct": false
         },
         {
-          "text": "2",
+          "text": "5",
           "correct": false
         },
         {
-          "text": "5",
-          "correct": false
+          "text": "3",
+          "correct": true
         }
       ]
     }

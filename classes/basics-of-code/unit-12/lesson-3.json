@@ -7,12 +7,12 @@
       "lessonText": "# Secuencias Decrecientes y Rampas de Desaceleración\n\nPara recorrer una secuencia aritmética en orden decreciente, se emplea un **paso negativo** (`step < 0`). La condición matemática exige que el valor inicial (`start`) sea estrictamente mayor que el límite de parada (`stop`). En cada ciclo, el intérprete sustrae el valor absoluto del paso hasta que la variable sea menor o igual al `stop`.\n\n```python\nfor rpm in range(5000, 0, -1000):\n    flywheel.fijar_velocidad(rpm)\n    esperar_milisegundos(100)\nflywheel.desactivar()\n```\n\nEn el lanzador (shooter) de Nautilus 4010, cortar bruscamente la corriente cuando el flywheel gira a 5000 RPM induce un pico de fuerza contraelectromotriz (Back-EMF) capaz de dañar los transistores MOSFET del controlador. Mediante `range(5000, 0, -1000)`, el software reduce la inercia en 5 escalones suaves de frenado regenerativo.\n\n**Regla de Oro: Para decrementar valores en un bucle for, el parámetro step debe ser negativo y el start debe ser estrictamente mayor que el stop.**",
       "options": [
         {
-          "text": "Fijando un parámetro step negativo y asegurando que start sea estrictamente mayor que stop",
-          "correct": true
-        },
-        {
           "text": "Multiplicando el valor inicial por menos uno en cada iteración del bucle",
           "correct": false
+        },
+        {
+          "text": "Fijando un parámetro step negativo y asegurando que start sea estrictamente mayor que stop",
+          "correct": true
         },
         {
           "text": "Invirtiendo la pantalla del monitor para leer el código de abajo hacia arriba",
@@ -29,15 +29,15 @@
       "question": "Relaciona cada concepto de iteración decreciente con su principio técnico:",
       "options": [
         {
+          "text": "range(5, 0, -1)|||Genera la secuencia decreciente 5, 4, 3, 2, 1",
+          "correct": true
+        },
+        {
           "text": "Paso negativo (step < 0)|||Decremento sucesivo que permite recorrer secuencias numéricas en reversa",
           "correct": true
         },
         {
           "text": "Rampa de desaceleración|||Disminución gradual de potencia de motores para evitar picos de corriente inductiva",
-          "correct": true
-        },
-        {
-          "text": "range(5, 0, -1)|||Genera la secuencia decreciente 5, 4, 3, 2, 1",
           "correct": true
         },
         {
@@ -78,20 +78,20 @@
       "codeSnippet": "# Cuenta regresiva desde 3 hasta 1\nfor segundo in range(3, 0, ____):\n    emitir_beep(segundo)\nprint('PARTIDO INICIADO')",
       "options": [
         {
-          "text": "-1",
-          "correct": true
-        },
-        {
-          "text": "1",
-          "correct": false
-        },
-        {
           "text": "0",
           "correct": false
         },
         {
           "text": "-2",
           "correct": false
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "-1",
+          "correct": true
         }
       ]
     },
@@ -108,11 +108,11 @@
           "correct": false
         },
         {
-          "text": "El compilador invierte automáticamente el signo del paso para corregir el error",
+          "text": "Se produce una excepción fatal de desbordamiento de enteros en la memoria RAM",
           "correct": false
         },
         {
-          "text": "Se produce una excepción fatal de desbordamiento de enteros en la memoria RAM",
+          "text": "El compilador invierte automáticamente el signo del paso para corregir el error",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "cuenta = 0\nfor x in range(4, 1, -1):\n    cuenta = cuenta + x\nprint(cuenta)",
       "options": [
         {
-          "text": "9",
-          "correct": true
-        },
-        {
-          "text": "10",
-          "correct": false
-        },
-        {
           "text": "7",
           "correct": false
         },
         {
+          "text": "9",
+          "correct": true
+        },
+        {
           "text": "6",
+          "correct": false
+        },
+        {
+          "text": "10",
           "correct": false
         }
       ]

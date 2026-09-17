@@ -11,15 +11,15 @@
           "correct": true
         },
         {
+          "text": "No existe distinción técnica alguna; son sinónimos intercambiables en todos los lenguajes",
+          "correct": false
+        },
+        {
           "text": "For es exclusivo para entornos de simulación y While solo se utiliza en robots físicos conectados",
           "correct": false
         },
         {
           "text": "For solo puede ejecutarse en microcontroladores de 8 bits y While en procesadores de 64 bits",
-          "correct": false
-        },
-        {
-          "text": "No existe distinción técnica alguna; son sinónimos intercambiables en todos los lenguajes",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Clasifica cada escenario de ingeniería robótica con la estructura iterativa óptima:",
       "options": [
         {
-          "text": "Bucle for|||Ideal cuando el número de repeticiones se conoce con certeza de antemano",
+          "text": "Bucle de telemetría|||Patrón donde while mantiene activo el sistema mientras el robot siga habilitado",
           "correct": true
         },
         {
@@ -37,11 +37,11 @@
           "correct": true
         },
         {
-          "text": "Iteración sobre colección|||Patrón donde for examina cada elemento de una lista de motores o puertos",
+          "text": "Bucle for|||Ideal cuando el número de repeticiones se conoce con certeza de antemano",
           "correct": true
         },
         {
-          "text": "Bucle de telemetría|||Patrón donde while mantiene activo el sistema mientras el robot siga habilitado",
+          "text": "Iteración sobre colección|||Patrón donde for examina cada elemento de una lista de motores o puertos",
           "correct": true
         }
       ]
@@ -78,8 +78,8 @@
       "codeSnippet": "# Verificar los 4 frenos del chasis\n____ freno_id in range(4):\n    test_freno_neumatico(freno_id)",
       "options": [
         {
-          "text": "for",
-          "correct": true
+          "text": "switch",
+          "correct": false
         },
         {
           "text": "while",
@@ -90,8 +90,8 @@
           "correct": false
         },
         {
-          "text": "switch",
-          "correct": false
+          "text": "for",
+          "correct": true
         }
       ]
     },
@@ -99,10 +99,6 @@
       "type": "SELECT",
       "question": "¿Por qué es un grave error de arquitectura emplear un bucle 'for' con un rango arbitrario como range(10000) para esperar a que un pistón neumático llegue a su final de carrera?",
       "options": [
-        {
-          "text": "Porque desperdicia tiempo o se detiene prematuramente; una espera de hardware depende de un evento físico y debe gobernarse con 'while' y sensor",
-          "correct": true
-        },
         {
           "text": "Porque los bucles for no permiten leer variables booleanas en su cuerpo",
           "correct": false
@@ -114,6 +110,10 @@
         {
           "text": "Porque las reglas de FIRST exigen que todos los cilindros usen interrupciones analógicas",
           "correct": false
+        },
+        {
+          "text": "Porque desperdicia tiempo o se detiene prematuramente; una espera de hardware depende de un evento físico y debe gobernarse con 'while' y sensor",
+          "correct": true
         }
       ]
     },
@@ -123,11 +123,11 @@
       "codeSnippet": "sensores_activos = 0\nfor pin in range(3):\n    sensores_activos = sensores_activos + 1\nprint(sensores_activos)",
       "options": [
         {
-          "text": "3",
-          "correct": true
+          "text": "2",
+          "correct": false
         },
         {
-          "text": "2",
+          "text": "0",
           "correct": false
         },
         {
@@ -135,8 +135,8 @@
           "correct": false
         },
         {
-          "text": "0",
-          "correct": false
+          "text": "3",
+          "correct": true
         }
       ]
     }

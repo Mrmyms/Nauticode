@@ -7,8 +7,8 @@
       "lessonText": "# Asignación vs Comparación en Memoria\n\nEn la sintaxis de prácticamente todos los lenguajes imperativos derivados de C (incluidos Python, Java y C++), el símbolo `=` realiza una operación de **mutación de memoria**: toma el valor de la derecha y lo almacena en la dirección de memoria designada por la variable de la izquierda.\n\nPor el contrario, el operador doble `==` es una expresión de **interrogación relacional**: lee los valores de ambos lados, comprueba si son idénticos y devuelve un resultado booleano (`True` o `False`) sin alterar ninguna variable en memoria.\n\n```python\nestado = 1       # Asignacion: guarda 1 en la variable estado\nif estado == 1:  # Comparacion: verifica si estado equivale a 1\n    print('Sistema activo')\n```\n\nEn FRC Nautilus 4010, escribir accidentalmente `if (estado = MODO_TURBO)` en un código legado de C++ causó que la variable cambiara incondicionalmente al valor turbo en cada ciclo de ejecución, provocando una colisión descontrolada del chasis Swerve contra las barreras del campo de juego.\n\n**Regla de Oro: El signo '=' almacena datos en la memoria; el signo '==' interroga a la memoria sobre la igualdad de dos operandos sin alterarlos.**",
       "options": [
         {
-          "text": "El signo '=' muta la memoria asignando un valor; el signo '==' evalúa igualdad lógica sin alterar variables",
-          "correct": true
+          "text": "Ambos operadores son idénticos y el compilador elige cuál usar según la velocidad de la CPU",
+          "correct": false
         },
         {
           "text": "El signo '=' compara números enteros y el signo '==' compara cadenas de texto alfanuméricas",
@@ -19,8 +19,8 @@
           "correct": false
         },
         {
-          "text": "Ambos operadores son idénticos y el compilador elige cuál usar según la velocidad de la CPU",
-          "correct": false
+          "text": "El signo '=' muta la memoria asignando un valor; el signo '==' evalúa igualdad lógica sin alterar variables",
+          "correct": true
         }
       ]
     },
@@ -29,15 +29,15 @@
       "question": "Relaciona cada operador y concepto con su rol en la arquitectura del software:",
       "options": [
         {
-          "text": "= (Operador Simple)|||Operador imperativo de asignación que almacena un nuevo valor en memoria",
-          "correct": true
-        },
-        {
           "text": "== (Operador Doble)|||Operador relacional de comparación que verifica igualdad estricta",
           "correct": true
         },
         {
           "text": "SyntaxError en Python|||Protección del intérprete que impide usar '=' dentro de una cláusula if",
+          "correct": true
+        },
+        {
+          "text": "= (Operador Simple)|||Operador imperativo de asignación que almacena un nuevo valor en memoria",
           "correct": true
         },
         {
@@ -82,7 +82,7 @@
           "correct": true
         },
         {
-          "text": "=",
+          "text": "===",
           "correct": false
         },
         {
@@ -90,7 +90,7 @@
           "correct": false
         },
         {
-          "text": "===",
+          "text": "=",
           "correct": false
         }
       ]
@@ -100,16 +100,16 @@
       "question": "¿Por qué lenguajes modernos como Python generan inmediatamente un SyntaxError si un desarrollador escribe 'if velocidad = 100:'?",
       "options": [
         {
-          "text": "Para proteger al desarrollador contra fallos críticos donde se altera accidentalmente el estado de la memoria en lugar de comprobarlo",
-          "correct": true
+          "text": "Porque los operadores de asignación requieren obligatoriamente de comillas dobles",
+          "correct": false
         },
         {
           "text": "Porque la palabra clave if carece de permisos de lectura sobre variables numéricas",
           "correct": false
         },
         {
-          "text": "Porque los operadores de asignación requieren obligatoriamente de comillas dobles",
-          "correct": false
+          "text": "Para proteger al desarrollador contra fallos críticos donde se altera accidentalmente el estado de la memoria en lugar de comprobarlo",
+          "correct": true
         },
         {
           "text": "Porque el hardware de la computadora no puede procesar asignaciones en menos de un segundo",
@@ -123,10 +123,6 @@
       "codeSnippet": "canal_radio = 4\ncanal_objetivo = 4\nestado_conexion = 'DESCONECTADO'\nif canal_radio == canal_objetivo:\n    estado_conexion = 'ENLAZADO'\nprint(estado_conexion)",
       "options": [
         {
-          "text": "'ENLAZADO'",
-          "correct": true
-        },
-        {
           "text": "'DESCONECTADO'",
           "correct": false
         },
@@ -137,6 +133,10 @@
         {
           "text": "4",
           "correct": false
+        },
+        {
+          "text": "'ENLAZADO'",
+          "correct": true
         }
       ]
     }

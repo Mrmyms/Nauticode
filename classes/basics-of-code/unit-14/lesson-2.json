@@ -7,15 +7,15 @@
       "lessonText": "# Memoria de Código vs Pila de Ejecución\n\nEn la arquitectura de software, existen dos momentos claramente delimitados en el ciclo de una función:\n\n1. **Definición (`def` / `void`):** El compilador o intérprete almacena las instrucciones en el segmento de código de la memoria y asocia ese bloque al identificador simbólico de la función. **Definir la función NO ejecuta su código**.\n2. **Invocación o Llamada (`()`):** Cuando el Program Counter encuentra el identificador seguido de paréntesis, asigna un marco de pila (stack frame), transfiere la ejecución a la dirección de la función y, al concluir, regresa exactamente a la instrucción posterior a la llamada.\n\n```python\ndef disparar_nota():\n    solenoide_lanzador.activar()\n    print('Nota eyectada')\n\n# La funcion solo corre al escribir los parentesis ()\ndisparar_nota()\n```\n\nEn Nautilus 4010, escribir `def disparar_nota():` enseña a la roboRIO la secuencia de actuación neumática, pero los pistones solo se accionan cuando el hilo de control invoca la función tras recibir la pulsación del gatillo del piloto.\n\n**Regla de Oro: Definir una función únicamente almacena sus instrucciones en la memoria de código; para que la CPU ejecute ese bloque es indispensable invocarla utilizando su identificador seguido de paréntesis ().**",
       "options": [
         {
+          "text": "Las funciones se ejecutan automáticamente cada vez que la computadora detecta una variable booleana",
+          "correct": false
+        },
+        {
           "text": "Definir almacena el bloque de instrucciones en memoria; invocar con paréntesis transfiere la CPU para ejecutarlo",
           "correct": true
         },
         {
           "text": "Definir ejecuta el código de inmediato e invocar borra la función del sistema operativo",
-          "correct": false
-        },
-        {
-          "text": "Las funciones se ejecutan automáticamente cada vez que la computadora detecta una variable booleana",
           "correct": false
         },
         {
@@ -29,11 +29,11 @@
       "question": "Relaciona cada concepto del ciclo de ejecución con su definición técnica:",
       "options": [
         {
-          "text": "Definición de función|||Declaración de la firma y cuerpo de instrucciones asociadas a un identificador",
+          "text": "Invocación o llamada|||Instrucción con paréntesis () que transfiere el control a la función",
           "correct": true
         },
         {
-          "text": "Invocación o llamada|||Instrucción con paréntesis () que transfiere el control a la función",
+          "text": "Firma de función|||Nombre y especificación de parámetros que identifican a la rutina",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "Firma de función|||Nombre y especificación de parámetros que identifican a la rutina",
+          "text": "Definición de función|||Declaración de la firma y cuerpo de instrucciones asociadas a un identificador",
           "correct": true
         }
       ]
@@ -78,11 +78,11 @@
       "codeSnippet": "def activar_compresor():\n    rele_neumatico.encender()\n\n# Invocar la funcion para energizar el compresor\nactivar_compresor___",
       "options": [
         {
-          "text": "()",
-          "correct": true
+          "text": "{}",
+          "correct": false
         },
         {
-          "text": "{}",
+          "text": "<>",
           "correct": false
         },
         {
@@ -90,8 +90,8 @@
           "correct": false
         },
         {
-          "text": "<>",
-          "correct": false
+          "text": "()",
+          "correct": true
         }
       ]
     },
@@ -99,10 +99,6 @@
       "type": "SELECT",
       "question": "¿Qué sucede si en el archivo principal se escribe únicamente el nombre de la función sin los paréntesis (por ejemplo, 'calibrar')?",
       "options": [
-        {
-          "text": "La función no se ejecuta; el intérprete solo evalúa la referencia al objeto de la función sin invocar su código",
-          "correct": true
-        },
         {
           "text": "La función se ejecuta a la mitad de su velocidad normal",
           "correct": false
@@ -114,6 +110,10 @@
         {
           "text": "La computadora reinicia el sistema operativo de inmediato",
           "correct": false
+        },
+        {
+          "text": "La función no se ejecuta; el intérprete solo evalúa la referencia al objeto de la función sin invocar su código",
+          "correct": true
         }
       ]
     },
@@ -123,19 +123,19 @@
       "codeSnippet": "def log_evento():\n    print('EVENTO_OK')\n\nprint('INICIO')\nlog_evento()\nprint('FIN')",
       "options": [
         {
-          "text": "INICIO\nEVENTO_OK\nFIN",
-          "correct": true
-        },
-        {
-          "text": "EVENTO_OK\nINICIO\nFIN",
-          "correct": false
-        },
-        {
           "text": "INICIO\nFIN",
           "correct": false
         },
         {
+          "text": "INICIO\nEVENTO_OK\nFIN",
+          "correct": true
+        },
+        {
           "text": "EVENTO_OK",
+          "correct": false
+        },
+        {
+          "text": "EVENTO_OK\nINICIO\nFIN",
           "correct": false
         }
       ]

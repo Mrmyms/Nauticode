@@ -7,11 +7,11 @@
       "lessonText": "# El Bit Lógico: La Base del Control y las Decisiones\n\nNombrado en honor al matemático George Boole, el tipo **Boolean (bool)** es la unidad ontológica elemental de la computación. Solo puede adoptar uno de dos valores exclusivos:\n- **`True` (Verdadero):** Representado físicamente a nivel de hardware por un bit `1` o un nivel alto de voltaje lógico ($3.3\\text{ V}$ o $5\\text{ V}$).\n- **`False` (Falso):** Representado por un bit `0` o nivel de tierra ($0\\text{ V}$).\n\n### De la Comparación a la Bifurcación en la CPU:\nCuando escribes una expresión de comparación como `voltajeBateria < 10.5`, la ALU resta ambos números y actualiza el **Registro de Estado (Flags Register)** de la CPU. El resultado de esa comparación relacional es un valor booleano puro.\n\nEn lenguaje ensamblador, las instrucciones de bifurcación condicional (`jump if equal`, `branch if greater`) consultan directamente este bit booleano para decidir si el procesador continúa en la siguiente línea secuencial o salta a una rutina de emergencia.\n\nEn Nautilus 4010, la seguridad física de los mecanismos depende 100% de variables booleanas:\n- `isEmergencyStopPressed`: Si es `True`, frena de inmediato todos los actuadores.\n- `isArmAtLimitSwitch`: Si es `True`, corta la corriente del motor para evitar colisión mecánica con el chasis.\n\n**La Regla de Oro:**\nUn booleano almacena el valor de verdad (True o False) de una proposición; es la base para el control de flujo y la toma de decisiones condicionales.",
       "options": [
         {
-          "text": "Almacena exclusivamente True o False como representación de proposiciones lógicas que gobiernan bifurcaciones en la CPU",
-          "correct": true
+          "text": "Representa valores enteros que oscilan dinámicamente entre -100 y 100",
+          "correct": false
         },
         {
-          "text": "Representa valores enteros que oscilan dinámicamente entre -100 y 100",
+          "text": "Es un comando de bajo nivel que detiene el reloj interno del microprocesador",
           "correct": false
         },
         {
@@ -19,8 +19,8 @@
           "correct": false
         },
         {
-          "text": "Es un comando de bajo nivel que detiene el reloj interno del microprocesador",
-          "correct": false
+          "text": "Almacena exclusivamente True o False como representación de proposiciones lógicas que gobiernan bifurcaciones en la CPU",
+          "correct": true
         }
       ]
     },
@@ -82,15 +82,15 @@
           "correct": true
         },
         {
+          "text": "'activado'",
+          "correct": false
+        },
+        {
           "text": "'True'",
           "correct": false
         },
         {
           "text": "1.0",
-          "correct": false
-        },
-        {
-          "text": "'activado'",
           "correct": false
         }
       ]
@@ -100,19 +100,19 @@
       "question": "¿Cuál de las siguientes asignaciones comete un error de tipos al intentar modelar un estado de seguridad booleano?",
       "options": [
         {
-          "text": "frenoActivo = 'true' (asigna una cadena de caracteres en lugar del tipo booleano nativo True)",
-          "correct": true
+          "text": "frenoActivo = False (asigna el literal booleano negativo nativo)",
+          "correct": false
         },
         {
           "text": "frenoActivo = True (asigna el literal booleano nativo correcto)",
           "correct": false
         },
         {
-          "text": "frenoActivo = (presionPSI < 60) (asigna el resultado de una evaluación relacional)",
-          "correct": false
+          "text": "frenoActivo = 'true' (asigna una cadena de caracteres en lugar del tipo booleano nativo True)",
+          "correct": true
         },
         {
-          "text": "frenoActivo = False (asigna el literal booleano negativo nativo)",
+          "text": "frenoActivo = (presionPSI < 60) (asigna el resultado de una evaluación relacional)",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "presionActualPSI = 120\npresionMinimaSegura = 90\nesPresionAdecuada = presionActualPSI >= presionMinimaSegura\nprint(esPresionAdecuada)",
       "options": [
         {
-          "text": "True",
-          "correct": true
+          "text": "presionActualPSI",
+          "correct": false
         },
         {
-          "text": "False",
-          "correct": false
+          "text": "True",
+          "correct": true
         },
         {
           "text": "120",
           "correct": false
         },
         {
-          "text": "presionActualPSI",
+          "text": "False",
           "correct": false
         }
       ]

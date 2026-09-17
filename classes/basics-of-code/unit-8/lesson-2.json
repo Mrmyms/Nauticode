@@ -7,11 +7,7 @@
       "lessonText": "# Conjunción Lógica y Evaluación de Cortocircuito (Short-Circuit)\n\nEl operador lógico **AND** (`&&` en Java/C++, `and` in Python) modela la intersección booleana estricta: una proposición compuesta `A and B` es `True` **única y exclusivamente si ambas premisas son simultáneamente verdaderas**.\n\n### Tabla de Verdad de la Conjunción:\n- `True and True` -> `True`\n- `True and False` -> `False`\n- `False and True` -> `False`\n- `False and False` -> `False`\n\n### La Evaluación de Cortocircuito (Short-Circuit Evaluation):\nLos compiladores modernos aplican una optimización crucial: si el primer operando ($A$) es `False`, **la CPU cancela de inmediato la evaluación del segundo operando ($B$)** porque es matemáticamente imposible que la conjunción final sea verdadera. Esto no solo ahorra nanosegundos en bucles de alta velocidad, sino que evita errores de ejecución cuando el segundo operando depende de la validez del primero (por ejemplo: `sensor != None and sensor.leer()`).\n\nEn Nautilus 4010, el disparo seguro de notas exige conjunción estricta:\n```python\npuedeDisparar = (isFlywheelAtSpeed and isChassisAligned and isTargetLocked)\n```\nSi cualquiera de las tres condiciones falla, el actuador neumático jamás se dispara.\n\n**La Regla de Oro:**\nLa conjunción lógica AND exige que todas las premisas sean verdaderas simultáneamente; aprovecha la evaluación de cortocircuito para proteger comprobaciones de hardware.",
       "options": [
         {
-          "text": "Devuelve True únicamente si todas las condiciones son verdaderas, abortando la evaluación temprana si encuentra un False inicial",
-          "correct": true
-        },
-        {
-          "text": "Devuelve True si al menos una de las condiciones es verdadera, ignorando las demás",
+          "text": "Invierte automáticamente la polaridad de los motores si una condición es falsa",
           "correct": false
         },
         {
@@ -19,8 +15,12 @@
           "correct": false
         },
         {
-          "text": "Invierte automáticamente la polaridad de los motores si una condición es falsa",
+          "text": "Devuelve True si al menos una de las condiciones es verdadera, ignorando las demás",
           "correct": false
+        },
+        {
+          "text": "Devuelve True únicamente si todas las condiciones son verdaderas, abortando la evaluación temprana si encuentra un False inicial",
+          "correct": true
         }
       ]
     },
@@ -29,19 +29,19 @@
       "question": "Relaciona cada concepto formal sobre la conjunción lógica con su comportamiento técnico:",
       "options": [
         {
-          "text": "A and B (Conjunción)|||Produce True exclusivamente si ambos operandos son verdaderos",
-          "correct": true
-        },
-        {
-          "text": "Short-Circuit en AND|||Detiene la evaluación de inmediato si el primer operando es False",
-          "correct": true
-        },
-        {
           "text": "Tabla de Verdad AND|||Falsa en tres de los cuatro casos posibles; solo (True, True) es True",
           "correct": true
         },
         {
+          "text": "A and B (Conjunción)|||Produce True exclusivamente si ambos operandos son verdaderos",
+          "correct": true
+        },
+        {
           "text": "Interbloqueo Restrictivo|||Filtro de seguridad que exige consenso unánime de todos los sensores",
+          "correct": true
+        },
+        {
+          "text": "Short-Circuit en AND|||Detiene la evaluación de inmediato si el primer operando es False",
           "correct": true
         }
       ]
@@ -78,20 +78,20 @@
       "codeSnippet": "robotHabilitado = True\ncaminoDespejado = True\npuedeAvanzar = robotHabilitado _____ caminoDespejado\nprint('Permiso de avance: ' + str(puedeAvanzar))",
       "options": [
         {
-          "text": "and",
-          "correct": true
+          "text": "not",
+          "correct": false
         },
         {
           "text": "or",
           "correct": false
         },
         {
-          "text": "not",
+          "text": "==",
           "correct": false
         },
         {
-          "text": "==",
-          "correct": false
+          "text": "and",
+          "correct": true
         }
       ]
     },
@@ -104,7 +104,7 @@
           "correct": true
         },
         {
-          "text": "Evalúa B y C obligatoriamente antes de emitir un fallo de sintaxis",
+          "text": "Reinicia el microprocesador por seguridad eléctrica",
           "correct": false
         },
         {
@@ -112,7 +112,7 @@
           "correct": false
         },
         {
-          "text": "Reinicia el microprocesador por seguridad eléctrica",
+          "text": "Evalúa B y C obligatoriamente antes de emitir un fallo de sintaxis",
           "correct": false
         }
       ]
@@ -127,11 +127,11 @@
           "correct": true
         },
         {
-          "text": "True",
+          "text": "12.4",
           "correct": false
         },
         {
-          "text": "12.4",
+          "text": "True",
           "correct": false
         },
         {

@@ -7,19 +7,19 @@
       "lessonText": "# La Unidad Aritmético Lógica (ALU) y los Cuatro Operadores Básicos\n\nEn el corazón del microprocesador se encuentra la **ALU (Arithmetic Logic Unit)**: un circuito electrónico compuesto por transistores diseñados específicamente para realizar cómputos binarios a velocidades de miles de millones de operaciones por segundo.\n\n### Los Operadores Fundamentales:\n1. **Suma (`+`):** Integra magnitudes (ej. `puntosTotales = puntosAuto + puntosTeleop`).\n2. **Resta (`-`):** Calcula errores y diferenciales (ej. `errorPosicion = posicionTarget - posicionActual`).\n3. **Multiplicación (`*`):** Escala variables continuas mediante constantes o ganancias proporcionales (ej. `voltajeMotor = error * gananciaP`).\n4. **División (`/`):** Calcula razones continuas y promedios, produciendo siempre un resultado de punto flotante.\n\n### La Trampa Mortal de la División por Cero:\nEn matemáticas puras y en computación, dividir entre cero ($x / 0$) no produce un número válido; provoca una excepción de hardware fatal (`ZeroDivisionError` en Python o `ArithmeticException` en Java/C++). Si tu algoritmo de visión calcula la distancia como `distancia = constante / anchoPixeles` y la cámara pierde el objetivo haciendo que `anchoPixeles = 0`, el programa se detendrá de inmediato apagando el robot en plena cancha. Por ello, **siempre se debe validar que el divisor sea distinto de cero antes de dividir**.\n\n**La Regla de Oro:**\nLos operadores aritméticos transforman datos en la ALU; valida siempre los denominadores antes de dividir para impedir excepciones por división entre cero.",
       "options": [
         {
-          "text": "Transforman datos mediante circuitos electrónicos en la ALU, requiriendo validar denominadores para prevenir interrupciones por división entre cero",
-          "correct": true
-        },
-        {
           "text": "Modifican la frecuencia de reloj del procesador para igualar la velocidad de los motores físicos",
           "correct": false
         },
         {
-          "text": "Solo funcionan con números enteros pares y arrojan un error si se utilizan decimales",
+          "text": "Son instrucciones que se ejecutan exclusivamente en la memoria de la tarjeta gráfica",
           "correct": false
         },
         {
-          "text": "Son instrucciones que se ejecutan exclusivamente en la memoria de la tarjeta gráfica",
+          "text": "Transforman datos mediante circuitos electrónicos en la ALU, requiriendo validar denominadores para prevenir interrupciones por división entre cero",
+          "correct": true
+        },
+        {
+          "text": "Solo funcionan con números enteros pares y arrojan un error si se utilizan decimales",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Relaciona cada operador aritmético con su rol computacional preciso:",
       "options": [
         {
-          "text": "Suma (+) y Resta (-)|||Cálculo lineal de acumulaciones y diferenciales de posición",
+          "text": "División por Cero (x / 0)|||Error de interrupción fatal que congela la ejecución si no se previene",
           "correct": true
         },
         {
@@ -41,7 +41,7 @@
           "correct": true
         },
         {
-          "text": "División por Cero (x / 0)|||Error de interrupción fatal que congela la ejecución si no se previene",
+          "text": "Suma (+) y Resta (-)|||Cálculo lineal de acumulaciones y diferenciales de posición",
           "correct": true
         }
       ]
@@ -78,6 +78,10 @@
       "codeSnippet": "velocidadBaseRpm = 2500\nvelocidadCruceroRpm = velocidadBaseRpm _____ 2\nprint('Velocidad comandada: ' + str(velocidadCruceroRpm))",
       "options": [
         {
+          "text": "%",
+          "correct": false
+        },
+        {
           "text": "*",
           "correct": true
         },
@@ -88,10 +92,6 @@
         {
           "text": "/",
           "correct": false
-        },
-        {
-          "text": "%",
-          "correct": false
         }
       ]
     },
@@ -100,16 +100,16 @@
       "question": "¿Qué ocurre a nivel de sistema si un algoritmo de cinemática intenta evaluar `distancia / deltaTiempo` cuando `deltaTiempo = 0.0`?",
       "options": [
         {
-          "text": "La CPU dispara una interrupción fatal por división por cero (ZeroDivisionError), abortando el código del robot si no se previene",
-          "correct": true
+          "text": "Los motores se aceleran al 100% de potencia por mandato de la roboRIO",
+          "correct": false
         },
         {
           "text": "El sistema operativo asume que el resultado es 0.0 y continúa ejecutando en silencio",
           "correct": false
         },
         {
-          "text": "Los motores se aceleran al 100% de potencia por mandato de la roboRIO",
-          "correct": false
+          "text": "La CPU dispara una interrupción fatal por división por cero (ZeroDivisionError), abortando el código del robot si no se previene",
+          "correct": true
         },
         {
           "text": "El valor se redondea automáticamente al número entero más cercano a 100",
@@ -123,19 +123,19 @@
       "codeSnippet": "puntosAutonomo = 18\npuntosTeleop = 42\npenalizaciones = 6\npuntajeFinal = puntosAutonomo + puntosTeleop - penalizaciones\nprint(puntajeFinal)",
       "options": [
         {
-          "text": "54",
-          "correct": true
-        },
-        {
-          "text": "60",
-          "correct": false
-        },
-        {
           "text": "66",
           "correct": false
         },
         {
+          "text": "54",
+          "correct": true
+        },
+        {
           "text": "48",
+          "correct": false
+        },
+        {
+          "text": "60",
           "correct": false
         }
       ]

@@ -11,15 +11,15 @@
           "correct": true
         },
         {
-          "text": "Porque las variables consumen espacio de disco duro antes de guardarse en la RAM",
-          "correct": false
-        },
-        {
           "text": "Porque los lenguajes de programación solo permiten declarar variables al final del archivo",
           "correct": false
         },
         {
           "text": "Porque el procesador invierte los nombres de las variables si no están en orden alfabético",
+          "correct": false
+        },
+        {
+          "text": "Porque las variables consumen espacio de disco duro antes de guardarse en la RAM",
           "correct": false
         }
       ]
@@ -29,11 +29,7 @@
       "question": "Clasifica el rol de cada línea en una cadena de dependencias de cálculo balístico:",
       "options": [
         {
-          "text": "distanciaMetros = 4.5|||Línea Productora: Inicializa el dato primario en memoria",
-          "correct": true
-        },
-        {
-          "text": "anguloRadianes = calcularAngulo(distanciaMetros)|||Línea Consumidora y Productora: Depende de distancia",
+          "text": "print(anguloRadianes)|||Línea de Telemetría: Consume el resultado para diagnóstico",
           "correct": true
         },
         {
@@ -41,7 +37,11 @@
           "correct": true
         },
         {
-          "text": "print(anguloRadianes)|||Línea de Telemetría: Consume el resultado para diagnóstico",
+          "text": "distanciaMetros = 4.5|||Línea Productora: Inicializa el dato primario en memoria",
+          "correct": true
+        },
+        {
+          "text": "anguloRadianes = calcularAngulo(distanciaMetros)|||Línea Consumidora y Productora: Depende de distancia",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "# Inicializar antes de evaluar:\n_____ = False\n\nif sensorContacto:\n    frenar()",
       "options": [
         {
-          "text": "sensorContacto",
-          "correct": true
-        },
-        {
           "text": "frenar",
           "correct": false
         },
         {
-          "text": "print",
-          "correct": false
+          "text": "sensorContacto",
+          "correct": true
         },
         {
           "text": "True",
+          "correct": false
+        },
+        {
+          "text": "print",
           "correct": false
         }
       ]
@@ -100,19 +100,19 @@
       "question": "¿En qué línea de este código se producirá un colapso de ejecución por violación de dependencias?\n```python\n# Linea 1: print('Calculando...')\n# Linea 2: resultado = factor * 2\n# Linea 3: factor = 5\n# Linea 4: print(resultado)\n```",
       "options": [
         {
-          "text": "En la Línea 2 (intenta usar 'factor' antes de que exista en memoria)",
-          "correct": true
+          "text": "En la Línea 4 (no hay ningún error, el código correrá perfecto)",
+          "correct": false
         },
         {
-          "text": "En la Línea 1 (no se puede imprimir texto antes de los números)",
-          "correct": false
+          "text": "En la Línea 2 (intenta usar 'factor' antes de que exista en memoria)",
+          "correct": true
         },
         {
           "text": "En la Línea 3 (la variable 'factor' no puede llamarse así)",
           "correct": false
         },
         {
-          "text": "En la Línea 4 (no hay ningún error, el código correrá perfecto)",
+          "text": "En la Línea 1 (no se puede imprimir texto antes de los números)",
           "correct": false
         }
       ]
@@ -123,19 +123,19 @@
       "codeSnippet": "ancho = 4\nlargo = 6\narea = ancho * largo\nperimetro = (ancho + largo) * 2\nprint(perimetro)",
       "options": [
         {
-          "text": "20",
-          "correct": true
-        },
-        {
           "text": "24",
           "correct": false
         },
         {
-          "text": "10",
-          "correct": false
+          "text": "20",
+          "correct": true
         },
         {
           "text": "48",
+          "correct": false
+        },
+        {
+          "text": "10",
           "correct": false
         }
       ]

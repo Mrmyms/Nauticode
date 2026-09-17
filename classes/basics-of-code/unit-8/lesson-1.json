@@ -7,16 +7,16 @@
       "lessonText": "# Las Banderas de la ALU: La Mecánica de la Comparación\n\nEn la arquitectura de los procesadores, las comparaciones numéricas no son conceptos abstractos: son operaciones de sustracción controlada en la ALU (Unidad Aritmético Lógica). Cuando el código evalúa `a > b` o `a == b`, la CPU resta internamente el operando $b$ del operando $a$ sin almacenar el resultado en un registro general. En su lugar, analiza las **Banderas de Estado del Procesador (Flags)**:\n\n- **Zero Flag (Z):** Se enciende en `1` si el resultado de la resta es exactamente cero, lo que demuestra matemáticamente que `a == b`.\n- **Negative Flag (N):** Se enciende en `1` si el resultado es menor que cero, indicando que `a < b`.\n\nEl resultado definitivo de cualquier operador relacional (`==`, `!=`, `>`, `<`, `>=`, `<=`) es siempre un valor escalar booleano puro (`True` o `False`).\n\n### La Confusión Más Destructiva: = vs ==\n- **`=` (Asignación):** Es una orden imperativa de escritura destructiva en memoria RAM.\n- **`==` (Comparación de Igualdad):** Es una pregunta relacional que interroga a la CPU sobre si dos cantidades coinciden.\n\nEn un robot de competencia como Nautilus 4010, los operadores relacionales monitorean continuamente la telemetría sensorial crítica: `voltajeBateria >= 12.0`, `presionNeumaticaPSI >= 90.0`, `distanciaObstaculoMeters < 0.5`.\n\n**La Regla de Oro:**\nLos operadores relacionales comparan operandos evaluando banderas de la ALU para producir un booleano; jamás confundas la asignación destructiva (=) con la comparación de igualdad (==).",
       "options": [
         {
-          "text": "Comparan dos operandos evaluando las banderas de estado de la ALU (Zero y Negative) para producir un resultado booleano estricto",
-          "correct": true
+          "text": "Sobrescriben el valor de la variable izquierda con el valor de la variable derecha como una asignación forzada",
+          "correct": false
         },
         {
           "text": "Convierten automáticamente los números comparados en texto para imprimirlos en la consola del piloto",
           "correct": false
         },
         {
-          "text": "Sobrescriben el valor de la variable izquierda con el valor de la variable derecha como una asignación forzada",
-          "correct": false
+          "text": "Comparan dos operandos evaluando las banderas de estado de la ALU (Zero y Negative) para producir un resultado booleano estricto",
+          "correct": true
         },
         {
           "text": "Detienen el reloj del procesador durante cinco segundos para esperar una confirmación del usuario",
@@ -29,19 +29,19 @@
       "question": "Relaciona cada operador de comparación con su función precisa en la evaluación de hardware:",
       "options": [
         {
-          "text": "== (Igualdad relacional)|||Verifica si ambos operandos poseen el mismo valor numérico o lógico",
-          "correct": true
-        },
-        {
           "text": "!= (Desigualdad relacional)|||Devuelve True únicamente si ambos operandos son distintos",
           "correct": true
         },
         {
-          "text": ">= y <= (Límites inclusivos)|||Evalúan cotas numéricas incluyendo el valor frontera exacto",
+          "text": "== (Igualdad relacional)|||Verifica si ambos operandos poseen el mismo valor numérico o lógico",
           "correct": true
         },
         {
           "text": "Zero Flag (ALU)|||Bandera de hardware que se activa cuando la sustracción interna da cero",
+          "correct": true
+        },
+        {
+          "text": ">= y <= (Límites inclusivos)|||Evalúan cotas numéricas incluyendo el valor frontera exacto",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "distanciaSensorMeters = 0.38\nalertaColision = (distanciaSensorMeters _____ 0.5)\nprint('¿Alerta de proximidad? ' + str(alertaColision))",
       "options": [
         {
-          "text": "<",
-          "correct": true
-        },
-        {
-          "text": "=",
-          "correct": false
-        },
-        {
           "text": ">",
           "correct": false
         },
         {
           "text": "!=",
+          "correct": false
+        },
+        {
+          "text": "<",
+          "correct": true
+        },
+        {
+          "text": "=",
           "correct": false
         }
       ]
@@ -99,10 +99,6 @@
       "type": "SELECT",
       "question": "¿Cuál de las siguientes comparaciones relacionales produce un valor booleano estrictamente FALSE?",
       "options": [
-        {
-          "text": "10 != 10 (afirma falsamente que diez es diferente de diez)",
-          "correct": true
-        },
         {
           "text": "10 == 10 (afirma correctamente la igualdad de diez y diez)",
           "correct": false
@@ -114,6 +110,10 @@
         {
           "text": "5 < 8 (afirma correctamente que cinco es estrictamente menor que ocho)",
           "correct": false
+        },
+        {
+          "text": "10 != 10 (afirma falsamente que diez es diferente de diez)",
+          "correct": true
         }
       ]
     },
@@ -127,15 +127,15 @@
           "correct": true
         },
         {
-          "text": "True",
-          "correct": false
-        },
-        {
           "text": "100",
           "correct": false
         },
         {
           "text": "0",
+          "correct": false
+        },
+        {
+          "text": "True",
           "correct": false
         }
       ]

@@ -7,15 +7,15 @@
       "lessonText": "# El Estándar IEEE 754: La Precisión del Mundo Físico Continuo\n\nEn la física de un robot de competencia, las magnitudes reales no son discretas: el voltaje de la batería es `12.65 V`, la orientación angular es `89.94°`, la distancia ultrasónica al obstáculo es `1.82 m` y el comando de potencia a los motores varía continuamente entre `-1.0` y `1.0`.\n\nPara modelar magnitudes reales continuas se utiliza el tipo **float** (o **double** en Java/C++):\n\n### El Estándar Internacional IEEE 754:\nLa memoria RAM es finita, pero entre dos números reales existen infinitos decimales. La CPU almacena un flotante descomponiéndolo en tres campos binarios:\n1. **Signo:** 1 bit.\n2. **Exponente:** Determina la posición del punto decimal.\n3. **Mantisa (Significando):** Los bits que definen la precisión numérica.\n\n### La Imprecisión de Punto Flotante:\nDado que la computadora opera en base 2 (fracciones binarias como $1/2$, $1/4$, $1/8$), ciertas fracciones decimales cotidianas como `0.1` o `0.2` se convierten en números periódicos infinitos en binario, resultando en microimprecisiones inevitables (ej. `0.1 + 0.2 == 0.30000000000000004`). Por esta razón, **jamás debes comparar dos flotantes usando igualdad estricta (`==`)**; siempre se compara evaluando si la diferencia absoluta es menor que un margen de tolerancia épsilon ($|a - b| < \\epsilon$).\n\n**La Regla de Oro:**\nUsa 'float/double' para variables físicas continuas; compara siempre con márgenes de tolerancia (epsilon) y nunca con igualdad estricta (==).",
       "options": [
         {
+          "text": "Permite almacenar texto alfanumérico siempre y cuando las letras sean números decimales",
+          "correct": false
+        },
+        {
           "text": "Representa magnitudes continuas mediante el estándar IEEE 754 dividiendo bits en signo, exponente y mantisa, requiriendo comparación por tolerancia épsilon",
           "correct": true
         },
         {
           "text": "Es un número entero que flota temporalmente en la memoria antes de ser destruido por el recolector de basura",
-          "correct": false
-        },
-        {
-          "text": "Permite almacenar texto alfanumérico siempre y cuando las letras sean números decimales",
           "correct": false
         },
         {
@@ -29,19 +29,19 @@
       "question": "Relaciona cada componente del estándar de punto flotante con su rol computacional:",
       "options": [
         {
-          "text": "Estándar IEEE 754|||Norma binaria internacional para representación de números reales en hardware",
-          "correct": true
-        },
-        {
-          "text": "Float (32 bits)|||Precisión simple adecuada para telemetría general y porcentaje de motor",
-          "correct": true
-        },
-        {
           "text": "Double (64 bits)|||Doble precisión requerida para cinemática swerve y navegación odometría",
           "correct": true
         },
         {
+          "text": "Estándar IEEE 754|||Norma binaria internacional para representación de números reales en hardware",
+          "correct": true
+        },
+        {
           "text": "Margen Epsilon (epsilon)|||Umbral de tolerancia mínima utilizado para comparar dos flotantes con seguridad",
+          "correct": true
+        },
+        {
+          "text": "Float (32 bits)|||Precisión simple adecuada para telemetría general y porcentaje de motor",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "potenciaMotorAvance = _____\nprint('Ciclo de trabajo PWM: ' + str(potenciaMotorAvance))",
       "options": [
         {
-          "text": "0.75",
-          "correct": true
+          "text": "3/4",
+          "correct": false
         },
         {
           "text": "75",
           "correct": false
         },
         {
-          "text": "'0.75'",
-          "correct": false
+          "text": "0.75",
+          "correct": true
         },
         {
-          "text": "3/4",
+          "text": "'0.75'",
           "correct": false
         }
       ]
@@ -100,11 +100,11 @@
       "question": "¿Por qué en algoritmos de navegación autónoma es un error crítico evaluar una condición como `anguloActual == 90.0`?",
       "options": [
         {
-          "text": "Porque microimprecisiones de redondeo binario del IEEE 754 pueden hacer que el giroscopio reporte 90.0000001, bloqueando el bucle indefinidamente",
-          "correct": true
+          "text": "Porque el operador '==' solo permite comparar números enteros negativos",
+          "correct": false
         },
         {
-          "text": "Porque el operador '==' solo permite comparar números enteros negativos",
+          "text": "Porque el compilador convierte automáticamente el número 90.0 en cero al entrar a un condicional",
           "correct": false
         },
         {
@@ -112,8 +112,8 @@
           "correct": false
         },
         {
-          "text": "Porque el compilador convierte automáticamente el número 90.0 en cero al entrar a un condicional",
-          "correct": false
+          "text": "Porque microimprecisiones de redondeo binario del IEEE 754 pueden hacer que el giroscopio reporte 90.0000001, bloqueando el bucle indefinidamente",
+          "correct": true
         }
       ]
     },
@@ -123,16 +123,16 @@
       "codeSnippet": "voltajeInicial = 12.0\ncaidaTension = 1.25\nvoltajeCarga = voltajeInicial - caidaTension\nprint(voltajeCarga)",
       "options": [
         {
-          "text": "10.75",
-          "correct": true
+          "text": "11.25",
+          "correct": false
         },
         {
           "text": "10.7",
           "correct": false
         },
         {
-          "text": "11.25",
-          "correct": false
+          "text": "10.75",
+          "correct": true
         },
         {
           "text": "10.0",

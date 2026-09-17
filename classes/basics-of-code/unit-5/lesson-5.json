@@ -11,7 +11,7 @@
           "correct": true
         },
         {
-          "text": "Reescribir todo el software del robot desde cero cambiando los algoritmos matemáticos",
+          "text": "Borrar los nombres de las variables para que el archivo pese menos kilobytes",
           "correct": false
         },
         {
@@ -19,7 +19,7 @@
           "correct": false
         },
         {
-          "text": "Borrar los nombres de las variables para que el archivo pese menos kilobytes",
+          "text": "Reescribir todo el software del robot desde cero cambiando los algoritmos matemáticos",
           "correct": false
         }
       ]
@@ -29,7 +29,7 @@
       "question": "Relaciona cada término de calidad de software con su significado técnico formal:",
       "options": [
         {
-          "text": "Refactorización|||Mejora de la estructura y legibilidad interna del código sin alterar su comportamiento",
+          "text": "Self-Documenting Code|||Código tan claro en sus nombres y estructura que es intuitivo sin exceso de notas",
           "correct": true
         },
         {
@@ -37,11 +37,11 @@
           "correct": true
         },
         {
-          "text": "Self-Documenting Code|||Código tan claro en sus nombres y estructura que es intuitivo sin exceso de notas",
+          "text": "Dead Code|||Líneas comentadas o variables obsoletas que ya no participan en la ejecución",
           "correct": true
         },
         {
-          "text": "Dead Code|||Líneas comentadas o variables obsoletas que ya no participan en la ejecución",
+          "text": "Refactorización|||Mejora de la estructura y legibilidad interna del código sin alterar su comportamiento",
           "correct": true
         }
       ]
@@ -78,19 +78,19 @@
       "codeSnippet": "TARGET_SHOOTER_RPM = 4500\n// Asignacion refactorizada con constante simbolica\nactualShooterRpm = _____\nprint('Shooter calibrado a: ' + str(actualShooterRpm) + ' RPM')",
       "options": [
         {
-          "text": "TARGET_SHOOTER_RPM",
-          "correct": true
-        },
-        {
           "text": "4500",
           "correct": false
         },
         {
-          "text": "actualShooterRpm",
-          "correct": false
+          "text": "TARGET_SHOOTER_RPM",
+          "correct": true
         },
         {
           "text": "'4500 RPM'",
+          "correct": false
+        },
+        {
+          "text": "actualShooterRpm",
           "correct": false
         }
       ]
@@ -100,20 +100,20 @@
       "question": "Si necesitas almacenar la lectura de posición angular absoluta de la torreta en radianes, ¿cuál es el identificador óptimo?",
       "options": [
         {
-          "text": "turretAbsoluteHeadingRadians (describe subsistema, tipo de medida y unidad angular)",
-          "correct": true
+          "text": "cosaQueGiraEnRadianesSobreElChasis (excesivamente informal y verboso)",
+          "correct": false
         },
         {
           "text": "ang (demasiado vago y no especifica unidad)",
           "correct": false
         },
         {
-          "text": "cosaQueGiraEnRadianesSobreElChasis (excesivamente informal y verboso)",
+          "text": "headingDegrees (especifica grados cuando el dato está en radianes)",
           "correct": false
         },
         {
-          "text": "headingDegrees (especifica grados cuando el dato está en radianes)",
-          "correct": false
+          "text": "turretAbsoluteHeadingRadians (describe subsistema, tipo de medida y unidad angular)",
+          "correct": true
         }
       ]
     },
@@ -123,16 +123,16 @@
       "codeSnippet": "AUTONOMOUS_SPEED_RATIO = 0.75\nBASE_VELOCITY_MPS = 4.0\neffectiveVelocityMps = BASE_VELOCITY_MPS * AUTONOMOUS_SPEED_RATIO\nprint('Velocidad efectiva: ' + str(effectiveVelocityMps) + ' m/s')",
       "options": [
         {
-          "text": "Velocidad efectiva: 3.0 m/s",
-          "correct": true
-        },
-        {
           "text": "Velocidad efectiva: 4.0 m/s",
           "correct": false
         },
         {
           "text": "Velocidad efectiva: 0.75 m/s",
           "correct": false
+        },
+        {
+          "text": "Velocidad efectiva: 3.0 m/s",
+          "correct": true
         },
         {
           "text": "Velocidad efectiva: 3 m/s",
