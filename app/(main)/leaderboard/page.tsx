@@ -16,7 +16,8 @@ import {
 } from "@/db/queries";
 
 const LeaderboardPage = async () => {
-  await auth.protect();
+  const { userId } = await auth();
+  if (!userId) return redirect("/sign-in");
 
   const userProgressData = getUserProgress();
   const userSubscriptionData = getUserSubscription();

@@ -12,7 +12,8 @@ type LessonIdPageProps = {
 };
 
 const LessonIdPage = async ({ params }: LessonIdPageProps) => {
-  await auth.protect();
+  const { userId } = await auth();
+  if (!userId) return redirect("/sign-in");
 
   const { lessonId } = await params;
 

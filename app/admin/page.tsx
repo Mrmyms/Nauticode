@@ -5,7 +5,8 @@ import { getIsAdmin } from "@/lib/admin";
 import { App } from "./app";
 
 const AdminPage = async () => {
-  await auth.protect();
+  const { userId } = await auth();
+  if (!userId) return redirect("/sign-in");
 
   const isAdmin = await getIsAdmin();
 

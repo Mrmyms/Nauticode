@@ -4,14 +4,20 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { auth } from "@clerk/nextjs/server";
+
 type GuidebookPageProps = {
-  params: {
+  params: Promise<{
     unitId: string;
-  };
+  }>;
 };
 
 const GuidebookPage = async ({ params }: GuidebookPageProps) => {
-  const unitId = parseInt(params.unitId);
+  const { userId } = await auth();
+  if (!userId) return redirect("/sign-in");
+
+  const { unitId: rawUnitId } = await params;
+  const unitId = parseInt(rawUnitId);
 
   if (isNaN(unitId)) {
     redirect("/learn");

@@ -34,6 +34,8 @@ export default function RootLayout({
         },
       }}
       telemetry={false}
+      signInFallbackRedirectUrl="/learn"
+      signUpFallbackRedirectUrl="/learn"
       afterSignOutUrl="/"
     >
       <html lang="en">

@@ -6,7 +6,8 @@ import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 import { Quiz } from "./quiz";
 
 const LessonPage = async () => {
-  await auth.protect();
+  const { userId } = await auth();
+  if (!userId) return redirect("/sign-in");
 
   const lessonData = getLesson();
   const userProgressData = getUserProgress();
