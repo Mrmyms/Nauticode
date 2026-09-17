@@ -3,6 +3,7 @@ import path from "path";
 import { neon } from "@neondatabase/serverless";
 import "dotenv/config";
 import { drizzle } from "drizzle-orm/neon-http";
+import { eq } from "drizzle-orm";
 
 import * as schema from "@/db/schema";
 
@@ -21,16 +22,23 @@ const main = async () => {
     await db.delete(schema.lessons);
     await db.delete(schema.units);
 
-    // Setup predefined courses (preserve existing courses to avoid cascading user deletions)
+    // Setup predefined courses (Basics of Code & Java)
     const coursesMap: Record<string, number> = {};
     const predefinedCourses = [
       { title: "Basics of Code", imageSrc: "/basics.svg" },
       { title: "Java", imageSrc: "/java.svg" },
-      { title: "C++", imageSrc: "/cpp.svg" },
-      { title: "Python", imageSrc: "/python.svg" },
     ];
 
+    // Delete unused courses like C++ and Python if they exist
     const existingCourses = await db.select().from(schema.courses);
+    for (const existing of existingCourses) {
+      const isPredefined = predefinedCourses.some(p => p.title.toLowerCase() === existing.title.toLowerCase());
+      if (!isPredefined) {
+        await db.delete(schema.courses).where(eq(schema.courses.id, existing.id));
+        console.log(`  🗑️ Removed course '${existing.title}' from database.`);
+      }
+    }
+
     for (const pre of predefinedCourses) {
       const found = existingCourses.find(c => c.title.toLowerCase() === pre.title.toLowerCase());
       if (found) {
