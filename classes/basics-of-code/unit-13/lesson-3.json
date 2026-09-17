@@ -3,106 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es una variable bandera (flag variable)?",
-      "lessonText": "# Levantando la Bandera \n\nUna **Flag (bandera)** es una variable booleana que actúa como señal de alerta entre diferentes partes del código.\n\nEjemplo clásico:\n```python\npeligroDetectado = false  # Bandera abajo\n\nfor sensor in listaSensores:\n    if sensor.temperatura > 90:\n        peligroDetectado = true  # ¡Bandera arriba!\n        break\n\nif peligroDetectado:\n    activarVentiladores()\n```\nLa bandera recuerda el resultado de la búsqueda para que otras partes del programa puedan actuar en consecuencia.",
+      "question": "¿Qué es una variable bandera (flag) y cómo coordina estados entre bucles y subsistemas?",
+      "lessonText": "# Coordinación de Estados y Banderas Lógicas\n\nUna **variable bandera (flag)** es un indicador booleano (`True` o `False`) que registra la ocurrencia de un evento de interés dentro de una rutina para que otros módulos del programa puedan actuar sobre ese resultado con posterioridad.\n\n```python\nalerta_temperatura = False\nfor temp in temperaturas_motores:\n    if temp > 80.0:\n        alerta_temperatura = True\n        break\n\nif alerta_temperatura:\n    activar_ventilacion_maxima()\n```\n\nEn Nautilus 4010, el subsistema de admisión utiliza una bandera `nota_asegurada`. Cuando el sensor ToF confirma que la pieza ingresó a la cámara de tiro, la bandera se fija en `True` y se rompe el bucle de búsqueda. El subsistema del shooter consulta esta bandera para autorizar la ignición de los motores del flywheel.\n\n**Regla de Oro: Las variables bandera almacenan el resultado booleano de una búsqueda o condición dentro de un bucle para que otros módulos del programa puedan actuar sobre ese estado tras salir de él.**",
       "options": [
         {
-          "text": "Una variable booleana que cambia de estado para señalar que un evento o condición ocurrió",
+          "text": "Una variable booleana que registra si un evento o condición ocurrió durante un ciclo para que otros módulos puedan actuar",
           "correct": true
         },
         {
-          "text": "La bandera de tela que lleva el robot en el desfile",
+          "text": "Un cable especial que conecta el chasis a la tierra física del campo de juego",
           "correct": false
         },
         {
-          "text": "Un archivo de imagen en la computadora",
+          "text": "Un archivo de texto que almacena contraseñas de seguridad de la Driver Station",
           "correct": false
         },
         {
-          "text": "Un botón físico en el joystick",
+          "text": "Una función que multiplica números flotantes por potencias de diez automáticamente",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá la consola tras evaluar la bandera?",
-      "codeSnippet": "hayFalla = false\nfor modulo in range(3):\n    if modulo == 1:\n        hayFalla = true\n        break\nprint(hayFalla)",
+      "type": "MATCHING",
+      "question": "Relaciona cada aspecto del patrón de bandera lógica con su función:",
       "options": [
         {
-          "text": "true",
+          "text": "Variable bandera (Flag)|||Variable booleana que registra si un evento o condición ocurrió durante el bucle",
           "correct": true
         },
         {
-          "text": "false",
-          "correct": false
+          "text": "Desacoplamiento de módulos|||Permite que la detección de un sensor comunique su resultado a otro subsistema",
+          "correct": true
         },
         {
-          "text": "none",
-          "correct": false
+          "text": "Inicialización en False|||Estado estándar de la bandera antes de comenzar la exploración o búsqueda",
+          "correct": true
         },
         {
-          "text": "1",
-          "correct": false
+          "text": "Levantar la bandera|||Asignación del valor True cuando la condición buscada se verifica exitosamente",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura para inicializar la bandera y activarla al detectar sobrecalentamiento:",
+      "options": [
+        {
+          "text": "alerta_temperatura = False",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "for temp in temperaturas_motores:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    if temp > 80.0:",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "        alerta_temperatura = True",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la inicialización estándar de una bandera de estado:",
-      "codeSnippet": "sistemaListo = _____\nwhile not sistemaListo:\n    sistemaListo = verificarComponentes()",
+      "question": "¿Con qué valor booleano debe inicializarse la bandera antes de comenzar la búsqueda?",
+      "codeSnippet": "objetivo_encontrado = _____\nfor tag in tags_detectados:\n    if tag == ID_SPEAKER:\n        objetivo_encontrado = True\n        break",
       "options": [
         {
-          "text": "false",
+          "text": "False",
           "correct": true
         },
         {
-          "text": "'listo'",
+          "text": "True",
           "correct": false
         },
         {
-          "text": "0.0",
+          "text": "None",
           "correct": false
         },
         {
-          "text": "none",
+          "text": "0",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Por qué combinar una variable bandera con un 'break' es una excelente práctica de optimización?",
+      "question": "¿Por qué combinar una variable bandera con un 'break' es un patrón de diseño eficiente en algoritmos de búsqueda?",
       "options": [
         {
-          "text": "Porque ahorra ciclos de cómputo al no seguir buscando innecesariamente una vez que la meta fue cumplida",
+          "text": "Porque registra el éxito de la búsqueda para el resto del programa y ahorra tiempo de CPU abortando iteraciones innecesarias",
           "correct": true
         },
         {
-          "text": "Porque hace que el robot pese menos",
+          "text": "Porque reduce el voltaje físico requerido por la memoria RAM del controlador",
           "correct": false
         },
         {
-          "text": "Porque borra los virus automáticamente",
+          "text": "Porque permite cambiar dinámicamente el nombre de las variables durante el partido",
           "correct": false
         },
         {
-          "text": "No tiene ninguna ventaja",
+          "text": "Porque evita que el bus CAN transmita paquetes a más de 10 baudios",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Escribe la instrucción que levanta la bandera asignando true a 'targetFound':",
-      "codeSnippet": "// Levanta la bandera",
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola tras escanear la lista de códigos y detectar un fallo?",
+      "codeSnippet": "falla_detectada = False\nfor codigo in [0, 0, 404, 0]:\n    if codigo != 0:\n        falla_detectada = True\n        break\nprint(falla_detectada)",
       "options": [
         {
-          "text": "targetFound = true",
+          "text": "True",
           "correct": true
         },
         {
-          "text": "targetFound == true",
+          "text": "False",
+          "correct": false
+        },
+        {
+          "text": "404",
+          "correct": false
+        },
+        {
+          "text": "None",
           "correct": false
         }
       ]

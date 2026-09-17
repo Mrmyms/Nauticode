@@ -35,7 +35,7 @@ const main = async () => {
       const isPredefined = predefinedCourses.some(p => p.title.toLowerCase() === existing.title.toLowerCase());
       if (!isPredefined) {
         await db.delete(schema.courses).where(eq(schema.courses.id, existing.id));
-        console.log(`  🗑️ Removed course '${existing.title}' from database.`);
+        console.log(`  [DELETE] Removed course '${existing.title}' from database.`);
       }
     }
 

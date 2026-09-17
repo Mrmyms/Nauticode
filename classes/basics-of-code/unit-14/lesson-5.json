@@ -3,101 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Construyendo la librería de movimientos de Nautilus 4010!",
-      "lessonText": "# El Kit de Movimiento de Teus \n\nPara que los pilotos y los programadores de autónomo no tengan que lidiar con voltajes individuales de 4 ruedas en cada línea, creamos la capa de abstracción de comandos:\n- `avanzar()`\n- `retroceder()`\n- `girarDerecha()`\n- `frenar()`\n\nEn este reto final de la Unidad 14, definirás y enlazarás las funciones base del chasis para crear una coreografía limpia de movimientos.",
+      "question": "¿Cómo se construye una capa de abstracción de hardware (HAL) para el chasis de un robot?",
+      "lessonText": "# La Capa de Abstracción de Hardware (HAL)\n\nPara que los pilotos y programadores de estrategia autónoma no tengan que manipular tensiones eléctricas o paquetes individuales de 4 ruedas en cada maniobra, el software construye una **Capa de Abstracción de Hardware (HAL)** mediante funciones modulares:\n\n```python\ndef avanzar_lineal(potencia):\n    chasis_swerve.fijar_vector(0, potencia, 0)\n\ndef rotar_grados(grados):\n    chasis_swerve.orientar_azimut(grados)\n\ndef frenar_chasis():\n    chasis_swerve.configurar_xbraking()\n```\n\nEn Nautilus 4010, esta librería estandariza el control mecánico del robot. Si los ingenieros mecánicos reemplazan un motor o cambian el diámetro de las ruedas, los cambios se corrigen únicamente en la biblioteca HAL sin tocar una sola línea del código de estrategia de competencia.\n\n**Regla de Oro: Una librería de comandos de movimiento estandariza la interacción con el chasis, aislando la lógica estratégica de las variaciones cinemáticas de los motores.**",
       "options": [
         {
-          "text": "¡Vamos a programar los comandos del chasis con Teus!",
+          "text": "Estandarizando movimientos en funciones modulares que aíslan la lógica estratégica de los voltajes físicos de los motores",
           "correct": true
         },
         {
-          "text": "Prefiero mover cada rueda escribiendo voltajes a mano",
+          "text": "Conectando los motores directamente a la batería sin fusibles ni controladores de potencia",
           "correct": false
         },
         {
-          "text": "No quiero modularizar",
+          "text": "Eliminando las ruedas del robot para reemplazar la tracción por patines deslizantes",
           "correct": false
         },
         {
-          "text": "Quiero desconectar los motores",
+          "text": "Escribiendo valores binarios directos en la memoria RAM del controlador sin funciones",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Define la función 'frenar' que imprima 'MOTORES DETENIDOS':",
-      "codeSnippet": "// Define la función frenar",
+      "type": "MATCHING",
+      "question": "Relaciona cada función de la capa de abstracción con su rol cinemático:",
       "options": [
         {
-          "text": "def frenar():\n    print('MOTORES DETENIDOS')",
+          "text": "Capa HAL (Hardware Abstraction)|||Conjunto de funciones que unifican el control de motores bajo comandos claros",
           "correct": true
         },
         {
-          "text": "def frenar: print('MOTORES DETENIDOS')",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué secuencia de acciones mostrará este autónomo modular?",
-      "codeSnippet": "def avanzar():\n    print('AVANZANDO')\ndef disparar():\n    print('DISPARANDO')\n\navanzar()\ndisparar()",
-      "options": [
-        {
-          "text": "AVANZANDO\nDISPARANDO",
+          "text": "Comando de traslación|||Función que aplica voltajes coordinados para desplazar el chasis en línea recta",
           "correct": true
         },
         {
-          "text": "DISPARANDO\nAVANZANDO",
-          "correct": false
+          "text": "Comando de rotación|||Función que aplica torque diferencial para orientar el chasis a un ángulo objetivo",
+          "correct": true
+        },
+        {
+          "text": "Freno de retención pasivo|||Función que fija la velocidad en cero y conmuta los motores a modo freno (Brake)",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena la rutina para definir y ejecutar la maniobra de giro:",
+      "question": "Ordena la definición e invocación de la maniobra de rotación parametrizada:",
       "options": [
         {
-          "text": "def girar90Grados():",
+          "text": "def girar_angulo(grados):",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "    print('Iniciando rotación...')",
+          "text": "    giroscopio.reset()",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "    print('Rotación de 90 grados completada')",
+          "text": "    chasis.aplicar_giro(grados)",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "girar90Grados()",
+          "text": "girar_angulo(90)",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Cuál es el resumen de la Unidad 14 sobre Funciones?",
+      "type": "CODE_FILL",
+      "question": "¿Qué invocación detiene todos los motores del chasis utilizando el comando modular?",
+      "codeSnippet": "def detener_chasis():\n    motor_fl.set(0.0)\n    motor_fr.set(0.0)\n    motor_bl.set(0.0)\n    motor_br.set(0.0)\n\n# Llamar al comando de frenado total\n_____",
       "options": [
         {
-          "text": "Las funciones nos permiten organizar código complejo en bloques reutilizables, legibles y fáciles de mantener",
+          "text": "detener_chasis()",
           "correct": true
         },
         {
-          "text": "Las funciones solo sirven para imprimir texto",
+          "text": "detener_chasis;",
           "correct": false
         },
         {
-          "text": "Usar funciones hace que el programa consuma toda la memoria",
+          "text": "run detener",
           "correct": false
         },
         {
-          "text": "Las funciones están prohibidas en competencias de robótica",
+          "text": "stop chasis",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué diseñar una biblioteca de comandos de chasis con funciones modulares es fundamental en equipos de desarrollo colaborativo de robótica?",
+      "options": [
+        {
+          "text": "Porque permite a los programadores de estrategia escribir rutinas autónomas complejas sin necesidad de manipular voltajes individuales de 4 ruedas en cada línea",
+          "correct": true
+        },
+        {
+          "text": "Porque elimina el consumo eléctrico de los controladores de motor durante la carrera",
+          "correct": false
+        },
+        {
+          "text": "Porque reduce las dimensiones físicas del chasis para cumplir con la inspección de peso",
+          "correct": false
+        },
+        {
+          "text": "Porque permite conducir el robot sin necesidad de compilar el código fuente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola al ejecutar los dos comandos de registro sucesivos?",
+      "codeSnippet": "def registrar_paso(etiqueta):\n    print('PASO:' + etiqueta)\n\nregistrar_paso('INTAKE')\nregistrar_paso('DISPARO')",
+      "options": [
+        {
+          "text": "PASO:INTAKE\nPASO:DISPARO",
+          "correct": true
+        },
+        {
+          "text": "PASO:DISPARO\nPASO:INTAKE",
+          "correct": false
+        },
+        {
+          "text": "PASO:INTAKE",
+          "correct": false
+        },
+        {
+          "text": "INTAKE DISPARO",
           "correct": false
         }
       ]

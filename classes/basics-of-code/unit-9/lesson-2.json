@@ -3,117 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué la indentación es obligatoria en Python y el orden visual en todos los lenguajes?",
-      "lessonText": "# El Espacio es Estructura \n\nObserva con atención este ejemplo:\n```python\nif robotHabilitado:\n    print('Encendiendo compresor')\n    print('Calibrando encoders')\nprint('Programa activo')\n```\n- Las líneas que tienen **4 espacios de sangría** hacia adentro forman el **cuerpo del `if`**. Solo corren si `robotHabilitado` es `true`.\n- La última línea (`print('Programa activo')`) no tiene sangría: está **afuera del `if`** y se ejecutará SIEMPRE, sin importar la condición.\n\nEn Java y C++ el cuerpo se delimita con llaves `{ ... }`, pero los buenos programadores siempre indentan para que el código sea legible.",
+      "question": "¿Por qué la indentación define el alcance léxico en lenguajes como Python y cómo previene fallos mecánicos?",
+      "lessonText": "# Estructura y Alcance Léxico\n\nEn ciencias de la computación, agrupar instrucciones determina qué líneas pertenecen al cuerpo condicional y cuáles pertenecen al flujo incondicional de la aplicación. Mientras que lenguajes como C++, Java y Rust utilizan llaves `{}` para delimitar bloques, Python emplea **whitespace significativo** (indentación estándar de 4 espacios según PEP 8).\n\n```python\nif sensor_presencia == True:\n    cerrar_garra()\n    encender_indicador_led()\naplicar_torque_traccion()\n```\nEn este fragmento, `cerrar_garra()` y `encender_indicador_led()` sólo se ejecutan si la condición es verdadera. Sin embargo, `aplicar_torque_traccion()` está en la columna base exterior, por lo que se ejecuta siempre sin importar la condición.\n\nEn FRC Nautilus 4010, un error de indentación donde la retracción del pistón quedó fuera del bloque condicional provocó que el mecanismo se accionara repetidamente a 50 Hz en cada ciclo del procesador roboRIO, despresurizando el tanque de aire en menos de dos segundos.\n\n**Regla de Oro: La indentación define jerarquías de ejecución deterministas; cada instrucción indentada pertenece al bloque de la sentencia superior, mientras que regresar a la columna base marca el reingreso al flujo incondicional.**",
       "options": [
         {
-          "text": "Porque define los límites de qué instrucciones están dentro de la condición y cuáles están fuera",
+          "text": "Porque establece de forma explícita qué instrucciones pertenecen al cuerpo condicional y cuáles se ejecutan incondicionalmente",
           "correct": true
         },
         {
-          "text": "Porque a la CPU le gusta ver márgenes anchos",
+          "text": "Porque duplica la memoria asignada a las variables numéricas para evitar desbordamientos",
           "correct": false
         },
         {
-          "text": "Para que el archivo pese más kilobytes",
+          "text": "Porque indica al procesador qué líneas de código deben enviarse a la tarjeta gráfica",
           "correct": false
         },
         {
-          "text": "Es solo decorativo y nunca afecta el funcionamiento en ningún lenguaje",
+          "text": "Porque permite que el compilador ejecute el programa en sentido inverso cuando hay un error",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el bug en este bloque en Python (IndentationError):",
-      "codeSnippet": "if velocidad > 0:\nprint('Robot en movimiento')",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de delimitación de código con su definición técnica:",
       "options": [
         {
-          "text": "La línea del print debe estar indentada (con sangría) debajo del 'if'",
+          "text": "4 Espacios PEP 8|||Estándar formal de la industria para definir un nivel de bloque en Python",
           "correct": true
         },
         {
-          "text": "Falta un punto y coma al final",
-          "correct": false
-        },
-        {
-          "text": "No se puede usar la palabra velocidad",
-          "correct": false
-        },
-        {
-          "text": "El signo '>' no existe",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Qué líneas se ejecutarán si 'sensor' vale 5?",
-      "codeSnippet": "sensor = 5\nif sensor > 10:\n    print('A')\n    print('B')\nprint('C')",
-      "options": [
-        {
-          "text": "Solamente 'C' (porque A y B están dentro del if que dio false)",
+          "text": "IndentationError|||Fallo léxico generado cuando los espacios de una línea no concuerdan con su bloque",
           "correct": true
         },
         {
-          "text": "A, B y C",
-          "correct": false
+          "text": "Delimitación por llaves {}|||Mecanismo de alcance léxico utilizado en C, C++, Java y Rust",
+          "correct": true
         },
         {
-          "text": "A y B solamente",
-          "correct": false
-        },
-        {
-          "text": "Ninguna",
-          "correct": false
+          "text": "Flujo incondicional|||Instrucciones en la columna base que siempre se ejecutan tras evaluar la bifurcación",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena este bloque condicional correctamente:",
+      "question": "Ordena las líneas respetando la jerarquía de indentación para la refrigeración del motor:",
       "options": [
         {
-          "text": "sensorOptico = true",
+          "text": "temperatura_motor = leer_termocupla()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "if sensorOptico == true:",
+          "text": "if temperatura_motor > 85.0:",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "    detenerMotorIntake()",
+          "text": "    refrigeracion_liquida.encender()",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "    print('Pieza asegurada')",
+          "text": "log_telemetria(temperatura_motor)",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "En Java y C++, ¿qué símbolos se utilizan para abrir y cerrar el bloque de un if?",
+      "type": "CODE_FILL",
+      "question": "¿Qué debe colocarse al inicio de la línea para subordinar la alerta al bloque condicional?",
+      "codeSnippet": "velocidad_rpm = 4500\nif velocidad_rpm > 4000:\n____alerta_sobregiro = True\nregistro_can.guardar(velocidad_rpm)",
       "options": [
         {
-          "text": "Llaves { y }",
+          "text": "    ",
           "correct": true
         },
         {
-          "text": "Corchetes [ y ]",
+          "text": ";",
           "correct": false
         },
         {
-          "text": "Comillas \" y \"",
+          "text": "->",
           "correct": false
         },
         {
-          "text": "Flechas <- y ->",
+          "text": "//",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué mezclar tabuladores y espacios en el código fuente de un sistema embebido es una práctica inaceptable?",
+      "options": [
+        {
+          "text": "Porque diferentes editores y compiladores interpretan el tabulador con distinto ancho, provocando inconsistencias léxicas y fallos de ejecución",
+          "correct": true
+        },
+        {
+          "text": "Porque los tabuladores incrementan el consumo eléctrico del microcontrolador al ejecutar el código",
+          "correct": false
+        },
+        {
+          "text": "Porque los procesadores de arquitectura ARM Cortex no admiten caracteres ASCII correspondientes a tabuladores",
+          "correct": false
+        },
+        {
+          "text": "Porque el bus de comunicaciones CAN rechaza cualquier paquete de datos derivado de archivos con tabuladores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué valores exactos imprimirá este programa al finalizar la ejecución secuencial?",
+      "codeSnippet": "disparador_listo = False\nmunicion = 3\nif municion > 0:\n    disparador_listo = True\n    municion = municion - 1\nmunicion = 0\nprint(disparador_listo, municion)",
+      "options": [
+        {
+          "text": "True 0",
+          "correct": true
+        },
+        {
+          "text": "True 2",
+          "correct": false
+        },
+        {
+          "text": "False 0",
+          "correct": false
+        },
+        {
+          "text": "False 3",
           "correct": false
         }
       ]

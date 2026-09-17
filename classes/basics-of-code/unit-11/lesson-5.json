@@ -1,116 +1,141 @@
 {
-  "title": "Reto: Moviendo el Brazo Mecánico",
+  "title": "Reto: Recarga del Compresor Neumático",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Control en lazo cerrado para el brazo de Nautilus 4010!",
-      "lessonText": "# Llevando el Brazo a su Posición \n\nEl brazo articulado de nuestro robot tiene un encoder magnético que mide el ángulo actual en grados.\n\nQueremos mover el brazo desde `0` grados hasta alcanzar el ángulo objetivo de `90` grados:\n- Mientras `anguloActual < 90`:\n  - Aplicamos potencia suave al motor del brazo.\n  - En cada ciclo leemos el nuevo ángulo del encoder.\n- En cuanto llega a 90, el bucle concluye y frenamos el motor.\n\nEn este reto final de la Unidad 11, programarás este movimiento preciso.",
+      "question": "¿Cómo se programa un ciclo seguro de presurización neumática con umbral de presión y guarda de seguridad?",
+      "lessonText": "# Lazo de Control Neumático y Presurización Segura\n\nLos sistemas neumáticos de potencia operan acumulando aire a presión (típicamente entre 60 y 115 PSI) en tanques de almacenamiento. El control de la recarga se realiza con un bucle `while` que evalúa la lectura analógica del transductor de presión.\n\n```python\npresion_psi = sensor_presion.leer()\nciclos_seguridad = 0\nwhile presion_psi < 115 and ciclos_seguridad < 200:\n    compresor.presurizar_pulso()\n    presion_psi = sensor_presion.leer()\n    ciclos_seguridad += 1\n```\n\nEn Nautilus 4010, este bucle presuriza los actuadores de la garra y los pistones del freno. Si una manguera de alta presión sufre una fisura o fuga durante el partido, la presión jamás alcanzará los 115 PSI. La guarda `ciclos_seguridad < 200` garantiza que el compresor se detenga tras un número seguro de ciclos, impidiendo que la bomba se sobrecaliente y funda sus sellos mecánicos.\n\n**Regla de Oro: Los bucles de presurización neumática deben validar tanto el manómetro analógico como un tiempo límite para proteger la bomba contra fugas no detectadas.**",
       "options": [
         {
-          "text": "¡Vamos a programar el movimiento con Teus!",
+          "text": "Supervisando el transductor de presión junto con una guarda de ciclos máximos para evitar que una fuga queme la bomba",
           "correct": true
         },
         {
-          "text": "Prefiero que el brazo gire sin parar hasta doblar el chasis",
+          "text": "Manteniendo el compresor encendido permanentemente sin sensores para maximizar el flujo de aire",
           "correct": false
         },
         {
-          "text": "No quiero usar bucles",
+          "text": "Desconectando las mangueras de aire cada vez que el robot entra en la zona de puntuación",
           "correct": false
         },
         {
-          "text": "Quiero mover el brazo con la mano durante el match",
+          "text": "Sustituyendo los transductores de presión por sensores de temperatura en los neumáticos",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "El ángulo avanza de 30 en 30 grados. ¿Qué ángulo final registrará la consola tras salir del bucle?",
-      "codeSnippet": "angulo = 0\nwhile angulo < 90:\n    angulo += 30\nprint(angulo)",
+      "type": "MATCHING",
+      "question": "Relaciona cada elemento del control neumático con su definición operativa:",
       "options": [
         {
-          "text": "90",
+          "text": "Manómetro analógico|||Transductor de presión que convierte fuerza neumática en señal de voltaje",
           "correct": true
         },
         {
-          "text": "60",
-          "correct": false
+          "text": "Ciclo de bombeo|||Intervalo unitario de operación del pistón compresor para comprimir aire",
+          "correct": true
         },
         {
-          "text": "120",
-          "correct": false
+          "text": "Presión de corte|||Umbral de 115 PSI donde el sistema desenergiza el compresor por seguridad",
+          "correct": true
         },
         {
-          "text": "0",
-          "correct": false
+          "text": "Guarda de seguridad|||Condición compuesta que detiene la carga si se excede el número máximo de ciclos",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena el algoritmo completo de control del brazo con encoder:",
+      "question": "Ordena la rutina de presurización neumática con lectura continua de presión:",
       "options": [
         {
-          "text": "anguloActual = leerEncoderBrazo()",
+          "text": "presion_psi = sensor_presion.leer()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "while anguloActual < 90:",
+          "text": "while presion_psi < 115 and ciclos_seguridad < 200:",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "    motorBrazo.set(0.4)",
+          "text": "    compresor.presurizar_pulso()",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "    anguloActual = leerEncoderBrazo()",
+          "text": "    presion_psi = sensor_presion.leer()",
           "correct": true,
           "audioSrc": "4"
-        },
-        {
-          "text": "motorBrazo.set(0.0)",
-          "correct": true,
-          "audioSrc": "5"
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la consola tras el ciclo de advertencia?",
-      "codeSnippet": "intentos = 1\nwhile intentos <= 2:\n    print('Alerta ' + str(intentos))\n    intentos += 1",
+      "type": "CODE_FILL",
+      "question": "¿Qué operador aritmético incrementa la presión en 15 PSI en cada ciclo de bombeo?",
+      "codeSnippet": "presion = 70\nwhile presion < 115:\n    inyectar_aire()\n    presion = presion ___ 15\nprint('Presion nominal lista')",
       "options": [
         {
-          "text": "Alerta 1\nAlerta 2",
+          "text": "+",
           "correct": true
         },
         {
-          "text": "Alerta 1",
+          "text": "-",
+          "correct": false
+        },
+        {
+          "text": "*",
+          "correct": false
+        },
+        {
+          "text": "==",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Por qué el bucle while es la herramienta perfecta cuando NO sabemos de antemano cuántos segundos exactos tardará una acción mecánica?",
+      "question": "¿Por qué en un sistema neumático de alta presión es imperativo combinar la lectura de presión con un contador de ciclos máximos (timeout)?",
       "options": [
         {
-          "text": "Porque se basa en una condición de estado (el sensor llegó a la meta) y no en una cantidad fija de tiempo",
+          "text": "Porque si existe una fuga en una manguera y la presión nunca sube, el compresor se quemaría al operar indefinidamente sin apagarse",
           "correct": true
         },
         {
-          "text": "Porque los bucles while tienen poderes mágicos de adivinanza",
+          "text": "Porque los tanques de almacenamiento de aire no toleran más de dos lecturas analógicas continuas",
           "correct": false
         },
         {
-          "text": "Porque solo consume 1 voltio de la batería",
+          "text": "Porque el lenguaje de programación suspende la ejecución si un bucle dura más de tres líneas de código",
           "correct": false
         },
         {
-          "text": "No es verdad, siempre es mejor adivinar el tiempo con pausas fijas",
+          "text": "Porque el aire presurizado pierde densidad molecular si el ciclo de control excede los 100 ciclos",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuántos segundos de recarga se necesitaron para alcanzar 110 PSI partiendo de 90 PSI con incrementos de 10?",
+      "codeSnippet": "presion = 90\nsegundos = 0\nwhile presion < 110:\n    presion = presion + 10\n    segundos = segundos + 1\nprint(segundos)",
+      "options": [
+        {
+          "text": "2",
+          "correct": true
+        },
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "20",
           "correct": false
         }
       ]

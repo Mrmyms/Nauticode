@@ -3,106 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué el signo `=` no significa igualdad en código?",
-      "lessonText": "# El Signo '=' es una Flecha de Guardado \n\nEn matemáticas de primaria nos enseñaron que `A = B` significa que A y B son equivalentes.\n\nEn programación, **`=` es un operador de asignación activa**:\nPiensa en el signo `=` como una flecha que apunta a la izquierda: `A <- B`.\n\n1. La computadora evalúa **todo lo que está a la derecha del `=`**.\n2. Una vez que tiene el resultado definitivo, lo mete dentro de la variable de la izquierda.\n\nPor eso la línea `puntos = puntos + 1` tiene total sentido: calcula `puntos + 1` y guarda el nuevo total de vuelta en `puntos`.",
+      "question": "¿Por qué el operador `=` en programación es una asignación imperativa y no una igualdad algebraica?",
+      "lessonText": "# El Signo '=' es una Transferencia Destructiva\n\nEn matemáticas tradicionales de secundaria, la igualdad $A = B$ afirma que dos expresiones tienen el mismo valor simétrico. Si escribieras $x = x + 1$ en álgebra, un matemático te diría que es una contradicción imposible.\n\nEn computación imperativa, **`=` no significa comparación de igualdad; significa orden de almacenamiento**:\n\n1. **Evaluación de la Derecha (RHS):** La CPU primero evalúa y resuelve completamente todo lo que está a la derecha del signo igual.\n2. **Almacenamiento en la Izquierda (LHS):** Una vez obtenido el valor resultante en los registros de la ALU, lo deposita en la dirección de memoria de la variable situada a la izquierda, destruyendo cualquier dato previo en esa celda.\n\nPor esa razón, la instrucción:\n```python\npiezasAnotadas = piezasAnotadas + 1\n```\nEs perfectamente válida y elemental: toma el valor actual de `piezasAnotadas`, le suma 1 en la ALU, y reescribe el nuevo total en la celda de memoria `piezasAnotadas`.\n\n**La Regla de Oro:**\nEl operador '=' siempre evalúa primero la expresión derecha y luego deposita el resultado en la celda de memoria de la izquierda, sobrescribiendo su valor previo.",
       "options": [
         {
-          "text": "Porque evalúa la expresión de la derecha y guarda el resultado en la izquierda",
+          "text": "Porque primero evalúa por completo la expresión derecha y luego guarda el resultado en la celda de memoria de la izquierda",
           "correct": true
         },
         {
-          "text": "Porque los teclados antiguos no tenían tecla para flecha",
+          "text": "Porque verifica si el lado izquierdo y el derecho tienen la misma cantidad de letras",
           "correct": false
         },
         {
-          "text": "Porque a los programadores no les gustaban las matemáticas",
+          "text": "Porque crea una ecuación algebraica que la CPU resuelve buscando el valor de x en el disco duro",
           "correct": false
         },
         {
-          "text": "En realidad sí significa igualdad matemática en todos los casos",
+          "text": "Porque solo funciona si ambas expresiones numéricas suman cero",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el bug: En programación, la variable receptora siempre debe ir a la izquierda.",
-      "codeSnippet": "50 = velocidad",
+      "type": "MATCHING",
+      "question": "Relaciona cada componente de una expresión de asignación con su función en la CPU:",
       "options": [
         {
-          "text": "Debe ser 'velocidad = 50', la variable siempre va a la izquierda del '='",
+          "text": "Lado Derecho (RHS)|||Expresión que la unidad aritmético-lógica evalúa y calcula primero",
           "correct": true
         },
         {
-          "text": "El número 50 no puede usarse en robótica",
-          "correct": false
+          "text": "Lado Izquierdo (LHS)|||Dirección de memoria de destino que recibirá el dato resultante",
+          "correct": true
         },
         {
-          "text": "Falta poner una coma después de velocidad",
-          "correct": false
+          "text": "Operador de Asignación (=)|||Instrucción de transferencia destructiva hacia la celda de RAM",
+          "correct": true
         },
         {
-          "text": "No hay ningún error, es código perfectamente válido",
-          "correct": false
+          "text": "Operador de Igualdad (==)|||Comparación lógica booleana que verifica si dos valores coinciden",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena los pasos secuenciales que ejecuta el procesador al evaluar `posicion = posicion + avance`:",
+      "options": [
+        {
+          "text": "1. Leer el valor actual de 'posicion' desde la memoria RAM",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "2. Leer el valor de 'avance' desde su celda de memoria",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "3. Sumar ambos operandos en el registro acumulador de la ALU",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "4. Escribir el nuevo valor resultante en la celda de 'posicion'",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la asignación para sumar 10 a la distancia actual:",
-      "codeSnippet": "distancia = 20\ndistancia = _____ + 10\nprint(distancia)",
+      "question": "Completa la asignación para incrementar en 1 el contador de notas recogidas:",
+      "codeSnippet": "notasRecogidas = notasRecogidas _____ 1\nprint('Total de notas: ' + str(notasRecogidas))",
       "options": [
         {
-          "text": "distancia",
+          "text": "+",
           "correct": true
         },
         {
-          "text": "20.0",
+          "text": "==",
           "correct": false
         },
         {
-          "text": "nuevaDistancia",
+          "text": "=",
           "correct": false
         },
         {
-          "text": "input",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué valor imprimirá este script?",
-      "codeSnippet": "a = 5\nb = a\na = 10\nprint(b)",
-      "options": [
-        {
-          "text": "5",
-          "correct": true
-        },
-        {
-          "text": "10",
+          "text": "is",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "En el ejercicio anterior, ¿por qué `b` se quedó con el valor 5 en lugar de cambiar a 10?",
+      "question": "¿Por qué una instrucción como `10 = potenciaMotor` genera un error inmediato de sintaxis en el compilador?",
       "options": [
         {
-          "text": "Porque se copió el valor que tenía 'a' en ese momento (5); las variables primitivas no se ligan mágicamente",
+          "text": "Porque el lado izquierdo de una asignación debe ser una ubicación de memoria modificable (lvalue) y no un valor literal constante",
           "correct": true
         },
         {
-          "text": "Porque la variable b se congeló",
+          "text": "Porque los números mayores a 9 no pueden participar en asignaciones",
           "correct": false
         },
         {
-          "text": "Porque la letra b va después de la a en el abecedario",
+          "text": "Porque la palabra 'potenciaMotor' debe escribirse siempre en letras mayúsculas",
           "correct": false
         },
         {
-          "text": "Porque el número 10 es muy pesado para la memoria",
+          "text": "Porque el compilador exige que las variables comiencen con el símbolo de moneda",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué valor exacto imprimirá la consola tras evaluar la siguiente serie de asignaciones?",
+      "codeSnippet": "base = 10\naltura = 4\narea = (base * altura) / 2\nprint(area)",
+      "options": [
+        {
+          "text": "20.0",
+          "correct": true
+        },
+        {
+          "text": "40",
+          "correct": false
+        },
+        {
+          "text": "20",
+          "correct": false
+        },
+        {
+          "text": "10.0",
           "correct": false
         }
       ]

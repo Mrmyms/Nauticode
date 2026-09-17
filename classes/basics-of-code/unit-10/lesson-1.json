@@ -3,106 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Para qué sirve la cláusula 'else'?",
-      "lessonText": "# El Plan B ️\n\nImagina un cruce de caminos: o vas por la izquierda, o vas por la derecha. No puedes ir por ambos lados a la vez.\n\nLa sentencia **`else`** define el bloque de código que se ejecutará **cuando la condición del `if` resulte ser `false`**:\n```python\nif sensorOptico == true:\n    print('Pieza detectada: Lista para tirar')\nelse:\n    print('Buscando pieza en la alfombra...')\n```\n- Si el sensor marca `true`: corre el bloque del `if`.\n- Si marca `false`: corre el bloque del `else`.\n¡Uno de los dos caminos se ejecutará siempre de forma garantizada!",
+      "question": "¿Cómo garantiza la cláusula 'else' una dicotomía estricta en la ejecución de un sistema?",
+      "lessonText": "# La Dicotomía Estricta y el Camino de Respaldo\n\nEn lógica computacional, una dicotomía estricta divide el espacio de estados en dos conjuntos exhaustivos y mutuamente excluyentes: el conjunto donde una condición se cumple ($P$) y su complemento exacto donde no se cumple ($\\neg P$). La cláusula **`else`** materializa este principio: garantiza que **uno y exactamente uno** de los dos bloques subordinados se ejecutará siempre.\n\n```python\nif sensor_presencia.detectado() == True:\n    cerrar_garra_neumatica()\nelse:\n    mantener_intake_en_espera()\n```\n\nEn Nautilus 4010, este diseño previene estados mecánicos flotantes o indefinidos. Si el sensor de haz infrarrojo confirma que la nota está en posición, se comanda el cierre del pistón; de lo contrario (`else`), el mecanismo permanece energizado en posición de espera activa, impidiendo que la gravedad abra la compuerta por vibración mecánica.\n\n**Regla de Oro: La cláusula 'else' no lleva condición propia; captura el complemento exacto de su 'if' precedente, garantizando que el sistema siempre tenga un camino de ejecución definido.**",
       "options": [
         {
-          "text": "Define el bloque de código alternativo que se ejecuta cuando la condición del if es falsa",
+          "text": "Ejecutando un bloque incondicional de respaldo cuando la prueba del if resulta estrictamente falsa",
           "correct": true
         },
         {
-          "text": "Un comando que apaga la consola si hay un error",
+          "text": "Reiniciando el hilo principal si la condición previa no devuelve un valor numérico",
           "correct": false
         },
         {
-          "text": "Una instrucción que repite el programa desde el inicio",
+          "text": "Creando una variable secundaria en memoria para duplicar la velocidad del procesador",
           "correct": false
         },
         {
-          "text": "Una variable que solo guarda textos en mayúsculas",
+          "text": "Ejecutando ambos bloques de código simultáneamente en la tarjeta gráfica",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá la consola con este valor de batería?",
-      "codeSnippet": "bateria = 12.8\nif bateria < 12.0:\n    print('Recargar batería')\nelse:\n    print('Voltaje excelente')\nprint('Fin del test')",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de la bifurcación binaria con su definición técnica:",
       "options": [
         {
-          "text": "Voltaje excelente\nFin del test",
+          "text": "Sentencia else|||Bloque de respaldo que se ejecuta cuando la prueba del if resulta false",
           "correct": true
         },
         {
-          "text": "Recargar batería\nFin del test",
-          "correct": false
+          "text": "Dicotomía de estados|||División estricta del flujo donde exactamente un camino de dos se ejecuta",
+          "correct": true
         },
         {
-          "text": "Voltaje excelente solamente",
-          "correct": false
+          "text": "Exhaustividad lógica|||Garantía de que ningún estado posible del sistema quede sin acción designada",
+          "correct": true
         },
         {
-          "text": "Recargar batería solamente",
-          "correct": false
+          "text": "Solenoid Fail-Safe|||Mecanismo de seguridad física que adopta una posición segura en el bloque else",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará este chequeo de modo de juego?",
-      "codeSnippet": "esAutonomo = false\nif esAutonomo:\n    print('MODO AUTO')\nelse:\n    print('MODO TELEOP')",
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura condicional binaria para el control de la garra del robot:",
       "options": [
         {
-          "text": "MODO TELEOP",
+          "text": "if sensor_presencia.detectado() == True:",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    cerrar_garra_neumatica()",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "else:",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    mantener_intake_en_espera()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué cláusula debe colocarse para autorizar el enrollado cuando la tensión no supera el límite de seguridad?",
+      "codeSnippet": "if tension_cable_libras > 150.0:\n    activar_freno_tambor()\n___:\n    permitir_enrollado_cable()",
+      "options": [
+        {
+          "text": "else",
           "correct": true
         },
         {
-          "text": "MODO AUTO",
+          "text": "elif",
+          "correct": false
+        },
+        {
+          "text": "otherwise",
+          "correct": false
+        },
+        {
+          "text": "default",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Puede existir una sentencia `else` sola sin un `if` previo que la acompañe?",
+      "question": "¿Por qué una cláusula 'else' nunca debe llevar una condición explícita adjunta (como 'else condicion:')?",
       "options": [
         {
-          "text": "No, 'else' siempre debe estar ligado obligatoriamente a un 'if' que lo anteceda",
+          "text": "Porque por definición lógica 'else' captura todos los casos donde el 'if' evaluó a false sin requerir otra prueba",
           "correct": true
         },
         {
-          "text": "Sí, puedes poner 'else' en cualquier lugar del código",
+          "text": "Porque el procesador carece de registros para evaluar números negativos en una rama secundaria",
           "correct": false
         },
         {
-          "text": "Solo si se escribe con mayúscula 'ELSE'",
+          "text": "Porque la memoria caché se desborda si se coloca una prueba booleana en esa posición léxica",
           "correct": false
         },
         {
-          "text": "Solo si el robot está apagado",
+          "text": "Porque Python reserva las pruebas booleanas secundarias exclusivamente para bucles de iteración",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_FILL",
-      "question": "Completa el bloque alternativo:",
-      "codeSnippet": "if joystickMovido:\n    moverChasis()\n_____\n    detenerChasis()",
+      "type": "CODE_TEST",
+      "question": "¿Qué estado registrará la telemetría del compresor tras evaluar la presión neumática?",
+      "codeSnippet": "presion_psi = 55\nestado_compresor = 'APAGADO'\nif presion_psi >= 60:\n    estado_compresor = 'APAGADO'\nelse:\n    estado_compresor = 'ENCENDIDO'\nprint(estado_compresor)",
       "options": [
         {
-          "text": "else:",
+          "text": "'ENCENDIDO'",
           "correct": true
         },
         {
-          "text": "then:",
+          "text": "'APAGADO'",
           "correct": false
         },
         {
-          "text": "otherwise:",
+          "text": "55",
           "correct": false
         },
         {
-          "text": "if not:",
+          "text": "'FALLO'",
           "correct": false
         }
       ]

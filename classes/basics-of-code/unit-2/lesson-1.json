@@ -1,117 +1,141 @@
 {
-  "title": "¿Qué es un Algoritmo?",
+  "title": "¿Qué es un Algoritmo Realmente?",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué define a un algoritmo?",
-      "lessonText": "# La Receta del Éxito \n\n¿Alguna vez has seguido una receta para hornear un pastel? Sigues una lista de pasos finitos:\n1. Medir harina\n2. Mezclar huevos\n3. Precalentar horno a 180°C\n4. Hornear por 25 minutos\n\nEso es un **algoritmo**. En programación y robótica, un algoritmo debe cumplir 3 propiedades sagradas:\n- **Finito:** Debe terminar en algún momento.\n- **Definido:** Cada vez que le des los mismos datos, debe producir el mismo resultado.\n- **Preciso:** No puede haber ambigüedad ni pasos vagos como 'hazlo bien'.",
+      "question": "¿Cuáles son las tres propiedades esenciales que definen a un algoritmo en ciencias de la computación?",
+      "lessonText": "# La Anatomía de un Algoritmo\n\nEn la conversación informal, solemos decir que un algoritmo es como una 'receta de cocina'. Pero en la ciencia de la computación y la ingeniería robótica, un algoritmo es algo mucho más riguroso: es un **procedimiento computacional formal** para resolver un problema de procesamiento de información.\n\nTodo algoritmo profesional debe satisfacer tres propiedades inmutables:\n\n### 1. Finitud (Finiteness)\nUn algoritmo debe terminar obligatoriamente tras un número finito y predecible de pasos. Si un programa se queda atrapado repitiéndose eternamente sin alcanzar un estado de salida, ha fallado en su objetivo.\n\n### 2. Determinismo (Determinism)\nCada vez que el algoritmo recibe exactamente el mismo conjunto de datos de entrada (Input), debe producir el mismo resultado (Output). No depende del azar, estados de ánimo ni intuiciones.\n\n### 3. Precisión Inequívoca (Definiteness)\nCada instrucción debe ser atómica y perfectamente comprensible para la máquina, sin ambigüedades como 'gira un poco' o 'espera un momento'. Las máquinas requieren valores numéricos y condiciones exactas.\n\n### Aplicación en Robótica FRC\nCuando el robot calcula la trayectoria para anotar en la canasta, el algoritmo toma la distancia de la cámara Limelight (ej. 3.42 metros) y calcula el ángulo del brazo y las RPM de los motores en menos de 5 milisegundos. Si el algoritmo no fuera finito o determinista, el robot jamás dispararía a tiempo.\n\n**La Regla de Oro:**\nUn algoritmo no es una idea abstracta: es una secuencia finita, determinista e inequívoca de pasos lógicos que transforma un estado inicial en un resultado útil.",
       "options": [
         {
-          "text": "Una serie ordenada de pasos finitos y precisos para resolver un problema",
+          "text": "Finitud (debe terminar), Determinismo (mismo input da mismo output) y Precisión (cero ambigüedad en cada paso)",
           "correct": true
         },
         {
-          "text": "Un tipo de procesador que sólo usan los militares",
+          "text": "Velocidad ilimitada, uso exclusivo de números impares y almacenamiento en la nube",
           "correct": false
         },
         {
-          "text": "Un error que destruye la memoria de la máquina",
+          "text": "Creatividad subjetiva, capacidad de ignorar errores y modificación aleatoria de variables",
           "correct": false
         },
         {
-          "text": "Un baile que hacen los programadores cuando su código compila",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "¿Cuál de las siguientes instrucciones NO es un buen paso para un algoritmo de robot?",
-      "options": [
-        {
-          "text": "'Gira el robot más o menos un poquito'",
-          "correct": true
-        },
-        {
-          "text": "'Avanza 1.5 metros hacia adelante a 50% de potencia'",
-          "correct": false
-        },
-        {
-          "text": "'Gira 90 grados a la derecha usando el giroscopio'",
-          "correct": false
-        },
-        {
-          "text": "'Detén los motores si el sensor de distancia marca menos de 10 cm'",
+          "text": "Dependencia de la conexión a internet, uso obligatorio de gráficos y ausencia de condiciones de parada",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Relaciona cada característica de un buen algoritmo con su significado:",
+      "question": "Relaciona cada propiedad fundamental de un algoritmo con su significado técnico:",
       "options": [
         {
-          "text": "Finito|||Tiene un principio y un final claro",
+          "text": "Finitud|||Garantiza que el procedimiento termine tras un número contable de pasos",
           "correct": true
         },
         {
-          "text": "Preciso|||Cada paso indica la acción exacta sin dudas",
+          "text": "Determinismo|||Mismos datos de entrada siempre producen el mismo resultado exacto",
           "correct": true
         },
         {
-          "text": "Determinista|||Mismos datos siempre dan el mismo resultado",
+          "text": "Precisión|||Cada instrucción está libre de ambigüedad y es atómica para la máquina",
           "correct": true
         },
         {
-          "text": "Eficiente|||Resuelve el problema usando el mínimo tiempo/memoria",
+          "text": "Eficiencia|||Resuelve el problema optimizando el tiempo de CPU y el uso de memoria RAM",
           "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena el algoritmo para cruzar la calle de forma segura:",
+      "question": "Ordena el algoritmo determinista para alinear el robot con un objetivo visual (AprilTag):",
       "options": [
         {
-          "text": "Detenerse en la banqueta",
+          "text": "desviacionAngular = camaraVision.obtenerErrorHorizontal()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "Mirar a la izquierda y a la derecha",
+          "text": "if (abs(desviacionAngular) > 2.0):",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "Verificar si vienen autos",
+          "text": "    potenciaGiro = calcularCorreccion(desviacionAngular)",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "Cruzar caminando a paso constante",
+          "text": "chasis.girar(potenciaGiro)",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "ASSIST",
-      "question": "Si un algoritmo nunca termina y se queda atrapado repitiéndose eternamente, decimos que entró en:",
+      "type": "CODE_FILL",
+      "question": "Todo algoritmo debe ser finito. Completa la condición de parada para evitar un bucle que congele la CPU:",
+      "codeSnippet": "intentos = 0\nmaximo_intentos = 5\n\nwhile (intentos < _____):\n    intentos = intentos + 1\n    print('Buscando señal...')",
       "options": [
         {
-          "text": "Un bucle infinito (Infinite Loop)",
+          "text": "maximo_intentos",
           "correct": true
         },
         {
-          "text": "Modo de hibernación cósmica",
+          "text": "intentos",
           "correct": false
         },
         {
-          "text": "Sobrecarga de combustible",
+          "text": "0",
           "correct": false
         },
         {
-          "text": "Velocidad de la luz",
+          "text": "True",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál de las siguientes instrucciones viola el principio de precisión inequívoca en un algoritmo de control robótico?",
+      "options": [
+        {
+          "text": "'Avanzar a velocidad moderada hasta que el robot esté cerca de la pared'",
+          "correct": true
+        },
+        {
+          "text": "'Fijar la potencia de los motores de tracción en 0.60 hacia adelante'",
+          "correct": false
+        },
+        {
+          "text": "'Girar 90.0 grados a la derecha según la lectura angular del giroscopio'",
+          "correct": false
+        },
+        {
+          "text": "'Detener motores si el sensor de distancia láser reporta menos de 20.0 cm'",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea el siguiente algoritmo paso a paso. ¿Cuál será el Output final impreso en consola?",
+      "codeSnippet": "paso = 1\npaso = paso + 3\npaso = paso * 2\nprint(paso)",
+      "options": [
+        {
+          "text": "8",
+          "correct": true
+        },
+        {
+          "text": "7",
+          "correct": false
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "2",
           "correct": false
         }
       ]

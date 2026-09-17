@@ -3,53 +3,79 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué confundir '=' con '==' causa desastres en los novatos?",
-      "lessonText": "# El Error Más Costoso de la Historia \n\nRecuerda la regla de oro:\n- **`=` es ASIGNACIÓN:** Guarda un dato dentro de una variable (`velocidad = 100`).\n- **`==` es COMPARACIÓN:** Pregunta si dos cosas son iguales (`if velocidad == 100:`).\n\nEn lenguajes como C++ y Java, escribir accidentalmente:\n`if (potencia = 0)`\nNo compara si la potencia es 0... ¡**Le asigna 0 a la potencia en ese mismo instante**! Tu robot se detendrá de golpe o se comportará de forma errática sin que el compilador te avise del error lógico.",
+      "question": "¿Cuál es la diferencia fundamental entre el operador de asignación '=' y el operador de comparación '=='?",
+      "lessonText": "# Asignación vs Comparación en Memoria\n\nEn la sintaxis de prácticamente todos los lenguajes imperativos derivados de C (incluidos Python, Java y C++), el símbolo `=` realiza una operación de **mutación de memoria**: toma el valor de la derecha y lo almacena en la dirección de memoria designada por la variable de la izquierda.\n\nPor el contrario, el operador doble `==` es una expresión de **interrogación relacional**: lee los valores de ambos lados, comprueba si son idénticos y devuelve un resultado booleano (`True` o `False`) sin alterar ninguna variable en memoria.\n\n```python\nestado = 1       # Asignacion: guarda 1 en la variable estado\nif estado == 1:  # Comparacion: verifica si estado equivale a 1\n    print('Sistema activo')\n```\n\nEn FRC Nautilus 4010, escribir accidentalmente `if (estado = MODO_TURBO)` en un código legado de C++ causó que la variable cambiara incondicionalmente al valor turbo en cada ciclo de ejecución, provocando una colisión descontrolada del chasis Swerve contra las barreras del campo de juego.\n\n**Regla de Oro: El signo '=' almacena datos en la memoria; el signo '==' interroga a la memoria sobre la igualdad de dos operandos sin alterarlos.**",
       "options": [
         {
-          "text": "Porque '=' modifica la variable asignándole un valor, mientras que '==' sólo compara sin alterar nada",
+          "text": "El signo '=' muta la memoria asignando un valor; el signo '==' evalúa igualdad lógica sin alterar variables",
           "correct": true
         },
         {
-          "text": "Porque un '=' gasta la mitad de la batería que dos '=='",
+          "text": "El signo '=' compara números enteros y el signo '==' compara cadenas de texto alfanuméricas",
           "correct": false
         },
         {
-          "text": "Porque el procesador no sabe leer dos signos juntos",
+          "text": "El signo '=' es exclusivo de Python y el signo '==' es exclusivo de hardware embebido",
           "correct": false
         },
         {
-          "text": "No hay diferencia, ambos hacen exactamente lo mismo en todos lados",
+          "text": "Ambos operadores son idénticos y el compilador elige cuál usar según la velocidad de la CPU",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Cuál es la forma correcta de preguntar si el sensor marca exactamente 45 grados?",
+      "type": "MATCHING",
+      "question": "Relaciona cada operador y concepto con su rol en la arquitectura del software:",
       "options": [
         {
-          "text": "if sensor == 45:",
+          "text": "= (Operador Simple)|||Operador imperativo de asignación que almacena un nuevo valor en memoria",
           "correct": true
         },
         {
-          "text": "if sensor = 45:",
-          "correct": false
+          "text": "== (Operador Doble)|||Operador relacional de comparación que verifica igualdad estricta",
+          "correct": true
         },
         {
-          "text": "if sensor === 45::",
-          "correct": false
+          "text": "SyntaxError en Python|||Protección del intérprete que impide usar '=' dentro de una cláusula if",
+          "correct": true
         },
         {
-          "text": "if 45 -> sensor:",
-          "correct": false
+          "text": "Asignación accidental en C|||Fallo clásico donde if (x = 5) modifica x y evalúa a verdadero",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena las líneas para inicializar la marcha y verificar con el operador de comparación correcto:",
+      "options": [
+        {
+          "text": "marcha_actual = 1",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "if marcha_actual == 2:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    aplicar_reductora()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "notificar_tablero_piloto()",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa con el operador de comparación para verificar si la alianza es 'Azul':",
-      "codeSnippet": "if colorAlianza _____ 'Azul':\n    print('Iniciando en estación Azul')",
+      "question": "¿Qué operador de comparación debe colocarse para verificar si el modo equivale a 'COMPETICION' sin modificar la variable?",
+      "codeSnippet": "modo_autonomo = 'CALIBRACION'\nif modo_autonomo ___ 'COMPETICION':\n    desplegar_brazo_mecanico()",
       "options": [
         {
           "text": "==",
@@ -60,49 +86,56 @@
           "correct": false
         },
         {
-          "text": "+=",
-          "correct": false
-        },
-        {
           "text": ":=",
           "correct": false
-        }
-      ]
-    },
-    {
-      "type": "DEBUG",
-      "question": "Corrige este código para que compare en lugar de reasignar:",
-      "codeSnippet": "if matchNumero = 1:\n    print('Primer match regional')",
-      "options": [
-        {
-          "text": "Cambiar '=' por '==': if matchNumero == 1:",
-          "correct": true
         },
         {
-          "text": "Cambiar el 1 por 'primer'",
-          "correct": false
-        },
-        {
-          "text": "Quitar los dos puntos del final",
-          "correct": false
-        },
-        {
-          "text": "No hay nada que corregir",
+          "text": "===",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Escribe la condición que verifica si 'estado' es igual al string 'READY':",
-      "codeSnippet": "// Compara estado con 'READY'",
+      "type": "SELECT",
+      "question": "¿Por qué lenguajes modernos como Python generan inmediatamente un SyntaxError si un desarrollador escribe 'if velocidad = 100:'?",
       "options": [
         {
-          "text": "estado == 'READY'",
+          "text": "Para proteger al desarrollador contra fallos críticos donde se altera accidentalmente el estado de la memoria en lugar de comprobarlo",
           "correct": true
         },
         {
-          "text": "estado = 'READY'",
+          "text": "Porque la palabra clave if carece de permisos de lectura sobre variables numéricas",
+          "correct": false
+        },
+        {
+          "text": "Porque los operadores de asignación requieren obligatoriamente de comillas dobles",
+          "correct": false
+        },
+        {
+          "text": "Porque el hardware de la computadora no puede procesar asignaciones en menos de un segundo",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'estado_conexion' tras ejecutar el bloque condicional?",
+      "codeSnippet": "canal_radio = 4\ncanal_objetivo = 4\nestado_conexion = 'DESCONECTADO'\nif canal_radio == canal_objetivo:\n    estado_conexion = 'ENLAZADO'\nprint(estado_conexion)",
+      "options": [
+        {
+          "text": "'ENLAZADO'",
+          "correct": true
+        },
+        {
+          "text": "'DESCONECTADO'",
+          "correct": false
+        },
+        {
+          "text": "'ERROR_CANAL'",
+          "correct": false
+        },
+        {
+          "text": "4",
           "correct": false
         }
       ]

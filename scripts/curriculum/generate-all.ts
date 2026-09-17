@@ -6,7 +6,7 @@ import { block5Units } from "./block-5";
 import { writeUnits } from "./writer";
 
 function main() {
-  console.log("🚀 Starting generation of all 16 pristine units for Basics of Code...\n");
+  console.log("[GENERATION] Generando las 15 unidades de Basics of Code con Gold Standard...\n");
   const allUnits = [
     ...block1Units,
     ...block2Units,

@@ -3,97 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es una constante en programación y por qué es vital en robótica?",
-      "lessonText": "# Valores Inmutables \n\nHay datos que **NUNCA** deben cambiar mientras el robot está operando:\n- El número de puerto CAN de un motor (`MOTOR_PORT = 3`).\n- La relación de engranes del chasis (`GEAR_RATIO = 6.75`).\n- La aceleración de la gravedad (`GRAVITY = 9.81`).\n\nEstos valores se llaman **Constantes**. Por convención universal, se escriben en **UPPER_SNAKE_CASE** para alertar a cualquiera: *'¡Cuidado! No reasignes este valor bajo ninguna circunstancia'*.",
+      "question": "¿Por qué los valores inmutables del sistema deben aislarse como constantes simbólicas en lugar de números mágicos dispersos?",
+      "lessonText": "# El Antipatrón de los Números Mágicos y la Inmutabilidad\n\nEn robótica e ingeniería existen parámetros físicos que representan verdades inmutables del diseño mecánico y eléctrico:\n- El número de puerto CAN de un controlador SparkMax (`SHOOTER_CAN_ID = 5`).\n- La relación de reducción mecánica del chasis (`DRIVE_GEAR_RATIO = 6.75`).\n- La aceleración de la gravedad terrestre (`GRAVITY_METERS_PER_S2 = 9.80665`).\n\nSi un programador escribe el número literal `6.75` disperso en 20 funciones de cálculo cinemático diferentes, ese valor se conoce como un **Número Mágico (Magic Number)**: un valor huérfano de contexto semántico. Si el equipo de manufactura cambia el engrane del chasis por uno de `8.14` en los pits, habrá que buscar y reemplazar ese número en decenas de líneas de código, con el riesgo casi seguro de olvidar una y arruinar la odometría.\n\n### La Solución: Constantes Centralizadas\nPor convención universal en la industria del software, las constantes se escriben en **SCREAMING_SNAKE_CASE** (todas las letras en mayúsculas separadas por guiones bajos). Esto comunica visualmente a cualquier ingeniero: *'Este valor es sagrado e inmutable; no debe ser modificado en tiempo de ejecución'*.\n\nEn lenguajes como Java o C++, se refuerza con modificadores de inmutabilidad en tiempo de compilación (`final` o `const`).\n\n**La Regla de Oro:**\nCentraliza todos los parámetros físicos y de configuración como constantes en mayúsculas; una única fuente de verdad evita inconsistencias y facilita adaptaciones mecánicas inmediatas.",
       "options": [
         {
-          "text": "Una variable diseñada para no cambiar su valor original durante la ejecución del programa",
+          "text": "Porque centralizan la verdad del sistema en un único punto y eliminan números mágicos dispersos e inconsistentes",
           "correct": true
         },
         {
-          "text": "Un valor que cambia cada 2 segundos",
+          "text": "Porque el procesador solo puede leer números mayores a 100 si están escritos en letras mayúsculas",
           "correct": false
         },
         {
-          "text": "Una instrucción que apaga el robot",
+          "text": "Porque las constantes en mayúsculas consumen la mitad de energía de la batería de 12V",
           "correct": false
         },
         {
-          "text": "Una batería que nunca se descarga",
+          "text": "Porque el compilador borra automáticamente las variables que no estén escritas en mayúsculas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto arquitectónico con su propósito técnico formal:",
+      "options": [
+        {
+          "text": "SCREAMING_SNAKE_CASE|||Convención tipográfica universal para constantes inmutables (ej. MAX_VELOCITY)",
+          "correct": true
+        },
+        {
+          "text": "Single Source of Truth|||Principio arquitectónico donde cada valor físico se define en un único lugar centralizado",
+          "correct": true
+        },
+        {
+          "text": "Magic Number|||Antipatrón consistente en números literales dispersos sin significado semántico visible",
+          "correct": true
+        },
+        {
+          "text": "const / final|||Modificadores que impiden la reasignación de una celda de memoria tras su inicialización",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la jerarquía arquitectónica desde la definición de constantes físicas hasta la orden de motor:",
+      "options": [
+        {
+          "text": "GEAR_RATIO = 6.75",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "wheelRpm = 450.0",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "motorTargetRpm = wheelRpm * GEAR_RATIO",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Velocidad comandada al motor: ' + str(motorTargetRpm))",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la declaración de la constante inmutable para el ID de bus CAN del motor principal:",
+      "codeSnippet": "_____ = 12\nprint('Iniciando TalonFX en puerto CAN: ' + str(DRIVE_MOTOR_CAN_ID))",
+      "options": [
+        {
+          "text": "DRIVE_MOTOR_CAN_ID",
+          "correct": true
+        },
+        {
+          "text": "drive_motor_can_id",
+          "correct": false
+        },
+        {
+          "text": "DriveMotorCanId",
+          "correct": false
+        },
+        {
+          "text": "can_id",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál de los siguientes identificadores sigue la convención estándar para una constante?",
+      "question": "¿Cuál de los siguientes identificadores cumple rigurosamente el estándar de nomenclatura para una constante inmutable?",
       "options": [
         {
-          "text": "MAX_MOTOR_VOLTAGE",
+          "text": "MAX_ALLOWABLE_VOLTAGE",
           "correct": true
         },
         {
-          "text": "maxMotorVoltage",
+          "text": "maxAllowableVoltage",
           "correct": false
         },
         {
-          "text": "max_motor_voltage",
+          "text": "max_allowable_voltage",
           "correct": false
         },
         {
-          "text": "max-motor-voltage",
+          "text": "max-allowable-voltage",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Declara la constante CAN_ID con el valor 12:",
-      "codeSnippet": "// Declara la constante",
+      "type": "CODE_TEST",
+      "question": "Rastrea el cálculo cinemático basado en constantes de diseño. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "WHEEL_RADIUS_METERS = 0.05\nPI = 3.1416\nCIRCUMFERENCE = 2 * PI * WHEEL_RADIUS_METERS\nprint(round(CIRCUMFERENCE, 4))",
       "options": [
         {
-          "text": "CAN_ID = 12",
+          "text": "0.3142",
           "correct": true
         },
         {
-          "text": "can_id = 12",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué valor imprimirá este bloque?",
-      "codeSnippet": "WHEEL_DIAMETER_INCHES = 4.0\nprint(WHEEL_DIAMETER_INCHES)",
-      "options": [
-        {
-          "text": "4.0",
-          "correct": true
-        },
-        {
-          "text": "WHEEL_DIAMETER_INCHES",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "ASSIST",
-      "question": "¿Por qué es mejor definir `SHOOTER_CAN_ID = 5` al inicio del código en lugar de escribir el número 5 disperso por 50 archivos distintos?",
-      "options": [
-        {
-          "text": "Porque si el equipo cambia el motor de puerto en el taller, solo modificas un único lugar en el código",
-          "correct": true
-        },
-        {
-          "text": "Porque al compilador no le gusta el número 5",
+          "text": "0.6283",
           "correct": false
         },
         {
-          "text": "Para que el código pese el doble",
+          "text": "3.1416",
           "correct": false
         },
         {
-          "text": "Porque los números pares son mejores que los impares",
+          "text": "0.05",
           "correct": false
         }
       ]

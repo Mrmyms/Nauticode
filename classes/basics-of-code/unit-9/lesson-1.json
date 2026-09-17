@@ -3,106 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es una sentencia 'if' y para qué sirve?",
-      "lessonText": "# El Guardián del Camino \n\nEn la vida diaria tomas decisiones condicionales:\n*'SI está lloviendo, tomo una sombrilla'*. Si no está lloviendo, simplemente ignoras la sombrilla y sigues caminando.\n\nEn código, la instrucción **`if`** funciona exactamente igual:\n```python\nif distanciaCM < 20:\n    print('¡Frenar! Obstáculo detectado')\n```\n- La computadora evalúa la condición entre el `if` y los dos puntos.\n- **Si es `true`:** Entra y ejecuta el bloque de código indentado.\n- **Si es `false`:** Se salta ese bloque por completo y continúa con lo que sigue.",
+      "question": "¿Qué es una sentencia 'if' y cómo altera el flujo de ejecución de la CPU?",
+      "lessonText": "# El Guardián del Camino\n\nEn la arquitectura de computadoras convencional, el procesador avanza de forma secuencial incrementando su registro contador de programa (Program Counter). La instrucción **`if`** introduce bifurcación condicional: evalúa una expresión lógica y, si el resultado es verdadero (`true`), transfiere el control al bloque subordinado; si es falso (`false`), el Program Counter salta directamente a la siguiente instrucción fuera del bloque sin costo de ejecución adicional.\n\n```python\nif distancia_cm < 20.0:\n    frenos_neumaticos.activar()\nprint('Telemetria enviada')\n```\n\nEn la robótica de competencia FRC de Nautilus 4010, este mecanismo es vital en el subsistema de admisión de piezas (Intake): cuando el sensor óptico de haz reflectivo detecta una pieza a menos de 20 cm, el controlador activa de inmediato el pistón de sujeción para capturarla.\n\n**Regla de Oro: Una sentencia if evalúa una expresión booleana estricta; si es true ejecuta el bloque subordinado, y si es false salta limpiamente a la siguiente instrucción del flujo principal.**",
       "options": [
         {
-          "text": "Una estructura de control que ejecuta un bloque de código únicamente si su condición es verdadera",
+          "text": "Una estructura de control que ejecuta un bloque de instrucciones únicamente cuando su condición booleana evalúa a true",
           "correct": true
         },
         {
-          "text": "Un comando que apaga la computadora si hay un error",
+          "text": "Un comando que apaga el controlador del robot si ocurre una excepción de hardware",
           "correct": false
         },
         {
-          "text": "Una variable que solo guarda números pares",
+          "text": "Una variable en memoria que solo puede almacenar números enteros pares",
           "correct": false
         },
         {
-          "text": "Un bucle que se repite para siempre",
+          "text": "Un bucle de repetición continua que jamás devuelve el control a la CPU",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá este programa?",
-      "codeSnippet": "bateria = 10.5\nif bateria < 12.0:\n    print('Alerta de Batería Baja')\nprint('Chequeo Finalizado')",
+      "type": "MATCHING",
+      "question": "Relaciona cada componente de la bifurcación condicional con su función técnica:",
       "options": [
         {
-          "text": "Alerta de Batería Baja en la primera línea y Chequeo Finalizado en la segunda",
+          "text": "if (condicion):|||Comando de bifurcación condicional que evalúa una expresión lógica",
           "correct": true
         },
         {
-          "text": "Solamente 'Chequeo Finalizado'",
-          "correct": false
+          "text": "Bloque subordinado|||Conjunto de instrucciones indentadas que sólo se ejecutan si la prueba es true",
+          "correct": true
         },
         {
-          "text": "Solamente 'Alerta de Batería Baja'",
-          "correct": false
+          "text": "Program Counter|||Registro de la CPU que salta instrucciones cuando la condición es false",
+          "correct": true
         },
         {
-          "text": "No imprime absolutamente nada",
-          "correct": false
+          "text": "Condición booleana|||Expresión relacional que resuelve estrictamente en true o false",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué imprimirá la consola si la condición del 'if' es falsa?",
-      "codeSnippet": "temperatura = 35\nif temperatura > 80:\n    print('¡Motor sobrecalentado!')\nprint('Todo en orden')",
+      "type": "CODE_ORDER",
+      "question": "Ordena cronológicamente las instrucciones para evaluar y ejecutar un frenado preventivo:",
       "options": [
         {
-          "text": "Todo en orden",
-          "correct": true
+          "text": "distancia_cm = sensor_laser.leer()",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "¡Motor sobrecalentado!\nTodo en orden",
-          "correct": false
+          "text": "if distancia_cm < 30.0:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    frenos_neumaticos.activar()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "telemetria.enviar(distancia_cm)",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la palabra clave para tomar la decisión condicional:",
-      "codeSnippet": "_____ targetVisible == true:\n    iniciarApuntadoAutomatico()",
+      "question": "¿Qué palabra clave inicia la bifurcación condicional para proteger la batería del robot?",
+      "codeSnippet": "voltaje_bateria = 11.2\n___ voltaje_bateria < 12.0:\n    desactivar_mecanismos_secundarios()\nnotificar_driver_station()",
       "options": [
         {
           "text": "if",
           "correct": true
         },
         {
-          "text": "when",
-          "correct": false
-        },
-        {
-          "text": "then",
+          "text": "while",
           "correct": false
         },
         {
           "text": "loop",
+          "correct": false
+        },
+        {
+          "text": "check",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "En la sentencia `if condicion:` en Python, ¿cómo sabe la computadora qué líneas de código pertenecen al 'if'?",
+      "question": "¿Qué sucede a nivel de hardware y registro de instrucciones de la CPU cuando la condición de un 'if' evalúa a false?",
       "options": [
         {
-          "text": "Por la indentación (espacios de sangría hacia la derecha)",
+          "text": "El Program Counter salta la dirección de memoria del bloque indentado y continúa ejecutando la instrucción inmediatamente posterior",
           "correct": true
         },
         {
-          "text": "Por el color del texto en el editor",
+          "text": "La CPU se reinicia automáticamente para limpiar la memoria caché del proceso",
           "correct": false
         },
         {
-          "text": "Por el tamaño de la letra",
+          "text": "Las instrucciones dentro del bloque se ejecutan pero sus resultados se descartan en la memoria RAM",
           "correct": false
         },
         {
-          "text": "La computadora no lo sabe y adivina",
+          "text": "El compilador genera una excepción en tiempo de ejecución interrumpiendo el hilo principal",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola al ejecutar este programa de verificación de presión?",
+      "codeSnippet": "presion_psi = 85\nvalvula_abierta = False\nif presion_psi > 60:\n    valvula_abierta = True\nif presion_psi > 100:\n    valvula_abierta = False\nprint(valvula_abierta)",
+      "options": [
+        {
+          "text": "True",
+          "correct": true
+        },
+        {
+          "text": "False",
+          "correct": false
+        },
+        {
+          "text": "None",
+          "correct": false
+        },
+        {
+          "text": "85",
           "correct": false
         }
       ]

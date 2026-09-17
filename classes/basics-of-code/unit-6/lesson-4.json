@@ -3,60 +3,86 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es un valor booleano y por qué es el rey de las decisiones?",
-      "lessonText": "# La Verdad Binaria \n\nUn **Boolean (bool)** es el tipo de dato más simple y poderoso que existe. Solo puede tener dos valores:\n- **`true` (Verdadero)**\n- **`false` (Falso)**\n\nEn un robot de competencia, el mundo está lleno de preguntas binarias:\n- ¿El sensor de límite está presionado? (`true` / `false`)\n- ¿El autonomous está activo? (`true` / `false`)\n- ¿El voltaje es peligroso? (`true` / `false`)\n\nLos booleanos son la llave que abre las puertas de las sentencias condicionales `if` y los bucles `while`.",
+      "question": "¿Qué representa el tipo booleano en la arquitectura de un procesador y cómo gobierna la toma de decisiones?",
+      "lessonText": "# El Bit Lógico: La Base del Control y las Decisiones\n\nNombrado en honor al matemático George Boole, el tipo **Boolean (bool)** es la unidad ontológica elemental de la computación. Solo puede adoptar uno de dos valores exclusivos:\n- **`True` (Verdadero):** Representado físicamente a nivel de hardware por un bit `1` o un nivel alto de voltaje lógico ($3.3\\text{ V}$ o $5\\text{ V}$).\n- **`False` (Falso):** Representado por un bit `0` o nivel de tierra ($0\\text{ V}$).\n\n### De la Comparación a la Bifurcación en la CPU:\nCuando escribes una expresión de comparación como `voltajeBateria < 10.5`, la ALU resta ambos números y actualiza el **Registro de Estado (Flags Register)** de la CPU. El resultado de esa comparación relacional es un valor booleano puro.\n\nEn lenguaje ensamblador, las instrucciones de bifurcación condicional (`jump if equal`, `branch if greater`) consultan directamente este bit booleano para decidir si el procesador continúa en la siguiente línea secuencial o salta a una rutina de emergencia.\n\nEn Nautilus 4010, la seguridad física de los mecanismos depende 100% de variables booleanas:\n- `isEmergencyStopPressed`: Si es `True`, frena de inmediato todos los actuadores.\n- `isArmAtLimitSwitch`: Si es `True`, corta la corriente del motor para evitar colisión mecánica con el chasis.\n\n**La Regla de Oro:**\nUn booleano almacena el valor de verdad (True o False) de una proposición; es la base para el control de flujo y la toma de decisiones condicionales.",
       "options": [
         {
-          "text": "Un tipo de dato que solo puede ser Verdadero (True) o Falso (False)",
+          "text": "Almacena exclusivamente True o False como representación de proposiciones lógicas que gobiernan bifurcaciones en la CPU",
           "correct": true
         },
         {
-          "text": "Un número que va del 0 al 100",
+          "text": "Representa valores enteros que oscilan dinámicamente entre -100 y 100",
           "correct": false
         },
         {
-          "text": "Una lista de nombres de pilotos",
+          "text": "Es un texto de longitud variable que se traduce a lenguaje natural para los jueces de la cancha",
           "correct": false
         },
         {
-          "text": "Un comando que apaga la consola",
+          "text": "Es un comando de bajo nivel que detiene el reloj interno del microprocesador",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Cuál de las siguientes opciones representa un booleano en código?",
+      "type": "MATCHING",
+      "question": "Relaciona cada elemento de la lógica booleana con su función técnica:",
       "options": [
         {
-          "text": "true",
+          "text": "True (Verdadero)|||Estado lógico afirmativo representado por bit 1 o nivel de voltaje alto",
           "correct": true
         },
         {
-          "text": "'true'",
-          "correct": false
+          "text": "False (Falso)|||Estado lógico negativo representado por bit 0 o nivel de tierra (0V)",
+          "correct": true
         },
         {
-          "text": "100",
-          "correct": false
+          "text": "Operador de Comparación (>=)|||Operación relacional que evalúa operandos y genera un valor booleano",
+          "correct": true
         },
         {
-          "text": "'verdadero'",
-          "correct": false
+          "text": "Flags Register (CPU)|||Registro de estado del procesador donde residen las banderas de condición",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia de validación lógica para autorizar el disparo del shooter en el autónomo:",
+      "options": [
+        {
+          "text": "isShooterAtSpeed = True",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "isChassisAligned = True",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "isReadyToShoot = isShooterAtSpeed and isChassisAligned",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Autorizacion de disparo: ' + str(isReadyToShoot))",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la asignación para indicar que el freno de seguridad está activo:",
-      "codeSnippet": "frenoActivo = _____\nprint('¿Freno activado? ' + str(frenoActivo))",
+      "question": "Completa la asignación booleana nativa para indicar que el sensor de proximidad detectó la pieza:",
+      "codeSnippet": "isNotePresent = _____\nprint('Sensor inductivo activado: ' + str(isNotePresent))",
       "options": [
         {
-          "text": "true",
+          "text": "True",
           "correct": true
         },
         {
-          "text": "'activo'",
+          "text": "'True'",
           "correct": false
         },
         {
@@ -64,45 +90,52 @@
           "correct": false
         },
         {
-          "text": "frenar",
+          "text": "'activado'",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál de las siguientes asignaciones comete un error de tipos al intentar modelar un estado de seguridad booleano?",
+      "options": [
+        {
+          "text": "frenoActivo = 'true' (asigna una cadena de caracteres en lugar del tipo booleano nativo True)",
+          "correct": true
+        },
+        {
+          "text": "frenoActivo = True (asigna el literal booleano nativo correcto)",
+          "correct": false
+        },
+        {
+          "text": "frenoActivo = (presionPSI < 60) (asigna el resultado de una evaluación relacional)",
+          "correct": false
+        },
+        {
+          "text": "frenoActivo = False (asigna el literal booleano negativo nativo)",
           "correct": false
         }
       ]
     },
     {
       "type": "CODE_TEST",
-      "question": "¿Qué imprimirá la consola al evaluar si 10 es mayor que 5?",
-      "codeSnippet": "resultado = (10 > 5)\nprint(resultado)",
+      "question": "¿Qué valor imprimirá la consola tras evaluar la expresión relacional?",
+      "codeSnippet": "presionActualPSI = 120\npresionMinimaSegura = 90\nesPresionAdecuada = presionActualPSI >= presionMinimaSegura\nprint(esPresionAdecuada)",
       "options": [
         {
-          "text": "true",
+          "text": "True",
           "correct": true
         },
         {
-          "text": "false",
+          "text": "False",
           "correct": false
         },
         {
-          "text": "10",
+          "text": "120",
           "correct": false
         },
         {
-          "text": "5",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_WRITE",
-      "question": "Asigna el valor booleano false a la variable 'isAutonomousFinished':",
-      "codeSnippet": "// Inicializa el booleano",
-      "options": [
-        {
-          "text": "isAutonomousFinished = false",
-          "correct": true
-        },
-        {
-          "text": "isAutonomousFinished = 'false'",
+          "text": "presionActualPSI",
           "correct": false
         }
       ]

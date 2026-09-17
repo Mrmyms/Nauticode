@@ -1,77 +1,125 @@
 {
-  "title": "¿Qué es una Variable?",
+  "title": "¿Qué es una Variable en Memoria RAM?",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué analogía describe mejor una variable en programación?",
-      "lessonText": "# La Caja con Etiqueta \n\nImagina que en el taller de robótica tienes varias cajas de plástico organizadoras.\n\nEn una caja pegas una cinta con la etiqueta **'velocidadMaxima'** y guardas adentro un papel que dice **80**.\nEn otra caja pegas la etiqueta **'nombrePiloto'** y guardas el texto **'Alex'**.\n\nUna **variable** es exactamente eso: una caja en la memoria RAM con un nombre asignado donde guardas un dato. Cada vez que tu código mencione `velocidadMaxima`, la computadora abrirá esa caja y leerá lo que tiene adentro.",
+      "question": "¿Qué ocurre en la arquitectura de la computadora cuando creamos una variable?",
+      "lessonText": "# El Mapa de la Memoria: Casilleros con Etiqueta\n\nImagina la memoria RAM de la roboRIO como un conjunto de millones de pequeños casilleros numerados. Cada casillero tiene una dirección física en formato hexadecimal (por ejemplo, `0x7FFF5FBFF8AC`).\n\nSería imposible para un ingeniero recordar direcciones físicas de memoria para cada lectura de sensores. Por eso nacieron las **variables**: un identificador simbólico en lenguaje humano que el compilador mapea automáticamente hacia una dirección física de memoria.\n\n### El Proceso de Guardar un Dato:\nCuando escribes:\n```python\nvoltajeBateria = 12.6\n```\nOcurren tres pasos fundamentales en el microprocesador:\n1. El sistema reserva una celda de memoria RAM del tamaño adecuado para el dato.\n2. Registra la etiqueta simbólica `voltajeBateria` en la tabla de símbolos asociada a esa dirección de memoria.\n3. Convierte el valor 12.6 a formato binario de punto flotante (estándar IEEE 754) y polariza las celdas de transistores microscópicos en ese casillero.\n\nCada vez que tu código mencione `voltajeBateria` en líneas posteriores, la CPU consultará instantáneamente el valor depositado en esa dirección física.\n\n**La Regla de Oro:**\nUna variable es una dirección física de memoria RAM asociada a un identificador simbólico legible; el nombre existe para el programador humano, la dirección binaria para la unidad de control de la CPU.",
       "options": [
         {
-          "text": "Un espacio nombrado en memoria para almacenar y consultar datos",
+          "text": "Se reserva un espacio físico en la memoria RAM asociado a un nombre simbólico y se almacena el valor en formato binario",
           "correct": true
         },
         {
-          "text": "Un tornillo que sujeta el motor al chasis",
+          "text": "Se crea un archivo de texto permanente en el almacenamiento secundario sin ocupar memoria volátil",
           "correct": false
         },
         {
-          "text": "Un cable suelto que hace chispas en la batería",
+          "text": "Se transmite una señal analógica a los actuadores mecánicos para memorizar el voltaje en las bobinas",
           "correct": false
         },
         {
-          "text": "Un botón secreto que reinicia internet",
+          "text": "Se despliega el nombre del identificador en la consola sin consumir recursos del procesador",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada componente técnico de una variable con su función precisa en la arquitectura de computadoras:",
+      "options": [
+        {
+          "text": "Identificador Simbólico|||Nombre legible que asigna el desarrollador para referenciar la celda",
+          "correct": true
+        },
+        {
+          "text": "Dirección de Memoria|||Ubicación física hexadecimal única en la memoria RAM",
+          "correct": true
+        },
+        {
+          "text": "Valor Binario|||Patrón de bits almacenado dentro de los transistores de la celda",
+          "correct": true
+        },
+        {
+          "text": "Operador de Asignación (=)|||Instrucción imperativa que transfiere un dato hacia la memoria",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena el ciclo de vida de una variable de telemetría (Asignación inicial -> Formato de reporte -> Salida a consola -> Mensaje de control):",
+      "options": [
+        {
+          "text": "distanciaAlObjetivo = 3.5",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "mensaje = 'Distancia al target: ' + str(distanciaAlObjetivo)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "print(mensaje)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Lectura completada con exito')",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la asignación para almacenar la lectura angular de 90.0 grados en la variable correspondiente:",
+      "codeSnippet": "_____ = 90.0\nprint('Angulo del giroscopio: ' + str(anguloGiro))",
+      "options": [
+        {
+          "text": "anguloGiro",
+          "correct": true
+        },
+        {
+          "text": "90.0",
+          "correct": false
+        },
+        {
+          "text": "print",
+          "correct": false
+        },
+        {
+          "text": "float",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "En la instrucción `potencia = 75`, ¿qué elemento es el nombre de la variable y cuál es el valor almacenado?",
+      "question": "¿Por qué los lenguajes de programación de alto nivel utilizan nombres simbólicos en lugar de direcciones hexadecimales directas como 0x7FFE4B2A?",
       "options": [
         {
-          "text": "'potencia' es el nombre de la variable y 75 es el valor guardado",
+          "text": "Porque abstraen la complejidad del hardware, permitiendo que el compilador gestione la memoria de manera segura y legible",
           "correct": true
         },
         {
-          "text": "75 es el nombre y 'potencia' es el valor",
+          "text": "Porque el procesador solo puede leer palabras del diccionario y no números hexadecimales",
           "correct": false
         },
         {
-          "text": "Ambos son nombres sin ningún valor",
+          "text": "Porque las direcciones hexadecimales consumen el doble de energía de la batería de la roboRIO",
           "correct": false
         },
         {
-          "text": "El signo '=' es la variable",
+          "text": "Porque las direcciones físicas de memoria RAM se destruyen físicamente si se escriben directamente",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_FILL",
-      "question": "Completa la asignación para crear una variable llamada `angulo` con valor 90:",
-      "codeSnippet": "_____ = 90\nprint(angulo)",
-      "options": [
-        {
-          "text": "angulo",
-          "correct": true
-        },
-        {
-          "text": "varAngulo()",
-          "correct": false
-        },
-        {
-          "text": "90",
-          "correct": false
-        },
-        {
-          "text": "Angulo.set",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará en consola este programa?",
+      "type": "CODE_TEST",
+      "question": "Rastrea la variable de identificación del equipo. ¿Qué salida exacta generará la terminal?",
       "codeSnippet": "equipo = 'Nautilus 4010'\nprint(equipo)",
       "options": [
         {
@@ -81,27 +129,13 @@
         {
           "text": "equipo",
           "correct": false
-        }
-      ]
-    },
-    {
-      "type": "ASSIST",
-      "question": "¿Dónde residen físicamente las variables mientras el robot está encendido y ejecutando el programa?",
-      "options": [
-        {
-          "text": "En la memoria RAM del procesador",
-          "correct": true
         },
         {
-          "text": "En las llantas de goma del chasis",
+          "text": "'equipo'",
           "correct": false
         },
         {
-          "text": "En el aire gracias a la gravedad",
-          "correct": false
-        },
-        {
-          "text": "En los cables del joystick",
+          "text": "4010",
           "correct": false
         }
       ]

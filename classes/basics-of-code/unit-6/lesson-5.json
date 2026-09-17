@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡El laboratorio de sensores de Teus!",
-      "lessonText": "# El Dashboard de Telemetría \n\nNautilus 4010 tiene múltiples subsistemas transmitiendo telemetría en vivo a la pantalla del drive team:\n- Giroscopio Yaw (`float`)\n- Contador de notas (`int`)\n- Estado de conexión al Field Management System (`bool`)\n- Nombre del modo de juego (`string`)\n\nEn este reto final de la Unidad 6, demostrarás tu maestría clasificando y operando los 4 tipos de datos primitivos.",
+      "question": "¿Cómo interactúan y se integran los 4 tipos primitivos fundamentales en un subsistema de telemetría de ingeniería?",
+      "lessonText": "# El Dashboard de Telemetría: Integración Heterogénea de Datos\n\nEn un robot de competencia como Nautilus 4010, el software debe coordinar simultáneamente decenas de señales físicas heterogéneas. Cada señal exige su tipo de dato primitivo óptimo para maximizar el rendimiento y la legibilidad:\n\n1. **`int`:** Variables discretas y contables (`teamNumber = 4010`, `notesScoredCount = 5`).\n2. **`float`:** Mediciones físicas continuas (`batteryVoltage = 12.45`, `gyroHeadingDeg = 89.45`).\n3. **`bool`:** Banderas de estado, finales de carrera y autorizaciones de seguridad (`isBmsHealthy = True`, `isTargetLocked = False`).\n4. **`string`:** Nombres de subsistemas, comandos de protocolo y mensajes textuales de estado (`matchMode = 'AUTONOMOUS_RUNNING'`).\n\n### El Desafío del Tipado Fuerte:\nEn lenguajes como Python, Java o C++, no puedes mezclar directamente tipos incompatibles sin una **conversión explícita (type casting)**. Intentar concatenar `'Voltaje: ' + 12.45` genera un error fatal en tiempo de ejecución (`TypeError`). Aprender a clasificar, operar y convertir tipos de datos con precisión milimétrica es la distinción entre un aficionado y un verdadero ingeniero de software embebido.\n\n**La Regla de Oro:**\nCada señal del mundo físico tiene su tipo de dato primitivo óptimo; respeta la naturaleza del dato y convierte tipos explícitamente para evitar fallos de ejecución.",
       "options": [
         {
-          "text": "¡Vamos a clasificar la telemetría del robot!",
+          "text": "Asigna cada magnitud física a su tipo primitivo natural (int, float, bool, string) y aplica conversiones explícitas para comunicación segura",
           "correct": true
         },
         {
-          "text": "Prefiero mezclar textos con números al azar",
+          "text": "Convierte todas las lecturas de los sensores a cadenas de texto para evitar usar la memoria RAM",
           "correct": false
         },
         {
-          "text": "No me interesa saber el tipo de dato",
+          "text": "Obliga a que todos los motores lean valores booleanos y rechacen números decimales",
           "correct": false
         },
         {
-          "text": "Quiero apagar los sensores",
+          "text": "Utiliza números flotantes para los identificadores de hardware para ahorrar procesamiento",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Clasifica cada valor con su tipo de dato primitivo correspondiente:",
+      "question": "Clasifica cada dato del robot con su tipo primitivo correspondiente:",
       "options": [
         {
-          "text": "4010|||int (Entero)",
+          "text": "CAN ID: 14|||int (Identificador de hardware discreto)",
           "correct": true
         },
         {
-          "text": "12.65|||float (Decimal)",
+          "text": "Yaw Heading: 89.45|||float (Magnitud angular continua)",
           "correct": true
         },
         {
-          "text": "'Nautilus'|||string (Texto)",
+          "text": "Limit Switch: True|||bool (Estado binario de contacto)",
           "correct": true
         },
         {
-          "text": "true|||bool (Booleano)",
+          "text": "Alliance: 'RED_1'|||string (Identificador textual)",
           "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la consola en esta combinación de telemetría?",
-      "codeSnippet": "equipo = 'Nautilus'\nnumero = 4010\nprint(equipo + ' ' + str(numero))",
+      "type": "CODE_ORDER",
+      "question": "Ordena la serialización limpia del paquete de telemetría hacia la Driver Station:",
       "options": [
         {
-          "text": "Nautilus 4010",
-          "correct": true
+          "text": "teamNumber = 4010",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "Nautilus4010",
-          "correct": false
+          "text": "batteryVoltage = 12.45",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "isBmsHealthy = True",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Team: ' + str(teamNumber) + ' | V: ' + str(batteryVoltage) + ' | OK: ' + str(isBmsHealthy))",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el fallo de tipos: No se puede sumar un número directamente con un texto sin convertirlo.",
-      "codeSnippet": "puntos = 10\nmensaje = 'Puntos: ' + puntos",
+      "type": "CODE_FILL",
+      "question": "Completa la conversión explícita de tipos (type casting) para incorporar el número entero al reporte textual:",
+      "codeSnippet": "numeroEquipo = 4010\nmensaje = 'Robot de competencia: ' + _____(numeroEquipo)\nprint(mensaje)",
       "options": [
         {
-          "text": "Hay que convertir 'puntos' a texto usando str(puntos) o String.valueOf(puntos)",
+          "text": "str",
           "correct": true
         },
         {
-          "text": "Hay que cambiar el 10 por 0",
+          "text": "int",
           "correct": false
         },
         {
-          "text": "No se puede usar el signo '+'",
+          "text": "float",
           "correct": false
         },
         {
-          "text": "La variable mensaje debe ser un entero",
+          "text": "bool",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Por qué es tan importante entender los tipos de datos en la programación de FIRST?",
+      "question": "¿Por qué la instrucción `'Puntos: ' + 15` arroja un `TypeError` fatal en Python en lugar de imprimir 'Puntos: 15'?",
       "options": [
         {
-          "text": "Porque cada sensor y motor trabaja con tipos específicos (voltajes con floats, estados con booleans)",
+          "text": "Porque Python es un lenguaje de tipado fuerte y no realiza coerción implícita automática entre texto y números",
           "correct": true
         },
         {
-          "text": "Para que el código se pinte de colores bonitos en el editor",
+          "text": "Porque los números mayores a 10 no pueden combinarse con palabras en la consola",
           "correct": false
         },
         {
-          "text": "Porque los tipos de datos deciden la velocidad máxima física del motor",
+          "text": "Porque el operador '+' solo está reservado para multiplicaciones booleanas",
           "correct": false
         },
         {
-          "text": "No es importante, en robótica todo se puede tratar como texto",
+          "text": "Porque la terminal de comandos solo acepta números pares",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea el procesamiento heterogéneo de datos sensoriales. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "anguloGiro = 45.8\ncontadorNotas = 3\nisAutoActive = True\nreporte = str(int(anguloGiro)) + '-' + str(contadorNotas) + '-' + str(isAutoActive)\nprint(reporte)",
+      "options": [
+        {
+          "text": "45-3-True",
+          "correct": true
+        },
+        {
+          "text": "45.8-3-True",
+          "correct": false
+        },
+        {
+          "text": "48-True",
+          "correct": false
+        },
+        {
+          "text": "Error de tipos",
           "correct": false
         }
       ]

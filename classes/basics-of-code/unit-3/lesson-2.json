@@ -1,108 +1,141 @@
 {
-  "title": "El Orden Altera el Resultado",
+  "title": "Mutabilidad y Reasignación de Estado",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué el orden de las operaciones cambia el resultado?",
-      "lessonText": "# Las Matemáticas de la Secuencia \n\nAnaliza estos dos programas. Parecen iguales, pero no lo son:\n\n**Programa A:**\n```python\nvalor = 10\nvalor = valor + 5  # Ahora valor es 15\nvalor = valor * 2  # 15 * 2 = 30\nprint(valor)       # Imprime 30\n```\n\n**Programa B (Invertido):**\n```python\nvalor = 10\nvalor = valor * 2  # Ahora valor es 20\nvalor = valor + 5  # 20 + 5 = 25\nprint(valor)       # Imprime 25\n```\n\n¡Las mismas operaciones en diferente orden dan resultados totalmente distintos!",
+      "question": "¿Cómo maneja la memoria RAM las operaciones de reasignación como 'x = x + 10'?",
+      "lessonText": "# El Estado en el Tiempo: Mutabilidad\n\nEn álgebra escolar, una expresión como **x = x + 10** es una contradicción matemática imposible (ningún número es igual a sí mismo más diez). Pero en programación, el símbolo `=` no representa una igualdad estática: representa una **operación imperativa de asignación**.\n\n### Las Dos Fases de una Asignación:\n1. **Evaluación de la Derecha:** La CPU lee el valor que `x` tiene almacenado actualmente en la memoria RAM y realiza el cálculo matemático (`x + 10`).\n2. **Almacenamiento en la Izquierda:** La CPU toma el resultado recién calculado y lo escribe en la celda de memoria de `x`, **sobrescribiendo y destruyendo irreversiblemente el valor anterior**.\n\n### El Concepto de Estado\nEl **estado** de un programa es la fotografía de todas sus variables en un instante dado en el tiempo. A medida que el Program Counter avanza línea por línea, el estado muta. Una variable no recuerda su pasado a menos que tú decidas guardarlo explícitamente en otra variable.\n\n**La Regla de Oro:**\nUna variable solo guarda un único valor a la vez: cada nueva asignación borra el valor previo sin dejar rastro.",
       "options": [
         {
-          "text": "Porque cada línea opera sobre el estado acumulado de las líneas anteriores",
+          "text": "Evalúa primero la expresión de la derecha usando el valor actual y luego sobrescribe la celda de memoria de la izquierda con el nuevo resultado",
           "correct": true
         },
         {
-          "text": "Porque a la multiplicación le da miedo la suma",
+          "text": "Compara si ambos lados son algebraicamente idénticos y arroja un error si no coinciden",
           "correct": false
         },
         {
-          "text": "Porque la computadora calcula números al azar",
+          "text": "Crea automáticamente una nueva variable oculta para conservar el historial de todos los valores anteriores",
           "correct": false
         },
         {
-          "text": "En realidad dan el mismo resultado, es una ilusión óptica",
+          "text": "Suma los números únicamente si la variable fue declarada como número primo",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué valor final se imprime en este código?",
-      "codeSnippet": "score = 5\nscore = score * 3\nscore = score - 2\nprint(score)",
+      "type": "MATCHING",
+      "question": "Rastrea el ciclo de vida del dato en la variable 'velocidad':",
       "options": [
         {
-          "text": "13",
+          "text": "velocidad = 0|||Inicialización: estado inicial en reposo",
           "correct": true
         },
         {
-          "text": "15",
-          "correct": false
+          "text": "velocidad = 40|||Reasignación: el valor 0 es destruido y reemplazado por 40",
+          "correct": true
         },
         {
-          "text": "9",
-          "correct": false
+          "text": "velocidad = velocidad + 10|||Acumulación: se leen 40, se suman 10 y se guardan 50",
+          "correct": true
         },
         {
-          "text": "5",
-          "correct": false
+          "text": "velocidad = 0|||Reinicio: el valor 50 es destruido para regresar a reposo",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué imprimirá este programa?",
-      "codeSnippet": "pasos = 0\npasos = pasos + 1\npasos = pasos + 1\nprint(pasos)",
+      "type": "CODE_ORDER",
+      "question": "Ordena las instrucciones para que el contador de vueltas incremente progresivamente de 0 a 2:",
       "options": [
         {
-          "text": "2",
-          "correct": true
+          "text": "vueltas = 0",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "0",
-          "correct": false
+          "text": "vueltas = vueltas + 1",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "vueltas = vueltas + 1",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print(vueltas)",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa el código para que el resultado final sea 100:",
-      "codeSnippet": "x = 50\nx = x _____ 2\nprint(x)",
+      "question": "Completa la línea para acumular 15 puntos adicionales sobre la puntuación existente:",
+      "codeSnippet": "puntuacion = 100\n# Acumular 15 puntos:\npuntuacion = _____ + 15\nprint(puntuacion)",
       "options": [
         {
-          "text": "*",
+          "text": "puntuacion",
           "correct": true
         },
         {
-          "text": "-",
+          "text": "100",
           "correct": false
         },
         {
-          "text": "/",
+          "text": "0",
           "correct": false
         },
         {
-          "text": "%",
+          "text": "puntosNuevos",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Si intentas imprimir una variable antes de crearla (ej: `print(energia)` antes de `energia = 100`), ¿qué sucederá?",
+      "question": "Observa el siguiente código:\n```python\npotencia = 50\npotencia = 100\npotencia = 0\n```\n¿Qué valor tiene 'potencia' en la memoria al concluir el programa?",
       "options": [
         {
-          "text": "Error: La variable no está definida (NameError / Undefined)",
+          "text": "0 (las asignaciones previas de 50 y 100 fueron sobrescritas)",
           "correct": true
         },
         {
-          "text": "La computadora inventa un valor de energía",
+          "text": "150 (la computadora suma automáticamente todas las asignaciones)",
           "correct": false
         },
         {
-          "text": "Imprime cero sin avisar",
+          "text": "50 (porque la primera asignación es permanente e inmutable)",
           "correct": false
         },
         {
-          "text": "Se apaga el monitor",
+          "text": "Error de ejecución por asignar tres veces la misma variable",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea mentalmente el estado de las variables 'a' y 'b'. ¿Qué imprimirá la última línea?",
+      "codeSnippet": "a = 5\nb = 10\na = b\nb = 20\nprint(a)",
+      "options": [
+        {
+          "text": "10",
+          "correct": true
+        },
+        {
+          "text": "20",
+          "correct": false
+        },
+        {
+          "text": "5",
+          "correct": false
+        },
+        {
+          "text": "15",
           "correct": false
         }
       ]

@@ -1,116 +1,141 @@
 {
-  "title": "Reto: Algoritmo de Rutina Autónoma",
+  "title": "Desafío de Unidad: Algoritmo de Rutina Autónoma",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "El reto de los primeros 15 segundos en FIRST Robotics",
-      "lessonText": "# El Periodo Autónomo ️\n\nEn cada match de FRC, los primeros 15 segundos son **100% autónomos**.\n\nNingún humano puede tocar los joysticks. El robot depende enteramente del **algoritmo preprogramado** en su memoria:\n1. Salir de la zona de inicio.\n2. Localizar la pieza con visión artificial.\n3. Recogerla con el intake.\n4. Apuntar y anotar puntos.\n\nSi el algoritmo es defectuoso, el robot puede chocar contra la pared o desperdiciar valiosos segundos de juego.",
+      "question": "¿Por qué el periodo autónomo de 15 segundos en FRC es la máxima prueba de un algoritmo en ingeniería?",
+      "lessonText": "# La Prueba de Fuego: 15 Segundos de Autonomía Total\n\nEn la competencia de robótica FIRST Robotics Competition (FRC), cada match oficial comienza con un periodo de **15 segundos en el que ningún humano puede tocar los mandos**.\n\nTodo el desempeño del robot depende de los algoritmos pregrabados en la memoria de la roboRIO. En esos 15 segundos, el sistema debe:\n1. Calibrar odometría y giroscopio en el milisegundo cero.\n2. Conducir a lo largo de una trayectoria de splines precalculada.\n3. Usar visión computacional para identificar piezas en el piso y ajustar la trayectoria en tiempo real.\n4. Accionar el intake, subir el brazo articulado y acelerar los flywheels de disparo a 5,000 RPM.\n5. Disparar y retirarse para cruzar la línea de comunidad y sumar puntos.\n\n### Causas Reales de Fracaso de un Autónomo:\n- **Falta de Determinismo:** El robot funciona en el taller pero falla en la cancha oficial porque el algoritmo asumió niveles de fricción constantes en la alfombra sin compensar con encoders.\n- **Ausencia de Timeouts:** Un sensor falla en detectar que la pieza entró y el algoritmo se queda esperando infinitamente en ese paso, desperdiciando el resto de los 15 segundos.\n\n**La Regla de Oro:**\nUn algoritmo autónomo robusto siempre cuenta con mecanismos de salida por tiempo (timeouts) y verificación cruzada de sensores para evitar bloqueos catastróficos.",
       "options": [
         {
-          "text": "¡Diseñemos un algoritmo de autónomo infalible!",
+          "text": "Porque el robot opera sin intervención humana directa, requiriendo algoritmos deterministas con timeouts y compensación de sensores en tiempo real",
           "correct": true
         },
         {
-          "text": "Prefiero que el robot se quede dormido los 15 segundos",
+          "text": "Porque los árbitros apagan la electricidad de la arena si el código tarda más de 3 segundos en compilar",
           "correct": false
         },
         {
-          "text": "Quiero manejar el robot con mi mente durante el autónomo",
+          "text": "Porque en ese periodo el procesador del robot cambia su arquitectura a un sistema analógico de bulbos",
           "correct": false
         },
         {
-          "text": "No me interesan los puntos del match",
+          "text": "Porque el robot debe inventar sus propios objetivos basándose en intuición artística",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada falla común en un autónomo con la vulnerabilidad algorítmica que la provocó:",
+      "options": [
+        {
+          "text": "El robot se quedó trabado esperando una pieza que nunca llegó|||Falta de timeout o condición de salida por tiempo",
+          "correct": true
+        },
+        {
+          "text": "El robot giró hacia la dirección contraria en la cancha|||Error de signo en el cálculo vectorial de trayectoria",
+          "correct": true
+        },
+        {
+          "text": "El lanzador disparó antes de que los motores alcanzaran velocidad|||Violación de secuencia estricta en el algoritmo",
+          "correct": true
+        },
+        {
+          "text": "La cámara se desconectó y el programa colapsó por completo|||Ausencia de manejo de fallos y valores por defecto",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena la rutina autónoma de 4010 para anotar en el Speaker:",
+      "question": "Ordena la secuencia óptima y segura para una rutina de disparo autónomo en FRC:",
       "options": [
         {
-          "text": "iniciarOdometria()",
+          "text": "calibrarOdometriaInicial()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "conducirAPosicionDisparo()",
+          "text": "desplazarAPosicionDeDisparo()",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "acelerarShooterRPM(4500)",
+          "text": "acelerarShooterRPM(5000)",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "dispararNota()",
+          "text": "alimentarPiezaHaciaShooter()",
           "correct": true,
           "audioSrc": "4"
-        },
-        {
-          "text": "salirDeZonaComunidad()",
-          "correct": true,
-          "audioSrc": "5"
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la pantalla de telemetría de los jueces tras correr este algoritmo?",
-      "codeSnippet": "puntos = 0\npuntos = puntos + 2 // Salir de zona\npuntos = puntos + 5 // Anotar en speaker\nprint(puntos)",
-      "options": [
-        {
-          "text": "7",
-          "correct": true
-        },
-        {
-          "text": "0",
-          "correct": false
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la verificación del tiempo de autónomo:",
-      "codeSnippet": "tiempoRestante = 15\n_____('Segundos de autónomo restantes: ' + str(tiempoRestante))",
+      "question": "Completa la comprobación que asegura que el disparo ocurra únicamente si los motores alcanzaron las RPM requeridas:",
+      "codeSnippet": "rpmActuales = sensorVelocidad.obtenerRPM()\nrpmObjetivo = 5000\n\nif (rpmActuales >= _____):\n    activarAlimentador()\nelse:\n    esperarAceleracion()",
       "options": [
         {
-          "text": "print",
+          "text": "rpmObjetivo",
           "correct": true
         },
         {
-          "text": "wait",
+          "text": "0",
           "correct": false
         },
         {
-          "text": "motor",
+          "text": "activarAlimentador",
           "correct": false
         },
         {
-          "text": "gyro",
+          "text": "False",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Por qué es tan valioso simular y revisar algoritmos en equipo antes de cargar el código al robot físico?",
+      "question": "Si tu algoritmo autónomo se queda atascado esperando que un sensor de visión detecte un objeto, ¿cuál es la mejor práctica de ingeniería para solucionarlo?",
       "options": [
         {
-          "text": "Para evitar daños mecánicos en el robot, prevenir choques y asegurar puntos en competencia",
+          "text": "Implementar un temporizador de seguridad (Timeout): si pasan 1.5 segundos sin detección, abortar ese intento y avanzar al siguiente objetivo",
           "correct": true
         },
         {
-          "text": "Para que el café de los mentores no se enfríe",
+          "text": "Aumentar la potencia de los motores al máximo para forzar al robot a moverse a ciegas",
           "correct": false
         },
         {
-          "text": "Porque el robot pesa demasiado para moverlo",
+          "text": "Eliminar todos los sensores del robot y conducir basándose únicamente en el tiempo",
           "correct": false
         },
         {
-          "text": "No tiene valor, es mejor probar directo a máxima potencia en la cancha",
+          "text": "Reiniciar la batería principal del robot mientras el partido sigue en curso",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Calcula los puntos totales obtenidos en la rutina autónoma según las condiciones evaluadas en este código:",
+      "codeSnippet": "puntosAutonomo = 0\nsalioDeZona = True\nprimerDisparoAnotado = True\nsegundoDisparoAnotado = False\n\nif salioDeZona:\n    puntosAutonomo = puntosAutonomo + 2\n\nif primerDisparoAnotado:\n    puntosAutonomo = puntosAutonomo + 5\n\nif segundoDisparoAnotado:\n    puntosAutonomo = puntosAutonomo + 5\n\nprint(puntosAutonomo)",
+      "options": [
+        {
+          "text": "7",
+          "correct": true
+        },
+        {
+          "text": "12",
+          "correct": false
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "0",
           "correct": false
         }
       ]

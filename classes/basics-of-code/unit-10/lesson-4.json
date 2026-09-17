@@ -3,117 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué el orden de las condiciones en una cadena if-elif importa tanto?",
-      "lessonText": "# El Error del Orden Invertido ️\n\nAnaliza este intento de clasificar velocidades:\n```python\nvelocidad = 95\nif velocidad > 50:\n    print('Rápido')\nelif velocidad > 90:\n    print('Súper Rápido')  # ¡ESTA LÍNEA NUNCA SE EJECUTARÁ!\n```\n¿Por qué jamás dirá 'Súper Rápido'?\nPorque como `95` ya es mayor a `50`, la primera condición se cumple inmediatamente. La CPU ejecuta `'Rápido'` y **se salta todo lo demás**.\n\n**Regla de Oro:** Siempre coloca las condiciones **más específicas y estrictas primero**, y las más generales después.",
+      "question": "¿Cómo se produce el fenómeno de condiciones solapadas y por qué el orden de evaluación es crítico?",
+      "lessonText": "# Solapamiento de Intervalos y Código Inalcanzable\n\nAl discretizar variables numéricas continuas (como lecturas de temperatura, distancia de LiDAR o corriente de motores) en una cadena `if-elif`, los intervalos pueden solaparse. Si una condición más general se sitúa antes de una condición más específica, la primera 'canibalizará' a la segunda, convirtiendo a esta última en **código inalcanzable (unreachable code)**.\n\n```python\n# ORDEN INCORRECTO (Peligro de colision):\nif distancia < 100:  # Si mide 15 cm, entra aqui y corre a velocidad 1.0!\n    velocidad = 1.0\nelif distancia < 20: # Inalcanzable: 15 cm ya fue capturado por < 100\n    velocidad = 0.1\n```\n\nEn Nautilus 4010, este bug en la aproximación al arrecife de puntuación provocó que el robot ignorara la zona de frenado suave de 20 cm e impactara la estructura metálica a velocidad de crucero.\n\n**Regla de Oro: Al evaluar rangos e intervalos numéricos en una cadena if-elif, debes ordenar siempre de la condición más restrictiva y específica a la más amplia y permisiva.**",
       "options": [
         {
-          "text": "Porque la primera condición que sea verdadera consume la ejecución y descarta las siguientes",
+          "text": "Ordenando siempre de la condición más restrictiva a la más permisiva para evitar que ramas amplias capturen valores críticos",
           "correct": true
         },
         {
-          "text": "Porque el procesador se confunde con el número 90",
+          "text": "Colocando siempre la condición con números más grandes al inicio sin importar el operador relacional",
           "correct": false
         },
         {
-          "text": "Porque elif solo acepta números menores a 50",
+          "text": "Duplicando cada condición con un operador lógico NOT para forzar una doble comprobación",
           "correct": false
         },
         {
-          "text": "En realidad sí se ejecutan ambos mensajes a la vez",
+          "text": "Usando exclusivamente comparadores de igualdad estricta para números continuos con decimales",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "¿Cómo solucionamos el bug del ejemplo anterior para que reconozca 'Súper Rápido'?",
-      "codeSnippet": "// Código con bug:\n// if velocidad > 50: print('Rápido')\n// elif velocidad > 90: print('Súper Rápido')",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de depuración de intervalos con su efecto computacional:",
       "options": [
         {
-          "text": "Poner primero 'if velocidad > 90:' y luego 'elif velocidad > 50:'",
+          "text": "Código inalcanzable|||Bloque que jamás puede ejecutarse porque una condición superior absorbe el flujo",
           "correct": true
         },
         {
-          "text": "Cambiar ambos por 'else'",
-          "correct": false
-        },
-        {
-          "text": "Quitar los signos de mayor que",
-          "correct": false
-        },
-        {
-          "text": "Cambiar el número 95 por 0",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "Con la corrección aplicada, ¿qué imprimirá para velocidad = 95?",
-      "codeSnippet": "velocidad = 95\nif velocidad > 90:\n    print('Súper Rápido')\nelif velocidad > 50:\n    print('Rápido')\nelse:\n    print('Lento')",
-      "options": [
-        {
-          "text": "Súper Rápido",
+          "text": "Solapamiento de rangos|||Intersección entre intervalos numéricos evaluados por ramas condicionales sucesivas",
           "correct": true
         },
         {
-          "text": "Rápido",
-          "correct": false
+          "text": "Orden de especificidad|||Regla de diseño que exige colocar las restricciones más estrictas al principio",
+          "correct": true
         },
         {
-          "text": "Lento",
-          "correct": false
-        },
-        {
-          "text": "Súper Rápido\nRápido",
-          "correct": false
+          "text": "Canibalización lógica|||Ocurre cuando una condición permisiva bloquea la activación de una condición crítica",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena correctamente las condiciones de mayor a menor jerarquía para calificar puntajes:",
+      "question": "Ordena las condiciones de proximidad desde la más restrictiva (parada) hasta la más amplia:",
       "options": [
         {
-          "text": "if score >= 90: print('Excelente')",
+          "text": "distancia_cm = sensor_ultrasonico.leer()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "elif score >= 70: print('Bueno')",
+          "text": "if distancia_cm < 10:",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "elif score >= 50: print('Suficiente')",
+          "text": "    velocidad_chasis = 0.0",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "else: print('Insuficiente')",
+          "text": "elif distancia_cm < 50:",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Cuál es la diferencia entre usar múltiples `if` separados vs una cadena `if-elif-else`?",
+      "type": "CODE_FILL",
+      "question": "¿Qué palabra clave evalúa el segundo umbral de temperatura de 75 grados tras verificar que no superó los 95?",
+      "codeSnippet": "# Diagnostico termico: ordenar de mayor peligro a menor peligro\nif temp > 95:\n    estado = 'EMERGENCIA_APAGAR'\n____ temp > 75:\n    estado = 'VENTILADOR_MAXIMO'\nelse:\n    estado = 'NORMAL'",
       "options": [
         {
-          "text": "En múltiples ifs separados se pueden ejecutar varios bloques a la vez; en if-elif-else solo se ejecuta uno",
+          "text": "elif",
           "correct": true
         },
         {
-          "text": "No hay ninguna diferencia, funcionan idéntico",
+          "text": "if",
           "correct": false
         },
         {
-          "text": "Los ifs separados no aceptan números",
+          "text": "then",
           "correct": false
         },
         {
-          "text": "if-elif-else es exclusivo de robots voladores",
+          "text": "else",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Si un desarrollador escribe 'if puntaje >= 50: nivel = \"Basico\"' antes de 'elif puntaje >= 90: nivel = \"Experto\"', ¿qué resultado obtendrá un usuario con puntaje de 95?",
+      "options": [
+        {
+          "text": "'Basico', porque la condición '>= 50' es verdadera para 95 y la estructura if-elif cortocircuita de inmediato sin evaluar el nivel Experto",
+          "correct": true
+        },
+        {
+          "text": "'Experto', porque el compilador detecta automáticamente el número mayor y reordena la cadena",
+          "correct": false
+        },
+        {
+          "text": "Un error de sintaxis en tiempo de ejecución por conflicto de ambigüedad numérica",
+          "correct": false
+        },
+        {
+          "text": "Ambos niveles asignados sucesivamente en la misma variable",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué valor exacto adoptará la variable 'estado' para una lectura de sensor de 85?",
+      "codeSnippet": "sensor_luz = 85\nestado = 'INDEFINIDO'\nif sensor_luz > 80:\n    estado = 'BRILLO_EXTREMO'\nelif sensor_luz > 50:\n    estado = 'BRILLO_MEDIO'\nelse:\n    estado = 'OSCURIDAD'\nprint(estado)",
+      "options": [
+        {
+          "text": "'BRILLO_EXTREMO'",
+          "correct": true
+        },
+        {
+          "text": "'BRILLO_MEDIO'",
+          "correct": false
+        },
+        {
+          "text": "'OSCURIDAD'",
+          "correct": false
+        },
+        {
+          "text": "'INDEFINIDO'",
           "correct": false
         }
       ]

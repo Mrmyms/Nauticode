@@ -3,79 +3,124 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo transforman las funciones la legibilidad de un sistema robótico?",
-      "lessonText": "# Código que Cuenta una Historia \n\nCompara estos dos estilos para el autonomous de Nautilus:\n\n**Estilo 1 (Caótico sin funciones):**\n```python\n# 400 líneas de cálculos matemáticos, números mágicos y registros de puertos revueltos...\n```\n\n**Estilo 2 (Elegante y Modular con funciones):**\n```python\ndef rutinaAutonomo():\n    salirDeZonaInicio()\n    localizarNotaConLimelight()\n    recogerNotaConIntake()\n    apuntarYShoot()\n```\n¡Cualquier integrante del equipo (mecánica, eléctrica, mentores) puede leer el código y entender la estrategia al instante!",
+      "question": "¿Cómo transforman las capas de abstracción modular la legibilidad y mantenimiento de un robot?",
+      "lessonText": "# Arquitectura en Capas y Descomposición Modular\n\nUn programa de robótica sin funciones modulares se convierte en un monolito ininteligible de cientos de líneas donde las operaciones de hardware, cálculos trigonométricos y decisiones estratégicas están mezclados sin orden. La modularidad descompone el sistema en **capas de abstracción**:\n\n- **Capa Estratégica (Alto Nivel):** Expresa la lógica del juego con nombres descriptivos de intención humana.\n- **Capa de Control (Nivel Medio):** Calcula trayectorias, cinemática y resuelve lazos PID.\n- **Capa de Hardware (Bajo Nivel):** Escribe tramas directas al bus CAN y maneja pines digitales.\n\n```python\ndef rutina_autonomo_15s():\n    avanzar_hacia_pieza()\n    adquirir_nota_intake()\n    apuntar_con_limelight()\n    disparar_a_speaker()\n```\n\nEn Nautilus 4010, esta organización permite que cualquier integrante del equipo de programación o mentor entienda y audite la estrategia de Autonomous en segundos sin perderse en el mar de voltajes de bajo nivel.\n\n**Regla de Oro: La modularización organiza el software en capas jerárquicas: las rutinas estratégicas de alto nivel expresan el qué hacer, mientras que las funciones de bajo nivel implementan el cómo hacerlo.**",
       "options": [
         {
-          "text": "Dividen la complejidad en módulos comprensibles con nombres que describen acciones humanas",
+          "text": "Dividiendo la complejidad en capas jerárquicas donde el alto nivel expresa la estrategia y el bajo nivel gestiona el hardware",
           "correct": true
         },
         {
-          "text": "Aumentan la complejidad para que nadie más pueda entender el código",
+          "text": "Ocultando todo el código en archivos protegidos para que los mentores no puedan revisarlo",
           "correct": false
         },
         {
-          "text": "Hacen que el archivo tenga más hojas al imprimirlo",
+          "text": "Reuniendo todas las variables y comandos en una única función de 2000 líneas",
           "correct": false
         },
         {
-          "text": "Sirven únicamente para cambiar el idioma de la computadora",
+          "text": "Cambiando las palabras clave del lenguaje por abreviaciones de una sola letra",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_ORDER",
-      "question": "Ordena la arquitectura limpia de este archivo (Funciones primero -> Código ejecutor al final):",
+      "type": "MATCHING",
+      "question": "Relaciona cada capa de la arquitectura modular con su responsabilidad técnica:",
       "options": [
         {
-          "text": "def calibrarSensores(): print('Sensores OK')",
+          "text": "Descomposición modular|||División de un programa complejo en unidades lógicas independientes y reutilizables",
+          "correct": true
+        },
+        {
+          "text": "Capa de abstracción|||Nivel de software que oculta detalles de hardware detrás de interfaces limpias",
+          "correct": true
+        },
+        {
+          "text": "Driver de bajo nivel|||Función que interactúa directamente con voltajes, registros o pines físicos",
+          "correct": true
+        },
+        {
+          "text": "Estrategia de alto nivel|||Función orquestadora que coordina subsistemas para cumplir un objetivo de juego",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la orquestación estratégica de alto nivel para la rutina de autonomous:",
+      "options": [
+        {
+          "text": "def rutina_autonomo():",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "def encenderMotores(): print('Motores OK')",
+          "text": "    avanzar_a_nota()",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "calibrarSensores()",
+          "text": "    recolectar_nota()",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "encenderMotores()",
+          "text": "    disparar_a_speaker()",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Qué ocurre si intentas llamar a una función en la línea 1 antes de haberla definido en la línea 10 en lenguajes como Python?",
+      "type": "CODE_FILL",
+      "question": "¿Qué invocación modular debe colocarse para asegurar la alineación antes de eyectar la pieza?",
+      "codeSnippet": "def alinear_chasis():\n    limelight.centrar_objetivo()\n\ndef rutina_disparo():\n    _____\n    lanzador.eyectar()",
       "options": [
         {
-          "text": "Error: La función aún no está definida en ese punto de la ejecución secuencial",
+          "text": "alinear_chasis()",
           "correct": true
         },
         {
-          "text": "Python viaja en el tiempo y la ejecuta sin problemas",
+          "text": "alinear_chasis",
           "correct": false
         },
         {
-          "text": "La función se borra sola",
+          "text": "def alinear_chasis",
           "correct": false
         },
         {
-          "text": "El monitor se pone en pausa",
+          "text": "call alinear",
           "correct": false
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué salida producirá este conjunto de funciones?",
-      "codeSnippet": "def paso1():\n    print('A')\ndef paso2():\n    print('B')\n\npaso2()\npaso1()",
+      "type": "SELECT",
+      "question": "¿Qué ocurre en Python si intentas invocar una función en la línea 2 antes de haberla definido formalmente en la línea 15?",
+      "options": [
+        {
+          "text": "Se produce un error NameError en tiempo de ejecución porque la función aún no ha sido cargada en memoria por el intérprete",
+          "correct": true
+        },
+        {
+          "text": "Python analiza el archivo en sentido inverso y ejecuta la función sin inconvenientes",
+          "correct": false
+        },
+        {
+          "text": "La función se compila automáticamente en segundo plano sin respetar el orden secuencial",
+          "correct": false
+        },
+        {
+          "text": "El monitor entra en estado de hibernación esperando la definición",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué salida imprimirá la consola al ejecutar las funciones en ese orden de invocación?",
+      "codeSnippet": "def modulo_a():\n    print('A')\ndef modulo_b():\n    print('B')\n\nmodulo_b()\nmodulo_a()",
       "options": [
         {
           "text": "B\nA",
@@ -84,28 +129,13 @@
         {
           "text": "A\nB",
           "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_FILL",
-      "question": "Completa la invocación de la función de parada:",
-      "codeSnippet": "def pararTodo():\n    print('Robot en Alto Total')\n\n_____",
-      "options": [
-        {
-          "text": "pararTodo()",
-          "correct": true
         },
         {
-          "text": "pararTodo;",
+          "text": "AB",
           "correct": false
         },
         {
-          "text": "call pararTodo",
-          "correct": false
-        },
-        {
-          "text": "run(pararTodo)",
+          "text": "BA",
           "correct": false
         }
       ]

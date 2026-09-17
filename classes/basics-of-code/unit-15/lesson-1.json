@@ -3,54 +3,79 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cuál es la diferencia entre un parámetro y un argumento?",
-      "lessonText": "# Funciones Personalizables ️\n\nImagina una función `avanzar()`. Si siempre avanza a velocidad fija de 50%, no nos sirve cuando queremos ir despacio o a fondo.\n\nPara hacerla flexible, agregamos **Parámetros** entre los paréntesis:\n```python\ndef avanzar(velocidad):\n    print('Avanzando a potencia: ' + str(velocidad))\n```\n- **Parámetro:** El nombre de la variable receptora en la definición (`velocidad`).\n- **Argumento:** El valor concreto que le pasas al llamarla: `avanzar(0.3)` o `avanzar(1.0)`.\n\n¡La misma función ahora sirve para cualquier velocidad imaginable!",
+      "question": "¿Cuál es la diferencia formal entre un parámetro y un argumento en la ejecución de una función?",
+      "lessonText": "# Parametrización y Flexibilidad de Comandos\n\nUna función sin parámetros realiza siempre una secuencia idéntica y estática. Para dotar a un bloque de código de adaptabilidad, se definen variables receptoras en su cabecera llamadas **parámetros**.\n\n- **Parámetro (Formal):** Identificador local declarado en la firma de la función que reserva espacio en el marco de pila para el dato de entrada.\n- **Argumento (Real):** El valor o expresión concreta transmitida a la función en el instante de su invocación.\n\n```python\ndef set_shooter_rpm(rpm_objetivo):  # rpm_objetivo es el parametro\n    controlador_flywheel.fijar_velocidad(rpm_objetivo)\n\nset_shooter_rpm(3500)               # 3500 es el argumento real\nset_shooter_rpm(5200)               # 5200 es otro argumento\n```\n\nEn Nautilus 4010, este diseño permite que la misma función de disparo sirva para anotar en el Subwoofer a 3500 RPM o para disparar a larga distancia desde el Podio a 5200 RPM simplemente cambiando el argumento transmitido.\n\n**Regla de Oro: Los parámetros son variables locales declaradas en la firma de la función; los argumentos son los valores concretos transmitidos a la función en el momento exacto de su invocación.**",
       "options": [
         {
-          "text": "El parámetro es la variable en la definición; el argumento es el valor real enviado en la llamada",
+          "text": "El parámetro es la variable receptora en la definición; el argumento es el valor real enviado al invocarla",
           "correct": true
         },
         {
-          "text": "Parámetro es para números y argumento es para letras",
+          "text": "El parámetro es para números decimales y el argumento es exclusivamente para cadenas de texto",
           "correct": false
         },
         {
-          "text": "Son exactamente lo mismo sin ninguna diferencia técnica",
+          "text": "Son términos sinónimos idénticos y el procesador no distingue entre ellos",
           "correct": false
         },
         {
-          "text": "El argumento se usa solo cuando hay un error en el código",
+          "text": "El argumento se emplea solo cuando la función produce un fallo de compilación",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá esta llamada con argumento 80?",
-      "codeSnippet": "def setShooter(rpm):\n    print('Shooter a ' + str(rpm) + ' RPM')\n\nsetShooter(3500)",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de transferencia de datos con su definición técnica:",
       "options": [
         {
-          "text": "Shooter a 3500 RPM",
+          "text": "Parámetro formal|||Variable receptora declarada en la definición de la función",
           "correct": true
         },
         {
-          "text": "Shooter a rpm RPM",
-          "correct": false
+          "text": "Argumento real|||Valor o expresión concreta enviada a la función al invocarla",
+          "correct": true
         },
         {
-          "text": "Shooter a 80 RPM",
-          "correct": false
+          "text": "Correspondencia posicional|||Mapeo de argumentos a parámetros según el orden secuencial de declaración",
+          "correct": true
         },
         {
-          "text": "Error",
-          "correct": false
+          "text": "Pila de llamadas (Call Stack)|||Estructura de memoria donde se almacenan los argumentos al transferir control",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la definición e invocación de la función para fijar las RPM del shooter:",
+      "options": [
+        {
+          "text": "def set_shooter_rpm(rpm_deseado):",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    controlador_flywheel.fijar_velocidad(rpm_deseado)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    print('Shooter calibrado a RPM:', rpm_deseado)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "set_shooter_rpm(4200)",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la llamada a la función pasando el argumento 90:",
-      "codeSnippet": "def girar(grados):\n    print('Girando ' + str(grados) + ' deg')\n\ngirar(_____)",
+      "question": "¿Qué valor numérico de argumento debe suministrarse a la función para girar 90 grados?",
+      "codeSnippet": "def girar_grados(grados):\n    controlador_giro.rotar(grados)\n\n# Enviar el argumento de 90 grados a la llamada\ngirar_grados(____)",
       "options": [
         {
           "text": "90",
@@ -71,38 +96,46 @@
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué imprimirá la función tras recibir el nombre del piloto?",
-      "codeSnippet": "def reportarPiloto(nombre):\n    print('Piloto: ' + nombre)\n\nreportarPiloto('Alex')",
+      "type": "SELECT",
+      "question": "¿Qué excepción genera Python si una función exige un parámetro obligatorio (ej: def f(x):) y el programa la invoca sin argumentos (f())?",
       "options": [
         {
-          "text": "Piloto: Alex",
+          "text": "TypeError: falta un argumento posicional obligatorio requerido por la firma de la función",
           "correct": true
         },
         {
-          "text": "Piloto: nombre",
+          "text": "SyntaxError: el código de la función se descompila automáticamente",
+          "correct": false
+        },
+        {
+          "text": "La función sustituye el parámetro por el valor cero sin notificar errores",
+          "correct": false
+        },
+        {
+          "text": "El procesador se apaga por falla de memoria virtual",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Qué sucede si una función exige un parámetro (ej: `def f(x):`) y la llamas sin argumentos (`f()`)?",
+      "type": "CODE_TEST",
+      "question": "¿Qué valor imprimirá la consola al pasar el argumento 0.5 a la función?",
+      "codeSnippet": "def calcular_voltaje(porcentaje):\n    print(12.0 * porcentaje)\n\ncalcular_voltaje(0.5)",
       "options": [
         {
-          "text": "Error: TypeError (Falta 1 argumento posicional requerido)",
+          "text": "6.0",
           "correct": true
         },
         {
-          "text": "La computadora inventa el número 0",
+          "text": "12.0",
           "correct": false
         },
         {
-          "text": "La función se salta sin avisar",
+          "text": "0.5",
           "correct": false
         },
         {
-          "text": "El procesador se apaga",
+          "text": "60.0",
           "correct": false
         }
       ]

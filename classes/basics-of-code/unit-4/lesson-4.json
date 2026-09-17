@@ -3,109 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué significa que una variable sea mutable?",
-      "lessonText": "# El Flujo del Tiempo \n\nEl estado de un robot cambia constantemente durante un match:\n- En el segundo 0, la velocidad es 0.\n- En el segundo 5, la velocidad sube a 100.\n- En el segundo 15, la velocidad cae a 0 al terminar el autónomo.\n\nLa **reasignación** consiste en guardar un dato nuevo en una caja que ya existía, reemplazando el valor viejo por completo.\n```python\nvelocidad = 0     # Arranca en reposo\nvelocidad = 100   # Acelera a fondo\nvelocidad = 0     # Frena\n```",
+      "question": "¿Qué ocurre físicamente con el estado anterior en memoria RAM cuando una variable es reasignada?",
+      "lessonText": "# El Flujo del Tiempo y la Sobreescritura en RAM\n\nEl estado de un robot de competencia cambia decenas de veces por segundo:\n- En $t = 0\\text{ s}$, `velocidadChasis = 0.0` (robot inmóvil detrás de la línea de partida).\n- En $t = 2\\text{ s}$, `velocidadChasis = 3.8` (aceleración máxima hacia la nota central).\n- En $t = 5\\text{ s}$, `velocidadChasis = 0.0` (detención para disparar al Speaker).\n\nLas celdas de la memoria RAM están compuestas por transistores microscópicos. Cuando reasignas una variable escribiendo:\n```python\nvelocidadChasis = 3.8\n```\nLa CPU escribe un nuevo patrón de bits polarizando las mismas celdas de memoria asociadas a esa variable. **El dato anterior (0.0) es físicamente sobreescrito e irreversiblemente destruido**; no existe un historial automático en la RAM a menos que el programador declare explícitamente otra variable de respaldo.\n\nEsta capacidad de alterar el dato almacenado en una misma dirección a lo largo del tiempo se denomina **mutabilidad**.\n\n**La Regla de Oro:**\nReasignar una variable sobreescribe destructivamente la celda de memoria asignada; el dato previo desaparece para dar lugar al nuevo estado del sistema.",
       "options": [
         {
-          "text": "Que su contenido puede modificarse a lo largo del tiempo durante la ejecución",
+          "text": "El dato anterior es físicamente sobreescrito en la misma celda de RAM y deja de existir de forma irreversible",
           "correct": true
         },
         {
-          "text": "Que la variable cambia de color según la temperatura",
+          "text": "El sistema operativo guarda una copia en disco duro de cada valor previo de forma automática",
           "correct": false
         },
         {
-          "text": "Que puede convertirse en un cable físico",
+          "text": "La memoria RAM crea un nuevo casillero y conserva el casillero viejo con el mismo nombre",
           "correct": false
         },
         {
-          "text": "Que se borra si no la usas durante 3 segundos",
+          "text": "La computadora suma automáticamente el valor anterior con el nuevo para no perder información",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá la consola al final de esta serie de reasignaciones?",
-      "codeSnippet": "contador = 1\ncontador = contador + 2\ncontador = 10\nprint(contador)",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto sobre el estado en memoria con su principio fundamental:",
       "options": [
         {
-          "text": "10 (la última reasignación sobrescribió cualquier cálculo previo)",
+          "text": "Mutabilidad|||Propiedad de una celda de memoria cuyo contenido puede cambiar durante la ejecución",
           "correct": true
         },
         {
-          "text": "3",
-          "correct": false
+          "text": "Sobreescritura|||Reemplazo destructivo del patrón de bits en una dirección de memoria existente",
+          "correct": true
         },
         {
-          "text": "13",
-          "correct": false
+          "text": "Inmutabilidad|||Garantía de diseño donde una referencia jamás puede alterar su valor asignado",
+          "correct": true
         },
         {
-          "text": "1",
-          "correct": false
+          "text": "Bucle de Control (20ms)|||Ciclo periódico donde las variables de sensores se reasignan constantemente",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena las líneas para incrementar el contador de notas de 0 a 2 paso a paso:",
+      "question": "Ordena la secuencia de reasignación que modela la aceleración progresiva de un motor Falcon 500:",
       "options": [
         {
-          "text": "notasAnotadas = 0",
+          "text": "potenciaMotor = 0.0",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "notasAnotadas = notasAnotadas + 1",
+          "text": "potenciaMotor = 0.35",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "notasAnotadas = notasAnotadas + 1",
+          "text": "potenciaMotor = 0.75",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "print(notasAnotadas)",
+          "text": "potenciaMotor = 1.0",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Escribe la instrucción que duplica el valor actual de la variable 'rpm':",
-      "codeSnippet": "// Multiplica rpm por 2 y guarda el resultado",
+      "type": "CODE_FILL",
+      "question": "Completa la reasignación para actualizar la presión del sistema neumático tras 5 segundos de presurización:",
+      "codeSnippet": "presionPSI = 60\n// Ciclo de carga del compresor\npresionPSI = _____\nprint('Presion actual del sistema: ' + str(presionPSI))",
       "options": [
         {
-          "text": "rpm = rpm * 2",
+          "text": "115",
           "correct": true
         },
         {
-          "text": "rpm * 2",
+          "text": "presionPSI = 115",
+          "correct": false
+        },
+        {
+          "text": "'115 psi'",
+          "correct": false
+        },
+        {
+          "text": "presionPSI",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Si una variable cambia de valor cientos de veces por segundo (como la lectura de un encoder de rueda), ¿se llena la memoria RAM?",
+      "question": "Si una variable de telemetría actualiza su valor 50 veces por segundo durante un match de 150 segundos, ¿por qué la memoria RAM no se agota?",
       "options": [
         {
-          "text": "No, porque reutiliza la misma caja de memoria, simplemente sobrescribe el dato anterior",
+          "text": "Porque cada reasignación reutiliza y sobreescribe la misma celda de memoria previamente reservada, manteniendo constante el consumo",
           "correct": true
         },
         {
-          "text": "Sí, la memoria explota en 5 segundos",
+          "text": "Porque la roboRIO descarga la memoria RAM en un satélite al terminar cada segundo",
           "correct": false
         },
         {
-          "text": "Solo si el robot gira a la derecha",
+          "text": "Porque las variables numéricas se comprimen a tamaño cero después del tercer cambio",
           "correct": false
         },
         {
-          "text": "Sí, a menos que borres la variable manualmente",
+          "text": "Porque el procesador solo recuerda la última letra del nombre de la variable",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué valor final exacto imprimirá la consola al completar la secuencia de reasignaciones?",
+      "codeSnippet": "contador = 1\ncontador = contador + 4\ncontador = 20\nprint(contador)",
+      "options": [
+        {
+          "text": "20",
+          "correct": true
+        },
+        {
+          "text": "5",
+          "correct": false
+        },
+        {
+          "text": "25",
+          "correct": false
+        },
+        {
+          "text": "1",
           "correct": false
         }
       ]

@@ -1,115 +1,141 @@
 {
-  "title": "Inputs, Procesamiento y Outputs",
+  "title": "El Ciclo IPO en la Práctica Robótica",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo interactúan las 3 fases de un sistema computacional?",
-      "lessonText": "# El Ciclo IPO (Input -> Process -> Output) \n\nTodo programa o robot en el universo opera bajo este ciclo continuo:\n\n1. **INPUT (Entrada):** Información que entra al sistema. En un robot, son los joysticks del piloto o los sensores (cámara Limelight, encoder de ruedas, giroscopio).\n2. **PROCESS (Procesamiento):** Las operaciones matemáticas y decisiones lógicas que ejecuta el microprocesador.\n3. **OUTPUT (Salida):** La respuesta al exterior. Motores girando, un pistón neumático abriéndose, luces LED cambiando a color amarillo o telemetría en la pantalla.",
+      "question": "¿Cómo se articulan las tres fases del modelo IPO dentro de la arquitectura de un robot de competencia?",
+      "lessonText": "# El Ciclo Periódico IPO en Robótica\n\nEn un robot de competencia, el procesador central (como la roboRIO) no ejecuta un código lineal de principio a fin y se apaga. En su lugar, ejecuta el ciclo fundamental **Input -> Process -> Output (IPO)** de forma ininterrumpida decenas de veces por segundo.\n\n### 1. Fase de Entrada (Input)\nEl software captura la telemetría del entorno y las órdenes humanas:\n- Joysticks y gatillos del control del conductor.\n- Sensores de distancia ultrasónicos y láser (LiDAR).\n- Encoders rotativos en las ruedas y giroscopio (NavX).\n- Cámaras inteligentes de visión artificial (Limelight).\n\n### 2. Fase de Procesamiento (Process / Algoritmo)\nEs el cerebro lógico del sistema. Toma todos los números capturados en la entrada y realiza cálculos vectoriales, matrices cinemáticas y filtros de seguridad:\n- ¿El conductor pidió avanzar pero el sensor detectó una pared a 10 cm? El algoritmo decide anular la orden humana y aplicar frenado automático.\n\n### 3. Fase de Salida (Output)\nEl resultado matemático se traduce en señales físicas de hardware:\n- Modulación por Ancho de Pulsos (PWM) o comandos por bus CAN a los controladores de motor.\n- Activación de válvulas solenoides neumáticas.\n- Indicadores luminosos LED para informar el estado al equipo en la pista.\n\n**La Regla de Oro:**\nUn buen algoritmo nunca confía ciegamente en el Input sin filtrarlo, ni acciona el Output sin antes verificar las condiciones de seguridad en el Procesamiento.",
       "options": [
         {
-          "text": "Entrada de datos -> Procesamiento lógico -> Salida de acciones",
+          "text": "Captura datos del entorno (Input), ejecuta la lógica de decisión y cálculo (Process), y traduce el resultado en acciones físicas en los actuadores (Output)",
           "correct": true
         },
         {
-          "text": "Salida primero -> luego la entrada -> y no hay procesamiento",
+          "text": "Envía potencia directa a los motores (Output) y luego calcula si el robot chocó contra un obstáculo (Process)",
           "correct": false
         },
         {
-          "text": "Procesamiento sin datos de entrada ni salida",
+          "text": "Descarga las decisiones tomadas por los organizadores del torneo en cada milisegundo a través de radiofrecuencia",
           "correct": false
         },
         {
-          "text": "El ciclo sólo funciona si no hay humanos cerca",
+          "text": "Apaga los sensores para ahorrar batería y deja que los motores operen por impulso mecánico continuo",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Clasifica cada elemento de un robot de FRC en su fase correspondiente:",
+      "question": "Clasifica cada componente de un robot FRC en su fase correspondiente del ciclo IPO:",
       "options": [
         {
-          "text": "Joystick del piloto|||Input (Entrada de control)",
+          "text": "Giroscopio NavX reportando inclinación de 15 grados|||Fase de Input (Entrada de telemetría)",
           "correct": true
         },
         {
-          "text": "Sensor ultrasónico|||Input (Entrada de telemetría)",
+          "text": "Cálculo cinemático de trayectoria en la roboRIO|||Fase de Process (Procesamiento algorítmico)",
           "correct": true
         },
         {
-          "text": "Cálculo de velocidad en la roboRIO|||Process (Procesamiento)",
+          "text": "Controlador SparkMax enviando 12V al motor de tracción|||Fase de Output (Salida física)",
           "correct": true
         },
         {
-          "text": "Motor del intake encendido|||Output (Salida de acción)",
+          "text": "Pistón neumático extendiendo la garra recolectora|||Fase de Output (Salida mecánica)",
           "correct": true
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "En este snippet de código, ¿cuál es el Output generado?",
-      "codeSnippet": "distancia = 12\nresultado = distancia * 2\nprint(resultado)",
+      "type": "CODE_ORDER",
+      "question": "Ordena el flujo del ciclo periódico para un sistema de elevador robótico (Input -> Process -> Output):",
       "options": [
         {
-          "text": "El número 24 impreso en la consola",
-          "correct": true
+          "text": "posicionActual = sensorEncoder.obtenerPosicion()",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "El número 12",
-          "correct": false
+          "text": "error = posicionDeseada - posicionActual",
+          "correct": true,
+          "audioSrc": "2"
         },
         {
-          "text": "La palabra 'distancia'",
-          "correct": false
+          "text": "voltajeMotor = error * factorGananciaProporcional",
+          "correct": true,
+          "audioSrc": "3"
         },
         {
-          "text": "No produce ningún output",
-          "correct": false
+          "text": "motorElevador.setVoltaje(voltajeMotor)",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa el código para generar el output con el resultado:",
-      "codeSnippet": "lecturaSensor = 40\n_____('Lectura: ' + str(lecturaSensor))",
+      "question": "Completa la fase de Output enviando la señal calculada al controlador del mecanismo:",
+      "codeSnippet": "comandoPiloto = 0.75\nvelocidadSegura = procesarLimiteVelocidad(comandoPiloto)\n\n# Despachar al actuador (Output):\nmotorIntake._____(velocidadSegura)",
       "options": [
         {
-          "text": "print",
+          "text": "setPower",
           "correct": true
         },
         {
-          "text": "input",
+          "text": "readSensor",
           "correct": false
         },
         {
-          "text": "save",
+          "text": "inputData",
           "correct": false
         },
         {
-          "text": "read",
+          "text": "resetMemory",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Si el piloto no mueve la palanca del joystick (Input = 0), ¿cuál debería ser el Output de velocidad del motor en reposo?",
+      "question": "Durante una partida, un sensor ultrasónico reporta súbitamente -999 cm debido a polvo en el lente. ¿Cuál es la respuesta algorítmica correcta en la fase de Process?",
       "options": [
         {
-          "text": "0 (Motor detenido)",
+          "text": "Detectar que el valor está fuera del rango físico válido, descartarlo y utilizar la última medición segura o detener el robot por precaución",
           "correct": true
         },
         {
-          "text": "100% a máxima velocidad",
+          "text": "Acelerar los motores en reversa a máxima potencia porque el número es negativo",
           "correct": false
         },
         {
-          "text": "-50% en reversa",
+          "text": "Apagar el procesador de inmediato y esperar a que el polvo desaparezca por sí solo",
           "correct": false
         },
         {
-          "text": "Girar en círculos sin control",
+          "text": "Multiplicar el valor por -1 para convertirlo en positivo y continuar avanzando a ciegas",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Analiza el procesamiento del joystick. Si el piloto empuja la palanca a 0.8 pero el interruptor de seguridad está activado, ¿cuál es el Output?",
+      "codeSnippet": "inputJoystick = 0.8\nseguridadActivada = True\n\nif seguridadActivada:\n    potenciaOutput = 0.0\nelse:\n    potenciaOutput = inputJoystick\n\nprint(potenciaOutput)",
+      "options": [
+        {
+          "text": "0.0",
+          "correct": true
+        },
+        {
+          "text": "0.8",
+          "correct": false
+        },
+        {
+          "text": "True",
+          "correct": false
+        },
+        {
+          "text": "seguridadActivada",
           "correct": false
         }
       ]

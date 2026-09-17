@@ -1,115 +1,141 @@
 {
-  "title": "Operadores de Comparación",
+  "title": "Operadores de Comparación Relacional",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo compara la computadora dos datos numéricos?",
-      "lessonText": "# Las Balanzas de la CPU ️\n\nLos **operadores relacionales** comparan dos valores y siempre producen un booleano (`true` o `false`):\n- `==` : ¿Es exactamente igual? (`5 == 5` -> `true`)\n- `!=` : ¿Es diferente? (`5 != 3` -> `true`)\n- `>` y `<` : Mayor que y menor que (`12 > 10` -> `true`)\n- `>=` y `<=` : Mayor o igual, y menor o igual.\n\nEn FIRST Robotics comparamos todo el tiempo:\n`bateria >= 12.0` (¿La batería tiene suficiente carga?)\n`distanciaCM < 30.0` (¿Hay un obstáculo demasiado cerca?).",
+      "question": "¿Cómo evalúa la CPU las comparaciones relacionales y cómo se traduce el resultado en el flujo de ejecución?",
+      "lessonText": "# Las Banderas de la ALU: La Mecánica de la Comparación\n\nEn la arquitectura de los procesadores, las comparaciones numéricas no son conceptos abstractos: son operaciones de sustracción controlada en la ALU (Unidad Aritmético Lógica). Cuando el código evalúa `a > b` o `a == b`, la CPU resta internamente el operando $b$ del operando $a$ sin almacenar el resultado en un registro general. En su lugar, analiza las **Banderas de Estado del Procesador (Flags)**:\n\n- **Zero Flag (Z):** Se enciende en `1` si el resultado de la resta es exactamente cero, lo que demuestra matemáticamente que `a == b`.\n- **Negative Flag (N):** Se enciende en `1` si el resultado es menor que cero, indicando que `a < b`.\n\nEl resultado definitivo de cualquier operador relacional (`==`, `!=`, `>`, `<`, `>=`, `<=`) es siempre un valor escalar booleano puro (`True` o `False`).\n\n### La Confusión Más Destructiva: = vs ==\n- **`=` (Asignación):** Es una orden imperativa de escritura destructiva en memoria RAM.\n- **`==` (Comparación de Igualdad):** Es una pregunta relacional que interroga a la CPU sobre si dos cantidades coinciden.\n\nEn un robot de competencia como Nautilus 4010, los operadores relacionales monitorean continuamente la telemetría sensorial crítica: `voltajeBateria >= 12.0`, `presionNeumaticaPSI >= 90.0`, `distanciaObstaculoMeters < 0.5`.\n\n**La Regla de Oro:**\nLos operadores relacionales comparan operandos evaluando banderas de la ALU para producir un booleano; jamás confundas la asignación destructiva (=) con la comparación de igualdad (==).",
       "options": [
         {
-          "text": "Comparan dos valores y devuelven un booleano (true o false)",
+          "text": "Comparan dos operandos evaluando las banderas de estado de la ALU (Zero y Negative) para producir un resultado booleano estricto",
           "correct": true
         },
         {
-          "text": "Cambian el valor del número a cero automáticamente",
+          "text": "Convierten automáticamente los números comparados en texto para imprimirlos en la consola del piloto",
           "correct": false
         },
         {
-          "text": "Apagan el motor si el número es negativo",
+          "text": "Sobrescriben el valor de la variable izquierda con el valor de la variable derecha como una asignación forzada",
           "correct": false
         },
         {
-          "text": "Solo funcionan con letras y nunca con números",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Qué resultado imprimirá la consola?",
-      "codeSnippet": "voltaje = 11.2\nestaBajo = (voltaje < 12.0)\nprint(estaBajo)",
-      "options": [
-        {
-          "text": "true",
-          "correct": true
-        },
-        {
-          "text": "false",
-          "correct": false
-        },
-        {
-          "text": "11.2",
-          "correct": false
-        },
-        {
-          "text": "12.0",
+          "text": "Detienen el reloj del procesador durante cinco segundos para esperar una confirmación del usuario",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Relaciona cada operador de comparación con su significado:",
+      "question": "Relaciona cada operador de comparación con su función precisa en la evaluación de hardware:",
       "options": [
         {
-          "text": "==|||Igual a (compara igualdad)",
+          "text": "== (Igualdad relacional)|||Verifica si ambos operandos poseen el mismo valor numérico o lógico",
           "correct": true
         },
         {
-          "text": "!=|||Diferente de (no es igual)",
+          "text": "!= (Desigualdad relacional)|||Devuelve True únicamente si ambos operandos son distintos",
           "correct": true
         },
         {
-          "text": ">=|||Mayor o igual que",
+          "text": ">= y <= (Límites inclusivos)|||Evalúan cotas numéricas incluyendo el valor frontera exacto",
           "correct": true
         },
         {
-          "text": "<=|||Menor o igual que",
+          "text": "Zero Flag (ALU)|||Bandera de hardware que se activa cuando la sustracción interna da cero",
           "correct": true
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "¡La trampa más clásica del mundo! Este código asigna en lugar de comparar. ¿Cómo se corrige?",
-      "codeSnippet": "esCampeon = (puntos = 100)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia de verificación de telemetría de batería antes de autorizar el arranque del robot:",
       "options": [
         {
-          "text": "Debe usar '==' para comparar igualdad: (puntos == 100)",
+          "text": "MIN_BATTERY_VOLTS = 12.0",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "currentBatteryVolts = 11.4",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "isBatteryAdequate = currentBatteryVolts >= MIN_BATTERY_VOLTS",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Estado de bateria apta para match: ' + str(isBatteryAdequate))",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la comparación relacional para evaluar si la distancia reportada por el sensor es inferior a 0.5 metros:",
+      "codeSnippet": "distanciaSensorMeters = 0.38\nalertaColision = (distanciaSensorMeters _____ 0.5)\nprint('¿Alerta de proximidad? ' + str(alertaColision))",
+      "options": [
+        {
+          "text": "<",
           "correct": true
         },
         {
-          "text": "Debe usar tres signos iguales '==='",
+          "text": "=",
           "correct": false
         },
         {
-          "text": "No se pueden comparar puntos",
+          "text": ">",
           "correct": false
         },
         {
-          "text": "Hay que quitar los paréntesis",
+          "text": "!=",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál de las siguientes comparaciones evalúa a FALSE?",
+      "question": "¿Cuál de las siguientes comparaciones relacionales produce un valor booleano estrictamente FALSE?",
       "options": [
         {
-          "text": "10 != 10",
+          "text": "10 != 10 (afirma falsamente que diez es diferente de diez)",
           "correct": true
         },
         {
-          "text": "10 == 10",
+          "text": "10 == 10 (afirma correctamente la igualdad de diez y diez)",
           "correct": false
         },
         {
-          "text": "15 >= 10",
+          "text": "15 >= 10 (afirma correctamente que quince es mayor o igual a diez)",
           "correct": false
         },
         {
-          "text": "5 < 8",
+          "text": "5 < 8 (afirma correctamente que cinco es estrictamente menor que ocho)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la evaluación con límites estrictos. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "limiteSuperior = 100\nlecturaActual = 100\nesMenorEstricto = (lecturaActual < limiteSuperior)\nprint(esMenorEstricto)",
+      "options": [
+        {
+          "text": "False",
+          "correct": true
+        },
+        {
+          "text": "True",
+          "correct": false
+        },
+        {
+          "text": "100",
+          "correct": false
+        },
+        {
+          "text": "0",
           "correct": false
         }
       ]

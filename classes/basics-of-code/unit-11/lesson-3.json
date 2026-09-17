@@ -1,107 +1,141 @@
 {
-  "title": "El Terror del Loop Infinito",
+  "title": "El Terror del Bucle Infinito",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es un bucle infinito (infinite loop) y por qué es peligroso?",
-      "lessonText": "# La Trampa Eterna ️\n\nUn **bucle infinito** ocurre cuando la condición de un `while` **NUNCA se vuelve falsa**.\n```python\n# ¡PELIGRO! Esto nunca se detiene\nwhile true:\n    print('¡Auxilio, no puedo parar!')\n```\n¿Qué le pasa a la computadora?\n- El ventilador empieza a zumbar al máximo.\n- La CPU se satura al 100% en ese hilo.\n- El programa deja de responder (se 'congela').\n\nEn un robot de competencia, si el código entra en un bucle infinito en un subproceso crítico, el robot dejará de procesar los comandos del joystick y quedará inerte en medio de la cancha.",
+      "question": "¿Qué consecuencias tiene un bucle infinito en un sistema embebido en tiempo real y cómo lo previene el Watchdog?",
+      "lessonText": "# Agotamiento de CPU y el Temporizador Guardián\n\nUn bucle infinito ocurre cuando la condición de salida jamás evalúa a `false`. En sistemas embebidos de tiempo real (RTOS), un bucle infinito monopoliza el núcleo del procesador provocando **inanición de la CPU (CPU starvation)**. El hilo de control principal deja de despachar tramas de comunicación periódicas.\n\n```python\n# PELIGRO: Bucle infinito si el sensor falla\nwhile flywheel_rpm < 4000:  # Si el cable del sensor se desconecta, se congela aqui!\n    inyectar_potencia_motor()\n```\n\nEn los controladores roboRIO de FIRST Robotics Competition, un módulo de hardware llamado **Watchdog Timer** supervisa que el software reporte su estado cada 100 milisegundos como máximo. Si un bucle infinito atrapa el hilo de control impidiendo que se alimente el Watchdog, el hardware desactiva de inmediato el relé principal de potencia cortando la energía a todos los motores por seguridad.\n\n**Regla de Oro: En sistemas físicos en tiempo real, jamás implementes bucles while sin un contador de seguridad o límite de tiempo máximo (timeout) para prevenir bloqueos por fallo de hardware.**",
       "options": [
         {
-          "text": "Un bucle cuya condición nunca cambia a false, congelando el programa y saturando la CPU",
+          "text": "Monopoliza la CPU impidiendo procesar telemetría y disparando el Watchdog de seguridad que corta la energía a los motores",
           "correct": true
         },
         {
-          "text": "Un bucle que acelera la velocidad del robot al infinito físicamente",
+          "text": "Descarga químicamente la batería del robot en menos de un segundo por exceso de corriente continua",
           "correct": false
         },
         {
-          "text": "Un truco para duplicar la memoria RAM gratis",
+          "text": "Borra el código fuente almacenado en el disco flash del microcontrolador de forma permanente",
           "correct": false
         },
         {
-          "text": "Un cable desconectado en el chasis",
+          "text": "Inversion mecánica de la rotación de los engranes sin intervención del puente H",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "¿Por qué este código genera un bucle infinito?",
-      "codeSnippet": "distancia = 10\nwhile distancia > 0:\n    print('Avanzando...')\n    distancia = distancia + 1",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de seguridad y bloqueo con su definición técnica:",
       "options": [
         {
-          "text": "Porque 'distancia' está aumentando (10, 11, 12...) en vez de disminuir hacia 0",
+          "text": "Bucle infinito|||Ciclo que nunca alcanza su condición de parada y monopoliza la CPU indefinidamente",
           "correct": true
         },
         {
-          "text": "Porque la palabra Avanzando tiene mayúscula",
-          "correct": false
+          "text": "Watchdog Timer|||Temporizador de hardware que deshabilita los actuadores si el software deja de responder",
+          "correct": true
         },
         {
-          "text": "Porque el número 10 es par",
-          "correct": false
+          "text": "CPU Starvation|||Agotamiento de procesamiento donde un ciclo bloqueante impide atender otros subprocesos",
+          "correct": true
         },
         {
-          "text": "Porque falta una coma",
-          "correct": false
+          "text": "Timeout Sentinel|||Contador de seguridad que fuerza la salida del bucle si el sensor físico tarda demasiado",
+          "correct": true
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Corrige la actualización para que decremente hacia cero restando 1 en cada ciclo:",
-      "codeSnippet": "// Decrementa distancia",
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura de lectura de sensor con límite de seguridad por intentos:",
       "options": [
         {
-          "text": "distancia = distancia - 1",
+          "text": "intentos = 0",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "while sensor_listo == False and intentos < 10:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    verificar_sensor()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    intentos = intentos + 1",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué operador aritmético avanza el contador de seguridad hacia el umbral de timeout?",
+      "codeSnippet": "timeout = 0\nwhile motor_acelerando == True and timeout < 50:\n    esperar_milisegundos(10)\n    timeout = timeout ___ 1",
+      "options": [
+        {
+          "text": "+",
           "correct": true
         },
         {
-          "text": "distancia = distancia + 1",
+          "text": "-",
+          "correct": false
+        },
+        {
+          "text": "*",
+          "correct": false
+        },
+        {
+          "text": "/",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "En una computadora personal o terminal de desarrollo, ¿cuál es el atajo de teclado universal para forzar la detención de un programa atrapado en un loop infinito?",
+      "question": "¿Por qué en robótica y aviónica un bucle infinito por fallo de un sensor es infinitamente más peligroso que en una aplicación web?",
       "options": [
         {
-          "text": "Ctrl + C (KeyboardInterrupt / Cancel)",
+          "text": "Porque el bloqueo del hilo de control desactiva el Watchdog de seguridad y deja los motores mecánicos sin supervisión activa ni respuesta a comandos del operador",
           "correct": true
         },
         {
-          "text": "Ctrl + Z y luego Enter",
+          "text": "Porque los bucles infinitos invierten la polaridad física del devanado de los motores eléctricos",
           "correct": false
         },
         {
-          "text": "Presionar la barra espaciadora 10 veces",
+          "text": "Porque la memoria no volátil del microcontrolador se desgasta químicamente en menos de un segundo",
           "correct": false
         },
         {
-          "text": "Desconectar el mouse",
+          "text": "Porque el lenguaje de programación borra el archivo fuente del disco flash automáticamente",
           "correct": false
         }
       ]
     },
     {
-      "type": "ASSIST",
-      "question": "¿Existe alguna situación en FIRST Robotics donde un bucle infinito SI sea deseado deliberadamente?",
+      "type": "CODE_TEST",
+      "question": "¿Cuántas iteraciones exactas completará el bucle para n = 1 incrementando de 3 en 3 hasta alcanzar o superar 10?",
+      "codeSnippet": "n = 1\niteraciones = 0\nwhile n < 10:\n    n = n + 3\n    iteraciones = iteraciones + 1\nprint(iteraciones)",
       "options": [
         {
-          "text": "Sí, en el bucle principal de control del robot (Main Control Loop) que debe correr continuamente mientras el robot esté encendido",
+          "text": "3",
           "correct": true
         },
         {
-          "text": "No, nunca jamás bajo ninguna circunstancia",
+          "text": "4",
           "correct": false
         },
         {
-          "text": "Solo cuando el robot pierde el match",
+          "text": "2",
           "correct": false
         },
         {
-          "text": "Solo durante la noche cuando no hay gente en el taller",
+          "text": "10",
           "correct": false
         }
       ]

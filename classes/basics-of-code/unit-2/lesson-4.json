@@ -1,119 +1,142 @@
 {
-  "title": "Diagramas de Flujo y Rutas Lógicas",
+  "title": "Diagramas de Flujo y Bifurcaciones Lógicas",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es un diagrama de flujo en desarrollo de software?",
-      "lessonText": "# Mapas Visuales de Decisiones ️\n\nUn **diagrama de flujo** representa visualmente un algoritmo usando símbolos estándar:\n- **Óvalo:** Inicio o Fin del programa.\n- **Rectángulo:** Una acción o proceso (ej: `avanzar 2 metros`).\n- **Rombo:** Una decisión con dos salidas: `SÍ` o `NO` (ej: `¿hay obstáculo?`).\n- **Flechas:** Indican la dirección del flujo de ejecución.\n\nVer el flujo con tus propios ojos te ayuda a descubrir de inmediato caminos sin salida o bucles infinitos no deseados.",
+      "question": "¿Cuál es la función arquitectónica de un diagrama de flujo y qué representa cada figura geométrica estándar?",
+      "lessonText": "# Cartografía del Software: Diagramas de Flujo\n\nUn **diagrama de flujo** es una representación esquemática y gráfica de un algoritmo. Así como un arquitecto no construye un edificio sin planos, un ingeniero de software no implementa lógica crítica sin mapear visualmente todas las ramas de ejecución posibles.\n\n### Simbología Estándar (ISO/ANSI):\n1. **Óvalo / Rectángulo Redondeado (Terminal):** Representa el **Inicio** o el **Fin** del programa o subrutina.\n2. **Rectángulo (Proceso):** Representa una acción de cálculo, asignación de variable o comando imperativo (ej. `x = x + 1` o `encenderMotor()`).\n3. **Rombo (Decisión):** Representa una evaluación lógica booleana con una pregunta de Sí/No (`True`/`False`). **Siempre tiene una flecha de entrada y exactamente dos flechas de salida mutuamente excluyentes**.\n4. **Flechas (Líneas de Flujo):** Indican la dirección inequívoca de la ejecución secuencial.\n\n### El Peligro de los Caminos Muertos (Dead Ends)\nEl valor visual del diagrama de flujo reside en detectar anomalías antes de escribir código: ramas donde el algoritmo se queda atrapado sin salida, o ciclos cerrados donde las flechas forman un bucle infinito que consumiría el 100% de la CPU.\n\n**La Regla de Oro:**\nCada rombo de decisión en tu diagrama debe tener dos salidas claramente etiquetadas (Verdadero y Falso), y todos los caminos deben confluir eventualmente en un estado terminal seguro.",
       "options": [
         {
-          "text": "Una representación gráfica de la secuencia de pasos y decisiones de un algoritmo",
+          "text": "Modelar visualmente el flujo de ejecución mediante símbolos estándar para verificar que todos los caminos lógicos concluyan de forma segura",
           "correct": true
         },
         {
-          "text": "El plano eléctrico de los cables de poder del robot",
+          "text": "Ilustrar la distribución física de los cables y fusibles en el chasis del robot",
           "correct": false
         },
         {
-          "text": "Un dibujo artístico para decorar la lona del pit de Nautilus",
+          "text": "Generar automáticamente planos en tres dimensiones para las impresoras 3D",
           "correct": false
         },
         {
-          "text": "Una gráfica que muestra el precio de las piezas de aluminio",
+          "text": "Decorar la documentación del equipo para obtener puntos artísticos de los jueces",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Asocia cada figura geométrica con su significado en diagramas de flujo:",
+      "question": "Asocia cada figura geométrica del diagrama de flujo con su responsabilidad técnica:",
       "options": [
         {
-          "text": "Óvalo|||Inicio o Fin del programa",
+          "text": "Óvalo o Rectángulo Redondeado|||Punto de Inicio o Fin de la ejecución",
           "correct": true
         },
         {
-          "text": "Rectángulo|||Acción o proceso de cálculo",
+          "text": "Rectángulo|||Operación matemática o instrucción de cálculo (Proceso)",
           "correct": true
         },
         {
-          "text": "Rombo|||Decisión o condición (Verdadero / Falso)",
+          "text": "Rombo|||Bifurcación de decisión condicional (Verdadero o Falso)",
           "correct": true
         },
         {
-          "text": "Flecha|||Dirección y flujo de la ejecución",
+          "text": "Flecha conectora|||Dirección estricta del flujo de control",
           "correct": true
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "Dentro de un rombo de decisión, ¿cuántos caminos de salida mínimos deben existir?",
-      "options": [
-        {
-          "text": "2 caminos (uno para Verdadero / Sí y otro para Falso / No)",
-          "correct": true
-        },
-        {
-          "text": "Infinitos caminos simultáneos",
-          "correct": false
-        },
-        {
-          "text": "Ninguno, la decisión es un callejón sin salida",
-          "correct": false
-        },
-        {
-          "text": "Solo 1 camino que siempre avanza sin importar la condición",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "DEBUG",
-      "question": "Identifica el fallo lógico en este algoritmo de autonomous:",
-      "codeSnippet": "// 1. Avanzar 3 metros\n// 2. Disparar bola al objetivo\n// 3. Tomar bola del piso\n// 4. Fin",
-      "options": [
-        {
-          "text": "Intenta disparar la bola (paso 2) antes de haber tomado la bola del piso (paso 3)",
-          "correct": true
-        },
-        {
-          "text": "No se puede avanzar 3 metros en un autonomous",
-          "correct": false
-        },
-        {
-          "text": "Falta poner la palabra start al inicio",
-          "correct": false
-        },
-        {
-          "text": "El paso 4 no debe decir Fin",
-          "correct": false
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena correctamente el flujo lógico para corregir el bug anterior:",
+      "question": "Ordena el código que traduce fielmente un diagrama de flujo con una decisión de parada de emergencia:",
       "options": [
         {
-          "text": "tomarBolaDelPiso()",
+          "text": "temperatura = sensorTermico.leerCelsius()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "avanzarMetros(3)",
+          "text": "if (temperatura > 95.0):",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "dispararBolaAlObjetivo()",
+          "text": "    detenerSistemaPorEmergencia()",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "detenerTodo()",
+          "text": "registrarTemperatura(temperatura)",
           "correct": true,
           "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la instrucción que implementa la rama de bifurcación de un rombo de decisión:",
+      "codeSnippet": "# Bifurcación del rombo de decisión:\n_____ (distanciaObstaculo < 15.0):\n    frenar()\nelse:\n    avanzar()",
+      "options": [
+        {
+          "text": "if",
+          "correct": true
+        },
+        {
+          "text": "loop",
+          "correct": false
+        },
+        {
+          "text": "motor",
+          "correct": false
+        },
+        {
+          "text": "print",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "Dentro de un diagrama de flujo bien estructurado, ¿cuántas flechas de salida debe tener obligatoriamente un rombo de decisión?",
+      "options": [
+        {
+          "text": "Exactamente 2 caminos mutuamente excluyentes (uno para Verdadero y otro para Falso)",
+          "correct": true
+        },
+        {
+          "text": "1 camino único que se toma sin importar el resultado de la condición",
+          "correct": false
+        },
+        {
+          "text": "Tantas flechas como letras tenga la pregunta de decisión",
+          "correct": false
+        },
+        {
+          "text": "Ninguna flecha, el rombo siempre detiene la ejecución del programa",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea el flujo de decisión. Si 'potenciaBateria' es 12.6 y 'presionNeumatica' es 115, ¿cuál será el diagnóstico final?",
+      "codeSnippet": "potenciaBateria = 12.6\npresionNeumatica = 115\n\nif (potenciaBateria > 12.0 and presionNeumatica >= 110):\n    diagnostico = 'LISTO_PARA_PARTIDA'\nelse:\n    diagnostico = 'REVISAR_SUBSISTEMAS'\n\nprint(diagnostico)",
+      "options": [
+        {
+          "text": "LISTO_PARA_PARTIDA",
+          "correct": true
+        },
+        {
+          "text": "REVISAR_SUBSISTEMAS",
+          "correct": false
+        },
+        {
+          "text": "12.6",
+          "correct": false
+        },
+        {
+          "text": "115",
+          "correct": false
         }
       ]
     }

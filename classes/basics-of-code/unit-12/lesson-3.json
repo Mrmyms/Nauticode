@@ -3,109 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo hacemos una cuenta regresiva con un bucle for?",
-      "lessonText": "# ¡3, 2, 1... Despegue! \n\nPara contar hacia atrás, simplemente usamos un **paso negativo** (`step = -1`):\n```python\nfor s in range(3, 0, -1):\n    print(s)\nprint('¡Match Iniciado!')\n```\n- Inicia en `3`.\n- Resta 1 en cada ciclo: `2`, luego `1`.\n- Se detiene antes del `0`.\n- Imprime `¡Match Iniciado!`.\n\nEn robótica es común para secuencias de calibración, temporizadores de autonomous o rampas de frenado suave.",
+      "question": "¿Cómo se configuran rangos descendentes y cómo previenen daños inductivos en frenado dinámico?",
+      "lessonText": "# Secuencias Decrecientes y Rampas de Desaceleración\n\nPara recorrer una secuencia aritmética en orden decreciente, se emplea un **paso negativo** (`step < 0`). La condición matemática exige que el valor inicial (`start`) sea estrictamente mayor que el límite de parada (`stop`). En cada ciclo, el intérprete sustrae el valor absoluto del paso hasta que la variable sea menor o igual al `stop`.\n\n```python\nfor rpm in range(5000, 0, -1000):\n    flywheel.fijar_velocidad(rpm)\n    esperar_milisegundos(100)\nflywheel.desactivar()\n```\n\nEn el lanzador (shooter) de Nautilus 4010, cortar bruscamente la corriente cuando el flywheel gira a 5000 RPM induce un pico de fuerza contraelectromotriz (Back-EMF) capaz de dañar los transistores MOSFET del controlador. Mediante `range(5000, 0, -1000)`, el software reduce la inercia en 5 escalones suaves de frenado regenerativo.\n\n**Regla de Oro: Para decrementar valores en un bucle for, el parámetro step debe ser negativo y el start debe ser estrictamente mayor que el stop.**",
       "options": [
         {
-          "text": "Usando un valor de paso negativo (ej: -1) para decrementar en cada ciclo",
+          "text": "Fijando un parámetro step negativo y asegurando que start sea estrictamente mayor que stop",
           "correct": true
         },
         {
-          "text": "Girando la pantalla de cabeza",
+          "text": "Multiplicando el valor inicial por menos uno en cada iteración del bucle",
           "correct": false
         },
         {
-          "text": "Poniendo números negativos en el nombre de la variable",
+          "text": "Invirtiendo la pantalla del monitor para leer el código de abajo hacia arriba",
           "correct": false
         },
         {
-          "text": "Los bucles for no pueden ir hacia atrás",
+          "text": "Los bucles for no admiten secuencias decrecientes en ningún lenguaje de programación",
           "correct": false
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará en consola esta cuenta regresiva?",
-      "codeSnippet": "for c in range(3, 0, -1):\n    print(c)\nprint('GO!')",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de iteración decreciente con su principio técnico:",
       "options": [
         {
-          "text": "3\n2\n1\nGO!",
+          "text": "Paso negativo (step < 0)|||Decremento sucesivo que permite recorrer secuencias numéricas en reversa",
           "correct": true
         },
         {
-          "text": "GO!\n1\n2\n3",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Cuál será la suma final de los números de esta secuencia?",
-      "codeSnippet": "suma = 0\nfor i in range(1, 4):\n    suma += i\nprint(suma)",
-      "options": [
-        {
-          "text": "6 (1 + 2 + 3 = 6)",
+          "text": "Rampa de desaceleración|||Disminución gradual de potencia de motores para evitar picos de corriente inductiva",
           "correct": true
         },
         {
-          "text": "4",
-          "correct": false
+          "text": "range(5, 0, -1)|||Genera la secuencia decreciente 5, 4, 3, 2, 1",
+          "correct": true
         },
         {
-          "text": "10",
-          "correct": false
-        },
-        {
-          "text": "3",
-          "correct": false
+          "text": "Condición de parada inversa|||El bucle termina tan pronto como el valor actual es menor o igual al stop",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena este script para hacer una secuencia de calibración de 3 pasos:",
+      "question": "Ordena la rampa de desaceleración del volante de inercia desde 5000 RPM hasta su apagado:",
       "options": [
         {
-          "text": "print('Iniciando calibración')",
+          "text": "for rpm in range(5000, 0, -1000):",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "for paso in range(1, 4):",
+          "text": "    flywheel.fijar_velocidad(rpm)",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "    print('Calibrando sensor ' + str(paso))",
+          "text": "    esperar_milisegundos(100)",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "print('Calibración completada')",
+          "text": "flywheel.desactivar()",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Qué sucede si en `range(10, 0, 1)` pones un paso positivo en vez de negativo?",
+      "type": "CODE_FILL",
+      "question": "¿Qué valor de paso negativo produce la cuenta regresiva desde 3 hasta 1 antes del partido?",
+      "codeSnippet": "# Cuenta regresiva desde 3 hasta 1\nfor segundo in range(3, 0, ____):\n    emitir_beep(segundo)\nprint('PARTIDO INICIADO')",
       "options": [
         {
-          "text": "El bucle no se ejecutará ninguna vez porque 10 ya superó el límite de 0 hacia adelante",
+          "text": "-1",
           "correct": true
         },
         {
-          "text": "La computadora se congela",
+          "text": "1",
           "correct": false
         },
         {
-          "text": "Cuenta hasta el infinito",
+          "text": "0",
           "correct": false
         },
         {
-          "text": "Invierte los números automáticamente",
+          "text": "-2",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué ocurre si se ejecuta `range(10, 0, 1)` con un paso positivo hacia adelante?",
+      "options": [
+        {
+          "text": "El bucle no se ejecuta ninguna vez porque 10 ya superó el límite superior de 0 hacia adelante",
+          "correct": true
+        },
+        {
+          "text": "El procesador genera un bucle infinito que cuenta hacia atrás de forma automática",
+          "correct": false
+        },
+        {
+          "text": "El compilador invierte automáticamente el signo del paso para corregir el error",
+          "correct": false
+        },
+        {
+          "text": "Se produce una excepción fatal de desbordamiento de enteros en la memoria RAM",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'cuenta' tras sumar los valores de range(4, 1, -1) (4 + 3 + 2)?",
+      "codeSnippet": "cuenta = 0\nfor x in range(4, 1, -1):\n    cuenta = cuenta + x\nprint(cuenta)",
+      "options": [
+        {
+          "text": "9",
+          "correct": true
+        },
+        {
+          "text": "10",
+          "correct": false
+        },
+        {
+          "text": "7",
+          "correct": false
+        },
+        {
+          "text": "6",
           "correct": false
         }
       ]

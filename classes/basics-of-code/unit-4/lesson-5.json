@@ -3,98 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "Midiendo la orientación del chasis en tiempo real",
-      "lessonText": "# El Giroscopio de Nautilus 4010 \n\nEl sensor **NavX Gyro** mide el ángulo de rotación de nuestro robot en la cancha.\n\nCuando el robot inicia el match de cara a la pared contraria, el ángulo es `0.0` grados.\nCuando gira a la derecha, el ángulo se actualiza a `90.0`.\n\nEn este reto final de la Unidad 4, aplicarás el manejo de variables para almacenar, actualizar y desplegar la orientación del robot.",
+      "question": "¿Cómo interactúan la declaración, inicialización y reasignación en la odometría de un chasis Swerve?",
+      "lessonText": "# Telemetría en Tiempo Real: NavX Gyro en Nautilus 4010\n\nEn un robot de competencia con tracción holonómica (Swerve Drive), el chasis necesita conocer su orientación angular respecto al campo (*field-oriented drive*) en cada milisegundo.\n\nPara lograrlo, el software del robot sigue este ciclo estricto de variables:\n\n1. **En `robotInit()`:** Se declara e inicializa la variable `anguloYaw = 0.0` asumiendo que el robot inicia mirando a la pared opuesta de la cancha.\n2. **En cada iteración del bucle autónomo (cada 20ms):** La IMU (Unidad de Medición Inercial) lee la velocidad angular de los giróscopos y el procesador **reasigna** la variable integrando el desplazamiento:\n```python\nanguloYaw = anguloYaw + lecturaGiro\n```\n3. **Si el piloto presiona el botón de recalibración:** El sistema ejecuta una reasignación directa `anguloYaw = 0.0` para corregir la deriva inercial (*drift*).\n\nEn este reto final de la Unidad 4, demostrarás tu dominio sobre la memoria, la mutabilidad y la actualización de variables en un sistema de ingeniería real.\n\n**La Regla de Oro:**\nLa telemetría de un sistema embebido es una red de variables mutables que sincronizan el estado interno de la CPU con las variables físicas del mundo real.",
       "options": [
         {
-          "text": "¡Vamos a calibrar la orientación con Teus!",
+          "text": "Se declara e inicializa una referencia base que se reasigna periódicamente con las lecturas inerciales de los sensores",
           "correct": true
         },
         {
-          "text": "Prefiero que el robot gire en círculos sin saber su ángulo",
+          "text": "Se crean 50 variables nuevas por segundo con nombres aleatorios para evitar colisiones en RAM",
           "correct": false
         },
         {
-          "text": "No me importa la orientación",
+          "text": "Se fija el ángulo en una constante inmutable que no puede modificarse aunque el robot gire físicamente",
           "correct": false
         },
         {
-          "text": "Quiero girar el sensor con un desarmador",
+          "text": "Se borra la memoria del giroscopio cada vez que se lee su valor para ahorrar ancho de banda",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada operación de código con su efecto físico en el sistema de navegación del robot:",
+      "options": [
+        {
+          "text": "anguloYaw = 0.0|||Inicialización del marco de referencia en orientación frontal hacia la cancha",
+          "correct": true
+        },
+        {
+          "text": "anguloYaw = anguloYaw + 45.0|||Reasignación acumulativa que registra un giro hacia la derecha",
+          "correct": true
+        },
+        {
+          "text": "print(anguloYaw)|||Transmisión del valor actual de orientación a la Driver Station",
+          "correct": true
+        },
+        {
+          "text": "anguloYaw = 0.0 (Reset)|||Recalibración en caliente solicitada por el conductor para eliminar drift",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la rutina de control de giro para orientar el chasis a 90 grados durante la fase de autónomo:",
+      "options": [
+        {
+          "text": "rumboActual = 0.0",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "rumboObjetivo = 90.0",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "rumboActual = rumboActual + rumboObjetivo",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Maniobra de giro completada. Rumbo final: ' + str(rumboActual))",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Inicializa la variable 'anguloYaw' en 0:",
-      "codeSnippet": "_____ = 0\nprint('Ángulo inicial: ' + str(anguloYaw))",
+      "question": "Completa la instrucción para recalibrar a 0.0 grados la orientación del giroscopio tras presionar el botón de reinicio:",
+      "codeSnippet": "anguloNavX = 145.8\n// Conductor presiona boton de alineacion de campo\nanguloNavX = _____\nprint('Orientacion de campo restablecida')",
       "options": [
         {
-          "text": "anguloYaw",
+          "text": "0.0",
           "correct": true
         },
         {
-          "text": "motorYaw",
+          "text": "145.8",
           "correct": false
         },
         {
-          "text": "giroTotal",
+          "text": "anguloNavX",
           "correct": false
         },
         {
-          "text": "0",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "El robot giró 45 grados dos veces consecutivas. ¿Qué ángulo mostrará la telemetría?",
-      "codeSnippet": "angulo = 0\nangulo = angulo + 45\nangulo = angulo + 45\nprint(angulo)",
-      "options": [
-        {
-          "text": "90",
-          "correct": true
-        },
-        {
-          "text": "45",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_WRITE",
-      "question": "Escribe la instrucción que resetea la variable 'angulo' a cero:",
-      "codeSnippet": "// Reset de orientación",
-      "options": [
-        {
-          "text": "angulo = 0",
-          "correct": true
-        },
-        {
-          "text": "angulo == 0",
+          "text": "None",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Por qué las variables son la base indispensable de cualquier software de robótica?",
+      "question": "¿Por qué es indispensable que `anguloNavX` sea una variable de tipo numérico y no una cadena de texto en un robot FRC?",
       "options": [
         {
-          "text": "Porque permiten recordar el estado del robot, leer sensores dinámicos y adaptar el comportamiento en tiempo real",
+          "text": "Porque el controlador PID requiere realizar sustracciones y cálculos trigonométricos vectoriales de alta velocidad con ese valor",
           "correct": true
         },
         {
-          "text": "Porque decoran el código para que se vea más profesional",
+          "text": "Porque los cables de los motores solo transmiten números y rechazan caracteres alfabéticos",
           "correct": false
         },
         {
-          "text": "Porque son obligatorias por el reglamento de FIRST",
+          "text": "Porque las cadenas de texto se borran instantáneamente si el chasis vibra mecánicamente",
           "correct": false
         },
         {
-          "text": "En realidad podríamos hacer todo el robot sin ninguna variable",
+          "text": "Porque la memoria RAM no puede almacenar caracteres alfanuméricos bajo ninguna circunstancia",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la orientación angular del robot tras dos maniobras de ajuste consecutivas:",
+      "codeSnippet": "angulo = 0.0\nangulo = angulo + 45.0\nangulo = angulo - 15.0\nprint(angulo)",
+      "options": [
+        {
+          "text": "30.0",
+          "correct": true
+        },
+        {
+          "text": "45.0",
+          "correct": false
+        },
+        {
+          "text": "60.0",
+          "correct": false
+        },
+        {
+          "text": "0.0",
           "correct": false
         }
       ]

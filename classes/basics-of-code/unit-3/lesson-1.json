@@ -1,73 +1,57 @@
 {
-  "title": "Ejecución Línea por Línea",
+  "title": "Ejecución Línea por Línea y el Program Counter",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo recorre el procesador un archivo de código?",
-      "lessonText": "# El Hilo de la Secuencia \n\nImagina que estás leyendo un libro: lees la primera palabra, luego la segunda, completas el renglón y bajas al siguiente.\n\nUna computadora hace exactamente lo mismo con un script de código:\n```python\n# Línea 1\nprint('Iniciando sistemas')\n# Línea 2\nprint('Comprobando sensores')\n# Línea 3\nprint('Robot habilitado')\n```\n\nJamás se ejecutará la línea 3 antes que la línea 1 a menos que usemos estructuras especiales de control de flujo. La ejecución es **secuencial y determinista**.",
+      "question": "¿Cómo procesa la CPU un script de código y qué función cumple el Program Counter?",
+      "lessonText": "# El Hilo de la Secuencia: El Program Counter\n\nCuando una computadora ejecuta un programa, no procesa todas las líneas simultáneamente ni salta al azar. El microprocesador contiene un registro interno de hardware esencial llamado **Program Counter (PC)** o Puntero de Instrucción.\n\n### El Ciclo de Instrucción de la CPU:\n1. **Fetch (Búsqueda):** La CPU consulta la dirección en memoria señalada por el Program Counter y carga la instrucción actual.\n2. **Decode (Decodificación):** El circuito decodificador traduce los bits de la instrucción en señales de control.\n3. **Execute (Ejecución):** La Unidad Aritmético Lógica (ALU) o el bus de memoria ejecuta la acción.\n4. **Incremento:** El Program Counter avanza automáticamente a la siguiente línea en secuencia descendente (*Top-to-Bottom*).\n\n### La Ilusión del Paralelismo\nIncluso cuando un robot realiza múltiples tareas que parecen simultáneas, a nivel de un solo núcleo de procesador, cada línea se ejecuta en un turno temporal estricto. La única forma de alterar este flujo natural es mediante estructuras de salto y control (`if`, `while`, llamadas a funciones).\n\n**La Regla de Oro:**\nLa computadora lee y ejecuta estrictamente de arriba hacia abajo; ninguna línea futura puede influir en el pasado de la ejecución.",
       "options": [
         {
-          "text": "Línea por línea de arriba hacia abajo, una después de otra",
+          "text": "Mantiene un registro interno (Program Counter) que apunta a la línea actual, la ejecuta y avanza a la siguiente en secuencia descendente",
           "correct": true
         },
         {
-          "text": "Al azar según qué línea esté escrita en palabras más largas",
+          "text": "Ejecuta todas las líneas al mismo tiempo dividiendo el voltaje de la batería en partes iguales",
           "correct": false
         },
         {
-          "text": "De abajo hacia arriba para terminar más rápido",
+          "text": "Lee el archivo de abajo hacia arriba para anticipar los errores antes de que ocurran",
           "correct": false
         },
         {
-          "text": "Solo las líneas pares los días martes",
+          "text": "Ordena las instrucciones alfabéticamente antes de enviarlas al hardware",
           "correct": false
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida exacta de este programa?",
-      "codeSnippet": "print('Alfa')\nprint('Bravo')\nprint('Charlie')",
+      "type": "MATCHING",
+      "question": "Relaciona cada fase del ciclo de instrucción con su operación interna en la CPU:",
       "options": [
         {
-          "text": "Alfa\nBravo\nCharlie",
+          "text": "Program Counter (PC)|||Registro de hardware que almacena la dirección de la siguiente instrucción",
           "correct": true
         },
         {
-          "text": "Charlie\nBravo\nAlfa",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿En qué orden se imprimirán los números de este script?",
-      "codeSnippet": "print('3')\nprint('1')\nprint('2')",
-      "options": [
-        {
-          "text": "3, luego 1, luego 2 (siguiendo el orden de las líneas escritas)",
+          "text": "Fase Fetch|||Carga la instrucción desde la memoria RAM hacia la CPU",
           "correct": true
         },
         {
-          "text": "1, 2, 3 (porque la computadora los ordena numéricamente de forma automática)",
-          "correct": false
+          "text": "Fase Decode|||Interpreta el código binario para saber qué circuitos activar",
+          "correct": true
         },
         {
-          "text": "Solo imprimirá el número 3",
-          "correct": false
-        },
-        {
-          "text": "Dará un error porque los números no están ordenados",
-          "correct": false
+          "text": "Fase Execute|||Lleva a cabo la operación matemática o el comando de memoria",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena las líneas para que cuenten del 1 al 3 en pantalla:",
+      "question": "Ordena las instrucciones para que la telemetría imprima la cuenta regresiva descendente exacta (3, 2, 1, IGNICION):",
       "options": [
         {
-          "text": "print('1')",
+          "text": "print('3')",
           "correct": true,
           "audioSrc": "1"
         },
@@ -77,30 +61,81 @@
           "audioSrc": "2"
         },
         {
-          "text": "print('3')",
+          "text": "print('1')",
           "correct": true,
           "audioSrc": "3"
+        },
+        {
+          "text": "print('IGNICION')",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la llamada intermedia para asegurar que la secuencia de registro en el log sea consistente:",
+      "codeSnippet": "print('Iniciando comunicacion...')\n_____('Enlace de radio establecido')\nprint('Robot habilitado')",
+      "options": [
+        {
+          "text": "print",
+          "correct": true
+        },
+        {
+          "text": "Print",
+          "correct": false
+        },
+        {
+          "text": "input",
+          "correct": false
+        },
+        {
+          "text": "while",
+          "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Qué ocurre cuando una línea de código produce un error fatal (crash)?",
+      "question": "Si en la línea 4 de un programa ocurre un error fatal (como dividir entre cero), ¿qué sucede con las instrucciones de la línea 5 en adelante?",
       "options": [
         {
-          "text": "El programa se detiene de inmediato en esa línea y las siguientes no se ejecutan",
+          "text": "El hilo de ejecución colapsa de inmediato en la línea 4 y ninguna instrucción posterior llega a ejecutarse",
           "correct": true
         },
         {
-          "text": "El programa ignora el error y salta mágicamente a la última línea",
+          "text": "La CPU salta la línea dañada y ejecuta la línea 5 asumiendo un resultado aproximado",
           "correct": false
         },
         {
-          "text": "La computadora se reinicia sola",
+          "text": "El procesador reinicia automáticamente todo el sistema operativo desde la línea 1",
           "correct": false
         },
         {
-          "text": "El monitor se pone en blanco y negro",
+          "text": "Las líneas restantes se ejecutan pero los motores giran a la mitad de potencia",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Analiza el orden secuencial de este código. ¿Cuál será la salida exacta en consola?",
+      "codeSnippet": "print('A')\nprint('B')\nprint('A')",
+      "options": [
+        {
+          "text": "A seguido de B y luego A (en líneas separadas)",
+          "correct": true
+        },
+        {
+          "text": "Solo imprimirá A y B una sola vez porque descarta repetidos",
+          "correct": false
+        },
+        {
+          "text": "B seguido de A y luego A",
+          "correct": false
+        },
+        {
+          "text": "Error de sintaxis por imprimir la misma letra dos veces",
           "correct": false
         }
       ]

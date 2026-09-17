@@ -3,69 +3,79 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Para qué sirve un bucle 'for' y cuándo es la mejor opción?",
-      "lessonText": "# El Contador Automático ️\n\n¿Qué pasa si necesitas:\n- Enviar 5 pulsos de señal a la radio.\n- Calentar los 4 motores del chasis uno por uno.\n- Contar regresivamente del 3 al 1 antes del autónomo.\n\nPodrías usar un `while`, pero tienes que declarar la variable afuera, escribir la condición y acordarte de incrementarla. ¡Es fácil cometer un error!\n\nEl **`for` loop** empaqueta todo de forma compacta y elegante:\n```python\nfor i in range(3):\n    print('¡Paso completado!')\n```\nEsto se ejecutará **exactamente 3 veces** sin riesgo de bucles infinitos por olvido.",
+      "question": "¿Qué es un bucle 'for' y por qué es el estándar para tareas con número de repeticiones prefijado?",
+      "lessonText": "# Iteración Determinista sobre Rangos\n\nA diferencia de las pruebas condicionales abiertas de `while`, el bucle **`for`** implementa iteración definida sobre una secuencia o generador aritmético. En cada ciclo, toma automáticamente el siguiente valor de la secuencia, lo asigna a la variable de iteración y ejecuta el bloque subordinado. Cuando la secuencia se agota, el bucle concluye limpiamente sin riesgo de ciclos infinitos por omisión de paso.\n\n```python\nfor motor_id in range(4):\n    probar_sparkmax(motor_id)\n    esperar_milisegundos(50)\n```\n\nEn la inspección previa al partido de Nautilus 4010, el software calibra los 4 módulos de rueda del chasis Swerve: un bucle `for` recorre los identificadores `0, 1, 2, 3` enviando una trama de diagnóstico CAN a cada controlador SparkMax de manera determinista.\n\n**Regla de Oro: El bucle for es el estándar para ejecutar un número conocido de iteraciones sobre un rango o secuencia, eliminando de raíz el riesgo de ciclos infinitos.**",
       "options": [
         {
-          "text": "Para repetir una secuencia de instrucciones una cantidad predeterminada y conocida de veces",
+          "text": "Una estructura diseñada para recorrer una secuencia finita de elementos un número prefijado de veces",
           "correct": true
         },
         {
-          "text": "Para apagar el robot cuando la batería llega a cero",
+          "text": "Un comando que apaga el robot cuando el nivel de batería desciende a cero voltios",
           "correct": false
         },
         {
-          "text": "Para cambiar el color de la pintura del chasis",
+          "text": "Una instrucción para cambiar la frecuencia de reloj del procesador en tiempo real",
           "correct": false
         },
         {
-          "text": "Para escribir texto en minúsculas únicamente",
+          "text": "Una variable que solo acepta cadenas de texto escritas en mayúsculas",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "En Python, ¿qué valores toma la variable 'i' en `range(4)`?",
-      "codeSnippet": "for i in range(4):\n    print(i)",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto del bucle for con su función en la arquitectura del software:",
       "options": [
         {
-          "text": "0, 1, 2, 3 (empieza en 0 y se detiene antes del 4)",
+          "text": "Bucle for|||Estructura de control diseñada para iterar un número prefijado de veces sobre una secuencia",
           "correct": true
         },
         {
-          "text": "1, 2, 3, 4",
-          "correct": false
+          "text": "Variable de iteración|||Variable local que toma automáticamente el elemento o índice actual en cada vuelta",
+          "correct": true
         },
         {
-          "text": "4, 4, 4, 4",
-          "correct": false
+          "text": "range(n)|||Generador que produce enteros consecutivos desde 0 hasta n - 1",
+          "correct": true
         },
         {
-          "text": "0 y 4 solamente",
-          "correct": false
+          "text": "Zero-indexing|||Convención informática donde el conteo de secuencias e índices inicia en 0",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuántas veces se imprimirá 'Gol' en consola?",
-      "codeSnippet": "for tiro in range(3):\n    print('Gol')",
+      "type": "CODE_ORDER",
+      "question": "Ordena las líneas del bucle for para probar los 4 módulos del chasis Swerve:",
       "options": [
         {
-          "text": "Gol\nGol\nGol",
-          "correct": true
+          "text": "for motor_id in range(4):",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "Gol",
-          "correct": false
+          "text": "    probar_sparkmax(motor_id)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    esperar_milisegundos(50)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "reportar_chasis_calibrado()",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa el bucle for para repetir 5 veces:",
-      "codeSnippet": "_____ paso in range(5):\n    avanzarCentimetro()",
+      "question": "¿Qué palabra clave inicia la iteración contada sobre el rango de 5 pulsos de sonar?",
+      "codeSnippet": "____ pulso in range(5):\n    emitir_sonar()\n    registrar_eco()",
       "options": [
         {
           "text": "for",
@@ -76,7 +86,7 @@
           "correct": false
         },
         {
-          "text": "each",
+          "text": "repeat",
           "correct": false
         },
         {
@@ -87,22 +97,45 @@
     },
     {
       "type": "SELECT",
-      "question": "¡Cuidado con el índice cero! En informática, ¿en qué número inician los rangos por defecto en la inmensa mayoría de lenguajes?",
+      "question": "En informática y lenguajes modernos como Python, ¿qué índices exactos recorre la instrucción `for i in range(4):`?",
       "options": [
         {
-          "text": "En 0 (Zero-indexed)",
+          "text": "0, 1, 2, 3 (exactamente 4 elementos, iniciando en 0 y terminando antes del 4)",
           "correct": true
         },
         {
-          "text": "En 1",
+          "text": "1, 2, 3, 4 (iniciando en 1)",
           "correct": false
         },
         {
-          "text": "En 10",
+          "text": "4, 4, 4, 4 (el número 4 repetido cuatro veces)",
           "correct": false
         },
         {
-          "text": "En -1",
+          "text": "0 y 4 únicamente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'conteo' al terminar el bucle tras 4 iteraciones sumando 2?",
+      "codeSnippet": "conteo = 0\nfor x in range(4):\n    conteo = conteo + 2\nprint(conteo)",
+      "options": [
+        {
+          "text": "8",
+          "correct": true
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "6",
+          "correct": false
+        },
+        {
+          "text": "10",
           "correct": false
         }
       ]

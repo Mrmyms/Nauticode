@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cuál es la diferencia entre 'break' y 'continue'?",
-      "lessonText": "# Pasar de Largo \n\nA veces no quieres cancelar todo el bucle, sino **ignorar únicamente la iteración actual** y pasar de largo al siguiente ciclo.\n\nPara eso usamos **`continue`**:\n```python\nfor motor in range(4):\n    if motor == 2:  # El motor 2 está en mantenimiento\n        continue    # ¡Salta este motor y ve al siguiente!\n    probarMotor(motor)\n```\n- `break`: Aborta y destruye el bucle por completo.\n- `continue`: Aborta el turno actual y salta al siguiente número del ciclo.",
+      "question": "¿Cómo funciona la sentencia 'continue' y en qué casos de telemetría y sensores resulta esencial?",
+      "lessonText": "# Filtrado de Datos y Salto de Iteración\n\nMientras que `break` destruye el bucle por completo, la sentencia **`continue`** cancela **únicamente la iteración actual**. El Program Counter omite las líneas restantes de ese ciclo y regresa de inmediato a la cabecera del bucle para evaluar la condición o tomar el siguiente elemento.\n\n```python\nfor id_modulo in range(4):\n    if modulo_en_mantenimiento(id_modulo) == True:\n        continue  # Omitir modulo temporalmente inactivo\n    probar_sparkmax(id_modulo)\n```\n\nEn la arquitectura de telemetría de Nautilus 4010, `continue` es fundamental al procesar tramas del bus CAN: si una muestra analógica llega con un checksum inválido por ruido electromagnético, el código ejecuta `continue` para descartar esa muestra puntual sin interrumpir el flujo continuo de lecturas del resto de sensores.\n\n**Regla de Oro: 'continue' salta al inicio de la siguiente iteración omitiendo el código restante del ciclo actual.**",
       "options": [
         {
-          "text": "break cancela todo el bucle definitivamente; continue solo salta a la siguiente iteración",
+          "text": "Aborta el turno actual y salta al inicio de la siguiente iteración sin destruir el bucle",
           "correct": true
         },
         {
-          "text": "Son exactamente la misma instrucción con dos nombres distintos",
+          "text": "Apaga la pantalla del piloto durante tres segundos para ahorrar energía",
           "correct": false
         },
         {
-          "text": "continue apaga la pantalla",
+          "text": "Elimina la variable de iteración de la memoria caché del procesador",
           "correct": false
         },
         {
-          "text": "break solo se puede usar los lunes",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Qué números imprimirá este script con continue?",
-      "codeSnippet": "for i in range(1, 5):\n    if i == 3:\n        continue\n    print(i)",
-      "options": [
-        {
-          "text": "1, 2, 4 (el 3 fue saltado por el continue)",
-          "correct": true
-        },
-        {
-          "text": "1, 2",
-          "correct": false
-        },
-        {
-          "text": "1, 2, 3, 4",
-          "correct": false
-        },
-        {
-          "text": "3",
+          "text": "Es idéntico a break y los compiladores los tratan como la misma instrucción",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Empareja la instrucción de control con su efecto exacto:",
+      "question": "Relaciona cada concepto de control de flujo con su comportamiento exacto:",
       "options": [
         {
-          "text": "break|||Sale del bucle de inmediato sin ejecutar más ciclos",
+          "text": "Sentencia continue|||Interrumpe la vuelta actual y transfiere el control a la cabecera del siguiente ciclo",
           "correct": true
         },
         {
-          "text": "continue|||Salta al inicio de la siguiente iteración del bucle",
+          "text": "Filtrado de muestras|||Omisión de lecturas ruidosas o corruptas sin detener el procesamiento de datos",
           "correct": true
         },
         {
-          "text": "pass|||No hace nada (marcador de posición temporal)",
+          "text": "Preservación del bucle|||A diferencia de break, continue mantiene el bucle activo para las iteraciones restantes",
           "correct": true
         },
         {
-          "text": "while true|||Bucle potencialmente infinito hasta un break",
+          "text": "Salto a la cabecera|||Reevaluación inmediata de la condición del while o avance al siguiente elemento en for",
           "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la consola tras ejecutar este filtrado?",
-      "codeSnippet": "for n in range(4):\n    if n % 2 == 0:\n        continue  # Salta los pares\n    print(n)",
+      "type": "CODE_ORDER",
+      "question": "Ordena las líneas para omitir módulos en mantenimiento mediante continue:",
       "options": [
         {
-          "text": "1\n3",
+          "text": "for id_modulo in range(4):",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    if modulo_en_mantenimiento(id_modulo) == True:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "        continue",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    probar_sparkmax(id_modulo)",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué instrucción salta la muestra actual si la lectura es negativa sin abortar el bucle?",
+      "codeSnippet": "for lectura in lecturas_sensores:\n    if lectura < 0.0:\n        ____  # Ignorar lectura invalida y saltar al siguiente dato\n    procesar_dato(lectura)",
+      "options": [
+        {
+          "text": "continue",
           "correct": true
         },
         {
-          "text": "0\n2",
+          "text": "break",
+          "correct": false
+        },
+        {
+          "text": "stop",
+          "correct": false
+        },
+        {
+          "text": "skip",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿En qué situación de robótica es muy útil 'continue'?",
+      "question": "¿En qué escenario de procesamiento de telemetría es arquitectónicamente preferible usar 'continue' sobre 'break'?",
       "options": [
         {
-          "text": "Para omitir paquetes de sensores con lecturas corruptas o ruidosas sin detener el robot",
+          "text": "Al procesar un lote de paquetes de sensores donde un paquete corrupto debe descartarse sin cancelar el análisis de los paquetes restantes",
           "correct": true
         },
         {
-          "text": "Para gastar más rápido la batería",
+          "text": "Al detectar un sobrecalentamiento crítico en un motor que exige desenergizar el mecanismo",
           "correct": false
         },
         {
-          "text": "Para apagar los motores permanentemente",
+          "text": "Al apagar el robot por completo tras culminar el partido de competencia",
           "correct": false
         },
         {
-          "text": "Para reiniciar el match",
+          "text": "Para evitar que el procesador ejecute instrucciones en registros impares",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuántos números fueron procesados e incrementados en 'impresos' tras omitir el valor 2 con continue?",
+      "codeSnippet": "impresos = 0\nfor n in range(5):\n    if n == 2:\n        continue\n    impresos = impresos + 1\nprint(impresos)",
+      "options": [
+        {
+          "text": "4",
+          "correct": true
+        },
+        {
+          "text": "5",
+          "correct": false
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "3",
           "correct": false
         }
       ]

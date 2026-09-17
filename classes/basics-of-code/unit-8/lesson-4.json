@@ -3,98 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué hace el operador lógico NOT?",
-      "lessonText": "# El Inversor de Realidad \n\nEl operador **NOT** (en Java/C++ se escribe `!`, en Python se escribe `not`) es un operador unario que **invierte el valor de cualquier booleano**:\n- `not true` se convierte en `false`.\n- `not false` se convierte en `true`.\n\nEjemplo práctico:\n`hayObstaculo = false`\n`caminoLibre = not hayObstaculo` (¡caminoLibre ahora es `true`!)\n\nEn robótica se usa todo el tiempo con interruptores normalmente cerrados (NC) o para comprobar si una tarea aún no ha terminado.",
+      "question": "¿Cuál es el rol de la negación lógica NOT (!) en la inversión de polaridad booleana y la simplificación de condiciones?",
+      "lessonText": "# Inversión Unaria y las Leyes de De Morgan\n\nEl operador lógico **NOT** (`!` en Java/C++, `not` en Python) es un operador unario que **invierte el valor de verdad** de cualquier proposición booleana:\n- `not True` se convierte en `False`.\n- `not False` se convierte en `True`.\n\nA nivel de transistores en la arquitectura de silicio, corresponde a una compuerta inversora NOT elemental formada por un par complementario CMOS.\n\n### Sensores Active-Low en Robótica:\nEn mecatrónica e instrumentación industrial, muchos sensores críticos se configuran como **Normalmente Cerrados (NC) o Active-Low** por seguridad: el circuito conduce corriente continua (`True`) mientras no haya anomalías. Si un cable se rompe físicamente o un interruptor de fin de carrera es golpeado, el circuito se abre y el voltaje cae a cero (`False`).\nPara traducir esa señal eléctrica a estado mecánico comprensible, el software aplica NOT:\n```python\nesTopeMecanicoAlcanzado = not circuitoCerrado\n```\n\n### Leyes de De Morgan para Simplificación:\n1. `not (A and B)` equivale matemáticamente a `(not A) or (not B)`\n2. `not (A or B)` equivale matemáticamente a `(not A) and (not B)`\n\n**La Regla de Oro:**\nEl operador NOT invierte la polaridad booleana; empléalo para traducir señales eléctricas active-low y simplificar expresiones negativas mediante las leyes de De Morgan.",
       "options": [
         {
-          "text": "Invierte el valor de verdad: convierte true en false y false en true",
+          "text": "Invierte la polaridad booleana de una proposición, permitiendo traducir sensores active-low y simplificar lógica compleja con las leyes de De Morgan",
           "correct": true
         },
         {
-          "text": "Borra la variable para siempre",
+          "text": "Elimina la variable de la memoria RAM y libera el espacio ocupado en la tabla de símbolos",
           "correct": false
         },
         {
-          "text": "Vuelve positivo cualquier número negativo",
+          "text": "Convierte cualquier número entero positivo en su correspondiente negativo de 32 bits",
           "correct": false
         },
         {
-          "text": "Duplica el valor booleano",
+          "text": "Es una directiva de compilador que deshabilita las advertencias de código",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá este código con NOT?",
-      "codeSnippet": "motorEncendido = true\nprint(not motorEncendido)",
+      "type": "MATCHING",
+      "question": "Relaciona cada operación con el operador de negación con su equivalencia técnica formal:",
       "options": [
         {
-          "text": "false",
+          "text": "not True|||False (inversión directa de valor afirmativo)",
           "correct": true
         },
         {
-          "text": "true",
-          "correct": false
+          "text": "not False|||True (inversión directa de valor negativo)",
+          "correct": true
         },
         {
-          "text": "motorEncendido",
-          "correct": false
+          "text": "not (A and B)|||(not A) or (not B) (Primera ley de De Morgan)",
+          "correct": true
         },
         {
-          "text": "none",
-          "correct": false
+          "text": "Lógica Active-Low|||Configuración donde la ausencia de señal eléctrica denota el estado activo",
+          "correct": true
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Escribe la expresión que niega el booleano 'isBlocked':",
-      "codeSnippet": "// Invierte isBlocked con not",
+      "type": "CODE_ORDER",
+      "question": "Ordena la traducción del sensor de fin de carrera con lógica active-low a estado comprensible de subsistema:",
       "options": [
         {
-          "text": "not isBlocked",
-          "correct": true
+          "text": "isCircuitClosed = True",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "!isBlocked",
-          "correct": false
+          "text": "isElevatorAtTop = not isCircuitClosed",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "print('¿Mecanismo en tope superior?: ' + str(isElevatorAtTop))",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Comprobacion de carrera finalizada')",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué imprimirá una doble negación (`not not true`)?",
-      "codeSnippet": "print(not (not true))",
+      "type": "CODE_FILL",
+      "question": "Completa la negación lógica para verificar si el chasis NO se encuentra en movimiento:",
+      "codeSnippet": "isRobotMoving = False\nisRobotStationary = _____ isRobotMoving\nprint('Chasis estacionado en reposo: ' + str(isRobotStationary))",
       "options": [
         {
-          "text": "true",
+          "text": "not",
           "correct": true
         },
         {
-          "text": "false",
+          "text": "!",
+          "correct": false
+        },
+        {
+          "text": "or",
+          "correct": false
+        },
+        {
+          "text": "and",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿A cuál de las siguientes expresiones equivale exactamente `not (x == 10)`?",
+      "question": "De acuerdo con las Leyes de De Morgan, ¿a cuál de las siguientes expresiones equivale exactamente `not (sensorA and sensorB)`?",
       "options": [
         {
-          "text": "x != 10",
+          "text": "(not sensorA) or (not sensorB)",
           "correct": true
         },
         {
-          "text": "x == 10",
+          "text": "(not sensorA) and (not sensorB)",
           "correct": false
         },
         {
-          "text": "x > 10",
+          "text": "sensorA or sensorB",
           "correct": false
         },
         {
-          "text": "x < 10",
+          "text": "not (sensorA or sensorB)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la inversión de polaridad booleana sucesiva. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "sistemaBloqueado = False\nautorizarArranque = not sistemaBloqueado\nprint(autorizarArranque)",
+      "options": [
+        {
+          "text": "True",
+          "correct": true
+        },
+        {
+          "text": "False",
+          "correct": false
+        },
+        {
+          "text": "sistemaBloqueado",
+          "correct": false
+        },
+        {
+          "text": "None",
           "correct": false
         }
       ]

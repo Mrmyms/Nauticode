@@ -3,69 +3,79 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Misión de rescate de código en la arena!",
-      "lessonText": "# El Elevador Trabado ️\n\nDurante una prueba en el taller, el mecanismo elevador sube escalón por escalón hasta el piso 5.\n\nSin embargo, el sensor del piso 5 tiene un cable flojo y nunca marca `true`. El bucle `while` se quedaría intentando subir indefinidamente y rompería la polea.\n\nEn este reto final de la Unidad 13, implementarás un **límite de seguridad por tiempo / intentos (Timeout Sentinel)** usando `break` para proteger el robot de fallas de sensores.",
+      "question": "¿Cómo se implementa un centinela de timeout para rescatar un bucle bloqueado por un sensor averiado?",
+      "lessonText": "# El Centinela de Timeout y la Falla de Hardware\n\nEn entornos reales de competencia robótica, los cables de señal pueden soltarse debido a vibraciones mecánicas violentas o impactos contra otros robots. Si un bucle `while` depende exclusivamente de que un sensor marque `True` (`while sensor_piso.detectado() == False:`) y el cable de señal se desconecta, el sensor jamás reportará contacto y el robot intentará empujar indefinidamente.\n\n```python\nintentos = 0\nwhile sensor_piso.detectado() == False:\n    motor_elevador.subir(0.3)\n    intentos += 1\n    if intentos >= 50:\n        notificar_falla('TIMEOUT_SENSOR_ELEVADOR')\n        motor_elevador.frenar()\n        break  # Rescate del bucle trabado\n```\n\nEl centinela de intentos supervisa la duración máxima permitida. Al superar el umbral de 50 ciclos (aproximadamente un segundo de movimiento), ejecuta `break`, salva el mecanismo de una fractura física y permite que el robot continúe disputando el partido con sus otros subsistemas activos.\n\n**Regla de Oro: La combinación de break con un contador de intentos límite previene que un bucle dependiente de sensores físicos quede atrapado para siempre ante una falla de cableado.**",
       "options": [
         {
-          "text": "¡Vamos a salvar el mecanismo con un break de seguridad!",
+          "text": "Supervisando el bucle con un contador incremental que ejecuta break si se excede el límite temporal o de intentos seguro",
           "correct": true
         },
         {
-          "text": "Prefiero que la polea se rompa",
+          "text": "Eliminando todos los sensores mecánicos y operando el robot a ciegas sin verificar límites",
           "correct": false
         },
         {
-          "text": "No me importa la integridad del robot",
+          "text": "Sustituyendo el código de control por instrucciones de espera pasiva indefinida",
           "correct": false
         },
         {
-          "text": "Quiero borrar el programa",
+          "text": "Aumentando la velocidad del motor para compensar la falta de lectura del sensor",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "El sensor no responde, pero el contador de intentos alcanza el límite de 4. ¿Qué imprimirá?",
-      "codeSnippet": "intentos = 0\nwhile true:\n    intentos += 1\n    if intentos >= 4:\n        print('TIMEOUT: LÍMITE DE SEGURIDAD')\n        break\nprint('Mecanismo detenido')",
+      "type": "MATCHING",
+      "question": "Relaciona cada componente del patrón de centinela de rescate con su función técnica:",
       "options": [
         {
-          "text": "TIMEOUT: LÍMITE DE SEGURIDAD\nMecanismo detenido",
+          "text": "Timeout Sentinel|||Contador incremental que fuerza la salida de un bucle si una condición tarda demasiado",
           "correct": true
         },
         {
-          "text": "Mecanismo detenido solamente",
-          "correct": false
+          "text": "Cable flojo / desconectado|||Fallo físico común donde un sensor nunca envía la señal de confirmación",
+          "correct": true
         },
         {
-          "text": "TIMEOUT: LÍMITE DE SEGURIDAD solamente",
-          "correct": false
+          "text": "Protección mecánica|||Acción de software que evita quemar motores o romper transmisiones atascadas",
+          "correct": true
         },
         {
-          "text": "Loop infinito",
-          "correct": false
+          "text": "Reporte de diagnóstico|||Notificación a la telemetría indicando que el mecanismo se detuvo por timeout",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será el número final de intentos registrados?",
-      "codeSnippet": "intentos = 0\nwhile true:\n    intentos += 1\n    if intentos == 3:\n        break\nprint(intentos)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura del bucle de elevación con centinela de seguridad por límite de intentos:",
       "options": [
         {
-          "text": "3",
-          "correct": true
+          "text": "intentos_muestreo = 0",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "0",
-          "correct": false
+          "text": "while sensor_piso.detectado() == False:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    intentos_muestreo = intentos_muestreo + 1",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    if intentos_muestreo >= 50: break",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la salida de emergencia del bucle:",
-      "codeSnippet": "if errorCritico == true:\n    desconectar()\n    _____",
+      "question": "¿Qué instrucción rompe el bucle trabado al alcanzar el límite de 100 intentos?",
+      "codeSnippet": "intentos = 0\nwhile sensor_activo == False:\n    intentos = intentos + 1\n    if intentos >= 100:\n        notificar_timeout()\n        _____",
       "options": [
         {
           "text": "break",
@@ -76,33 +86,56 @@
           "correct": false
         },
         {
-          "text": "skip",
+          "text": "loop",
           "correct": false
         },
         {
-          "text": "loop",
+          "text": "pass",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Qué lección fundamental te llevas de esta Unidad 13 sobre Break y Continue?",
+      "question": "¿Por qué añadir un centinela de intentos con 'break' es obligatorio en todo bucle que espera una confirmación de un sensor mecánico?",
       "options": [
         {
-          "text": "Que break y continue nos dan control quirúrgico para salir de emergencias y filtrar datos sin atascar la ejecución del robot",
+          "text": "Porque si el sensor se rompe físicamente, el bucle se congelaría para siempre quemando el motor o bloqueando el procesador del robot",
           "correct": true
         },
         {
-          "text": "Que los bucles no se pueden controlar una vez iniciados",
+          "text": "Porque el lenguaje Python suspende la conexión Wi-Fi si un sensor lee más de 5 veces",
           "correct": false
         },
         {
-          "text": "Que es mejor nunca usar bucles en programación",
+          "text": "Porque los contadores de intentos aumentan la potencia de salida de los actuadores neumáticos",
           "correct": false
         },
         {
-          "text": "Que el procesador no necesita descansos",
+          "text": "Porque los sensores mecánicos se calientan si no se detiene el bucle con un número entero",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'intentos' al interrumpir el bucle infinito mediante el break cuando intentos llega a 4?",
+      "codeSnippet": "intentos = 0\nwhile True:\n    intentos = intentos + 1\n    if intentos == 4:\n        break\nprint(intentos)",
+      "options": [
+        {
+          "text": "4",
+          "correct": true
+        },
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "5",
+          "correct": false
+        },
+        {
+          "text": "0",
           "correct": false
         }
       ]

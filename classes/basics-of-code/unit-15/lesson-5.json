@@ -3,109 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡La odometría real de Nautilus 4010!",
-      "lessonText": "# Traduciendo Ticks a Metros en la Cancha \n\nUn encoder en el eje del motor genera miles de pulsos electrónicos llamados **ticks** por cada vuelta de la rueda.\n\nEl procesador no puede tomar decisiones estratégicas pensando en '15,420 ticks': el piloto y el autonomous necesitan saber **cuántos metros reales avanzó el robot**.\n\nEn este reto final de la Unidad 15, construirás la función de telemetría que recibe los ticks del sensor, aplica la constante de reducción y retorna los metros recorridos.",
+      "question": "¿Cómo se construye una función de conversión de odometría en tiempo real para transformar pulsos a magnitudes métricas?",
+      "lessonText": "# Conversión de Odometría y Resolución de Sensores\n\nLos encoders ópticos y magnéticos acoplados a los ejes de los motores generan señales electrónicas discretas llamadas **pulsos o ticks**. El software de navegación autónoma no puede planificar trayectorias pensando en '14,850 ticks'; los algoritmos de navegación necesitan magnitudes físicas en el sistema métrico internacional (metros).\n\n```python\ndef calcular_odometria_metros(ticks_acumulados):\n    RESOLUCION_ENCODER = 2048   # Pulsos por revolucion\n    DIAMETRO_RUEDA_M = 0.1016   # 4 pulgadas en metros\n    RELACION_ENGRANES = 6.75    # Reductora Swerve\n    \n    vueltas_rueda = (ticks_acumulados / RESOLUCION_ENCODER) / RELACION_ENGRANES\n    metros_avanzados = vueltas_rueda * (3.14159 * DIAMETRO_RUEDA_M)\n    return metros_avanzados\n```\n\nEn Nautilus 4010, esta función de telemetría traduce continuamente las lecturas brutas de los encoders a coordenadas métricas de campo, permitiendo al robot navegar entre piezas con exactitud de milímetros.\n\n**Regla de Oro: Los conversores de instrumentación transforman pulsos discretos de sensores en magnitudes físicas continuas mediante funciones parametrizadas y deterministas.**",
       "options": [
         {
-          "text": "¡Vamos a programar el conversor de odometría con Teus!",
+          "text": "Modelando la conversión de pulsos discretos a metros mediante factores cinemáticos y devolviendo la magnitud continua calculada",
           "correct": true
         },
         {
-          "text": "Prefiero medir la distancia con una regla durante el match",
+          "text": "Midiendo la distancia con una cinta métrica manual durante el transcurso del partido",
           "correct": false
         },
         {
-          "text": "No me interesan los metros",
+          "text": "Configurando los motores para que giren a una revolución por minuto fija sin sensores",
           "correct": false
         },
         {
-          "text": "Quiero desconectar los encoders",
+          "text": "Dividiendo la velocidad entre cero para obtener la distancia instantánea",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "Si cada 1000 ticks equivalen a 0.5 metros, ¿cuántos metros retorna para 4000 ticks?",
-      "codeSnippet": "def ticksAMetros(ticks):\n    METROS_POR_TICK = 0.0005\n    return ticks * METROS_POR_TICK\n\nprint(ticksAMetros(4000))",
+      "type": "MATCHING",
+      "question": "Relaciona cada término de la conversión de odometría con su magnitud física:",
       "options": [
         {
-          "text": "2.0 (4000 * 0.0005 = 2.0 metros)",
+          "text": "Pulsos de encoder (Ticks)|||Señales de cuadratura discretas generadas por la rotación del eje del motor",
           "correct": true
         },
         {
-          "text": "4.0",
-          "correct": false
-        },
-        {
-          "text": "20.0",
-          "correct": false
-        },
-        {
-          "text": "0.5",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la consola al evaluar la función con 2000 ticks?",
-      "codeSnippet": "def ticksAMetros(ticks):\n    return ticks * 0.0005\n\ndistancia = ticksAMetros(2000)\nprint('Avanzamos: ' + str(distancia) + 'm')",
-      "options": [
-        {
-          "text": "Avanzamos: 1.0m",
+          "text": "Relación de reducción|||Factor mecánico de engranes entre el eje del motor y la rueda del chasis",
           "correct": true
         },
         {
-          "text": "Avanzamos: 2000m",
-          "correct": false
+          "text": "Conversor de odometría|||Función parametrizada que transforma ticks acumulados en metros recorridos",
+          "correct": true
+        },
+        {
+          "text": "Constante de calibración|||Factor métrico que define cuántos metros avanza el robot por cada tick de encoder",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena la función completa de cálculo de odometría:",
+      "question": "Ordena la función de odometría métrica y el cálculo de distancia a partir de 6000 ticks:",
       "options": [
         {
-          "text": "def calcularOdometria(ticksIzquierda, ticksDerecha):",
+          "text": "def ticks_a_metros(ticks_motor):",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "    promedioTicks = (ticksIzquierda + ticksDerecha) / 2",
+          "text": "    CONSTANTE_METROS = 0.0005",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "    metros = promedioTicks * 0.0005",
+          "text": "    return ticks_motor * CONSTANTE_METROS",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "    return metros",
+          "text": "distancia_recorrida = ticks_a_metros(6000)",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Por qué los parámetros y los valores de retorno convierten a las funciones en la herramienta más poderosa de la programación?",
+      "type": "CODE_FILL",
+      "question": "¿Qué instrucción devuelve el avance en metros calculado por la función de odometría?",
+      "codeSnippet": "def calcular_odometria(ticks):\n    METROS_POR_TICK = 0.0004\n    _____ ticks * METROS_POR_TICK\n\navance = calcular_odometria(5000)",
       "options": [
         {
-          "text": "Porque permiten crear módulos dinámicos, reutilizables e independientes que transforman datos con precisión quirúrgica",
+          "text": "return",
           "correct": true
         },
         {
-          "text": "Porque evitan tener que conectar la batería del robot",
+          "text": "print",
           "correct": false
         },
         {
-          "text": "Porque hacen que las computadoras no se calienten",
+          "text": "output",
           "correct": false
         },
         {
-          "text": "No son necesarios, es mejor usar variables globales para todo",
+          "text": "yield",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué los parámetros y los valores de retorno convierten a las funciones en la herramienta arquitectónica más poderosa de la programación?",
+      "options": [
+        {
+          "text": "Porque transforman bloques de código rígidos en componentes genéricos, reutilizables y verificables que reciben datos, computan soluciones y devuelven respuestas con precisión matemática",
+          "correct": true
+        },
+        {
+          "text": "Porque eliminan la necesidad de conectar sensores mecánicos al chasis del robot",
+          "correct": false
+        },
+        {
+          "text": "Porque hacen que las computadoras no generen calor en los procesadores",
+          "correct": false
+        },
+        {
+          "text": "Porque evitan tener que compilar el programa antes de ejecutarlo en el microcontrolador",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuántos metros calculó la odometría para un promedio de 4000 ticks con factor 0.001?",
+      "codeSnippet": "def calcular_odometria(ticks_izq, ticks_der):\n    promedio = (ticks_izq + ticks_der) / 2\n    return promedio * 0.001\n\nmetros = calcular_odometria(3000, 5000)\nprint(metros)",
+      "options": [
+        {
+          "text": "4.0",
+          "correct": true
+        },
+        {
+          "text": "8.0",
+          "correct": false
+        },
+        {
+          "text": "3.0",
+          "correct": false
+        },
+        {
+          "text": "5.0",
           "correct": false
         }
       ]

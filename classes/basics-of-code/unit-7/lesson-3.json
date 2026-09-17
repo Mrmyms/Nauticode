@@ -3,34 +3,127 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo decide la computadora qué operación resolver primero?",
-      "lessonText": "# El Orden Jerárquico (PEMDAS) \n\nEn código, las operaciones no siempre se resuelven de izquierda a derecha. Siguen las reglas universales de precedencia:\n\n1. **Paréntesis `()`:** Siempre tienen la máxima prioridad.\n2. **Multiplicación `*`, División `/` y Módulo `%`:** Tienen prioridad intermedia.\n3. **Suma `+` y Resta `-`:** Se resuelven al final.\n\nEjemplo crucial:\n`2 + 3 * 4`\n- Primero se calcula `3 * 4 = 12`.\n- Luego `2 + 12 = 14`.\nSi querías sumar primero, **debes usar paréntesis**: `(2 + 3) * 4 = 20`.",
+      "question": "¿Cómo determina el compilador el orden de evaluación de expresiones matemáticas y por qué los paréntesis son obligatorios?",
+      "lessonText": "# Árboles Sintácticos y el Orden de Evaluación (PEMDAS)\n\nCuando una instrucción combina múltiples operadores aritméticos, el procesador no resuelve los cálculos secuencialmente de izquierda a derecha. Sigue las reglas formales de **precedencia de operadores** construyendo un árbol de sintaxis abstracta (AST):\n\n1. **Paréntesis `()`:** Máxima precedencia absoluta. Fuerzan a la CPU a evaluar la subexpresión interna antes de cualquier otra cosa.\n2. **Exponenciación (`**`):** Potencias y raíces.\n3. **Multiplicación (`*`), División (`/`) y Módulo (`%`):** Se resuelven antes que las sumas y restas.\n4. **Suma (`+`) y Resta (`-`):** Mínima prioridad aritmética.\n\n### El Peligro del Promedio en Odometría:\nImagina que deseas promediar la distancia de los encoders izquierdo y derecho para saber cuánto avanzó el robot:\n```python\n# Codigo con BUG GRAVE:\npromedio = encoderIzq + encoderDer / 2\n```\nDebido a la precedencia, la CPU primero calculará `encoderDer / 2` y luego le sumará `encoderIzq`, distorsionando por completo la cinemática del robot. La versión correcta **exige paréntesis explícitos**:\n```python\npromedio = (encoderIzq + encoderDer) / 2\n```\n\n**La Regla de Oro:**\nNunca confíes ciegamente en la precedencia implícita; usa paréntesis explícitos para forzar el orden matemático de evaluación y garantizar claridad cognitiva.",
       "options": [
         {
-          "text": "Primero paréntesis, luego multiplicación/división/módulo, y al final suma/resta",
+          "text": "Aplica la jerarquía formal (paréntesis > multiplicación/división > suma/resta) y requiere paréntesis explícitos para evitar cálculos deformados",
           "correct": true
         },
         {
-          "text": "Siempre estrictamente de derecha a izquierda",
+          "text": "Calcula siempre de derecha a izquierda sin importar los símbolos matemáticos utilizados",
           "correct": false
         },
         {
-          "text": "La operación con números más grandes siempre va primero",
+          "text": "Evalúa primero los números más grandes y al final los números menores a 10",
           "correct": false
         },
         {
-          "text": "La computadora elige el orden más fácil al azar",
+          "text": "El orden es aleatorio y depende del nivel de carga de la batería de 12V",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada nivel de precedencia con los operadores correspondientes:",
+      "options": [
+        {
+          "text": "Paréntesis ()|||Nivel 1 (Máxima prioridad: fuerzan el orden de cálculo interno)",
+          "correct": true
+        },
+        {
+          "text": "Multiplicación, División y Módulo (*, /, %)|||Nivel 2 (Prioridad intermedia: se evalúan antes de sumas y restas)",
+          "correct": true
+        },
+        {
+          "text": "Suma y Resta (+, -)|||Nivel 3 (Prioridad básica: se resuelven al final)",
+          "correct": true
+        },
+        {
+          "text": "Árbol AST|||Estructura generada por el compilador para ordenar las operaciones",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena los pasos secuenciales de evaluación que ejecuta la CPU al procesar `(10 + 20) * 3`:",
+      "options": [
+        {
+          "text": "1. Detectar paréntesis prioritarios y resolver la suma interna: 10 + 20 = 30",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "2. Multiplicar el resultado intermedio por el operando derecho: 30 * 3",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "3. Obtener el valor definitivo resultante en el acumulador de la ALU: 90",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "4. Asignar el resultado final a la variable de destino en memoria",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el cálculo del promedio de los sensores asegurando la precedencia correcta mediante paréntesis:",
+      "codeSnippet": "sensorA = 10\nsensorB = 20\npromedio = _____ / 2\nprint('Promedio calibrado: ' + str(promedio))",
+      "options": [
+        {
+          "text": "(sensorA + sensorB)",
+          "correct": true
+        },
+        {
+          "text": "sensorA + sensorB",
+          "correct": false
+        },
+        {
+          "text": "(sensorA * sensorB)",
+          "correct": false
+        },
+        {
+          "text": "sensorA + (sensorB)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué los desarrolladores profesionales utilizan paréntesis incluso cuando la precedencia natural ya daría el resultado deseado?",
+      "options": [
+        {
+          "text": "Para explicitar la intención matemática a los demás ingenieros del equipo y prevenir errores durante refactorizaciones futuras",
+          "correct": true
+        },
+        {
+          "text": "Porque el procesador se bloquea si encuentra más de una multiplicación sin paréntesis",
+          "correct": false
+        },
+        {
+          "text": "Porque los paréntesis reducen a la mitad el tamaño del archivo ejecutable compilado",
+          "correct": false
+        },
+        {
+          "text": "Porque es un requisito impuesto por el protocolo de comunicación inalámbrica de la cancha",
           "correct": false
         }
       ]
     },
     {
       "type": "CODE_TEST",
-      "question": "¿Cuál es el valor final de 'x'?",
+      "question": "Rastrea la evaluación con precedencia de operadores. ¿Qué valor exacto imprimirá la consola?",
       "codeSnippet": "x = 10 + 5 * 2\nprint(x)",
       "options": [
         {
-          "text": "20 (porque 5 * 2 = 10, y 10 + 10 = 20)",
+          "text": "20",
           "correct": true
         },
         {
@@ -43,74 +136,6 @@
         },
         {
           "text": "25",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Cuál es el valor final si usamos paréntesis?",
-      "codeSnippet": "x = (10 + 5) * 2\nprint(x)",
-      "options": [
-        {
-          "text": "30 (porque (10 + 5) = 15, y 15 * 2 = 30)",
-          "correct": true
-        },
-        {
-          "text": "20",
-          "correct": false
-        },
-        {
-          "text": "15",
-          "correct": false
-        },
-        {
-          "text": "50",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "DEBUG",
-      "question": "Queremos calcular el promedio de dos sensores, pero da un número absurdo. ¿Dónde faltan los paréntesis?",
-      "codeSnippet": "sensorA = 10\nsensorB = 20\npromedio = sensorA + sensorB / 2\nprint(promedio)  // Imprime 20 en lugar de 15",
-      "options": [
-        {
-          "text": "Debe ser: (sensorA + sensorB) / 2",
-          "correct": true
-        },
-        {
-          "text": "Debe ser: sensorA + (sensorB / 2)",
-          "correct": false
-        },
-        {
-          "text": "Hay que dividir entre 3",
-          "correct": false
-        },
-        {
-          "text": "No se pueden promediar variables",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "¿Por qué los desarrolladores experimentados usan paréntesis incluso cuando la precedencia ya es clara?",
-      "options": [
-        {
-          "text": "Para que el código sea 100% explícito y evitar confusiones a otros humanos que lean el archivo",
-          "correct": true
-        },
-        {
-          "text": "Porque el procesador se confunde sin paréntesis",
-          "correct": false
-        },
-        {
-          "text": "Para que el programa corra más rápido",
-          "correct": false
-        },
-        {
-          "text": "Para evitar que el código sea hackeado",
           "correct": false
         }
       ]

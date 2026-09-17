@@ -3,119 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Los modos de manejo del piloto de Nautilus 4010!",
-      "lessonText": "# El Selector de Velocidad en el Control \n\nEl piloto de nuestro equipo tiene un selector de 3 posiciones en su joystick:\n1. **Modo 'SLOW' (Precisión):** Potencia al `30%` (para alinear al milímetro con el alimentador).\n2. **Modo 'NORMAL':** Potencia al `75%` (para recorrer la cancha en teleoperado).\n3. **Modo 'BOOST' (Turbo):** Potencia al `100%` (para escapar de la defensa rival a toda máquina).\n\nEn este reto final de la Unidad 10, implementarás la máquina de decisiones completa con `if`, `elif` y `else`.",
+      "question": "¿Cómo se implementa un selector de perfiles de conducción cinemática en tiempo real?",
+      "lessonText": "# Perfiles de Actuación y Modos de Conducción\n\nEn mecatrónica de competición y automoción, la relación entre los joysticks del piloto y el voltaje de los motores de tracción se modula mediante **perfiles de conducción (Drive Profiles)**. Un selector multicamino implementado con `if-elif-else` toma el estado del conmutador de la Driver Station (`'ALINEACION'`, `'CRUCERO'`, `'SPRINT'`) y aplica los factores de escala matemáticos correspondientes.\n\n```python\nif modo == 'ALINEACION':\n    escalador = 0.25\nelif modo == 'CRUCERO':\n    escalador = 0.65\nelif modo == 'SPRINT':\n    escalador = 1.00\nelse:\n    escalador = 0.00\n    notificar_perfil_invalido()\n```\n\nEn las eliminatorias mundiales de FIRST Robotics Competition, el piloto de Nautilus 4010 activa el modo `ALINEACION` (escalador 0.25) para acoplar el gancho de escalada al trapecio central con precisión de milímetros, el modo `SPRINT` (escalador 1.00) para cruzar la cancha en menos de tres segundos, y el respaldo `else` asegura que ante cualquier desconexión del cable de red el robot quede en velocidad cero.\n\n**Regla de Oro: Un selector de perfiles de actuación modulariza la respuesta dinámica de la máquina, garantizando que cada modo tenga límites de aceleración calibrados y un protocolo de respaldo que proteja la transmisión mecánica.**",
       "options": [
         {
-          "text": "¡Vamos a configurar el selector de manejo de Teus!",
+          "text": "Modularizando la respuesta dinámica mediante factores de escala según el modo seleccionado, con freno de seguridad por defecto",
           "correct": true
         },
         {
-          "text": "Prefiero que el robot maneje a una sola velocidad para siempre",
+          "text": "Modificando la tensión de la batería principal de 12V a 48V de forma instantánea",
           "correct": false
         },
         {
-          "text": "No me gusta tener control del chasis",
+          "text": "Apagando el bus CAN para que las ruedas giren libremente sin control de software",
           "correct": false
         },
         {
-          "text": "Quiero desactivar los motores",
+          "text": "Obligando al procesador a reescribir su propio firmware en cada curva del robot",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada perfil de conducción con sus características mecánicas y operativas:",
+      "options": [
+        {
+          "text": "Drive Profile|||Mapeo matemático que modula la sensibilidad y velocidad de los motores",
+          "correct": true
+        },
+        {
+          "text": "Modo Alineación|||Perfil de baja velocidad y alto torque diseñado para maniobras de precisión",
+          "correct": true
+        },
+        {
+          "text": "Modo Sprint|||Perfil sin restricciones para desplazamientos a máxima velocidad en campo abierto",
+          "correct": true
+        },
+        {
+          "text": "Freno pasivo por defecto|||Asignación de factor 0.0 en la rama else para mitigar comandos corruptos",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena el selector de modos de conducción desde el perfil de mayor precisión al de crucero:",
+      "options": [
+        {
+          "text": "if modo_conduccion == 'ALINEACION':",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    escalador_velocidad = 0.25",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "elif modo_conduccion == 'CRUCERO':",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    escalador_velocidad = 0.65",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué cláusula final garantiza que el factor sea 0.0 si el perfil recibido no coincide con ninguno esperado?",
+      "codeSnippet": "if perfil == 'ALINEACION':\n    factor = 0.25\nelif perfil == 'RAPIDO':\n    factor = 1.0\n___:\n    factor = 0.0\n    alerta_perfil_invalido()",
+      "options": [
+        {
+          "text": "else",
+          "correct": true
+        },
+        {
+          "text": "fallback",
+          "correct": false
+        },
+        {
+          "text": "default",
+          "correct": false
+        },
+        {
+          "text": "finally",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué en sistemas mecatrónicos de alta potencia el valor por defecto en el 'else' de un selector de conducción debe ser velocidad 0.0 en lugar de mantener la velocidad anterior?",
+      "options": [
+        {
+          "text": "Para prevenir una aceleración descontrolada involuntaria si el switch de selección sufre una falla o desconexión física en plena carrera",
+          "correct": true
+        },
+        {
+          "text": "Porque el procesador no puede almacenar factores mayores a cero en una rama else",
+          "correct": false
+        },
+        {
+          "text": "Porque mantener la velocidad anterior funde los fusibles térmicos en menos de 5 milisegundos",
+          "correct": false
+        },
+        {
+          "text": "Porque las leyes de la física exigen calibrar la adherencia de los neumáticos cada vez que cambia una variable",
           "correct": false
         }
       ]
     },
     {
       "type": "CODE_TEST",
-      "question": "El piloto selecciona el modo 'BOOST'. ¿Qué potencia se le asignará al chasis?",
-      "codeSnippet": "modo = 'BOOST'\nif modo == 'SLOW':\n    potencia = 0.3\nelif modo == 'NORMAL':\n    potencia = 0.75\nelif modo == 'BOOST':\n    potencia = 1.0\nelse:\n    potencia = 0.0\nprint(potencia)",
-      "options": [
-        {
-          "text": "1.0",
-          "correct": true
-        },
-        {
-          "text": "0.75",
-          "correct": false
-        },
-        {
-          "text": "0.3",
-          "correct": false
-        },
-        {
-          "text": "0.0",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "El piloto presiona una tecla inválida ('FLY'). ¿Qué potencia de seguridad tomará el else?",
-      "codeSnippet": "modo = 'FLY'\nif modo == 'SLOW':\n    potencia = 0.3\nelif modo == 'NORMAL':\n    potencia = 0.75\nelif modo == 'BOOST':\n    potencia = 1.0\nelse:\n    potencia = 0.0\nprint(potencia)",
+      "question": "¿Qué potencia final enviará el controlador al motor para el modo 'DESCONOCIDO'?",
+      "codeSnippet": "modo = 'DESCONOCIDO'\nescalador = 1.0\nif modo == 'PRECISION':\n    escalador = 0.3\nelif modo == 'COMPETICION':\n    escalador = 0.8\nelse:\n    escalador = 0.0\npotencia_motor = 100 * escalador\nprint(potencia_motor)",
       "options": [
         {
           "text": "0.0",
           "correct": true
         },
         {
-          "text": "1.0",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_ORDER",
-      "question": "Ordena la estructura del selector de conducción completo:",
-      "options": [
-        {
-          "text": "if modo == 'SLOW':",
-          "correct": true,
-          "audioSrc": "1"
-        },
-        {
-          "text": "    setChasisSpeed(0.3)",
-          "correct": true,
-          "audioSrc": "2"
-        },
-        {
-          "text": "elif modo == 'NORMAL':",
-          "correct": true,
-          "audioSrc": "3"
-        },
-        {
-          "text": "    setChasisSpeed(0.75)",
-          "correct": true,
-          "audioSrc": "4"
-        },
-        {
-          "text": "else:",
-          "correct": true,
-          "audioSrc": "5"
-        },
-        {
-          "text": "    setChasisSpeed(1.0)",
-          "correct": true,
-          "audioSrc": "6"
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "¿Por qué dominar 'if', 'elif' y 'else' te convierte oficialmente en un programador con criterio?",
-      "options": [
-        {
-          "text": "Porque pasas de escribir listas rígidas de instrucciones a crear sistemas inteligentes que se adaptan al entorno",
-          "correct": true
-        },
-        {
-          "text": "Porque ya no necesitas sensores mecánicos",
+          "text": "100.0",
           "correct": false
         },
         {
-          "text": "Porque las computadoras te dan un diploma automático",
+          "text": "30.0",
           "correct": false
         },
         {
-          "text": "Porque hace que el robot pese menos kilos",
+          "text": "80.0",
           "correct": false
         }
       ]

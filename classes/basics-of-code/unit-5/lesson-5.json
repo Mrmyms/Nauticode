@@ -3,108 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Momento de limpiar el código de competencia!",
-      "lessonText": "# Emergencia en los Pits de 4010 ️\n\nFaltan 15 minutos para la semifinal. Un compañero escribió un script rápido para el elevador pero usó nombres crípticos, variables sin convención y comentarios vacíos.\n\nEn este reto final de la Unidad 5, aplicarás tus conocimientos de **Clean Code** para refactorizar y dejar el código impecable, legible y seguro.\n\n¡La limpieza del código previene fallas en la final!",
+      "question": "¿En qué consiste la técnica de refactorización y por qué es una disciplina esencial antes de las finales?",
+      "lessonText": "# Refactorización: Pagando la Deuda Técnica Bajo Presión\n\nEn el fragor de la competencia, cuando el equipo de robótica desarrolla un parche apresurado para que el elevador funcione entre partidos de clasificación, es común incurrir en **Deuda Técnica**: variables nombradas con letras sueltas (`h`, `t1`), números mágicos dispersos (`1.25`, `0.4`) y falta de consistencia.\n\nLa **Refactorización (Refactoring)** es el proceso disciplinado de reestructurar el código existente para mejorar su legibilidad, modularidad y mantenibilidad **sin alterar en absoluto su comportamiento funcional externo**.\n\n### Pasos Fundamentales del Refactor en los Pits:\n1. Sustituir nombres crípticos por identificadores semánticos autoexplicativos (`h` -> `currentElevatorHeightMeters`).\n2. Extraer números mágicos hacia constantes inmutables en `SCREAMING_SNAKE_CASE` (`MAX_ELEVATOR_HEIGHT_METERS = 1.25`).\n3. Eliminar código muerto o comentado obsoleto que genere confusión.\n4. Comprobar que la salida y los límites de seguridad sigan operando de forma idéntica.\n\nEn este reto final de la Unidad 5, aplicarás tus habilidades de refactorización profesional para convertir un script desordenado en una pieza de ingeniería sólida.\n\n**La Regla de Oro:**\nRefactorizar es transformar código funcional pero oscuro en código limpio, legible y robusto sin alterar su comportamiento externo.",
       "options": [
         {
-          "text": "¡Vamos a refactorizar el código de Teus!",
+          "text": "Reestructurar el código para maximizar legibilidad y mantenimiento sin modificar su comportamiento externo",
           "correct": true
         },
         {
-          "text": "Prefiero dejar el código sucio y arriesgar el robot",
+          "text": "Reescribir todo el software del robot desde cero cambiando los algoritmos matemáticos",
           "correct": false
         },
         {
-          "text": "No me gusta el código limpio",
+          "text": "Desactivar todos los límites de software de los motores para ganar aceleración",
           "correct": false
         },
         {
-          "text": "Quiero borrar el repositorio completo",
+          "text": "Borrar los nombres de las variables para que el archivo pese menos kilobytes",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "Si queremos almacenar la altura actual del elevador en milímetros, ¿cuál es el mejor nombre?",
+      "type": "MATCHING",
+      "question": "Relaciona cada término de calidad de software con su significado técnico formal:",
       "options": [
         {
-          "text": "currentElevatorHeightMm",
+          "text": "Refactorización|||Mejora de la estructura y legibilidad interna del código sin alterar su comportamiento",
           "correct": true
         },
         {
-          "text": "h",
-          "correct": false
+          "text": "Deuda Técnica|||Costo futuro de retrabajo provocado por escribir código rápido pero desordenado",
+          "correct": true
         },
         {
-          "text": "altura_mm_elevador_robot_nautilus_4010_oficial",
-          "correct": false
+          "text": "Self-Documenting Code|||Código tan claro en sus nombres y estructura que es intuitivo sin exceso de notas",
+          "correct": true
         },
         {
-          "text": "cosaArriba",
-          "correct": false
+          "text": "Dead Code|||Líneas comentadas o variables obsoletas que ya no participan en la ejecución",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena este archivo siguiendo la estructura limpia estándar (Constantes -> Variables -> Acciones):",
+      "question": "Ordena el flujo de refactorización limpia de un módulo de control de elevador (Constantes -> Estado -> Acciones):",
       "options": [
         {
-          "text": "MAX_RPM = 5000",
+          "text": "MAX_ELEVATOR_HEIGHT_METERS = 1.25",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "currentRpm = 0",
+          "text": "currentElevatorHeightMeters = 0.0",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "currentRpm = 2500",
+          "text": "currentElevatorHeightMeters = 0.85",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "print('RPM actual: ' + str(currentRpm))",
+          "text": "print('Altura actual del elevador: ' + str(currentElevatorHeightMeters) + ' m')",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la consola tras ejecutar este código limpio?",
-      "codeSnippet": "# Constantes de chasis\nTRACK_WIDTH_METERS = 0.65\nprint(TRACK_WIDTH_METERS)",
+      "type": "CODE_FILL",
+      "question": "Completa la refactorización sustituyendo el número mágico literal por la constante declarada:",
+      "codeSnippet": "TARGET_SHOOTER_RPM = 4500\n// Asignacion refactorizada con constante simbolica\nactualShooterRpm = _____\nprint('Shooter calibrado a: ' + str(actualShooterRpm) + ' RPM')",
       "options": [
         {
-          "text": "0.65",
+          "text": "TARGET_SHOOTER_RPM",
           "correct": true
         },
         {
-          "text": "TRACK_WIDTH_METERS",
+          "text": "4500",
+          "correct": false
+        },
+        {
+          "text": "actualShooterRpm",
+          "correct": false
+        },
+        {
+          "text": "'4500 RPM'",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál es el resumen de la filosofía de código limpio de Nautilus 4010?",
+      "question": "Si necesitas almacenar la lectura de posición angular absoluta de la torreta en radianes, ¿cuál es el identificador óptimo?",
       "options": [
         {
-          "text": "Nombres autoexplicativos, convenciones consistentes (camelCase/snake_case) y constantes en mayúsculas",
+          "text": "turretAbsoluteHeadingRadians (describe subsistema, tipo de medida y unidad angular)",
           "correct": true
         },
         {
-          "text": "Escribir la mayor cantidad de líneas posibles para impresionar a los jueces",
+          "text": "ang (demasiado vago y no especifica unidad)",
           "correct": false
         },
         {
-          "text": "Usar nombres en clave que solo una persona entienda",
+          "text": "cosaQueGiraEnRadianesSobreElChasis (excesivamente informal y verboso)",
           "correct": false
         },
         {
-          "text": "No usar nunca variables ni funciones",
+          "text": "headingDegrees (especifica grados cuando el dato está en radianes)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la ejecución de este bloque refactorizado. ¿Qué imprimirá la consola?",
+      "codeSnippet": "AUTONOMOUS_SPEED_RATIO = 0.75\nBASE_VELOCITY_MPS = 4.0\neffectiveVelocityMps = BASE_VELOCITY_MPS * AUTONOMOUS_SPEED_RATIO\nprint('Velocidad efectiva: ' + str(effectiveVelocityMps) + ' m/s')",
+      "options": [
+        {
+          "text": "Velocidad efectiva: 3.0 m/s",
+          "correct": true
+        },
+        {
+          "text": "Velocidad efectiva: 4.0 m/s",
+          "correct": false
+        },
+        {
+          "text": "Velocidad efectiva: 0.75 m/s",
+          "correct": false
+        },
+        {
+          "text": "Velocidad efectiva: 3 m/s",
           "correct": false
         }
       ]

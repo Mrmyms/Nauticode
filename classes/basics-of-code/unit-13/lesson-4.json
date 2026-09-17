@@ -3,109 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo se implementa una parada de emergencia en software?",
-      "lessonText": "# El Protocolo E-Stop \n\nEn FIRST Robotics, la seguridad es primero. Si un sensor de corriente reporta que un motor está atorado consumiendo más de 40 Amperes:\n¡El motor se quemará en menos de 3 segundos si no se corta la energía!\n\nEn el bucle de control:\n```python\nwhile robotEnMovimiento:\n    if corrienteAmperes > 40.0:\n        print('¡SOBRECORRIENTE! E-STOP ACTIVADO')\n        cortarEnergiaInmediata()\n        break  # Salida instantánea\n    actualizarControl()\n```\nEl `break` garantiza que no se ejecuten más ciclos de control con corriente excesiva.",
+      "question": "¿Cómo se diseña un mecanismo de parada de emergencia en software (E-Stop) para proteger vidas e infraestructura?",
+      "lessonText": "# Seguridad Crítica y Corte Inmediato de Potencia\n\nEn FIRST Robotics Competition y automatización industrial, la seguridad física es la prioridad número uno. Si un actuador mecánico sufre un bloqueo mecánico o una corriente sostenida por encima de 40 Amperes, el devanado del motor puede recalentarse e incendiarse en cuestión de segundos si el software no interviene de forma inmediata.\n\n```python\nwhile robot_habilitado == True:\n    if leer_corriente_amperes() > 40.0:\n        cortar_alimentacion_motores()\n        registrar_alerta_critica('ESTOP_SOBRECORRIENTE')\n        break  # Salida instantanea del lazo de potencia\n    actualizar_actuadores()\n```\n\nEl uso de `break` dentro de la condición de seguridad garantiza que ningún comando subsiguiente de aceleración pueda ejecutarse, transfiriendo el control de inmediato al protocolo de desaceleración y frenado pasivo.\n\n**Regla de Oro: Los mecanismos de parada de emergencia en software utilizan break para desarmar inmediatamente los bucles de actuación y transicionar a un estado de fallo seguro (fail-safe).**",
       "options": [
         {
-          "text": "Interrumpiendo inmediatamente el bucle de movimiento con break al detectar sobrecorriente o anomalías críticas",
+          "text": "Interrumpiendo inmediatamente los bucles de actuación con break al detectar sobrecorrientes o condiciones de peligro físico",
           "correct": true
         },
         {
-          "text": "Esperando a que el motor se queme para saber que falló",
+          "text": "Aumentando la velocidad de los motores para intentar forzar la liberación del mecanismo atascado",
           "correct": false
         },
         {
-          "text": "Gritando fuerte en el estadio",
+          "text": "Esperando a que la batería principal se agote por completo para verificar la falla",
           "correct": false
         },
         {
-          "text": "Desconectando la antena del Wi-Fi",
+          "text": "Desactivando los sensores de telemetría para no saturar los registros del procesador",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el fallo: Este sistema de seguridad imprime la alerta pero NUNCA sale del bucle, manteniendo los motores encendidos.",
-      "codeSnippet": "while true:\n    if botonEmergenciaPresionado:\n        print('ALERTA DE EMERGENCIA')\n        // ¡Falta el comando para detener el bucle!\n    avanzar()",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto del protocolo E-Stop con su significado técnico:",
       "options": [
         {
-          "text": "Falta agregar la instrucción 'break' dentro del if para salir del bucle",
+          "text": "E-Stop en software|||Interrupción instantánea del lazo de control con corte de energía a actuadores",
           "correct": true
         },
         {
-          "text": "Hay que quitar el while",
-          "correct": false
+          "text": "Sobrecorriente crítica|||Consumo mayor a 40A en un motor que exige apagado inmediato para evitar ignición",
+          "correct": true
         },
         {
-          "text": "No se puede usar la palabra ALERTA",
-          "correct": false
+          "text": "Fail-Safe Actuation|||Mecanismo que retorna a una posición mecánicamente segura al cortar la señal",
+          "correct": true
         },
         {
-          "text": "El código es correcto y seguro",
-          "correct": false
+          "text": "Salida inmediata|||Uso de break para no esperar el término del ciclo en situaciones de riesgo físico",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena el protocolo de parada de emergencia en código:",
+      "question": "Ordena el protocolo de parada de emergencia en software ante sobrecorriente en el motor:",
       "options": [
         {
-          "text": "if switchEmergencia == true:",
+          "text": "while robot_habilitado == True:",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "    desactivarVoltajeMotores()",
+          "text": "    if leer_corriente_amperes() > 40.0:",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "    print('E-STOP EJECUTADO')",
+          "text": "        cortar_alimentacion_motores()",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "    break",
+          "text": "        break",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mensaje se imprimirá?",
-      "codeSnippet": "for i in range(10):\n    if i == 1:\n        print('PARADA')\n        break\n    print('PASO')",
+      "type": "CODE_FILL",
+      "question": "¿Qué instrucción interrumpe y aborta el bucle de actuación al presionar el botón de parada?",
+      "codeSnippet": "while True:\n    if boton_parada_presionado() == True:\n        apagar_todos_los_sistemas()\n        _____\n    actualizar_chasis()",
       "options": [
         {
-          "text": "PASO\nPARADA",
+          "text": "break",
           "correct": true
         },
         {
-          "text": "PARADA",
+          "text": "continue",
+          "correct": false
+        },
+        {
+          "text": "pass",
+          "correct": false
+        },
+        {
+          "text": "resume",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál es la regla sagrada respecto a la parada de emergencia en equipos como Nautilus 4010?",
+      "question": "¿Cuál es la regla fundamental de diseño respecto a la parada de emergencia en sistemas robóticos de alta potencia?",
       "options": [
         {
-          "text": "La seguridad es innegociable: el código debe estar programado para fallar de forma segura (fail-safe)",
+          "text": "La seguridad es innegociable: el código debe estar programado para fallar de forma segura (fail-safe), cortando la actuación ante anomalías críticas",
           "correct": true
         },
         {
-          "text": "Intentar seguir jugando aunque el robot esté echando humo",
+          "text": "El software debe intentar continuar acelerando los motores aunque haya indicios de humo o atasco",
           "correct": false
         },
         {
-          "text": "Ignorar las alarmas en las finales",
+          "text": "Los sensores de corriente deben deshabilitarse en partidos decisivos para maximizar el empuje",
           "correct": false
         },
         {
-          "text": "Desactivar los sensores de corriente para que el robot sea más rápido",
+          "text": "La parada de emergencia solo debe programarse en lenguajes interpretados como HTML",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué estado final adoptará el controlador al dispararse la parada de emergencia en el ciclo 2?",
+      "codeSnippet": "estado = 'OPERATIVO'\nfor ciclo in range(5):\n    if ciclo == 2:\n        estado = 'ESTOP_EMERGENCIA'\n        break\nprint(estado)",
+      "options": [
+        {
+          "text": "'ESTOP_EMERGENCIA'",
+          "correct": true
+        },
+        {
+          "text": "'OPERATIVO'",
+          "correct": false
+        },
+        {
+          "text": "'ESTOP_EMERGENCIA 2'",
+          "correct": false
+        },
+        {
+          "text": "None",
           "correct": false
         }
       ]

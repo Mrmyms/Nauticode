@@ -3,33 +3,82 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué los nombres de las variables deben ser claros y descriptivos?",
-      "lessonText": "# El Dilema del Código Incomprensible ‍️\n\nImagina que entras a la final regional de FRC en 10 minutos y hay un bug en el chasis. Abres el archivo y encuentras esto:\n```python\na = 0.8\nb = 12.4\nc = a * b\n```\n¿Qué rayos es `a`? ¿Qué significa `b`? Nadie lo sabe.\n\nAhora compara con esto:\n```python\npotenciaMotor = 0.8\nvoltajeBateria = 12.4\npotenciaEfectiva = potenciaMotor * voltajeBateria\n```\n¡La intención es cristalina en un segundo! **El código se lee muchas más veces de las que se escribe.**",
+      "question": "¿Por qué la claridad semántica en los identificadores es un pilar crítico en la ingeniería de software?",
+      "lessonText": "# El Dilema del Código Incomprensible: Legibilidad vs Brevedad\n\nEn ciencias de la computación existe una máxima universal: **el código se lee cientos de veces más de las que se escribe**. Cualquier programador novato puede escribir instrucciones breves usando letras individuales como `a`, `b` y `c` que la máquina ejecutará sin quejarse. Sin embargo, ese código se convierte en una trampa mortal cuando otro ser humano (o tú mismo dos semanas después) debe corregir un fallo crítico bajo presión.\n\n### El Costo Cognitivo de los Nombres Crípticos:\nImagina este bloque dentro del bucle de telemetría:\n```python\nv = 0.85\nb = 12.2\np = v * b\n```\n¿Qué representa `v`? ¿Es velocidad, voltaje o viscosidad? ¿Qué es `p`? ¿Presión, potencia o posición? Cada identificador ambiguo obliga al cerebro del programador a mantener una tabla de traducción mental activa, saturando la memoria de trabajo y provocando errores garrafales.\n\nAhora analiza la versión limpia:\n```python\nvelocidadCruceroMps = 0.85\nvoltajeBateriaVolts = 12.2\npotenciaEfectivaWatts = velocidadCruceroMps * voltajeBateriaVolts\n```\n\nEn los pits de competencia de FIRST Robotics, cuando restan 6 minutos para ingresar a la alianza de playoffs y el subsistema de disparo falla, un nombre autoexplicativo permite diagnosticar el problema en 15 segundos en vez de perder la semifinal buscando qué significaba una variable misteriosa.\n\n**La Regla de Oro:**\nEscribe identificadores pensando en el ingeniero que mantendrá tu código bajo presión; un nombre semánticamente preciso reduce la ambigüedad a cero y previene fallos catastróficos.",
       "options": [
         {
-          "text": "Porque ahorra tiempo de depuración y permite que todo el equipo entienda la intención del código",
+          "text": "Porque reduce la carga cognitiva del equipo, clarifica la intención técnica y acelera radicalmente el diagnóstico de fallas",
           "correct": true
         },
         {
-          "text": "Porque las variables largas hacen que la batería dure más tiempo",
+          "text": "Porque el procesador ejecuta más rápido los identificadores largos que las letras individuales",
           "correct": false
         },
         {
-          "text": "Porque el procesador solo acepta palabras del diccionario en inglés",
+          "text": "Porque los nombres largos comprimen físicamente el código en la memoria caché del chip",
           "correct": false
         },
         {
-          "text": "No importa el nombre, es mejor usar letras individuales para escribir más rápido",
+          "text": "Porque el estándar IEEE prohíbe el uso de identificadores de menos de cuatro caracteres",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Cuál de los siguientes nombres de variable es el más apropiado para guardar la velocidad del intake?",
+      "type": "MATCHING",
+      "question": "Relaciona cada identificador críptico con su contraparte profesional y descriptiva:",
       "options": [
         {
-          "text": "intakeSpeed",
+          "text": "v|||targetVelocityMetersPerSecond",
+          "correct": true
+        },
+        {
+          "text": "ang|||chassisHeadingDegrees",
+          "correct": true
+        },
+        {
+          "text": "flag|||isShooterReadyToFire",
+          "correct": true
+        },
+        {
+          "text": "p|||proportionalGainConstant",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia de telemetría estructurada con nombres de alta claridad semántica:",
+      "options": [
+        {
+          "text": "batteryVoltageVolts = 12.4",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "intakeCurrentAmperes = 18.2",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "systemTelemetryReport = 'Bateria: ' + str(batteryVoltageVolts) + 'V | Corriente: ' + str(intakeCurrentAmperes) + 'A'",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print(systemTelemetryReport)",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la asignación reemplazando el identificador ambiguo 'x' por un nombre semánticamente riguroso:",
+      "codeSnippet": "_____ = 1200\nprint('Velocidad del mecanismo en RPM: ' + str(elevatorSpeedRpm))",
+      "options": [
+        {
+          "text": "elevatorSpeedRpm",
           "correct": true
         },
         {
@@ -37,78 +86,56 @@
           "correct": false
         },
         {
-          "text": "cosaQueGira123",
+          "text": "variableTemporal",
           "correct": false
         },
         {
-          "text": "velocidad_del_motor_que_recoge_las_piezas_del_piso_en_el_chasis",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "MATCHING",
-      "question": "Empareja cada nombre críptico con su versión limpia y profesional:",
-      "options": [
-        {
-          "text": "v|||targetVelocity",
-          "correct": true
-        },
-        {
-          "text": "btn|||isEmergencyStopPressed",
-          "correct": true
-        },
-        {
-          "text": "ang|||gyroHeadingAngle",
-          "correct": true
-        },
-        {
-          "text": "dist|||distanceToTargetMeters",
-          "correct": true
-        }
-      ]
-    },
-    {
-      "type": "DEBUG",
-      "question": "Este código usa nombres pésimos. ¿Qué cambio hace que la intención sea evidente?",
-      "codeSnippet": "t = 15\nprint('Tiempo de autonomo: ' + str(t))",
-      "options": [
-        {
-          "text": "Renombrar 't' por 'autonomousSecondsRemaining'",
-          "correct": true
-        },
-        {
-          "text": "Cambiar 't' por 'a'",
-          "correct": false
-        },
-        {
-          "text": "Borrar el print por completo",
-          "correct": false
-        },
-        {
-          "text": "Poner el número 15 entre comillas",
+          "text": "cosaQueGira",
           "correct": false
         }
       ]
     },
     {
-      "type": "ASSIST",
-      "question": "En un equipo de robótica, ¿a quién perjudica más el código con nombres de variables confusos?",
+      "type": "SELECT",
+      "question": "¿Cuál de los siguientes identificadores comunica con mayor precisión matemática y física el objetivo de un mecanismo lanzador?",
       "options": [
         {
-          "text": "A tus compañeros de equipo y a ti mismo cuando tengas que arreglar un bug bajo presión",
+          "text": "flywheelTargetVelocityRpm (especifica el mecanismo, la métrica y la unidad física)",
           "correct": true
         },
         {
-          "text": "A la conexión Wi-Fi de la cancha",
+          "text": "v1 (extremadamente corto y ambiguo)",
           "correct": false
         },
         {
-          "text": "Al material de aluminio del robot",
+          "text": "motor_que_dispara_la_pieza_al_speaker_en_la_cancha_regional (excesivamente verboso e impráctico)",
           "correct": false
         },
         {
-          "text": "Al equipo contrario",
+          "text": "shooterTemperature (indica temperatura cuando almacena velocidad)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea este bloque de telemetría limpia. ¿Qué imprimirá exactamente en consola?",
+      "codeSnippet": "autonomousDurationSeconds = 15\nprint('Tiempo de autonomo: ' + str(autonomousDurationSeconds) + 's')",
+      "options": [
+        {
+          "text": "Tiempo de autonomo: 15s",
+          "correct": true
+        },
+        {
+          "text": "Tiempo de autonomo: autonomousDurationSeconds s",
+          "correct": false
+        },
+        {
+          "text": "Tiempo de autonomo: 15",
+          "correct": false
+        },
+        {
+          "text": "autonomousDurationSeconds",
           "correct": false
         }
       ]

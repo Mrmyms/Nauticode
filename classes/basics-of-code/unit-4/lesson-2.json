@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cuál es la diferencia entre declarar e inicializar?",
-      "lessonText": "# Dar a Luz una Variable \n\nEn desarrollo de software existen dos momentos clave:\n\n1. **Declaración:** Crear la variable y avisarle a la computadora que existirá.\n   - Ejemplo: `int puntos;` (¡La caja fue creada pero está vacía!)\n2. **Inicialización:** Darle su primer valor inicial de vida.\n   - Ejemplo: `puntos = 0;` (¡Ahora la caja tiene un valor concreto!)\n\nMuchos lenguajes modernos permiten hacer ambas cosas en una sola línea elegante:\n`int puntos = 0;` o en Python simplemente `puntos = 0`.",
+      "question": "¿Cuál es la diferencia fundamental entre declarar e inicializar una variable en memoria?",
+      "lessonText": "# Las Dos Fases del Ciclo de Vida de una Variable\n\nEn la arquitectura del software existen dos momentos cruciales para cualquier dato:\n\n1. **Declaración:** Consiste en notificarle al compilador que reserve un espacio de memoria con un nombre y un tipo de dato específico (por ejemplo en C++ o Java: `double presionNeumatica;`). En este punto, la celda existe en la tabla de símbolos pero aún no contiene un dato deliberado.\n2. **Inicialización:** Consiste en depositar el primer valor formal dentro de esa celda reservada (`presionNeumatica = 115.0;`).\n\nEn lenguajes de tipado dinámico como Python, la declaración y la inicialización ocurren en la misma instrucción atómica en el momento exacto de la primera asignación.\n\n### El Peligro de la Basura en Memoria:\nSi un programa lee una variable declarada que nunca fue inicializada (un error común en C o C++ de bajo nivel), la CPU leerá cualquier residuo eléctrico de bits que haya quedado en esa celda de memoria antes de encender el programa. En robótica autónoma, leer basura puede traducirse en ordenar a los motores girar a máxima potencia de forma errática.\n\n**La Regla de Oro:**\nDeclarar reserva el casillero en la memoria RAM; inicializar deposita su primer estado conocido y seguro para evitar lecturas de datos basura.",
       "options": [
         {
-          "text": "Declarar es crear la variable; inicializar es darle su primer valor",
+          "text": "Declarar reserva el espacio y nombre en memoria; inicializar le asigna su primer valor conocido",
           "correct": true
         },
         {
-          "text": "Declarar es borrar la variable; inicializar es enviarla por internet",
+          "text": "Declarar destruye la celda de memoria; inicializar la envía a través de la red local",
           "correct": false
         },
         {
-          "text": "Son exactamente la misma palabra con diferente color",
+          "text": "Declarar e inicializar son exactamente la misma operación sin ninguna distinción técnica",
           "correct": false
         },
         {
-          "text": "Declarar solo sirve para números y nunca para texto",
+          "text": "Declarar solo es necesario para variables de texto e inicializar solo para números enteros",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Relaciona cada término con su significado:",
+      "question": "Relaciona cada término del ciclo de vida con su definición formal en programación:",
       "options": [
         {
-          "text": "Declarar|||Reservar el espacio y nombre de la variable",
+          "text": "Declaración|||Reserva formal de espacio en memoria y asignación de identificador y tipo",
           "correct": true
         },
         {
-          "text": "Inicializar|||Asignar el primer valor de arranque a la variable",
+          "text": "Inicialización|||Primera asignación de un valor conocido y deliberado a la variable",
           "correct": true
         },
         {
-          "text": "Valor por defecto|||El valor que toma una variable no inicializada",
+          "text": "Valor No Inicializado|||Estado indefinido que puede contener datos residuales o basura en RAM",
           "correct": true
         },
         {
-          "text": "Asignación|||Guardar un dato usando el operador =",
+          "text": "robotInit()|||Método de arranque en FRC donde se declaran e inicializan todos los subsistemas",
           "correct": true
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Declara e inicializa la variable 'meta' con el valor 100:",
-      "codeSnippet": "// Crea la variable meta",
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia segura para inicializar y verificar las variables de posición de encoder antes del match:",
       "options": [
         {
-          "text": "meta = 100",
-          "correct": true
+          "text": "encoderIzquierdo = 0.0",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "meta == 100",
-          "correct": false
+          "text": "encoderDerecho = 0.0",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "posicionPromedio = (encoderIzquierdo + encoderDerecho) / 2",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Subsistema de traccion calibrado a cero')",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Cuál es el valor final de la variable 'sensor'?",
-      "codeSnippet": "sensor = 0\nsensor = 45\nprint(sensor)",
+      "type": "CODE_FILL",
+      "question": "Completa la inicialización segura de la variable para almacenar la velocidad inicial del shooter en cero RPM:",
+      "codeSnippet": "velocidadShooter = _____\nprint('Shooter inicializado en modo reposo: ' + str(velocidadShooter))",
       "options": [
-        {
-          "text": "45 (el valor inicial 0 fue sobreescrito)",
-          "correct": true
-        },
         {
           "text": "0",
+          "correct": true
+        },
+        {
+          "text": "velocidadShooter",
           "correct": false
         },
         {
-          "text": "450",
+          "text": "'apagado'",
           "correct": false
         },
         {
-          "text": "Error por asignar dos veces",
+          "text": "None",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Qué pasa si intentas usar una variable que nunca fue declarada ni inicializada?",
+      "question": "¿Qué riesgo técnico ocurre si un algoritmo de control utiliza una variable declarada sin haberla inicializado?",
       "options": [
         {
-          "text": "Ocurre un error en tiempo de compilación o ejecución (NameError)",
+          "text": "El sistema puede leer datos residuales (basura en RAM), generando cálculos erróneos o fallos críticos en actuadores",
           "correct": true
         },
         {
-          "text": "La computadora inventa un número de la suerte",
+          "text": "El microprocesador reduce físicamente el voltaje de alimentación de los sensores",
           "correct": false
         },
         {
-          "text": "El robot frena suavemente",
+          "text": "La variable se inicializa por ley universal siempre en el valor 999",
           "correct": false
         },
         {
-          "text": "Se apaga la luz del taller",
+          "text": "El compilador borra automáticamente el disco de almacenamiento de la roboRIO",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Determina el valor exacto impreso por consola tras inicializar la variable de estado:",
+      "codeSnippet": "estadoAutonomo = 'ESPERANDO_SENAL'\nprint(estadoAutonomo)",
+      "options": [
+        {
+          "text": "ESPERANDO_SENAL",
+          "correct": true
+        },
+        {
+          "text": "estadoAutonomo",
+          "correct": false
+        },
+        {
+          "text": "'ESPERANDO_SENAL'",
+          "correct": false
+        },
+        {
+          "text": "None",
           "correct": false
         }
       ]

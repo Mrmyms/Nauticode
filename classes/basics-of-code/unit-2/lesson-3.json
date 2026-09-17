@@ -1,115 +1,141 @@
 {
-  "title": "Pseudocódigo: Diseñando en Humano",
+  "title": "Pseudocódigo y Acuerdos de Ingeniería",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué los desarrolladores usamos pseudocódigo?",
-      "lessonText": "# Pensar Antes de Escribir ️\n\nEl **pseudocódigo** es una descripción de alto nivel de un algoritmo que combina lenguaje natural con estructuras de programación.\n\nNo le importa si olvidas un punto y coma o si usas mayúsculas: su objetivo es que el **equipo de ingeniería se ponga de acuerdo en la lógica** antes de pasar horas depurando en Java o C++.\n\nEjemplo de pseudocódigo en Nautilus:\n```text\nSI botónDisparar está presionado ENTONCES:\n    acelerarFlywheel()\n    esperar 1 segundo\n    alimentarNota()\nSINO:\n    apagarFlywheel()\n```",
+      "question": "¿Por qué los desarrolladores profesionales y equipos de robótica diseñan algoritmos en pseudocódigo antes de programar en Java o C++?",
+      "lessonText": "# Diseñar Antes de Construir\n\nEn la ingeniería de software profesional, lanzarse a escribir código en el editor sin un diseño previo es la causa número uno de proyectos fallidos, errores de lógica y horas perdidas en el taller.\n\nEl **pseudocódigo** es una herramienta de modelado lógico que describe los pasos de un algoritmo combinando la claridad del lenguaje humano con la estructura rigurosa de la programación.\n\n### Ventajas Técnicas del Pseudocódigo:\n1. **Aislamiento Cognitivo:** Te permite concentrarte 100% en la **lógica del problema** sin la sobrecarga mental de recordar si falta un punto y coma, si la variable era tipo `double` o si importaste la librería correcta de WPILib.\n2. **Comunicación Interdisciplinaria:** En un equipo de robótica, los ingenieros mecánicos y eléctricos pueden leer, entender y validar el pseudocódigo del algoritmo de un brazo robótico antes de que el equipo de programación toque una sola línea de Java.\n3. **Independencia de Plataforma:** Un buen pseudocódigo se puede traducir indistintamente a C++, Java, Python o LabVIEW sin alterar la solución matemática de fondo.\n\n### Convenciones Comunes de Pseudocódigo:\n- Palabras clave de control en mayúsculas: `SI`, `ENTONCES`, `SINO`, `MIENTRAS`, `RETORNAR`.\n- Sangría estricta para denotar bloques subordinados.\n\n**La Regla de Oro:**\nEl tiempo invertido en escribir pseudocódigo claro ahorra diez veces su valor en tiempo de depuración en la cancha de competencia.",
       "options": [
         {
-          "text": "Para diseñar y validar la lógica en palabras claras antes de programar formalmente",
+          "text": "Para validar y acordar la solución lógica entre ingenieros sin la sobrecarga mental de la sintaxis estricta de un compilador",
           "correct": true
         },
         {
-          "text": "Porque las computadoras ejecutan el pseudocódigo más rápido que el código real",
+          "text": "Porque los microprocesadores ejecutan pseudocódigo más rápido que código binario compilado",
           "correct": false
         },
         {
-          "text": "Para ocultarle el código a los jueces de FIRST",
+          "text": "Porque las reglas de la competencia prohíben escribir código real hasta el día del torneo",
           "correct": false
         },
         {
-          "text": "Es un lenguaje inventado para engañar a los virus informáticos",
+          "text": "Porque el pseudocódigo sirve exclusivamente para cifrar el código y evitar espionaje industrial",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona la estructura en pseudocódigo con su contraparte lógica en lenguajes estructurados:",
+      "options": [
+        {
+          "text": "SI (condicion) ENTONCES|||Bifurcación condicional (if)",
+          "correct": true
+        },
+        {
+          "text": "SINO|||Camino alternativo obligatorio si la condición no se cumple (else)",
+          "correct": true
+        },
+        {
+          "text": "MIENTRAS (condicion) HACER|||Estructura de repetición condicional (while)",
+          "correct": true
+        },
+        {
+          "text": "RETORNAR resultado|||Devolver el valor calculado por la subrutina",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena el pseudocódigo de una rutina de recolección de pieza (Intake Sequence):",
+      "options": [
+        {
+          "text": "SI sensorHazLuz.detectaPieza() == FALSO ENTONCES:",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    rodillosIntake.encender(potencia = 0.8)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "SINO:",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    rodillosIntake.detener()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la palabra clave en pseudocódigo para definir la alternativa cuando la condición del sensor es falsa:",
+      "codeSnippet": "SI presionAire >= 120 ENTONCES\n    apagarCompresor()\n_____\n    encenderCompresor()\nFIN_SI",
+      "options": [
+        {
+          "text": "SINO",
+          "correct": true
+        },
+        {
+          "text": "REPETIR",
+          "correct": false
+        },
+        {
+          "text": "MIENTRAS",
+          "correct": false
+        },
+        {
+          "text": "RETORNAR",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál de estos ejemplos representa mejor un pseudocódigo limpio?",
+      "question": "¿Cuál de los siguientes fragmentos representa un pseudocódigo técnico riguroso y libre de ambigüedades?",
       "options": [
         {
-          "text": "SI bateria < 11.5 ENTONCES alertarPiloto()",
+          "text": "SI distanciaUltrasonido < 30.0 ENTONCES motor.frenar() SINO motor.avanzar(0.5)",
           "correct": true
         },
         {
-          "text": "01000101 01101100 01100101",
+          "text": "Hacer que el robot se mueva bonito y tenga cuidado con las cosas que se crucen",
           "correct": false
         },
         {
-          "text": "hacer cosas del robot muy rapido",
+          "text": "01001101 01101111 01110100 01101111 01110010 00100000 01001111 01001110",
           "correct": false
         },
         {
-          "text": "System.out.println(Double.parseDouble(args[0]));",
+          "text": "Intentar prender los motores a ver si jala el sistema autónomo",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_ORDER",
-      "question": "Ordena este pseudocódigo para recoger una nota del suelo (Intake):",
+      "type": "CODE_TEST",
+      "question": "Evalúa mentalmente este pseudocódigo estructurado. Si bateria = 10.5, ¿cuál será el mensaje emitido?",
+      "codeSnippet": "bateria = 10.5\n\nif (bateria < 11.0):\n    estado = 'BATERIA_CRITICA'\nelse:\n    estado = 'BATERIA_NOMINAL'\n\nprint(estado)",
       "options": [
         {
-          "text": "bajarMecanismoIntake()",
-          "correct": true,
-          "audioSrc": "1"
-        },
-        {
-          "text": "encenderRodillosIntake()",
-          "correct": true,
-          "audioSrc": "2"
-        },
-        {
-          "text": "esperar sensorOptico == TRUE",
-          "correct": true,
-          "audioSrc": "3"
-        },
-        {
-          "text": "detenerRodillosIntake()",
-          "correct": true,
-          "audioSrc": "4"
-        },
-        {
-          "text": "subirMecanismoIntake()",
-          "correct": true,
-          "audioSrc": "5"
-        }
-      ]
-    },
-    {
-      "type": "ASSIST",
-      "question": "En el pseudocódigo anterior, ¿por qué es crucial esperar a que el sensor marque TRUE antes de detener los rodillos?",
-      "options": [
-        {
-          "text": "Para garantizar que la pieza ya entró completamente al robot antes de apagar los motores",
+          "text": "BATERIA_CRITICA",
           "correct": true
         },
         {
-          "text": "Para gastar toda la batería del robot",
+          "text": "BATERIA_NOMINAL",
           "correct": false
         },
         {
-          "text": "Porque al sensor le gusta ver girar los rodillos",
+          "text": "10.5",
           "correct": false
         },
         {
-          "text": "Para que el árbitro pite una falta",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_WRITE",
-      "question": "Escribe en pseudocódigo la instrucción básica para imprimir el mensaje: ALGORITMO OK",
-      "codeSnippet": "// Imprime el mensaje",
-      "options": [
-        {
-          "text": "print('ALGORITMO OK')",
-          "correct": true
-        },
-        {
-          "text": "wrong",
+          "text": "estado",
           "correct": false
         }
       ]

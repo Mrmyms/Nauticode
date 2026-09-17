@@ -3,98 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Matemáticas mecánicas en el robot!",
-      "lessonText": "# Gear Ratios en Nautilus 4010 ️\n\nUn motor brushless Falcon 500 gira a 6000 RPM (revoluciones por minuto), ¡demasiado rápido para mover una rueda directamente!\n\nPor eso usamos una caja reductora de engranes con una relación (Gear Ratio) de `5:1`:\n`rpmRueda = rpmMotor / gearRatio`\n`rpmRueda = 6000 / 5 = 1200 RPM`\n\nEn este reto final de la Unidad 7, usarás operadores aritméticos para calcular velocidades, relaciones de transmisión y promedios.",
+      "question": "¿Cómo se combinan los operadores aritméticos y la precedencia para modelar cinemáticamente el tren motriz de un robot FRC?",
+      "lessonText": "# Cinemática Aplicada: Gear Ratios en Nautilus 4010\n\nEn robótica de competencia, el software no opera en el vacío; interactúa directamente con sistemas mecánicos. Un motor brushless Falcon 500 o Kraken X60 gira a $6,000\\text{ RPM}$ en vacío, una velocidad angular excesiva que carece del torque necesario para mover un chasis de $55\\text{ kg}$.\n\nPor ello, el motor se conecta a una caja reductora (*gearbox*) con una **Relación de Reducción (Gear Ratio $G$)** de $6:1$:\n$$\\text{RPM}_{\\text{rueda}} = \\frac{\\text{RPM}_{\\text{motor}}}{G}$$\n$$\\text{RPM}_{\\text{rueda}} = \\frac{6000}{6} = 1000\\text{ RPM}$$\n\nPara calcular la velocidad lineal del robot sobre la alfombra, convertimos revoluciones por minuto a metros por segundo incorporando el radio de la rueda ($r$ en metros) y el factor de tiempo ($60\\text{ s}$):\n$$v = \\left(\\frac{\\text{RPM}_{\\text{rueda}}}{60}\\right) \\times (2 \\times \\pi \\times r)$$\n\nEn este reto final de la Unidad 7, demostrarás tu dominio de los operadores aritméticos, la precedencia con paréntesis y las divisiones escaladas modelando el comportamiento cinemático real del robot.\n\n**La Regla de Oro:**\nLas matemáticas son el puente que traduce comandos de software en fuerzas mecánicas reales; dominar los operadores aritméticos es la base de la ingeniería mecatrónica.",
       "options": [
         {
-          "text": "¡Vamos a calcular la física del chasis!",
+          "text": "Modelan la física del robot combinando divisiones de reducción angular y conversiones lineales con precedencia estricta",
           "correct": true
         },
         {
-          "text": "Prefiero que los engranes se traben",
+          "text": "Son fórmulas empíricas que se descartan en competencia porque los motores giran a velocidad constante fija",
           "correct": false
         },
         {
-          "text": "No quiero hacer cálculos",
+          "text": "Calculan exclusivamente el consumo de combustible diésel de los generadores de la arena",
           "correct": false
         },
         {
-          "text": "Quiero girar el motor sin caja reductora",
+          "text": "Multiplican la velocidad de los motores por diez para que el robot levite sobre la cancha",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Escribe la instrucción para calcular 'rpmFinal' dividiendo 'rpmMotor' entre 'gearRatio':",
-      "codeSnippet": "// Calcula la reducción",
+      "type": "MATCHING",
+      "question": "Relaciona cada magnitud física del tren motriz con su fórmula matemática correspondiente:",
       "options": [
         {
-          "text": "rpmFinal = rpmMotor / gearRatio",
+          "text": "Velocidad Angular Reducida|||rpmMotor / gearRatio",
           "correct": true
         },
         {
-          "text": "rpmFinal = rpmMotor * gearRatio",
-          "correct": false
+          "text": "Perímetro de Rueda|||2 * PI * radioRuedaMetros",
+          "correct": true
+        },
+        {
+          "text": "Revoluciones por Segundo|||rpmRueda / 60.0",
+          "correct": true
+        },
+        {
+          "text": "Velocidad Lineal (m/s)|||circunferencia * rps",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué RPM final arrojará este cálculo?",
-      "codeSnippet": "rpmMotor = 6000\ngearRatio = 6\nrpmFinal = rpmMotor / gearRatio\nprint(rpmFinal)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la cadena de cálculo cinemático desde las RPM del motor hasta la velocidad lineal de avance:",
       "options": [
         {
-          "text": "1000.0",
-          "correct": true
+          "text": "GEAR_RATIO = 6.0",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "36000.0",
-          "correct": false
+          "text": "wheelRpm = 6000.0 / GEAR_RATIO",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "wheelRps = wheelRpm / 60.0",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "linearVelocityMps = 2 * 3.1416 * 0.05 * wheelRps",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "Calcula el promedio de las lecturas de dos encoders en el chasis:",
-      "codeSnippet": "encoderIzquierdo = 400\nencoderDerecho = 600\npromedioTicks = (encoderIzquierdo + encoderDerecho) / 2\nprint(promedioTicks)",
+      "type": "CODE_FILL",
+      "question": "Completa la asignación para calcular la velocidad reducida de la rueda dividiendo las RPM del motor entre el gear ratio:",
+      "codeSnippet": "rpmMotor = 6000\ngearRatio = 6\nrpmFinal = rpmMotor _____ gearRatio\nprint('RPM reducidas de la rueda: ' + str(rpmFinal))",
       "options": [
         {
-          "text": "500.0",
+          "text": "/",
           "correct": true
         },
         {
-          "text": "700.0",
+          "text": "*",
           "correct": false
         },
         {
-          "text": "1000.0",
+          "text": "%",
           "correct": false
         },
         {
-          "text": "500",
+          "text": "+",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Qué conclusión fundamental te deja esta Unidad 7 sobre Operadores Aritméticos?",
+      "question": "Si un motor gira a 5400 RPM y pasa por una caja reductora de 9:1, ¿cuál es la velocidad resultante de la rueda?",
       "options": [
         {
-          "text": "Las matemáticas son el motor que transforma lecturas crudas de sensores en movimientos mecánicos precisos",
+          "text": "600.0 RPM (porque la caja reductora divide la velocidad angular entre la relación: 5400 / 9 = 600)",
           "correct": true
         },
         {
-          "text": "El procesador solo puede sumar, nunca restar ni multiplicar",
+          "text": "48600.0 RPM (porque la caja multiplica la velocidad de entrada)",
           "correct": false
         },
         {
-          "text": "Los paréntesis están prohibidos en la programación de FIRST",
+          "text": "5391.0 RPM (porque se le resta 9 al número de revoluciones)",
           "correct": false
         },
         {
-          "text": "Es mejor calcular todo a mano con calculadora durante el match",
+          "text": "0.0 RPM (porque las reducciones mecánicas cancelan la rotación)",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la cinemática de odometría de encoders. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "encoderIzquierdo = 400\nencoderDerecho = 600\npromedioTicks = (encoderIzquierdo + encoderDerecho) / 2\nfactorMetros = 0.01\ndistanciaTotal = promedioTicks * factorMetros\nprint(distanciaTotal)",
+      "options": [
+        {
+          "text": "5.0",
+          "correct": true
+        },
+        {
+          "text": "500.0",
+          "correct": false
+        },
+        {
+          "text": "7.0",
+          "correct": false
+        },
+        {
+          "text": "500",
           "correct": false
         }
       ]

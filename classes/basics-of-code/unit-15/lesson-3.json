@@ -3,69 +3,79 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cuál es la diferencia radical entre `print()` y `return`?",
-      "lessonText": "# El Mensajero del Resultado \n\n- **`print()`** solo muestra texto en la pantalla para que un humano lo lea. **La computadora no puede usar ese texto para nada más**.\n- **`return`** devuelve el dato calculado directamente a la variable que llamó a la función para que el programa pueda seguir trabajando con él.\n\nEjemplo revelador:\n```python\ndef sumar(a, b):\n    return a + b\n\n# El valor devuelto (15) se guarda en la variable total\ntotal = sumar(10, 5)\nprint(total * 2)  # ¡Podemos usar el resultado para más cálculos!\n```\nAdemás, cuando la CPU ejecuta un `return`, **la función termina de inmediato**.",
+      "question": "¿Cuál es la diferencia computacional radical entre mostrar un dato con print() y devolverlo con return?",
+      "lessonText": "# Flujo de Datos y Salida de Funciones\n\nUna de las confusiones más comunes en programación inicial es confundir **`print()`** con **`return`**:\n\n- **`print()`:** Es una operación de entrada/salida (I/O) que envía caracteres al terminal estándar para que un humano los observe. El programa **no puede reutilizar ni operar** ese texto en cálculos futuros.\n- **`return`:** Transfiere el resultado evaluado directamente a la expresión o variable que realizó la llamada, desapilando el marco de pila y **terminando de inmediato la ejecución de la función**.\n\n```python\ndef convertir_ticks_a_cm(ticks):\n    return ticks * 0.05  # Retorna el valor para seguir calculando\n\ndistancia_cm = convertir_ticks_a_cm(400)\nif distancia_cm > 15.0:\n    frenar_robot()\n```\n\nSi la función utilizara `print()` en lugar de `return`, `distancia_cm` recibiría `None` y la comparación relacional fallaría con un error crítico.\n\n**Regla de Oro: 'print' solo muestra texto para un observador humano; 'return' entrega el dato calculado a la variable que invocó la función y concluye de inmediato su ejecución.**",
       "options": [
         {
-          "text": "print solo muestra texto en pantalla; return devuelve el dato a la variable para seguir operándolo",
+          "text": "print solo emite texto para visualización humana; return entrega el dato a la variable para que el programa siga operando con él",
           "correct": true
         },
         {
-          "text": "print guarda el valor en el disco duro y return lo borra",
+          "text": "print almacena el dato en el disco duro permanentemente mientras que return lo borra de la memoria",
           "correct": false
         },
         {
-          "text": "return solo sirve para números negativos",
+          "text": "return solo puede emplearse con números enteros y print solo con cadenas de texto alfanuméricas",
           "correct": false
         },
         {
-          "text": "Son exactamente la misma instrucción",
+          "text": "No existe diferencia; los compiladores modernos reemplazan return por print de forma automática",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué valor final contendrá la variable 'resultado'?",
-      "codeSnippet": "def duplicar(n):\n    return n * 2\n\nresultado = duplicar(21)\nprint(resultado)",
+      "type": "MATCHING",
+      "question": "Relaciona cada mecanismo de salida con su efecto en el sistema:",
       "options": [
         {
-          "text": "42",
+          "text": "Sentencia return|||Devuelve el resultado calculado al punto de invocación y concluye la función inmediatamente",
           "correct": true
         },
         {
-          "text": "21",
-          "correct": false
+          "text": "Función print()|||Muestra caracteres en la consola sin retornar ningún dato utilizable por el programa",
+          "correct": true
         },
         {
-          "text": "0",
-          "correct": false
+          "text": "Código inalcanzable|||Instrucciones ubicadas tras un return que jamás llegan a ejecutarse",
+          "correct": true
         },
         {
-          "text": "none",
-          "correct": false
+          "text": "Valor por defecto (None)|||Resultado devuelto por una función en Python si concluye sin encontrar un return",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué imprimirá este programa con return temprano?",
-      "codeSnippet": "def test():\n    return 'Primero'\n    print('Segundo')  # ¡Línea inalcanzable!\n\nprint(test())",
+      "type": "CODE_ORDER",
+      "question": "Ordena la función de cálculo de área y el almacenamiento del valor devuelto:",
       "options": [
         {
-          "text": "Primero",
-          "correct": true
+          "text": "def calcular_area_intake(ancho, largo):",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "Primero\nSegundo",
-          "correct": false
+          "text": "    area = ancho * largo",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    return area",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "total_area = calcular_area_intake(40, 60)",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la palabra clave para retornar el cálculo:",
-      "codeSnippet": "def calcularArea(base, altura):\n    _____ (base * altura) / 2",
+      "question": "¿Qué palabra clave devuelve el valor calculado en metros al código que llamó a la función?",
+      "codeSnippet": "def convertir_cm_a_metros(distancia_cm):\n    _____ distancia_cm / 100.0",
       "options": [
         {
           "text": "return",
@@ -76,33 +86,56 @@
           "correct": false
         },
         {
-          "text": "give",
+          "text": "output",
           "correct": false
         },
         {
-          "text": "output",
+          "text": "give",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Si una función no tiene ninguna sentencia `return`, ¿qué valor devuelve por defecto en Python al intentar guardarla en una variable?",
+      "question": "¿Qué diferencia fundamental existe entre una función que imprime un valor con print() y una función que devuelve un valor con return?",
       "options": [
         {
-          "text": "None (ningún valor / vacío)",
+          "text": "El valor devuelto por 'return' puede asignarse a una variable y utilizarse en cálculos posteriores; 'print' solo emite texto para humanos",
           "correct": true
         },
         {
-          "text": "0",
+          "text": "'print' almacena el dato en el disco duro permanentemente mientras que 'return' lo borra",
           "correct": false
         },
         {
-          "text": "false",
+          "text": "'return' solo puede emplearse con números enteros y 'print' solo con cadenas de texto",
           "correct": false
         },
         {
-          "text": "Error fatal",
+          "text": "No existe diferencia; los compiladores modernos reemplazan return por print automáticamente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué valor exacto imprimirá la consola al ejecutar este programa con return temprano?",
+      "codeSnippet": "def doblar(x):\n    return x * 2\n    print('Calculo concluido')\n\nresultado = doblar(15)\nprint(resultado)",
+      "options": [
+        {
+          "text": "30",
+          "correct": true
+        },
+        {
+          "text": "15",
+          "correct": false
+        },
+        {
+          "text": "'Calculo concluido'",
+          "correct": false
+        },
+        {
+          "text": "None",
           "correct": false
         }
       ]

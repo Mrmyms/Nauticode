@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es un entero (int) y cuándo se utiliza?",
-      "lessonText": "# Contando Cosas Enteras \n\nUn **Integer (int)** es un número completo, positivo, negativo o cero, **sin parte decimal**.\n\nEjemplos en FIRST Robotics:\n- Número de piezas anotadas en el Speaker: `3` (no puedes anotar 3.5 piezas).\n- Puerto USB donde está conectado el control: `0`.\n- Match actual del torneo: `42`.\n\nLos enteros son ultra-rápidos de procesar para la CPU y ocupan un espacio de memoria fijo (típicamente 32 o 64 bits).",
+      "question": "¿Cómo se representan físicamente los números enteros en memoria y cuáles son sus propiedades computacionales?",
+      "lessonText": "# Aritmética Discreta: La Arquitectura del Entero (int)\n\nEn ciencias de la computación, un **Integer (int)** es un tipo de dato numérico que representa valores discretos sin componente fraccionaria ni punto decimal (positivo, negativo o cero).\n\n### Representación Binaria en Silicio:\nEn la arquitectura de la CPU (como el procesador ARM dual-core de la roboRIO), un entero de 32 bits con signo se almacena utilizando el sistema de **Complemento a Dos (Two's Complement)**:\n- 1 bit para el signo (0 para positivo, 1 para negativo).\n- 31 bits para la magnitud numérica.\n- Rango almacenable: desde $-2^{31} (-2,147,483,648)$ hasta $2^{31}-1 (2,147,483,647)$.\n\n### Ventajas Técnicas en Ingeniería:\n1. **Velocidad de Cómputo:** Las operaciones con enteros se resuelven en la ALU (Unidad Aritmético Lógica) en un único ciclo de reloj ($1$ instrucción de máquina), siendo más veloces y deterministas que el punto flotante.\n2. **Precisión Absoluta:** La suma de enteros jamás genera imprecisiones por redondeo. Si sumas $1 + 1$, el resultado es estrictamente $2$ a nivel de bits.\n\nEn un robot de competencia como Nautilus 4010, los enteros son indispensables para entidades contables y discretas: IDs de bus CAN, IDs de AprilTags de visión, ciclos de bucle y número de notas recogidas (nunca puedes recolectar media nota).\n\n**La Regla de Oro:**\nUsa 'int' para cuantificar entidades discretas y contables; las operaciones enteras son exactas a nivel de hardware y no sufren errores de aproximación decimal.",
       "options": [
         {
-          "text": "Un número completo sin decimales, positivo, negativo o cero",
+          "text": "Representa valores discretos sin decimales mediante complemento a dos, garantizando cálculos exactos en un único ciclo de reloj",
           "correct": true
         },
         {
-          "text": "Cualquier texto entre comillas dobles",
+          "text": "Almacena secuencias de texto alfanumérico que solo pueden contener dígitos del 0 al 9",
           "correct": false
         },
         {
-          "text": "Un número que siempre debe ser mayor a 1 millón",
+          "text": "Representa valores continuos con punto decimal pero limitados a un tamaño de 8 bits",
           "correct": false
         },
         {
-          "text": "Una instrucción de movimiento de motor",
+          "text": "Es una instrucción que reserva memoria RAM pero borra el valor cada 10 milisegundos",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Cuál de los siguientes valores es un 'int' válido?",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto formal sobre números enteros con su definición técnica:",
       "options": [
         {
-          "text": "-15",
+          "text": "32-bit Signed Integer|||Rango de -2,147,483,648 a 2,147,483,647 en 4 bytes de memoria RAM",
           "correct": true
         },
         {
-          "text": "3.14",
-          "correct": false
+          "text": "Complemento a Dos|||Esquema de codificación binaria en la ALU para enteros con signo",
+          "correct": true
         },
         {
-          "text": "'4010'",
-          "correct": false
+          "text": "Desbordamiento (Overflow)|||Error al superar el valor numérico máximo almacenable en los bits asignados",
+          "correct": true
         },
         {
-          "text": "true",
-          "correct": false
+          "text": "División Entera (//)|||Operación que descarta la fracción decimal conservando solo el cociente",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la acumulación discreta de piezas de juego contabilizadas por los sensores del robot:",
+      "options": [
+        {
+          "text": "notasAmplificador = 4",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "notasSpeaker = 9",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "totalNotasAlianza = notasAmplificador + notasSpeaker",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Total de notas validas contabilizadas: ' + str(totalNotasAlianza))",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la asignación con un entero que represente el número de match:",
-      "codeSnippet": "matchNumero = _____\nprint('Jugando match: ' + str(matchNumero))",
-      "options": [
-        {
-          "text": "14",
-          "correct": true
-        },
-        {
-          "text": "'Catorce'",
-          "correct": false
-        },
-        {
-          "text": "14.85",
-          "correct": false
-        },
-        {
-          "text": "true",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué imprimirá la suma de estos dos enteros?",
-      "codeSnippet": "notasEnAmp = 2\nnotasEnSpeaker = 5\ntotal = notasEnAmp + notasEnSpeaker\nprint(total)",
+      "question": "Completa la asignación con un entero riguroso que declare el ID de AprilTag central del Speaker:",
+      "codeSnippet": "aprilTagSpeakerId = _____\nprint('Rastreando AprilTag ID: ' + str(aprilTagSpeakerId))",
       "options": [
         {
           "text": "7",
           "correct": true
         },
         {
-          "text": "25",
+          "text": "7.0",
+          "correct": false
+        },
+        {
+          "text": "'7'",
+          "correct": false
+        },
+        {
+          "text": "None",
           "correct": false
         }
       ]
     },
     {
-      "type": "ASSIST",
-      "question": "Si divides dos enteros en código y el resultado tiene decimales (como 7 / 2 = 3.5), ¿sigue siendo un entero?",
+      "type": "SELECT",
+      "question": "¿Por qué en robótica de competencia los identificadores de bus CAN y los puertos de comunicación deben ser estrictamente de tipo entero?",
       "options": [
         {
-          "text": "No, el resultado se convierte en un número decimal (float / double)",
+          "text": "Porque el direccionamiento de hardware físico opera con direcciones numéricas discretas y únicas que no admiten valores fraccionarios",
           "correct": true
         },
         {
-          "text": "Sí, sigue siendo entero automáticamente",
+          "text": "Porque los cables de cobre solo transmiten corriente si el número es par",
           "correct": false
         },
         {
-          "text": "El resultado se convierte en texto",
+          "text": "Porque los tipos decimales dañan los circuitos de memoria flash de la roboRIO",
           "correct": false
         },
         {
-          "text": "Ocurre un error de hardware",
+          "text": "Porque la red Ethernet descarta paquetes con menos de diez caracteres de texto",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la evaluación de la división entera (//). ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "totalNotas = 15\ncapacidadContenedor = 4\nviajesCompletos = totalNotas // capacidadContenedor\nprint(viajesCompletos)",
+      "options": [
+        {
+          "text": "3",
+          "correct": true
+        },
+        {
+          "text": "3.75",
+          "correct": false
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "3.0",
           "correct": false
         }
       ]

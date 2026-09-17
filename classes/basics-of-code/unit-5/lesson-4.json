@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué son los comentarios y cómo los interpreta la computadora?",
-      "lessonText": "# Notas al Margen \n\nUn **comentario** es una anotación en el código fuente que la computadora **ignora por completo** al momento de compilar o ejecutar.\n\nEn Python se usa el símbolo `#`:\n```python\n# Iniciar motores en reversa para expulsar nota atorada\nmotorIntake.set(-1.0)\n```\n\nEn Java y C++ se usa `//` para una línea y `/* ... */` para bloques multilínea.\n\nLos comentarios son cartas que le dejas a tus compañeros (y a tu yo del futuro) explicando **por qué tomaste una decisión técnica compleja**.",
+      "question": "¿Cuál es el propósito fundamental de los comentarios en el código y qué información técnica deben comunicar?",
+      "lessonText": "# El Código como Medio de Comunicación: Explicar el 'Por Qué'\n\nUn **comentario** es una porción de texto intercalada en el código fuente que el compilador y el intérprete **descartan e ignoran por completo** durante la fase de análisis léxico. Los comentarios no ocupan espacio en la memoria binaria del ejecutable ni ralentizan la CPU.\n\nSu destinatario exclusivo son los seres humanos: tus compañeros de equipo y tu yo del futuro.\n\n### Comentarios Valiosos vs Comentarios Basura:\n- **Comentario Redundante (Antipatrón):** Simplemente parafrasea lo que la sintaxis ya dice de forma obvia:\n```python\nx = x + 1 # Suma uno a x (¡Completamente inútil!)\n```\n- **Comentario de Alto Valor Técnico:** Explica la justificación física, el modelo matemático, la restricción de seguridad o la razón de un ajuste no intuitivo:\n```python\n# Reduccion al 85% de potencia para compensar la friccion de la alfombra nueva en playoffs\npotenciaTraccion = potenciaCalculada * 0.85\n```\n\n### Sintaxis según el Lenguaje:\n- En Python: se utiliza el símbolo `#` para comentarios de línea.\n- En Java, C++ y JavaScript: se utiliza `//` para una línea y `/* ... */` para bloques multilínea.\n\n**La Regla de Oro:**\nUsa comentarios para explicar el POR QUÉ de una decisión arquitectónica o física, nunca para redundar en el QUÉ hace la sintaxis evidente.",
       "options": [
         {
-          "text": "Texto explicativo dentro del código que la máquina ignora pero ayuda a los humanos",
+          "text": "Explicar el razonamiento de diseño y las restricciones físicas detrás de una decisión no obvia para otros humanos",
           "correct": true
         },
         {
-          "text": "Mensajes que se envían directamente a los rivales del match",
+          "text": "Transmitir señales de depuración en tiempo real hacia los actuadores mecánicos del chasis",
           "correct": false
         },
         {
-          "text": "Instrucciones de audio que el robot lee en voz alta",
+          "text": "Aumentar artificialmente la cantidad de líneas de código para impresionar a los jueces de FIRST",
           "correct": false
         },
         {
-          "text": "Errores que la computadora oculta automáticamente",
+          "text": "Instruir al microprocesador sobre qué variables debe ignorar cuando la batería baje de 10V",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Identifica la sintaxis de comentarios según el lenguaje:",
+      "question": "Relaciona la sintaxis de comentarios con su entorno técnico correspondiente:",
       "options": [
         {
-          "text": "# Comentario de línea|||Python",
+          "text": "# Comentario de línea|||Python y Bash",
           "correct": true
         },
         {
-          "text": "// Comentario de línea|||Java / C++ / C#",
+          "text": "// Comentario de línea|||Java, C++, C# y JavaScript",
           "correct": true
         },
         {
-          "text": "/* Bloque multilínea */|||Java / C++ / CSS",
+          "text": "/* Bloque multilínea */|||Java, C++, C y CSS",
           "correct": true
         },
         {
-          "text": "Ignorado por la máquina|||Todos los comentarios",
+          "text": "Ignorado en compilación|||Todos los comentarios en cualquier lenguaje",
           "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena este bloque estructurando la justificación física previa y el cálculo subsiguiente:",
+      "options": [
+        {
+          "text": "# Umbral de seguridad: Desactivar motor si la corriente supera 35A por mas de 1.5s",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "MAX_SAFE_CURRENT_AMPS = 35.0",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "currentSensorReading = 38.5",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Alerta de seguridad: Corriente por encima del umbral seguro')",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa el comentario idiomático de Python para documentar el factor de fricción del reductor:",
+      "codeSnippet": "_____ Compensacion empirica por holgura mecanica en la caja de engranes\ngearboxEfficiencyRatio = 0.94\nprint(gearboxEfficiencyRatio)",
+      "options": [
+        {
+          "text": "#",
+          "correct": true
+        },
+        {
+          "text": "//",
+          "correct": false
+        },
+        {
+          "text": "/*",
+          "correct": false
+        },
+        {
+          "text": "<!--",
+          "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál de los siguientes es un comentario de ALTO VALOR en robótica?",
+      "question": "¿Cuál de los siguientes ejemplos constituye un comentario de alto valor en un sistema de ingeniería?",
       "options": [
         {
-          "text": "# Multiplicamos por 0.85 para compensar la fricción de la alfombra en la arena",
+          "text": "# Reduccion a 0.88 para compensar caida de voltaje durante la aceleracion simultanea del chasis",
           "correct": true
         },
         {
-          "text": "# x = 5 (aquí x es 5)",
+          "text": "# x = 5 (aqui la variable x vale cinco)",
           "correct": false
         },
         {
-          "text": "# Este es un comentario porque el profe me obligó",
+          "text": "# Este comentario lo escribo porque el lider de software me dijo que comentara todo",
           "correct": false
         },
         {
-          "text": "# Hola mamá salgo en el código del robot",
+          "text": "# print('hola') muestra hola en la pantalla de la consola",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Este archivo no compila porque un comentario no tiene el símbolo adecuado. Encuentra el fallo:",
-      "codeSnippet": "Configuracion de motores\nleftMotorSpeed = 0.5",
+      "type": "CODE_TEST",
+      "question": "¿Qué salida exacta producirá la consola considerando las líneas activas y las líneas comentadas?",
+      "codeSnippet": "targetHeading = 0.0\n# targetHeading = 180.0\ntargetHeading = 90.0\n# print(targetHeading)\nprint(targetHeading)",
       "options": [
         {
-          "text": "La primera línea no tiene '#' o '//' al inicio, por lo que el compilador la confunde con código",
+          "text": "90.0",
           "correct": true
         },
         {
-          "text": "No se puede usar la palabra leftMotorSpeed",
+          "text": "180.0",
           "correct": false
         },
         {
-          "text": "El valor 0.5 debe ser entero",
+          "text": "0.0",
           "correct": false
         },
         {
-          "text": "Falta un print al final",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_WRITE",
-      "question": "Escribe la línea correcta comentando 'Calibrando odometria' en estilo Python:",
-      "codeSnippet": "// Escribe el comentario en Python",
-      "options": [
-        {
-          "text": "# Calibrando odometria",
-          "correct": true
-        },
-        {
-          "text": "// Calibrando odometria",
+          "text": "targetHeading",
           "correct": false
         }
       ]

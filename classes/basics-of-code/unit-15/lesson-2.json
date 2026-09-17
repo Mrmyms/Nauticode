@@ -3,99 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo pasamos más de un dato a una misma función?",
-      "lessonText": "# El Panel con Múltiples Perillas ️️\n\nPuedes agregar tantos parámetros como requiera la acción, **separándolos por comas**:\n```python\ndef moverMecanismo(potencia, duracionSegundos):\n    print('Moviendo a potencia ' + str(potencia) + ' durante ' + str(duracionSegundos) + 's')\n```\nAl llamarla, debes pasar los argumentos en el mismo orden:\n`moverMecanismo(0.75, 3.0)`\n- `potencia` toma el valor `0.75`.\n- `duracionSegundos` toma el valor `3.0`.",
+      "question": "¿Cómo se implementan firmas con múltiples parámetros y cómo opera el mapeo posicional de argumentos?",
+      "lessonText": "# Aridad y Mapeo Posicional\n\nEn matemáticas e informática, la **aridad** de una función representa la cantidad de operandos o argumentos que recibe. Para modelar procesos físicos complejos, una función puede requerir múltiples entradas separadas por comas en su cabecera.\n\n```python\ndef mover_trayectoria(velocidad_mps, duracion_s, direccion_angulo):\n    chasis.fijar_cinematica(velocidad_mps, direccion_angulo)\n    temporizador.esperar(duracion_s)\n```\n\nAl invocar la función, el orden de los argumentos debe coincidir estrictamente con el orden posicional de los parámetros:\n`mover_trayectoria(2.5, 1.2, 45.0)`\n- `velocidad_mps` recibe `2.5`.\n- `duracion_s` recibe `1.2`.\n- `direccion_angulo` recibe `45.0`.\n\nInvertir el orden de los argumentos en una función cinemática causaría que el robot aplique duración como velocidad, provocando una colisión violenta a plena potencia.\n\n**Regla de Oro: Múltiples parámetros permiten configurar funciones complejas con interfaces limpias; los argumentos deben suministrarse en el orden posicional exacto definido por la firma.**",
       "options": [
         {
-          "text": "Separando los parámetros con comas entre los paréntesis en orden correspondiente",
+          "text": "Separando los parámetros por comas en la definición y suministrando argumentos en el mismo orden posicional",
           "correct": true
         },
         {
-          "text": "Creando una función distinta para cada número",
+          "text": "Concatenando todos los números en una sola cadena de texto alfanumérica",
           "correct": false
         },
         {
-          "text": "Uniendo todos los números en una sola palabra",
+          "text": "Creando una función distinta en el disco duro para cada parámetro requerido",
           "correct": false
         },
         {
-          "text": "Solo se puede pasar un parámetro por función en todos los lenguajes",
+          "text": "Los microcontroladores solo soportan un parámetro por función en todos los lenguajes",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de firmas múltiples con su descripción formal:",
+      "options": [
+        {
+          "text": "Firma multiparámetro|||Definición de función que acepta dos o más variables de entrada separadas por comas",
+          "correct": true
+        },
+        {
+          "text": "Aridad (Arity)|||Número de argumentos formales que una función requiere para su ejecución",
+          "correct": true
+        },
+        {
+          "text": "Mapeo por posición|||Asignación donde el primer argumento corresponde al primer parámetro, y así sucesivamente",
+          "correct": true
+        },
+        {
+          "text": "Desacoplamiento dimensional|||Capacidad de especificar variables independientes como coordenadas X e Y",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la definición e invocación de la cinemática de chasis con tres parámetros:",
+      "options": [
+        {
+          "text": "def mover_chasis(eje_x, eje_y, giro):",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    cinematica_swerve.calcular(eje_x, eje_y, giro)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    actuar_motores()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "mover_chasis(1.0, 0.0, 0.5)",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué carácter separador debe colocarse entre los argumentos 15 y 25?",
+      "codeSnippet": "def fijar_coordenadas(pos_x, pos_y):\n    print('Destino X:', pos_x, 'Y:', pos_y)\n\n# Enviar coordenadas X=15 e Y=25 separadas por coma\nfijar_coordenadas(15___ 25)",
+      "options": [
+        {
+          "text": ",",
+          "correct": true
+        },
+        {
+          "text": ";",
+          "correct": false
+        },
+        {
+          "text": ".",
+          "correct": false
+        },
+        {
+          "text": ":",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué ocurre si una función está declarada con dos parámetros obligatorios (def f(a, b):) pero al invocarla se le pasa únicamente un argumento (f(10))?",
+      "options": [
+        {
+          "text": "Se lanza un error TypeError indicando que falta el argumento posicional 'b'",
+          "correct": true
+        },
+        {
+          "text": "El segundo parámetro toma automáticamente el valor del primer parámetro duplicado",
+          "correct": false
+        },
+        {
+          "text": "El programa entra en un bucle infinito esperando el segundo argumento de red",
+          "correct": false
+        },
+        {
+          "text": "La función descarta el cálculo y devuelve una cadena vacía",
           "correct": false
         }
       ]
     },
     {
       "type": "CODE_TEST",
-      "question": "¿Qué imprimirá esta función de cálculo de potencia?",
-      "codeSnippet": "def potencia(base, expo):\n    print(base ** expo)\n\npotencia(2, 3)",
+      "question": "¿Qué valor de fuerza imprimirá la consola al calcular con masa 25 y aceleración 4?",
+      "codeSnippet": "def calcular_fuerza(masa, aceleracion):\n    print(masa * aceleracion)\n\ncalcular_fuerza(25, 4)",
       "options": [
         {
-          "text": "8 (porque 2 elevado a la 3 es 8)",
+          "text": "100",
           "correct": true
         },
         {
-          "text": "6",
+          "text": "29",
           "correct": false
         },
         {
-          "text": "5",
+          "text": "21",
           "correct": false
         },
         {
-          "text": "9",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida de este coordinado de movimientos?",
-      "codeSnippet": "def mover(eje, distancia):\n    print(eje + ': ' + str(distancia))\n\nmover('X', 10)\nmover('Y', 25)",
-      "options": [
-        {
-          "text": "X: 10\nY: 25",
-          "correct": true
-        },
-        {
-          "text": "X: 25\nY: 10",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "DEBUG",
-      "question": "Encuentra el fallo: La función espera 2 parámetros pero solo le enviaron 1.",
-      "codeSnippet": "def fijarCoordenadas(x, y):\n    print('X=' + str(x) + ' Y=' + str(y))\n\nfijarCoordenadas(12)",
-      "options": [
-        {
-          "text": "Falta pasar el segundo argumento 'y' en la llamada (ej: fijarCoordenadas(12, 5))",
-          "correct": true
-        },
-        {
-          "text": "Falta cambiar el 12 por un texto",
-          "correct": false
-        },
-        {
-          "text": "No se pueden usar las letras x e y",
-          "correct": false
-        },
-        {
-          "text": "No hay ningún error",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_WRITE",
-      "question": "Llama a la función 'setMotors' pasando 0.5 a la izquierda y 0.5 a la derecha:",
-      "codeSnippet": "// Llama con dos parámetros",
-      "options": [
-        {
-          "text": "setMotors(0.5, 0.5)",
-          "correct": true
-        },
-        {
-          "text": "setMotors(0.5; 0.5)",
+          "text": "50",
           "correct": false
         }
       ]

@@ -3,106 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es un string y cómo se declara?",
-      "lessonText": "# Texto Entre Comillas \n\nUn **String** (cadena) es una secuencia ordenada de caracteres: letras, números, espacios y símbolos, **siempre rodeados por comillas** (simples `'texto'` o dobles `\"texto\"`).\n\nEjemplos:\n- `robotName = 'Nautilus 4010'`\n- `status = 'AUTO_RUNNING'`\n\nSi olvidas las comillas, la computadora pensará que el texto es el nombre de una variable y arrojará un error.",
+      "question": "¿Qué estructura tiene una cadena de texto (string) en memoria y en qué difiere radicalmente de los tipos numéricos?",
+      "lessonText": "# Memoria Secuencial: Arreglos de Caracteres y Codificación\n\nA diferencia de un entero o un flotante que representan valores matemáticos escalares atómicos en un registro de la CPU, un **String (cadena)** es una secuencia contigua y ordenada de caracteres codificados (bajo estándares como ASCII o UTF-8) almacenados en memoria.\n\n### El Rol de los Delimitadores:\nLos delimitadores de comillas (`'texto'` o `\"texto\"`) le comunican al analizador léxico que la secuencia interior debe interpretarse como texto literal y no como identificadores de variables o palabras clave del lenguaje:\n```python\nestadoRobot = 'AUTO_ALIGNING'\n```\nSi omitieras las comillas, el compilador buscaría una variable llamada `AUTO_ALIGNING` en la tabla de símbolos y fallaría con un `NameError`.\n\n### Sobrecarga del Operador '+' (Concatenación vs Suma):\nCuando aplicas el operador `+` entre cadenas, la CPU no suma cantidades algebraicas; ejecuta una **concatenación**: reserva un nuevo bloque de memoria y copia las secuencias de caracteres una tras otra. Por ello, `'40' + '10'` produce el texto `'4010'` y no el número `50`.\n\nEn Nautilus 4010, los strings son indispensables para generar registros de depuración (*event logs*), transmitir el estado de los subsistemas al Dashboard de la Driver Station y comunicar alertas al equipo de pilotos.\n\n**La Regla de Oro:**\nUn string es una secuencia de caracteres delimitada por comillas; sumar dos strings concatena su contenido textual y no realiza operaciones aritméticas.",
       "options": [
         {
-          "text": "Una secuencia de caracteres delimitada por comillas",
+          "text": "Es una secuencia de caracteres codificados en memoria delimitada por comillas donde el operador '+' ejecuta concatenación textual",
           "correct": true
         },
         {
-          "text": "Una cuerda física para amarrar el robot al transporte",
+          "text": "Es un número entero que puede almacenar letras si se le asigna un signo de interrogación",
           "correct": false
         },
         {
-          "text": "Un número sin signos",
+          "text": "Es una variable temporal que solo existe mientras el chasis del robot está en movimiento",
           "correct": false
         },
         {
-          "text": "Un archivo de música",
+          "text": "Es un bloque de memoria física que no admite espacios en blanco ni caracteres alfanuméricos",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el error: Falta poner comillas para que sea un string válido.",
-      "codeSnippet": "mensaje = Hola Nautilus",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto sobre cadenas de texto con su principio computacional:",
       "options": [
         {
-          "text": "Debe estar entre comillas: mensaje = 'Hola Nautilus'",
+          "text": "Concatenación (+)|||Unión secuencial de cadenas de texto en un único bloque de caracteres",
           "correct": true
         },
         {
-          "text": "Hay que quitar el signo '='",
-          "correct": false
+          "text": "Delimitadores (' ' / \" \")|||Símbolos que informan al compilador que los caracteres son datos literales",
+          "correct": true
         },
         {
-          "text": "La palabra mensaje no puede usarse",
-          "correct": false
+          "text": "Conversión str()|||Función de casteo para traducir magnitudes numéricas a su representación textual",
+          "correct": true
         },
         {
-          "text": "Falta un número al final",
-          "correct": false
+          "text": "Codificación UTF-8|||Estándar universal que asigna patrones binarios a caracteres de todo el mundo",
+          "correct": true
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué ocurre cuando 'sumas' dos strings en código (ej: `'40' + '10'`)?",
-      "codeSnippet": "a = '40'\nb = '10'\nprint(a + b)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la construcción del reporte de estado para el panel de telemetría de la Driver Station:",
       "options": [
         {
-          "text": "'4010' (Se concatenan/unen los textos)",
-          "correct": true
+          "text": "modoJuego = 'TELEOP'",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "50 (Se suman matemáticamente)",
-          "correct": false
+          "text": "segundosRestantes = 45",
+          "correct": true,
+          "audioSrc": "2"
         },
         {
-          "text": "400",
-          "correct": false
+          "text": "registro = '[' + modoJuego + '] Tiempo restante: ' + str(segundosRestantes) + 's'",
+          "correct": true,
+          "audioSrc": "3"
         },
         {
-          "text": "Error porque el texto no se puede sumar",
-          "correct": false
+          "text": "print(registro)",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida de esta concatenación?",
-      "codeSnippet": "saludo = 'Team '\nequipo = '4010'\nprint(saludo + equipo)",
+      "type": "CODE_FILL",
+      "question": "Completa la asignación para registrar el nombre oficial del equipo como un string válido:",
+      "codeSnippet": "equipoRobotics = _____\nprint('Equipo oficial: ' + equipoRobotics)",
       "options": [
         {
-          "text": "Team 4010",
+          "text": "'Nautilus 4010'",
           "correct": true
         },
         {
-          "text": "Team4010",
+          "text": "Nautilus 4010",
+          "correct": false
+        },
+        {
+          "text": "4010",
+          "correct": false
+        },
+        {
+          "text": "str(Nautilus)",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál es la diferencia crucial entre el número `42` y el string `'42'`?",
+      "question": "¿Cuál es la diferencia técnica fundamental entre el valor entero `42` y la cadena de texto `'42'`?",
       "options": [
         {
-          "text": "Con 42 puedes hacer operaciones matemáticas (sumar, multiplicar); '42' es solo texto plano",
+          "text": "El entero 42 se codifica en binario para cálculo en la ALU; '42' es una secuencia de dos bytes con los caracteres ASCII '4' y '2'",
           "correct": true
         },
         {
-          "text": "No hay ninguna diferencia, son idénticos",
+          "text": "No existe ninguna diferencia interna; ambos consumen exactamente 1 bit en la memoria RAM",
           "correct": false
         },
         {
-          "text": "42 es para letras y '42' es para números",
+          "text": "El entero 42 solo funciona en microcontroladores de 8 bits y '42' en computadoras modernas",
           "correct": false
         },
         {
-          "text": "El string '42' gasta más batería",
+          "text": "El string '42' consume el triple de voltaje en el circuito de alimentación de la batería",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la evaluación de la concatenación textual versus suma matemática. ¿Qué imprimirá la consola?",
+      "codeSnippet": "prefijo = '40'\nsufijo = '10'\nprint(prefijo + sufijo)",
+      "options": [
+        {
+          "text": "4010",
+          "correct": true
+        },
+        {
+          "text": "50",
+          "correct": false
+        },
+        {
+          "text": "'4010'",
+          "correct": false
+        },
+        {
+          "text": "Error de sintaxis",
           "correct": false
         }
       ]

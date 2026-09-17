@@ -3,98 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué calcula exactamente el operador módulo (`%`)?",
-      "lessonText": "# El Secreto del Residuo \n\nEl operador **Módulo (`%`)** no calcula el cociente de una división, sino el **residuo (lo que sobra)** tras dividir dos números enteros.\n\nEjemplo de la vida real:\nTienes 7 galletas y las repartes equitativamente entre 3 amigos de robótica:\n- Cada amigo recibe 2 galletas (2 * 3 = 6).\n- **Sobra 1 galleta.**\n- Por lo tanto: `7 % 3 = 1`.\n\n¿Para qué sirve en robótica?\n- **Saber si un número es par o impar:** `numero % 2 == 0`.\n- **Hacer ciclos cíclicos:** Limitar un contador entre 0 y 360 grados.",
+      "question": "¿Cuál es la función matemática del operador módulo (`%`) y por qué es una herramienta clave en algoritmos de robótica?",
+      "lessonText": "# Aritmética Modular: El Reloj Numérico de la Computación\n\nEl operador **Módulo (`%`)** calcula el **residuo entero ($r$)** que resulta de la división euclidiana entre dos cantidades enteras ($a = b \\times q + r$). A diferencia de la división estándar, el módulo no devuelve el cociente ($q$), sino el sobrante exacto ($0 \\le r < |b|$).\n\n### Dos Aplicaciones Críticas en FIRST Robotics:\n\n1. **Normalización Angular de Orientación:**\nUn sensor de giro (como el giróscopo NavX o Pigeon 2.0) puede acumular rotaciones infinitas (`750.0°`). Para mapear esa rotación dentro del círculo trigonométrico estándar de 0 a 359 grados, aplicamos módulo 360:\n```python\nrumboCirculo = anguloAcumulado % 360\n# Si anguloAcumulado = 750, 750 % 360 devuelve 30 grados\n```\n\n2. **Temporización Periódica en Bucles Rápidos:**\nEl bucle de control de la roboRIO corre a $50\\text{ Hz}$ ($50$ ciclos por segundo). Si intentas imprimir telemetría en pantalla 50 veces por segundo, saturarás el bus de comunicación. Usando el módulo sobre el contador de ciclos:\n```python\nif ciclo % 50 == 0:\n    enviarTelemetriaPesada() # Se ejecuta exactamente una vez cada 50 ciclos (1 segundo)\n```\n\n**La Regla de Oro:**\nEl operador módulo (%) devuelve el residuo entero de una división; es la herramienta predilecta para normalizar rangos angulares y regular frecuencias de ejecución cíclica.",
       "options": [
         {
-          "text": "El sobrante o residuo entero de una división",
+          "text": "Devuelve el residuo entero de una división, permitiendo normalizar ángulos en 360 grados y coordinar frecuencias cíclicas",
           "correct": true
         },
         {
-          "text": "El porcentaje de descuento en la tienda",
+          "text": "Calcula el porcentaje de descuento comercial de los componentes del robot",
           "correct": false
         },
         {
-          "text": "La raíz cuadrada del número",
+          "text": "Devuelve el cociente exacto descartando cualquier sobrante numérico",
           "correct": false
         },
         {
-          "text": "La velocidad máxima permitida",
+          "text": "Multiplica el valor por cien para convertir decimales en enteros",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Cuánto es `10 % 4`?",
-      "codeSnippet": "resultado = 10 % 4\nprint(resultado)",
+      "type": "MATCHING",
+      "question": "Relaciona cada uso del operador módulo con su impacto algorítmico:",
       "options": [
         {
-          "text": "2 (porque 4 cabe dos veces en 10 y sobran 2)",
+          "text": "angulo % 360|||Normalización angular que confina los giros al rango de 0 a 359 grados",
           "correct": true
         },
         {
-          "text": "2.5",
-          "correct": false
+          "text": "contador % 2 == 0|||Prueba condicional de paridad matemática (determina si es par o impar)",
+          "correct": true
         },
         {
-          "text": "0",
-          "correct": false
+          "text": "ciclo % 50 == 0|||Temporizador que activa una tarea una vez cada 50 iteraciones (1 Hz)",
+          "correct": true
         },
         {
-          "text": "40",
-          "correct": false
+          "text": "Residuo Cero (a % b == 0)|||Indica divisibilidad exacta entre ambos números",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuánto es `8 % 2`?",
-      "codeSnippet": "print(8 % 2)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la rutina de normalización angular tras una serie de giros continuos del chasis:",
       "options": [
         {
-          "text": "0",
+          "text": "giroAcumuladoGrados = 765.0",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "rumboNormalizado = giroAcumuladoGrados % 360.0",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "reporte = 'Rumbo relativo en el circulo: ' + str(rumboNormalizado) + ' grados'",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print(reporte)",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la condición para verificar si el número de match es par utilizando el operador residuo:",
+      "codeSnippet": "numeroMatch = 42\nesMatchPar = (numeroMatch _____ 2 == 0)\nprint('¿Match par? ' + str(esMatchPar))",
+      "options": [
+        {
+          "text": "%",
           "correct": true
         },
         {
-          "text": "4",
+          "text": "/",
+          "correct": false
+        },
+        {
+          "text": "//",
+          "correct": false
+        },
+        {
+          "text": "==",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Si `numero % 2 == 0`, ¿qué podemos afirmar con 100% de certeza matemática?",
+      "question": "Si evaluamos la expresión `19 % 4` en cualquier procesador, ¿cuál es el resultado matemático exacto?",
       "options": [
         {
-          "text": "Que el número es PAR",
+          "text": "3 (porque 4 cabe 4 veces en 19 sumando 16, y restan exactamente 3 unidades)",
           "correct": true
         },
         {
-          "text": "Que el número es IMPAR",
+          "text": "4.75 (porque calcula la división decimal continua entre 19 y 4)",
           "correct": false
         },
         {
-          "text": "Que el número es negativo",
+          "text": "4 (porque solo toma el cociente entero)",
           "correct": false
         },
         {
-          "text": "Que el número es primo",
+          "text": "76 (porque multiplica ambos números)",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Escribe la expresión que calcula el residuo de dividir 'grados' entre 360:",
-      "codeSnippet": "// Calcula el residuo",
+      "type": "CODE_TEST",
+      "question": "Rastrea la ejecución de esta normalización angular. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "gradosGiro = 450\nrumboNormalizado = gradosGiro % 360\nprint(rumboNormalizado)",
       "options": [
         {
-          "text": "grados % 360",
+          "text": "90",
           "correct": true
         },
         {
-          "text": "grados / 360",
+          "text": "450",
+          "correct": false
+        },
+        {
+          "text": "1.25",
+          "correct": false
+        },
+        {
+          "text": "0",
           "correct": false
         }
       ]

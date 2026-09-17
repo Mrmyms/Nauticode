@@ -3,54 +3,79 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cuáles son los 4 operadores aritméticos esenciales?",
-      "lessonText": "# Las 4 Operaciones de la CPU ️\n\nTu computadora puede realizar miles de millones de operaciones matemáticas por segundo:\n- **Suma (`+`):** `totalPuntos = puntosAutonomo + puntosTeleop`\n- **Resta (`-`):** `distanciaFaltante = meta - posicionActual`\n- **Multiplicación (`*`):** `potencia = inputJoystick * 0.85`\n- **División (`/`):** `promedio = suma / cantidad`\n\nEn programación, el asterisco `*` siempre representa la multiplicación y la barra `/` la división.",
+      "question": "¿Cómo ejecuta la CPU las operaciones aritméticas elementales y qué precauciones numéricas exige la robótica?",
+      "lessonText": "# La Unidad Aritmético Lógica (ALU) y los Cuatro Operadores Básicos\n\nEn el corazón del microprocesador se encuentra la **ALU (Arithmetic Logic Unit)**: un circuito electrónico compuesto por transistores diseñados específicamente para realizar cómputos binarios a velocidades de miles de millones de operaciones por segundo.\n\n### Los Operadores Fundamentales:\n1. **Suma (`+`):** Integra magnitudes (ej. `puntosTotales = puntosAuto + puntosTeleop`).\n2. **Resta (`-`):** Calcula errores y diferenciales (ej. `errorPosicion = posicionTarget - posicionActual`).\n3. **Multiplicación (`*`):** Escala variables continuas mediante constantes o ganancias proporcionales (ej. `voltajeMotor = error * gananciaP`).\n4. **División (`/`):** Calcula razones continuas y promedios, produciendo siempre un resultado de punto flotante.\n\n### La Trampa Mortal de la División por Cero:\nEn matemáticas puras y en computación, dividir entre cero ($x / 0$) no produce un número válido; provoca una excepción de hardware fatal (`ZeroDivisionError` en Python o `ArithmeticException` en Java/C++). Si tu algoritmo de visión calcula la distancia como `distancia = constante / anchoPixeles` y la cámara pierde el objetivo haciendo que `anchoPixeles = 0`, el programa se detendrá de inmediato apagando el robot en plena cancha. Por ello, **siempre se debe validar que el divisor sea distinto de cero antes de dividir**.\n\n**La Regla de Oro:**\nLos operadores aritméticos transforman datos en la ALU; valida siempre los denominadores antes de dividir para impedir excepciones por división entre cero.",
       "options": [
         {
-          "text": "Suma (+), Resta (-), Multiplicación (*) y División (/)",
+          "text": "Transforman datos mediante circuitos electrónicos en la ALU, requiriendo validar denominadores para prevenir interrupciones por división entre cero",
           "correct": true
         },
         {
-          "text": "Copiar, Pegar, Cortar y Guardar",
+          "text": "Modifican la frecuencia de reloj del procesador para igualar la velocidad de los motores físicos",
           "correct": false
         },
         {
-          "text": "Enter, Espacio, Shift y Control",
+          "text": "Solo funcionan con números enteros pares y arrojan un error si se utilizan decimales",
           "correct": false
         },
         {
-          "text": "Encender, Apagar, Calibrar y Conectar",
+          "text": "Son instrucciones que se ejecutan exclusivamente en la memoria de la tarjeta gráfica",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué resultado se almacena en la variable 'distancia'?",
-      "codeSnippet": "distancia = 100 - 35\nprint(distancia)",
+      "type": "MATCHING",
+      "question": "Relaciona cada operador aritmético con su rol computacional preciso:",
       "options": [
         {
-          "text": "65",
+          "text": "Suma (+) y Resta (-)|||Cálculo lineal de acumulaciones y diferenciales de posición",
           "correct": true
         },
         {
-          "text": "135",
-          "correct": false
+          "text": "Multiplicación (*)|||Escalamiento continuo de potencias y ganancias de control",
+          "correct": true
         },
         {
-          "text": "35",
-          "correct": false
+          "text": "División Flotante (/)|||Cálculo de razones y promedios produciendo valores con decimales",
+          "correct": true
         },
         {
-          "text": "100",
-          "correct": false
+          "text": "División por Cero (x / 0)|||Error de interrupción fatal que congela la ejecución si no se previene",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena el cálculo de potencia eléctrica instantánea consumida por el chasis (P = V * I):",
+      "options": [
+        {
+          "text": "voltajeBateriaVolts = 12.2",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "corrienteTotalAmperes = 45.0",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "potenciaElectricaWatts = voltajeBateriaVolts * corrienteTotalAmperes",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Potencia instantanea consumida: ' + str(potenciaElectricaWatts) + ' W')",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la operación para calcular el doble de las RPM actuales:",
-      "codeSnippet": "rpm = 1500\nrpmDoble = rpm _____ 2\nprint(rpmDoble)",
+      "question": "Completa la operación aritmética para duplicar la velocidad angular de crucero del shooter:",
+      "codeSnippet": "velocidadBaseRpm = 2500\nvelocidadCruceroRpm = velocidadBaseRpm _____ 2\nprint('Velocidad comandada: ' + str(velocidadCruceroRpm))",
       "options": [
         {
           "text": "*",
@@ -71,38 +96,46 @@
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué imprimirá esta división en pantalla?",
-      "codeSnippet": "voltajeTotal = 24\ncantidadMotores = 2\nprint(voltajeTotal / cantidadMotores)",
+      "type": "SELECT",
+      "question": "¿Qué ocurre a nivel de sistema si un algoritmo de cinemática intenta evaluar `distancia / deltaTiempo` cuando `deltaTiempo = 0.0`?",
       "options": [
         {
-          "text": "12.0",
+          "text": "La CPU dispara una interrupción fatal por división por cero (ZeroDivisionError), abortando el código del robot si no se previene",
           "correct": true
         },
         {
-          "text": "24",
+          "text": "El sistema operativo asume que el resultado es 0.0 y continúa ejecutando en silencio",
+          "correct": false
+        },
+        {
+          "text": "Los motores se aceleran al 100% de potencia por mandato de la roboRIO",
+          "correct": false
+        },
+        {
+          "text": "El valor se redondea automáticamente al número entero más cercano a 100",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Qué sucede si intentas dividir cualquier número entre CERO (`x / 0`)?",
+      "type": "CODE_TEST",
+      "question": "Rastrea la evaluación aritmética combinada. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "puntosAutonomo = 18\npuntosTeleop = 42\npenalizaciones = 6\npuntajeFinal = puntosAutonomo + puntosTeleop - penalizaciones\nprint(puntajeFinal)",
       "options": [
         {
-          "text": "Ocurre un error fatal de división por cero (ZeroDivisionError / ArithmeticException)",
+          "text": "54",
           "correct": true
         },
         {
-          "text": "El resultado siempre es infinito sin causar errores",
+          "text": "60",
           "correct": false
         },
         {
-          "text": "La computadora se congela para siempre",
+          "text": "66",
           "correct": false
         },
         {
-          "text": "El resultado se convierte en cero",
+          "text": "48",
           "correct": false
         }
       ]

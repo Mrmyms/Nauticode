@@ -3,84 +3,86 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es un bucle 'while' y cuál es su superpoder?",
-      "lessonText": "# El Motor de Repetición \n\nImagina que tienes que mover un brazo robótico hasta que toque el limit switch superior.\n\nSin bucles, tendrías que escribir:\n```python\nmoverUnPoco()\nmoverUnPoco()\nmoverUnPoco()\n# ¿Y si se necesitan 500 veces? ¡Imposible!\n```\n\nCon un **while loop**, le dices a la computadora:\n```python\nwhile limitSwitchAlcanzado == false:\n    moverUnPoco()\n```\nLa computadora evalúa la condición:\n- Si es `true`: ejecuta el bloque y **vuelve a subir a comprobar la condición**.\n- Solo se detiene cuando la condición finalmente se vuelve `false`.",
+      "question": "¿Qué es un bucle 'while' y cómo mantiene activo el ciclo de control de un robot?",
+      "lessonText": "# El Motor de Repetición y Control Reactivo\n\nEn la arquitectura de Von Neumann, las instrucciones se ejecutan secuencialmente de arriba a abajo. Sin embargo, los sistemas físicos dinámicos requieren supervisar sensores y modular actuadores continuamente. La estructura **`while`** evalúa una condición booleana al inicio de cada ciclo: si es `true`, ejecuta el bloque subordinado y efectúa un salto incondicional relativo (`JMP`) de regreso a la cabecera para reevaluar la condición.\n\n```python\nwhile pieza_asegurada == False:\n    rodillos_intake.girar()\n    pieza_asegurada = sensor_haz.leer()\n```\n\nEn el subsistema de admisión de piezas de Nautilus 4010, el robot gira los rodillos mecánicos del intake de forma continua mientras el sensor óptico de barrera infrarroja no detecte la pieza; en el instante en que la pieza interrumpe el haz, la condición pasa a ser `false` y el bucle termina de forma limpia y determinista.\n\n**Regla de Oro: Un bucle while repite instrucciones mientras su condición lógica sea estrictamente verdadera; si la condición nunca cambia a false, el hilo bloqueará los recursos de la CPU.**",
       "options": [
         {
-          "text": "Una estructura que repite un bloque de instrucciones mientras su condición sea verdadera",
+          "text": "Una estructura de control iterativa que ejecuta un bloque de instrucciones mientras su condición lógica permanezca en true",
           "correct": true
         },
         {
-          "text": "Un comando que apaga la máquina si se calienta",
+          "text": "Un comando del sistema operativo que apaga el microcontrolador cuando detecta alta temperatura",
           "correct": false
         },
         {
-          "text": "Una variable que solo acepta números enteros",
+          "text": "Una variable especial de memoria que únicamente puede almacenar números enteros positivos",
           "correct": false
         },
         {
-          "text": "Un cable especial para conectar motores",
+          "text": "Un cable físico del bus CAN diseñado para alimentar motores trifásicos de alta potencia",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Cuántas veces se imprimirá la palabra 'Tick' en este bucle?",
-      "codeSnippet": "cuenta = 0\nwhile cuenta < 3:\n    print('Tick')\n    cuenta = cuenta + 1",
+      "type": "MATCHING",
+      "question": "Relaciona cada componente del lazo de repetición con su función técnica:",
       "options": [
         {
-          "text": "3 veces (para cuenta = 0, 1 y 2)",
+          "text": "Bucle while|||Estructura de control iterativa que repite un bloque mientras su condición sea true",
           "correct": true
         },
         {
-          "text": "Infinitas veces",
-          "correct": false
+          "text": "Ciclo de control|||Iteración periódica que lee sensores, calcula decisiones y actualiza motores",
+          "correct": true
         },
         {
-          "text": "1 sola vez",
-          "correct": false
+          "text": "Condición de parada|||Expresión booleana que al volverse false permite al programa salir del bucle",
+          "correct": true
         },
         {
-          "text": "Ninguna",
-          "correct": false
+          "text": "Salto incondicional (JMP)|||Instrucción de bajo nivel que devuelve el flujo al inicio de la evaluación condicional",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será el valor final de 'x' tras salir del bucle?",
-      "codeSnippet": "x = 1\nwhile x < 5:\n    x = x + 2\nprint(x)",
+      "type": "CODE_ORDER",
+      "question": "Ordena las instrucciones del bucle de recolección de piezas con el sensor óptico:",
       "options": [
         {
-          "text": "5 (porque 1 + 2 = 3, y 3 + 2 = 5, y 5 ya no es menor a 5)",
-          "correct": true
+          "text": "pieza_detectada = sensor_haz.leer()",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "4",
-          "correct": false
+          "text": "while pieza_detectada == False:",
+          "correct": true,
+          "audioSrc": "2"
         },
         {
-          "text": "3",
-          "correct": false
+          "text": "    rodillos_intake.girar()",
+          "correct": true,
+          "audioSrc": "3"
         },
         {
-          "text": "7",
-          "correct": false
+          "text": "    pieza_detectada = sensor_haz.leer()",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la palabra clave para iniciar el bucle condicional:",
-      "codeSnippet": "_____ presionBaja == true:\n    encenderCompresor()",
+      "question": "¿Qué palabra clave mantiene activo el ventilador mientras la temperatura supere los 50 grados?",
+      "codeSnippet": "temperatura_chasis = 85.0\n_____ temperatura_chasis > 50.0:\n    ventilador_disipador.encender()\n    temperatura_chasis = leer_temperatura()",
       "options": [
         {
           "text": "while",
           "correct": true
         },
         {
-          "text": "loop",
+          "text": "if",
           "correct": false
         },
         {
@@ -95,22 +97,45 @@
     },
     {
       "type": "SELECT",
-      "question": "Si la condición del while es FALSE desde el primer instante (ej: `while 10 < 5:`), ¿cuántas veces se ejecuta su contenido?",
+      "question": "¿Qué sucede si la condición evaluada en la cabecera del bucle 'while' es falsa desde la primera comprobación?",
       "options": [
         {
-          "text": "0 veces (nunca llega a entrar al bucle)",
+          "text": "El cuerpo del bucle se ignora completamente y el flujo salta a la siguiente instrucción fuera de él",
           "correct": true
         },
         {
-          "text": "Exactamente 1 vez",
+          "text": "El cuerpo del bucle se ejecuta exactamente una vez por defecto de hardware",
           "correct": false
         },
         {
-          "text": "Infinitas veces",
+          "text": "El compilador genera un error de tiempo de ejecución por ciclo nulo no alcanzable",
           "correct": false
         },
         {
-          "text": "Dará un error de compilación",
+          "text": "El procesador entra en un ciclo de espera activo consumiendo el 100% de la CPU",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'contador' impreso en la consola?",
+      "codeSnippet": "contador = 0\nwhile contador < 3:\n    contador = contador + 1\nprint(contador)",
+      "options": [
+        {
+          "text": "3",
+          "correct": true
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "0",
           "correct": false
         }
       ]

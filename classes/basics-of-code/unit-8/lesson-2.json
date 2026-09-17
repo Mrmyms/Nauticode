@@ -3,54 +3,79 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo funciona el operador lógico AND?",
-      "lessonText": "# Ambas Condiciones o Nada \n\nEl operador **AND** (en Java/C++ se escribe `&&`, en Python se escribe `and`) exige que **ambas condiciones sean verdaderas simultáneamente** para que el resultado sea `true`.\n\nEjemplo en el robot Nautilus:\n¿Cuándo podemos disparar una pieza al Speaker?\n`shooterListo && robotAlineado`\n- Si el shooter está listo (`true`) PERO el robot no está alineado (`false`)... **NO disparas** (`false`).\n- Si el robot está alineado (`true`) pero el shooter está frío (`false`)... **NO disparas** (`false`).\n- ¡SOLO si ambos son `true` la compuerta AND abre el paso!",
+      "question": "¿Cómo opera la conjunción lógica AND (&&) en la toma de decisiones y qué significa la evaluación de cortocircuito?",
+      "lessonText": "# Conjunción Lógica y Evaluación de Cortocircuito (Short-Circuit)\n\nEl operador lógico **AND** (`&&` en Java/C++, `and` in Python) modela la intersección booleana estricta: una proposición compuesta `A and B` es `True` **única y exclusivamente si ambas premisas son simultáneamente verdaderas**.\n\n### Tabla de Verdad de la Conjunción:\n- `True and True` -> `True`\n- `True and False` -> `False`\n- `False and True` -> `False`\n- `False and False` -> `False`\n\n### La Evaluación de Cortocircuito (Short-Circuit Evaluation):\nLos compiladores modernos aplican una optimización crucial: si el primer operando ($A$) es `False`, **la CPU cancela de inmediato la evaluación del segundo operando ($B$)** porque es matemáticamente imposible que la conjunción final sea verdadera. Esto no solo ahorra nanosegundos en bucles de alta velocidad, sino que evita errores de ejecución cuando el segundo operando depende de la validez del primero (por ejemplo: `sensor != None and sensor.leer()`).\n\nEn Nautilus 4010, el disparo seguro de notas exige conjunción estricta:\n```python\npuedeDisparar = (isFlywheelAtSpeed and isChassisAligned and isTargetLocked)\n```\nSi cualquiera de las tres condiciones falla, el actuador neumático jamás se dispara.\n\n**La Regla de Oro:**\nLa conjunción lógica AND exige que todas las premisas sean verdaderas simultáneamente; aprovecha la evaluación de cortocircuito para proteger comprobaciones de hardware.",
       "options": [
         {
-          "text": "Devuelve true únicamente si TODAS las condiciones conectadas son verdaderas",
+          "text": "Devuelve True únicamente si todas las condiciones son verdaderas, abortando la evaluación temprana si encuentra un False inicial",
           "correct": true
         },
         {
-          "text": "Devuelve true si al menos una de las dos condiciones es falsa",
+          "text": "Devuelve True si al menos una de las condiciones es verdadera, ignorando las demás",
           "correct": false
         },
         {
-          "text": "Suma los dos números y saca el promedio",
+          "text": "Multiplica los valores de los sensores y convierte el resultado en una cadena de texto",
           "correct": false
         },
         {
-          "text": "Siempre devuelve false sin importar nada",
+          "text": "Invierte automáticamente la polaridad de los motores si una condición es falsa",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá la evaluación de este sistema de disparo?",
-      "codeSnippet": "shooterListo = true\nrobotAlineado = false\npuedeDisparar = (shooterListo and robotAlineado)\nprint(puedeDisparar)",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto formal sobre la conjunción lógica con su comportamiento técnico:",
       "options": [
         {
-          "text": "false (porque una de las condiciones es falsa)",
+          "text": "A and B (Conjunción)|||Produce True exclusivamente si ambos operandos son verdaderos",
           "correct": true
         },
         {
-          "text": "true",
-          "correct": false
+          "text": "Short-Circuit en AND|||Detiene la evaluación de inmediato si el primer operando es False",
+          "correct": true
         },
         {
-          "text": "error",
-          "correct": false
+          "text": "Tabla de Verdad AND|||Falsa en tres de los cuatro casos posibles; solo (True, True) es True",
+          "correct": true
         },
         {
-          "text": "none",
-          "correct": false
+          "text": "Interbloqueo Restrictivo|||Filtro de seguridad que exige consenso unánime de todos los sensores",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia de autorización de disparo con doble confirmación de sensores:",
+      "options": [
+        {
+          "text": "isShooterAtSpeed = True",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "isTargetAligned = False",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "canLaunchNote = isShooterAtSpeed and isTargetAligned",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Autorizacion de lanzamiento: ' + str(canLaunchNote))",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la condición para que el robot avance solo si está habilitado Y el camino está libre:",
-      "codeSnippet": "puedeAvanzar = (robotHabilitado _____ caminoLibre)",
+      "question": "Completa la expresión lógica para permitir el avance del robot solo si el sistema está habilitado Y el camino despejado:",
+      "codeSnippet": "robotHabilitado = True\ncaminoDespejado = True\npuedeAvanzar = robotHabilitado _____ caminoDespejado\nprint('Permiso de avance: ' + str(puedeAvanzar))",
       "options": [
         {
           "text": "and",
@@ -71,38 +96,46 @@
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida de esta expresión lógica?",
-      "codeSnippet": "a = (5 > 2) and (10 == 10)\nprint(a)",
+      "type": "SELECT",
+      "question": "En una expresión con tres condiciones encadenadas `(A and B and C)`, si `A` es `False`, ¿qué acción exacta toma la CPU?",
       "options": [
         {
-          "text": "true",
+          "text": "Interrumpe la evaluación de B y C inmediatamente resolviendo False por cortocircuito",
           "correct": true
         },
         {
-          "text": "false",
+          "text": "Evalúa B y C obligatoriamente antes de emitir un fallo de sintaxis",
+          "correct": false
+        },
+        {
+          "text": "Convierte el resultado en True para compensar el fallo de la primera variable",
+          "correct": false
+        },
+        {
+          "text": "Reinicia el microprocesador por seguridad eléctrica",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "En una expresión con 3 condiciones unidas por AND (`A and B and C`), ¿qué ocurre si la primera condición (A) es falsa?",
+      "type": "CODE_TEST",
+      "question": "Rastrea la evaluación de la compuerta lógica AND. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "voltajeOk = (12.4 >= 11.5)\npresionOk = (85 >= 90)\nlistoParaMatch = voltajeOk and presionOk\nprint(listoParaMatch)",
       "options": [
         {
-          "text": "El resultado final ya es FALSE automáticamente (evaluación de cortocircuito / short-circuit)",
+          "text": "False",
           "correct": true
         },
         {
-          "text": "La computadora explota",
+          "text": "True",
           "correct": false
         },
         {
-          "text": "Se evalúa al revés",
+          "text": "12.4",
           "correct": false
         },
         {
-          "text": "El resultado se convierte en true",
+          "text": "85",
           "correct": false
         }
       ]

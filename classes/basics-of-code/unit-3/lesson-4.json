@@ -1,119 +1,141 @@
 {
-  "title": "Peligros de Secuencia en Robótica",
+  "title": "Peligros de Secuencia en Robótica FRC",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué los errores de secuencia son peligrosos con motores reales?",
-      "lessonText": "# Código en el Mundo Físico \n\nEn un videojuego, si un personaje intenta saltar antes de tocar el suelo, solo se ve extraño en pantalla.\n\nEn un robot de 55 kg en FIRST Robotics:\n1. Si ordenas `moverBrazoAlMaximo()` **antes** de `calibrarSensorDeLimite()`...\n2. El motor empujará el brazo contra la estructura de metal con toda su fuerza.\n3. El engrane se barrerá y el motor Neo o Falcon se quemará.\n\n**El orden de las instrucciones en robótica protege la integridad física de las personas y de la máquina.**",
+      "question": "¿Por qué un error de secuencia temporal en robótica de potencia puede destruir componentes mecánicos irreversibles?",
+      "lessonText": "# Cuando el Software Toca el Mundo Físico\n\nEn el desarrollo web o de videojuegos, si una animación intenta reproducirse antes de que cargue el modelo 3D, el usuario solo ve una pantalla negra o un fallo visual momentáneo.\n\nEn un robot de competencia de 55 kg alimentado por una batería de 12V capaz de entregar más de 300 Amperios:\n- Si ordenas `moverBrazoAlMaximo()` **antes** de ejecutar `calibrarSensorDeLimite()`...\n- El motor brushless empujará el brazo articulado contra los topes mecánicos con un torque descomunal.\n- En menos de 200 milisegundos, los engranes planetarios de acero se barrerán, la cadena se romperá y el motor se quemará por corriente de estancamiento (*stall current*).\n\n### La Secuencia Sagrada de Hardware:\n1. **Verificación de Seguridad:** Parada de emergencia (E-Stop) desarmada y voltaje nominal seguro.\n2. **Lectura y Calibración:** Los encoders y sensores de límite reportan sus puntos cero.\n3. **Cálculo de Control:** El algoritmo valida que el movimiento deseado esté dentro de los límites geométricos.\n4. **Actuación:** Finalmente, y solo entonces, se despacha potencia a los controladores de motor.\n\n**La Regla de Oro:**\nEn robótica, el orden secuencial no es solo estilo de programación: es el protocolo que protege la integridad física de las personas y de la máquina.",
       "options": [
         {
-          "text": "Porque ejecutar acciones físicas antes de calibrar sensores puede romper componentes mecánicos",
+          "text": "Porque aplicar potencia a actuadores antes de calibrar sensores de límite fuerza los mecanismos contra su estructura y destruye motores y transmisiones",
           "correct": true
         },
         {
-          "text": "Porque la cancha de FRC se destruye automáticamente",
+          "text": "Porque los árbitros descalifican al equipo si las líneas de código tienen más de 40 caracteres",
           "correct": false
         },
         {
-          "text": "Porque los robots se ponen tristes cuando se equivocan",
+          "text": "Porque la electricidad estática de la pista borra el disco duro si el motor gira antes del sensor",
           "correct": false
         },
         {
-          "text": "Porque se pierde la conexión a internet en todo el estadio",
+          "text": "Porque los sensores láser pierden su calibración si detectan movimiento mecánico previo",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el error de secuencia crítico en este inicio de teleoperado:",
-      "codeSnippet": "activarMotoresChasis(1.0)\nverificarFrenoDeEmergencia()\nconectarControladorRadio()",
+      "type": "MATCHING",
+      "question": "Relaciona cada violación de secuencia física con su consecuencia destructiva directa:",
       "options": [
         {
-          "text": "Los motores se activan antes de conectar el radio y verificar la parada de emergencia",
+          "text": "Alimentar nota antes de que el shooter alcance 5000 RPM|||La nota se atora en el cañón y frena los motores",
           "correct": true
         },
         {
-          "text": "No se puede usar la potencia 1.0",
-          "correct": false
+          "text": "Cerrar garra neumática antes de llegar a la pieza|||La garra golpea y expulsa la pieza fuera de alcance",
+          "correct": true
         },
         {
-          "text": "Falta poner una línea con el nombre del piloto",
-          "correct": false
+          "text": "Acelerar tracción antes de calibrar el giroscopio|||El cálculo de orientación queda desfasado toda la partida",
+          "correct": true
         },
         {
-          "text": "No hay ningún problema, el robot frenará después",
-          "correct": false
+          "text": "Bajar elevador sin verificar interruptor de límite inferior|||El cable de acero se tensa de más y revienta la polea",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Reordena la secuencia para que el arranque sea 100% seguro:",
+      "question": "Ordena la secuencia obligatoria de seguridad para accionar un mecanismo de alta potencia:",
       "options": [
         {
-          "text": "conectarControladorRadio()",
+          "text": "verificarParadaEmergencia()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "verificarFrenoDeEmergencia()",
+          "text": "calibrarSensoresDeLimite()",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "calibrarSensores()",
+          "text": "calcularPotenciaSuave()",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "activarMotoresChasis(1.0)",
+          "text": "despacharVoltajeAMotores()",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "ASSIST",
-      "question": "¿Cuál es la regla de oro para la lectura de sensores y control de motores?",
+      "type": "CODE_FILL",
+      "question": "Completa la condición de seguridad para impedir el movimiento del motor si el límite físico fue alcanzado:",
+      "codeSnippet": "limiteAlcanzado = sensorTope.estaPresionado()\n\nif (_____ == False):\n    motorBrazo.setPower(0.5)\nelse:\n    motorBrazo.setPower(0.0)",
       "options": [
         {
-          "text": "Primero leer sensores, luego tomar la decisión, y al final accionar los motores",
+          "text": "limiteAlcanzado",
           "correct": true
         },
         {
-          "text": "Primero mover los motores a toda velocidad y después averiguar qué pasó",
+          "text": "True",
           "correct": false
         },
         {
-          "text": "Apagar todos los sensores para que el código corra más rápido",
+          "text": "motorBrazo",
           "correct": false
         },
         {
-          "text": "Mover motores únicamente cuando la batería esté por debajo del 10%",
+          "text": "0.5",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_FILL",
-      "question": "Completa el aviso de seguridad en consola antes de encender motores:",
-      "codeSnippet": "_____('Atención: Área despejada, encendiendo motores')",
+      "type": "SELECT",
+      "question": "Un robot enciende en el pit y de inmediato el brazo mecánico azota contra el piso antes de que los operadores tomen el control. ¿Cuál fue el error de secuencia en el código?",
       "options": [
         {
-          "text": "print",
+          "text": "Se colocó la instrucción de potencia del motor en el bloque de arranque inicial antes de esperar la orden de habilitación de la Driver Station",
           "correct": true
         },
         {
-          "text": "warning",
+          "text": "La batería tenía demasiado voltaje acumulado y la gravedad atrajo el brazo al piso",
           "correct": false
         },
         {
-          "text": "alarm",
+          "text": "Los motores decidieron probar su potencia máxima por iniciativa propia",
           "correct": false
         },
         {
-          "text": "buzzer",
+          "text": "El radio de comunicaciones transmitió interferencia que aceleró los transistores",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la secuencia de seguridad. ¿Qué potencia final recibirá el motor?",
+      "codeSnippet": "potencia = 0.8\nsensorObstaculo = True\n\nif sensorObstaculo:\n    potencia = 0.0\n\nprint(potencia)",
+      "options": [
+        {
+          "text": "0.0",
+          "correct": true
+        },
+        {
+          "text": "0.8",
+          "correct": false
+        },
+        {
+          "text": "True",
+          "correct": false
+        },
+        {
+          "text": "potencia",
           "correct": false
         }
       ]

@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo funciona la función `range(inicio, fin, paso)`?",
-      "lessonText": "# El Control Total del Rango ️\n\nEn Python, la función `range` tiene 3 parámetros súper versátiles:\n`range(inicio, fin, paso)`\n\n1. **`range(5)`:**\n   - Inicia en 0, llega hasta 4 (el fin nunca se incluye).\n2. **`range(2, 6)`:**\n   - Inicia en 2 y llega hasta 5 -> `[2, 3, 4, 5]`.\n3. **`range(0, 10, 2)` (Con paso / step):\n   - Avanza de 2 en 2 -> `[0, 2, 4, 6, 8]`.\n\n¡Esto te permite crear cualquier secuencia matemática en una sola línea!",
+      "question": "¿Cómo modula la función range(start, stop, step) los intervalos aritméticos generados?",
+      "lessonText": "# Intervalos Semiabiertos y Generación por Pasos\n\nEn matemáticas discretas e informática, los rangos se expresan como intervalos semiabiertos: $[start, stop)$, lo que significa que **el valor inicial está incluido pero el límite final está estrictamente excluido**.\n\nLa función `range(start, stop, step)` ofrece tres parámetros:\n- **start:** Valor de inicio (por defecto es 0 si se omite).\n- **stop:** Límite superior exclusivo (la secuencia se detiene antes de alcanzarlo).\n- **step:** Magnitud del incremento entre valores sucesivos.\n\n```python\nfor duty_cycle in range(10, 50, 10):\n    ajustar_pwm(duty_cycle)  # Produce 10, 20, 30, 40\n```\n\nEn la rampa de aceleración de la torreta de Nautilus 4010, `range(10, 50, 10)` modula el ciclo de trabajo (PWM) en 4 escalones del 10% cada 20 milisegundos, evitando tirones bruscos que desgasten la corona dentada de aluminio 7075.\n\n**Regla de Oro: En la función range(start, stop, step), el límite superior 'stop' nunca se incluye en la secuencia generada; la cantidad de elementos generados desde 0 hasta n es exactamente n.**",
       "options": [
         {
-          "text": "Permite especificar el valor inicial, el límite superior (no inclusivo) y el incremento entre saltos",
+          "text": "Genera secuencias aritméticas donde 'start' es inclusivo, 'stop' es exclusivo y 'step' define el incremento",
           "correct": true
         },
         {
-          "text": "Mide la distancia física entre dos robots en metros",
+          "text": "Calcula el voltaje de corte de los fusibles térmicos según la longitud del cable",
           "correct": false
         },
         {
-          "text": "Calcula el porcentaje de batería que queda",
+          "text": "Convierte números enteros en coordenadas polares para la cámara de visión",
           "correct": false
         },
         {
-          "text": "Convierte texto a números automáticamente",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Qué números imprimirá este rango con salto de 2?",
-      "codeSnippet": "for n in range(1, 6, 2):\n    print(n)",
-      "options": [
-        {
-          "text": "1, 3, 5",
-          "correct": true
-        },
-        {
-          "text": "1, 2, 3, 4, 5",
-          "correct": false
-        },
-        {
-          "text": "2, 4, 6",
-          "correct": false
-        },
-        {
-          "text": "1 y 6 solamente",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida de este código?",
-      "codeSnippet": "total = 0\nfor x in range(3):\n    total += x\nprint(total)",
-      "options": [
-        {
-          "text": "3 (porque total = 0 + 0 + 1 + 2 = 3)",
-          "correct": true
-        },
-        {
-          "text": "6",
+          "text": "Borra las variables intermedias de la memoria para evitar saturar el bus CAN",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Relaciona cada llamada de range con los números que produce:",
+      "question": "Relaciona cada parámetro de la función range con su rol en la progresión aritmética:",
       "options": [
         {
-          "text": "range(3)|||0, 1, 2",
+          "text": "Parámetro start|||Valor inicial donde comienza la secuencia aritmética (por defecto 0)",
           "correct": true
         },
         {
-          "text": "range(1, 4)|||1, 2, 3",
+          "text": "Parámetro stop|||Límite superior exclusivo que jamás se alcanza en las iteraciones generadas",
           "correct": true
         },
         {
-          "text": "range(2, 7, 2)|||2, 4, 6",
+          "text": "Parámetro step|||Magnitud del incremento o salto entre un valor y el siguiente",
           "correct": true
         },
         {
-          "text": "range(5, 0, -1)|||5, 4, 3, 2, 1 (cuenta regresiva)",
+          "text": "Intervalo semiabierto [start, stop)|||Notación matemática que incluye el inicio pero excluye el extremo final",
           "correct": true
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "En Java y C++, ¿cómo se escribe el bucle for equivalente a `range(5)`?",
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia para elevar gradualmente el PWM del motor con un paso de 10:",
       "options": [
         {
-          "text": "for (int i = 0; i < 5; i++)",
+          "text": "for pwm in range(10, 50, 10):",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    ajustar_potencia_motor(pwm)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    esperar_milisegundos(20)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "estabilizar_velocidad_crucero()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué valor de paso ('step') genera únicamente los canales impares 1, 3, 5?",
+      "codeSnippet": "# Recorrer valores impares 1, 3, 5\nfor valor in range(1, 7, ___):\n    procesar_canal(valor)",
+      "options": [
+        {
+          "text": "2",
           "correct": true
         },
         {
-          "text": "for i in 5",
+          "text": "1",
           "correct": false
         },
         {
-          "text": "loop (i = 5)",
+          "text": "3",
           "correct": false
         },
         {
-          "text": "while (for i = 0)",
+          "text": "0",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué secuencia numérica exacta genera la instrucción `range(2, 9, 3)`?",
+      "options": [
+        {
+          "text": "2, 5, 8",
+          "correct": true
+        },
+        {
+          "text": "2, 5, 8, 11",
+          "correct": false
+        },
+        {
+          "text": "2, 3, 4, 5, 6, 7, 8, 9",
+          "correct": false
+        },
+        {
+          "text": "0, 3, 6, 9",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el resultado de la suma para los valores generados por range(1, 5, 2) (valores 1 y 3)?",
+      "codeSnippet": "total = 0\nfor k in range(1, 5, 2):\n    total = total + k\nprint(total)",
+      "options": [
+        {
+          "text": "4",
+          "correct": true
+        },
+        {
+          "text": "9",
+          "correct": false
+        },
+        {
+          "text": "6",
+          "correct": false
+        },
+        {
+          "text": "5",
           "correct": false
         }
       ]

@@ -19,8 +19,8 @@ export function validateChallenge(c: Challenge, unitSlug: string, lessonIndex: n
     throw new Error(`${prefix} ${c.type} challenge requires codeSnippet.`);
   }
 
-  if (c.type === "CODE_FILL" && !c.codeSnippet?.includes("_____")) {
-    throw new Error(`${prefix} CODE_FILL codeSnippet must contain '_____'.`);
+  if (c.type === "CODE_FILL" && !c.codeSnippet?.includes("___")) {
+    throw new Error(`${prefix} CODE_FILL codeSnippet must contain '___'.`);
   }
 
   if (c.type === "MATCHING") {
@@ -70,6 +70,13 @@ export function writeUnits(units: UnitDefinition[], courseFolder: string = "basi
       fs.mkdirSync(unitFolder, { recursive: true });
     }
 
+    // Clean stale lesson-*.json files
+    fs.readdirSync(unitFolder).forEach(f => {
+      if (f.startsWith("lesson-") && f.endsWith(".json")) {
+        fs.unlinkSync(path.join(unitFolder, f));
+      }
+    });
+
     // Write metadata.json
     const metadata = {
       title: unit.title,
@@ -101,8 +108,8 @@ export function writeUnits(units: UnitDefinition[], courseFolder: string = "basi
       totalChallenges += lesson.challenges.length;
     });
 
-    console.log(`✅ [${unit.slug}] Order ${unit.order}: "${unit.title}" generated with ${unit.lessons.length} lessons.`);
+    console.log(`[OK] [${unit.slug}] Order ${unit.order}: "${unit.title}" generado con ${unit.lessons.length} lecciones.`);
   }
 
-  console.log(`\n🎉 Success! Wrote ${units.length} units, ${totalLessons} lessons, ${totalChallenges} challenges.`);
+  console.log(`\n[EXITO] Generadas ${units.length} unidades, ${totalLessons} lecciones, ${totalChallenges} desafios.`);
 }

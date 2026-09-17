@@ -3,106 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es un 'if anidado' (nested if)?",
-      "lessonText": "# Decisiones Dentro de Decisiones \n\nA veces una decisión depende de que una decisión previa ya se haya cumplido.\n\nEjemplo en la arena de FIRST:\n```python\nif robotHabilitado:\n    print('Paso 1: Robot encendido')\n    if botonDisparoPresionado:\n        print('Paso 2: Disparando')\n```\n- Si `robotHabilitado` es `false`, la computadora ni siquiera se molesta en mirar `botonDisparoPresionado`.\n- El código interior solo se alcanza si **ambas compuertas se abrieron sucesivamente**.",
+      "question": "¿Cómo funciona un árbol de decisiones jerárquico mediante condiciones anidadas y cuándo debe aplicarse?",
+      "lessonText": "# Árboles de Decisión y Filtros Jerárquicos\n\nEn el modelado computacional, un árbol de decisión permite evaluar precondiciones de manera progresiva. Al anidar un bloque `if` dentro del cuerpo de otro `if`, el bloque interior **solo es evaluado si la condición exterior resultó verdadera**. Esto crea una conjunción jerárquica donde la segunda prueba no consume ciclos de procesamiento si la primera falla.\n\n```python\nif objetivo_detectado == True:\n    if distancia_metros <= 2.5:\n        disparar_proyectil()\n```\n\nEn el software de tiro autónomo de Nautilus 4010 en la competencia mundial FIRST, la cámara Limelight reporta si detectó el objetivo AprilTag. Si no lo detecta, el robot ni siquiera gasta recursos en medir la distancia por ultrasonido ni en calcular la solución balística, preservando valioso tiempo de CPU.\n\n**Regla de Oro: Las condiciones anidadas permiten validar precondiciones jerárquicas costosas paso a paso, pero deben mantenerse a baja profundidad (máximo 2 o 3 niveles) para evitar la degradación de legibilidad conocida como Arrow Anti-pattern.**",
       "options": [
         {
-          "text": "Una sentencia if colocada dentro del bloque de otra sentencia if previa",
+          "text": "Estructuras donde una condición interna solo se evalúa si todas las condiciones que la contienen fueron verdaderas",
           "correct": true
         },
         {
-          "text": "Un if que se ejecuta hacia atrás",
+          "text": "Bucles repetitivos que ejecutan instrucciones simultáneas en múltiples hilos de hardware",
           "correct": false
         },
         {
-          "text": "Un error que destruye las variables",
+          "text": "Comandos que cancelan la memoria del programa si el segundo condicional resulta falso",
           "correct": false
         },
         {
-          "text": "Un if que solo funciona con números primos",
+          "text": "Declaraciones de variables globales accesibles únicamente por el sistema operativo",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá este programa?",
-      "codeSnippet": "autonomoActivo = true\ntieneNota = false\nif autonomoActivo:\n    if tieneNota:\n        print('Disparar Nota')\nprint('Fin del ciclo')",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de lógica jerárquica con su descripción técnica:",
       "options": [
         {
-          "text": "Fin del ciclo (porque tieneNota es false, el if interno no corre)",
+          "text": "If anidado|||Sentencia condicional situada en el cuerpo interior de otro bloque if",
           "correct": true
         },
         {
-          "text": "Disparar Nota\nFin del ciclo",
-          "correct": false
+          "text": "Árbol de decisión|||Estructura jerárquica donde cada nodo evalúa una condición antes del siguiente paso",
+          "correct": true
         },
         {
-          "text": "Disparar Nota solamente",
-          "correct": false
+          "text": "Arrow Anti-pattern|||Degradación de legibilidad por anidar demasiados niveles condicionales profundos",
+          "correct": true
         },
         {
-          "text": "No imprime nada",
-          "correct": false
+          "text": "Evaluación secuencial|||El bloque interno jamás se evalúa si la condición externa resulta ser false",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la telemetría si ambas condiciones son verdaderas?",
-      "codeSnippet": "visionDetectada = true\ndistanciaCorta = true\nif visionDetectada:\n    if distanciaCorta:\n        print('BLANCO FIJADO')",
+      "type": "CODE_ORDER",
+      "question": "Ordena los niveles jerárquicos para autorizar el despliegue del intake en el robot:",
       "options": [
         {
-          "text": "BLANCO FIJADO",
+          "text": "if robot_habilitado == True:",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    if presion_sistema_psi >= 60:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "        actuador_intake.desplegar()",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "reportar_estado_general()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué instrucción permite evaluar la segunda condición únicamente tras confirmar que el objetivo está centrado?",
+      "codeSnippet": "if objetivo_centrado == True:\n    ___ distancia_metros <= 2.5:\n        iniciar_disparo_autonomo()",
+      "options": [
+        {
+          "text": "if",
           "correct": true
         },
         {
-          "text": "",
+          "text": "then",
+          "correct": false
+        },
+        {
+          "text": "switch",
+          "correct": false
+        },
+        {
+          "text": "ensure",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿A cuál de las siguientes expresiones equivale lógicamente un if anidado `if A: if B: accion()`?",
+      "question": "¿Cuándo es preferible utilizar condiciones anidadas jerárquicas en lugar de un único condicional compuesto con el operador 'and' (if A and B)?",
       "options": [
         {
-          "text": "if (A and B): accion()",
+          "text": "Cuando evaluar la segunda condición requiere operaciones computacionalmente costosas o lecturas de sensores que solo deben realizarse si la primera precondición es estrictamente válida",
           "correct": true
         },
         {
-          "text": "if (A or B): accion()",
+          "text": "Cuando se requiere que ambas condiciones se ejecuten en núcleos de CPU paralelos distintos",
           "correct": false
         },
         {
-          "text": "if (not A): accion()",
+          "text": "Cuando el lenguaje de programación no soporta operadores booleanos en una sola línea",
           "correct": false
         },
         {
-          "text": "if (A == B): accion()",
+          "text": "Cuando se busca incrementar deliberadamente el consumo de memoria RAM para estabilizar el sistema",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el problema de legibilidad: Anidar 8 ifs seguidos hace que el código sea casi imposible de leer. ¿Cómo se llama esa mala práctica?",
-      "codeSnippet": "if a: if b: if c: if d: if e: if f: print('ok')",
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'disparo_autorizado' tras evaluar el condicional anidado?",
+      "codeSnippet": "presencia_nota = True\nvelocidad_flywheel = 4200\ndisparo_autorizado = False\nif presencia_nota:\n    if velocidad_flywheel >= 4500:\n        disparo_autorizado = True\nprint(disparo_autorizado)",
       "options": [
         {
-          "text": "Código espagueti / Pyramid of Doom (Pirámide de la Muerte)",
+          "text": "False",
           "correct": true
         },
         {
-          "text": "Optimización cuántica de alta velocidad",
+          "text": "True",
           "correct": false
         },
         {
-          "text": "Compilación supersónica",
+          "text": "None",
           "correct": false
         },
         {
-          "text": "Algoritmo de campeonato mundial",
+          "text": "4200",
           "correct": false
         }
       ]

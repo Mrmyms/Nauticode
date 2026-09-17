@@ -3,106 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué hace la instrucción 'break' dentro de un bucle?",
-      "lessonText": "# El Botón de Parada Inmediata \n\nImagina que estás buscando una nota naranja en la alfombra con un bucle que revisa 10 posiciones:\n```python\nfor pos in range(10):\n    if notaDetectada == true:\n        print('¡Nota encontrada!')\n        break  # ¡Se detiene de inmediato!\n    avanzarSiguientePunto()\n```\n¿Para qué seguir buscando las otras posiciones si ya encontraste la pieza?\n\nLa instrucción **`break` rompe el bucle al instante**, sin esperar a que termine el rango ni a que la condición del while se vuelva falsa.",
+      "question": "¿Qué efecto produce la sentencia 'break' y cómo optimiza la búsqueda de objetivos de visión artificial?",
+      "lessonText": "# Salidas Tempranas y Transferencia de Control\n\nEn la teoría de lenguajes de programación, la sentencia **`break`** transfiere incondicionalmente el registro contador de instrucciones (Program Counter) a la primera línea situada fuera del bucle contenedor más próximo, abortando de inmediato cualquier ciclo pendiente.\n\n```python\nfor target_id in range(1, 11):\n    if camara.detectar_tag(target_id) == True:\n        fijar_blanco(target_id)\n        break  # Objetivo encontrado: abortar iteraciones restantes\n```\n\nEn el pipeline de visión artificial de Nautilus 4010, la cámara Limelight procesa etiquetas AprilTag en el campo. Si el algoritmo busca la etiqueta de la alianza y la localiza en el índice 3, ejecutar `break` evita iterar innecesariamente sobre las 7 etiquetas restantes, reduciendo la latencia de procesamiento de 30 ms a solo 8 ms.\n\n**Regla de Oro: 'break' destruye el bucle y escapa de él inmediatamente, transfiriendo el flujo a la siguiente instrucción fuera del ciclo.**",
       "options": [
         {
-          "text": "Termina el bucle de forma inmediata y transfiere el control a la línea siguiente fuera del bucle",
+          "text": "Cancela y termina el bucle de inmediato transfiriendo el control a la primera instrucción exterior",
           "correct": true
         },
         {
-          "text": "Pausa el programa por 10 minutos",
+          "text": "Pausa el procesador durante 10 segundos antes de reanudar el bucle",
           "correct": false
         },
         {
-          "text": "Rompe físicamente la tarjeta madre del robot",
+          "text": "Desconecta físicamente la cámara de visión artificial del puerto Ethernet",
           "correct": false
         },
         {
-          "text": "Reinicia el bucle desde cero",
+          "text": "Reinicia el bucle desde la primera iteración sin guardar los datos",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá este bucle con break?",
-      "codeSnippet": "for num in range(1, 6):\n    if num == 3:\n        break\n    print(num)\nprint('Fin')",
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de salida temprana con su principio computacional:",
       "options": [
         {
-          "text": "1\n2\nFin (se detuvo en cuanto num fue igual a 3)",
+          "text": "Sentencia break|||Instrucción que cancela inmediatamente el bucle y salta al código posterior",
           "correct": true
         },
         {
-          "text": "1\n2\n3\nFin",
-          "correct": false
+          "text": "Búsqueda temprana|||Patrón de optimización que detiene el bucle en cuanto encuentra el objetivo deseado",
+          "correct": true
         },
         {
-          "text": "1\n2\n3\n4\n5\nFin",
-          "correct": false
+          "text": "Salto incondicional exterior|||Transferencia del Program Counter fuera de la estructura de iteración",
+          "correct": true
         },
         {
-          "text": "Solo imprime 'Fin'",
-          "correct": false
+          "text": "Consumo de ciclos innecesario|||Desperdicio de CPU que ocurre cuando se continúa buscando tras hallar la solución",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida de este código?",
-      "codeSnippet": "x = 0\nwhile true:\n    x += 1\n    if x == 2:\n        break\nprint(x)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia de búsqueda temprana con salida inmediata al hallar el tag:",
       "options": [
         {
-          "text": "2",
-          "correct": true
+          "text": "for target_id in range(1, 11):",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "1",
-          "correct": false
+          "text": "    if camara.detectar_tag(target_id) == True:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "        fijar_blanco(target_id)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "        break",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la instrucción para abortar la búsqueda:",
-      "codeSnippet": "if piezaAsegurada == true:\n    _____",
+      "question": "¿Qué instrucción aborta inmediatamente el bucle al detectar un obstáculo crítico a menos de 10 cm?",
+      "codeSnippet": "while True:\n    distancia = sensor_sonar.medir()\n    if distancia < 10.0:\n        detener_chasis()\n        _____",
       "options": [
         {
           "text": "break",
           "correct": true
         },
         {
-          "text": "stop",
+          "text": "continue",
+          "correct": false
+        },
+        {
+          "text": "pass",
           "correct": false
         },
         {
           "text": "exit",
-          "correct": false
-        },
-        {
-          "text": "halt",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Si tienes dos bucles anidados (un for dentro de otro for), ¿qué bucle se rompe cuando ejecutas 'break'?",
+      "question": "Si se tienen dos bucles anidados (un bucle dentro de otro) y se ejecuta 'break' dentro del bucle interno, ¿qué bucle se interrumpe?",
       "options": [
         {
-          "text": "Únicamente el bucle más interno donde está colocado el break",
+          "text": "Únicamente el bucle más interno donde está colocada la instrucción break",
           "correct": true
         },
         {
-          "text": "Ambos bucles se cierran al mismo tiempo",
+          "text": "Ambos bucles se cierran y terminan de manera simultánea",
           "correct": false
         },
         {
-          "text": "El bucle exterior únicamente",
+          "text": "El bucle exterior únicamente, dejando al interior corriendo indefinidamente",
           "correct": false
         },
         {
-          "text": "Ninguno, dará un error",
+          "text": "El compilador genera un error de ambigüedad de alcance léxico",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'suma' si el bucle suma 1 y 2, y ejecuta break al llegar a 3?",
+      "codeSnippet": "suma = 0\nfor x in range(1, 6):\n    if x == 3:\n        break\n    suma = suma + x\nprint(suma)",
+      "options": [
+        {
+          "text": "3",
+          "correct": true
+        },
+        {
+          "text": "6",
+          "correct": false
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "15",
           "correct": false
         }
       ]

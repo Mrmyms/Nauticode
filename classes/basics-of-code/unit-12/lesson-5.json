@@ -3,109 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Chequeo de subsistemas con Teus!",
-      "lessonText": "# El Test de Pits Pre-Match ️\n\nAntes de colocar a Nautilus 4010 en la cancha, el equipo corre un script de diagnóstico que:\n1. Parpadea la tira de luces LED CANdle 3 veces en color dorado (`#EDB824`).\n2. Realiza un test de pulso en los 4 motores de tracción.\n\nEn este reto final de la Unidad 12, programarás estos bucles de chequeo con `for`.",
+      "question": "¿Cómo se orquestan rutinas de prueba y animación LED en el bus CAN mediante bucles for?",
+      "lessonText": "# Secuencias de Pits y Diagnóstico Pre-Match\n\nAntes de cada enfrentamiento en la arena de competencia, el equipo de pits de Nautilus 4010 ejecuta un script de validación que previene fallas mecánicas en pista:\n\n1. **Animación CANdle:** Se comanda a la tira de luces LED CANdle destellar 3 veces en el color dorado de identidad (`#EDB824`) para confirmar la sincronización de la radio.\n2. **Prueba Secuencial de Motores:** Enviar un pulso de corriente de 20A a cada motor individual durante 50 milisegundos para medir la resistencia de fase sin sobrecargar la batería principal.\n\nAmbas rutinas se implementan con bucles `for`, garantizando exactamente la cantidad de ciclos requerida sin retardos imprevistos ni peligro de bloqueos de comunicación.\n\n**Regla de Oro: La automatización de chequeos con bucles for finitos garantiza que cada componente del sistema reciba pruebas idénticas sin omisiones humanas antes de la competencia.**",
       "options": [
         {
-          "text": "¡Vamos a programar el test de diagnóstico!",
+          "text": "Automatizando pruebas idénticas y finitas sobre luces y motores para verificar componentes antes de la competencia",
           "correct": true
         },
         {
-          "text": "Prefiero entrar a la cancha sin probar los sistemas",
+          "text": "Acelerando todos los motores al máximo en vacío para calentar la batería de 12V",
           "correct": false
         },
         {
-          "text": "No me interesan las luces LED",
+          "text": "Desactivando los frenos neumáticos para que el robot se deslice por inercia en la alfombra",
           "correct": false
         },
         {
-          "text": "Quiero borrar el script de test",
+          "text": "Borrando los archivos de configuración del bus CAN para empezar de cero en cada match",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_ORDER",
-      "question": "Ordena la rutina para hacer parpadear el LED 3 veces:",
+      "type": "MATCHING",
+      "question": "Relaciona cada subsistema de diagnóstico con su rol técnico en la inspección de pits:",
       "options": [
         {
-          "text": "for pulso in range(3):",
+          "text": "CANdle CTRE|||Controlador de tiras de iluminación LED direccionables en el bus CAN",
+          "correct": true
+        },
+        {
+          "text": "Pulso de diagnóstico|||Envío calibrado de corriente de prueba para medir resistencia de devanado",
+          "correct": true
+        },
+        {
+          "text": "Bucle de pre-arranque|||Rutina de for loops que valida integridad de subsistemas antes del partido",
+          "correct": true
+        },
+        {
+          "text": "Telemetría de pits|||Transmisión de estados de diagnóstico a la pantalla de los ingenieros",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la secuencia del bucle for para emitir 3 destellos de confirmación dorada en la tira LED:",
+      "options": [
+        {
+          "text": "for destello in range(3):",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "    encenderLED('Dorado')",
+          "text": "    tira_led.fijar_color('DORADO')",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "    esperarMilisegundos(200)",
+          "text": "    esperar_milisegundos(200)",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "    apagarLED()",
+          "text": "    tira_led.apagar()",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué mostrará la consola tras probar los 4 módulos de rueda?",
-      "codeSnippet": "for rueda in range(4):\n    print('Rueda ' + str(rueda) + ' OK')",
+      "type": "CODE_FILL",
+      "question": "¿Qué número debe pasarse a range() para medir la corriente en los 4 motores del chasis?",
+      "codeSnippet": "for motor_id in range(___):\n    corriente = leer_corriente_amperes(motor_id)\n    validar_resistencia_devanado(corriente)",
       "options": [
         {
-          "text": "Rueda 0 OK\nRueda 1 OK\nRueda 2 OK\nRueda 3 OK",
+          "text": "4",
           "correct": true
         },
         {
-          "text": "Rueda 4 OK",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Cuántas veces en total se imprimirá la palabra 'Check'?",
-      "codeSnippet": "for a in range(2):\n    for b in range(3):\n        print('Check')",
-      "options": [
-        {
-          "text": "6 veces (2 * 3 = 6 iteraciones en bucles anidados)",
-          "correct": true
-        },
-        {
-          "text": "5 veces",
+          "text": "'4'",
           "correct": false
         },
         {
-          "text": "3 veces",
+          "text": "True",
           "correct": false
         },
         {
-          "text": "2 veces",
+          "text": "0",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál es el resumen de la Unidad 12 sobre bucles For?",
+      "question": "¿Qué beneficio ofrece ejecutar el calentamiento de motores con un bucle 'for' en vez de enviar potencia a todos al mismo tiempo en paralelo?",
       "options": [
         {
-          "text": "El bucle for es el estándar por excelencia para realizar tareas repetitivas un número determinado de veces con total seguridad",
+          "text": "Evita picos de corriente masivos en la batería principal probando cada motor secuencialmente con telemetría individualizada",
           "correct": true
         },
         {
-          "text": "Los bucles for siempre son infinitos",
+          "text": "Permite que los motores giren sin necesidad de conectar la batería de 12V",
           "correct": false
         },
         {
-          "text": "El bucle for sustituye a los cables de corriente",
+          "text": "Multiplica por cuatro la velocidad máxima de avance del chasis durante el partido",
           "correct": false
         },
         {
-          "text": "Solo los mentores pueden escribir bucles for",
+          "text": "Borra automáticamente los logs de fallas del procesador roboRIO",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuántos pulsos de prueba se generaron en la combinación de pruebas anidadas range(2) y range(2)?",
+      "codeSnippet": "repeticiones = 0\nfor a in range(2):\n    for b in range(2):\n        repeticiones = repeticiones + 1\nprint(repeticiones)",
+      "options": [
+        {
+          "text": "4",
+          "correct": true
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "3",
+          "correct": false
+        },
+        {
+          "text": "1",
           "correct": false
         }
       ]

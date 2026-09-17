@@ -1,106 +1,141 @@
 {
-  "title": "El Loop Principal de un Robot",
+  "title": "Bucles Basados en Sensores",
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo funciona el ciclo principal de control (Periodic Loop) en un robot?",
-      "lessonText": "# El Latido del Corazón del Robot (50 Hz) \n\nEn FIRST Robotics y en la industria automotriz, los robots no ejecutan un script una sola vez y se apagan. Tienen un **bucle periódico continuo**:\n\n```python\nwhile robotEstaHabilitado == true:\n    # 1. Leer sensores y joystick (50 veces por segundo)\n    leerTelemetria()\n    # 2. Calcular cinemática de swerve drive o chasis\n    calcularTrayectoria()\n    # 3. Enviar voltajes a los motores\n    actualizarMotores()\n```\n\nEste ciclo corre típicamente cada **20 milisegundos (50 Hz)**. ¡Es el pulso vital que mantiene al robot despierto y receptivo!",
+      "question": "¿Cómo se implementa un bucle de control reactivo basado en sensores y por qué debe refrescarse la lectura en cada iteración?",
+      "lessonText": "# Sondeo de Sensores y Lazo Cerrado\n\nEn robótica, el control en lazo cerrado (Closed-Loop) ajusta la conducta mecánica según el estado cambiante del mundo exterior. En lugar de iterar un número prefijado de veces, el bucle comprueba la lectura de un sensor físico en cada ciclo (**sensor polling**).\n\n```python\nswitch_superior = sensor_hall.leer()\nwhile switch_superior == False:\n    motor_elevador.subir(0.4)\n    switch_superior = sensor_hall.leer()  # Refresco obligatorio\nmotor_elevador.frenar()\n```\n\nEn Nautilus 4010, el elevador sube hasta que el sensor magnético de efecto Hall detecta el imán de neodimio ubicado en el travesaño del piso superior. Si el código olvidara volver a leer el pin del sensor dentro del bucle, la variable conservaría para siempre su valor inicial (`False`), provocando que el motor siga empujando hasta reventar las bandas y poleas mecánicas.\n\n**Regla de Oro: En bucles controlados por sensores físicos, el estado del sensor debe refrescarse en cada vuelta para reflejar la realidad del entorno mecánico.**",
       "options": [
         {
-          "text": "Un ciclo continuo que lee sensores, calcula decisiones y actualiza motores decenas de veces por segundo",
+          "text": "Actualizando periódicamente la lectura del sensor en cada ciclo para que la condición refleje el estado físico real del mecanismo",
           "correct": true
         },
         {
-          "text": "Un motor físico que gira en círculos dentro de la roboRIO",
+          "text": "Fijando la velocidad del motor en números imaginarios para evitar el calentamiento de los rodamientos",
           "correct": false
         },
         {
-          "text": "Un cronómetro que solo sirve para la hora del almuerzo",
+          "text": "Leyendo el sensor una sola vez al inicio del programa y reutilizando el dato durante todo el partido",
           "correct": false
         },
         {
-          "text": "Un virus informático que viene de fábrica",
+          "text": "Desconectando la alimentación del sensor para evitar interferencias electromagnéticas en el bus",
           "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de instrumentación con su rol en el bucle condicional:",
+      "options": [
+        {
+          "text": "Sensor Hall|||Interruptor magnético de estado sólido que detecta la proximidad del mecanismo",
+          "correct": true
+        },
+        {
+          "text": "Polling de sensor|||Consulta periódica del valor de un pin digital o bus en cada ciclo del bucle",
+          "correct": true
+        },
+        {
+          "text": "Límite de recorrido|||Posición mecánica extrema donde el software debe detener el actuador",
+          "correct": true
+        },
+        {
+          "text": "Closed-Loop Sensing|||Lazo de control que retroalimenta la acción del motor según el cambio de entorno",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena las 3 fases del latido periódico de control en robótica:",
+      "question": "Ordena cronológicamente la rutina para elevar el mecanismo hasta activar el sensor Hall:",
       "options": [
         {
-          "text": "leerJoysticksYSensores()",
+          "text": "switch_limite = sensor_hall.leer()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "procesarLogicaYCalculos()",
+          "text": "while switch_limite == False:",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "enviarPotenciaAMotores()",
+          "text": "    motor_elevador.subir(0.4)",
           "correct": true,
           "audioSrc": "3"
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "Si colocas una pausa que duerma el programa por 5 segundos (`sleep(5000)`) dentro del bucle periódico del robot, ¿qué ocurrirá?",
-      "options": [
-        {
-          "text": "El robot dejará de responder a los joysticks durante 5 segundos enteros, pudiendo chocar peligrosamente",
-          "correct": true
         },
         {
-          "text": "El robot recargará su batería por completo",
-          "correct": false
-        },
-        {
-          "text": "El código correrá más rápido después",
-          "correct": false
-        },
-        {
-          "text": "No pasa nada, el piloto ni lo notará",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuántos ciclos se completarán antes de que la presión alcance los 120 PSI?",
-      "codeSnippet": "psi = 60\nciclos = 0\nwhile psi < 120:\n    psi += 30\n    ciclos += 1\nprint(ciclos)",
-      "options": [
-        {
-          "text": "2 (60 -> 90 en ciclo 1, 90 -> 120 en ciclo 2)",
-          "correct": true
-        },
-        {
-          "text": "4",
-          "correct": false
+          "text": "    switch_limite = sensor_hall.leer()",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la condición del bucle de compresión neumática:",
-      "codeSnippet": "while presionActual _____ PRESION_MAXIMA:\n    compresor.activar()\n    presionActual = leerManometro()",
+      "question": "¿Qué llamada de función debe refrescar el estado del LiDAR dentro del bucle de avance?",
+      "codeSnippet": "while obstaculo_presente == False:\n    avanzar_trayectoria()\n    obstaculo_presente = _____()",
       "options": [
         {
-          "text": "<",
+          "text": "escanear_lidar",
           "correct": true
         },
         {
-          "text": ">",
+          "text": "True",
           "correct": false
         },
         {
-          "text": "==",
+          "text": "break",
           "correct": false
         },
         {
-          "text": "!=",
+          "text": "contador",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Qué falla catastrófica ocurre si se olvida volver a leer el sensor físico dentro del cuerpo del bucle while?",
+      "options": [
+        {
+          "text": "La variable evaluada conserva el valor antiguo y el bucle jamás se entera de que el sensor se activó, sobrecargando o rompiendo mecánicamente el mecanismo",
+          "correct": true
+        },
+        {
+          "text": "El sensor se desmagnetiza inmediatamente por falta de pulsos de reloj del procesador",
+          "correct": false
+        },
+        {
+          "text": "El voltaje de la batería se eleva instantáneamente a niveles no regulados por el circuito",
+          "correct": false
+        },
+        {
+          "text": "El compilador sustituye automáticamente la lectura por una llamada a una función aleatoria",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuántos pasos ejecutó el robot para reducir la distancia de 50 a 20 con decrementos de 10?",
+      "codeSnippet": "distancia = 50\npasos = 0\nwhile distancia > 20:\n    distancia = distancia - 10\n    pasos = pasos + 1\nprint(pasos)",
+      "options": [
+        {
+          "text": "3",
+          "correct": true
+        },
+        {
+          "text": "4",
+          "correct": false
+        },
+        {
+          "text": "2",
+          "correct": false
+        },
+        {
+          "text": "5",
           "correct": false
         }
       ]

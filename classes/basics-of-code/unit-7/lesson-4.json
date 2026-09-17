@@ -3,65 +3,90 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué son los operadores de asignación compuesta como `+=` y `-=`?",
-      "lessonText": "# Atajos para Programadores Inteligentes \n\nEn robótica es súper común modificar una variable basándote en su propio valor anterior:\n`puntos = puntos + 5`\n\nEscribir el nombre de la variable dos veces es repetitivo. Por eso los lenguajes crearon los **operadores compuestos**:\n- `puntos += 5` (Equivale a: `puntos = puntos + 5`)\n- `energia -= 10` (Equivale a: `energia = energia - 10`)\n- `velocidad *= 2` (Equivale a: `velocidad = velocidad * 2`)\n- `contador++` (En Java/C++ incrementa en 1 exactamente).\n\nHacen exactamente lo mismo, pero tu código queda más limpio y legible.",
+      "question": "¿Qué son los operadores de asignación compuesta (`+=`, `-=`, `*=`, `/=`) y cuál es su beneficio técnico en computación?",
+      "lessonText": "# Modificación en Sitio (In-Place) y Azúcar Sintáctico\n\nEn la programación de robótica en tiempo real, el patrón más común es actualizar una variable sumándole o restándole un incremento a su propio valor existente:\n```python\ncontadorNotas = contadorNotas + 1\n```\nEscribir el nombre del identificador dos veces genera código verboso y susceptible a errores tipográficos. Para resolver esto, los lenguajes crearon los **operadores de asignación compuesta**:\n- `a += b` equivale exactamente a `a = a + b`\n- `a -= b` equivale exactamente a `a = a - b`\n- `a *= b` equivale exactamente a `a = a * b`\n- `a /= b` equivale exactamente a `a = a / b`\n\n### Eficiencia en Bajo Nivel:\nEn lenguajes compilados de alto rendimiento como C++ o Java, una asignación compuesta le comunica directamente al optimizador del compilador que la operación se realice **in-place** sobre el mismo registro de memoria (`ADD [R_dest], R_src`), sin requerir variables temporales auxiliares.\n\nEn Nautilus 4010, los operadores compuestos son el estándar en los bucles de odometría e integradores PID:\n```python\nposicionTotalMetros += deltaAvanceMetros\nerrorIntegral += errorPosicion * tiempoDelta\n```\n\n**La Regla de Oro:**\nLos operadores compuestos (+=, -=) realizan modificaciones in-place sobre la misma celda de memoria; optimizan la legibilidad y eliminan redundancia en patrones acumuladores.",
       "options": [
         {
-          "text": "Atajos de sintaxis para actualizar una variable sumando, restando o multiplicando su propio valor",
+          "text": "Son atajos sintácticos que ejecutan modificaciones in-place sobre la misma variable, mejorando la legibilidad y optimizando registros en bajo nivel",
           "correct": true
         },
         {
-          "text": "Operadores que solo funcionan con números negativos",
+          "text": "Son instrucciones especiales que solo se pueden utilizar cuando los números son mayores a mil",
           "correct": false
         },
         {
-          "text": "Comandos que borran la variable de inmediato",
+          "text": "Operadores que crean una nueva variable con un nombre aleatorio en cada ciclo de reloj",
           "correct": false
         },
         {
-          "text": "Instrucciones secretas que aceleran la CPU",
+          "text": "Comandos que borran permanentemente los datos almacenados en la memoria flash de la roboRIO",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "¿Qué valor imprimirá este bloque?",
-      "codeSnippet": "score = 10\nscore += 5\nscore += 2\nprint(score)",
+      "type": "MATCHING",
+      "question": "Relaciona cada operador compuesto con su equivalencia imperativa formal:",
       "options": [
         {
-          "text": "17",
+          "text": "variable += incremento|||variable = variable + incremento",
           "correct": true
         },
         {
-          "text": "10",
-          "correct": false
+          "text": "variable -= decremento|||variable = variable - decremento",
+          "correct": true
         },
         {
-          "text": "7",
-          "correct": false
+          "text": "variable *= factor|||variable = variable * factor",
+          "correct": true
         },
         {
-          "text": "15",
-          "correct": false
+          "text": "Patrón Acumulador|||Estructura donde una variable integra cambios continuos en su valor",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la integración de distancia acumulada en tres tramos de trayectoria autónoma:",
+      "options": [
+        {
+          "text": "distanciaTotalMetros = 0.0",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "distanciaTotalMetros += 1.25",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "distanciaTotalMetros += 2.15",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Distancia total integrada: ' + str(round(distanciaTotalMetros, 2)) + ' m')",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa el atajo para restarle 3 a la variable 'vidas':",
-      "codeSnippet": "vidas = 10\nvidas _____ 3\nprint(vidas)",
+      "question": "Completa la instrucción utilizando el operador compuesto para descontar 15 PSI de presión tras activar un pistón:",
+      "codeSnippet": "presionPSI = 115\npresionPSI _____ 15\nprint('Presion neumática restante: ' + str(presionPSI))",
       "options": [
         {
           "text": "-=",
           "correct": true
         },
         {
-          "text": "=+",
+          "text": "=-",
           "correct": false
         },
         {
-          "text": "*-",
+          "text": "- 15",
           "correct": false
         },
         {
@@ -71,38 +96,46 @@
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida de este código?",
-      "codeSnippet": "potencia = 2\npotencia *= 4\nprint(potencia)",
+      "type": "SELECT",
+      "question": "¿A cuál de las siguientes expresiones equivale formalmente la instrucción `velocidadMotor *= 1.1`?",
       "options": [
         {
-          "text": "8",
+          "text": "velocidadMotor = velocidadMotor * 1.1 (incrementa en un 10% la velocidad previa)",
           "correct": true
         },
         {
-          "text": "6",
+          "text": "velocidadMotor = 1.1 (fija la velocidad directamente en 1.1)",
+          "correct": false
+        },
+        {
+          "text": "velocidadMotor + 1.1 (calcula una suma sin almacenarla en memoria)",
+          "correct": false
+        },
+        {
+          "text": "1.1 = velocidadMotor (asigna la variable a un número literal)",
           "correct": false
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿A cuál de las siguientes expresiones equivale exactamente `ciclos += 1`?",
+      "type": "CODE_TEST",
+      "question": "Rastrea la secuencia de mutación con operadores compuestos. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "totalPuntos = 5\ntotalPuntos += 10\ntotalPuntos *= 2\nprint(totalPuntos)",
       "options": [
         {
-          "text": "ciclos = ciclos + 1",
+          "text": "30",
           "correct": true
         },
         {
-          "text": "ciclos = 1",
+          "text": "25",
           "correct": false
         },
         {
-          "text": "ciclos + 1",
+          "text": "15",
           "correct": false
         },
         {
-          "text": "1 = ciclos",
+          "text": "35",
           "correct": false
         }
       ]

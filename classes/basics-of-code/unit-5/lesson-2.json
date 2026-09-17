@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cuáles son las convenciones de nomenclatura más populares?",
-      "lessonText": "# El Estilo Sí Importa \n\nEn la mayoría de los lenguajes no podemos usar espacios en los nombres de variables (ej: `velocidad maxima` dará un Syntax Error).\n\nPara resolver esto, la comunidad creó **estilos de capitalización**:\n\n1. **camelCase (El camello):** La primera palabra inicia en minúscula y cada nueva palabra inicia con Mayúscula.\n   - Ejemplo: `velocidadMaxima`, `sensorOptico`, `anguloDelBrazo`.\n   - *Muy usado en Java, JavaScript y C++.*\n\n2. **snake_case (La serpiente):** Todo en minúsculas separado por guiones bajos.\n   - Ejemplo: `velocidad_maxima`, `sensor_optico`, `angulo_del_brazo`.\n   - *El estándar oficial de Python (PEP 8).*",
+      "question": "¿Qué función cumplen las convenciones sintácticas de capitalización como camelCase y snake_case?",
+      "lessonText": "# Estilos de Nomenclatura: La Gramática del Código\n\nLos analizadores sintácticos (*lexers/parsers*) de los compiladores interpretan los espacios en blanco como delimitadores estrictos que separan instrucciones o tokens. Por ello, escribir `velocidad maxima = 10` provoca un error de sintaxis inmediato (`SyntaxError: invalid syntax`).\n\nPara unir múltiples palabras en un único identificador continuo y legible, las comunidades de ingeniería establecieron estándares tipográficos universales:\n\n1. **camelCase:** La primera palabra inicia en minúscula y cada palabra subsiguiente comienza con una mayúscula interna (ej. `velocidadMaximaMps`, `brazoArticuladoGrados`). Es la convención estándar en el ecosistema Java, C++, TypeScript y en la librería oficial de robótica WPILib.\n2. **snake_case:** Todas las palabras van en minúsculas unidas por un guion bajo (ej. `velocidad_maxima_mps`, `brazo_articulado_grados`). Es la convención obligatoria según el estándar PEP 8 en el ecosistema Python.\n\n### Reglas Sintácticas Universales:\n- Un identificador **NUNCA puede comenzar con un dígito numérico** (ej. `4010_robot` es ilegal porque el compilador lo confunde con un literal numérico).\n- No se permiten caracteres especiales ni símbolos de puntuación salvo el guion bajo (`_`).\n\n**La Regla de Oro:**\nRespeta la convención dominante de tu ecosistema: camelCase para Java/C++ y snake_case para Python; la consistencia tipográfica previene errores ortográficos y acelera la lectura colectiva.",
       "options": [
         {
-          "text": "camelCase usa mayúsculas intermedias y snake_case usa guiones bajos entre palabras",
+          "text": "Permiten unir múltiples términos en un solo identificador legible respetando las reglas del analizador sintáctico",
           "correct": true
         },
         {
-          "text": "camelCase solo se usa en desiertos y snake_case en la selva",
+          "text": "Determinan cuántos megabytes de memoria RAM consumirá la variable durante la ejecución",
           "correct": false
         },
         {
-          "text": "Son lenguajes de programación distintos",
+          "text": "Indican a los motores físicos si deben girar en sentido horario o antihorario",
           "correct": false
         },
         {
-          "text": "Uno sirve para hardware y el otro para pantallas",
+          "text": "Son obligatorias únicamente cuando el código se transmite por fibra óptica",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Identifica qué estilo representa cada identificador:",
+      "question": "Identifica a qué estilo de nomenclatura pertenece cada identificador:",
       "options": [
         {
-          "text": "targetAngle|||camelCase",
+          "text": "targetAngleDegrees|||camelCase (estándar Java, C++ y WPILib)",
           "correct": true
         },
         {
-          "text": "target_angle|||snake_case",
+          "text": "target_angle_degrees|||snake_case (estándar PEP 8 Python)",
           "correct": true
         },
         {
-          "text": "TARGET_ANGLE|||UPPER_SNAKE_CASE (Constante)",
+          "text": "TARGET_ANGLE_DEGREES|||SCREAMING_SNAKE_CASE (Constantes inmutables)",
           "correct": true
         },
         {
-          "text": "targetangle|||Sin convención (difícil de leer)",
+          "text": "targetangledegrees|||Sin convención (antipatrón difícil de leer)",
           "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena las variables de configuración de visión siguiendo rigurosamente el estándar camelCase:",
+      "options": [
+        {
+          "text": "cameraHorizontalResolution = 1280",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "cameraVerticalResolution = 720",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "aprilTagTargetId = 7",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Camara configurada para AprilTag ID: ' + str(aprilTagTargetId))",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la variable en estándar camelCase para definir el límite de corriente eléctrica del motor:",
+      "codeSnippet": "_____ = 40.0\nprint('Limite de corriente CAN: ' + str(maxCurrentLimitAmperes))",
+      "options": [
+        {
+          "text": "maxCurrentLimitAmperes",
+          "correct": true
+        },
+        {
+          "text": "max_current_limit_amperes",
+          "correct": false
+        },
+        {
+          "text": "MAXCURRENTLIMITAMPERES",
+          "correct": false
+        },
+        {
+          "text": "max current limit amperes",
+          "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál de estos nombres viola las reglas gramaticales de la mayoría de los lenguajes de programación?",
+      "question": "¿Por qué el nombre de variable `4010_robot_heading` es rechazado por los compiladores como un error de sintaxis?",
       "options": [
         {
-          "text": "velocidad del robot (contiene espacios)",
+          "text": "Porque las reglas léxicas prohíben que un identificador comience con un dígito para distinguirlo de literales numéricos",
           "correct": true
         },
         {
-          "text": "velocidadDelRobot",
+          "text": "Porque el número 4010 es una palabra clave reservada del sistema operativo Linux",
           "correct": false
         },
         {
-          "text": "velocidad_del_robot",
+          "text": "Porque los guiones bajos solo pueden utilizarse al final de una palabra",
           "correct": false
         },
         {
-          "text": "velocidadRobot2",
+          "text": "Porque los nombres de variables deben tener exactamente 8 caracteres de longitud",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el error de sintaxis al nombrar esta variable:",
-      "codeSnippet": "4010Nautilus = 'Equipo de Robótica'",
+      "type": "CODE_TEST",
+      "question": "Determina la salida en consola del siguiente bloque escrito en snake_case idiomático:",
+      "codeSnippet": "robot_mass_kg = 54.5\nprint('Masa de competencia: ' + str(robot_mass_kg) + ' kg')",
       "options": [
         {
-          "text": "Los nombres de variables NO pueden comenzar con un número",
+          "text": "Masa de competencia: 54.5 kg",
           "correct": true
         },
         {
-          "text": "No se puede usar la palabra Nautilus",
+          "text": "Masa de competencia: robot_mass_kg kg",
           "correct": false
         },
         {
-          "text": "El texto entre comillas no puede llevar acentos",
+          "text": "Masa de competencia: 54 kg",
           "correct": false
         },
         {
-          "text": "Falta un punto antes del 4010",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_WRITE",
-      "question": "Escribe el nombre de la variable 'leftMotorSpeed' en formato snake_case:",
-      "codeSnippet": "// Convierte a snake_case",
-      "options": [
-        {
-          "text": "left_motor_speed",
-          "correct": true
-        },
-        {
-          "text": "leftmotorspeed",
+          "text": "Error de sintaxis por usar guiones bajos",
           "correct": false
         }
       ]

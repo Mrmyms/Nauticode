@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo saber cuándo usar un 'for' y cuándo usar un 'while'?",
-      "lessonText": "# La Decisión del Arquitecto ️\n\nAmbos bucles pueden lograr cosas similares, pero cada uno tiene su especialidad:\n\n**Usa `for` cuando:**\n- Sabes **exactamente cuántas veces** quieres iterar (ej: repetir 4 veces para las 4 llantas del robot swerve).\n- Vas a recorrer una lista de elementos uno por uno.\n\n**Usa `while` cuando:**\n- La repetición depende de una **condición que no sabes cuándo cambiará** (ej: esperar a que la pelota entre al intake, o mientras el match siga activo).\n\nElegir el bucle correcto hace que tu código sea más simple, limpio y seguro.",
+      "question": "¿Cuáles son los criterios arquitectónicos formales para seleccionar entre un bucle 'for' y un bucle 'while'?",
+      "lessonText": "# Criterios de Selección de Estructuras de Control\n\nElegir la estructura iterativa adecuada es una decisión arquitectónica crucial para la confiabilidad y mantenibilidad del software mecatrónico:\n\n- **Utiliza `for` cuando:**\n  1. Conoces con certeza de antemano el número exacto de repeticiones (ej: probar los 4 módulos del chasis Swerve).\n  2. Estás iterando sobre los elementos de una colección finita (ej: una lista de lecturas de sensores o puertos CAN).\n\n- **Utiliza `while` cuando:**\n  1. La iteración depende de un evento externo asíncrono o cambio de estado ambiental (ej: esperar a que un sensor óptico confirme la entrada de una pieza).\n  2. Estás ejecutando el bucle periódico principal del robot (main control loop) mientras el partido esté activo.\n\n**Regla de Oro: Usa 'for' cuando conoces la cantidad de iteraciones o recorres colecciones finitas; usa 'while' cuando la repetición depende de un cambio de estado en el mundo exterior.**",
       "options": [
         {
-          "text": "For para número conocido de iteraciones; While para condiciones dependientes del estado",
+          "text": "For para número de ciclos conocido o colecciones finitas; While para condiciones dependientes del estado externo",
           "correct": true
         },
         {
-          "text": "For es para la mañana y While es para la tarde",
+          "text": "For es exclusivo para entornos de simulación y While solo se utiliza en robots físicos conectados",
           "correct": false
         },
         {
-          "text": "For solo sirve en Python y While solo en Java",
+          "text": "For solo puede ejecutarse en microcontroladores de 8 bits y While en procesadores de 64 bits",
           "correct": false
         },
         {
-          "text": "No hay ninguna diferencia, son nombres sinónimos",
+          "text": "No existe distinción técnica alguna; son sinónimos intercambiables en todos los lenguajes",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Clasifica cada caso de robótica con el mejor tipo de bucle a utilizar:",
+      "question": "Clasifica cada escenario de ingeniería robótica con la estructura iterativa óptima:",
       "options": [
         {
-          "text": "Parpadear un LED de advertencia 5 veces|||for loop",
+          "text": "Bucle for|||Ideal cuando el número de repeticiones se conoce con certeza de antemano",
           "correct": true
         },
         {
-          "text": "Revisar los 4 módulos de giro del chasis|||for loop",
+          "text": "Bucle while|||Ideal cuando la repetición depende de un cambio de estado en sensores externos",
           "correct": true
         },
         {
-          "text": "Avanzar hasta que el sensor detecte la pared|||while loop",
+          "text": "Iteración sobre colección|||Patrón donde for examina cada elemento de una lista de motores o puertos",
           "correct": true
         },
         {
-          "text": "Bucle principal de teleoperado del match|||while loop",
+          "text": "Bucle de telemetría|||Patrón donde while mantiene activo el sistema mientras el robot siga habilitado",
           "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la rutina con bucle for para recorrer e inicializar la lista de 4 módulos Swerve:",
+      "options": [
+        {
+          "text": "modulos_swerve = [0, 1, 2, 3]",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "for modulo in modulos_swerve:",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    verificar_encoder_absoluto(modulo)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "notificar_calibracion_exitosa()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué palabra clave proporciona la estructura óptima para probar exactamente los 4 frenos del chasis?",
+      "codeSnippet": "# Verificar los 4 frenos del chasis\n____ freno_id in range(4):\n    test_freno_neumatico(freno_id)",
+      "options": [
+        {
+          "text": "for",
+          "correct": true
+        },
+        {
+          "text": "while",
+          "correct": false
+        },
+        {
+          "text": "during",
+          "correct": false
+        },
+        {
+          "text": "switch",
+          "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "Quieres probar individualmente los 4 motores del chasis swerve (Motor 0, 1, 2, 3). ¿Cuál es la estructura más limpia?",
+      "question": "¿Por qué es un grave error de arquitectura emplear un bucle 'for' con un rango arbitrario como range(10000) para esperar a que un pistón neumático llegue a su final de carrera?",
       "options": [
         {
-          "text": "for motorID in range(4): probarMotor(motorID)",
+          "text": "Porque desperdicia tiempo o se detiene prematuramente; una espera de hardware depende de un evento físico y debe gobernarse con 'while' y sensor",
           "correct": true
         },
         {
-          "text": "Copiar y pegar la misma línea 4 veces a mano",
+          "text": "Porque los bucles for no permiten leer variables booleanas en su cuerpo",
           "correct": false
         },
         {
-          "text": "Un while con 10 variables distintas",
+          "text": "Porque range(10000) consume 4 Gigabytes de memoria RAM en el microcontrolador",
           "correct": false
         },
         {
-          "text": "No probar los motores y esperar que funcionen",
+          "text": "Porque las reglas de FIRST exigen que todos los cilindros usen interrupciones analógicas",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el error de tipeo en este for loop en Python:",
-      "codeSnippet": "for i in range(5)\n    print(i)",
+      "type": "CODE_TEST",
+      "question": "¿Cuántos sensores fueron contabilizados al culminar el bucle for sobre range(3)?",
+      "codeSnippet": "sensores_activos = 0\nfor pin in range(3):\n    sensores_activos = sensores_activos + 1\nprint(sensores_activos)",
       "options": [
         {
-          "text": "Faltan los dos puntos ':' al final de la línea del for",
+          "text": "3",
           "correct": true
         },
         {
-          "text": "Falta un punto y coma",
+          "text": "2",
           "correct": false
         },
         {
-          "text": "La palabra range debe estar en mayúsculas",
+          "text": "4",
           "correct": false
         },
         {
-          "text": "No se puede usar la letra i",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_WRITE",
-      "question": "Escribe el encabezado de un bucle for que itere con la variable 'k' en un rango de 10:",
-      "codeSnippet": "// Encabezado de for",
-      "options": [
-        {
-          "text": "for k in range(10):",
-          "correct": true
-        },
-        {
-          "text": "for k in range(10)",
+          "text": "0",
           "correct": false
         }
       ]

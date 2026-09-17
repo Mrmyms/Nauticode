@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Cómo funciona el operador lógico OR?",
-      "lessonText": "# Basta Con Una Sola Verdad \n\nEl operador **OR** (en Java/C++ se escribe `||`, en Python se escribe `or`) es mucho más flexible que el AND: **devuelve `true` si al menos una de las condiciones es verdadera**.\n\nEjemplo de seguridad en Nautilus:\n¿Cuándo debemos frenar el robot de emergencia?\n`botonEStopPresionado || bateriaPeligrosamenteBaja`\n- Si el botón de E-Stop se presiona (`true`), ¡frenamos de inmediato!\n- Si la batería cae a nivel crítico (`true`), ¡frenamos de inmediato!\n- Solo si NINGUNA de las dos situaciones ocurre (`false || false`), el robot continúa.",
+      "question": "¿Cómo opera la disyunción lógica OR (||) y cuándo debe emplearse en arquitecturas de seguridad de software?",
+      "lessonText": "# Disyunción Lógica y Disparadores Redundantes de Falla\n\nEl operador lógico **OR** (`||` en Java/C++, `or` en Python) implementa la disyunción booleana: la proposición `A or B` evalúa a `True` **si al menos una de las condiciones conectadas es verdadera**. El único escenario en que un operador OR produce `False` ocurre cuando absolutamente todas sus premisas son simultáneamente falsas.\n\n### Tabla de Verdad de la Disyunción:\n- `True or True` -> `True`\n- `True or False` -> `True`\n- `False or True` -> `True`\n- `False or False` -> `False`\n\n### Cortocircuito en Disyunción:\nSi el primer término ($A$) es `True`, la CPU **no evalúa el resto de las condiciones** y concluye instantáneamente que la expresión global es `True`.\n\n### Arquitectura Fail-Safe en Robótica:\nMientras que el operador AND actúa como un filtro restrictivo para autorizar acciones de alto riesgo, el operador OR es el cimiento de los **protocolos de parada de emergencia**: cualquier anomalía individual debe disparar de inmediato la detención preventiva:\n```python\nfrenarEmergencia = (botonEStopPresionado or voltajeCritico or temperaturaMotorPeligrosa)\n```\nSi el botón físico de E-Stop es presionado, el robot se congela en microsegundos sin esperar a consultar el sensor de temperatura.\n\n**La Regla de Oro:**\nLa disyunción lógica OR devuelve True si al menos una premisa es afirmativa; es la estructura fundamental para diseñar protocolos de parada de emergencia y disparadores redundantes.",
       "options": [
         {
-          "text": "Devuelve true si al menos UNA de las condiciones es verdadera",
+          "text": "Devuelve True si al menos una premisa es afirmativa, requiriendo que todas sean falsas para producir False",
           "correct": true
         },
         {
-          "text": "Exige que todas las condiciones sean falsas obligatoriamente",
+          "text": "Exige estrictamente que todas las condiciones sean verdaderas al mismo tiempo",
           "correct": false
         },
         {
-          "text": "Multiplica los valores booleanos",
+          "text": "Suma los voltajes de los sensores conectados y calcula el porcentaje restante",
           "correct": false
         },
         {
-          "text": "Solo funciona los fines de semana",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Qué imprimirá este chequeo de seguridad?",
-      "codeSnippet": "sensorLimite = false\nbotonManual = true\nfrenar = (sensorLimite or botonManual)\nprint(frenar)",
-      "options": [
-        {
-          "text": "true (porque botonManual es true)",
-          "correct": true
-        },
-        {
-          "text": "false",
-          "correct": false
-        },
-        {
-          "text": "none",
-          "correct": false
-        },
-        {
-          "text": "error",
+          "text": "Solo produce True cuando ambas variables tienen el valor False",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Empareja la operación booleana con su resultado final:",
+      "question": "Relaciona cada caso de evaluación de la compuerta OR con su resultado formal:",
       "options": [
         {
-          "text": "true and true|||true",
+          "text": "True or False|||True (la primera premisa afirmativa basta para satisfacer la disyunción)",
           "correct": true
         },
         {
-          "text": "true and false|||false",
+          "text": "False or False|||False (único escenario donde la disyunción produce falsedad)",
           "correct": true
         },
         {
-          "text": "false or true|||true",
+          "text": "Short-Circuit en OR|||Resuelve True de inmediato al encontrar el primer operando verdadero",
           "correct": true
         },
         {
-          "text": "false or false|||false",
+          "text": "Disparador Redundante|||Cualquiera de múltiples fallas activa la misma rutina de protección",
           "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Cuál será la salida de este código?",
-      "codeSnippet": "alarma = (10 > 20) or (5 == 5)\nprint(alarma)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la evaluación del protocolo de detención de emergencia por fallos redundantes:",
       "options": [
         {
-          "text": "true",
+          "text": "isEStopPressed = False",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "isPressureLossDetected = True",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "haltRobotCommand = isEStopPressed or isPressureLossDetected",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "print('Comando de detencion emitido: ' + str(haltRobotCommand))",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "Completa la disyunción lógica para activar la alarma si la temperatura es crítica O la corriente excede el límite:",
+      "codeSnippet": "temperaturaExcesiva = False\ncorrientePeligrosa = True\nalertaActiva = temperaturaExcesiva _____ corrientePeligrosa\nprint('Alarma de seguridad activada: ' + str(alertaActiva))",
+      "options": [
+        {
+          "text": "or",
           "correct": true
         },
         {
-          "text": "false",
+          "text": "and",
+          "correct": false
+        },
+        {
+          "text": "not",
+          "correct": false
+        },
+        {
+          "text": "==",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Cuál es el único caso donde un operador OR devuelve FALSE?",
+      "question": "¿Cuál es la diferencia algorítmica fundamental entre emplear AND versus OR en el diseño de software de control?",
       "options": [
         {
-          "text": "Cuando absolutamente TODAS las condiciones conectadas son falsas",
+          "text": "AND opera como un filtro restrictivo exigiendo consenso absoluto, mientras que OR opera como un disparador permisivo sensible a cualquier señal",
           "correct": true
         },
         {
-          "text": "Cuando la primera condición es verdadera",
+          "text": "AND consume el doble de memoria RAM en comparación con OR",
           "correct": false
         },
         {
-          "text": "Cuando hay más de tres condiciones",
+          "text": "AND solo admite números pares y OR solo números de punto flotante",
           "correct": false
         },
         {
-          "text": "Nunca devuelve false",
+          "text": "No existe ninguna diferencia; son operadores sinónimos intercambiables según el estándar ISO",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la evaluación de la disyunción lógica redundante. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "sensorToqueA = False\nsensorToqueB = False\nsensorOptico = True\npiezaDetectada = sensorToqueA or sensorToqueB or sensorOptico\nprint(piezaDetectada)",
+      "options": [
+        {
+          "text": "True",
+          "correct": true
+        },
+        {
+          "text": "False",
+          "correct": false
+        },
+        {
+          "text": "None",
+          "correct": false
+        },
+        {
+          "text": "Error de tipos",
           "correct": false
         }
       ]

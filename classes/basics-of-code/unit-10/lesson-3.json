@@ -3,106 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué el 'else' final es el guardián de los imprevistos?",
-      "lessonText": "# El Escudo Contra lo Inesperado ️\n\n¿Qué pasa si un sensor devuelve un valor corrupto por estática en la cancha de FIRST? Por ejemplo, una cámara de visión envía un estado no contemplado: `estado = 'UNKNOWN_GLITCH'`.\n\nSi solo tienes `if` y `elif` específicos, el programa ignorará todo silenciosamente y el robot quedará congelado sin saber qué hacer.\n\nEl **`else` final** actúa como red de seguridad (*fallback*):\n```python\nif estado == 'TRACKING':\n    apuntar()\nelif estado == 'SEARCHING':\n    girarLentamente()\nelse:\n    # Caso por defecto ante datos extraños\n    detenerTodoYSonarAlerta()\n```",
+      "question": "¿Por qué todo despachador multicamino de misión crítica debe ser exhaustivo y contar con un manejador por defecto?",
+      "lessonText": "# Exhaustividad y Estados Seguros de Fallo\n\nEn la ingeniería de software de control de procesos y aviónica, un sistema debe ser **exhaustivo**: debe contemplar el 100% de las combinaciones posibles de entrada, incluyendo datos corruptos por ruido electromagnético en buses de comunicación o lecturas fuera de rango. La cláusula `else` al término de una cadena `elif` actúa como el **manejador de reserva por defecto (default fallback)**.\n\n```python\nif comando == 'DISPARAR':\n    disparar()\nelif comando == 'RECOLECTAR':\n    intake()\nelse:\n    frenar_seguridad()\n    registrar_anomalia('Comando Desconocido')\n```\n\nDurante la final regional de FRC, el radio inalámbrico de Nautilus 4010 recibió un byte corrupto en la trama UDP. Gracias a que el selector de comandos incluía un bloque `else` que colocaba los motores en velocidad 0.0 y activaba el estado seguro, el robot no ejecutó una acción errática ni descalificó a la alianza.\n\n**Regla de Oro: Todo despachador multicamino debe cerrarse con una cláusula else exhaustiva que maneje entradas inesperadas colocando al sistema en un estado seguro conocido.**",
       "options": [
         {
-          "text": "Asegura que el programa siempre tenga una respuesta segura ante cualquier valor inesperado",
+          "text": "Para garantizar que cualquier entrada imprevista o corrupta sea capturada y dirigida a un estado seguro controlado",
           "correct": true
         },
         {
-          "text": "Hace que los sensores fallen a propósito",
+          "text": "Para que el programa ignore automáticamente los comandos de parada de emergencia",
           "correct": false
         },
         {
-          "text": "Duplica la memoria RAM del procesador",
+          "text": "Para compilar el programa sin necesidad de comprobar la sintaxis de las ramas superiores",
           "correct": false
         },
         {
-          "text": "Es solo un adorno visual que no hace nada",
+          "text": "Para forzar a los actuadores mecánicos a operar al doble de su capacidad de corriente",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "MATCHING",
+      "question": "Relaciona cada concepto de robustez y contención con su significado en ingeniería:",
+      "options": [
+        {
+          "text": "Manejador por defecto|||Bloque final else que procesa cualquier entrada que no encaje en ramas previas",
+          "correct": true
+        },
+        {
+          "text": "Estado seguro (Safe State)|||Configuración de parada o contención que previene daños ante datos anómalos",
+          "correct": true
+        },
+        {
+          "text": "Entrada corrupta|||Valor fuera de rango producido por ruido o fallas de comunicación en el bus",
+          "correct": true
+        },
+        {
+          "text": "Exhaustividad total|||Propiedad donde ningún valor de entrada produce un cuelgue o estado indefinido",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura de despacho de comandos asegurando un estado seguro por defecto:",
+      "options": [
+        {
+          "text": "if comando == 'DISPARAR':",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    ejecutar_secuencia_disparo()",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "elif comando == 'RECOLECTAR':",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    ejecutar_secuencia_intake()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué cláusula final garantiza la captura y tratamiento seguro de cualquier marcha inválida?",
+      "codeSnippet": "if modo == 'P' or modo == 'N':\n    velocidad = 0\nelif modo == 'D':\n    velocidad = 15\n___:\n    velocidad = 0\n    notificar_error('Modo Desconocido')",
+      "options": [
+        {
+          "text": "else",
+          "correct": true
+        },
+        {
+          "text": "otherwise",
+          "correct": false
+        },
+        {
+          "text": "fail",
+          "correct": false
+        },
+        {
+          "text": "catch",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "En un control con selector de 3 posiciones (Autónomo 1, 2 o 3), ¿cuál debería ser la acción del `else` por defecto si el switch se desconecta?",
+      "question": "En un vehículo autónomo o robot de competencia, ¿qué peligro crítico se introduce al omitir la cláusula 'else' final en un selector de comandos?",
       "options": [
         {
-          "text": "Autónomo Seguro por Defecto (ej: solo salir de la zona sin disparar a ciegas)",
+          "text": "Si llega un comando inválido o corrupto, ninguna rama se ejecuta y las variables conservan su estado previo, permitiendo que los motores sigan acelerando sin control",
           "correct": true
         },
         {
-          "text": "Girar los motores a máxima velocidad hacia las gradas",
+          "text": "El microcontrolador borra automáticamente el firmware de su memoria flash por protección térmica",
           "correct": false
         },
         {
-          "text": "Apagar la batería del estadio",
+          "text": "Los voltajes de la batería principal se elevan instantáneamente por encima de los límites físicos",
           "correct": false
         },
         {
-          "text": "Disparar todas las pelotas al techo",
+          "text": "El compilador sustituye automáticamente las instrucciones por llamadas a funciones recursivas",
           "correct": false
         }
       ]
     },
     {
-      "type": "DEBUG",
-      "question": "Encuentra el error de sintaxis en este else: El else nunca lleva una condición entre paréntesis.",
-      "codeSnippet": "if puntos > 10:\n    print('Ganamos')\nelse (puntos <= 10):\n    print('Perdimos')",
+      "type": "CODE_TEST",
+      "question": "¿Cuál es el valor final de 'estado_salida' tras procesar el código de estado 7?",
+      "codeSnippet": "codigo_estado = 7\nestado_salida = 'DESCONOCIDO'\nif codigo_estado == 0:\n    estado_salida = 'STANDBY'\nelif codigo_estado == 1:\n    estado_salida = 'OPERATIVO'\nelse:\n    estado_salida = 'ERROR_CRITICO'\nprint(estado_salida)",
       "options": [
         {
-          "text": "El 'else' no lleva condición; si quieres condición debes usar 'elif puntos <= 10:' o dejar solo 'else:'",
+          "text": "'ERROR_CRITICO'",
           "correct": true
         },
         {
-          "text": "Falta un print adicional",
+          "text": "'DESCONOCIDO'",
           "correct": false
         },
         {
-          "text": "Los dos puntos son opcionales",
+          "text": "'OPERATIVO'",
           "correct": false
         },
         {
-          "text": "La palabra Ganamos está prohibida",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_FILL",
-      "question": "Corrige el bloque final para que sea un fallback limpio:",
-      "codeSnippet": "if modo == 'AUTO':\n    iniciarAuto()\n_____\n    iniciarTeleop()",
-      "options": [
-        {
-          "text": "else:",
-          "correct": true
-        },
-        {
-          "text": "else if:",
-          "correct": false
-        },
-        {
-          "text": "elif:",
-          "correct": false
-        },
-        {
-          "text": "default:",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué imprimirá este código si el comando es 'RESET'?",
-      "codeSnippet": "cmd = 'RESET'\nif cmd == 'START':\n    print('Arrancando')\nelif cmd == 'STOP':\n    print('Parando')\nelse:\n    print('COMANDO DESCONOCIDO')",
-      "options": [
-        {
-          "text": "COMANDO DESCONOCIDO",
-          "correct": true
-        },
-        {
-          "text": "Arrancando",
+          "text": "'STANDBY'",
           "correct": false
         }
       ]

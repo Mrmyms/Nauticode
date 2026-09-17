@@ -3,109 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Evitando colisiones en la arena con Teus!",
-      "lessonText": "# El Sensor de Distancia Láser (LiDAR / ToF) \n\nNautilus 4010 tiene un sensor de distancia Time-of-Flight en el parachoques delantero.\n\nDurante el partido, si el sensor detecta que la distancia a otro robot o a la pared cae por debajo del umbral de seguridad de `25.0` cm:\n¡El software debe aplicar frenado preventivo de inmediato para evitar una tarjeta de penalización!\n\nEn este reto final de la Unidad 9, ensamblarás y verificarás la lógica condicional de frenado.",
+      "question": "¿Cómo se diseña un sistema de frenado preventivo en tiempo real validando umbrales de seguridad multicriterio?",
+      "lessonText": "# Sistemas Ciberfísicos y Frenado Preventivo\n\nEn sistemas embebidos de tiempo real, la toma de decisiones basada en sensores exige validar condiciones críticas antes de activar actuadores mecánicos. Si la distancia medida por un sensor de proximidad cae por debajo de un umbral de seguridad mientras el robot se desplaza hacia el obstáculo, el software debe suprimir la orden del joystick del operador y ordenar frenado regenerativo inmediato.\n\n```python\nif distancia_cm < 40.0:\n    if velocidad_mps > 0.0:\n        chasis_swerve.frenar_en_x()\n```\n\nEn el chasis Swerve de Nautilus 4010, este algoritmo corre a 50 Hz en el bucle principal. Si la distancia al obstáculo es menor a 40 cm y la velocidad hacia adelante es positiva, las 4 ruedas del Swerve se orientan en un patrón cruzado en forma de 'X' (X-Brake), bloqueando mecánicamente cualquier desplazamiento y protegiendo tanto la estructura del robot como la integridad del personal en la cancha.\n\n**Regla de Oro: Los sistemas de seguridad preventivos priorizan la integridad estructural evaluando condiciones críticas antes de autorizar cualquier cambio de estado mecánico.**",
       "options": [
         {
-          "text": "¡Vamos a programar el freno preventivo con Teus!",
+          "text": "Validando jerárquicamente distancia crítica y sentido de velocidad antes de ejecutar el protocolo de frenado físico",
           "correct": true
         },
         {
-          "text": "Prefiero chocar a toda velocidad contra la pared",
+          "text": "Desconectando la batería principal mediante un relé térmico cada vez que se detecta un obstáculo",
           "correct": false
         },
         {
-          "text": "No quiero frenar nunca",
+          "text": "Invirtiendo aleatoriamente la polaridad de los motores sin consultar el estado cinemático",
           "correct": false
         },
         {
-          "text": "Quiero ignorar el sensor de distancia",
+          "text": "Ignorando las lecturas del sensor si el robot se desplaza a alta velocidad para evitar lag",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "El sensor mide 18 cm. ¿Qué imprimirá este sistema de frenado?",
-      "codeSnippet": "distanciaCM = 18.0\nif distanciaCM < 25.0:\n    print('FRENO_PREVENTIVO_ACTIVO')\nprint('MONITOREO_OK')",
+      "type": "MATCHING",
+      "question": "Relaciona cada componente del sistema de frenado preventivo con su función técnica:",
       "options": [
         {
-          "text": "FRENO_PREVENTIVO_ACTIVO\nMONITOREO_OK",
+          "text": "Sensor de distancia ToF|||Dispositivo óptico que mide el tiempo de vuelo de fotones para calcular proximidad",
           "correct": true
         },
         {
-          "text": "MONITOREO_OK solamente",
-          "correct": false
-        },
-        {
-          "text": "FRENO_PREVENTIVO_ACTIVO solamente",
-          "correct": false
-        },
-        {
-          "text": "Error",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "PREDICT_OUTPUT",
-      "question": "Ahora la distancia es segura (60 cm). ¿Qué imprimirá?",
-      "codeSnippet": "distanciaCM = 60.0\nif distanciaCM < 25.0:\n    print('FRENO_PREVENTIVO_ACTIVO')\nprint('MONITOREO_OK')",
-      "options": [
-        {
-          "text": "MONITOREO_OK",
+          "text": "Umbral de colisión|||Límite numérico por debajo del cual se dispara el protocolo de contención",
           "correct": true
         },
         {
-          "text": "FRENO_PREVENTIVO_ACTIVO\nMONITOREO_OK",
-          "correct": false
+          "text": "X-Brake en Swerve|||Configuración de ruedas en ángulo cruzado para fijar mecánicamente el chasis",
+          "correct": true
+        },
+        {
+          "text": "Control a 50 Hz|||Bucle de muestreo determinista que evalúa sensores y actúa cada 20 milisegundos",
+          "correct": true
         }
       ]
     },
     {
       "type": "CODE_ORDER",
-      "question": "Ordena la rutina de frenado de emergencia completa:",
+      "question": "Ordena la secuencia lógica para ejecutar el frenado preventivo y registrar el evento:",
       "options": [
         {
-          "text": "distanciaCM = leerSensorToF()",
+          "text": "distancia_obstaculo_cm = lidar_frontal.leer()",
           "correct": true,
           "audioSrc": "1"
         },
         {
-          "text": "if distanciaCM <= 20.0:",
+          "text": "if distancia_obstaculo_cm < 40.0:",
           "correct": true,
           "audioSrc": "2"
         },
         {
-          "text": "    detenerChasisInmediato()",
+          "text": "    chasis_swerve.frenar_en_x()",
           "correct": true,
           "audioSrc": "3"
         },
         {
-          "text": "    print('Freno de emergencia completado')",
+          "text": "telemetria.registrar_evento('FRENO_PREVENTIVO')",
           "correct": true,
           "audioSrc": "4"
         }
       ]
     },
     {
-      "type": "SELECT",
-      "question": "¿Cuál es el aprendizaje central que te llevas de esta Unidad 9 sobre sentencias If?",
+      "type": "CODE_FILL",
+      "question": "¿Qué instrucción subordinada debe evaluar si la velocidad hacia adelante es positiva para accionar el freno?",
+      "codeSnippet": "distancia = 32.5\nvelocidad = 2.0\nif distancia < 40.0:\n    ___ velocidad > 0.0:\n        frenar_emergencia()",
       "options": [
         {
-          "text": "El if es la herramienta que permite a un programa reaccionar al mundo real ejecutando código solo cuando es necesario",
+          "text": "if",
           "correct": true
         },
         {
-          "text": "El if solo se puede usar una vez por programa",
+          "text": "and",
           "correct": false
         },
         {
-          "text": "El if borra las variables después de evaluarlas",
+          "text": "check",
           "correct": false
         },
         {
-          "text": "El if obliga a la computadora a reiniciar el match",
+          "text": "guard",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "En un sistema de frenado preventivo, ¿por qué es fundamental verificar tanto la proximidad como el sentido de la velocidad antes de clavar los frenos?",
+      "options": [
+        {
+          "text": "Para evitar frenar innecesariamente si el robot ya se encuentra alejándose o retrocediendo respecto al obstáculo detectado",
+          "correct": true
+        },
+        {
+          "text": "Porque los motores no consumen corriente eléctrica cuando giran en sentido de reversa",
+          "correct": false
+        },
+        {
+          "text": "Porque los sensores ópticos invierten sus valores de lectura cuando el chasis está detenido",
+          "correct": false
+        },
+        {
+          "text": "Porque el bus de comunicaciones CAN únicamente admite tramas de frenado si la aceleración es negativa",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué resultado arrojará el sistema de telemetría para 'estado_freno' tras la ejecución del bloque?",
+      "codeSnippet": "distancia_cm = 35\nvelocidad_mps = 1.8\nestado_freno = False\nif distancia_cm < 40:\n    if velocidad_mps > 1.0:\n        estado_freno = True\nprint(estado_freno)",
+      "options": [
+        {
+          "text": "True",
+          "correct": true
+        },
+        {
+          "text": "False",
+          "correct": false
+        },
+        {
+          "text": "35",
+          "correct": false
+        },
+        {
+          "text": "None",
           "correct": false
         }
       ]

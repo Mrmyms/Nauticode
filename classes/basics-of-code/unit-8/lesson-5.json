@@ -3,69 +3,79 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¡Seguridad de alto voltaje en Nautilus 4010!",
-      "lessonText": "# El Enclavamiento de Seguridad (Interlock) \n\nEl mecanismo de elevación de nuestro robot puede levantar 30 kg a toda velocidad. Para que sea 100% seguro, el software tiene una regla de oro:\n\n**Solo se permite subir el elevador si:**\n1. El limit switch superior NO ha sido alcanzado (`not limiteSuperior`).\n2. Y además, la presión de aire es correcta O el motor está habilitado.\n\nEn este reto final de la Unidad 8, pondrás a prueba tu dominio de comparadores, AND, OR y NOT.",
+      "question": "¿Cómo se combinan operadores relacionales y compuertas AND, OR y NOT en un sistema crítico de enclavamiento de seguridad de robótica?",
+      "lessonText": "# Interbloqueos de Seguridad: El Elevador de Nautilus 4010\n\nEn un robot de competencia FRC, el elevador es un subsistema mecánico de alto riesgo: desplaza una carga pesada a alta velocidad impulsado por dos motores Falcon 500. Un error lógico puede romper cables de acero, doblar perfiles de aluminio o quemar controladores por sobrecorriente.\n\nPara autorizar la elevación hacia arriba (`canRaiseElevator`), el software debe verificar una matriz booleana rigurosa:\n1. **Condición de Límite Mecánico:** El sensor de fin de carrera superior no debe estar activado (`not isTopLimitHit`).\n2. **Condición de Corriente:** El consumo eléctrico de los motores debe mantenerse dentro del límite seguro (`motorCurrentAmps < MAX_SAFE_CURRENT`).\n3. **Condición de Emergencia:** No debe existir ninguna señal de parada de emergencia (`not (isEStopEngaged or isDriverStopPressed)`).\n\nEn este reto final de la Unidad 8, orquestarás operadores relacionales (`<`, `==`), conjunciones (`and`), disyunciones (`or`) e inversiones (`not`) para construir la arquitectura lógica a prueba de fallos de Nautilus 4010.\n\n**La Regla de Oro:**\nLa seguridad en sistemas embebidos se diseña mediante matrices booleanas de enclavamiento estricto; cada condición de riesgo debe ser un candado inviolable.",
       "options": [
         {
-          "text": "¡Vamos a programar el interlock de seguridad!",
+          "text": "Integran operadores relacionales con compuertas restrictivas AND e inversiones NOT para construir interbloqueos a prueba de fallos",
           "correct": true
         },
         {
-          "text": "Prefiero que el elevador choque contra el techo",
+          "text": "Permiten mover los mecanismos a máxima potencia ignorando las lecturas físicas de los sensores de límite",
           "correct": false
         },
         {
-          "text": "No me importa la seguridad mecánica",
+          "text": "Reemplazan los fusibles eléctricos del robot por instrucciones de software en la memoria caché",
           "correct": false
         },
         {
-          "text": "Quiero desconectar los sensores",
+          "text": "Convierten las señales de parada de emergencia en comandos de aceleración inmediata",
           "correct": false
         }
       ]
     },
     {
-      "type": "CODE_TEST",
-      "question": "Evalúa si el elevador puede subir con estas condiciones:",
-      "codeSnippet": "limiteAlcanzado = false\nmotorListo = true\npuedeSubir = (not limiteAlcanzado) and motorListo\nprint(puedeSubir)",
+      "type": "MATCHING",
+      "question": "Relaciona cada condición del interbloqueo con su protección mecánica correspondiente:",
       "options": [
         {
-          "text": "true",
+          "text": "not isTopLimitHit|||Impide que el mecanismo colisione físicamente contra el tope estructural superior",
           "correct": true
         },
         {
-          "text": "false",
-          "correct": false
+          "text": "motorCurrentAmps < 35.0|||Protección térmica que previene la sobrecorriente y bloqueo de motores",
+          "correct": true
         },
         {
-          "text": "none",
-          "correct": false
+          "text": "not isEStopPressed|||Garantiza que ninguna orden humana de parada de emergencia esté activa",
+          "correct": true
         },
         {
-          "text": "error",
-          "correct": false
+          "text": "canRaise = limit and current and safe|||Interbloqueo de conjunción final que autoriza el movimiento seguro",
+          "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "El robot alcanzó el límite mecánico superior (`limiteAlcanzado = true`). ¿Qué imprimirá ahora?",
-      "codeSnippet": "limiteAlcanzado = true\nmotorListo = true\npuedeSubir = (not limiteAlcanzado) and motorListo\nprint(puedeSubir)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la cadena de interbloqueo del elevador desde las lecturas sensoriales hasta el permiso de motor:",
       "options": [
         {
-          "text": "false",
-          "correct": true
+          "text": "isTopLimitHit = False",
+          "correct": true,
+          "audioSrc": "1"
         },
         {
-          "text": "true",
-          "correct": false
+          "text": "motorCurrentAmps = 24.5",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "isCurrentSafe = motorCurrentAmps < 35.0",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "canRaise = (not isTopLimitHit) and isCurrentSafe",
+          "correct": true,
+          "audioSrc": "4"
         }
       ]
     },
     {
       "type": "CODE_FILL",
-      "question": "Completa la verificación: El robot puede disparar si tiene la pieza Y la mira Limelight está fija:",
-      "codeSnippet": "listoDisparo = (tienePieza _____ limelightBloqueada)",
+      "question": "Completa la matriz lógica para autorizar el descenso del elevador solo si no está en el límite inferior Y el freno está liberado:",
+      "codeSnippet": "isBottomLimit = False\nisBrakeReleased = True\ncanLower = (not isBottomLimit) _____ isBrakeReleased\nprint('Permiso de descenso seguro: ' + str(canLower))",
       "options": [
         {
           "text": "and",
@@ -76,33 +86,56 @@
           "correct": false
         },
         {
-          "text": "not",
+          "text": "==",
           "correct": false
         },
         {
-          "text": "==",
+          "text": "not",
           "correct": false
         }
       ]
     },
     {
       "type": "SELECT",
-      "question": "¿Por qué la lógica booleana es la piedra angular de la autonomía en robótica?",
+      "question": "¿Por qué en sistemas críticos de robótica los interbloqueos de seguridad se estructuran siempre con compuertas restrictivas AND en lugar de OR?",
       "options": [
         {
-          "text": "Porque permite al robot combinar múltiples señales sensoriales para tomar decisiones certeras y seguras",
+          "text": "Porque el movimiento de alto riesgo solo debe autorizarse si TODAS las condiciones de seguridad son simultáneamente válidas y verificadas",
           "correct": true
         },
         {
-          "text": "Porque ahorra espacio físico en el chasis de metal",
+          "text": "Porque las compuertas OR consumen el doble de corriente de la batería",
           "correct": false
         },
         {
-          "text": "Porque hace que las luces del robot brillen más fuerte",
+          "text": "Porque los sensores mecánicos son incompatibles con el álgebra booleana",
           "correct": false
         },
         {
-          "text": "No es necesaria, basta con mover motores a ciegas",
+          "text": "Porque las computadoras no pueden procesar más de dos variables a la vez",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "Rastrea la matriz de seguridad del elevador. ¿Qué valor exacto imprimirá la consola?",
+      "codeSnippet": "isEStop = False\nisTopLimit = True\nisCurrentOk = True\ncanMoveUp = (not isEStop) and (not isTopLimit) and isCurrentOk\nprint(canMoveUp)",
+      "options": [
+        {
+          "text": "False",
+          "correct": true
+        },
+        {
+          "text": "True",
+          "correct": false
+        },
+        {
+          "text": "isTopLimit",
+          "correct": false
+        },
+        {
+          "text": "Error de ejecucion",
           "correct": false
         }
       ]

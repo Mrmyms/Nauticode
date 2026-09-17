@@ -3,104 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Por qué copiar y pegar código es peligroso y cómo lo resuelven las funciones?",
-      "lessonText": "# La Pesadilla de Copiar y Pegar \n\nImagina que para encender el robot necesitas ejecutar 5 líneas de configuración.\n\nSi copias y pegas esas 5 líneas en 10 lugares diferentes de tu programa:\n- Tu código tendrá 50 líneas repetitivas y sucias.\n- Si descubres que uno de los puertos del motor cambió, ¡tienes que buscar y editar los 10 lugares a mano!\n- Si olvidas uno solo, tu robot tendrá un bug fantasma.\n\nEl **Principio DRY (Don't Repeat Yourself)** dice:\n*'Empaqueta esas 5 líneas dentro de una función llamada `iniciarRobot()` y solo llámala cuando la necesites'*. Limpio, modular y profesional.",
+      "question": "¿Por qué duplicar código genera fallos graves de sincronización y cómo lo resuelve el principio DRY?",
+      "lessonText": "# Abstracción Procedimental y el Principio DRY\n\nEn la ingeniería de software profesional, el principio **DRY (Don't Repeat Yourself)** establece que cada pieza de lógica o conocimiento dentro de un sistema debe tener una representación única, no ambigua y autorizada. Copiar y pegar el mismo bloque de instrucciones en múltiples partes del programa genera **deuda técnica** crítica.\n\n```python\n# MALA PRACTICA: Duplicar lineas de configuracion en cada archivo\n# BUENA PRACTICA: Empaquetar en una funcion autorizada\ndef configurar_swerve_chasis():\n    fijar_limite_corriente(40)\n    invertir_motor_derecho(True)\n    calibrar_encoders_absolutos()\n```\n\nEn Nautilus 4010, la rutina de inicialización de los controladores SparkMax solía repetirse en Autonomous, Teleop y Test. Cuando el equipo mecánico cambió la relación de reducción de un engrane, los programadores actualizaron Autonomous pero olvidaron Teleop, causando que el robot se comportara erráticamente al cambiar de modo.\n\n**Regla de Oro: El principio DRY establece que cada pieza de conocimiento o lógica de control debe tener una representación única, no ambigua y autorizada en el sistema.**",
       "options": [
         {
-          "text": "Empaquetar código repetitivo en una función para reutilizarlo y mantenerlo en un solo lugar",
+          "text": "Empaquetando instrucciones repetitivas en una función única para centralizar modificaciones y prevenir inconsistencias",
           "correct": true
         },
         {
-          "text": "Copiar y pegar la mayor cantidad de veces posible para hacer el archivo más grande",
+          "text": "Copiando y pegando el bloque tantas veces como sea posible para acelerar la velocidad del procesador",
           "correct": false
         },
         {
-          "text": "Borrar todo el código y dejar el archivo en blanco",
+          "text": "Borrando los archivos de configuración para que el robot opere con valores aleatorios",
           "correct": false
         },
         {
-          "text": "No usar nunca motores ni sensores",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "ASSIST",
-      "question": "¿Qué significan las siglas del principio fundamental de la ingeniería de software 'DRY'?",
-      "options": [
-        {
-          "text": "Don't Repeat Yourself (No te repitas a ti mismo)",
-          "correct": true
-        },
-        {
-          "text": "Do Robots Yesterday",
-          "correct": false
-        },
-        {
-          "text": "Drive Right Yearly",
-          "correct": false
-        },
-        {
-          "text": "Delete Random Yields",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "¿Cuál de los siguientes problemas es una consecuencia directa de NO usar funciones?",
-      "options": [
-        {
-          "text": "Código duplicado imposible de mantener y con alto riesgo de bugs inconsistentes",
-          "correct": true
-        },
-        {
-          "text": "La computadora se queda sin batería en 1 minuto",
-          "correct": false
-        },
-        {
-          "text": "Los motores giran al revés automáticamente",
-          "correct": false
-        },
-        {
-          "text": "Se apaga el monitor de la computadora",
+          "text": "Desconectando los sensores ópticos para ahorrar espacio en la memoria flash",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Relaciona cada concepto de funciones con su rol:",
+      "question": "Relaciona cada concepto de diseño de software con su definición técnica:",
       "options": [
         {
-          "text": "Definir función|||Crear el bloque de instrucciones con un nombre",
+          "text": "Principio DRY|||Don't Repeat Yourself: regla de diseño que prohíbe duplicar bloques de lógica idénticos",
           "correct": true
         },
         {
-          "text": "Llamar función|||Ejecutar las instrucciones usando ()",
+          "text": "Abstracción procedimental|||Empaquetar instrucciones detalladas bajo un nombre descriptivo de alto nivel",
           "correct": true
         },
         {
-          "text": "DRY|||Principio de evitar la duplicación de código",
+          "text": "Deuda técnica|||Costo futuro de mantenimiento generado por copiar y pegar código sin modularizar",
           "correct": true
         },
         {
-          "text": "Modularidad|||Dividir un programa grande en piezas pequeñas y legibles",
+          "text": "Punto único de verdad|||Ubicación centralizada donde una modificación corrige el comportamiento en todo el sistema",
           "correct": true
         }
       ]
     },
     {
-      "type": "CODE_WRITE",
-      "question": "Escribe la instrucción para invocar la función 'frenarRobot':",
-      "codeSnippet": "// Llama a la función",
+      "type": "CODE_ORDER",
+      "question": "Ordena la definición e invocación de la configuración centralizada del chasis Swerve:",
       "options": [
         {
-          "text": "frenarRobot()",
+          "text": "def configurar_swerve_chasis():",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "    fijar_limite_corriente(40)",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    invertir_motor_derecho(True)",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "configurar_swerve_chasis()",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué palabra clave en Python define una nueva función de procedimiento?",
+      "codeSnippet": "# Empaquetar la rutina de preparacion en una funcion reutilizable\n___ preparar_lanzador():\n    alimentador.retraer()\n    flywheel.iniciar_rampa()",
+      "options": [
+        {
+          "text": "def",
           "correct": true
         },
         {
-          "text": "frenarRobot",
+          "text": "function",
+          "correct": false
+        },
+        {
+          "text": "proc",
+          "correct": false
+        },
+        {
+          "text": "routine",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Cuál de los siguientes riesgos críticos es consecuencia directa de violar el principio DRY copiando y pegando bloques de código?",
+      "options": [
+        {
+          "text": "Inconsistencias y bugs latentes al corregir un parámetro en una copia pero olvidar actualizarlo en las demás copias",
+          "correct": true
+        },
+        {
+          "text": "La memoria ROM del controlador se borra de manera espontánea por exceso de caracteres",
+          "correct": false
+        },
+        {
+          "text": "Los motores eléctricos consumen el doble de corriente independientemente del voltaje aplicado",
+          "correct": false
+        },
+        {
+          "text": "El compilador desactiva automáticamente el recolector de basura de la máquina virtual",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Cuántas veces se incrementó 'ejecuciones' al invocar la función dos veces consecutivas?",
+      "codeSnippet": "ejecuciones = 0\ndef registrar_pulso():\n    global ejecuciones\n    ejecuciones = ejecuciones + 1\n\nregistrar_pulso()\nregistrar_pulso()\nprint(ejecuciones)",
+      "options": [
+        {
+          "text": "2",
+          "correct": true
+        },
+        {
+          "text": "1",
+          "correct": false
+        },
+        {
+          "text": "0",
+          "correct": false
+        },
+        {
+          "text": "4",
           "correct": false
         }
       ]

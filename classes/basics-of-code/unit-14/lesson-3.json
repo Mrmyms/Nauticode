@@ -3,105 +3,139 @@
   "challenges": [
     {
       "type": "THEORY",
-      "question": "¿Qué es el 'Scope' (alcance) de una variable?",
-      "lessonText": "# Lo Que Pasa en la Función, Se Queda en la Función \n\nEl **Scope** determina en qué partes de tu programa una variable es visible y accesible:\n\n1. **Variables Locales:** Se crean DENTRO de una función.\n   - Solo existen mientras la función se está ejecutando.\n   - En cuanto la función termina, la caja de memoria **se destruye**.\n   - ¡El código de afuera no puede verlas ni usarlas!\n\n2. **Variables Globales:** Se crean AFUERA de todas las funciones.\n   - Cualquier función puede leerlas a lo largo de todo el archivo.",
+      "question": "¿Qué es el scope léxico de una variable y por qué las variables locales protegen la integridad de los subsistemas?",
+      "lessonText": "# Alcance Léxico y Marcos de Pila (Stack Frames)\n\nEl **Scope (ámbito)** define la región del código donde un identificador en memoria es visible y válido:\n\n1. **Variables Locales:** Se crean dentro del marco de pila de una función. Solo existen durante la ejecución de esa función y su memoria se libera inmediatamente al retornar. Ninguna otra parte del código exterior puede modificarlas ni consultarlas.\n2. **Variables Globales:** Viven durante toda la ejecución del proceso en el segmento de datos. Cualquier módulo puede leerlas o alterarlas, lo que introduce acoplamiento destructivo y bugs impredecibles.\n\n```python\nvoltaje_bateria = 12.6     # Global\n\ndef verificar_presion():\n    presion_psi = 110.0    # Local: desaparece al terminar la funcion\n    print(presion_psi)\n```\n\nEn Nautilus 4010, mantener variables de sensores como locales garantiza que el módulo de visión no sobreescriba accidentalmente las lecturas de los encoders del chasis Swerve.\n\n**Regla de Oro: Las variables locales nacen y mueren dentro del marco de pila (stack frame) de su función; minimizar el uso de variables globales previene acoplamiento destructivo y efectos colaterales invisibles.**",
       "options": [
         {
-          "text": "La región del programa donde una variable existe y puede ser consultada",
+          "text": "La región del programa donde una variable existe y es accesible; las locales aíslan la memoria previniendo colisiones de datos",
           "correct": true
         },
         {
-          "text": "La distancia a la que llega el radio Wi-Fi del robot",
+          "text": "La distancia física de alcance de la antena de radio del chasis hacia los pits",
           "correct": false
         },
         {
-          "text": "El tamaño en píxeles del monitor del programador",
+          "text": "La resolución vertical de la cámara de visión expresada en píxeles cuadrados",
           "correct": false
         },
         {
-          "text": "Un telescopio para ver las estrellas",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "CODE_TEST",
-      "question": "¿Qué pasará al intentar imprimir 'sensorInterno' fuera de la función?",
-      "codeSnippet": "def leer():\n    sensorInterno = 55\n\nleer()\nprint(sensorInterno)",
-      "options": [
-        {
-          "text": "Error (NameError: sensorInterno is not defined) porque la variable murió al terminar la función",
-          "correct": true
-        },
-        {
-          "text": "Imprime 55 perfectamente",
-          "correct": false
-        },
-        {
-          "text": "Imprime 0",
-          "correct": false
-        },
-        {
-          "text": "Imprime null",
-          "correct": false
-        }
-      ]
-    },
-    {
-      "type": "SELECT",
-      "question": "¿Por qué es una pésima práctica llenar tu programa de variables 100% globales?",
-      "options": [
-        {
-          "text": "Porque cualquier función puede modificarlas por accidente, creando bugs invisibles difíciles de rastrear",
-          "correct": true
-        },
-        {
-          "text": "Porque las variables globales hacen que el chasis pese el doble",
-          "correct": false
-        },
-        {
-          "text": "Porque a los compiladores les gustan solo las variables locales",
-          "correct": false
-        },
-        {
-          "text": "No es mala práctica, todas las variables deberían ser globales siempre",
+          "text": "Un protocolo de comunicación serial exclusivo para transmisiones inalámbricas",
           "correct": false
         }
       ]
     },
     {
       "type": "MATCHING",
-      "question": "Empareja cada concepto de Scope con su característica:",
+      "question": "Relaciona cada concepto de memoria y alcance con su definición operativa:",
       "options": [
         {
-          "text": "Variable Local|||Vive solo dentro de la función donde nació",
+          "text": "Variable local|||Identificador asignado dentro de una función cuyo ciclo de vida se limita a su ejecución",
           "correct": true
         },
         {
-          "text": "Variable Global|||Accesible desde cualquier punto del programa",
+          "text": "Variable global|||Variable accesible y visible en cualquier parte del archivo de ejecución",
           "correct": true
         },
         {
-          "text": "Shadowing|||Cuando una variable local tiene el mismo nombre que una global",
+          "text": "Stack Frame|||Marco de memoria en la pila asignado a una función durante su invocación",
           "correct": true
         },
         {
-          "text": "Parámetro|||Variable local que recibe un dato desde el exterior",
+          "text": "Variable Shadowing|||Ocultamiento de una variable global por una variable local con el mismo identificador",
           "correct": true
         }
       ]
     },
     {
-      "type": "PREDICT_OUTPUT",
-      "question": "¿Qué valor imprimirá la variable global 'puntos'?",
-      "codeSnippet": "puntos = 100\n\ndef jugar():\n    puntosLocales = 20\n\njugar()\nprint(puntos)",
+      "type": "CODE_ORDER",
+      "question": "Ordena la estructura que declara una variable global y una local dentro de la función:",
       "options": [
         {
-          "text": "100",
+          "text": "voltaje_sistema = 12.6",
+          "correct": true,
+          "audioSrc": "1"
+        },
+        {
+          "text": "def verificar_bateria():",
+          "correct": true,
+          "audioSrc": "2"
+        },
+        {
+          "text": "    voltaje_local = 11.8",
+          "correct": true,
+          "audioSrc": "3"
+        },
+        {
+          "text": "    print(voltaje_local)",
+          "correct": true,
+          "audioSrc": "4"
+        }
+      ]
+    },
+    {
+      "type": "CODE_FILL",
+      "question": "¿Qué término formal define el ámbito o región donde una variable es accesible?",
+      "codeSnippet": "def medir_temperatura():\n    temp_celsius = 42.0\n    return temp_celsius\n\n# La variable 'temp_celsius' no existe fuera de la funcion debido a su _____ local",
+      "options": [
+        {
+          "text": "scope",
           "correct": true
         },
         {
-          "text": "20",
+          "text": "stack",
+          "correct": false
+        },
+        {
+          "text": "buffer",
+          "correct": false
+        },
+        {
+          "text": "pointer",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "SELECT",
+      "question": "¿Por qué en arquitectura de software profesional se desaconseja el uso indiscriminado de variables globales?",
+      "options": [
+        {
+          "text": "Porque cualquier parte del código puede mutar su valor sin control, dificultando el rastreo de bugs y rompiendo el encapsulamiento",
+          "correct": true
+        },
+        {
+          "text": "Porque las variables globales incrementan físicamente el peso del robot en la báscula",
+          "correct": false
+        },
+        {
+          "text": "Porque los procesadores multinúcleo no permiten leer variables fuera del método main",
+          "correct": false
+        },
+        {
+          "text": "Porque las variables globales se borran automáticamente cada 60 segundos",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "type": "CODE_TEST",
+      "question": "¿Qué imprimirá la consola al ejecutar este programa considerando el scope local dentro de alterar()?",
+      "codeSnippet": "valor = 10\ndef alterar():\n    valor = 99\n\nalterar()\nprint(valor)",
+      "options": [
+        {
+          "text": "10",
+          "correct": true
+        },
+        {
+          "text": "99",
+          "correct": false
+        },
+        {
+          "text": "0",
+          "correct": false
+        },
+        {
+          "text": "None",
           "correct": false
         }
       ]
